@@ -1,0 +1,33 @@
+.centered {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    left: 50%;
+    overflow-x: hidden;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    vertical-align: middle;
+    width: 100%;
+    z-index: 1;
+}
+
+  body{
+      background-color: #2F2C23;
+  }
+
+  .list-group-item {
+      display: inline-flex;
+      padding: 20px;
+      width: 100px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .caption{
+    color: rgba(202, 208, 212, 0.5);
+  }

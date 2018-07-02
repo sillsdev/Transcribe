@@ -1,0 +1,18 @@
+﻿version { display:block; }
+skill { display:block; }
+username > attr(id) { display:block; }
+fullname { display:block; }
+avatarUri { display:block; }
+role { display:block; }
+project > attr(id) { display:block; }
+fontfamily { display:block; }
+hotkey > attr(id) { display:block; }
+hotkey { display:block; }
+uilang { display:block; }
+timer { display:block; }
+speed { display:block; }
+progress { display:block; }
+setting { display:table; margin: 1em; border: 1px solid green; }
+setting > name { display:table-cell; border: 1px solid green; padding:20px; }
+setting > value { display:table-cell; border: 1px solid green; padding:20px; }
+

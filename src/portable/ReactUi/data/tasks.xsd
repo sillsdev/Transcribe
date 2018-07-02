@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="tasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="project"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required">
+        <xs:annotation>
+          <xs:documentation>version of file format</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+\.[0-9]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="task"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Paratext short name</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="lang" use="required">
+        <xs:annotation>
+          <xs:documentation>BCP-47 language of project</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z]{2,3}(-[A-Za-z]{4})?(-[A-Z]{2})?(-[a-z]+)?"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="direction" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="ltr"/>
+            <xs:enumeration value="rtl"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="bible"/>
+            <xs:enumeration value="story"/>
+            <xs:enumeration value="other"/>
+            <xs:enumeration value="test"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="task">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="name"/>
+        <xs:element ref="state"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="assignedto"/>
+        <xs:element ref="transcriptions"/>
+        <xs:element ref="history"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required">
+        <xs:annotation>
+          <xs:documentation>BBB - 3 letter Paratext book, CCC - 3 digit chapter, sss - 3 digit start verse, eee - 3 digit end verse</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9]{3}\d{3}\d{3}\d{3}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="hold" use="required" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>user friendly name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="state">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="transcribe"/>
+        <xs:enumeration value="review"/>
+        <xs:enumeration value="upload"/>
+        <xs:enumeration value="complete"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="assignedto" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>user name assibned by administrator or to self</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="transcriptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="transcription"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="transcription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="text"/>
+        <xs:element ref="transcribers"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="reviewers"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="text" type="xs:string"/>
+  <xs:element name="transcribers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="username"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="username" type="xs:string"/>
+  <xs:element name="reviewers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="username"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="history">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="event"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="event">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="datetime"/>
+        <xs:element ref="action"/>
+        <xs:element minOccurs="0" ref="comment"/>
+        <xs:element ref="userid"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required">
+        <xs:annotation>
+          <xs:documentation>sequential number beginning at zero</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="datetime" type="xs:dateTime">
+    <xs:annotation>
+      <xs:documentation>date and time when it happened</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="action">
+    <xs:annotation>
+      <xs:documentation>type of action completed</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="assigned"/>
+        <xs:enumeration value="transcriptionStarted"/>
+        <xs:enumeration value="transcriptionEnded"/>
+        <xs:enumeration value="reviewStarted"/>
+        <xs:enumeration value="reviewEnded"/>
+        <xs:enumeration value="holdStarted"/>
+        <xs:enumeration value="holdEnded"/>
+        <xs:enumeration value="uploaded"/>
+        <xs:enumeration value="completed"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="comment" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>comments may need to be required for tasks placed on hold</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="userid" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>user who is involved</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>

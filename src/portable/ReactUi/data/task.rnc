@@ -1,0 +1,51 @@
+﻿default namespace = ""
+
+start =
+  element tasks {
+    ## version of file format
+    attribute version {xsd:string { pattern = "[0-9]+\.[0-9]+" }},
+      element project {
+        ## Paratext short name
+        attribute id { xsd:string },
+        ## BCP-47 language of project
+        attribute lang {xsd:string {pattern = "[a-z]{2,3}(-[A-Za-z]{4})?(-[A-Z]{2})?(-[a-z]+)?"} },
+        attribute direction { "ltr" | "rtl" },
+        attribute type { "bible" | "story" | "other" | "test" },
+	    element task {
+	      ## BBB - 3 letter Paratext book, CCC - 3 digit chapter, sss - 3 digit start verse, eee - 3 digit end verse
+	      attribute id {xsd:string { pattern = "[a-zA-Z0-9]{3}\d{3}\d{3}\d{3}" }},
+	      attribute hold { xsd:boolean },
+	      ## user friendly name
+	      element name { xsd:string }?,
+	      element state { "transcribe" | "review" | "upload" | "complete" },
+	      ## user name assibned by administrator or to self
+	      element assignedto { xsd:string }*,
+	      element transcriptions {
+	        element transcription {
+	          element text { xsd:string },
+	          element transcribers {
+	              element username { xsd:string }+
+	          },
+	          element reviewers {
+	              element username { xsd:string }+
+	          }*
+	        }*
+	      },
+	      element history {
+	      	 element event {
+	         (
+		         ## sequential number beginning at zero
+		         attribute id { xsd:integer { minInclusive = "0" } },
+		         ## date and time when it happened
+		         element datetime { xsd:dateTime }?,
+		         ## type of action completed
+		         element action { "assigned" | "transcriptionStarted" | "transcriptionEnded" | "reviewStarted" | "reviewEnded" | "holdStarted" | "holdEnded" | "uploaded" | "completed" },
+		         ## comments may need to be required for tasks placed on hold
+		         element comment { xsd:string }?,
+		         ## user who is involved
+		         element userid { xsd:string })
+	         }*
+	      }
+	    }*
+	}*
+  }

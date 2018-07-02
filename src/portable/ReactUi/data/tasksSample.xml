@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tasks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="tasks.xsd" version="1.0">
+	<project id="aai" lang="aai" direction="ltr" type="bible">
+		<task id="JHN001001003" hold="false">
+			<state>transcribe</state>
+			<transcriptions/>
+			<history/>
+		</task>
+		<task id="JHN003001019" hold="false">
+			<name>Nicodemus visit</name>
+			<state>transcribe</state>
+			<assignedto>Ayo</assignedto>
+			<transcriptions>
+				<transcription>
+					<text/>
+					<transcribers>
+						<username>Ayo</username>
+					</transcribers>
+				</transcription>
+			</transcriptions>
+			<history>
+				<event id="0">
+					<datetime>2018-06-25T08:00:00Z</datetime>
+					<action>assigned</action>
+					<userid>Ayo</userid>
+				</event>
+			</history>
+		</task>
+	</project>
+	<project id="test" lang="fr" direction="ltr" type="test">
+		<task id="GEN001001020" hold="false">
+			<state>transcribe</state>
+			<transcriptions/>
+			<history/>
+		</task>
+	</project>
+</tasks>

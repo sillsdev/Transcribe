@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="users">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="user"/>
+      </xs:sequence>
+      <xs:attribute name="version" use="required">
+        <xs:annotation>
+          <xs:documentation>version of file format</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+\.[0-9]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="user">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="username"/>
+        <xs:element ref="roles"/>
+        <xs:element minOccurs="0" ref="projects"/>
+        <xs:element ref="settings"/>
+      </xs:sequence>
+      <xs:attribute name="skill" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="trainee"/>
+            <xs:enumeration value="novice"/>
+            <xs:enumeration value="expert"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="username">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="fullname"/>
+        <xs:element minOccurs="0" ref="avatarUri"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required">
+        <xs:annotation>
+          <xs:documentation>unique user name without spaces</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[^ ]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fullname" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>user's full name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="avatarUri" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>URI to avatar picture</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="roles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="role"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="role">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="transcriber"/>
+        <xs:enumeration value="reviewer"/>
+        <xs:enumeration value="administrator"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="projects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="project"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fontfamily"/>
+        <xs:element minOccurs="0" ref="fontsize"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Paratext short name (if Scripture)</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fontfamily" type="xs:string"/>
+  <xs:element name="fontsize">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="medium"/>
+        <xs:enumeration value="xx-small"/>
+        <xs:enumeration value="x-small"/>
+        <xs:enumeration value="small"/>
+        <xs:enumeration value="large"/>
+        <xs:enumeration value="x-large"/>
+        <xs:enumeration value="xx-large"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="settings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="transcriber"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="transcriber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotkey"/>
+        <xs:element minOccurs="0" ref="uilang"/>
+        <xs:element minOccurs="0" ref="timer"/>
+        <xs:element minOccurs="0" ref="speed"/>
+        <xs:element minOccurs="0" ref="progress"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="setting"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="hotkey">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="id" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="play-pause"/>
+                <xs:enumeration value="back"/>
+                <xs:enumeration value="forward"/>
+                <xs:enumeration value="slower"/>
+                <xs:enumeration value="faster"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="uilang">
+    <xs:annotation>
+      <xs:documentation>BCP-47 value of UI language for transcriber</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[a-z]{2,3}(-[A-Za-z]{4})?(-[A-Z]{2})?(-[a-z]+)?"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="timer">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="countup"/>
+        <xs:enumeration value="countdown"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="speed">
+    <xs:annotation>
+      <xs:documentation>percentage between 25 and 200 for playback</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="25"/>
+        <xs:maxInclusive value="200"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="progress">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="progress-bar"/>
+        <xs:enumeration value="waveform"/>
+        <xs:enumeration value="none"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="setting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="value"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[a-z_]+"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="value" type="xs:string"/>
+</xs:schema>

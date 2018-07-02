@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="users.css"?>
+<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="users.xsd" version="1.0">
+	<user skill="expert">
+		<username id="ayo">
+			<fullname>Ayo Mena Ogunseinde</fullname>
+			<avatarUri>file:/./ayo.svg</avatarUri>
+		</username>
+		<roles>
+			<role>transcriber</role>
+		</roles>
+		<projects>
+			<project id="aai">
+				<fontfamily>Charis SIL</fontfamily>
+				<fontsize>medium</fontsize>
+			</project>
+		</projects>
+		<settings>
+			<transcriber>
+				<hotkey id="play-pause">Esc</hotkey>
+				<hotkey id="back">F1</hotkey>
+				<hotkey id="forward">F2</hotkey>
+				<hotkey id="slower">F3</hotkey>
+				<hotkey id="faster">F4</hotkey>
+				<uilang>en</uilang>
+				<timer>countup</timer>
+				<speed>100</speed>
+				<progress>progress-bar</progress>
+			</transcriber>
+		</settings>
+	</user>
+	<user skill="expert">
+		<username id="Erik">
+			<fullname>Erik Lucatero</fullname>
+			<avatarUri>file:/./Erik.svg</avatarUri>
+		</username>
+		<roles>
+			<role>transcriber</role>
+		</roles>
+		<projects>
+			<project id="aai">
+				<fontfamily>Charis SIL</fontfamily>
+				<fontsize>medium</fontsize>
+			</project>
+		</projects>
+		<settings>
+			<transcriber>
+				<hotkey id="play-pause">Esc</hotkey>
+				<hotkey id="back">F1</hotkey>
+				<hotkey id="forward">F2</hotkey>
+				<hotkey id="slower">F3</hotkey>
+				<hotkey id="faster">F4</hotkey>
+				<uilang>en</uilang>
+				<timer>countup</timer>
+				<speed>100</speed>
+				<progress>progress-bar</progress>
+			</transcriber>
+		</settings>
+	</user>
+	<user skill="trainee">
+		<username id="Ahmad">
+			<fullname>Ahmad Ossayli</fullname>
+			<avatarUri>file:/./Ahmad.svg</avatarUri>
+		</username>
+		<roles>
+			<role>transcriber</role>
+		</roles>
+		<projects>
+			<project id="aai">
+				<fontfamily>Charis SIL</fontfamily>
+				<fontsize>medium</fontsize>
+			</project>
+			<project id="d33">
+				<fontfamily>Faruma</fontfamily>
+				<fontsize>large</fontsize>
+			</project>
+		</projects>
+		<settings>
+			<transcriber>
+				<hotkey id="play-pause">Esc</hotkey>
+				<hotkey id="back">F1</hotkey>
+				<hotkey id="forward">F2</hotkey>
+				<hotkey id="slower">F3</hotkey>
+				<hotkey id="faster">F4</hotkey>
+				<uilang>en</uilang>
+				<timer>countup</timer>
+				<speed>100</speed>
+				<progress>progress-bar</progress>
+			</transcriber>
+		</settings>
+	</user>
+</users>

@@ -1,0 +1,48 @@
+﻿default namespace = ""
+namespace dcds = "http://purl.org/dc/xmlns/2008/09/01/dc-ds-xml/"
+
+start =
+    element users {
+	    ## version of file format
+        attribute version { xsd:string {pattern = "[0-9]+\.[0-9]+" } },
+        element user {
+        	attribute skill { "trainee" | "novice" | "expert" },
+            element username { 
+            	## unique user name without spaces
+            	attribute id  {xsd:string { pattern = "[^ ]+" } },
+            	## user's full name
+		        element fullname { xsd:string }?,
+		        ## URI to avatar picture
+		        element avatarUri { xsd:string }?
+            },
+            element roles {
+	            element role { "transcriber" | "reviewer" | "administrator" }+
+            },
+            element projects {
+                element project {
+                	## Paratext short name (if Scripture)
+                    attribute id { xsd:string },
+                    element fontfamily { xsd:string },
+                    element fontsize { "medium" | "xx-small" | "x-small" | "small" | "large" | "x-large" | "xx-large" }?
+                }*
+            }?,
+            element settings {
+            	element transcriber {
+            		element hotkey {
+            			attribute id { "play-pause" | "back" | "forward" | "slower" | "faster" },
+            			xsd:string
+            		}*,
+            		## BCP-47 value of UI language for transcriber
+                    element uilang { xsd:string { pattern = "[a-z]{2,3}(-[A-Za-z]{4})?(-[A-Z]{2})?(-[a-z]+)?" } }?, # BCP-47
+                    element timer { "countup" | "countdown" }?,
+                    ## percentage between 25 and 200 for playback
+                    element speed { xsd:integer { minInclusive = "25" maxInclusive = "200" } }?,
+                    element progress { "progress-bar" | "waveform" | "none" }?,
+	                element setting {
+	                    element name { xsd:string { pattern = "[a-z_]+" } },
+	                    element value { xsd:string }
+	                }*
+            	}?
+            }
+        }+
+    }
