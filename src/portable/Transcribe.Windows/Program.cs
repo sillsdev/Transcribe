@@ -49,18 +49,28 @@ namespace Transcribe.Windows
 				reactProcess.Kill();
 				reactProcess.WaitForExit();
 			}
+
+			var apiFolder = Path.Combine(Path.GetDirectoryName(indexFullName), "api");
+			if (Directory.Exists(apiFolder))
+				Directory.Delete(apiFolder, true);	// remove all api related files
 			foreach (var fullPath in SupportFile)
 			{
 				File.Delete(fullPath);
-				var folder = Path.GetDirectoryName(fullPath);
-				try
-				{
-					Directory.Delete(folder);
-				}
-				catch
-				{
-					// if not empty, ignore delete directory
-				}
+				DeleteFolder(fullPath);
+			}
+		}
+
+		private static void DeleteFolder(string fullPath)
+		{
+			var folder = Path.GetDirectoryName(fullPath);
+			try
+			{
+				Directory.Delete(folder);
+				DeleteFolder(folder);
+			}
+			catch
+			{
+				// if not empty, ignore delete directory
 			}
 		}
 

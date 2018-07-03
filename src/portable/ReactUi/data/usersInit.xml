@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="users.xsd" version="1.0">
-	<user skill="expert">
+	<user skill="unsupervised">
 		<username id="admin"></username>
 		<roles>
 			<role>administrator</role>

@@ -6,7 +6,7 @@ start =
 	    ## version of file format
         attribute version { xsd:string {pattern = "[0-9]+\.[0-9]+" } },
         element user {
-        	attribute skill { "trainee" | "novice" | "expert" },
+        	attribute skill { "trainee" | "supervised" | "unsupervised" },
             element username { 
             	## unique user name without spaces
             	attribute id  {xsd:string { pattern = "[^ ]+" } },

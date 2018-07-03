@@ -29,8 +29,8 @@
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="trainee"/>
-            <xs:enumeration value="novice"/>
-            <xs:enumeration value="expert"/>
+            <xs:enumeration value="supervised"/>
+            <xs:enumeration value="unsupervised"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
