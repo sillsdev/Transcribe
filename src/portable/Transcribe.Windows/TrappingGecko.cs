@@ -110,7 +110,7 @@ namespace Transcribe.Windows
 			return jsonList;
 		}
 
-		private static void CopyAvatars(XmlDocument usersDoc, string apiFolder)
+		private static void CopyAvatars(XmlNode usersDoc, string apiFolder)
 		{
 			var avatarNodes = usersDoc.SelectNodes("//*[local-name()='avatarUri']");
 			Debug.Assert(avatarNodes != null, nameof(avatarNodes) + " != null");
@@ -167,6 +167,8 @@ namespace Transcribe.Windows
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
 				Debug.Assert(taskNodes != null, nameof(taskNodes) + " != null");
 				TaskSkillFilter(taskNodes, userNode);
+				if (taskNodes.Count == 0)
+					continue;
 				if (taskNodes.Count == 1)
 				{
 					var taskNode = taskNodes[0];
@@ -206,9 +208,9 @@ namespace Transcribe.Windows
 					foreach (XmlNode node in taskNodes)
 					{
 						var assignedTo = new List<string>();
-						foreach (XmlNode selectNode in node.SelectNodes("./*[local-name() = 'assignedto']"))
+						foreach (XmlNode assignedNode in node.SelectNodes("./*[local-name() = 'assignedto']"))
 						{
-							assignedTo.Add(selectNode.InnerText);
+							assignedTo.Add(assignedNode.InnerText);
 						}
 
 						if (assignedTo.Contains(userName))
