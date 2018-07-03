@@ -54,5 +54,17 @@
     <Folder Include="data\images\" />
     <Folder Include="react\build\static\media\" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="data\tasks.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data\users.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="data\tasksInit.xml" />
+    <EmbeddedResource Include="data\usersInit.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

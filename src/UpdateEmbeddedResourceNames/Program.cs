@@ -25,7 +25,7 @@ namespace UpdateEmbeddedResourceNames
 				csprojDoc.Load(xr);
 			}
 
-			var oldNodes = csprojDoc.SelectNodes("//*[local-name() = 'ItemGroup' and local-name(*) = 'EmbeddedResource']");
+			var oldNodes = csprojDoc.SelectNodes("//*[local-name() = 'ItemGroup' and local-name(*) = 'EmbeddedResource' and starts-with(*/@Include, 'react')]");
 			Debug.Assert(oldNodes != null, nameof(oldNodes) + " != null");
 			foreach (XmlElement oldNode in oldNodes)
 			{
