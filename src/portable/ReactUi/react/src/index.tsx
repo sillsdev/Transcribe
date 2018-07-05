@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import MainLayout from './components/MainLayout'
 import UserLogin from './components/UserLogin'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -11,7 +12,10 @@ import store from "./store"
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route path="/" component={UserLogin}/>
+      <div>
+        <Route exact={true} path="/" component={UserLogin}/>
+        <Route path="/main" component={MainLayout} />
+      </div>
     </Router>
   </Provider>,
   document.getElementById('root') as HTMLElement
