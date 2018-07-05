@@ -1,0 +1,32 @@
+.projectList{
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin:20px;
+}
+
+.backItem {
+    display:block;
+    width: 100%;
+    text-align: center;
+    color: rgba(202, 208, 212, 0.5);
+    font-size:28pt;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.myAvatar{
+    display: block;
+}
+.spacer{
+    line-height: 50px;
+}
+
+.projectItem{
+    display: block;
+}
+
+a{
+    text-decoration: none !important;
+}
