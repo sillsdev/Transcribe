@@ -42,9 +42,9 @@
     <EmbeddedResource Include="react\build\index.html" />
     <EmbeddedResource Include="react\build\manifest.json" />
     <EmbeddedResource Include="react\build\service-worker.js" />
-    <EmbeddedResource Include="react\build\assets\bible.svg" />
-    <EmbeddedResource Include="react\build\assets\storybook.svg" />
-    <EmbeddedResource Include="react\build\assets\test.svg" />
+    <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
+    <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
+    <EmbeddedResource Include="react\build\assets\testAvatar.png" />
     <EmbeddedResource Include="react\build\static\css\main.30a1b4e5.css" />
     <EmbeddedResource Include="react\build\static\css\main.30a1b4e5.css.map" />
     <EmbeddedResource Include="react\build\static\js\main.2d0fbe39.js" />

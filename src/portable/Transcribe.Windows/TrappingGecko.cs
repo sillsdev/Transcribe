@@ -134,7 +134,7 @@ namespace Transcribe.Windows
 
 		private static XmlDocument LoadXmlData(string name)
 		{
-			var fullName = Path.Combine(Application.CommonAppDataPath, name + ".xml");
+			var fullName = Path.Combine(Path.GetDirectoryName(Application.CommonAppDataPath), name + ".xml");
 			if (!File.Exists(fullName))
 				Program.DefaultData(name);
 			var xDoc = new XmlDocument();
