@@ -6,12 +6,15 @@ start =
 	    ## version of file format
         attribute version { xsd:string {pattern = "[0-9]+\.[0-9]+" } },
         element user {
-        	attribute skill { "trainee" | "supervised" | "unsupervised" },
+        	## skill defaults to unsupervised if none is given
+        	attribute skill { "trainee" | "supervised" | "unsupervised" }?,
             element username { 
             	## unique user name without spaces
             	attribute id  {xsd:string { pattern = "[^ ]+" } },
             	## user's full name
 		        element fullname { xsd:string }?,
+		        ## passwords are reuired (if present) recommended for admin users
+		        element password { xsd:string }?,
 		        ## URI to avatar picture
 		        element avatarUri { xsd:string }?
             },
@@ -37,7 +40,7 @@ start =
                     element timer { "countup" | "countdown" }?,
                     ## percentage between 25 and 200 for playback
                     element speed { xsd:integer { minInclusive = "25" maxInclusive = "200" } }?,
-                    element progress { "progress-bar" | "waveform" | "none" }?,
+                    element progress { "bar" | "waveform" }?,
 	                element setting {
 	                    element name { xsd:string { pattern = "[a-z_]+" } },
 	                    element value { xsd:string }

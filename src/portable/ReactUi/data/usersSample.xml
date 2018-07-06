@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="users.css"?>
-<users xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:noNamespaceSchemaLocation="users.xsd" version="1.0">
+<users version="1.0">
 	<user skill="unsupervised">
 		<username id="ayo">
 			<fullname>Ayo Mena Ogunseinde</fullname>
-			<avatarUri>file:/./ayo.svg</avatarUri>
+			<avatarUri>images/ayo.png</avatarUri>
 		</username>
 		<roles>
 			<role>transcriber</role>
@@ -26,14 +25,14 @@
 				<uilang>en</uilang>
 				<timer>countup</timer>
 				<speed>100</speed>
-				<progress>progress-bar</progress>
+				<progress>bar</progress>
 			</transcriber>
 		</settings>
 	</user>
 	<user skill="supervised">
 		<username id="Erik">
 			<fullname>Erik Lucatero</fullname>
-			<avatarUri>file:/./Erik.svg</avatarUri>
+			<avatarUri>images/Erik.png</avatarUri>
 		</username>
 		<roles>
 			<role>transcriber</role>
@@ -54,14 +53,14 @@
 				<uilang>en</uilang>
 				<timer>countup</timer>
 				<speed>100</speed>
-				<progress>progress-bar</progress>
+				<progress>bar</progress>
 			</transcriber>
 		</settings>
 	</user>
 	<user skill="trainee">
 		<username id="Ahmad">
 			<fullname>Ahmad Ossayli</fullname>
-			<avatarUri>file:/./Ahmad.svg</avatarUri>
+			<avatarUri>images/Ahmad.png</avatarUri>
 		</username>
 		<roles>
 			<role>transcriber</role>
@@ -86,7 +85,7 @@
 				<uilang>en</uilang>
 				<timer>countup</timer>
 				<speed>100</speed>
-				<progress>progress-bar</progress>
+				<progress>bar</progress>
 			</transcriber>
 		</settings>
 	</user>

@@ -25,7 +25,10 @@
         <xs:element minOccurs="0" ref="projects"/>
         <xs:element ref="settings"/>
       </xs:sequence>
-      <xs:attribute name="skill" use="required">
+      <xs:attribute name="skill">
+        <xs:annotation>
+          <xs:documentation>skill defaults to unsupervised if none is given</xs:documentation>
+        </xs:annotation>
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="trainee"/>
@@ -40,6 +43,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" ref="fullname"/>
+        <xs:element minOccurs="0" ref="password"/>
         <xs:element minOccurs="0" ref="avatarUri"/>
       </xs:sequence>
       <xs:attribute name="id" use="required">
@@ -57,6 +61,11 @@
   <xs:element name="fullname" type="xs:string">
     <xs:annotation>
       <xs:documentation>user's full name</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="password" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>passwords are reuired (if present) recommended for admin users</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:element name="avatarUri" type="xs:string">
@@ -184,9 +193,8 @@
   <xs:element name="progress">
     <xs:simpleType>
       <xs:restriction base="xs:token">
-        <xs:enumeration value="progress-bar"/>
+        <xs:enumeration value="bar"/>
         <xs:enumeration value="waveform"/>
-        <xs:enumeration value="none"/>
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
