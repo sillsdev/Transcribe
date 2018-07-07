@@ -191,6 +191,7 @@ namespace Transcribe.Windows
 		private void TaskSkillFilter(XmlNodeList taskNodes, XmlNode userNode)
 		{
 			var skill = userNode?.SelectSingleNode("./@skill")?.InnerText;
+			var userName = userNode?.SelectSingleNode("./*[local-name() = 'username']/@id")?.InnerText;
 			switch (skill)
 			{
 				case "trainee":
@@ -204,22 +205,26 @@ namespace Transcribe.Windows
 					}
 					break;
 				case "supervised":
-					var userName = userNode.SelectSingleNode("./*[local-name() = 'username']/@id")?.InnerText;
 					foreach (XmlNode node in taskNodes)
 					{
-						var assignedTo = new List<string>();
-						foreach (XmlNode assignedNode in node.SelectNodes("./*[local-name() = 'assignedto']"))
-						{
-							assignedTo.Add(assignedNode.InnerText);
-						}
-
-						if (assignedTo.Contains(userName))
+						var assignedTo = node.SelectSingleNode("./@assignedto")?.InnerText;
+						if (assignedTo == userName)
 							continue;
 						Debug.Assert(node.ParentNode != null, "node.ParentNode != null");
 						node.ParentNode.RemoveChild(node);
 					}
 					break;
-				default: return;
+				default:
+					foreach (XmlNode node in taskNodes)
+					{
+						var assignedTo = node.SelectSingleNode("./@assignedto")?.InnerText;
+						if (string.IsNullOrEmpty(assignedTo) || assignedTo == userName)
+							continue;
+						Debug.Assert(node.ParentNode != null, "node.ParentNode != null");
+						node.ParentNode.RemoveChild(node);
+					}
+					break;
+
 			}
 		}
 
