@@ -12,7 +12,7 @@ export const fetchUsers = () => (dispatch: any) => {
         });
 }
 
-export function selectUser(id: number): any{
+export function selectUser(id: string): any{
     return {
         payload: id,
         type: SELECT_USER

@@ -6,7 +6,7 @@
     margin:20px;
 }
 
-.backItem {
+.projectList > .backItem {
     display:block;
     width: 100%;
     text-align: center;
@@ -16,14 +16,14 @@
     margin: 0 0 20px 0;
 }
 
-.myAvatar{
+.projectList > .myAvatar{
     display: block;
 }
-.spacer{
+.projectList > .spacer{
     line-height: 50px;
 }
 
-.projectItem{
+.projectList > .projectItem{
     display: block;
 }
 

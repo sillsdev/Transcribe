@@ -7,7 +7,7 @@ import TaskPanel from './TaskPanel'
 class MainLayout extends React.Component<any> {
     public render() {
         return (
-            <div className="homeLayout">
+            <div className="MainLayout">
                 <table>
                     <tr>
                         <td>

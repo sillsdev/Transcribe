@@ -1,0 +1,8 @@
+  .AvatarLink {
+      padding: 20px;
+      width: 100px;
+  }
+
+  .AvatarLink .caption{
+    color: rgba(202, 208, 212, 0.5);
+  }
