@@ -1,9 +1,8 @@
 import * as React from 'react';
-import Avatar from 'react-avatar';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
 import { fetchUsers, selectUser } from '../actions/userActions';
+import MyAvatar from './controls/MyAvatar';
 import './UserLogin.css';
 
 interface IUser {
@@ -11,6 +10,7 @@ interface IUser {
   displayName: string,
   username: {
     avatarUri: string,
+    id: string,
   }
 };
 
@@ -29,15 +29,11 @@ class UserLogin extends React.Component<IProps, object> {
     const { users } = this.props
     const avatars = users.map((user:IUser) => 
       <ListGroupItem key={user.id}>
-        <Link to="/main" onClick={this.props.selectUser.bind(this, user.id)}>
-          <Avatar name={user.displayName} src={user.username.avatarUri} size="64" round={true}/>
-          <br /> <br />
-          <div className="caption">{user.displayName}</div>
-        </Link>
+        <MyAvatar id={user.username.id} name={user.displayName} target="/main" uri={user.username.avatarUri} select={this.props.selectUser} />
       </ListGroupItem>);
 
     return (
-      <div className="centered">
+      <div className="UserLogin">
         <ListGroup>
             {avatars}
         </ListGroup>

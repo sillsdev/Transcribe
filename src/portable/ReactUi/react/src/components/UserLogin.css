@@ -1,4 +1,4 @@
-.centered {
+.UserLogin {
     display: flex;
     align-items: center;
     height: 100%;
@@ -14,20 +14,14 @@
     z-index: 1;
 }
 
-  body{
+body{
       background-color: #2F2C23;
-  }
+}
 
-  .list-group-item {
+.UserLogin .list-group-item {
       display: inline-flex;
-      padding: 20px;
-      width: 100px;
-  }
+}
 
-  ul {
+.UserLogin ul {
     list-style-type: none;
-  }
-
-  .caption{
-    color: rgba(202, 208, 212, 0.5);
-  }
+}
