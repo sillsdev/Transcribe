@@ -2,7 +2,7 @@ import { FETCH_USERS, SELECT_USER } from '../actions/types';
 
 
 const initialState = {
-    selectedUser: 0,
+    selectedUser: "",
     users: []
 }
 
