@@ -51,4 +51,11 @@ describe('Control: AvatarLink', () => {
         wrapper.find('Link').simulate('click');
         expect(onButtonClick.calledOnce).toEqual(true);
     });
+
+    it('set size of avatar', () => {
+        const wrapper = shallow(<AvatarLink {...minProps} size="48"/>)
+        expect(
+            wrapper.find('Avatar').prop('size')
+        ).toEqual('48')
+    });
 });

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchUsers, selectUser } from '../actions/userActions';
-import MyAvatar from './controls/MyAvatar';
+import AvatarLink from './controls/AvatarLink';
 import './UserLogin.css';
 
 interface IUser {
@@ -29,7 +29,7 @@ class UserLogin extends React.Component<IProps, object> {
     const { users } = this.props
     const avatars = users.map((user:IUser) => 
       <ListGroupItem key={user.id}>
-        <MyAvatar id={user.username.id} name={user.displayName} target="/main" uri={user.username.avatarUri} select={this.props.selectUser} />
+        <AvatarLink id={user.username.id} name={user.displayName} target="/main" uri={user.username.avatarUri} select={this.props.selectUser} />
       </ListGroupItem>);
 
     return (
