@@ -2,8 +2,9 @@ import * as React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { fetchTasks, selectTask } from '../actions/taskActions';
+import { fetchTasks, selectProject } from '../actions/taskActions';
 import AvatarLink from './controls/AvatarLink';
+import { ProjectAvatar } from './controls/ProjectAvatar';
 import './SelectProject.css';
 
 interface IProject {
@@ -15,7 +16,7 @@ interface IProps {
   selectedUser: string;
   projects: IProject[];
   fetchTasks: typeof fetchTasks;
-  selectTask: typeof selectTask;
+  selectProject: typeof selectProject;
 };
 
 class SelectProject extends React.Component<IProps, object> {
@@ -27,14 +28,13 @@ class SelectProject extends React.Component<IProps, object> {
   public render() {
     const { projects } = this.props
 
-    const projectAvatar = {
-      Bible: "/assets/bibleAvatar.png",
-      Story: "/assets/storyAvatar.png",
-      Test: "/assets/testAvatar.png",
-    }
     const avatars = projects.map((p:IProject) => 
       <ListGroupItem key={p.id}>
-        <AvatarLink id={p.id} name={p.id} target="/main" uri={p.type !== undefined?projectAvatar[p.type]:""} select={this.props.selectTask} />
+        <AvatarLink id={p.id}
+          name={p.id}
+          target="/main"
+          uri={p.type !== undefined?ProjectAvatar[p.type]:""}
+          select={this.props.selectProject} />
       </ListGroupItem>);
 
     let wrapper = (<ListGroup>
@@ -45,6 +45,7 @@ class SelectProject extends React.Component<IProps, object> {
         wrapper = (<Redirect to="/"/>)
         break;
       case 1:
+        this.props.selectProject(projects[0].id)
         wrapper = (<Redirect to="/main"/>)
       default:
         break;
@@ -63,4 +64,4 @@ const mapStateToProps = (state: any) => ({
   selectedUser: state.users.selectedUser,
 });
 
-export default connect(mapStateToProps, { fetchTasks, selectTask })(SelectProject);
+export default connect(mapStateToProps, { fetchTasks, selectProject })(SelectProject);
