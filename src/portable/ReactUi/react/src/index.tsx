@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import MainLayout from './components/MainLayout'
+import SelectProject from './components/SelectProject'
 import UserLogin from './components/UserLogin'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -14,6 +15,7 @@ ReactDOM.render(
     <Router>
       <div>
         <Route exact={true} path="/" component={UserLogin}/>
+        <Route path="/project" component={SelectProject} />
         <Route path="/main" component={MainLayout} />
       </div>
     </Router>

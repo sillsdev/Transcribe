@@ -12,7 +12,7 @@ export const fetchTasks = (username: string) => (dispatch: any) => {
         });
 }
 
-export function selectTask(id: number): any{
+export function selectTask(id: string): any{
     return {
         payload: id,
         type: SELECT_TASK
