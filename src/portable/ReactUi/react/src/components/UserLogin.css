@@ -25,3 +25,7 @@ body{
 .UserLogin ul {
     list-style-type: none;
 }
+
+.UserLogin a {
+    text-decoration: none;
+}

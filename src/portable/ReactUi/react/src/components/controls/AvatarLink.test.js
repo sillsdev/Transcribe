@@ -11,9 +11,9 @@ describe('Control: AvatarLink', () => {
     const minProps = {
         id: "my id",
         name: "my name",
+        select: () => {return boolean;},
         target: "/root",
         uri: "images/myImage.png",
-        select: () => {},
     };
 
     it('renders without exploding', () => {
