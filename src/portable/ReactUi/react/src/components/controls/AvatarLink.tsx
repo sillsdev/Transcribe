@@ -6,15 +6,15 @@ import './AvatarLink.css';
 interface IProps {
     id: string;
     name: string;
+    select?: (id: string) => any;
     size?: string;
     target: string;
     uri: string;
-    select: (id: string) => any;
 };
 
 class AvatarLink extends React.Component<IProps, object> {
     public render() {
-        const { id, name, size="64", target, uri, select } = this.props;
+        const { id, name, select=(() => undefined), size="64", target, uri } = this.props;
         return (
             <div className="AvatarLink">
                 <Link to={target} onClick={select.bind(this, id)}>

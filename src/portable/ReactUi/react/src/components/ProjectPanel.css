@@ -1,32 +1,13 @@
-.projectList{
-    display: block;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    margin:20px;
-}
-
-.projectList > .backItem {
-    display:block;
-    width: 100%;
-    text-align: center;
-    color: rgba(202, 208, 212, 0.5);
+.ProjectPanel .BackLink {
     font-size:28pt;
-    padding: 0;
-    margin: 0 0 20px 0;
+    text-align: center;
+    width: 100px;
 }
 
-.projectList > .myAvatar{
-    display: block;
-}
-.projectList > .spacer{
-    line-height: 50px;
+.ProjectPanel .BackLink *::before {
+    color: rgba(202, 208, 212, 0.5);
 }
 
-.projectList > .projectItem{
-    display: block;
-}
-
-a{
-    text-decoration: none !important;
+.ProjectPanel a {
+    text-decoration: none;
 }

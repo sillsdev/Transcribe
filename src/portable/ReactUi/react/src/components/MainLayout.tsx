@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import Editor from './Editor'
 import ProjectPanel from './ProjectPanel'
@@ -8,19 +9,19 @@ class MainLayout extends React.Component<any> {
     public render() {
         return (
             <div className="MainLayout">
-                <table>
-                    <tr>
-                        <td>
+                <Grid>
+                    <Row>
+                        <Col md={2}>
                             <ProjectPanel {...this.props} />
-                        </td>
-                        <td>
+                        </Col>
+                        <Col md={3}>
                             <TaskPanel {...this.props} />
-                        </td>
-                        <td>
+                        </Col>
+                        <Col md={7}>
                             <Editor {...this.props} />
-                        </td>
-                    </tr>
-                </table>
+                        </Col>
+                    </Row>
+                </Grid>
             </div>
             )
     }
