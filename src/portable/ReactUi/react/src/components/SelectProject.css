@@ -19,7 +19,9 @@ body{
 }
 
 .SelectProject .list-group-item {
-      display: inline-flex;
+    display: inline-flex;
+    background-color: #2F2C23;
+    border: none;
 }
 
 .SelectProject ul {
@@ -28,4 +30,6 @@ body{
 
 .SelectProject a {
     text-decoration: none;
+    background-color: #2F2C23;
+
 }
