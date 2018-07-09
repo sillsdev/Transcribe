@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import Editor from './Editor'
-import ProjectPanel from './ProjectPanel'
+import NavPanel from './NavPanel'
 import TaskPanel from './TaskPanel'
 
 class MainLayout extends React.Component<any> {
@@ -12,7 +12,7 @@ class MainLayout extends React.Component<any> {
                 <Grid>
                     <Row>
                         <Col md={2}>
-                            <ProjectPanel {...this.props} />
+                            <NavPanel {...this.props} />
                         </Col>
                         <Col md={3}>
                             <TaskPanel {...this.props} />
