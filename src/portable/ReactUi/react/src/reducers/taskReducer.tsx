@@ -1,22 +1,22 @@
-import { FETCH_USERS, SELECT_USER } from '../actions/types';
+import { FETCH_TASKS, SELECT_TASK } from '../actions/types';
 
 
 const initialState = {
-    selectedUser: 0,
-    users: []
+    projects: [],
+    selectedTask: "",
 }
 
 export default function (state = initialState, action: any) {
     switch (action.type) {
-        case FETCH_USERS:
+        case FETCH_TASKS:
             return {
                 ...state,
-                users: action.payload.data
+                projects: action.payload.data
             };
-        case SELECT_USER:
+        case SELECT_TASK:
             return {
                 ...state,
-                selectedUser: action.payload
+                selectedTask: action.payload
             }
         default:
             return state;

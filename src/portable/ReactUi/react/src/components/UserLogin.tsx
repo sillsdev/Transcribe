@@ -29,7 +29,7 @@ class UserLogin extends React.Component<IProps, object> {
     const { users } = this.props
     const avatars = users.map((user:IUser) => 
       <ListGroupItem key={user.id}>
-        <AvatarLink id={user.username.id} name={user.displayName} target="/main" uri={user.username.avatarUri} select={this.props.selectUser} />
+        <AvatarLink id={user.username.id} name={user.displayName} target="/project" uri={user.username.avatarUri} select={this.props.selectUser} />
       </ListGroupItem>);
 
     return (
