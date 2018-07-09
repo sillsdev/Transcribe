@@ -20,7 +20,9 @@ body{
 
 .UserLogin .list-group-item {
       display: inline-flex;
-}
+      background-color: #2F2C23;
+      border: none;
+    }
 
 .UserLogin ul {
     list-style-type: none;
@@ -28,4 +30,5 @@ body{
 
 .UserLogin a {
     text-decoration: none;
+    background-color: #2F2C23;
 }

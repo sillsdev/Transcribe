@@ -30,21 +30,23 @@ class NavPanel extends React.Component<IProps, object> {
 
     public render() {
         const { tasks, selectedProject, users, selectedUser} = this.props;
-        const user:IUser = users.filter(u => u.username.id === selectedUser)[0];
-        const project:IProject = tasks.filter(t => t.id === selectedProject)[0];
+        const user = users.filter(u => u.username.id === selectedUser)[0];
+        const project = tasks.filter(t => t.id === selectedProject)[0];
+        const userAvatar = user? (<AvatarLink id={user.username.id}
+            name={user.displayName}
+            target="/"
+            uri={user.username.avatarUri} />):"";
+        const projectAvatar = project? (<AvatarLink id={project.id}
+            name={project.id}
+            size="48"
+            target="/main"
+            uri={project.type !== undefined?ProjectAvatar[project.type]:""} />):"";
         return (
             <div className="NavPanel">
                 <BackLink target="/" />
-                <AvatarLink id={user.username.id}
-                    name={user.displayName}
-                    target="/"
-                    uri={user.username.avatarUri} />
+                {userAvatar}
                 <div>{"\xA0"}</div>
-                <AvatarLink id={project.id}
-                    name={project.id}
-                    size="48"
-                    target="/main"
-                    uri={project.type !== undefined?ProjectAvatar[project.type]:""} />
+                {projectAvatar}
             </div>
             )
     }

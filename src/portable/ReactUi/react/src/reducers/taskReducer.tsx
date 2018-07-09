@@ -1,5 +1,4 @@
-import { FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from '../actions/types';
-
+import { ASSIGN_TASK, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from '../actions/types';
 
 const initialState = {
     projects: [],
@@ -9,6 +8,11 @@ const initialState = {
 
 export default function (state = initialState, action: any) {
     switch (action.type) {
+        case ASSIGN_TASK:
+            return {
+                ...state,
+                // TODO:new projects with new tasks where assignedt changed
+            }
         case FETCH_TASKS:
             return {
                 ...state,
