@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Web;
 using System.Windows.Forms;
 using System.Xml;
 using Gecko;
@@ -11,6 +13,7 @@ namespace Transcribe.Windows
 {
 	public class TrappingGecko : GeckoWebBrowser//, IPlatformSpecifics
 	{
+		private static readonly string DataFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
 		public string Folder { get; set; }
 
 		protected override void OnDomClick(DomMouseEventArgs e)
@@ -45,19 +48,82 @@ namespace Transcribe.Windows
 			var method = e.Channel.RequestMethod;
 			if (method == "GET")
 			{
-				if (e.Uri.Segments[1] == "api/")
+				if (e.Uri.Segments[1] != "api/")
+					return;
+				switch (e.Uri.Segments[2])
 				{
-					switch (e.Uri.Segments[2])
-					{
-						case "GetUsers":
-							GetUsers();
-							break;
-						case "GetTasks":
-							GetTasks(e.Uri.Query);
-							break;
-					}
+					case "GetUsers":
+						GetUsers();
+						break;
+					case "GetTasks":
+						GetTasks(e.Uri.Query);
+						break;
 				}
 			}
+			else if (method == "PUT")
+			{
+				if (e.Uri.Segments[1] != "api/")
+					return;
+				switch (e.Uri.Segments[2])
+				{
+					case "TaskEvent":
+						TaskEvent(e);
+						break;
+				}
+			}
+		}
+
+		private void TaskEvent(GeckoObserveHttpModifyRequestEventArgs e)
+		{
+			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var action = parsedQuery["action"];
+			var task = parsedQuery["task"];
+			var user = parsedQuery["user"];
+			var tasksDoc = LoadXmlData("tasks");
+			var taskNode = tasksDoc.SelectSingleNode($@"//task[@id=""{task}""]");
+			if (taskNode == null)
+				return;
+			switch (action)
+			{
+				case "Assigned":
+					var assignedTo = taskNode.SelectSingleNode("@assignedto");
+					if (!string.IsNullOrEmpty(assignedTo?.InnerText))
+					{
+						e.Cancel = true;
+						return;
+					}
+					NewAttr(taskNode, "assignedto", user);
+					break;
+				case "TranscribeStart": break;
+				case "TranscribeEnd": break;
+				case "ReviewStart": break;
+				case "ReviewEnd": break;
+				case "HoldStart": break;
+				case "HoldEnd": break;
+				case "Upload": break;
+				case "Complete": break;
+			}
+			var historyNodes = taskNode.SelectNodes(".//history");
+			Debug.Assert(historyNodes != null, nameof(historyNodes) + " != null");
+
+			var historyNode = tasksDoc.CreateElement("history");
+			NewAttr(historyNode, "id", historyNodes.Count.ToString());
+			NewAttr(historyNode, "datetime", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+			NewAttr(historyNode,"action", action);
+			NewAttr(historyNode, "userid", user);
+			taskNode.AppendChild(historyNode);
+			using (var xw = XmlWriter.Create(XmlFullName("tasks")))
+			{
+				tasksDoc.Save(xw);
+			}
+		}
+
+		private static void NewAttr(XmlNode node, string name, string val)
+		{
+			Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
+			var idAttr = node.OwnerDocument.CreateAttribute(name);
+			idAttr.InnerText = val;
+			node.Attributes.Append(idAttr);
 		}
 
 		private void GetUsers()
@@ -94,15 +160,9 @@ namespace Transcribe.Windows
 			foreach (KeyValuePair<string, XmlNode> keyValuePair in sortedUsers)
 			{
 				var node = keyValuePair.Value;
-				Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
-				var attr = node.OwnerDocument.CreateAttribute("id");
-				attr.InnerText = item.ToString();
+				NewAttr(node, "id", item.ToString());
 				item += 1;
-				Debug.Assert(node.Attributes != null, "node.Attributes != null");
-				node.Attributes.Append(attr);
-				var displayNameElem = node.OwnerDocument.CreateElement("displayName");
-				displayNameElem.InnerText = keyValuePair.Key;
-				node.AppendChild(displayNameElem);
+				NewAttr(node, "displayName", keyValuePair.Key);
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(8);
 				jsonList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
@@ -134,7 +194,7 @@ namespace Transcribe.Windows
 
 		private static XmlDocument LoadXmlData(string name)
 		{
-			var fullName = Path.Combine(Path.GetDirectoryName(Application.CommonAppDataPath), name + ".xml");
+			var fullName = XmlFullName(name);
 			if (!File.Exists(fullName))
 				Program.DefaultData(name);
 			var xDoc = new XmlDocument();
@@ -144,6 +204,11 @@ namespace Transcribe.Windows
 			}
 
 			return xDoc;
+		}
+
+		private static string XmlFullName(string name)
+		{
+			return Path.Combine(DataFolder, name + ".xml");
 		}
 
 		private string ApiFolder()
@@ -180,12 +245,49 @@ namespace Transcribe.Windows
 				}
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
+				foreach (XmlNode taskNode in taskNodes)
+				{
+					var assignedTo = taskNode.SelectSingleNode("@assignedto");
+					if (!string.IsNullOrEmpty(assignedTo?.InnerText))
+					{
+						var id = taskNode.SelectSingleNode("@id");
+						CopyAudioFile(id?.InnerText);
+					}
+				}
 			}
 
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetTasks")))
 			{
 				sw.Write($"[{string.Join(",", taskList)}]");
 			}
+		}
+
+		private void CopyAudioFile(string taskid)
+		{
+			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskid.Split('-'))));
+			var apiFolder = ApiFolder();
+			var audioFolder = Path.Combine(apiFolder, "audio");
+			if (!Directory.Exists(audioFolder))
+				Directory.CreateDirectory(audioFolder);
+			var dirInfo = new DirectoryInfo(folder);
+			foreach (var ext in ".mp3;.wav".Split(';'))
+			{
+				var target = Path.Combine(audioFolder, taskid + ext);
+				if (File.Exists(target))
+					continue;
+				var files = dirInfo.GetFiles(taskid + "*" + ext);
+				var name = string.Empty;
+				foreach (var fileInfo in files)
+				{
+					if (string.Compare(fileInfo.Name, name, StringComparison.Ordinal) > 1)
+						name = fileInfo.Name;
+				}
+				if (!string.IsNullOrEmpty(name))
+				{
+					File.Copy(Path.Combine(folder, name), target);
+				}
+			}
+
 		}
 
 		private void TaskSkillFilter(XmlNodeList taskNodes, XmlNode userNode)
@@ -230,7 +332,7 @@ namespace Transcribe.Windows
 
 		private static XmlNode UserNode(string query)
 		{
-			var parsedQuery = System.Web.HttpUtility.ParseQueryString(query);
+			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var usersDoc = parsedQuery.Count != 0 ? LoadXmlData("users") : null;
 			var userNode = usersDoc?.SelectSingleNode($"//*[local-name() = 'user' and username/@id='{parsedQuery.GetValues(0)[0]}']");
 			return userNode;
