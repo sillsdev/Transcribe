@@ -1,3 +1,17 @@
-.MainLayout div.col-md-3 {
-    height: 100%;
+.MainLayout {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.MainLayout .NavCol {
+    flex: 0 0 auto;
+}
+
+.MainLayout .TaskCol {
+    flex: 0 0 auto;
+}
+
+.MainLayout .MainCol {
+    flex: 1 0 auto;
 }
