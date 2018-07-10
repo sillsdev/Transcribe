@@ -1,16 +1,10 @@
 import Axios from 'axios';
-import { ASSIGN_TASK, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from './types';
+import { FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from './types';
 
 
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
-    Axios.post('/api/AssignTasks?task=' + taskid + '&user=' + userid).
-        then(dispatch({
-                payload: {
-                    taskid: {taskid},
-                    userid: {userid},
-                },
-                type: ASSIGN_TASK
-            })
+    Axios.put('/api/TaskEvent?action=Assigned&task=' + taskid + '&user=' + userid).
+        then(fetchTasks(userid)
         );
 }
 

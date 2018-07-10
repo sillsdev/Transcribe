@@ -37,12 +37,12 @@ class TaskPanel extends React.Component<IProps, object> {
         const assignedHead = assignedTranscribe.length > 0?
             (<h4 className="ListHead">Assigned</h4>):"";
         const assignedList = assignedTranscribe.map((t: ITask) => (
-            <TaskItem id={t.id} select={this.props.selectTask.bind(t.id)}/>
+            <TaskItem id={t.id} select={this.props.selectTask.bind(this,t.id)}/>
         ));
         const availableHead = availableTranscribe.length > 0?
             (<h4 className="ListHead">Available</h4>):"";
         const availableList = availableTranscribe.map((t: ITask) => (
-            <TaskItem id={t.id} select={this.props.assignTask.bind(t.id, selectedUser)}/>
+            <TaskItem id={t.id} select={this.props.assignTask.bind(this,t.id, selectedUser)}/>
         ));
         return (
             <div className="TaskPanel">
