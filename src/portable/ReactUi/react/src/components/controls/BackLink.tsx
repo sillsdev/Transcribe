@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
 import './BackLink.css';
 
@@ -13,7 +12,9 @@ class BackLink extends React.Component<IProps, object> {
         return (
             <div className="BackLink">
                 <Link to={target}>
-                    <FontAwesome name="angle-left" />
+                    {/* {"\u2039"} */}
+                    {/* {"\u2329"} */}
+                    {"\u276E"}
                 </Link>
             </div>
             )

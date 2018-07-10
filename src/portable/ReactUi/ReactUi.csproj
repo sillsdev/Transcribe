@@ -45,10 +45,10 @@
     <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
     <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
     <EmbeddedResource Include="react\build\assets\testAvatar.png" />
-    <EmbeddedResource Include="react\build\static\css\main.30a1b4e5.css" />
-    <EmbeddedResource Include="react\build\static\css\main.30a1b4e5.css.map" />
-    <EmbeddedResource Include="react\build\static\js\main.2d0fbe39.js" />
-    <EmbeddedResource Include="react\build\static\js\main.2d0fbe39.js.map" />
+    <EmbeddedResource Include="react\build\static\css\main.18ca8cc9.css" />
+    <EmbeddedResource Include="react\build\static\css\main.18ca8cc9.css.map" />
+    <EmbeddedResource Include="react\build\static\js\main.fc90d740.js" />
+    <EmbeddedResource Include="react\build\static\js\main.fc90d740.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\images\" />
