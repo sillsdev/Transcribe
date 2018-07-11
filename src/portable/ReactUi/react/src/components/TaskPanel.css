@@ -1,6 +1,8 @@
 .TaskPanel {
     background-color: rgba(124, 115, 115, 0.5);
+    width: 231px;
     height: 100%;
+    padding: 20px 40px;
 }
 
 .TaskPanel .SectionHead {

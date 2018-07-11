@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import Editor from './Editor'
+import AudioPanel from './AudioPanel'
 import './MainLayout.css';
 import NavPanel from './NavPanel'
 import TaskPanel from './TaskPanel'
@@ -15,7 +15,7 @@ class MainLayout extends React.Component<any> {
                         <TaskPanel {...this.props} />
                     </div>
                     <div className="MainCol">
-                        <Editor {...this.props} />
+                        <AudioPanel {...this.props} />
                     </div>
                 </div>
         )

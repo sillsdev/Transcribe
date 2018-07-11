@@ -1,0 +1,9 @@
+.PlayPause {
+    color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-size: 28pt;
+    margin-left: 24px;
+    margin-top: 8px;
+}
