@@ -1,45 +1,26 @@
 import * as React from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import './ProgressPane.css';
 
-const actions = {
-    updateAge: ():boolean => true,
-    updateName: ():boolean => true,
-};
-
-interface IProps extends IStateProps, IDispatchProps {
-};
+interface IProps {
+    selectedTask: string;
+}
 
 class ProgressPane extends React.Component<IProps, object> {
     public render() {
-        const { name, age, updateName, updateAge} = this.props;
+        const { selectedTask } = this.props;
+        const audioFile = '/api/audio/' + selectedTask + '.mp3'
         return (
             <div className="ProgressPane"> 
-                <input value={name} /> <button onClick={updateName} />
-                <input value={age} /> <button onClick={updateAge} />
+                <ReactAudioPlayer src={audioFile} controls={true} />
             </div>
             )
     }
 };
 
-interface IStateProps {
-    age?: number;
-    name?: string;
-};
-
-const mapStateToProps = (state: any): IStateProps => ({
-});
-
-interface IDispatchProps {
-    updateAge: typeof actions.updateAge;
-    updateName: typeof actions.updateName;
-};
-
-const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
-    ...bindActionCreators({
-        ...actions,
-    }, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProgressPane);
+const mapStateToProps = (state: any) => ({
+    selectedTask: state.tasks.selectedTask,
+  });
+  
+  export default connect(mapStateToProps)(ProgressPane);

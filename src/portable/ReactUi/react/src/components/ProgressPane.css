@@ -1,4 +1,11 @@
 .ProgressPane {
     background-color: #CCCCCA;
     height: 210px;
+    display:flex;
+}
+
+.ProgressPane * {
+    width: 90%;
+    align-self: center;
+    margin: 20px;
 }
