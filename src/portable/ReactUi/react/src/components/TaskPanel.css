@@ -3,6 +3,7 @@
     width: 231px;
     height: 100%;
     padding: 20px 40px;
+    overflow-y: auto;
 }
 
 .TaskPanel .SectionHead {
