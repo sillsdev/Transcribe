@@ -15,12 +15,12 @@
 }
 
 body{
-      background-color: #2F2C23;
+      background-color: #002B36;
 }
 
 .SelectProject .list-group-item {
     display: inline-flex;
-    background-color: #2F2C23;
+    background-color: #002B36;
     border: none;
 }
 
@@ -30,6 +30,6 @@ body{
 
 .SelectProject a {
     text-decoration: none;
-    background-color: #2F2C23;
+    background-color: #002B36;
 
 }
