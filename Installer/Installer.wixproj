@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>83C2F8AC-D317-47F6-A17A-A624830577A9</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>TranscriberSetup</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\output\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\output\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WixVariables></WixVariables>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>..\output\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\output\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WixVariables></WixVariables>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Application.wxs" />
+    <Compile Include="Transcriber.wxs" />
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <ItemGroup>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>$(WixExtDir)\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+	<Copy SourceFiles="License.rtf" DestinationFolder="$(SolutionDir)/output/Release" />
+    <Exec Command="BuildStep.exe -v:1 -a:FileComponents --ApplicationFileName=Application.wxs --BasePath=$(SolutionDir)Installer" WorkingDirectory="$(SolutionDir)" />
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent />
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

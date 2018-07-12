@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\..\output\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,12 +28,15 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\output\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -45,10 +48,10 @@
     <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
     <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
     <EmbeddedResource Include="react\build\assets\testAvatar.png" />
-    <EmbeddedResource Include="react\build\static\css\main.18ca8cc9.css" />
-    <EmbeddedResource Include="react\build\static\css\main.18ca8cc9.css.map" />
-    <EmbeddedResource Include="react\build\static\js\main.fc90d740.js" />
-    <EmbeddedResource Include="react\build\static\js\main.fc90d740.js.map" />
+    <EmbeddedResource Include="react\build\static\css\main.25ad73bf.css" />
+    <EmbeddedResource Include="react\build\static\css\main.25ad73bf.css.map" />
+    <EmbeddedResource Include="react\build\static\js\main.a8a8772a.js" />
+    <EmbeddedResource Include="react\build\static\js\main.a8a8772a.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\images\" />
