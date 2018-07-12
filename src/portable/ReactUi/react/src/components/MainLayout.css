@@ -6,6 +6,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
+    overflow-y: hidden;
 }
 
 .MainLayout .NavCol {
@@ -18,4 +19,11 @@
 
 .MainLayout .MainCol {
     flex: 1 0 auto;
+}
+
+/* Undo bootstrap box-sizing */
+.MainLayout * {
+    box-sizing: unset;
+    -moz-box-sizing: unset;
+    -webkit-box-sizing: unset;
 }

@@ -11,11 +11,7 @@ class NextAction extends React.Component<IProps, object> {
         const { target } = this.props;
         return (
             <div className="NextAction">
-                <Button to={target}>
-                    {/* {"\u2039"} */}
-                    {/* {"\u2329"} */}
-                    {"\u2022 \u2022 \u2022"}
-                </Button>
+                <Button onClick={target} bsStyle="primary" bsSize="small">{"Submit"}</Button>
             </div>
             )
     }
