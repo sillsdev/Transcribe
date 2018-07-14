@@ -1,7 +1,20 @@
 import { FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from '../actions/types';
 
+interface ITask {
+    assignedto: string;
+    id: string;
+    name: string;
+    state: string;
+};
+
+interface IProject {
+    id: string;
+    type?: string;
+    task: ITask[];
+};
+
 const initialState = {
-    projects: [],
+    projects: Array<IProject>(),
     selectedProject: "",
     selectedTask: "",
 }
@@ -16,13 +29,27 @@ export default function (state = initialState, action: any) {
         case SELECT_PROJECT:
             return {
                 ...state,
-                selectedProject: action.payload
+                projects: projects(state.projects, action),
+                selectedProject: action.payload,
             }
         case SELECT_TASK:
             return {
                 ...state,
-                selectedTask: action.payload
+                projects: projects(state.projects, action),
+                selectedTask: action.payload,
             }
+        default:
+            return state;
+    }
+}
+
+function projects (state:IProject[] = Array<IProject>(), action:any) {
+    switch (action.type) {
+        case SELECT_PROJECT:
+        case SELECT_TASK:
+            return [
+                ...state,
+            ];
         default:
             return state;
     }

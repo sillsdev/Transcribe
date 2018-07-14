@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import AudioPanel from './AudioPanel'
 import './MainLayout.css';
 import NavPanel from './NavPanel'
@@ -9,20 +8,17 @@ class MainLayout extends React.Component<any> {
     public render() {
         return (<div className="MainLayout">
                     <div className="NavCol">
-                        <NavPanel {...this.props} />
+                        <NavPanel />
                     </div>
                     <div className="TaskCol">
-                        <TaskPanel {...this.props} />
+                        <TaskPanel />
                     </div>
                     <div className="MainCol">
-                        <AudioPanel {...this.props} />
+                        <AudioPanel />
                     </div>
                 </div>
         )
     }
 };
 
-const mapStateToProps = (state: any): any => ({
-});
-
-export default connect(mapStateToProps)(MainLayout);
+export default MainLayout;
