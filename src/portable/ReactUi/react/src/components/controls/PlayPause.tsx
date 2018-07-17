@@ -13,7 +13,8 @@ interface IProps {
 class PlayPause extends React.Component<IProps, object> {
     public render() {
         const { playing } = this.props;
-        const playCharacter = playing? "\u2225" : "\u25B6";
+        const playCharacter = playing? <div className='pause'>{"\u23F8"}</div> : 
+            <div className='play'>{"\u25B6"}</div>;
         return (
             <div className="PlayPause" onClick={this.props.playStatus.bind(this, !playing)}>
                {playCharacter}
