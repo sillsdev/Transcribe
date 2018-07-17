@@ -42,7 +42,7 @@ class UserLogin extends React.Component<IProps, object> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: IState) => ({
   users: state.users.users
 });
 

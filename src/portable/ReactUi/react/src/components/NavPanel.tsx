@@ -52,7 +52,7 @@ class NavPanel extends React.Component<IProps, object> {
     }
 };
 
-const mapStateToProps = (state: any): IProps => ({
+const mapStateToProps = (state: IState): IProps => ({
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     tasks: state.tasks.projects,

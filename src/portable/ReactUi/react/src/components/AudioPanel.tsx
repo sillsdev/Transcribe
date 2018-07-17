@@ -22,7 +22,7 @@ class AudioPanel extends React.Component<any> {
     }
 };
 
-const mapStateToProps = (state: any): any => ({
+const mapStateToProps = (state: IState) => ({
 });
 
 export default connect(mapStateToProps)(AudioPanel);

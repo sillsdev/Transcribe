@@ -19,7 +19,7 @@ class ProgressPane extends React.Component<IProps, object> {
     }
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: IState): IProps => ({
     selectedTask: state.tasks.selectedTask,
   });
   

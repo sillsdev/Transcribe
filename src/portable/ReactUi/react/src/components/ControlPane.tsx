@@ -40,7 +40,7 @@ interface IStateProps {
     name?: string;
 };
 
-const mapStateToProps = (state: any): IStateProps => ({
+const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 interface IDispatchProps {

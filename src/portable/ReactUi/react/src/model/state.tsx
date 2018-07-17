@@ -1,12 +1,13 @@
 interface IState {
     users: {
-        user: IUser[];
+        users: IUser[];
         selectedUser: string;
     };
     tasks: {
-        assignedTranscribe: ITask[],
-        availableTranscribe: ITask[],
+        loaded: boolean;
+        pending: boolean;
         projects: IProject[];
         selectedProject: string;
+        selectedTask: string;
     }
 }

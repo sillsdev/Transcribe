@@ -7,11 +7,6 @@ import AvatarLink from './controls/AvatarLink';
 import { ProjectAvatar } from './controls/ProjectAvatar';
 import './SelectProject.css';
 
-interface IProject {
-  id: string;
-  type?: string;
-};
-
 interface IProps {
   selectedUser: string;
   projects: IProject[];
@@ -62,7 +57,7 @@ class SelectProject extends React.Component<IProps, object> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: IState) => ({
   loaded: state.tasks.loaded,
   projects: state.tasks.projects,
   selectedUser: state.users.selectedUser,
