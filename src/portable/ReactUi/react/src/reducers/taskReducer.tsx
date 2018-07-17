@@ -1,4 +1,4 @@
-import { FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from '../actions/types';
+import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from '../actions/types';
 
 interface ITask {
     assignedto: string;
@@ -15,6 +15,7 @@ interface IProject {
 
 const initialState = {
     loaded: false,
+    pending: false,
     projects: Array<IProject>(),
     selectedProject: "",
     selectedTask: "",
@@ -22,10 +23,18 @@ const initialState = {
 
 export default function (state = initialState, action: any) {
     switch (action.type) {
+        case ASSIGN_TASK_PENDING:
+            return {
+                ...state,
+                loaded: false,
+                pending: true,
+                projects: projects(state.projects, action),
+            }
         case FETCH_TASKS:
             return {
                 ...state,
                 loaded: true,
+                pending: false,
                 projects: action.payload.data,
             };
         case SELECT_PROJECT:
