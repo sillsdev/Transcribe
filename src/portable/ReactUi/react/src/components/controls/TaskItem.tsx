@@ -4,7 +4,7 @@ import './TaskItem.css';
 
 interface IProps {
     id: string;
-    select: () => any;
+    select: (id: string) => any;
 };
 
 class TaskItem extends React.Component<IProps, object> {
@@ -12,7 +12,7 @@ class TaskItem extends React.Component<IProps, object> {
         const { id, select } = this.props;
         return (
             <div className="TaskItem">
-                <Button onClick={select}>{id}</Button>
+                <Button onClick={select.bind(id)}>{id}</Button>
             </div>
             )
     }

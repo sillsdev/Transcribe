@@ -9,3 +9,11 @@
     align-self: center;
     margin: 20px;
 }
+
+.progressBar{
+    height: 150px;
+}
+
+.RealPlayer{
+    /* display: none; */
+}

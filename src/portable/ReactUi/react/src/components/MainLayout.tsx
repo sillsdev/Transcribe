@@ -1,24 +1,38 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import {playStatus} from '../actions/audioActions';
 import AudioPanel from './AudioPanel'
 import './MainLayout.css';
 import NavPanel from './NavPanel'
 import TaskPanel from './TaskPanel'
 
-class MainLayout extends React.Component<any> {
+interface IProps {
+    playStatus: (playing:boolean) => any;
+    played: number;
+    player: any;
+    seeking: boolean;
+    totalSeconds: number;
+    playedSeconds:number;
+};
+
+class MainLayout extends React.Component<IProps, any> {
     public render() {
         return (<div className="MainLayout">
                     <div className="NavCol">
-                        <NavPanel />
+                        <NavPanel {...this.props} />
                     </div>
                     <div className="TaskCol">
-                        <TaskPanel />
+                        <TaskPanel {...this.props} />
                     </div>
                     <div className="MainCol">
-                        <AudioPanel />
+                        <AudioPanel {...this.props} />
                     </div>
                 </div>
         )
     }
 };
 
-export default MainLayout;
+const mapStateToProps = (state: any): any => ({
+});
+
+export default connect(mapStateToProps, {playStatus})(MainLayout);

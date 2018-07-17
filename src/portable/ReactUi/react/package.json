@@ -6,7 +6,6 @@
     "axios": "^0.18.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
-    "react-audio-player": "^0.10.0",
     "react-avatar": "^3.0.2",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
@@ -16,7 +15,8 @@
     "react-router-dom": "^4.3.1",
     "react-scripts-ts": "2.16.0",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -34,6 +34,7 @@
     "@types/react-fontawesome": "^1.6.3",
     "@types/react-redux": "^6.0.3",
     "@types/react-router-dom": "^4.2.7",
+    "@types/reselect": "^2.2.0",
     "awesome-typescript-loader": "^5.2.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",

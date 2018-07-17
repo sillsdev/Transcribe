@@ -5,7 +5,23 @@ import ControlPane from './ControlPane';
 import EditorPane from './EditorPane';
 import ProgressPane from './ProgressPane';
 
-class AudioPanel extends React.Component<any> {
+
+interface IProps extends IStateProps {
+    playStatus: (playing: boolean) => any;
+    played: number;
+    player: any
+};
+
+interface IStateProps {
+    playing?: boolean;
+    seeking: boolean;
+    totalSeconds: number;
+    playedSeconds:number;
+    playSpeedRate?: number;
+};
+
+
+class AudioPanel extends React.Component<IProps, object> {
     public render() {
         return (<div className="AudioPanel">
                     <div className="ProgressRow">
@@ -22,7 +38,9 @@ class AudioPanel extends React.Component<any> {
     }
 };
 
-const mapStateToProps = (state: IState) => ({
+const mapStateToProps = (state: any): any => ({
+    playSpeedRate: state.audio.playSpeedRate,
+    playing: state.audio.playing
 });
 
 export default connect(mapStateToProps)(AudioPanel);
