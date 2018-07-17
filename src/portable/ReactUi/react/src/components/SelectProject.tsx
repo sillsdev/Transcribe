@@ -15,6 +15,7 @@ interface IProject {
 interface IProps {
   selectedUser: string;
   projects: IProject[];
+  loaded: boolean;
   fetchTasks: typeof fetchTasks;
   selectProject: typeof selectProject;
 };
@@ -26,7 +27,7 @@ class SelectProject extends React.Component<IProps, object> {
   }
 
   public render() {
-    const { projects } = this.props
+    const { loaded, projects } = this.props
 
     const avatars = projects.map((p:IProject) => 
       <ListGroupItem key={p.id}>
@@ -40,15 +41,17 @@ class SelectProject extends React.Component<IProps, object> {
     let wrapper = (<ListGroup>
       {avatars}
     </ListGroup>)
-    switch (projects.length){
-      case 0:
-        wrapper = (<Redirect to="/"/>)
-        break;
-      case 1:
-        this.props.selectProject(projects[0].id)
-        wrapper = (<Redirect to="/main"/>)
-      default:
-        break;
+    if (loaded){
+      switch (projects.length){
+        case 0:
+          wrapper = (<Redirect to="/"/>)
+          break;
+        case 1:
+          this.props.selectProject(projects[0].id)
+          wrapper = (<Redirect to="/main"/>)
+        default:
+          break;
+      }
     }
 
     return (
@@ -60,6 +63,7 @@ class SelectProject extends React.Component<IProps, object> {
 }
 
 const mapStateToProps = (state: any) => ({
+  loaded: state.tasks.loaded,
   projects: state.tasks.projects,
   selectedUser: state.users.selectedUser,
 });

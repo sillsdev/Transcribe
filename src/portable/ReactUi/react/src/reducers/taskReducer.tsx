@@ -14,6 +14,7 @@ interface IProject {
 };
 
 const initialState = {
+    loaded: false,
     projects: Array<IProject>(),
     selectedProject: "",
     selectedTask: "",
@@ -24,7 +25,8 @@ export default function (state = initialState, action: any) {
         case FETCH_TASKS:
             return {
                 ...state,
-                projects: action.payload.data
+                loaded: true,
+                projects: action.payload.data,
             };
         case SELECT_PROJECT:
             return {
