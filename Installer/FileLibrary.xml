@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FileLibrary>
+  <File Path="ReactUi.dll" ComponentGuid="08A1E715-E280-47F8-861A-D070EEF2FE51" />
+  <File Path="ReactUi.pdb" ComponentGuid="2612FAAD-8340-4593-97B7-9A5EF5FAF61F" />
+  <File Path="Firefox\AccessibleMarshal.dll" ComponentGuid="1F18686A-21AB-4579-82C9-AE7E657D1C64" />
+  <File Path="Firefox\breakpadinjector.dll" ComponentGuid="4DA06DD9-68B7-48CE-B06D-56C1B898CA16" />
+  <File Path="Firefox\d3dcompiler_47.dll" ComponentGuid="22259F83-40C2-4B22-9C1B-A78CED4E4A4B" />
+  <File Path="Firefox\freebl3.dll" ComponentGuid="00E12CFF-157C-4A5A-8705-4385F25D140D" />
+  <File Path="Firefox\icudt58.dll" ComponentGuid="13E538CC-6B6C-4A07-A983-A138E587FF6E" />
+  <File Path="Firefox\icuin58.dll" ComponentGuid="CF604752-BA39-4F19-BD12-6EBAD7202B65" />
+  <File Path="Firefox\icuuc58.dll" ComponentGuid="8F5F4317-42F9-44B5-9665-9A3C2988F5DD" />
+  <File Path="Firefox\lgpllibs.dll" ComponentGuid="C0E57DAD-CBAC-422A-9440-F20271105A66" />
+  <File Path="Firefox\libEGL.dll" ComponentGuid="21EAAE86-5DC3-400C-A3D3-0DFED80D0D5D" />
+  <File Path="Firefox\libGLESv2.dll" ComponentGuid="F5094BC0-F876-4EC2-B06C-486630BEF53D" />
+  <File Path="Firefox\mozglue.dll" ComponentGuid="DE9E239C-E154-4A77-8A1F-1BE13A000C5D" />
+  <File Path="Firefox\nss3.dll" ComponentGuid="01079F57-E852-4DFA-9B5D-A7D0E34E3D7F" />
+  <File Path="Firefox\nssckbi.dll" ComponentGuid="8B8CD350-62CB-4492-AC31-70CD4C06CA89" />
+  <File Path="Firefox\nssdbm3.dll" ComponentGuid="A4075854-47DA-4A17-B2C0-4682D1592767" />
+  <File Path="Firefox\omni.ja" ComponentGuid="9FDAE5F5-0E66-42C8-84D8-9993D1E80D49" />
+  <File Path="Firefox\plugin-container.exe" ComponentGuid="D7506D70-A809-4318-89AB-A1996F7EB7C7" />
+  <File Path="Firefox\plugin-hang-ui.exe" ComponentGuid="A0E7EA02-3469-489B-9561-0D3072FEF1C1" />
+  <File Path="Firefox\sandboxbroker.dll" ComponentGuid="0CFD1031-A4C2-4011-B9A8-6D9682FEBC9C" />
+  <File Path="Firefox\softokn3.dll" ComponentGuid="90ECA25F-634F-4D65-B381-8945999D9F13" />
+  <File Path="Firefox\xul.dll" ComponentGuid="E3A37C20-2EC9-473A-A70C-9A95FB1BBCAB" />
+  <File Path="Geckofx-Core.dll" ComponentGuid="C3B93D96-28F9-436B-A8B7-D78522E46CB9" />
+  <File Path="Geckofx-Core.pdb" ComponentGuid="A5001B23-12AA-4593-820F-879BF4C76660" />
+  <File Path="Geckofx-Winforms.dll" ComponentGuid="0B17CBF0-6916-4D3E-A663-0ABFA3B1F13E" />
+  <File Path="Geckofx-Winforms.pdb" ComponentGuid="86CAADA1-859D-4B3C-AB67-6D67C95E221E" />
+  <File Path="Newtonsoft.Json.dll" ComponentGuid="8C5029D9-7AB1-4580-A9EA-51F2D0DFE341" />
+  <File Path="Newtonsoft.Json.xml" ComponentGuid="3A5A7647-142F-494A-8191-E34987079EBB" />
+  <File Path="SimpleServer.exe" ComponentGuid="B2D468CF-D0E2-447C-AB8F-4ACC908861A1" />
+  <File Path="SimpleServer.exe.config" ComponentGuid="E789838D-0920-46D7-AA33-256855572BAF" />
+  <File Path="SimpleServer.pdb" ComponentGuid="1817B68A-A39B-4DD3-88AD-99B4CEA6E018" />
+  <File Path="Transcribe.Windows.exe" ComponentGuid="6E501E7E-D67E-44DF-A2F7-3B24FBCE3788" />
+  <File Path="Transcribe.Windows.exe.config" ComponentGuid="BA0C3E24-21FE-4A3F-9A56-9BDC513CC788" />
+  <File Path="Transcribe.Windows.pdb" ComponentGuid="DF4C0839-3A90-4446-ABF3-979937804987" />
+  <File Path="License.rtf" ComponentGuid="AA54BCF7-604F-485A-AC6D-C2515CF0936E" />
+</FileLibrary>
