@@ -11,13 +11,13 @@
 }
 
 /* Tooltip container */
-.tooltip {
+.SpeedBar .tooltip {
     position: relative;
     display: inline-block;
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
+.SpeedBar .tooltip .tooltiptext {
     visibility: hidden;
     color: #000;
     text-align: center;
@@ -31,16 +31,16 @@
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+.SpeedBar .tooltip:hover .tooltiptext {
     visibility: visible;
 }
 
-.slider-origin {
+.SpeedBar .slider-origin {
     height: 24px;
     border-right: 1px solid grey;
     position: relative;
     left: 39px;
-    left: 44px;
+    left: 40px;
     display: inline-block;
     vertical-align: middle;
 }
