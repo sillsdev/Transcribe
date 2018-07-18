@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?define Product="Transcriber"?>
 <?define UpgradeCode="5B73C2DB-296F-416A-9C5B-9989D826EAE8"?>
-<?define BUILD_NUMBER="0.1.0"?>
+<?define BUILD_NUMBER="0.1.1"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <Product Id="*" Name="$(var.Product) $(var.BUILD_NUMBER)" Language="1033" Version="$(var.BUILD_NUMBER)" Manufacturer="SIL International" UpgradeCode="$(var.UpgradeCode)">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
@@ -27,7 +27,7 @@
         <Directory Id="TranscriberMenu" Name="Transcriber $(var.BUILD_NUMBER)">
           <Component Id="AddShortcutApp" Guid="CA8CC61B-3398-4B9C-887A-B02EDD43C203">
             <Shortcut Id="ShortcutApp" Name="Transcriber Tool" Target="[!transcribe.windows.exe]" Hotkey="0" IconIndex="0" Show="normal" WorkingDirectory="APPLICATIONFOLDER" />
-            <Shortcut Id="desktopShortcutApp" Directory="DesktopFolder" Name="Transcriber Tool" Target="[!transcribe.windows.exe]" IconIndex="0" />
+            <Shortcut Id="desktopShortcutApp" Directory="DesktopFolder" Name="Transcriber Tool" Target="[!transcribe.windows.exe]" IconIndex="0" WorkingDirectory="APPLICATIONFOLDER" />
             <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
             <RegistryValue Root="HKCU" Key="Software\SIL\Transcriber" Name="TranscriberDir" Type="string" Value="[APPLICATIONFOLDER]" />
           </Component>
@@ -42,11 +42,11 @@
         <RegistryValue Root="HKLM" Key="Software\SIL\Transcriber" Name="TranscriberDir" Type="string" Value="[APPLICATIONFOLDER]" />
       </Component>
     </DirectoryRef>
-    <Icon Id="transcribe.windows.exe" SourceFile="..\output\Release\Transcribe.Windows.exe" />
+    <!-- Icon Id="transcribe.windows.exe" SourceFile="..\output\Release\Transcribe.Windows.exe" / -->
     <Property Id="ARPPRODUCTICON" Value="transcribe.windows.exe" />
     <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
-    <WixVariable Id="WixUIDialogBmp" Value="bannrbmp.bmp" />
-    <WixVariable Id="WixUIBannerBmp" Value="dlgbmp.bmp" />
+    <!-- WixVariable Id="WixUIDialogBmp" Value="bannrbmp.bmp" />
+    <WixVariable Id="WixUIBannerBmp" Value="dlgbmp.bmp" / -->
     <Property Id="WIXUI_INSTALLDIR" Value="APPLICATIONFOLDER" />
     <UIRef Id="WixUI_InstallDir" />
     <InstallExecuteSequence>
