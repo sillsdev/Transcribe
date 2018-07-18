@@ -12,23 +12,32 @@ interface IProps {
     loaded: boolean;
     pending: boolean;
     selectedUser: string;
+    selectedTask: string;
     selectTask: typeof selectTask;
 };
 
 class TaskPanel extends React.Component<IProps, object> {
       public render() {
-        const { assignedTranscribe, availableTranscribe, loaded, pending, selectedUser } = this.props;
+        const { assignedTranscribe, availableTranscribe, loaded, pending, selectedUser, selectedTask } = this.props;
         const transcribeHead = (assignedTranscribe.length + availableTranscribe.length > 0)?
             (<h3 className="SectionHead">TO TRANSCRIBE</h3>): <div/>;
         const assignedHead = assignedTranscribe.length > 0?
             (<h4 className="ListHead">Assigned</h4>): <div/>;
         const assignedList = assignedTranscribe.map((t: ITask) => (
-            <TaskItem id={t.id} select={this.props.selectTask.bind(this,t.id)}/>
+            <TaskItem
+                id={t.id}
+                name={t.name}
+                selected={t.id === selectedTask}
+                select={this.props.selectTask.bind(this,t.id)}/>
         ));
         const availableHead = availableTranscribe.length > 0?
             (<h4 className="ListHead">Available</h4>): <div/>;
         const availableList = availableTranscribe.map((t: ITask) => (
-            <TaskItem id={t.id} select={this.props.assignTask.bind(this,t.id, selectedUser)}/>
+            <TaskItem
+                id={t.id}
+                name={t.name}
+                selected={t.id === selectedTask}
+                select={this.props.assignTask.bind(this,t.id, selectedUser)}/>
         ));
         const wrapper: JSX.Element = !pending && loaded? (
             <div>
@@ -52,6 +61,7 @@ const mapStateToProps = (state: IState) => ({
     availableTranscribe: taskList(state).availableTranscribe,
     loaded: state.tasks.loaded,
     pending: state.tasks.pending,
+    selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
   });
   
