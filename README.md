@@ -23,9 +23,13 @@ After updating ReactUi.csproj, rebuilding the Transcribe.Windows project will re
 
 When Transcribe.Windows is executed, it launches the SimpleServer code. It tries to use the localhost port 3010 to server the files from the react\build folder. Then the GeckoFx Browser control navigates to this port address to load the interface.
 
-The browser control is monitoring the HTTP requests. When it observes a request that begins with /api/ it interprets it as an API request for the C# to respond to. The application data is in the default location in ProgramData, company name, application name and version number.
+The browser control is monitoring the HTTP requests. When it observes a request that begins with /api/ it interprets it as an API request for the C# to respond to. The application data is in the default location in ProgramData, company name, and application name.
 
+These are GET requests:
 - `GetUsers` - loads the list of all users
 - `GetTasks` - loads the list of all tasks
 - `GetTasks?user=<username>` - loads that list of tasks that are available to the `<username>`
+
+This is a PUT request:
+- `TaskEvent?action=<action>&task=<task>&user=<user>` - records an action (see XML schema) on the task
 

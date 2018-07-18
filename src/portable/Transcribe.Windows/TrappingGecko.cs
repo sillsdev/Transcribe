@@ -176,7 +176,7 @@ namespace Transcribe.Windows
 			Debug.Assert(avatarNodes != null, nameof(avatarNodes) + " != null");
 			foreach (XmlNode avatarNode in avatarNodes)
 			{
-				var sourceFolder = Application.CommonAppDataPath;
+				var sourceFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
 				var avatarRelName = avatarNode.InnerText;
 				var sourceFullName = Path.Combine(sourceFolder, avatarRelName);
 				if (!File.Exists(sourceFullName))
