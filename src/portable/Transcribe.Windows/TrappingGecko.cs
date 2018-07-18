@@ -112,7 +112,7 @@ namespace Transcribe.Windows
 			NewAttr(historyNode,"action", action);
 			NewAttr(historyNode, "userid", user);
 			taskNode.AppendChild(historyNode);
-			using (var xw = XmlWriter.Create(XmlFullName("tasks")))
+			using (var xw = XmlWriter.Create(XmlFullName("tasks"), new XmlWriterSettings{Indent = true}))
 			{
 				tasksDoc.Save(xw);
 			}
