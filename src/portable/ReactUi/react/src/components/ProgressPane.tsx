@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import './ProgressPane.css';
-import { Audio } from './redux-audio';
+import ReactPlayer from './ReactPlayer';
 
 interface IProps extends IStateProps {
     selectedTask: string;
@@ -71,12 +71,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                         {/* <progress max={totalSeconds} value={audioPlayedSeconds} onMouseDown={this.onProgressMouseDown} onChange={this.onProgressChange} onMouseUp={this.onProgressMouseUp} /> */}
                     </div>
                     <div className="RealPlayer">
-                        {/* <ReactPlayer ref={this.ref} url={audioFile} controls={true} onEnded={this.props.playStatus.bind(this, false)} playbackRate={this.props.playSpeedRate} playing={this.props.playing} onProgress={this.onProgress} /> */}
-                        <Audio
-                            ref={this.ref}
-                            src={audioFile}
-                            controls={true} 
-                            />
+                        <ReactPlayer ref={this.ref} url={audioFile} controls={true} onEnded={this.props.playStatus.bind(this, false)} playbackRate={this.props.playSpeedRate} playing={this.props.playing} onProgress={this.onProgress} />
                     </div>
                 </div>
             </div>

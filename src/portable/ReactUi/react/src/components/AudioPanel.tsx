@@ -38,9 +38,9 @@ class AudioPanel extends React.Component<IProps, object> {
     }
 };
 
-const mapStateToProps = (state: any): any => ({
+const mapStateToProps = (state: IState): any => ({
     playSpeedRate: state.audio.playSpeedRate,
-    playing: state.audio.playing
+    playing: state.audio.playing,
 });
 
 export default connect(mapStateToProps)(AudioPanel);

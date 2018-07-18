@@ -10,4 +10,8 @@ interface IState {
         selectedProject: string;
         selectedTask: string;
     }
+    audio: {
+        playSpeedRate: number;
+        playing: boolean;
+    }
 }
