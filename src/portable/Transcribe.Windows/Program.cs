@@ -40,7 +40,7 @@ namespace Transcribe.Windows
 			using (var reactProcess = new Process {StartInfo = startInfo})
 			{
 				reactProcess.Start();
-				var f = new Form { Size = new Size(800, 800) };
+				var f = new Form { Size = new Size(1024, 800) };
 				_browser = new TrappingGecko { Folder = Path.GetDirectoryName(indexFullName), Dock = DockStyle.Fill, UseHttpActivityObserver = true};
 				f.Controls.Add(_browser);
 				var portAddr = GetPortAddr(reactProcess);
@@ -104,7 +104,7 @@ namespace Transcribe.Windows
 						WriteResource(resourceBase, folder, assembly, assetsTag, string.Join(".", nameParts, 4, nameParts.Length - 4));
 						break;
 					case staticTag:
-						WriteResource(resourceBase, folder, assembly, $"{staticTag}/{nameParts[4]}", string.Join(".", nameParts, 5, nameParts.Length - 5));
+						WriteResource(resourceBase, folder, assembly, $"{nameParts[3]}/{nameParts[4]}", string.Join(".", nameParts, 5, nameParts.Length - 5));
 						break;
 					case "index":
 						break;

@@ -1,0 +1,22 @@
+.AudioPanel {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    height: 100%;
+    width: 100%;
+    background-color: #A29C96;
+}
+
+.AudioPanel .ProgressRow {
+    flex: 0 0 auto;
+}
+
+.AudioPanel .EditorRow{
+    flex: 1 0 auto;
+}
+
+.AudioPanel .ControlRow {
+    flex: 0 0 auto;
+}

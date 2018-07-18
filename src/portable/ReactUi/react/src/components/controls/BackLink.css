@@ -1,0 +1,15 @@
+.BackLink {
+    color: rgba(202, 208, 212, 0.5);
+    font-size: 28pt;
+    text-align: center;
+    width: 100px;
+}
+
+.BackLink *::before {
+    color: rgba(202, 208, 212, 0.5);
+}
+
+.BackLink a {
+    text-decoration: none;
+    color: rgba(202, 208, 212, 0.5);
+}

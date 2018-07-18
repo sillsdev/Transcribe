@@ -1,0 +1,28 @@
+.TaskPanel {
+    background-color: rgba(124, 115, 115, 0.5);
+    width: 231px;
+    height: 100%;
+    padding: 20px 40px;
+    overflow-y: auto;
+}
+
+.TaskPanel .SectionHead {
+    font-family: Noto Serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: Center;
+    letter-spacing: 15%;
+    color: #BDC8D0;
+}
+
+.TaskPanel .ListHead {
+    font-family: Noto Sans;
+    font-weight: normal;
+    font-style: italic ;
+    font-size: 12px;
+    line-height:  16px;
+    text-align: Left;
+    letter-spacing: 15%;
+    color: rgba(202, 208, 212, 0.5);
+}

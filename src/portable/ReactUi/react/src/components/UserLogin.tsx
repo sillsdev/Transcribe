@@ -1,28 +1,30 @@
 import * as React from 'react';
-import Avatar from 'react-avatar';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchUsers, selectUser } from '../actions/userActions';
+import AvatarLink from './controls/AvatarLink';
 import './UserLogin.css';
 
-class UserLogin extends React.Component<any> {
+interface IProps {
+  users: IUser[];
+  fetchUsers: typeof fetchUsers;
+  selectUser: typeof selectUser;
+};
+
+class UserLogin extends React.Component<IProps, object> {
   public componentDidMount() {
     this.props.fetchUsers();
   }
 
   public render() {
-    const { users } = this.props.users
-    const avatars = users.map((user:any) => 
-    <ListGroupItem key={user.id}>
-      <div onClick={this.props.selectUser.bind(this, user.id)}>
-        <Avatar name={user.displayName} src={user.username.avatarUri} size="64" round={true}/>
-        <br /> <br />
-        <div className="caption">{user.displayName}</div>
-      </div>
-    </ListGroupItem>);
+    const { users } = this.props
+    const avatars = users.map((user:IUser) => 
+      <ListGroupItem key={user.id}>
+        <AvatarLink id={user.username.id} name={user.displayName} target="/project" uri={user.username.avatarUri} select={this.props.selectUser} />
+      </ListGroupItem>);
 
     return (
-      <div className="centered">
+      <div className="UserLogin">
         <ListGroup>
             {avatars}
         </ListGroup>
@@ -31,8 +33,8 @@ class UserLogin extends React.Component<any> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
-  users: state.users
+const mapStateToProps = (state: IState) => ({
+  users: state.users.users
 });
 
 export default connect(mapStateToProps, { fetchUsers, selectUser })(UserLogin);

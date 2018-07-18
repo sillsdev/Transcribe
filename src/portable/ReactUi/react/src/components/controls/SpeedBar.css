@@ -1,0 +1,46 @@
+.SpeedBar {
+    color: rgba(0,0,0,0.6);
+    display:flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.SpeedBar input {
+    width:80px;
+    z-index: 50;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    color: #000;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    width: 40px;
+    bottom: 100%;
+    margin-left: -60px; 
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.slider-origin {
+    height: 24px;
+    border-right: 1px solid grey;
+    position: relative;
+    left: 39px;
+    left: 44px;
+    display: inline-block;
+    vertical-align: middle;
+}

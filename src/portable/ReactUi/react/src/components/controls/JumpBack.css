@@ -1,0 +1,7 @@
+.JumpBack {
+    color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-size: 28pt;
+}

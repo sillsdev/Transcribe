@@ -1,0 +1,14 @@
+.EditorPane {
+    background-color: #ECEAE5;
+    flex: 1 0 auto;
+    display:flex;
+    align-items: stretch;
+    flex-direction: column;
+    height: 100%;
+}
+
+.EditorPane textarea {
+    flex: 1 0 auto;
+    overflow-y: auto;
+    height: 100%;
+}

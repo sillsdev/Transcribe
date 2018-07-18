@@ -112,7 +112,7 @@ namespace Transcribe.Windows
 			NewAttr(historyNode,"action", action);
 			NewAttr(historyNode, "userid", user);
 			taskNode.AppendChild(historyNode);
-			using (var xw = XmlWriter.Create(XmlFullName("tasks")))
+			using (var xw = XmlWriter.Create(XmlFullName("tasks"), new XmlWriterSettings{Indent = true}))
 			{
 				tasksDoc.Save(xw);
 			}
@@ -221,7 +221,9 @@ namespace Transcribe.Windows
 
 		private void GetTasks(string query)
 		{
-			var userNode = UserNode(query);
+			var parsedQuery = HttpUtility.ParseQueryString(query);
+			var user = parsedQuery["user"];
+			var userNode = UserNode(user);
 			var apiFolder = ApiFolder();
 			var tasksDoc = LoadXmlData("tasks");
 			var projectNodes = tasksDoc.SelectNodes("//*[local-name()='project']");
@@ -231,7 +233,7 @@ namespace Transcribe.Windows
 			{
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
 				Debug.Assert(taskNodes != null, nameof(taskNodes) + " != null");
-				TaskSkillFilter(taskNodes, userNode);
+				TaskSkillFilter(taskNodes, userNode, user);
 				if (taskNodes.Count == 0)
 					continue;
 				if (taskNodes.Count == 1)
@@ -247,12 +249,11 @@ namespace Transcribe.Windows
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 				foreach (XmlNode taskNode in taskNodes)
 				{
-					var assignedTo = taskNode.SelectSingleNode("@assignedto");
-					if (!string.IsNullOrEmpty(assignedTo?.InnerText))
-					{
-						var id = taskNode.SelectSingleNode("@id");
-						CopyAudioFile(id?.InnerText);
-					}
+					var assignedTo = taskNode.SelectSingleNode("@assignedto")?.InnerText;
+					if (assignedTo != user)
+						continue;
+					var id = taskNode.SelectSingleNode("@id");
+					CopyAudioFile(id?.InnerText);
 				}
 			}
 
@@ -290,10 +291,9 @@ namespace Transcribe.Windows
 
 		}
 
-		private void TaskSkillFilter(XmlNodeList taskNodes, XmlNode userNode)
+		private void TaskSkillFilter(XmlNodeList taskNodes, XmlNode userNode, string userName)
 		{
 			var skill = userNode?.SelectSingleNode("./@skill")?.InnerText;
-			var userName = userNode?.SelectSingleNode("./*[local-name() = 'username']/@id")?.InnerText;
 			switch (skill)
 			{
 				case "trainee":
@@ -330,11 +330,10 @@ namespace Transcribe.Windows
 			}
 		}
 
-		private static XmlNode UserNode(string query)
+		private static XmlNode UserNode(string user)
 		{
-			var parsedQuery = HttpUtility.ParseQueryString(query);
-			var usersDoc = parsedQuery.Count != 0 ? LoadXmlData("users") : null;
-			var userNode = usersDoc?.SelectSingleNode($"//*[local-name() = 'user' and username/@id='{parsedQuery.GetValues(0)[0]}']");
+			var usersDoc = !string.IsNullOrEmpty(user) ? LoadXmlData("users") : null;
+			var userNode = usersDoc?.SelectSingleNode($"//*[local-name() = 'user' and username/@id='{user}']");
 			return userNode;
 		}
 	}

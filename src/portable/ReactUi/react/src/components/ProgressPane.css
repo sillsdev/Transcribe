@@ -1,0 +1,30 @@
+.ProgressPane {
+    background-color: #CCCCCA;
+    height: 80px;
+    display:flex;
+}
+
+.ProgressPane * {
+    width: 90%;
+    align-self: center;
+    margin: 20px;
+}
+
+.ProgressPane .progressBar{
+    height: 90%;
+}
+
+.ProgressPane .RealPlayer{
+    display: none;
+}
+
+.ProgressPane progress[value]::-moz-progress-bar { 
+    background-image:
+      -moz-linear-gradient(
+        left, 
+        #09c
+      );
+  
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%; 
+  }

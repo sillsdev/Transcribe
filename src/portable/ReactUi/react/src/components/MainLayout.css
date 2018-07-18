@@ -1,0 +1,29 @@
+.MainLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow-y: hidden;
+}
+
+.MainLayout .NavCol {
+    flex: 0 0 auto;
+}
+
+.MainLayout .TaskCol {
+    flex: 0 0 auto;
+}
+
+.MainLayout .MainCol {
+    flex: 1 0 auto;
+}
+
+/* Undo bootstrap box-sizing */
+.MainLayout * {
+    box-sizing: unset;
+    -moz-box-sizing: unset;
+    -webkit-box-sizing: unset;
+}

@@ -1,4 +1,4 @@
-.UserLogin {
+.SelectProject {
     display: flex;
     align-items: center;
     height: 100%;
@@ -18,17 +18,18 @@ body{
       background-color: #002B36;
 }
 
-.UserLogin .list-group-item {
-      display: inline-flex;
-      background-color: #002B36;
-      border: none;
-    }
+.SelectProject .list-group-item {
+    display: inline-flex;
+    background-color: #002B36;
+    border: none;
+}
 
-.UserLogin ul {
+.SelectProject ul {
     list-style-type: none;
 }
 
-.UserLogin a {
+.SelectProject a {
     text-decoration: none;
     background-color: #002B36;
+
 }
