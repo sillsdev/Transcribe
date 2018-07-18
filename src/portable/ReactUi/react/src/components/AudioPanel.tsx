@@ -1,25 +1,12 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { PlaySpeedRateChange, playStatus } from '../actions/audioActions';
 import './AudioPanel.css';
 import ControlPane from './ControlPane';
 import EditorPane from './EditorPane';
 import ProgressPane from './ProgressPane';
 
-
-interface IProps extends IStateProps {
-    playStatus: (playing: boolean) => any;
-    played: number;
-    player: any
+interface IProps extends IStateProps, IDispatchProps {
 };
-
-interface IStateProps {
-    playing?: boolean;
-    seeking: boolean;
-    totalSeconds: number;
-    playedSeconds:number;
-    playSpeedRate?: number;
-};
-
 
 class AudioPanel extends React.Component<IProps, object> {
     public render() {
@@ -38,9 +25,15 @@ class AudioPanel extends React.Component<IProps, object> {
     }
 };
 
-const mapStateToProps = (state: IState): any => ({
-    playSpeedRate: state.audio.playSpeedRate,
-    playing: state.audio.playing,
-});
+interface IStateProps {
+    playing?: boolean;
+    playSpeedRate?: number;
+    selectedTask: string;
+};
 
-export default connect(mapStateToProps)(AudioPanel);
+interface IDispatchProps {
+    playStatus: typeof playStatus,
+    PlaySpeedRateChange: typeof PlaySpeedRateChange;
+};
+
+export default AudioPanel;

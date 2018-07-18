@@ -7,7 +7,7 @@ class EditorPane extends React.Component<any> {
             <div className="EditorPane"> 
                 <textarea />
             </div>
-            )
+        )
     }
 };
 

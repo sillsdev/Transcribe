@@ -18,12 +18,12 @@ class AvatarLink extends React.Component<IProps, object> {
         return (
             <div className="AvatarLink">
                 <Link to={target} onClick={select.bind(this, id)}>
-                <Avatar name={name} src={uri} size={size} round={true}/>
-                <br /> <br />
-                <div className="caption">{name}</div>
+                    <Avatar name={name} src={uri} size={size} round={true}/>
+                    <br /> <br />
+                    <div className="caption">{name}</div>
                 </Link>
             </div>
-            )
+        )
     }
 };
 

@@ -12,12 +12,10 @@ class BackLink extends React.Component<IProps, object> {
         return (
             <div className="BackLink">
                 <Link to={target}>
-                    {/* {"\u2039"} */}
-                    {/* {"\u2329"} */}
                     {"\u276E"}
                 </Link>
             </div>
-            )
+        )
     }
 };
 

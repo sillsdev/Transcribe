@@ -11,9 +11,14 @@ class NextAction extends React.Component<IProps, object> {
         const { target } = this.props;
         return (
             <div className="NextAction">
-                <Button onClick={target} bsStyle="primary" bsSize="small">{"Submit"}</Button>
+                <Button
+                    onClick={target}
+                    bsStyle="primary"
+                    bsSize="small">
+                    {"Submit"}
+                </Button>
             </div>
-            )
+        )
     }
 };
 

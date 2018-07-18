@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
 import { PlaySpeedRateChange } from '../../actions/audioActions';
 import './SpeedBar.css';
 
 interface IProps {
-    PlaySpeedRateChange: (playSpeedRate: number) => any;
+    PlaySpeedRateChange: typeof PlaySpeedRateChange;
 };
 
 const initialState = {
@@ -18,44 +16,39 @@ class SpeedBar extends React.Component<IProps, typeof initialState> {
     constructor(props: IProps) {
         super(props);
         this.onChange = this.onChange.bind(this);
-        this.setDefault = this.setDefault.bind(this);
+        this.resetDefault = this.resetDefault.bind(this);
     }
     public onChange(e: any) {
         this.setState({
             myValue: e.target.value,
             playSpeedRate: parseFloat(e.target.value),
         })
-
     }
 
-    public setDefault() {
+    public resetDefault() {
         this.setState({
-            playSpeedRate: 1
+            ...initialState,
         })
     }
+
     public render() {
         const { playSpeedRate } = this.state;
         return (
             <div className="SpeedBar">
-
-                {/* <input id="speed" type="range" min=".5" max="2.0" step=".1" defaultValue="1" onDoubleClick={this.setDefault} onMouseUp={this.props.PlaySpeedRateChange.bind(this, playSpeedRate)} onChange={this.onChange} /> */}
-               
                 <i className="slider-origin" />
-                <input id="speed" type="range" min=".5" max="2.0" step=".1" defaultValue="1" onDoubleClick={this.setDefault} onMouseUp={this.props.PlaySpeedRateChange.bind(this, playSpeedRate)} onChange={this.onChange} />
-               
+                <input
+                    id="speed"
+                    type="range"
+                    min=".5"
+                    max="2.0"
+                    step=".1"
+                    defaultValue="1"
+                    onDoubleClick={this.resetDefault}
+                    onMouseUp={this.props.PlaySpeedRateChange.bind(this, playSpeedRate)}
+                    onChange={this.onChange} />
             </div>
         )
     }
 };
 
-const mapStateToProps = (state: any) => ({
-    playSpeedRate: state.audio.playSpeedRate
-});
-
-function mapDispatchToProps(dispatch: any) {
-    return bindActionCreators({ PlaySpeedRateChange }, dispatch)
-}
-
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(SpeedBar);
+export default SpeedBar;

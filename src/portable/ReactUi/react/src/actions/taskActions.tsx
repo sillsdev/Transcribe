@@ -1,7 +1,6 @@
 import Axios from 'axios';
 import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from './types';
 
-
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
     dispatch({type: ASSIGN_TASK_PENDING});
     Axios.put('/api/TaskEvent?action=Assigned&task=' + taskid + '&user=' + userid)

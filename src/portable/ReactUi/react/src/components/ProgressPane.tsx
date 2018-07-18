@@ -1,21 +1,9 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import ReactPlayer from 'react-player';
+import { PlaySpeedRateChange, playStatus } from '../actions/audioActions';
 import './ProgressPane.css';
-import ReactPlayer from './ReactPlayer';
 
-interface IProps extends IStateProps {
-    selectedTask: string;
-    playStatus: (playing: boolean) => any;
-    played: number;
-    player: any;
-    seeking: boolean;
-};
-
-interface IStateProps {
-    playing?: boolean;
-    played: number;
-    seeking: boolean;
-    playSpeedRate?: number;
+interface IProps extends IStateProps, IDispatchProps {
 };
 
 const initialState = {
@@ -23,66 +11,51 @@ const initialState = {
     totalSeconds: 0,
 }
 
-
 class ProgressPane extends React.Component<IProps, typeof initialState> {
     public readonly state = initialState;
-    public player: any;
 
-    public onProgressMouseDown = (e: any) => {
-            alert(e.target.value);
-            // this.setState({ seeking: true })
-        }
-        /*  public onProgressChange = (e: any) => {
-            this.setState({ played: parseFloat(e.target.value) })
-        }
-        public onProgressMouseUp = (e: any) => {
-            this.setState({ seeking: false })
-            this.player.seekTo(parseFloat(e.target.value))
-        } */
-
-    public onProgress = (state: any) => {
+    public onProgress = (ctrl: any) => {
         this.setState({
-            audioPlayedSeconds: state.playedSeconds,
-            totalSeconds: state.loadedSeconds,
+            audioPlayedSeconds: ctrl.playedSeconds,
+            totalSeconds: ctrl.loadedSeconds,
         })
     }
-
-    public ref = (player: any) => {
-        this.player = player
-    }
-
-    public onEnded = () => {
-        // tslint:disable-next-line:no-console
-        console.log('onEnded')
-        // this.setState({ playing: false })
-    }
-
 
     public render() {
         const { selectedTask } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
         const audioFile = '/api/audio/' + selectedTask + '.mp3'
         return (
-            <div>
-
             <div className="ProgressPane"> 
-                    <div>
-                        <progress className="progressBar" max={totalSeconds} onMouseDown={this.onProgressMouseDown} value={audioPlayedSeconds} />
-                        {/* <progress max={totalSeconds} value={audioPlayedSeconds} onMouseDown={this.onProgressMouseDown} onChange={this.onProgressChange} onMouseUp={this.onProgressMouseUp} /> */}
-                    </div>
-                    <div className="RealPlayer">
-                        <ReactPlayer ref={this.ref} url={audioFile} controls={true} onEnded={this.props.playStatus.bind(this, false)} playbackRate={this.props.playSpeedRate} playing={this.props.playing} onProgress={this.onProgress} />
-                    </div>
+                <div>
+                    <progress
+                        className="progressBar"
+                        max={totalSeconds}
+                        value={audioPlayedSeconds} />
+                </div>
+                <div className="RealPlayer">
+                    <ReactPlayer
+                        url={audioFile}
+                        controls={true}
+                        onEnded={this.props.playStatus.bind(this, false)}
+                        playbackRate={this.props.playSpeedRate}
+                        playing={this.props.playing}
+                        onProgress={this.onProgress} />
                 </div>
             </div>
-            )
+        )
     }
 };
 
-const mapStateToProps = (state: any) => ({
-    audioPlayedSeconds: state.playedSeconds,
-    selectedTask: state.tasks.selectedTask,
-    totalSeconds: state.loadedSeconds
-  });
+interface IStateProps {
+    playing?: boolean;
+    playSpeedRate?: number;
+    selectedTask: string;
+};
+
+interface IDispatchProps {
+    playStatus: typeof playStatus,
+    PlaySpeedRateChange: typeof PlaySpeedRateChange;
+};
   
-  export default connect(mapStateToProps)(ProgressPane);
+export default ProgressPane;

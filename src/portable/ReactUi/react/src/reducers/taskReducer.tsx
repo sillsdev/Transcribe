@@ -1,18 +1,5 @@
 import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK } from '../actions/types';
 
-interface ITask {
-    assignedto: string;
-    id: string;
-    name: string;
-    state: string;
-};
-
-interface IProject {
-    id: string;
-    type?: string;
-    task: ITask[];
-};
-
 const initialState = {
     loaded: false,
     pending: false,

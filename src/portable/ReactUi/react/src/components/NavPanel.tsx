@@ -5,20 +5,6 @@ import BackLink from './controls/BackLink';
 import { ProjectAvatar } from './controls/ProjectAvatar';
 import './NavPanel.css';
 
-
-interface IProject {
-    id: string;
-    type?: string;
-};
-
-interface IUser {
-    displayName: string,
-    username: {
-        avatarUri: string,
-        id: string,
-    }
-};
-  
 interface IProps {
     selectedProject: string;
     selectedUser: string;

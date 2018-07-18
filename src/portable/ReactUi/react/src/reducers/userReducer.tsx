@@ -1,15 +1,5 @@
 import { FETCH_USERS, SELECT_USER } from '../actions/types';
 
-interface IUser {
-    id: number,
-    displayName: string,
-    username: {
-      avatarUri: string,
-      id: string,
-    }
-  };
-  
-
 const initialState = {
     selectedUser: "",
     users: Array<IUser>(),

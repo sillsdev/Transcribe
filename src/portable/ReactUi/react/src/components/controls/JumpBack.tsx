@@ -12,12 +12,10 @@ class JumpBack extends React.Component<IProps, object> {
         return (
             <div className="JumpBack">
                 <Link to={target}>
-                    {/* {"\u2039"} */}
-                    {/* {"\u2329"} */}
                     {"\u00AB"}
                 </Link>
             </div>
-            )
+        )
     }
 };
 

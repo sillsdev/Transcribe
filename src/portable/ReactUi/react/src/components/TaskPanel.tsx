@@ -6,13 +6,13 @@ import TaskItem from './controls/TaskItem';
 import './TaskPanel.css';
 
 interface IProps {
-    assignTask: (taskid:string, userid: string) => any;
+    assignTask: typeof assignTask;
     assignedTranscribe: ITask[];
     availableTranscribe: ITask[];
     loaded: boolean;
     pending: boolean;
     selectedUser: string;
-    selectTask: (id:string) => any;
+    selectTask: typeof selectTask;
 };
 
 class TaskPanel extends React.Component<IProps, object> {

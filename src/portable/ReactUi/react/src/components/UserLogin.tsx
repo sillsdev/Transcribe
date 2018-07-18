@@ -5,15 +5,6 @@ import { fetchUsers, selectUser } from '../actions/userActions';
 import AvatarLink from './controls/AvatarLink';
 import './UserLogin.css';
 
-interface IUser {
-  id: number,
-  displayName: string,
-  username: {
-    avatarUri: string,
-    id: string,
-  }
-};
-
 interface IProps {
   users: IUser[];
   fetchUsers: typeof fetchUsers;

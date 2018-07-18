@@ -12,12 +12,10 @@ class JumpAhead extends React.Component<IProps, object> {
         return (
             <div className="JumpAhead">
                 <Link to={target}>
-                    {/* {"\u2039"} */}
-                    {/* {"\u2329"} */}
                     {"\u00BB"}
                 </Link>
             </div>
-            )
+        )
     }
 };
 
