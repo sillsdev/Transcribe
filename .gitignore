@@ -13,7 +13,6 @@ packages/*
 *\.resources
 TestResult.xml
 .vs/
-*.Designer.cs
 BuildStep.exe
 installer/Application.wxs
 src/portable/*/Assets

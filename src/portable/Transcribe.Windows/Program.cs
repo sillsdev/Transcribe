@@ -7,6 +7,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using Gecko;
+using Transcribe.Properties;
 
 
 namespace Transcribe.Windows
@@ -41,6 +42,7 @@ namespace Transcribe.Windows
 			{
 				reactProcess.Start();
 				var f = new Form { Size = new Size(1024, 800) };
+				f.Icon = Resources.transcriber7;
 				_browser = new TrappingGecko { Folder = Path.GetDirectoryName(indexFullName), Dock = DockStyle.Fill, UseHttpActivityObserver = true};
 				f.Controls.Add(_browser);
 				var portAddr = GetPortAddr(reactProcess);

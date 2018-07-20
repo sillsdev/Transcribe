@@ -42,7 +42,7 @@
         <RegistryValue Root="HKLM" Key="Software\SIL\Transcriber" Name="TranscriberDir" Type="string" Value="[APPLICATIONFOLDER]" />
       </Component>
     </DirectoryRef>
-    <!-- Icon Id="transcribe.windows.exe" SourceFile="..\output\Release\Transcribe.Windows.exe" / -->
+    <Icon Id="transcribe.windows.exe" SourceFile="..\output\Release\Transcribe.Windows.exe" />
     <Property Id="ARPPRODUCTICON" Value="transcribe.windows.exe" />
     <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
     <!-- WixVariable Id="WixUIDialogBmp" Value="bannrbmp.bmp" />
