@@ -18,6 +18,9 @@ interface IProps {
 
 class TaskPanel extends React.Component<IProps, object> {
       public render() {
+        if (this.props.selectedTask.trim() === '' && this.props.assignedTranscribe.length > 0) {
+            this.props.selectTask(this.props.assignedTranscribe[0].id);
+        }
         const { assignedTranscribe, availableTranscribe, loaded, pending, selectedUser, selectedTask } = this.props;
         const transcribeHead = (assignedTranscribe.length + availableTranscribe.length > 0)?
             (<h3 className="SectionHead">TO TRANSCRIBE</h3>): <div/>;
