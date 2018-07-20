@@ -19,12 +19,7 @@
 }
 
 .ProgressPane progress[value]::-moz-progress-bar { 
-    background-image:
-      -moz-linear-gradient(
-        left, 
-        #09c
-      );
-  
+    background-color:#C8DE0E;
     border-radius: 2px; 
     background-size: 35px 20px, 100% 100%, 100% 100%; 
   }

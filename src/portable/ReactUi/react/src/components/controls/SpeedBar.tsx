@@ -2,22 +2,10 @@ import * as React from 'react';
 import { PlaySpeedRateChange } from '../../actions/audioActions';
 import './SpeedBar.css';
 
-interface IProps {
-    PlaySpeedRateChange: typeof PlaySpeedRateChange;
+interface IProps extends IStateProps, IDispatchProps {
 };
 
-const initialState = {
-    myValue: "1",
-    playSpeedRate: 1,
-}
-
-class SpeedBar extends React.Component<IProps, typeof initialState> {
-    public readonly state = initialState;
-    constructor(props: IProps) {
-        super(props);
-        this.onChange = this.onChange.bind(this);
-        this.resetDefault = this.resetDefault.bind(this);
-    }
+class SpeedBar extends React.Component<IProps, any> {
     public onChange(e: any) {
         this.setState({
             myValue: e.target.value,
@@ -25,14 +13,8 @@ class SpeedBar extends React.Component<IProps, typeof initialState> {
         })
     }
 
-    public resetDefault() {
-        this.setState({
-            ...initialState,
-        })
-    }
-
     public render() {
-        const { playSpeedRate } = this.state;
+        const { playSpeedRate } = this.props;
         return (
             <div className="SpeedBar">
                 <i className="slider-origin" />
@@ -41,14 +23,22 @@ class SpeedBar extends React.Component<IProps, typeof initialState> {
                     type="range"
                     min=".5"
                     max="2.0"
+                    value={playSpeedRate}
                     step=".1"
-                    defaultValue="1"
-                    onDoubleClick={this.resetDefault}
+                    onDoubleClick={this.props.PlaySpeedRateChange.bind(this,1)}
                     onMouseUp={this.props.PlaySpeedRateChange.bind(this, playSpeedRate)}
                     onChange={this.onChange} />
             </div>
         )
     }
+};
+
+interface IStateProps {
+    playSpeedRate?: number;
+};
+
+interface IDispatchProps {
+    PlaySpeedRateChange: typeof PlaySpeedRateChange;
 };
 
 export default SpeedBar;

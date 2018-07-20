@@ -1,4 +1,4 @@
-import { PLAY_STATUS, PLAYSPEEDRATE_CHANGE } from './types';
+import { JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE } from './types';
 
 
 export function playStatus(playing: boolean): any{
@@ -12,5 +12,12 @@ export function PlaySpeedRateChange(playSpeedRate: number): any{
     return {
         payload: playSpeedRate,
         type: PLAYSPEEDRATE_CHANGE
+    }
+}
+
+export function JumpChange(jump: number): any{
+    return {
+        payload: jump,
+        type: JUMP_CHANGE
     }
 }

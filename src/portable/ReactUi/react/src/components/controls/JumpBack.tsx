@@ -1,21 +1,19 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { JumpChange } from '../../actions/audioActions';
 import './JumpBack.css';
 
 interface IProps {
-    target: string;
+    jump?: number;
+    JumpChange: typeof JumpChange;
 };
 
 class JumpBack extends React.Component<IProps, object> {
     public render() {
-        const { target } = this.props;
         return (
-            <div className="JumpBack">
-                <Link to={target}>
-                    {"\u00AB"}
-                </Link>
+            <div className="JumpBack" onClick={this.props.JumpChange.bind(this, -2)}>
+               {"\u00AB"}
             </div>
-        )
+            )
     }
 };
 

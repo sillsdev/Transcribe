@@ -1,5 +1,5 @@
 .TaskItem {
-    min-width: 227px;
+    width: 227px;
     min-height: 50px;
     background-color: #595555;
     margin: 5px;
@@ -7,6 +7,24 @@
     flex-direction: column;
 }
 
+.TaskItem .btn {
+    width: 227px;
+    min-height: 50px;
+    background-color: #2AA198;
+    border-color: #2AA198;
+}
+
+.TaskItem .btn:hover {
+    background-color: #35857D;
+    border-color: #35857D;
+}
+
 .TaskItem .selected {
-    border-color: yellow;
+    background-color: #F5CC4C;
+    border-color: #F5CC4C;
+}
+
+.TaskItem .selected:hover {
+    background-color: rgb(240,184,13);
+    border-color: rgb(240,184,13);
 }
