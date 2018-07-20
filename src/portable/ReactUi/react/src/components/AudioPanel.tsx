@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PlaySpeedRateChange, playStatus } from '../actions/audioActions';
+import { JumpChange, PlaySpeedRateChange, playStatus } from '../actions/audioActions';
 import './AudioPanel.css';
 import ControlPane from './ControlPane';
 import EditorPane from './EditorPane';
@@ -26,14 +26,16 @@ class AudioPanel extends React.Component<IProps, object> {
 };
 
 interface IStateProps {
-    playing?: boolean;
-    playSpeedRate?: number;
+    playing: boolean;
+    playSpeedRate: number;
     selectedTask: string;
+    jump: number;
 };
 
 interface IDispatchProps {
     playStatus: typeof playStatus,
     PlaySpeedRateChange: typeof PlaySpeedRateChange;
+    JumpChange: typeof JumpChange;
 };
 
 export default AudioPanel;

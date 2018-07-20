@@ -1,8 +1,9 @@
-import { PLAY_STATUS, PLAYSPEEDRATE_CHANGE } from '../actions/types';
+import { JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE } from '../actions/types';
 
 const initialState = {
+    jump: 0,
     playSpeedRate: 1,
-    playing: false
+    playing: false,
 }
 
 export default function (state = initialState, action: any) {
@@ -16,6 +17,11 @@ export default function (state = initialState, action: any) {
             return {
                 ...state,
                 playSpeedRate: action.payload
+            }
+        case JUMP_CHANGE:
+            return {
+                ...state,
+                jump: action.payload
             }
         default:
             return state;

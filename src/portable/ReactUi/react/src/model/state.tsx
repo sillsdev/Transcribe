@@ -11,6 +11,7 @@ interface IState {
         selectedTask: string;
     }
     audio: {
+        jump: number;
         playSpeedRate: number;
         playing: boolean;
     }
