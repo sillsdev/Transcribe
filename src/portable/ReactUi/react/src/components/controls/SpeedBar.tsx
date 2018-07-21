@@ -5,16 +5,31 @@ import './SpeedBar.css';
 interface IProps extends IStateProps, IDispatchProps {
 };
 
-class SpeedBar extends React.Component<IProps, any> {
+const initialState = {
+    playSpeedRate: 1,
+}
+
+class SpeedBar extends React.Component<IProps, typeof initialState> {
+    public readonly state = initialState;
+    constructor(props: IProps) {
+        super(props);
+        this.onChange = this.onChange.bind(this);
+    }
+
     public onChange(e: any) {
         this.setState({
-            myValue: e.target.value,
             playSpeedRate: parseFloat(e.target.value),
         })
     }
 
+    public resetDefault() {
+        this.setState({
+            ...initialState,
+        })
+    }
+
     public render() {
-        const { playSpeedRate } = this.props;
+        const { playSpeedRate } = this.state;
         return (
             <div className="SpeedBar">
                 <i className="slider-origin" />
@@ -23,9 +38,8 @@ class SpeedBar extends React.Component<IProps, any> {
                     type="range"
                     min=".5"
                     max="2.0"
-                    value={playSpeedRate}
                     step=".1"
-                    onDoubleClick={this.props.PlaySpeedRateChange.bind(this,1)}
+                    defaultValue={this.props.playSpeedRate.toString()}
                     onMouseUp={this.props.PlaySpeedRateChange.bind(this, playSpeedRate)}
                     onChange={this.onChange} />
             </div>
@@ -34,7 +48,7 @@ class SpeedBar extends React.Component<IProps, any> {
 };
 
 interface IStateProps {
-    playSpeedRate?: number;
+    playSpeedRate: number;
 };
 
 interface IDispatchProps {
