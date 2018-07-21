@@ -7,19 +7,21 @@
     flex-direction: column;
 }
 
-.TaskItem .btn {
+.TaskItem .unselected {
     width: 227px;
     min-height: 50px;
     background-color: #2AA198;
     border-color: #2AA198;
 }
 
-.TaskItem .btn:hover {
+.TaskItem .unselected:hover {
     background-color: #35857D;
     border-color: #35857D;
 }
 
 .TaskItem .selected {
+    width: 227px;
+    min-height: 50px;
     background-color: #F5CC4C;
     border-color: #F5CC4C;
 }
