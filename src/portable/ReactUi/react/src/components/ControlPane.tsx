@@ -14,7 +14,7 @@ class ControlPane extends React.Component<IProps, object> {
     public render() {
         return (
             <div className="ControlPane"> 
-                <SpeedBar {...this.props} />
+                <SpeedBar />
                 <div className="Spacer" />
                 <JumpBack {...this.props} />
                 <div className="circle">

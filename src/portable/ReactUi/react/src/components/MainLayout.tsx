@@ -2,7 +2,7 @@ import * as React from 'react';
 import { HotKeys } from 'react-hotkeys';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { JumpChange, PlaySpeedRateChange, playStatus } from '../actions/audioActions';
+import * as Action from '../actions/audioActions';
 import AudioPanel from './AudioPanel'
 import './MainLayout.css';
 import NavPanel from './NavPanel'
@@ -13,6 +13,7 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class MainLayout extends React.Component<IProps, any> {
     public render() {
+        const { JumpChange, playing, playSpeedRate, PlaySpeedRateChange, playStatus } = this.props;
 
         const keyMap = {
             moveUp: 'up',
@@ -20,29 +21,29 @@ class MainLayout extends React.Component<IProps, any> {
 
         const handlers = {
             'esc': (event: any) => {
-                this.props.playStatus(!this.props.playing);
+                playStatus(!playing);
             },
             'f1': (event: any) => {
-                let speedDown = this.props.playSpeedRate - 0.1;
-                if(this.props.playSpeedRate <= 0.5)
+                let speedDown = playSpeedRate - 0.1;
+                if(playSpeedRate <= 0.5)
                 {
                     speedDown = 0.5
                 }
-                this.props.PlaySpeedRateChange(speedDown);
+                PlaySpeedRateChange(speedDown);
             },
             'f2': (event: any) => {
-                let speedUp = this.props.playSpeedRate + 0.1;
-                if(this.props.playSpeedRate >= 2.0)
+                let speedUp = playSpeedRate + 0.1;
+                if(playSpeedRate >= 2.0)
                 {
                     speedUp = 2.0
                 }
-                this.props.PlaySpeedRateChange(speedUp);
+                PlaySpeedRateChange(speedUp);
             },
             'f3': (event: any) => {
-                this.props.JumpChange(-2);
+                JumpChange(-2);
             },
             'f4': (event: any) => {
-                this.props.JumpChange(2);
+                JumpChange(2);
             }
         };
 
@@ -79,16 +80,16 @@ const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 interface IDispatchProps {
-    playStatus: typeof playStatus,
-    PlaySpeedRateChange: typeof PlaySpeedRateChange;
-    JumpChange: typeof JumpChange;
+    playStatus: typeof Action.playStatus,
+    PlaySpeedRateChange: typeof Action.PlaySpeedRateChange;
+    JumpChange: typeof Action.JumpChange;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
-        JumpChange,
-        PlaySpeedRateChange,
-        playStatus,
+        JumpChange: Action.JumpChange,
+        PlaySpeedRateChange: Action.PlaySpeedRateChange,
+        playStatus: Action.playStatus,
     }, dispatch),
 });
 
