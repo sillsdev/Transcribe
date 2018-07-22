@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { JumpChange } from '../../actions/audioActions';
+import * as actions from '../../actions/audioActions';
 import './JumpAhead.css';
 
 interface IProps {
-    JumpChange: typeof JumpChange;
+    jumpChange: typeof actions.jumpChange;
 };
 
 class JumpAhead extends React.Component<IProps, object> {
     public render() {
         return (
-            <div className="JumpAhead" onClick={this.props.JumpChange.bind(this, 2)}>
+            <div className="JumpAhead" onClick={this.props.jumpChange.bind(this, 2)}>
                {"\u00BB"}
             </div>
             )

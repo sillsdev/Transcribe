@@ -8,14 +8,14 @@ export function playStatus(playing: boolean): any{
     }
 }
 
-export function PlaySpeedRateChange(playSpeedRate: number): any{
+export function playSpeedRateChange(playSpeedRate: number): any{
     return {
         payload: playSpeedRate,
         type: PLAYSPEEDRATE_CHANGE
     }
 }
 
-export function JumpChange(jump: number): any{
+export function jumpChange(jump: number): any{
     return {
         payload: jump,
         type: JUMP_CHANGE

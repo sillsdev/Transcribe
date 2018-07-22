@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { JumpChange, PlaySpeedRateChange, playStatus } from '../actions/audioActions';
+import * as actions from '../actions/audioActions';
 import './AudioPanel.css';
 import ControlPane from './ControlPane';
 import EditorPane from './EditorPane';
@@ -33,9 +33,9 @@ interface IStateProps {
 };
 
 interface IDispatchProps {
-    playStatus: typeof playStatus,
-    PlaySpeedRateChange: typeof PlaySpeedRateChange;
-    JumpChange: typeof JumpChange;
+    playStatus: typeof actions.playStatus,
+    playSpeedRateChange: typeof actions.playSpeedRateChange;
+    jumpChange: typeof actions.jumpChange;
 };
 
 export default AudioPanel;

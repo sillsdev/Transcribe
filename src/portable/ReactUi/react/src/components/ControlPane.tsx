@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { JumpChange, PlaySpeedRateChange, playStatus } from '../actions/audioActions';
+import { jumpChange, playSpeedRateChange, playStatus } from '../actions/audioActions';
 import './ControlPane.css';
 import JumpAhead from './controls/JumpAhead';
 import JumpBack from './controls/JumpBack';
@@ -14,7 +14,7 @@ class ControlPane extends React.Component<IProps, object> {
     public render() {
         return (
             <div className="ControlPane"> 
-                <SpeedBar />
+                <SpeedBar {...this.props} />
                 <div className="Spacer" />
                 <JumpBack {...this.props} />
                 <div className="circle">
@@ -35,8 +35,8 @@ interface IStateProps {
 
 interface IDispatchProps {
     playStatus: typeof playStatus,
-    PlaySpeedRateChange: typeof PlaySpeedRateChange;
-    JumpChange: typeof JumpChange;
+    playSpeedRateChange: typeof playSpeedRateChange;
+    jumpChange: typeof jumpChange;
 };
 
 export default ControlPane;

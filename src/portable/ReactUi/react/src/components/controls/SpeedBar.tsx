@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as Action from '../../actions/audioActions';
+import * as actions from '../../actions/audioActions';
 import './SpeedBar.css';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -14,8 +12,8 @@ class SpeedBar extends React.Component<IProps, any> {
     }
 
     public onChange(e: any) {
-        const { PlaySpeedRateChange } = this.props;
-        PlaySpeedRateChange(e.target.value)
+        const { playSpeedRateChange } = this.props;
+        playSpeedRateChange(e.target.value)
     }
 
     public render() {
@@ -42,19 +40,9 @@ interface IStateProps {
     playSpeedRate: number;
 };
 
-const mapStateToProps = (state: IState): IStateProps => ({
-    playSpeedRate: state.audio.playSpeedRate,
-});
-
 interface IDispatchProps {
-    PlaySpeedRateChange: typeof Action.PlaySpeedRateChange;
+    playSpeedRateChange: typeof actions.playSpeedRateChange;
 };
 
-const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
-    ...bindActionCreators({
-    PlaySpeedRateChange: Action.PlaySpeedRateChange,
-    }, dispatch),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SpeedBar);
+export default SpeedBar;
 

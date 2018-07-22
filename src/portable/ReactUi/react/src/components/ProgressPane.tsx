@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactPlayer from 'react-player';
-import { JumpChange, PlaySpeedRateChange, playStatus} from '../actions/audioActions';
+import * as actions from '../actions/audioActions';
 import './ProgressPane.css';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -52,7 +52,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         if (jump !== 0){
             position += jump;
             this.player.seekTo(position);
-            this.props.JumpChange(0);
+            this.props.jumpChange(0);
         }
         return (
             <div className="ProgressPane">
@@ -88,9 +88,9 @@ interface IStateProps {
 };
 
 interface IDispatchProps {
-    JumpChange: typeof JumpChange,
-    playStatus: typeof playStatus,
-    PlaySpeedRateChange: typeof PlaySpeedRateChange;
+    jumpChange: typeof actions.jumpChange,
+    playStatus: typeof actions.playStatus,
+    playSpeedRateChange: typeof actions.playSpeedRateChange;
 };
 
 export default ProgressPane;

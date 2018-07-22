@@ -1,26 +1,32 @@
 import * as React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { fetchUsers, selectUser } from '../actions/userActions';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/userActions';
 import AvatarLink from './controls/AvatarLink';
 import './UserLogin.css';
 
-interface IProps {
-  users: IUser[];
-  fetchUsers: typeof fetchUsers;
-  selectUser: typeof selectUser;
+interface IProps extends IStateProps, IDispatchProps {
 };
 
 class UserLogin extends React.Component<IProps, object> {
   public componentDidMount() {
-    this.props.fetchUsers();
+    const { fetchUsers } = this.props;
+
+    fetchUsers();
   }
 
   public render() {
-    const { users } = this.props
+    const { selectUser, users } = this.props
+
     const avatars = users.map((user:IUser) => 
       <ListGroupItem key={user.id}>
-        <AvatarLink id={user.username.id} name={user.displayName} target="/project" uri={user.username.avatarUri} select={this.props.selectUser} />
+        <AvatarLink
+          id={user.username.id}
+          name={user.displayName}
+          target="/project"
+          uri={user.username.avatarUri}
+          select={selectUser} />
       </ListGroupItem>);
 
     return (
@@ -33,8 +39,24 @@ class UserLogin extends React.Component<IProps, object> {
   }
 }
 
-const mapStateToProps = (state: IState) => ({
+interface IStateProps {
+  users: IUser[];
+};
+
+const mapStateToProps = (state: IState): IStateProps => ({
   users: state.users.users
 });
 
-export default connect(mapStateToProps, { fetchUsers, selectUser })(UserLogin);
+interface IDispatchProps {
+  fetchUsers: typeof actions.fetchUsers;
+  selectUser: typeof actions.selectUser;
+};
+
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+  ...bindActionCreators({
+      fetchUsers: actions.fetchUsers,
+      selectUser: actions.selectUser,
+      }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserLogin);

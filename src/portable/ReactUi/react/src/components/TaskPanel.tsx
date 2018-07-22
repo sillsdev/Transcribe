@@ -1,27 +1,23 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { assignTask, selectTask } from '../actions/taskActions';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/taskActions';
 import taskList from '../selectors';
 import TaskItem from './controls/TaskItem';
 import './TaskPanel.css';
 
-interface IProps {
-    assignTask: typeof assignTask;
-    assignedTranscribe: ITask[];
-    availableTranscribe: ITask[];
-    loaded: boolean;
-    pending: boolean;
-    selectedUser: string;
-    selectedTask: string;
-    selectTask: typeof selectTask;
+interface IProps extends IStateProps, IDispatchProps {
 };
 
 class TaskPanel extends React.Component<IProps, object> {
       public render() {
+        const { assignedTranscribe, availableTranscribe } = this.props;
+        const { loaded, pending, selectedUser, selectedTask } = this.props;
+        const { assignTask, selectTask } = this.props
+        
         if (this.props.selectedTask.trim() === '' && this.props.assignedTranscribe.length > 0) {
-            this.props.selectTask(this.props.assignedTranscribe[0].id);
+            selectTask(assignedTranscribe[0].id);
         }
-        const { assignedTranscribe, availableTranscribe, loaded, pending, selectedUser, selectedTask } = this.props;
         const transcribeHead = (assignedTranscribe.length + availableTranscribe.length > 0)?
             (<h3 className="SectionHead">TO TRANSCRIBE</h3>): <div/>;
         const assignedHead = assignedTranscribe.length > 0?
@@ -31,7 +27,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 id={t.id}
                 name={t.name}
                 selected={t.id === selectedTask}
-                select={this.props.selectTask.bind(this,t.id)}/>
+                select={selectTask.bind(this,t.id)}/>
         ));
         const availableHead = availableTranscribe.length > 0?
             (<h4 className="ListHead">Available</h4>): <div/>;
@@ -40,7 +36,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 id={t.id}
                 name={t.name}
                 selected={t.id === selectedTask}
-                select={this.props.assignTask.bind(this,t.id, selectedUser)}/>
+                select={assignTask.bind(this,t.id, selectedUser)}/>
         ));
         const wrapper: JSX.Element = !pending && loaded? (
             <div>
@@ -59,7 +55,16 @@ class TaskPanel extends React.Component<IProps, object> {
     }
 };
 
-const mapStateToProps = (state: IState) => ({
+interface IStateProps {
+    assignedTranscribe: ITask[];
+    availableTranscribe: ITask[];
+    loaded: boolean;
+    pending: boolean;
+    selectedUser: string;
+    selectedTask: string;
+}
+
+const mapStateToProps = (state: IState): IStateProps => ({
     assignedTranscribe: taskList(state).assignedTranscribe,
     availableTranscribe: taskList(state).availableTranscribe,
     loaded: state.tasks.loaded,
@@ -68,5 +73,17 @@ const mapStateToProps = (state: IState) => ({
     selectedUser: state.users.selectedUser,
   });
   
-  export default connect(mapStateToProps, {assignTask, selectTask})(TaskPanel);
+  interface IDispatchProps {
+    assignTask: typeof actions.assignTask;
+    selectTask: typeof actions.selectTask;
+  };
+  
+  const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+        assignTask: actions.assignTask,
+        selectTask: actions.selectTask,
+        }, dispatch),
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(TaskPanel);
   
