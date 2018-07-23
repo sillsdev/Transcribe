@@ -4,19 +4,22 @@
     display:flex;
 }
 
-.ProgressPane * {
-    width: 100%;
-    align-self: left;
+.ProgressPane > * {
     margin: 20px;
+    align-self: center;
 }
 
+.ProgressPane .progress {
+    flex: 1 0 auto;
+}
 
-.ProgressPane .progressBar{
+.ProgressPane .progressBar {
     width: 100%;
 }
+
 
 .ProgressPane .timeMarker{
-    width: 10%;
+    flex: 0 0 auto;
     align-self: right;
 }
 

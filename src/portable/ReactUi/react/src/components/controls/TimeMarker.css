@@ -1,9 +1,7 @@
 .TimeMarker{
-    width:10%;
-    align-self: right;
     font-family: 'EB Garamond', 'Roboto';
 }
 
 .TimeMarker time{
-    margin: 5%;
+    margin: 5px;
 }

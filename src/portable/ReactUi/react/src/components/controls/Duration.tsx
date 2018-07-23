@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-function Duration ({seconds} : {seconds: any}) {
+function Duration ({seconds} : {seconds: number}) {
   return (
     <time dateTime={`P${Math.round(seconds)}S`}>
       {format(seconds)}
@@ -8,7 +8,7 @@ function Duration ({seconds} : {seconds: any}) {
   )
 }
 
-function format (seconds: any) {
+function format (seconds: number) {
   const date = new Date(seconds * 1000)
   const hh = date.getUTCHours()
   const mm = date.getUTCMinutes()
@@ -19,7 +19,7 @@ function format (seconds: any) {
   return `${mm}:${ss}`
 }
 
-function pad (text: any) {
+function pad (text: number) {
   return ('0' + text).slice(-2)
 }
 
