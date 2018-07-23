@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ReactPlayer from 'react-player';
 import * as actions from '../actions/audioActions';
+import TimeMarker from './controls/TimeMarker';
 import './ProgressPane.css';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -56,13 +57,16 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         }
         return (
             <div className="ProgressPane">
-                <div>
+                <div className="progress">
                     <progress
                         className="progressBar"
                         max={totalSeconds}
                         onMouseDown={this.onSeekMouseDown}
                         onMouseUp={this.onSeekMouseUp}
-                        value={position} /> {Math.round(position)}/{Math.round(totalSeconds)}
+                        value={position} />
+                </div>
+                <div className="timeMarker">
+                    <TimeMarker playedSeconds={audioPlayedSeconds} totalSeconds={totalSeconds} />
                 </div>
                 <div className="RealPlayer">
                     <ReactPlayer
