@@ -5,13 +5,19 @@
 }
 
 .ProgressPane * {
-    width: 90%;
-    align-self: center;
+    width: 100%;
+    align-self: left;
     margin: 20px;
 }
 
+
 .ProgressPane .progressBar{
-    height: 90%;
+    width: 100%;
+}
+
+.ProgressPane .timeMarker{
+    width: 10%;
+    align-self: right;
 }
 
 .ProgressPane .RealPlayer{
