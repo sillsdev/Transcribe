@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Duration from '../controls/Duration';
+import Duration from './Duration';
 import './TimeMarker.css';
 
 interface IProps{

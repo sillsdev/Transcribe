@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="urn:oasis:names:tc:xliff:document:2.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="xliff">
+      <attribute name="srcLang">
+        <data type="NCName"/>
+      </attribute>
+      <attribute name="trgLang">
+        <data type="NCName"/>
+      </attribute>
+      <attribute name="version">
+        <data type="decimal"/>
+      </attribute>
+      <attribute>
+        <name ns="http://www.w3.org/XML/1998/namespace">lang</name>
+        <data type="NCName"/>
+      </attribute>
+      <element name="file">
+        <attribute name="id">
+          <data type="NCName"/>
+        </attribute>
+        <attribute name="original">
+          <data type="NCName"/>
+        </attribute>
+        <oneOrMore>
+          <element name="unit">
+            <attribute name="id"/>
+            <optional>
+              <element name="ignorablle">
+                <ref name="source"/>
+                <ref name="target"/>
+              </element>
+            </optional>
+            <zeroOrMore>
+              <ref name="notes"/>
+            </zeroOrMore>
+            <choice>
+              <zeroOrMore>
+                <element name="ignorable">
+                  <optional>
+                    <attribute name="id">
+                      <data type="integer"/>
+                    </attribute>
+                  </optional>
+                  <ref name="source"/>
+                  <ref name="target"/>
+                </element>
+              </zeroOrMore>
+              <zeroOrMore>
+                <element name="segment">
+                  <optional>
+                    <attribute name="id">
+                      <data type="integer"/>
+                    </attribute>
+                  </optional>
+                  <optional>
+                    <ref name="notes"/>
+                  </optional>
+                  <ref name="source"/>
+                  <ref name="target"/>
+                </element>
+              </zeroOrMore>
+            </choice>
+          </element>
+        </oneOrMore>
+      </element>
+    </element>
+  </start>
+  <define name="source">
+    <element name="source">
+      <oneOrMore>
+        <choice>
+          <text/>
+          <element name="mrk">
+            <attribute name="translate">
+              <data type="NCName"/>
+            </attribute>
+            <text/>
+          </element>
+        </choice>
+      </oneOrMore>
+    </element>
+  </define>
+  <define name="target">
+    <element name="target">
+      <text/>
+    </element>
+  </define>
+  <define name="notes">
+    <element name="notes">
+      <oneOrMore>
+        <element name="note">
+          <text/>
+        </element>
+      </oneOrMore>
+    </element>
+  </define>
+</grammar>

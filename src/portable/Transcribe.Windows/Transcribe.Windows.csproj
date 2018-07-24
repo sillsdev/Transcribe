@@ -99,13 +99,7 @@
     <Content Include="Firefox\sandboxbroker.dll" />
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
-    <Content Include="transcriber2.ico" />
     <Content Include="transcriber7.ico" />
-    <None Include="Resources\transcriber6.ico" />
-    <None Include="Resources\transcriber5.ico" />
-    <None Include="Resources\transcriber4.ico" />
-    <None Include="Resources\transcriber3.ico" />
-    <None Include="Resources\transcriber2.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SimpleServer\SimpleServer.csproj">
@@ -122,6 +116,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

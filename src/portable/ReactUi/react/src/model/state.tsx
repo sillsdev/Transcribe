@@ -9,10 +9,11 @@ interface IState {
         projects: IProject[];
         selectedProject: string;
         selectedTask: string;
-    }
+    };
     audio: {
         jump: number;
         playSpeedRate: number;
         playing: boolean;
-    }
+    };
+    strings: {};
 }
