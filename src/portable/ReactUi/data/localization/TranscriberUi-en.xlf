@@ -28,7 +28,7 @@
 		</unit>
 		<unit id="transcribe.assigned">
 			<segment>
-				<source>ASSIGNED</source>
+				<source>Assigned</source>
 				<target></target>
 			</segment>
 		</unit>
@@ -38,7 +38,7 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="transcribe.Review">
+		<unit id="transcribe.review">
 			<segment>
 				<source>Review</source>
 				<target></target>
@@ -80,7 +80,7 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="userSettings.Language">
+		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
 				<target></target>

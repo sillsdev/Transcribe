@@ -28,7 +28,7 @@
 		</unit>
 		<unit id="transcribe.assigned">
 			<segment>
-				<source>ASSIGNED</source>
+				<source>Assigned</source>
 				<target>Alloué</target>
 			</segment>
 		</unit>
@@ -80,7 +80,7 @@
 				<target>Police de caractère</target>
 			</segment>
 		</unit>
-		<unit id="userSettings.Language">
+		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
 				<target>Langue</target>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	version="1.0">
-	<xsl:variable name="en" select="document('file:/C:/Users/Trihus/git/Transcribe/src/portable/ReactUi/data/localization/TranscriberUi-enStrings.xml')"/>
-	<xsl:variable name="fr" select="document('file:/C:/Users/Trihus/git/Transcribe/src/portable/ReactUi/data/localization/TranscriberUi-frStrings.xml')"/>
+	<xsl:variable name="en" select="document('file:TranscriberUi-enStrings.xml')"/>
+	<xsl:variable name="fr" select="document('file:TranscriberUi-frStrings.xml')"/>
 	
 	<xsl:output indent="yes"/>
 	
