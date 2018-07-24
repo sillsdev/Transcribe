@@ -3,6 +3,8 @@ import { HotKeys } from 'react-hotkeys';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
+import { ITranscriberStrings } from '../model/localize';
+import { IState } from '../model/state';
 import AudioPanel from './AudioPanel'
 import './MainLayout.css';
 import NavPanel from './NavPanel'
@@ -24,6 +26,12 @@ class MainLayout extends React.Component<IProps, any> {
                 playStatus(!playing);
             },
             'f1': (event: any) => {
+                jumpChange(-2);
+            },
+            'f2': (event: any) => {
+                jumpChange(2);
+            },
+            'f3': (event: any) => {
                 let speedDown = playSpeedRate - 0.1;
                 if(playSpeedRate <= 0.5)
                 {
@@ -31,7 +39,7 @@ class MainLayout extends React.Component<IProps, any> {
                 }
                 playSpeedRateChange(speedDown);
             },
-            'f2': (event: any) => {
+            'f4': (event: any) => {
                 let speedUp = playSpeedRate + 0.1;
                 if(playSpeedRate >= 2.0)
                 {
@@ -39,12 +47,6 @@ class MainLayout extends React.Component<IProps, any> {
                 }
                 playSpeedRateChange(speedUp);
             },
-            'f3': (event: any) => {
-                jumpChange(-2);
-            },
-            'f4': (event: any) => {
-                jumpChange(2);
-            }
         };
 
         return (
@@ -70,6 +72,7 @@ interface IStateProps {
     playSpeedRate: number;
     selectedTask: string;
     jump: number;
+    strings: ITranscriberStrings;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -77,6 +80,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     playSpeedRate: state.audio.playSpeedRate,
     playing: state.audio.playing,
     selectedTask: state.tasks.selectedTask,
+    strings: state.strings.transcriber,
 });
 
 interface IDispatchProps {

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
+import { ITranscriberStrings } from '../model/localize';
+import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import { ProjectAvatar } from './controls/ProjectAvatar';
 import './SelectProject.css';
@@ -18,12 +20,12 @@ class SelectProject extends React.Component<IProps, object> {
   }
 
   public render() {
-    const { loaded, projects, selectProject } = this.props
+    const { loaded, projects, selectProject, strings } = this.props
 
     const avatars = projects.map((p:IProject) => 
       <ListGroupItem key={p.id}>
         <AvatarLink id={p.id}
-          name={p.id}
+          name={strings[p.id.toLowerCase()]}
           target="/main"
           uri={p.type !== undefined? ProjectAvatar[p.type]: ""}
           select={selectProject} />
@@ -57,12 +59,14 @@ interface IStateProps {
   selectedUser: string;
   projects: IProject[];
   loaded: boolean;
+  strings: ITranscriberStrings;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
   loaded: state.tasks.loaded,
   projects: state.tasks.projects,
   selectedUser: state.users.selectedUser,
+  strings: state.strings.transcriber,
 });
 
 interface IDispatchProps {

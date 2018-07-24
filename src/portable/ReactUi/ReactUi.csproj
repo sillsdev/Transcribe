@@ -14,7 +14,8 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,29 +46,13 @@
     <EmbeddedResource Include="react\build\index.html" />
     <EmbeddedResource Include="react\build\manifest.json" />
     <EmbeddedResource Include="react\build\service-worker.js" />
-    <EmbeddedResource Include="react\build\api\GetTasks" />
-    <EmbeddedResource Include="react\build\api\GetUsers" />
-    <EmbeddedResource Include="react\build\api\audio\NIV11-LUK-001-001004.mp3" />
-    <EmbeddedResource Include="react\build\api\audio\NIV11-LUK-001-005025.mp3" />
-    <EmbeddedResource Include="react\build\api\audio\NIV11-LUK-001-026038.mp3" />
-    <EmbeddedResource Include="react\build\api\audio\NIV11-LUK-001-039045.mp3" />
-    <EmbeddedResource Include="react\build\api\audio\NIV11-LUK-001-046056.mp3" />
-    <EmbeddedResource Include="react\build\api\audio\NIV11-LUK-001-057066.mp3" />
-    <EmbeddedResource Include="react\build\api\audio\NIV11-LUK-001-067080.mp3" />
-    <EmbeddedResource Include="react\build\api\NIV11\LUK\001\NIV11-LUK-001-001004v01.mp3" />
-    <EmbeddedResource Include="react\build\api\NIV11\LUK\001\NIV11-LUK-001-005025v01.mp3" />
-    <EmbeddedResource Include="react\build\api\NIV11\LUK\001\NIV11-LUK-001-026038v01.mp3" />
-    <EmbeddedResource Include="react\build\api\NIV11\LUK\001\NIV11-LUK-001-039045v01.mp3" />
-    <EmbeddedResource Include="react\build\api\NIV11\LUK\001\NIV11-LUK-001-046056v01.mp3" />
-    <EmbeddedResource Include="react\build\api\NIV11\LUK\001\NIV11-LUK-001-057066v01.mp3" />
-    <EmbeddedResource Include="react\build\api\NIV11\LUK\001\NIV11-LUK-001-067080v01.mp3" />
     <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
     <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
     <EmbeddedResource Include="react\build\assets\testAvatar.png" />
-    <EmbeddedResource Include="react\build\static\css\main.7b21cf72.css" />
-    <EmbeddedResource Include="react\build\static\css\main.7b21cf72.css.map" />
-    <EmbeddedResource Include="react\build\static\js\main.b460e0df.js" />
-    <EmbeddedResource Include="react\build\static\js\main.b460e0df.js.map" />
+    <EmbeddedResource Include="react\build\static\css\main.5fec3d7e.css" />
+    <EmbeddedResource Include="react\build\static\css\main.5fec3d7e.css.map" />
+    <EmbeddedResource Include="react\build\static\js\main.c84e1e0a.js" />
+    <EmbeddedResource Include="react\build\static\js\main.c84e1e0a.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\images\" />
@@ -84,6 +69,9 @@
   <ItemGroup>
     <EmbeddedResource Include="data\tasksInit.xml" />
     <EmbeddedResource Include="data\usersInit.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="data\localization\strings.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

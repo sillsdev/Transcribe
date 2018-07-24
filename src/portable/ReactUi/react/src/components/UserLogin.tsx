@@ -2,7 +2,9 @@ import * as React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as actions2 from '../actions/localizationActions';
 import * as actions from '../actions/userActions';
+import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import './UserLogin.css';
 
@@ -11,9 +13,10 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class UserLogin extends React.Component<IProps, object> {
   public componentDidMount() {
-    const { fetchUsers } = this.props;
+    const { fetchLocalization, fetchUsers } = this.props;
 
     fetchUsers();
+    fetchLocalization();
   }
 
   public render() {
@@ -48,12 +51,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 interface IDispatchProps {
+  fetchLocalization: typeof actions2.fetchLocalization;
   fetchUsers: typeof actions.fetchUsers;
   selectUser: typeof actions.selectUser;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
   ...bindActionCreators({
+      fetchLocalization: actions2.fetchLocalization,
       fetchUsers: actions.fetchUsers,
       selectUser: actions.selectUser,
       }, dispatch),

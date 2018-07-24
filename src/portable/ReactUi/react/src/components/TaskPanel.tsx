@@ -2,7 +2,10 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
+import { ITranscriberStrings } from '../model/localize';
+import { IState } from '../model/state';
 import taskList from '../selectors';
+import userStrings from '../selectors/localize';
 import TaskItem from './controls/TaskItem';
 import './TaskPanel.css';
 
@@ -13,15 +16,15 @@ class TaskPanel extends React.Component<IProps, object> {
       public render() {
         const { assignedTranscribe, availableTranscribe } = this.props;
         const { loaded, pending, selectedUser, selectedTask } = this.props;
-        const { assignTask, selectTask } = this.props
+        const { assignTask, selectTask, strings } = this.props
         
         if (this.props.selectedTask.trim() === '' && this.props.assignedTranscribe.length > 0) {
             selectTask(assignedTranscribe[0].id);
         }
         const transcribeHead = (assignedTranscribe.length + availableTranscribe.length > 0)?
-            (<h3 className="SectionHead">TO TRANSCRIBE</h3>): <div/>;
+            (<h3 className="SectionHead">{strings.transcribe.toUpperCase()}</h3>): <div/>;
         const assignedHead = assignedTranscribe.length > 0?
-            (<h4 className="ListHead">Assigned</h4>): <div/>;
+            (<h4 className="ListHead">{strings.assigned}</h4>): <div/>;
         const assignedList = assignedTranscribe.map((t: ITask) => (
             <TaskItem
                 id={t.id}
@@ -30,7 +33,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 select={selectTask.bind(this,t.id)}/>
         ));
         const availableHead = availableTranscribe.length > 0?
-            (<h4 className="ListHead">Available</h4>): <div/>;
+            (<h4 className="ListHead">{strings.available}</h4>): <div/>;
         const availableList = availableTranscribe.map((t: ITask) => (
             <TaskItem
                 id={t.id}
@@ -62,6 +65,7 @@ interface IStateProps {
     pending: boolean;
     selectedUser: string;
     selectedTask: string;
+    strings: ITranscriberStrings;
 }
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -71,6 +75,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     pending: state.tasks.pending,
     selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
+    strings: userStrings(state, {layout: "transcriber"}),
   });
   
   interface IDispatchProps {

@@ -1,4 +1,6 @@
-interface IState {
+import { ITranscriberStrings, IUserSettingsStrings } from "./localize";
+
+export interface IState {
     users: {
         users: IUser[];
         selectedUser: string;
@@ -15,5 +17,8 @@ interface IState {
         playSpeedRate: number;
         playing: boolean;
     };
-    strings: {};
+    strings: {
+        transcriber: ITranscriberStrings;
+        userSettings: IUserSettingsStrings;
+    };
 }

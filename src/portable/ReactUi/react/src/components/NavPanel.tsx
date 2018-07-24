@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 import { ProjectAvatar } from './controls/ProjectAvatar';
