@@ -11,6 +11,7 @@
     "react-dom": "^16.4.1",
     "react-fontawesome": "^1.6.1",
     "react-hotkeys": "^1.1.4",
+    "react-localization": "^1.0.10",
     "react-player": "^1.6.4",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

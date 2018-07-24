@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { IState } from '../model/state';
 
 const selectedUser = (state: IState) => state.users.selectedUser;
 const selectedProject = (state: IState) => state.tasks.selectedProject;

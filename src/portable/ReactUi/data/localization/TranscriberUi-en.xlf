@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="xliff.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<xliff srcLang="en" trgLang="en" version="1.0" xml:lang="en" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+	<file id="Transcriber" original="TranscriberUi-en.xliff">
+		<unit id="transcribe.bible">
+			<segment>
+				<source>Bible</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.storybook">
+			<segment>
+				<source>Storybook</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.test">
+			<segment>
+				<source>Test</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.other">
+			<segment>
+				<source>Other</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.assigned">
+			<segment>
+				<source>Assigned</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.available">
+			<segment>
+				<source>Available</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.review">
+			<segment>
+				<source>Review</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribe">
+			<segment>
+				<source>Transcribe</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.accept">
+			<segment>
+				<source>Accept</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.submit">
+			<segment>
+				<source>Submit</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.user">
+			<segment>
+				<source>User</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.name">
+			<segment>
+				<source>Name</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.font">
+			<segment>
+				<source>Font</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.language">
+			<segment>
+				<source>Language</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.medium">
+			<segment>
+				<source>Medium</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.small">
+			<segment>
+				<source>Small</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.large">
+			<segment>
+				<source>Large</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.english">
+			<segment>
+				<source>English</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.keyboardShortcuts">
+			<segment>
+				<source>KEYBOARD SHORTCUTS</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.playPause">
+			<segment>
+				<source>Play / Pause</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.rewind">
+			<segment>
+				<source>Rewind</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fastForward">
+			<segment>
+				<source>Fast Forward</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.slowDown">
+			<segment>
+				<source>Slow Down</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.speedUp">
+			<segment>
+				<source>Speed Up</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reset">
+			<segment>
+				<source>RESET TO DEFAULTS</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.save">
+			<segment>
+				<source>Save</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.password">
+			<segment>
+				<source>Password</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.role">
+			<segment>
+				<source>Role</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewComments">
+			<segment>
+				<source>REVIEW COMMENTS</source>
+				<target></target>
+			</segment>
+		</unit>
+	</file>
+</xliff>

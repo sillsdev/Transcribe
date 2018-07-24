@@ -30,6 +30,7 @@ namespace Transcribe.Windows
 			if (File.Exists(randomName))
 				File.Delete(randomName);
 			var indexFullName = CreateResources(Path.GetFileNameWithoutExtension(randomName));
+			AddLocalization(Path.GetDirectoryName(indexFullName));
 			var startInfo = new ProcessStartInfo
 			{
 				FileName = "SimpleServer.exe",
@@ -60,6 +61,29 @@ namespace Transcribe.Windows
 				File.Delete(fullPath);
 				DeleteFolder(fullPath);
 			}
+		}
+
+		private static void AddLocalization(string siteFolder)
+		{
+			const string name = "strings.json";
+			const string localizationTag = "localization";
+			var srcBaseFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
+			Debug.Assert(srcBaseFolder != null, nameof(srcBaseFolder) + " != null");
+			var srcFullName = Path.Combine(srcBaseFolder, localizationTag, name);
+			if (!File.Exists(srcFullName))
+			{
+				const string resourceBase = "ReactUi.data.";
+				var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
+				var assembly = Assembly.LoadFile(portableName);
+				WriteResource(resourceBase, srcBaseFolder, assembly, localizationTag, name);
+			}
+
+			var siteLocalizationFolder = Path.Combine(siteFolder, localizationTag);
+			if (!Directory.Exists(siteLocalizationFolder))
+			{
+				Directory.CreateDirectory(siteLocalizationFolder);
+			}
+			File.Copy(srcFullName, Path.Combine(siteLocalizationFolder, name), true);
 		}
 
 		private static void DeleteFolder(string fullPath)
@@ -123,7 +147,7 @@ namespace Transcribe.Windows
 			const string resourceBase = "ReactUi.data.";
 			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
 			var assembly = Assembly.LoadFile(portableName);
-			var folder = Application.CommonAppDataPath;
+			var folder = Path.GetDirectoryName(Application.CommonAppDataPath);
 			var initFile = Path.Combine(folder, dataset + "Init.xml");
 			if (File.Exists(initFile))
 				File.Delete(initFile);
