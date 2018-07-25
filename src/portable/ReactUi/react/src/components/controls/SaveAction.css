@@ -1,0 +1,24 @@
+.SaveAction {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.SaveAction .btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+}
+
+.SaveAction .btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
