@@ -15,20 +15,17 @@ interface IUserHotkey {
 }
 
 interface IUser {
-    id: number;
-    displayName: string;
-    projects: IUserProjectSettings[];
-    settings: {
-      transcriber: {
-        hotkey: IUserHotkey[];
-        progress: string;
-        setting: IGenericUserSetting[];
-        speed: number;
-        timer: string;
-        uilang: string;
-      }
-    }
-    username: {
+  displayName: string;
+  hotkey: IUserHotkey[];
+  id: number;
+  progress: string;
+  project: IUserProjectSettings[];
+  role: string[];
+  setting: IGenericUserSetting[];
+  speed: number;
+  timer: string;
+  uilang: string;
+  username: {
       avatarUri: string;
       id: string;
     }

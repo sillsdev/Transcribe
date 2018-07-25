@@ -83,7 +83,10 @@ namespace Transcribe.Windows
 			{
 				Directory.CreateDirectory(siteLocalizationFolder);
 			}
-			File.Copy(srcFullName, Path.Combine(siteLocalizationFolder, name), true);
+
+			var fullPath = Path.Combine(siteLocalizationFolder, name);
+			File.Copy(srcFullName, fullPath, true);
+			SupportFile.Add(fullPath);
 		}
 
 		private static void DeleteFolder(string fullPath)

@@ -27,7 +27,7 @@ class NavPanel extends React.Component<IProps, object> {
             name={project.id}
             size="48"
             target="/main"
-            uri={project.type !== undefined?ProjectAvatar[project.type]:""} />):"";
+            uri={ProjectAvatar[project.type !== undefined?project.type:"Bible"]} />):"";
         return (
             <div className="NavPanel">
                 <BackLink target="/" />

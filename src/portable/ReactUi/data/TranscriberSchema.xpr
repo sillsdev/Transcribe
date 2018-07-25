@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="14.2">
+    <meta>
+        <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="TranscriberSchema.xpr">
+        <file name="task.rnc"/>
+        <file name="tasksInit.xml"/>
+        <file name="tasksSample.xml"/>
+        <file name="user.rnc"/>
+        <file name="usersInit.xml"/>
+        <file name="usersSample.xml"/>
+    </projectTree>
+</project>

@@ -12,7 +12,7 @@ const layoutSelector = (state: IState, props: IStringsSelectorProps) => state.st
 const userStrings = createSelector( layoutSelector, usersSelector, currentUserSelector, (layout, users, currentUser) => {
     const user = users.filter(u => u.username.id === currentUser)[0];
     if (user !== undefined){
-        layout.setLanguage(user.settings.transcriber.uilang);
+        layout.setLanguage(user.uilang);
     }
     return (layout)
 });

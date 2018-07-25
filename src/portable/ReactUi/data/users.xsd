@@ -21,9 +21,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element ref="username"/>
-        <xs:element ref="roles"/>
-        <xs:element minOccurs="0" ref="projects"/>
-        <xs:element ref="settings"/>
+        <xs:element maxOccurs="unbounded" ref="role"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="project"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotkey"/>
+        <xs:element minOccurs="0" ref="uilang"/>
+        <xs:element minOccurs="0" ref="timer"/>
+        <xs:element minOccurs="0" ref="speed"/>
+        <xs:element minOccurs="0" ref="progress"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="setting"/>
       </xs:sequence>
       <xs:attribute name="skill">
         <xs:annotation>
@@ -73,13 +78,6 @@
       <xs:documentation>URI to avatar picture</xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:element name="roles">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="role"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="role">
     <xs:simpleType>
       <xs:restriction base="xs:token">
@@ -88,13 +86,6 @@
         <xs:enumeration value="administrator"/>
       </xs:restriction>
     </xs:simpleType>
-  </xs:element>
-  <xs:element name="projects">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="project"/>
-      </xs:sequence>
-    </xs:complexType>
   </xs:element>
   <xs:element name="project">
     <xs:complexType>
@@ -122,25 +113,6 @@
         <xs:enumeration value="xx-large"/>
       </xs:restriction>
     </xs:simpleType>
-  </xs:element>
-  <xs:element name="settings">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" ref="transcriber"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="transcriber">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="hotkey"/>
-        <xs:element minOccurs="0" ref="uilang"/>
-        <xs:element minOccurs="0" ref="timer"/>
-        <xs:element minOccurs="0" ref="speed"/>
-        <xs:element minOccurs="0" ref="progress"/>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="setting"/>
-      </xs:sequence>
-    </xs:complexType>
   </xs:element>
   <xs:element name="hotkey">
     <xs:complexType>

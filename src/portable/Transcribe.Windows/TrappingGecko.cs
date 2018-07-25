@@ -160,10 +160,13 @@ namespace Transcribe.Windows
 			foreach (KeyValuePair<string, XmlNode> keyValuePair in sortedUsers)
 			{
 				var node = keyValuePair.Value;
+				AsArray(node.SelectNodes(".//role"));
+				AsArray(node.SelectNodes(".//project"));
+				AsArray(node.SelectNodes(".//hotkey"));
 				NewAttr(node, "id", item.ToString());
 				item += 1;
 				NewAttr(node, "displayName", keyValuePair.Key);
-				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(8);
+				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Replace("#text", "text").Substring(8);
 				jsonList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
 
@@ -236,15 +239,7 @@ namespace Transcribe.Windows
 				TaskSkillFilter(taskNodes, userNode, user);
 				if (taskNodes.Count == 0)
 					continue;
-				if (taskNodes.Count == 1)
-				{
-					var taskNode = taskNodes[0];
-					Debug.Assert(taskNode.OwnerDocument != null,"taskNode.OwnerDocument != null");
-					var jsonConvertAttr = taskNode.OwnerDocument.CreateAttribute("json", "Array", "http://james.newtonking.com/projects/json");
-					jsonConvertAttr.InnerText = "true";
-					Debug.Assert(taskNode.Attributes != null, "taskNode.Attributes != null");
-					taskNode.Attributes.Append(jsonConvertAttr);
-				}
+				AsArray(taskNodes);
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 				foreach (XmlNode taskNode in taskNodes)
@@ -260,6 +255,20 @@ namespace Transcribe.Windows
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetTasks")))
 			{
 				sw.Write($"[{string.Join(",", taskList)}]");
+			}
+		}
+
+		private static void AsArray(XmlNodeList nodes)
+		{
+			if (nodes.Count == 1)
+			{
+				var node = nodes[0];
+				Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
+				var jsonConvertAttr =
+					node.OwnerDocument.CreateAttribute("json", "Array", "http://james.newtonking.com/projects/json");
+				jsonConvertAttr.InnerText = "true";
+				Debug.Assert(node.Attributes != null, "node.Attributes != null");
+				node.Attributes.Append(jsonConvertAttr);
 			}
 		}
 

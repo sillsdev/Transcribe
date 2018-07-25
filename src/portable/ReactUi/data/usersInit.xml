@@ -3,9 +3,6 @@
  xsi:noNamespaceSchemaLocation="users.xsd" version="1.0">
 	<user skill="unsupervised">
 		<username id="admin"></username>
-		<roles>
-			<role>administrator</role>
-		</roles>
-		<settings></settings>
+		<role>administrator</role>
 	</user>
 </users>
