@@ -69,7 +69,10 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                         value={position} />
                 </div>
                 <div className="timeMarker">
-                    <TimeMarker playedSeconds={audioPlayedSeconds} totalSeconds={totalSeconds} timer={user.settings.transcriber.timer} />
+                    <TimeMarker
+                        playedSeconds={audioPlayedSeconds}
+                        totalSeconds={totalSeconds}
+                        timer={user !== undefined? user.timer: "countup"} />
                 </div>
                 <div className="RealPlayer">
                     <ReactPlayer

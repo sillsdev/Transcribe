@@ -3,7 +3,6 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../actions/userActions';
 import { IState } from '../model/state';
-// import { IUserProjectSettings } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
@@ -15,158 +14,167 @@ import TextboxUx from './ui-controls/TextboxUx';
 import './UserSettings.css';
 
 class UserSettings extends React.Component<IStateProps, object> {
-
     public render() {
-        const { users, selectedUser } = this.props;
+        const { users, selectedProject, selectedUser } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         /* ONCE WE GET THE VALID DATE FROM THE XML FILE, WE NEED TO UNCOMMENT THE BELOW COMMENTED CODE AND NEED TO VERIFY THE DATE
         THEN WE HAVE TO SET THE CONSTANT(like PlayPauseKey, backKey, forwardKey, slowerKey, fasterKey and project) VALUE TO THE APPROPRIATE FIELDS */
 
-        /* const project = users.filter(u => u.projects.project.id === selectedProject)[0];
+        const project = user !== undefined? user.project.filter(u => u.id === selectedProject)[0]: 
+        {fontfamily: "SIL Charis", fontsize: "medium", id:""};
 
-        const playPauseKey = user.settings.transcriber.hotkey.id === "play-pause" ? user.settings.transcriber.hotkey.id :
-            "Esc";
-        const backKey = user.settings.transcriber.hotkey.id === "back" ? user.settings.transcriber.hotkey.id :
-            "F1";
-        const forwardKey = user.settings.transcriber.hotkey.id === "forward" ? user.settings.transcriber.hotkey.id :
-            "F2";
-        const slowerKey = user.settings.transcriber.hotkey.id === "slower" ? user.settings.transcriber.hotkey.id :
-            "F3";
-        const fasterKey = user.settings.transcriber.hotkey.id === "faster" ? user.settings.transcriber.hotkey.id :
-            "F4"; */
+        const playPauseKey = this.keyCode(user, "play-pause", "ESC");
+        const backKey = this.keyCode(user, "back", "F1");
+        const forwardKey = this.keyCode(user, "forward", "F2");
+        const slowerKey = this.keyCode(user, "slower", "F3");
+        const fasterKey = this.keyCode(user, "faster", "F4");
 
-        const language = [
-             'English',
-             'Tamil',
-            'French'
+        const langaugeName = [
+            "English",
+            "French",
+            "Tamil"
         ];
+        const language = {
+            'en':'English',
+            'fr':'French',
+            'ta':'Tamil',
+        };
+        const userLanguage = language[user !== undefined? user.uilang.slice(0,2): "en"];
+        const languageChoice = [userLanguage].concat(langaugeName.filter(n => n !== userLanguage));
 
         const fontSize = [
             'medium',
             'xx-small',
-           'x-small',
-           'small',
-           'large',
-           'x-large',
-           'xx-large'
+            'x-small',
+            'small',
+            'large',
+            'x-large',
+            'xx-large'
        ];
+       const fontChoice = [project.fontsize].concat(fontSize.filter(v => v !== project.fontsize));
 
         return (
             <div className="UserSettings">
-                <BackLink target="/main" />
                 <div className="GridStyle">
                     <Grid>
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>&nbsp;</Col>
-                            <Col xs={11} md={11}>
+                            <Col xs={2} md={2}>
+                                <BackLink target="/main" />
+                            </Col>
+                            <Col xs={10} md={10}>
                                 <LabelCaptionUx name="USER" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>&nbsp;</Col>
-                            <Col xs={11} md={11}>
-                                <AvatarLink id={user.username.id} name="" target="/" uri={user.username.avatarUri} />
+                            <Col xs={2} md={2}>&nbsp;</Col>
+                            <Col xs={10} md={10}>
+                                <AvatarLink
+                                    id={user !== undefined? user.username.id:""}
+                                    name=""
+                                    target="/settings"
+                                    uri={user !== undefined? user.username.avatarUri:""} />
                             </Col>
                         </Row>
                         <br />
-                        <Row>
-                            <Col xs={1} md={1}>
+                        <Row className="name-row">
+                            <Col xs={2} md={2}>
                                 <LabelUx name="Name" />
                             </Col>
                             <Col xs={5} md={5}>
-                                <TextboxUx isReadOnly={false} inputValue={user.displayName} />
+                                <TextboxUx isReadOnly={false}
+                                    inputValue={user !== undefined? user.displayName: ""} />
                             </Col>
                             <Col xs={1} md={1}>
                                 <LabelUx name="Role" />
                             </Col>
-                            <Col xs={5} md={5}>
-                                <TextboxUx isReadOnly={true} inputValue={user.roles.role} />
+                            <Col xs={4} md={4}>
+                                <TextboxUx isReadOnly={true}
+                                    inputValue={user !== undefined? user.role.join(' + '): ""} />
                             </Col>
                         </Row>
                         <br />
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>&nbsp;</Col>
-                            <Col xs={5} md={5}>
+                            <Col xs={2} md={2}>&nbsp;</Col>
+                            <Col xs={3} md={3}>
                                 <LabelCaptionUx name="INTERFACE LANGUAGE" />
-                            </Col><Col xs={6} md={6}>
-                                <DropdownUx key="1" title="" id={2} collection={language} />
+                            </Col><Col xs={7} md={7}>
+                                <DropdownUx key="1" collection={languageChoice} />
                             </Col>
                         </Row>
                         <br />
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>&nbsp;</Col>
-                            <Col xs={11} md={11}>
+                            <Col xs={2} md={2}>&nbsp;</Col>
+                            <Col xs={10} md={10}>
                                 <LabelCaptionUx name="TRANSCRIPTION" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>
+                            <Col xs={2} md={2}>
                                 <LabelUx name="Font" />
                             </Col>
-                            <Col xs={6} md={6}>
-                                <TextboxUx isReadOnly={false} inputValue={"project.fontfamily"} />
+                            <Col xs={3} md={3}>
+                                <TextboxUx isReadOnly={false} inputValue={project.fontfamily} />
                             </Col>
-                            <Col xs={4} md={4}>
-                                <DropdownUx key="1" title="" id={2} collection={fontSize} />
+                            <Col xs={7} md={7}>
+                                <DropdownUx key="1" collection={fontChoice} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>&nbsp;</Col>
-                            <Col xs={11} md={11}>
+                            <Col xs={2} md={2}>&nbsp;</Col>
+                            <Col xs={10} md={10}>
                                 <LabelCaptionUx name="KEYBOARD SHORTCUTS" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={2} md={1}>
+                            <Col xs={2} md={2}>
                                 <LabelUx name="Play / Pause" />
                             </Col>
-                            <Col xs={10} md={11}>
-                                <TextboxUx isReadOnly={false} inputValue={"playPauseKey"} />
+                            <Col xs={10} md={10}>
+                                <TextboxUx isReadOnly={false} inputValue={playPauseKey} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={2} md={1}>
+                            <Col xs={2} md={2}>
                                 <LabelUx name="Rewind" />
                             </Col>
-                            <Col xs={10} md={11}>
-                                <TextboxUx isReadOnly={false} inputValue={"backKey"} />
+                            <Col xs={10} md={10}>
+                                <TextboxUx isReadOnly={false} inputValue={backKey} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={2} md={1}>
+                            <Col xs={2} md={2}>
                                 <LabelUx name="Fast Forward" />
                             </Col>
-                            <Col xs={10} md={11}>
-                                <TextboxUx isReadOnly={false} inputValue={"forwardKey"} />
+                            <Col xs={10} md={10}>
+                                <TextboxUx isReadOnly={false} inputValue={forwardKey} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={2} md={1}>
+                            <Col xs={2} md={2}>
                                 <LabelUx name="Slow Down" />
                             </Col>
-                            <Col xs={10} md={11}>
-                                <TextboxUx isReadOnly={false} inputValue={"slowerKey"} />
+                            <Col xs={10} md={10}>
+                                <TextboxUx isReadOnly={false} inputValue={slowerKey} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={2} md={1}>
+                            <Col xs={2} md={2}>
                                 <LabelUx name="Speed Up" />
                             </Col>
-                            <Col xs={10} md={11}>
-                                <TextboxUx isReadOnly={false} inputValue={"fasterKey"} />
+                            <Col xs={10} md={10}>
+                                <TextboxUx isReadOnly={false} inputValue={fasterKey} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>&nbsp;</Col>
-                            <Col xs={11} md={11}>
+                            <Col xs={2} md={2}>&nbsp;</Col>
+                            <Col xs={10} md={10}>
                                 <LinkAction target=""/>
                             </Col>
                         </Row>
                         <Row className="show-grid">
-                            <Col xs={1} md={1}>&nbsp;</Col>
-                            <Col xs={5} md={5}>&nbsp;</Col>
-                            <Col xs={6} md={6} className="saveAction">
+                            <Col xs={10} md={10}>&nbsp;</Col>
+                            <Col xs={2} md={2} className="saveAction">
                                 <SaveAction target="" />
                             </Col>
                         </Row>
@@ -175,6 +183,15 @@ class UserSettings extends React.Component<IStateProps, object> {
             </div>
         )
     }
+
+    private keyCode(user: IUser, tag: string, defCode: string){
+        if (user === undefined) {
+            return "";
+        }
+        const hotKey = user.hotkey.filter(h => h.id === tag)[0];
+        return hotKey !== undefined? hotKey.text: defCode;
+    }
+
 }
 
 interface IStateProps {

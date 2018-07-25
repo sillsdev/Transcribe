@@ -21,10 +21,16 @@ class TextBoxUx extends React.Component<IProps, any> {
     }
 
     public render() {
-
         const { message } = this.state;
+        const { isReadOnly } = this.props;
+
         return (
-            <input readOnly={this.props.isReadOnly} className="TextBoxUx" type="text" value={message} onChange={this.handleChange} />
+            <input
+                readOnly={isReadOnly}
+                className={isReadOnly? "TextBoxUx-read-only":"TextBoxUx"}
+                type="text"
+                value={message}
+                onChange={this.handleChange} />
         )
     }
 };

@@ -2,10 +2,7 @@ import * as React from 'react';
 import './DropdownUx.css';
 
 interface IProps {
-    title: string,
-    key: string,
-    id: number,
-    collection: any
+    collection: any[],
 }
 class DropdownUx extends React.Component<IProps, any> {
     public render() {
