@@ -1,0 +1,64 @@
+.DropdownUx .css-10nd86i{
+    width: 200px !important;
+}
+
+.DropdownUx .custom-select {
+    position: relative;
+    font-family: Arial;
+    background: transparent;
+    color:white;
+  }
+  .DropdownUx .custom-select select {
+    display: none; /*hide original SELECT element:*/
+  }
+  .DropdownUx .select-selected {
+    background-color: black;
+  }
+  /*style the arrow inside the select element:*/
+  .DropdownUx .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #000 transparent transparent transparent;
+  }
+  /*point the arrow upwards when the select box is open (active):*/
+  .DropdownUx .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #000 transparent;
+    top: 7px;
+  }
+  /*style the items (options), including the selected item:*/
+  .DropdownUx .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+  /*style items (options):*/
+  .DropdownUx .select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  /*hide the items when the select box is closed:*/
+  .DropdownUx .select-hide {
+    display: none;
+  }
+  .DropdownUx .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .DropdownUx select option {
+    margin: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #FFF;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}

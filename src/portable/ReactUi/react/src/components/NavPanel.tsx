@@ -21,7 +21,7 @@ class NavPanel extends React.Component<IProps, object> {
         const project = tasks.filter(t => t.id === selectedProject)[0];
         const userAvatar = user? (<AvatarLink id={user.username.id}
             name={user.displayName}
-            target="/"
+            target="/settings"
             uri={user.username.avatarUri} />):"";
         const projectAvatar = project? (<AvatarLink id={project.id}
             name={project.id}

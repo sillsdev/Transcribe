@@ -28,6 +28,6 @@ interface IUser {
   username: {
       avatarUri: string;
       id: string;
-    }
-  };
+  }
+};
   

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import ReactPlayer from 'react-player';
+import { connect } from 'react-redux';
 import * as actions from '../actions/audioActions';
+import { IState } from '../model/state';
 import TimeMarker from './controls/TimeMarker';
 import './ProgressPane.css';
 
@@ -46,9 +48,10 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { jump, selectedTask } = this.props;
+        const { jump, selectedTask, selectedUser, users } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
         const audioFile = '/api/audio/' + selectedTask + '.mp3'
+        const user = users.filter(u => u.username.id === selectedUser)[0];
         let position = audioPlayedSeconds;
         if (jump !== 0){
             position += jump;
@@ -66,7 +69,10 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                         value={position} />
                 </div>
                 <div className="timeMarker">
-                    <TimeMarker playedSeconds={audioPlayedSeconds} totalSeconds={totalSeconds} />
+                    <TimeMarker
+                        playedSeconds={audioPlayedSeconds}
+                        totalSeconds={totalSeconds}
+                        timer={user !== undefined? user.timer: "countup"} />
                 </div>
                 <div className="RealPlayer">
                     <ReactPlayer
@@ -88,7 +94,9 @@ interface IStateProps {
     playing: boolean;
     playSpeedRate: number;
     selectedTask: string;
+    selectedUser: string;
     jump: number;
+    users: IUser[];
 };
 
 interface IDispatchProps {
@@ -97,4 +105,13 @@ interface IDispatchProps {
     playSpeedRateChange: typeof actions.playSpeedRateChange;
 };
 
-export default ProgressPane;
+const mapStateToProps = (state: IState): IStateProps => ({
+    jump:  state.audio.jump,
+    playSpeedRate:  state.audio.playSpeedRate,
+    playing: state.audio.playing,
+    selectedTask:  state.tasks.selectedTask,
+    selectedUser: state.users.selectedUser,
+    users: state.users.users
+});
+
+export default connect(mapStateToProps)(ProgressPane);
