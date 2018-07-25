@@ -1,0 +1,25 @@
+  .UserSettings{
+    background-color: #002B36;
+  }
+  .UserSettings .GridStyle{
+    margin-left: -5%;
+  }
+
+  .UserSettings [class*="col-"] {
+    float: left;
+    width: 15%;
+  }
+
+  .UserSettings [class*="row"] {
+    clear: both;
+    padding: 15px;
+  }
+
+  .UserSettings .col-md-1 {
+    text-align: right;
+  }
+
+  .UserSettings .saveAction{
+    float: right;
+    width: 50%;
+  }

@@ -29,5 +29,8 @@ interface IUser {
       avatarUri: string;
       id: string;
     }
+    roles:{
+      role: string
+    }
   };
   
