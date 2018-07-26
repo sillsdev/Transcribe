@@ -22,7 +22,7 @@ class ControlPane extends React.Component<IProps, object> {
                 </div>
                 <JumpAhead {...this.props} />
                 <div className="Spacer" />
-                <NextAction target="" />
+                <NextAction target="" text={"Submit"} />
             </div>
             )
     }

@@ -4,22 +4,23 @@ import './LinkAction.css';
 
 interface IProps {
     target: string;
+    text: string;
 };
 
 class LinkAction extends React.Component<IProps, object> {
-    public linkClick() {
-        // tslint:disable-next-line:no-console
-        console.log("Save button clicked!!");
-    }
+    // public linkClick() {
+    //     // tslint:disable-next-line:no-console
+    //     console.log("Save button clicked!!");
+    // }
     public render() {
-        // const { target } = this.props;
+        const { target, text } = this.props;
         return (
             <div className="LinkAction">
                 <Button
-                    onClick={this.linkClick}
+                    onClick={target}
                     bsStyle="link"
                     bsSize="small">
-                    {"Reset to defaults"}
+                    {text}
                 </Button>
             </div>
         )

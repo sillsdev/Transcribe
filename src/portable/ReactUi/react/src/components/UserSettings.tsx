@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/userActions';
+import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
+import userStrings from '../selectors/localize';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
-import SaveAction from './controls/SaveAction';
+import NextAction from './controls/NextAction';
 import DropdownUx from './ui-controls/DropdownUx';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
@@ -15,7 +16,7 @@ import './UserSettings.css';
 
 class UserSettings extends React.Component<IStateProps, object> {
     public render() {
-        const { users, selectedProject, selectedUser } = this.props;
+        const { users, selectedProject, selectedUser, strings } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         /* ONCE WE GET THE VALID DATE FROM THE XML FILE, WE NEED TO UNCOMMENT THE BELOW COMMENTED CODE AND NEED TO VERIFY THE DATE
@@ -63,7 +64,7 @@ class UserSettings extends React.Component<IStateProps, object> {
                                 <BackLink target="/main" />
                             </Col>
                             <Col xs={10} md={10}>
-                                <LabelCaptionUx name="USER" />
+                                <LabelCaptionUx name={strings.user.toUpperCase()} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -79,14 +80,14 @@ class UserSettings extends React.Component<IStateProps, object> {
                         <br />
                         <Row className="name-row">
                             <Col xs={2} md={2}>
-                                <LabelUx name="Name" />
+                                <LabelUx name={strings.name} />
                             </Col>
                             <Col xs={5} md={5}>
                                 <TextboxUx isReadOnly={false}
                                     inputValue={user !== undefined? user.displayName: ""} />
                             </Col>
                             <Col xs={1} md={1}>
-                                <LabelUx name="Role" />
+                                <LabelUx name={strings.role} />
                             </Col>
                             <Col xs={4} md={4}>
                                 <TextboxUx isReadOnly={true}
@@ -97,7 +98,7 @@ class UserSettings extends React.Component<IStateProps, object> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={3} md={3}>
-                                <LabelCaptionUx name="INTERFACE LANGUAGE" />
+                                <LabelCaptionUx name={strings.language.toUpperCase()} />
                             </Col><Col xs={7} md={7}>
                                 <DropdownUx key="1" collection={languageChoice} />
                             </Col>
@@ -106,12 +107,12 @@ class UserSettings extends React.Component<IStateProps, object> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <LabelCaptionUx name="TRANSCRIPTION" />
+                                <LabelCaptionUx name={strings.transcriber.toUpperCase()} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
-                                <LabelUx name="Font" />
+                                <LabelUx name={strings.font} />
                             </Col>
                             <Col xs={3} md={3}>
                                 <TextboxUx isReadOnly={false} inputValue={project.fontfamily} />
@@ -123,12 +124,12 @@ class UserSettings extends React.Component<IStateProps, object> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <LabelCaptionUx name="KEYBOARD SHORTCUTS" />
+                                <LabelCaptionUx name={strings.keyboardShortcuts} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
-                                <LabelUx name="Play / Pause" />
+                                <LabelUx name={strings.playPause} />
                             </Col>
                             <Col xs={10} md={10}>
                                 <TextboxUx isReadOnly={false} inputValue={playPauseKey} />
@@ -136,7 +137,7 @@ class UserSettings extends React.Component<IStateProps, object> {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
-                                <LabelUx name="Rewind" />
+                                <LabelUx name={strings.rewind} />
                             </Col>
                             <Col xs={10} md={10}>
                                 <TextboxUx isReadOnly={false} inputValue={backKey} />
@@ -144,7 +145,7 @@ class UserSettings extends React.Component<IStateProps, object> {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
-                                <LabelUx name="Fast Forward" />
+                                <LabelUx name={strings.fastForward} />
                             </Col>
                             <Col xs={10} md={10}>
                                 <TextboxUx isReadOnly={false} inputValue={forwardKey} />
@@ -152,7 +153,7 @@ class UserSettings extends React.Component<IStateProps, object> {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
-                                <LabelUx name="Slow Down" />
+                                <LabelUx name={strings.slowDown} />
                             </Col>
                             <Col xs={10} md={10}>
                                 <TextboxUx isReadOnly={false} inputValue={slowerKey} />
@@ -160,7 +161,7 @@ class UserSettings extends React.Component<IStateProps, object> {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
-                                <LabelUx name="Speed Up" />
+                                <LabelUx name={strings.speedUp} />
                             </Col>
                             <Col xs={10} md={10}>
                                 <TextboxUx isReadOnly={false} inputValue={fasterKey} />
@@ -169,13 +170,13 @@ class UserSettings extends React.Component<IStateProps, object> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <LinkAction target=""/>
+                                <LinkAction target="" text={strings.reset.toUpperCase()}/>
                             </Col>
                         </Row>
                         <Row className="show-grid">
                             <Col xs={10} md={10}>&nbsp;</Col>
                             <Col xs={2} md={2} className="saveAction">
-                                <SaveAction target="" />
+                                <NextAction target="" text={strings.save} />
                             </Col>
                         </Row>
                     </Grid>
@@ -197,13 +198,15 @@ class UserSettings extends React.Component<IStateProps, object> {
 interface IStateProps {
     selectedUser: string;
     selectedProject: string;
+    strings: IUserSettingsStrings;
     users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
+    strings: userStrings(state, {layout: "userSettings"}),
     users: state.users.users,
 });
 
-export default connect(mapStateToProps, { fetchUsers })(UserSettings);
+export default connect(mapStateToProps)(UserSettings);
