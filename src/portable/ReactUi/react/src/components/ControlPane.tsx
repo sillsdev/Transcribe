@@ -22,9 +22,13 @@ class ControlPane extends React.Component<IProps, object> {
                 </div>
                 <JumpAhead {...this.props} />
                 <div className="Spacer" />
-                <NextAction target="" text={"Submit"} />
+                <NextAction target={this.submit} text={"Submit"} />
             </div>
             )
+    }
+
+    private submit = () => {
+        alert("Submitting logic goes here")
     }
 };
 
