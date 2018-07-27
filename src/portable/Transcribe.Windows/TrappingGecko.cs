@@ -94,6 +94,16 @@ namespace Transcribe.Windows
 					}
 					NewAttr(taskNode, "assignedto", user);
 					break;
+				case "Unassigned":
+					var assignedTo2 = taskNode.SelectSingleNode("@assignedto") as XmlAttribute;
+					if (string.IsNullOrEmpty(assignedTo2?.InnerText) || assignedTo2.InnerText != user)
+					{
+						e.Cancel = true;
+						return;
+					}
+					Debug.Assert(taskNode.Attributes != null, "taskNode.Attributes != null");
+					taskNode.Attributes.Remove(assignedTo2);
+					break;
 				case "TranscribeStart": break;
 				case "TranscribeEnd": break;
 				case "ReviewStart": break;

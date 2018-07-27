@@ -4,6 +4,13 @@
     height: 100%;
     padding: 20px 40px;
     overflow-y: auto;
+    box-shadow: 2px 4px 8px 8px rgba(0,0,0, 0.35);
+    z-index: 2;
+}
+
+.TaskPanel .AssignedRow {
+    flex-direction: row;
+    display: flex;
 }
 
 .TaskPanel .SectionHead {

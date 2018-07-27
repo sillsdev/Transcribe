@@ -1,5 +1,5 @@
 .TaskItem {
-    width: 227px;
+    width: 207px;
     min-height: 50px;
     background-color: #595555;
     margin: 5px;
@@ -8,7 +8,7 @@
 }
 
 .TaskItem .unselected {
-    width: 227px;
+    width: 195px;
     min-height: 50px;
     background-color: #2AA198;
     border-color: #2AA198;
@@ -20,7 +20,7 @@
 }
 
 .TaskItem .selected {
-    width: 227px;
+    width: 195px;
     min-height: 50px;
     background-color: #F5CC4C;
     border-color: #F5CC4C;
