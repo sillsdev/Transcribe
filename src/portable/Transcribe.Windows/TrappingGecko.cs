@@ -16,32 +16,6 @@ namespace Transcribe.Windows
 		private static readonly string DataFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
 		public string Folder { get; set; }
 
-		protected override void OnDomClick(DomMouseEventArgs e)
-		{
-			var elem = Document.ActiveElement;
-			var uri = elem.HasAttribute("Href") ? elem.GetAttribute("Href") :
-				elem.Parent.HasAttribute("Href") ? elem.Parent.GetAttribute("Href") :
-				"";
-			const string scheme = "hybrid:";
-			if (!uri.StartsWith(scheme)) base.OnDomClick(e);
-			e.Handled = true;
-			var resources = uri.Substring(scheme.Length).Split('?');
-			var method = resources[0];
-			var parameters = resources.Length > 1? System.Web.HttpUtility.ParseQueryString(resources[1]): null;
-			switch (method)
-			{
-				case "VowelChart": break;
-				case "ConstChart": break;
-				//case "DataCorpus": DisplayPages.DisplayData(); break;
-				//case "Search": break;
-				//case "Project": DisplayPages.DisplayOpenProject(); break;
-				//case "Settings": break;
-				//case "DistChart": break;
-				//case "Steps": break;
-				//case "Close": Program.DisplayMenu(); break;
-			}
-		}
-
 		protected override void OnObserveHttpModifyRequest(GeckoObserveHttpModifyRequestEventArgs e)
 		{
 			Debug.Print(e.Uri.AbsoluteUri);
@@ -69,7 +43,144 @@ namespace Transcribe.Windows
 					case "TaskEvent":
 						TaskEvent(e);
 						break;
+					case "UpdateUser":
+						UpdateUser(e);
+						break;
 				}
+			}
+		}
+
+		private void UpdateUser(GeckoObserveHttpModifyRequestEventArgs e)
+		{
+			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var user = parsedQuery["user"];
+			var project = parsedQuery["project"];
+			var avatarUri = parsedQuery["avatarUri"];
+			var name = parsedQuery["name"];
+			var uilang = parsedQuery["uilang"];
+			var font = parsedQuery["font"];
+			var fontsize = parsedQuery["fontsize"];
+			var playpause = parsedQuery["playpause"];
+			var back = parsedQuery["back"];
+			var forward = parsedQuery["forward"];
+			var slower = parsedQuery["slower"];
+			var faster = parsedQuery["faster"];
+			Debug.Print($"{user}:{project}:{avatarUri}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
+			var usersDoc = LoadXmlData("users");
+			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
+			if (userNode == null)
+				return;
+			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
+			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
+			AddAvatarUri(avatarUri, usernameNode);
+			AddUserName(name, usernameNode, usersDoc);
+			AddUilang(uilang, userNode, usersDoc);
+			AddFontInfo("fontfamily", font, userNode, project, usersDoc, user);
+			AddFontInfo("fontsize", fontsize, userNode, project, usersDoc, user);
+			AddHotkey("play-pause", playpause, userNode, usersDoc);
+			AddHotkey("back", back, userNode, usersDoc);
+			AddHotkey("forward", forward, userNode, usersDoc);
+			AddHotkey("slower", slower, userNode, usersDoc);
+			AddHotkey("faster", faster, userNode, usersDoc);
+			using (var xw = XmlWriter.Create(XmlFullName("users"), new XmlWriterSettings { Indent = true }))
+			{
+				usersDoc.Save(xw);
+			}
+
+		}
+
+		private static void AddHotkey(string keyid, string playpause, XmlNode userNode, XmlDocument usersDoc)
+		{
+			if (playpause != null)
+			{
+				if (!(userNode.SelectSingleNode($"hotkey[@id='{keyid}']") is XmlElement node))
+				{
+					node = usersDoc.CreateElement("hotkey");
+					userNode.InsertAfter(node, FindPreceding(userNode, new List<string> {"hotkey", "project", "role"}));
+					NewAttr(node, "id", keyid);
+				}
+
+				node.InnerText = playpause;
+			}
+		}
+
+		private static XmlElement FindPreceding(XmlNode userNode, List<string> list)
+		{
+			var nodes = userNode.SelectNodes(list[0]);
+			Debug.Assert(nodes != null, nameof(nodes) + " != null");
+			if (nodes.Count > 0)
+				return nodes[nodes.Count - 1] as XmlElement;
+			if (list.Count > 1)
+				return FindPreceding(userNode, list.GetRange(0, list.Count - 1));
+			return null;
+		}
+
+		private static void AddFontInfo(string nodeName, string data, XmlNode userNode, string project, XmlDocument usersDoc, string user)
+		{
+			if (data == null)
+				return;
+			var userProjectNode = GetUserProjectNode(userNode, project, usersDoc, user);
+			if (!(userProjectNode.SelectSingleNode(nodeName) is XmlElement node))
+			{
+				node = usersDoc.CreateElement(nodeName);
+				userProjectNode.AppendChild(node);
+			}
+
+			node.InnerText = data;
+		}
+
+		private static XmlNode GetUserProjectNode(XmlNode userNode, string project, XmlDocument usersDoc, string user)
+		{
+			var userProjectNode = userNode.SelectSingleNode($"project[@id = '{project}']");
+			if (userProjectNode == null)
+			{
+				userProjectNode = usersDoc.CreateElement("project");
+				NewAttr(userProjectNode, "id", project);
+				var roleNodes = userNode.SelectNodes("role");
+				Debug.Assert(roleNodes?.Count > 0, $"user {user} missing role");
+				userNode.InsertAfter(userProjectNode, roleNodes[roleNodes.Count - 1]);
+			}
+
+			return userProjectNode;
+		}
+
+		private static void AddUilang(string uilang, XmlNode userNode, XmlDocument usersDoc)
+		{
+			if (uilang == null)
+				return;
+			if (!(userNode.SelectSingleNode("uilang") is XmlElement uilangNode))
+			{
+				uilangNode = usersDoc.CreateElement("uilang");
+				userNode.InsertAfter(uilangNode, FindPreceding(userNode, new List<string> { "hotkey", "project", "role" }));
+			}
+
+			uilangNode.InnerText = uilang;
+		}
+
+		private static void AddUserName(string name, XmlElement usernameNode, XmlDocument usersDoc)
+		{
+			if (name == null)
+				return;
+			if (!(usernameNode.SelectSingleNode("fullname") is XmlElement fullNameNode))
+			{
+				fullNameNode = usersDoc.CreateElement("fullname");
+				usernameNode.AppendChild(fullNameNode);
+			}
+
+			fullNameNode.InnerText = name;
+		}
+
+		private static void AddAvatarUri(string avatarUri, XmlElement usernameNode)
+		{
+			if (avatarUri == null)
+				return;
+			if (usernameNode.HasAttribute("avatarUri"))
+			{
+				usernameNode.Attributes["avatarUri"].InnerText = avatarUri;
+			}
+			else
+			{
+				NewAttr(usernameNode, "avatarUri", avatarUri);
 			}
 		}
 

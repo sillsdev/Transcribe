@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { FETCH_USERS, SELECT_USER } from './types';
+import { FETCH_USERS, SELECT_USER, UPDATE_USER_PENDING } from './types';
 
 
 export const fetchUsers = () => (dispatch: any) => {
@@ -17,4 +17,10 @@ export function selectUser(id: string): any{
         payload: id,
         type: SELECT_USER
     }
+}
+
+export const updateUser = (user: string, project: string, query: string) => (dispatch: any) => {
+    dispatch({type: UPDATE_USER_PENDING});
+    Axios.put('/api/UpdateUser?user=' + user + '&project=' + project + query)
+        .then(dispatch(fetchUsers()))
 }

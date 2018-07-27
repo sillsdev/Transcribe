@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 import './NextAction.css';
 
 interface IProps {
-    target: string;
+    target: (context: React.Component) => any;
     text: string;
 };
 
