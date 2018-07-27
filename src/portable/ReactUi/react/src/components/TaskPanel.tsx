@@ -6,6 +6,7 @@ import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import taskList from '../selectors';
 import userStrings from '../selectors/localize';
+import RevertAction from './controls/RevertAction';
 import TaskItem from './controls/TaskItem';
 import './TaskPanel.css';
 
@@ -16,7 +17,7 @@ class TaskPanel extends React.Component<IProps, object> {
       public render() {
         const { assignedTranscribe, availableTranscribe } = this.props;
         const { loaded, pending, selectedUser, selectedTask } = this.props;
-        const { assignTask, selectTask, strings } = this.props
+        const { assignTask, selectTask, strings, unassignTask } = this.props
         
         if (this.props.selectedTask.trim() === '' && this.props.assignedTranscribe.length > 0) {
             selectTask(assignedTranscribe[0].id);
@@ -26,11 +27,17 @@ class TaskPanel extends React.Component<IProps, object> {
         const assignedHead = assignedTranscribe.length > 0?
             (<h4 className="ListHead">{strings.assigned}</h4>): <div/>;
         const assignedList = assignedTranscribe.map((t: ITask) => (
-            <TaskItem
-                id={t.id}
-                name={t.name}
-                selected={t.id === selectedTask}
-                select={selectTask.bind(this,t.id)}/>
+            <div className="AssignedRow">
+                <TaskItem
+                    id={t.id}
+                    name={t.name}
+                    selected={t.id === selectedTask}
+                    select={selectTask.bind(this,t.id)}/>
+                <RevertAction 
+                    selected={t.id === selectedTask}
+                    target={unassignTask.bind(this, t.id, selectedUser)}
+                    text={"\u2B73"} />
+            </div>
         ));
         const availableHead = availableTranscribe.length > 0?
             (<h4 className="ListHead">{strings.available}</h4>): <div/>;
@@ -81,12 +88,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
   interface IDispatchProps {
     assignTask: typeof actions.assignTask;
     selectTask: typeof actions.selectTask;
+    unassignTask: typeof actions.unAssignTask;
   };
   
   const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         assignTask: actions.assignTask,
         selectTask: actions.selectTask,
+        unassignTask: actions.unAssignTask,
         }, dispatch),
   });
   
