@@ -214,7 +214,7 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private save(context: UserSettings) {
-        const { selectedProject, selectedUser, users } = this.props;
+        const { selectedProject, selectedUser, users, updateUser } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const project = user !== undefined? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "medium", id:""};
@@ -222,7 +222,7 @@ class UserSettings extends React.Component<IProps, any> {
         const updates = Array<string>();
         const avatarUri = this.avatarRef.current && this.avatarRef.current.props.uri;
         if (user.username.avatarUri !== avatarUri) {
-            this.saveValue(updates, "avatarUei", avatarUri)
+            this.saveValue(updates, "avatarUri", avatarUri)
         }
         const name = context.nameRef.current && context.nameRef.current.state.message;
         if (user.displayName !== name){
@@ -262,8 +262,10 @@ class UserSettings extends React.Component<IProps, any> {
             this.saveValue(updates, "faster", faster)
         }
         if (updates.length > 0) {
+            const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
-            console.log("/api/UpdateUser?" + (["user=" + selectedUser, "project=" + selectedProject].concat(updates).join("&")));
+            console.log("/api/UpdateUser?user=" + selectedUser, "&project=" + selectedProject + query);
+            updateUser(selectedUser, selectedProject, query)
         }
     }
 }
@@ -284,11 +286,13 @@ const mapStateToProps = (state: IState): IStateProps => ({
 
 interface IDispatchProps {
     fetchUsers: typeof actions.fetchUsers;
+    updateUser: typeof actions.updateUser;
   };
   
   const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchUsers: actions.fetchUsers,
+        updateUser: actions.updateUser,
         }, dispatch),
   });
 
