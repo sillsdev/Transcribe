@@ -6,8 +6,29 @@
     padding: 0px 0px 0px 0px;
   }
 
+  .UserSettings .pencil {
+    font-size: 8pt;
+    color:white;
+    width: 8pt;
+    transform: rotate(180deg);
+    position: relative;
+    left: 64px;
+    top: -25px;
+  }
+
+  .UserSettings a {
+    text-decoration: none;
+  }
+
+  .UserSettings .pencil:hover{
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow:    0px 0px 30px 0px #FFF;
+    box-shadow:         0px 0px 30px 0px #FFF;
+  }
+
   .UserSettings .name-row {
-    padding: 0px 0px 0px 0px !important;
+    padding: 10px 0px 0px 0px !important;
   }
 
   .UserSettings [class*="col-"] {

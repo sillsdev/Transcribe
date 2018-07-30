@@ -1,12 +1,13 @@
 import * as React from 'react';
+import Avatar from 'react-avatar';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
-import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
 import NextAction from './controls/NextAction';
@@ -21,7 +22,7 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class UserSettings extends React.Component<IProps, any> {
     private languages: string[];
-    private avatarRef: React.RefObject<AvatarLink>;
+    private avatarRef: React.RefObject<typeof Avatar>;
     private nameRef: React.RefObject<TextboxUx>;
     private languageRef: React.RefObject<DropdownUx>;
     private fontRef: React.RefObject<TextboxUx>;
@@ -86,12 +87,13 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <AvatarLink
+                                <Link className="pencil" to="/avatar">{"\u2710"}</Link>
+                                <Avatar
+                                    size="64"
+                                    round={true}
                                     ref={this.avatarRef}
-                                    id={user !== undefined? user.username.id:""}
-                                    name=""
-                                    target="/settings"
-                                    uri={user !== undefined? user.username.avatarUri:""} />
+                                    src={user !== undefined? user.username.avatarUri:""} />
+                            
                             </Col>
                         </Row>
                         <br />
