@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="xliff.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<xliff srcLang="en" trgLang="ha" version="1.0" xml:lang="en" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+	<file id="Transcriber" original="TranscriberUi-en.xliff">
+		<unit id="transcribe.bible">
+			<segment>
+				<source>Bible</source>
+				<target>Litafi mai tsarki</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.storybook">
+			<segment>
+				<source>Storybook</source>
+				<target>Litafi labaru</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.test">
+			<segment>
+				<source>Test</source>
+				<target>Gwaji</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.other">
+			<segment>
+				<source>Other</source>
+				<target>Wani abu</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.assigned">
+			<segment>
+				<source>ASSIGNED</source>
+				<target>Aikinka</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.available">
+			<segment>
+				<source>Available</source>
+				<target>Bukatan yi</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.Review">
+			<segment>
+				<source>Review</source>
+				<target>Mai mai taawa</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribe">
+			<segment>
+				<source>Transcribe</source>
+				<target>Juyarwa da abunda ka/ki keji</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.accept">
+			<segment>
+				<source>Accept</source>
+				<target>Nayadar</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.submit">
+			<segment>
+				<source>Submit</source>
+				<target>Merwa</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.user">
+			<segment>
+				<source>User</source>
+				<target>Ma aikin</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.name">
+			<segment>
+				<source>Name</source>
+				<target>Suna</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.font">
+			<segment>
+				<source>Font</source>
+				<target>Peni Sifa</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.Language">
+			<segment>
+				<source>Language</source>
+				<target>Yare</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.medium">
+			<segment>
+				<source>Medium</source>
+				<target>Nasaka Sakakani</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.small">
+			<segment>
+				<source>Small</source>
+				<target>Karami</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.large">
+			<segment>
+				<source>Large</source>
+				<target>Boba</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.english">
+			<segment>
+				<source>English</source>
+				<target>Yarin turenci</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.keyboardShortcuts">
+			<segment>
+				<source>KEYBOARD SHORTCUTS</source>
+				<target>Buga alama</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.playPause">
+			<segment>
+				<source>Play / Pause</source>
+				<target>Soma / tsaya</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.rewind">
+			<segment>
+				<source>Rewind</source>
+				<target>Koma</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fastForward">
+			<segment>
+				<source>Fast Forward</source>
+				<target>Ketare</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.slowDown">
+			<segment>
+				<source>Slow Down</source>
+				<target>Sanu sanu</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.speedUp">
+			<segment>
+				<source>Speed Up</source>
+				<target>Sauri (sauri)</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reset">
+			<segment>
+				<source>RESET TO DEFAULTS</source>
+				<target>Mayida abu ayada yake</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.save">
+			<segment>
+				<source>Save</source>
+				<target>Ajiye</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.password">
+			<segment>
+				<source>Password</source>
+				<target>Baa yenci</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.role">
+			<segment>
+				<source>Role</source>
+				<target>Masai yi</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>Majuyarwa</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>Mai mai maitawa</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewComments">
+			<segment>
+				<source>REVIEW COMMENTS</source>
+				<target>Mai bada ra'ayi</target>
+			</segment>
+		</unit>
+	</file>
+</xliff>
