@@ -34,7 +34,7 @@ class UserSettings extends React.Component<IProps, any> {
 
     constructor(props: IProps) {
         super(props)
-        this.languages =  [ 'en:English', 'fr:French', 'ta:Tamil' ];
+        this.languages =  [ 'en:English', 'fr:Français', 'ha:Hausa', 'ru:Pусский', 'ta:தமிழ்' ];
         this.avatarRef = React.createRef();
         this.nameRef = React.createRef();
         this.languageRef = React.createRef();

@@ -25,11 +25,24 @@ When Transcribe.Windows is executed, it launches the SimpleServer code. It tries
 
 The browser control is monitoring the HTTP requests. When it observes a request that begins with /api/ it interprets it as an API request for the C# to respond to. The application data is in the default location in ProgramData, company name, and application name.
 
-These are GET requests:
+## These are GET requests:
 - `GetUsers` - loads the list of all users
 - `GetTasks` - loads the list of all tasks
 - `GetTasks?user=<username>` - loads that list of tasks that are available to the `<username>`
 
-This is a PUT request:
+## This is a PUT request:
 - `TaskEvent?action=<action>&task=<task>&user=<user>` - records an action (see XML schema) on the task
+- `UpdateUser?user=<user>&project=<project>&<tag>=<value>` - updates value in user data
+
+### List of tags for UpdateUser api
+- avatarUri
+- name
+- uilang
+- font
+- fontsize
+- playpause
+- back
+- forward
+- slower
+- faster
 

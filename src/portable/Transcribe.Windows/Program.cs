@@ -45,6 +45,7 @@ namespace Transcribe.Windows
 				var f = new Form { Size = new Size(1024, 800) };
 				f.Icon = Resources.transcriber7;
 				_browser = new TrappingGecko { Folder = Path.GetDirectoryName(indexFullName), Dock = DockStyle.Fill, UseHttpActivityObserver = true};
+				f.Text = $"{Application.ProductName}  {Application.ProductVersion}";
 				f.Controls.Add(_browser);
 				var portAddr = GetPortAddr(reactProcess);
 				_browser.Navigate($"http://localhost:{portAddr}");
