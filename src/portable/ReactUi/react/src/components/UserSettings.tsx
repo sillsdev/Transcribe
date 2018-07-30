@@ -69,6 +69,7 @@ class UserSettings extends React.Component<IProps, any> {
         const fontSizeChoice = [project.fontsize].concat(fontSize.filter(v => v !== project.fontsize));
 
         const saveMethod = () => this.save(this)
+        const resetMethod = () => this.reset(this)
 
         return (
             <div className="UserSettings">
@@ -186,7 +187,7 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <LinkAction target="" text={strings.reset.toUpperCase()}/>
+                                <LinkAction target={resetMethod} text={strings.reset.toUpperCase()}/>
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -266,6 +267,42 @@ class UserSettings extends React.Component<IProps, any> {
             // tslint:disable-next-line:no-console
             console.log("/api/UpdateUser?user=" + selectedUser, "&project=" + selectedProject + query);
             updateUser(selectedUser, selectedProject, query)
+        }
+    }
+
+    private reset(context: UserSettings) {
+       const { users, selectedUser } = this.props;
+       const user = users.filter(u => u.username.id === selectedUser)[0];
+
+       const defaultPlayPauseCode = 'Esc';
+       const defaultRewindCode = 'F1';
+       const defaultFastForwardCode = 'F2';
+       const defaultSlowDownCode = 'F3';
+       const defaultSpeedUpCode = 'F4';
+
+       if(context.playpauseRef.current !== null){
+           context.playpauseRef.current.state.message = this.keyCode(user, 'playpauseRef', defaultPlayPauseCode);
+           this.setState({inputValue: this.keyCode(user, 'playpauseRef', defaultPlayPauseCode)})
+       }
+
+       if(context.backRef.current !== null){
+           context.backRef.current.state.message = this.keyCode(user, 'backRef', defaultRewindCode);
+           this.setState({inputValue: this.keyCode(user, 'backRef', defaultRewindCode)})
+       }
+
+       if(context.aheadRef.current !== null){
+           context.aheadRef.current.state.message = this.keyCode(user, 'aheadRef', defaultFastForwardCode);
+           this.setState({inputValue: this.keyCode(user, 'aheadRef', defaultFastForwardCode)})
+       }
+
+       if(context.slowRef.current !== null){
+           context.slowRef.current.state.message = this.keyCode(user, 'slowRef', defaultSlowDownCode);
+           this.setState({inputValue: this.keyCode(user, 'slowRef', defaultSlowDownCode)})
+       }
+
+       if(context.fastRef.current !== null){
+           context.fastRef.current.state.message = this.keyCode(user, 'fastRef', defaultSpeedUpCode);
+           this.setState({inputValue: this.keyCode(user, 'fastRef', defaultSpeedUpCode)})
         }
     }
 }
