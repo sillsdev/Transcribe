@@ -7,6 +7,8 @@
     font-family: Arial;
     background: transparent;
     color:white;
+    border: 1px solid black;
+    border-radius: 4px;
   }
   .DropdownUx .custom-select select {
     display: none; /*hide original SELECT element:*/
@@ -24,10 +26,12 @@
     height: 0;
     border: 6px solid transparent;
     border-color: #000 transparent transparent transparent;
+    border-radius: 4px;
   }
   /*point the arrow upwards when the select box is open (active):*/
   .DropdownUx .select-selected.select-arrow-active:after {
     border-color: transparent transparent #000 transparent;
+    border-radius: 4px;
     top: 7px;
   }
   /*style the items (options), including the selected item:*/
@@ -36,6 +40,7 @@
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    border-radius: 4px;
     cursor: pointer;
     user-select: none;
   }

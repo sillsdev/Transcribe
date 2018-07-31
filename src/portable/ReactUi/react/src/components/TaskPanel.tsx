@@ -15,18 +15,23 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class TaskPanel extends React.Component<IProps, object> {
       public render() {
-        const { assignedTranscribe, availableTranscribe } = this.props;
+        const { assignedReview, assignedTranscribe, availableReview, availableTranscribe } = this.props;
         const { loaded, pending, selectedUser, selectedTask } = this.props;
         const { assignTask, selectTask, strings, unassignTask } = this.props
         
+        if (this.props.selectedTask.trim() === '' && this.props.assignedReview.length > 0) {
+            selectTask(assignedReview[0].id);
+        }
         if (this.props.selectedTask.trim() === '' && this.props.assignedTranscribe.length > 0) {
             selectTask(assignedTranscribe[0].id);
         }
-        const transcribeHead = (assignedTranscribe.length + availableTranscribe.length > 0)?
-            (<h3 className="SectionHead">{strings.transcribe.toUpperCase()}</h3>): <div/>;
-        const assignedHead = assignedTranscribe.length > 0?
-            (<h4 className="ListHead">{strings.assigned}</h4>): <div/>;
-        const assignedList = assignedTranscribe.map((t: ITask) => (
+        const assignedHead = (assignedReview.length + assignedTranscribe.length > 0)?
+            (<h3 className="SectionHead">{strings.assigned.toUpperCase()}</h3>): <div/>;
+        const assignedReviewHead = assignedReview.length > 0?
+            (<h4 className="ListHead">{strings.review}</h4>): <div/>;
+        const assignedTranscribeHead = assignedTranscribe.length > 0?
+            (<h4 className="ListHead">{strings.transcribe}</h4>): <div/>;
+        const assignedReviewList = assignedReview.map((t: ITask) => (
             <div className="AssignedRow">
                 <TaskItem
                     id={t.id}
@@ -39,9 +44,33 @@ class TaskPanel extends React.Component<IProps, object> {
                     text={"\u2B73"} />
             </div>
         ));
-        const availableHead = availableTranscribe.length > 0?
-            (<h4 className="ListHead">{strings.available}</h4>): <div/>;
-        const availableList = availableTranscribe.map((t: ITask) => (
+        const assignedTranscribeList = assignedTranscribe.map((t: ITask) => (
+            <div className="AssignedRow">
+                <TaskItem
+                    id={t.id}
+                    name={t.name}
+                    selected={t.id === selectedTask}
+                    select={selectTask.bind(this,t.id)}/>
+                <RevertAction 
+                    selected={t.id === selectedTask}
+                    target={unassignTask.bind(this, t.id, selectedUser)}
+                    text={"\u2B73"} />
+            </div>
+        ));
+        const availableHead = (availableReview.length + availableTranscribe.length > 0)?
+            (<h3 className="SectionHead">{strings.available.toUpperCase()}</h3>): <div/>;
+        const availableReviewHead = availableReview.length > 0?
+            (<h4 className="ListHead">{strings.review}</h4>): <div/>;
+        const availableTranscribeHead = availableTranscribe.length > 0?
+            (<h4 className="ListHead">{strings.transcribe}</h4>): <div/>;
+        const availableReviewList = availableReview.map((t: ITask) => (
+            <TaskItem
+                id={t.id}
+                name={t.name}
+                selected={t.id === selectedTask}
+                select={assignTask.bind(this,t.id, selectedUser)}/>
+        ));
+        const availableTranscribeList = availableTranscribe.map((t: ITask) => (
             <TaskItem
                 id={t.id}
                 name={t.name}
@@ -50,11 +79,16 @@ class TaskPanel extends React.Component<IProps, object> {
         ));
         const wrapper: JSX.Element = !pending && loaded? (
             <div>
-                {transcribeHead}
                 {assignedHead}
-                {assignedList}
+                {assignedReviewHead}
+                {assignedReviewList}
+                {assignedTranscribeHead}
+                {assignedTranscribeList}
                 {availableHead}
-                {availableList}
+                {availableReviewHead}
+                {availableReviewList}
+                {availableTranscribeHead}
+                {availableTranscribeList}
             </div>
         ): <div/>;
         return (
@@ -66,7 +100,9 @@ class TaskPanel extends React.Component<IProps, object> {
 };
 
 interface IStateProps {
+    assignedReview: ITask[];
     assignedTranscribe: ITask[];
+    availableReview: ITask[];
     availableTranscribe: ITask[];
     loaded: boolean;
     pending: boolean;
@@ -76,7 +112,9 @@ interface IStateProps {
 }
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    assignedReview: taskList(state).assignedReview,
     assignedTranscribe: taskList(state).assignedTranscribe,
+    availableReview: taskList(state).availableReview,
     availableTranscribe: taskList(state).availableTranscribe,
     loaded: state.tasks.loaded,
     pending: state.tasks.pending,

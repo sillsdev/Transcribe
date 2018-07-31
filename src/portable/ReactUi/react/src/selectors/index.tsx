@@ -13,9 +13,13 @@ const tasks = createSelector( selectAllProjects, selectedProject, (allProjects, 
 const taskLists = createSelector( tasks, selectedUser, (projectTasks, username) => {
     const assignedTranscribe =  projectTasks.filter(t => t.assignedto === username && t.state === "Transcribe");
     const availableTranscribe =  projectTasks.filter(t => !(t.assignedto) && t.state === "Transcribe");
+    const assignedReview =  projectTasks.filter(t => t.assignedto === username && t.state === "Review");
+    const availableReview =  projectTasks.filter(t => !(t.assignedto) && t.state === "Review");
     return ({
+        assignedReview,
         assignedTranscribe,
-        availableTranscribe
+        availableReview,
+        availableTranscribe,
     })
 });
 
