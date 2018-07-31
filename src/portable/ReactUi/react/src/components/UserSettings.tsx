@@ -252,7 +252,7 @@ class UserSettings extends React.Component<IProps, any> {
         }
         const forward = context.aheadRef.current && context.aheadRef.current.state.message;
         if (user.hotkey.filter(k => k.id === "forward")[0].text !== forward) {
-            this.saveValue(updates, "foward", forward)
+            this.saveValue(updates, "forward", forward)
         }
         const slower = context.slowRef.current && context.slowRef.current.state.message;
         if (user.hotkey.filter(k => k.id === "slower")[0].text !== slower) {
