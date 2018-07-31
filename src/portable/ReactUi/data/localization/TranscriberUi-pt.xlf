@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="xliff.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<xliff srcLang="en" trgLang="pt" version="1.0" xml:lang="en" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+	<file id="Transcriber" original="TranscriberUi-en.xliff">
+		<unit id="transcribe.bible">
+			<segment>
+				<source>Bible</source>
+				<target>Bíblia</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.storybook">
+			<segment>
+				<source>Storybook</source>
+				<target>Colecção dos Contos</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.test">
+			<segment>
+				<source>Test</source>
+				<target>Prova</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.other">
+			<segment>
+				<source>Other</source>
+				<target>Outro</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.assigned">
+			<segment>
+				<source>ASSIGNED</source>
+				<target>Atribuído</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.available">
+			<segment>
+				<source>Available</source>
+				<target>Disponível</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.Review">
+			<segment>
+				<source>Review</source>
+				<target>Comentar</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribe">
+			<segment>
+				<source>Transcribe</source>
+				<target>Transcrever</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.accept">
+			<segment>
+				<source>Accept</source>
+				<target>Aceitar</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.submit">
+			<segment>
+				<source>Submit</source>
+				<target>Submeter</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.user">
+			<segment>
+				<source>User</source>
+				<target>Utilizador</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.name">
+			<segment>
+				<source>Name</source>
+				<target>Nome</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.font">
+			<segment>
+				<source>Font</source>
+				<target>Tipo de letra</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.Language">
+			<segment>
+				<source>Language</source>
+				<target>Idioma</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.medium">
+			<segment>
+				<source>Medium</source>
+				<target>Médio</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.small">
+			<segment>
+				<source>Small</source>
+				<target>Pequeno</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.large">
+			<segment>
+				<source>Large</source>
+				<target>Grande</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.english">
+			<segment>
+				<source>English</source>
+				<target>Inglês</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.keyboardShortcuts">
+			<segment>
+				<source>KEYBOARD SHORTCUTS</source>
+				<target>Atalhos do teclado</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.playPause">
+			<segment>
+				<source>Play / Pause</source>
+				<target>Tocar / Pausar gravação</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.rewind">
+			<segment>
+				<source>Rewind</source>
+				<target>Recuar</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fastForward">
+			<segment>
+				<source>Fast Forward</source>
+				<target>Avançar</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.slowDown">
+			<segment>
+				<source>Slow Down</source>
+				<target>Ir mais lento</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.speedUp">
+			<segment>
+				<source>Speed Up</source>
+				<target>Ir mais rápido</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reset">
+			<segment>
+				<source>RESET TO DEFAULTS</source>
+				<target>Utilizar predefinições</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.save">
+			<segment>
+				<source>Save</source>
+				<target>Guardar</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.password">
+			<segment>
+				<source>Password</source>
+				<target>Palavra-passe</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.role">
+			<segment>
+				<source>Role</source>
+				<target>Função</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>Transcritor</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>Revisor</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewComments">
+			<segment>
+				<source>REVIEW COMMENTS</source>
+				<target>Comentários do revisor </target>
+			</segment>
+		</unit>
+	</file>
+</xliff>
