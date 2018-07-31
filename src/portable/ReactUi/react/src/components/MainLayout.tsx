@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
+import userStrings from '../selectors/localize';
 import AudioPanel from './AudioPanel'
 import './MainLayout.css';
 import NavPanel from './NavPanel'
@@ -80,7 +81,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     playSpeedRate: state.audio.playSpeedRate,
     playing: state.audio.playing,
     selectedTask: state.tasks.selectedTask,
-    strings: state.strings.transcriber,
+    strings: userStrings(state, {layout: "transcriber"}),
 });
 
 interface IDispatchProps {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { jumpChange, playSpeedRateChange, playStatus } from '../actions/audioActions';
+import { ITranscriberStrings } from '../model/localize';
 import './ControlPane.css';
 import JumpAhead from './controls/JumpAhead';
 import JumpBack from './controls/JumpBack';
@@ -22,7 +23,7 @@ class ControlPane extends React.Component<IProps, object> {
                 </div>
                 <JumpAhead {...this.props} />
                 <div className="Spacer" />
-                <NextAction target={this.submit} text={"Submit"} />
+                <NextAction target={this.submit} text={this.props.strings.submit} />
             </div>
             )
     }
@@ -35,6 +36,7 @@ class ControlPane extends React.Component<IProps, object> {
 interface IStateProps {
     playing: boolean;
     playSpeedRate: number;
+    strings: ITranscriberStrings;
 };
 
 interface IDispatchProps {

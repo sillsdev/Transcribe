@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as actions from '../actions/audioActions';
+import { ITranscriberStrings } from '../model/localize';
 import './AudioPanel.css';
 import ControlPane from './ControlPane';
 import EditorPane from './EditorPane';
@@ -30,6 +31,7 @@ interface IStateProps {
     playSpeedRate: number;
     selectedTask: string;
     jump: number;
+    strings: ITranscriberStrings;
 };
 
 interface IDispatchProps {
