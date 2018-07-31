@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="xliff.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<xliff srcLang="en" trgLang="ru" version="1.0" xml:lang="en" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+	<file id="Transcriber" original="TranscriberUi-en.xliff">
+		<unit id="transcribe.bible">
+			<segment>
+				<source>Bible</source>
+				<target>Библия</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.storybook">
+			<segment>
+				<source>Storybook</source>
+				<target>Рассказы</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.test">
+			<segment>
+				<source>Test</source>
+				<target>Тест</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.other">
+			<segment>
+				<source>Other</source>
+				<target>Другое</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.assigned">
+			<segment>
+				<source>Assigned</source>
+				<target>ЗАДАННЫЕ</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.available">
+			<segment>
+				<source>Available</source>
+				<target>Доступные</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.review">
+			<segment>
+				<source>Review</source>
+				<target>Проверять</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribe">
+			<segment>
+				<source>Transcribe</source>
+				<target>Tранскрибировать</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.accept">
+			<segment>
+				<source>Accept</source>
+				<target>Принять</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.submit">
+			<segment>
+				<source>Submit</source>
+				<target>Отправить</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.user">
+			<segment>
+				<source>User</source>
+				<target>Пользователь</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.name">
+			<segment>
+				<source>Name</source>
+				<target>Фамилия Имя</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.font">
+			<segment>
+				<source>Font</source>
+				<target>Шрифт</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.language">
+			<segment>
+				<source>Language</source>
+				<target>Язык</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.medium">
+			<segment>
+				<source>Medium</source>
+				<target>Средний</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.small">
+			<segment>
+				<source>Small</source>
+				<target>Маленкий</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.large">
+			<segment>
+				<source>Large</source>
+				<target>Большой</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.english">
+			<segment>
+				<source>English</source>
+				<target>Английский</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.keyboardShortcuts">
+			<segment>
+				<source>KEYBOARD SHORTCUTS</source>
+				<target>ГОРЯЧИЕ КЛАВИШИ</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.playPause">
+			<segment>
+				<source>Play / Pause</source>
+				<target>Играть / Пауза</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.rewind">
+			<segment>
+				<source>Rewind</source>
+				<target>Перемотать назад</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fastForward">
+			<segment>
+				<source>Fast Forward</source>
+				<target>Перемотать вперед</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.slowDown">
+			<segment>
+				<source>Slow Down</source>
+				<target>Замедлить</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.speedUp">
+			<segment>
+				<source>Speed Up</source>
+				<target>Ускорить</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reset">
+			<segment>
+				<source>RESET TO DEFAULTS</source>
+				<target>СБРОС НА ПО УМОЛЧАНИЮ</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.save">
+			<segment>
+				<source>Save</source>
+				<target>Сохранить</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.password">
+			<segment>
+				<source>Password</source>
+				<target>Пароль</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.role">
+			<segment>
+				<source>Role</source>
+				<target>Роль</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>Транскрайбер</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>Проверщик</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.reviewComments">
+			<segment>
+				<source>REVIEW COMMENTS</source>
+				<target>ЗАМЕТКИ ПРОВЕРКИ</target>
+			</segment>
+		</unit>
+	</file>
+</xliff>
