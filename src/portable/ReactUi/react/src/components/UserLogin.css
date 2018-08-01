@@ -20,7 +20,7 @@ body{
 
 .UserLogin .list-group-item {
       display: inline-flex;
-      background-color: #002B36;
+      background-color: transparent;
       border: none;
     }
 

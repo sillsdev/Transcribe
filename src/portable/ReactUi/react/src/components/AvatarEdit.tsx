@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Avatar from 'react-avatar-edit';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
@@ -12,10 +14,14 @@ const initialState = {
     preview: undefined,
     save: false,
 }
-class AvatarEdit extends React.Component<IStateProps, typeof initialState> {
+
+interface IProps extends IStateProps, IDispatchProps {
+}
+
+class AvatarEdit extends React.Component<IProps, typeof initialState> {
     public state: typeof initialState;
 
-    public constructor(props: IStateProps) {
+    public constructor(props: IProps) {
         super(props);
         this.state = initialState
         this.onCrop = this.onCrop.bind(this)
@@ -49,9 +55,11 @@ class AvatarEdit extends React.Component<IStateProps, typeof initialState> {
     }
 
     private onSave() {
+        const { selectedUser, updateAvatar } = this.props;
         this.setState({save:true})
         // tslint:disable-next-line:no-console
         console.log("save avatar");
+        updateAvatar(selectedUser, "&avatarBase64=" + this.state.preview)
     }
 };
 
@@ -67,6 +75,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
     users: state.users.users,
 });
 
+interface IDispatchProps {
+    updateAvatar: typeof actions.updateAvatar,
+  };
 
+  const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+        updateAvatar: actions.updateAvatar,
+        }, dispatch),
+  });
 
-export default connect(mapStateToProps)(AvatarEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(AvatarEdit);
