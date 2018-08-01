@@ -33,9 +33,9 @@ The browser control is monitoring the HTTP requests. When it observes a request 
 ## This is a PUT request:
 - `TaskEvent?action=<action>&task=<task>&user=<user>` - records an action (see XML schema) on the task
 - `UpdateUser?user=<user>&project=<project>&<tag>=<value>` - updates value in user data
+- `UpdateAvatar?user=<user>` - The json object for the state of AvatarEdit is passed as the body. This request updates user with uri to newly created image file.
 
 ### List of tags for UpdateUser api
-- avatarUri
 - name
 - uilang
 - font

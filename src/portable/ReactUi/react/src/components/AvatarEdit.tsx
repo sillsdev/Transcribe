@@ -12,7 +12,6 @@ import NextAction from './controls/NextAction';
 
 const initialState = {
     preview: undefined,
-    save: false,
 }
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -56,10 +55,7 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
 
     private onSave() {
         const { selectedUser, updateAvatar } = this.props;
-        this.setState({save:true})
-        // tslint:disable-next-line:no-console
-        console.log("save avatar");
-        updateAvatar(selectedUser, "&avatarBase64=" + this.state.preview)
+        updateAvatar(selectedUser, this.state);
     }
 };
 

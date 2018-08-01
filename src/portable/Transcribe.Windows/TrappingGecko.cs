@@ -60,7 +60,6 @@ namespace Transcribe.Windows
 			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
 			var user = parsedQuery["user"];
 			var project = parsedQuery["project"];
-			var avatarUri = parsedQuery["avatarUri"];
 			var name = parsedQuery["name"];
 			var uilang = parsedQuery["uilang"];
 			var font = parsedQuery["font"];
@@ -70,14 +69,13 @@ namespace Transcribe.Windows
 			var forward = parsedQuery["forward"];
 			var slower = parsedQuery["slower"];
 			var faster = parsedQuery["faster"];
-			Debug.Print($"{user}:{project}:{avatarUri}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
+			Debug.Print($"{user}:{project}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
 			var usersDoc = LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
 			if (userNode == null)
 				return;
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
-			AddAvatarUri(avatarUri, usernameNode, usersDoc);
 			AddUserName(name, usernameNode, usersDoc);
 			AddUilang(uilang, userNode, usersDoc);
 			AddFontInfo("fontfamily", font, userNode, project, usersDoc, user);
@@ -98,10 +96,10 @@ namespace Transcribe.Windows
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
 			var user = parsedQuery["user"];
-			var avatarBase64 = parsedQuery["avatarBase64"];
+			var avatarBase64 = AvatarBase64(e.RequestBody);
 			Debug.Print($"{user}:{avatarBase64}");
 			Image newAvatarImage = LoadImage(avatarBase64);
-			string imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
+			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
 			var sourceFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
 			if (sourceFolder != null) newAvatarImage.Save(Path.Combine(sourceFolder, "images/" + imageFileName));
 			var usersDoc = LoadXmlData("users");
@@ -115,6 +113,28 @@ namespace Transcribe.Windows
 			{
 				usersDoc.Save(xw);
 			}
+		}
+
+		private static string AvatarBase64(byte[] data)
+		{
+			var avatarBase64 = string.Empty;
+			using (var ms = new MemoryStream(data))
+			{
+				using (var str = new StreamReader(ms))
+				{
+					try
+					{
+						var xml = JsonConvert.DeserializeXmlNode(@"{""state"":" + str.ReadToEnd() + "}");
+						avatarBase64 = xml.SelectSingleNode("//preview").InnerText;
+					}
+					catch (Exception err)
+					{
+						Debug.Print(err.Message);
+					}
+				}
+			}
+
+			return avatarBase64;
 		}
 
 		public Image LoadImage(string avatarUriString)

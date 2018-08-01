@@ -22,7 +22,6 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class UserSettings extends React.Component<IProps, any> {
     private languages: string[];
-    private avatarRef: React.RefObject<typeof Avatar>;
     private nameRef: React.RefObject<TextboxUx>;
     private languageRef: React.RefObject<DropdownUx>;
     private fontRef: React.RefObject<TextboxUx>;
@@ -36,7 +35,6 @@ class UserSettings extends React.Component<IProps, any> {
     constructor(props: IProps) {
         super(props)
         this.languages =  [ 'en:English', 'ar:عربى', 'fr:Français', 'ha:Hausa', 'pt:Português', 'ru:Pусский', 'ta:தமிழ்' ];
-        this.avatarRef = React.createRef();
         this.nameRef = React.createRef();
         this.languageRef = React.createRef();
         this.fontRef = React.createRef();
@@ -91,7 +89,6 @@ class UserSettings extends React.Component<IProps, any> {
                                 <Avatar
                                     size="64"
                                     round={true}
-                                    ref={this.avatarRef}
                                     src={user !== undefined? user.username.avatarUri:""} />
                             
                             </Col>
@@ -223,10 +220,6 @@ class UserSettings extends React.Component<IProps, any> {
         {fontfamily: "SIL Charis", fontsize: "medium", id:""};
 
         const updates = Array<string>();
-        const avatarUri = this.avatarRef.current && this.avatarRef.current.props.uri;
-        if (user.username.avatarUri !== avatarUri) {
-            this.saveValue(updates, "avatarUri", avatarUri)
-        }
         const name = context.nameRef.current && context.nameRef.current.state.message;
         if (user.displayName !== name){
             this.saveValue(updates, "name", name)
