@@ -1,12 +1,13 @@
 import * as React from 'react';
+import Avatar from 'react-avatar';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
-import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
 import NextAction from './controls/NextAction';
@@ -21,7 +22,6 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class UserSettings extends React.Component<IProps, any> {
     private languages: string[];
-    private avatarRef: React.RefObject<AvatarLink>;
     private nameRef: React.RefObject<TextboxUx>;
     private languageRef: React.RefObject<DropdownUx>;
     private fontRef: React.RefObject<TextboxUx>;
@@ -35,7 +35,6 @@ class UserSettings extends React.Component<IProps, any> {
     constructor(props: IProps) {
         super(props)
         this.languages =  [ 'en:English', 'ar:عربى', 'fr:Français', 'ha:Hausa', 'pt:Português', 'ru:Pусский', 'ta:தமிழ்' ];
-        this.avatarRef = React.createRef();
         this.nameRef = React.createRef();
         this.languageRef = React.createRef();
         this.fontRef = React.createRef();
@@ -86,12 +85,12 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <AvatarLink
-                                    ref={this.avatarRef}
-                                    id={user !== undefined? user.username.id:""}
-                                    name=""
-                                    target="/settings"
-                                    uri={user !== undefined? user.username.avatarUri:""} />
+                                <Link className="pencil" to="/avatar">{"\u2710"}</Link>
+                                <Avatar
+                                    size="64"
+                                    round={true}
+                                    src={user !== undefined? user.username.avatarUri:""} />
+                            
                             </Col>
                         </Row>
                         <br />
@@ -221,10 +220,6 @@ class UserSettings extends React.Component<IProps, any> {
         {fontfamily: "SIL Charis", fontsize: "medium", id:""};
 
         const updates = Array<string>();
-        const avatarUri = this.avatarRef.current && this.avatarRef.current.props.uri;
-        if (user.username.avatarUri !== avatarUri) {
-            this.saveValue(updates, "avatarUri", avatarUri)
-        }
         const name = context.nameRef.current && context.nameRef.current.state.message;
         if (user.displayName !== name){
             this.saveValue(updates, "name", name)

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Web;
 using System.Windows.Forms;
 using System.Xml;
@@ -46,6 +48,9 @@ namespace Transcribe.Windows
 					case "UpdateUser":
 						UpdateUser(e);
 						break;
+					case "UpdateAvatar":
+						UpdateAvatar(e);
+						break;
 				}
 			}
 		}
@@ -55,7 +60,6 @@ namespace Transcribe.Windows
 			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
 			var user = parsedQuery["user"];
 			var project = parsedQuery["project"];
-			var avatarUri = parsedQuery["avatarUri"];
 			var name = parsedQuery["name"];
 			var uilang = parsedQuery["uilang"];
 			var font = parsedQuery["font"];
@@ -65,14 +69,13 @@ namespace Transcribe.Windows
 			var forward = parsedQuery["forward"];
 			var slower = parsedQuery["slower"];
 			var faster = parsedQuery["faster"];
-			Debug.Print($"{user}:{project}:{avatarUri}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
+			Debug.Print($"{user}:{project}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
 			var usersDoc = LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
 			if (userNode == null)
 				return;
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
-			AddAvatarUri(avatarUri, usernameNode);
 			AddUserName(name, usernameNode, usersDoc);
 			AddUilang(uilang, userNode, usersDoc);
 			AddFontInfo("fontfamily", font, userNode, project, usersDoc, user);
@@ -87,6 +90,71 @@ namespace Transcribe.Windows
 				usersDoc.Save(xw);
 			}
 
+		}
+
+		private void UpdateAvatar(GeckoObserveHttpModifyRequestEventArgs e)
+		{
+			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var user = parsedQuery["user"];
+			var avatarBase64 = AvatarBase64(e.RequestBody);
+			Debug.Print($"{user}:{avatarBase64}");
+			Image newAvatarImage = LoadImage(avatarBase64);
+			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
+			var sourceFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
+			if (sourceFolder != null) newAvatarImage.Save(Path.Combine(sourceFolder, "images/" + imageFileName));
+			var usersDoc = LoadXmlData("users");
+			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
+			if (userNode == null)
+				return;
+			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
+			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
+			AddAvatarUri("images/" + imageFileName, usernameNode, usersDoc);
+			using (var xw = XmlWriter.Create(XmlFullName("users"), new XmlWriterSettings { Indent = true }))
+			{
+				usersDoc.Save(xw);
+			}
+		}
+
+		private static string AvatarBase64(byte[] data)
+		{
+			var avatarBase64 = string.Empty;
+			using (var ms = new MemoryStream(data))
+			{
+				using (var str = new StreamReader(ms))
+				{
+					try
+					{
+						var xml = JsonConvert.DeserializeXmlNode(@"{""state"":" + str.ReadToEnd() + "}");
+						avatarBase64 = xml.SelectSingleNode("//preview").InnerText;
+					}
+					catch (Exception err)
+					{
+						Debug.Print(err.Message);
+					}
+				}
+			}
+
+			return avatarBase64;
+		}
+
+		public Image LoadImage(string avatarUriString)
+		{
+			Image image = null;
+			var imageParts = avatarUriString.Split(',').ToList<string>();
+			try
+			{
+				string dummyData = imageParts[1].Trim().Replace(" ", "+");
+				if (dummyData.Length % 4 > 0)
+					dummyData = dummyData.PadRight(dummyData.Length + 4 - dummyData.Length % 4, '=');
+				var bytes = Convert.FromBase64String(dummyData);
+
+				using (MemoryStream ms = new MemoryStream(bytes))
+				{
+					image = Image.FromStream(ms);
+				}
+			}
+			catch {}
+			return image;
 		}
 
 		private static void AddHotkey(string keyid, string playpause, XmlNode userNode, XmlDocument usersDoc)
@@ -170,18 +238,16 @@ namespace Transcribe.Windows
 			fullNameNode.InnerText = name;
 		}
 
-		private static void AddAvatarUri(string avatarUri, XmlElement usernameNode)
+		private static void AddAvatarUri(string avatarUri, XmlElement usernameNode, XmlDocument usersDoc)
 		{
 			if (avatarUri == null)
 				return;
-			if (usernameNode.HasAttribute("avatarUri"))
+			if (!(usernameNode.SelectSingleNode("avatarUri") is XmlElement avatarNode))
 			{
-				usernameNode.Attributes["avatarUri"].InnerText = avatarUri;
+				avatarNode = usersDoc.CreateElement("avatarUri");
+				usernameNode.AppendChild(avatarNode);
 			}
-			else
-			{
-				NewAttr(usernameNode, "avatarUri", avatarUri);
-			}
+			avatarNode.InnerText = avatarUri;
 		}
 
 		private void TaskEvent(GeckoObserveHttpModifyRequestEventArgs e)

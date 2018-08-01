@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import AvatarEdit from './components/AvatarEdit';
 import MainLayout from './components/MainLayout'
 import SelectProject from './components/SelectProject'
 import UserLogin from './components/UserLogin'
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="/project" component={SelectProject} />
         <Route path="/main" component={MainLayout} />
         <Route path="/settings" component={UserSettings}/>
+        <Route path="/avatar" component={AvatarEdit} />
       </div>
     </Router>
   </Provider>,
