@@ -23,6 +23,9 @@ class MainLayout extends React.Component<IProps, any> {
         }
 
         const handlers = {
+            'ctrl+s': (event: any) => {
+                alert('save')
+            },
             'esc': (event: any) => {
                 playStatus(!playing);
             },
