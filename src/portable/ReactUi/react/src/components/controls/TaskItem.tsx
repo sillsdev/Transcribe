@@ -12,7 +12,7 @@ interface IProps {
 class TaskItem extends React.Component<IProps, object> {
     public render() {
         const { id, name, select } = this.props;
-        const displayName = name.trim() !== ''? name: id;
+        const displayName = name != null &&  name.trim() !== ''? name.trim(): id;
 
         return (
             <div className="TaskItem">
