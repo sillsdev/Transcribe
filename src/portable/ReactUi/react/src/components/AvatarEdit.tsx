@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Avatar from 'react-avatar-edit';
+import Avatar from './react-avatar-edit/avatar';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/userActions';
