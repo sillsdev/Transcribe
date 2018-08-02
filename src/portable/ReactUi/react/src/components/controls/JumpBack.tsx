@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as ReactToolTip from 'react-tooltip';
 import * as actions from '../../actions/audioActions';
 import './JumpBack.css';
 
@@ -10,10 +11,13 @@ interface IProps {
 class JumpBack extends React.Component<IProps, object> {
     public render() {
         return (
-            <div className="JumpBack" onClick={this.props.jumpChange.bind(this, -2)}>
-               {"\u00AB"}
+            <div>
+                <ReactToolTip />
+                <div className="JumpBack" data-tip="F1" onClick={this.props.jumpChange.bind(this, -2)}>
+                    {"\u00AB"}
+                </div>
             </div>
-            )
+        )
     }
 };
 

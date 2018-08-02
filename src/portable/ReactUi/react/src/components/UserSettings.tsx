@@ -31,6 +31,8 @@ class UserSettings extends React.Component<IProps, any> {
     private aheadRef: React.RefObject<TextboxUx>;
     private slowRef: React.RefObject<TextboxUx>;
     private fastRef: React.RefObject<TextboxUx>;
+    private fontSizeDef: string[];
+    private fontSizeLoc: string[];
 
     constructor(props: IProps) {
         super(props)
@@ -64,8 +66,10 @@ class UserSettings extends React.Component<IProps, any> {
             this.languages.filter(i => i.slice(0,2) !== userLanguageCode).map(i => i.slice(3))
         )
 
-        const fontSize = [ 'medium', 'xx-small', 'x-small', 'small', 'large', 'x-large', 'xx-large' ];
-        const fontSizeChoice = [project.fontsize].concat(fontSize.filter(v => v !== project.fontsize));
+        this.fontSizeDef = ['medium', 'xx-small', 'x-small', 'small', 'large', 'x-large', 'xx-large'];
+        this.fontSizeLoc = [strings.medium, 'xx-' + strings.small, 'x-' + strings.small, strings.small, strings.large, 'x-' + strings.large, 'xx-' + strings.large];
+        const projFontSize = this.fontSizeLoc[this.fontSizeDef.indexOf(project.fontsize)]
+        const fontSizeChoice = [projFontSize].concat(this.fontSizeLoc.filter(v => v !== projFontSize));
 
         const saveMethod = () => this.save(this)
         const resetMethod = () => this.reset(this)
@@ -234,8 +238,11 @@ class UserSettings extends React.Component<IProps, any> {
             updates.push("font=" + font)
         }
         const fontSize = context.fontSizeRef.current && context.fontSizeRef.current.selected;
-        if (project.fontsize !== fontSize) {
-            this.saveValue(updates, "fontsize", fontSize)
+        if (fontSize !== null) {
+            const projFontSize = this.fontSizeDef[this.fontSizeLoc.indexOf(fontSize)]
+            if (project.fontsize !== projFontSize) {
+                this.saveValue(updates, "fontsize", projFontSize)
+            }
         }
         const playpause = context.playpauseRef.current && context.playpauseRef.current.state.message;
         if (user.hotkey.filter(k => k.id === "play-pause")[0].text !== playpause) {

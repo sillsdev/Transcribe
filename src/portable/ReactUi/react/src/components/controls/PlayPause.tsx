@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as ReactToolTip from 'react-tooltip';
 import * as actions from '../../actions/audioActions';
 import './PlayPause.css';
 
@@ -13,10 +14,15 @@ class PlayPause extends React.Component<IProps, object> {
         const playCharacter = playing? <div className='pause'>{"\u23F8"}</div> : 
             <div className='play'>{"\u25B6"}</div>;
         return (
-            <div className="PlayPause" onClick={playStatus.bind(this, !playing)}>
-               {playCharacter}
+            <div>
+                <ReactToolTip />
+                <div className="PlayPause" data-tip="Esc" onClick={playStatus.bind(this, !playing)}>
+                    {playCharacter}
+                </div>
             </div>
-            )
+
+
+        )
     }
 };
 

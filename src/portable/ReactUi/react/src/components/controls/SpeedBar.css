@@ -8,6 +8,7 @@
 .SpeedBar input {
     width:80px;
     z-index: 50;
+    cursor: e-resize;
 }
 
 /* Tooltip container */
