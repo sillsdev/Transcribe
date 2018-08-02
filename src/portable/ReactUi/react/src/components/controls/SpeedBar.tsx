@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as ReactToolTip from 'react-tooltip';
 import * as actions from '../../actions/audioActions';
 import './SpeedBar.css';
 
@@ -20,7 +21,9 @@ class SpeedBar extends React.Component<IProps, any> {
         const { playSpeedRate } = this.props;
 
         return (
-            <div className="SpeedBar">
+            <div>
+            <ReactToolTip />
+            <div className="SpeedBar" data-tip="F3 ⬌ F4">
                 <i className="slider-origin" />
                 <input
                     id="speed"
@@ -32,6 +35,7 @@ class SpeedBar extends React.Component<IProps, any> {
                     value={playSpeedRate.toString()}
                     onChange={this.onChange} />
             </div>
+        </div>
         )
     }
 };
