@@ -14,6 +14,7 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
+    "chooseAvatar": string;
     "english": string;
     "fastForward": string;
     "font": string;

@@ -80,6 +80,12 @@ export interface Props {
   mimeTypes?: string;
 
   /**
+   * Prompt for loading a file
+   * Default: Choose a file
+   */
+  label?: string;
+
+  /**
    * The style object for preview label
    */
   labelStyle?: React.CSSProperties;

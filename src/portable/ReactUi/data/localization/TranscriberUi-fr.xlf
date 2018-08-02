@@ -188,5 +188,11 @@
 				<target>Commentaires</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.chooseAvatar">
+			<segment>
+				<source>Choose an image file</source>
+				<target>Sélectionner un fichier d'image</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

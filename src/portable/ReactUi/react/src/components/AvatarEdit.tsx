@@ -38,6 +38,7 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
                 <Avatar
                     width={390}
                     height={295}
+                    label={strings.chooseAvatar}
                     onCrop={this.onCrop} 
                     src={user !== undefined? user.username.avatarUri:""}
                     />
