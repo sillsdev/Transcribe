@@ -3,6 +3,7 @@ interface ITask {
     id: string;
     name: string;
     state: string;
+    transcribing: boolean;
 };
 
 interface IProject {
