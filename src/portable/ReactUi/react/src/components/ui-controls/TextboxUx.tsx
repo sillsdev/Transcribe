@@ -1,14 +1,17 @@
 import * as React from 'react';
+import ReactTooltip from 'react-tooltip'
 import './TextboxUx.css';
 
 interface IProps {
     inputValue: string,
-    isReadOnly: boolean
+    isReadOnly: boolean,
+    toolTipText: string,
 }
 
 class TextBoxUx extends React.Component<IProps, any> {
     public state = {
-        message: this.props.inputValue
+        message: this.props.inputValue,
+        toolTipText: this.props.toolTipText
     }
 
     constructor(props: IProps) {
@@ -23,14 +26,21 @@ class TextBoxUx extends React.Component<IProps, any> {
     public render() {
         const { message } = this.state;
         const { isReadOnly } = this.props;
+        const cName = (this.state.toolTipText.length > 0)? "TextBoxUxRed": "TextBoxUx";
+        const star = (this.state.toolTipText.length > 0)? "\u274C": "";
 
         return (
-            <input
-                readOnly={isReadOnly}
-                className={isReadOnly? "TextBoxUx-read-only":"TextBoxUx"}
-                type="text"
-                value={message}
-                onChange={this.handleChange} />
+            <div>
+                <ReactTooltip />
+                <input
+                    readOnly={isReadOnly}
+                    className={isReadOnly? "TextBoxUx-read-only": cName}
+                    type="text"
+                    value={message}
+                    onChange={this.handleChange}
+                    data-tip={this.state.toolTipText}/>
+                <span className="xMark">&nbsp;{star}</span>
+            </div>
         )
     }
 };
