@@ -1,20 +1,24 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/taskActions';
 import { IState } from '../model/state';
 import './EditorPane.css'
+
+interface IProps extends IStateProps, IDispatchProps {
+}
 
 const initialState = {
     text: ""
 }
-class EditorPane extends React.Component<IStateProps, typeof initialState> {
-    public textareaRef: React.RefObject<HTMLTextAreaElement>;
+class EditorPane extends React.Component<IProps, typeof initialState> {
     public state: typeof initialState;
 
-    public constructor(props: IStateProps) {
+    public constructor(props: IProps) {
         super(props);
         this.state = initialState
-        this.textareaRef = React.createRef();
         this.change = this.change.bind(this);
+        this.keyUp = this.keyUp.bind(this);
     }
 
     public render() {
@@ -26,27 +30,49 @@ class EditorPane extends React.Component<IStateProps, typeof initialState> {
 
         return (
             <div className="EditorPane">
-                <textarea ref={this.textareaRef} style={{fontFamily: font, fontSize: size}} onChange={this.change} />
+                <textarea
+                    style={{fontFamily: font, fontSize: size}} 
+                    onChange={this.change} 
+                    onKeyUp={this.keyUp}
+                    />
             </div>
         )
     }
 
-    private change(val: any) {
-        alert("Hi")
-        // this.setState({text: this.textareaRef.current})
+    private change(event: any) {
+        this.setState({ text: event.target.value });
+    }
+
+    private keyUp(event: any) {
+        const { selectedTask, writeTranscription } = this.props;
+        if (event.keyCode === 32) {
+            writeTranscription(selectedTask, this.state)
+        }
     }
 };
 
 interface IStateProps {
     selectedUser: string;
     selectedProject: string;
+    selectedTask: string;
     users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     selectedProject: state.tasks.selectedProject,
+    selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
     users: state.users.users,
 });
 
-export default connect(mapStateToProps)(EditorPane);
+interface IDispatchProps {
+    writeTranscription: typeof actions.writeTranscription,
+};
+
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+        writeTranscription: actions.writeTranscription,
+    }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditorPane);

@@ -51,7 +51,62 @@ namespace Transcribe.Windows
 					case "UpdateAvatar":
 						UpdateAvatar(e);
 						break;
+					case "WriteTranscription":
+						WriteTranscription(e);
+						break;
 				}
+			}
+		}
+
+		private void WriteTranscription(GeckoObserveHttpModifyRequestEventArgs e)
+		{
+			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var taskid = parsedQuery["task"];
+			var transcription = GetRequestElement(e.RequestBody, "text");
+			var xml = Program.XmlTemplate("transcription.eaf");
+			UpdateXml(xml, "@DATE", DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
+			UpdateXml(xml, "*[local-name()='ANNOTATION_VALUE']", transcription);
+			UpdateXml(xml, "@DEFAULT_LOCALE","en");
+			UpdateXml(xml, "@LANGUAGE_CODE", "en");
+			UpdateXml(xml,"*[@TIME_SLOT_ID='ts2']/@TIME_VALUE","10000");
+
+			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskid.Split('-'))));
+			var dirInfo = new DirectoryInfo(folder);
+			foreach (var ext in ".mp3;.wav".Split(';'))
+			{
+				var files = dirInfo.GetFiles(taskid + "*" + ext);
+				var name = string.Empty;
+				foreach (var fileInfo in files)
+				{
+					if (string.Compare(fileInfo.Name, name, StringComparison.Ordinal) > 1)
+						name = fileInfo.Name;
+				}
+
+				if (string.IsNullOrEmpty(name))
+					continue;
+				UpdateXml(xml, "@MEDIA_FILE", name);
+				UpdateXml(xml, "@MEDIA_URL", name);
+				UpdateXml(xml, "@MIME_TYPE", ext == ".mp3"? "audio/x-mp3" : "audio/x-wav");
+				var outName = Path.Combine(folder, Path.GetFileNameWithoutExtension(name) + ".eaf");
+				using (var xw = XmlWriter.Create(outName, new XmlWriterSettings {Indent = true}))
+				{
+					xml.Save(xw);
+				}
+
+				return;
+			}
+		}
+
+		private void UpdateXml(XmlNode xml, string path, string val)
+		{
+			var node = xml.SelectSingleNode($@"//{path}");
+			if (node != null)
+			{
+				node.InnerText = val;
+			}
+			else
+			{
+				Debug.Print("Missing xml path: "+ path);
 			}
 		}
 
@@ -96,7 +151,7 @@ namespace Transcribe.Windows
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
 			var user = parsedQuery["user"];
-			var avatarBase64 = AvatarBase64(e.RequestBody);
+			var avatarBase64 = GetRequestElement(e.RequestBody, "preview");
 			Debug.Print($"{user}:{avatarBase64}");
 			Image newAvatarImage = LoadImage(avatarBase64);
 			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
@@ -115,9 +170,9 @@ namespace Transcribe.Windows
 			}
 		}
 
-		private static string AvatarBase64(byte[] data)
+		private static string GetRequestElement(byte[] data, string tag)
 		{
-			var avatarBase64 = string.Empty;
+			var text = string.Empty;
 			using (var ms = new MemoryStream(data))
 			{
 				using (var str = new StreamReader(ms))
@@ -125,7 +180,7 @@ namespace Transcribe.Windows
 					try
 					{
 						var xml = JsonConvert.DeserializeXmlNode(@"{""state"":" + str.ReadToEnd() + "}");
-						avatarBase64 = xml.SelectSingleNode("//preview").InnerText;
+						text = xml.SelectSingleNode($@"//{tag}").InnerText;
 					}
 					catch (Exception err)
 					{
@@ -134,7 +189,7 @@ namespace Transcribe.Windows
 				}
 			}
 
-			return avatarBase64;
+			return text;
 		}
 
 		public Image LoadImage(string avatarUriString)
@@ -484,7 +539,6 @@ namespace Transcribe.Windows
 					File.Copy(Path.Combine(folder, name), target);
 				}
 			}
-
 		}
 
 		private void TaskSkillFilter(XmlNodeList taskNodes, XmlNode userNode, string userName)
