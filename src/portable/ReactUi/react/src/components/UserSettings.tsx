@@ -94,7 +94,7 @@ class UserSettings extends React.Component<IProps, any> {
                                     size="64"
                                     round={true}
                                     src={user !== undefined? user.username.avatarUri:""} />
-                            
+
                             </Col>
                         </Row>
                         <br />
@@ -104,14 +104,16 @@ class UserSettings extends React.Component<IProps, any> {
                             </Col>
                             <Col xs={5} md={5}>
                                 <TextboxUx ref={this.nameRef} isReadOnly={false}
-                                    inputValue={user !== undefined? user.displayName: ""} />
+                                    inputValue={user !== undefined ? user.displayName : ""}
+                                    toolTipText=""/>
                             </Col>
                             <Col xs={1} md={1}>
                                 <LabelUx name={strings.role} />
                             </Col>
                             <Col xs={4} md={4}>
                                 <TextboxUx isReadOnly={true}
-                                    inputValue={user !== undefined? user.role.join(' + '): ""} />
+                                    inputValue={user !== undefined? user.role.join(' + '): ""}
+                                    toolTipText=""/>
                             </Col>
                         </Row>
                         <br />
@@ -135,7 +137,8 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.font} />
                             </Col>
                             <Col xs={3} md={3}>
-                                <TextboxUx ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily} />
+                                <TextboxUx ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily}
+                                    toolTipText="" />
                             </Col>
                             <Col xs={7} md={7}>
                                 <DropdownUx ref={this.fontSizeRef} key="1" collection={fontSizeChoice} />
@@ -152,7 +155,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.playPause} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.playpauseRef} isReadOnly={false} inputValue={playPauseKey} />
+                                <TextboxUx ref={this.playpauseRef} isReadOnly={false}  inputValue={playPauseKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -160,7 +163,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.rewind} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.backRef} isReadOnly={false} inputValue={backKey} />
+                                <TextboxUx ref={this.backRef} isReadOnly={false}  inputValue={backKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -168,7 +171,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.fastForward} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.aheadRef} isReadOnly={false} inputValue={forwardKey} />
+                                <TextboxUx ref={this.aheadRef} isReadOnly={false} inputValue={forwardKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -176,7 +179,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.slowDown} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.slowRef} isReadOnly={false} inputValue={slowerKey} />
+                                <TextboxUx ref={this.slowRef} isReadOnly={false} inputValue={slowerKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -184,7 +187,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.speedUp} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.fastRef} isReadOnly={false} inputValue={fasterKey} />
+                                <TextboxUx ref={this.fastRef} isReadOnly={false} inputValue={fasterKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -224,18 +227,50 @@ class UserSettings extends React.Component<IProps, any> {
         {fontfamily: "SIL Charis", fontsize: "medium", id:""};
 
         const updates = Array<string>();
+        let isValid = true;
+        // Name
         const name = context.nameRef.current && context.nameRef.current.state.message;
-        if (user.displayName !== name){
-            this.saveValue(updates, "name", name)
+        if (name !== null && name.length === 0) {
+            if(context.nameRef.current !== null){
+                context.nameRef.current.state.toolTipText = "Please fill in the Name.";
+                this.setState({toolTipText: "Please fill in the Name."});
+                isValid = false;
+            }
         }
+        else if (name !== null && name.length > 0) {
+            if(context.nameRef.current !== null){
+                context.nameRef.current.state.toolTipText = "";
+                this.setState({toolTipText: ""});
+                isValid = true;
+            }
+            if (user.displayName !== name) {
+                this.saveValue(updates, "name", name)
+            }
+        }
+        // Ui-Lang
         const language = context.languageRef.current && context.languageRef.current.selected;
         const languageCode = context.languages.filter(l => l.slice(3) === language)[0].slice(0,2)
         if (user.uilang.slice(0,2) !== languageCode) {
             this.saveValue(updates, "uilang", languageCode)
         }
+        // Font
         const font = context.fontRef.current && context.fontRef.current.state.message;
-        if (project.fontfamily !== font) {
-            updates.push("font=" + font)
+        if (font !== null && font.length === 0) {
+            if(context.fontRef.current !== null){
+                context.fontRef.current.state.toolTipText = "Please fill in the Font.";
+                this.setState({toolTipText: "Please fill in the Font."});
+                isValid = false;
+            }
+        }
+        else if (font !== null && font.length > 0) {
+            if(context.fontRef.current !== null){
+                context.fontRef.current.state.toolTipText = "";
+                this.setState({toolTipText: ""});
+                isValid = true;
+            }
+            if (project.fontfamily !== font) {
+                updates.push("font=" + font)
+            }
         }
         const fontSize = context.fontSizeRef.current && context.fontSizeRef.current.selected;
         if (fontSize !== null) {
@@ -245,26 +280,101 @@ class UserSettings extends React.Component<IProps, any> {
             }
         }
         const playpause = context.playpauseRef.current && context.playpauseRef.current.state.message;
-        if (user.hotkey.filter(k => k.id === "play-pause")[0].text !== playpause) {
-            this.saveValue(updates, "playpause", playpause)
+        if (playpause !== null && playpause.length === 0) {
+            if(context.playpauseRef.current !== null){
+                context.playpauseRef.current.state.toolTipText = "Please fill in the Play/Pause.";
+                this.setState({toolTipText: "Please fill in the Play/Pause.."});
+                isValid = false;
+            }
         }
+        else if (playpause !== null && playpause.length > 0) {
+            if(context.playpauseRef.current !== null){
+                context.playpauseRef.current.state.toolTipText = "";
+                this.setState({toolTipText: ""});
+                isValid = true;
+            }
+            if (user.hotkey.filter(k => k.id === "play-pause")[0].text !== playpause) {
+                this.saveValue(updates, "playpause", playpause)
+            }
+        }
+        // Back
         const back = context.backRef.current && context.backRef.current.state.message;
-        if (user.hotkey.filter(k => k.id === "back")[0].text !== back) {
-            this.saveValue(updates, "back", back)
+        if (back !== null && back.length === 0) {
+            if(context.backRef.current !== null){
+                context.backRef.current.state.toolTipText = "Please fill in the Rewind.";
+                this.setState({toolTipText: "Please fill in the Rewind."});
+                isValid = false;
+            }
         }
+        else if (back !== null && back.length > 0) {
+            if(context.backRef.current !== null){
+                context.backRef.current.state.toolTipText = "";
+                this.setState({toolTipText: ""});
+                isValid = true;
+            }
+            if (user.hotkey.filter(k => k.id === "back")[0].text !== back) {
+                this.saveValue(updates, "back", back)
+            }
+        }
+        // Forward
         const forward = context.aheadRef.current && context.aheadRef.current.state.message;
-        if (user.hotkey.filter(k => k.id === "forward")[0].text !== forward) {
-            this.saveValue(updates, "forward", forward)
+        if (forward !== null && forward.length === 0) {
+            if(context.aheadRef.current !== null){
+                context.aheadRef.current.state.toolTipText = "Please fill in the Fast Forward.";
+                this.setState({toolTipText: "Please fill in the Fast Forward."});
+                isValid = false;
+            }
         }
+        else if (forward !== null && forward.length > 0) {
+            if(context.aheadRef.current !== null){
+                context.aheadRef.current.state.toolTipText = "";
+                this.setState({toolTipText: ""});
+                isValid = true;
+            }
+            if (user.hotkey.filter(k => k.id === "forward")[0].text !== forward) {
+                this.saveValue(updates, "forward", forward)
+            }
+        }
+        // Slower
         const slower = context.slowRef.current && context.slowRef.current.state.message;
-        if (user.hotkey.filter(k => k.id === "slower")[0].text !== slower) {
-            this.saveValue(updates, "slower", slower)
+        if (slower !== null && slower.length === 0) {
+            if(context.slowRef.current !== null){
+                context.slowRef.current.state.toolTipText = "Please fill in the Slow Down.";
+                this.setState({toolTipText: "Please fill in the Slow Down."});
+                isValid = false;
+            }
         }
+        else if (slower !== null && slower.length > 0) {
+            if(context.slowRef.current !== null){
+                context.slowRef.current.state.toolTipText = "";
+                this.setState({toolTipText: ""});
+                isValid = true;
+            }
+            if (user.hotkey.filter(k => k.id === "slower")[0].text !== slower) {
+                this.saveValue(updates, "slower", slower)
+            }
+        }
+        // Faster
         const faster = context.fastRef.current && context.fastRef.current.state.message;
-        if (user.hotkey.filter(k => k.id === "faster")[0].text !== faster) {
-            this.saveValue(updates, "faster", faster)
+        if (faster !== null && faster.length === 0) {
+            if(context.fastRef.current !== null){
+                context.fastRef.current.state.toolTipText = "Please fill in the Speed Up.";
+                this.setState({toolTipText: "Please fill in the Speed Up."});
+                isValid = false;
+            }
         }
-        if (updates.length > 0) {
+        else if (faster !== null && faster.length > 0) {
+            if(context.fastRef.current !== null){
+                context.fastRef.current.state.toolTipText = "";
+                this.setState({toolTipText: ""});
+                isValid = true;
+            }
+            if (user.hotkey.filter(k => k.id === "faster")[0].text !== faster) {
+                this.saveValue(updates, "faster", faster)
+            }
+        }
+
+        if (isValid === true && updates.length > 0) {
             const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
             console.log("/api/UpdateUser?user=" + selectedUser, "&project=" + selectedProject + query);
