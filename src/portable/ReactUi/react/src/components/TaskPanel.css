@@ -1,8 +1,8 @@
 .TaskPanel {
     background-color: #073642;
-    width: 231px;
+    width: 408px;
     height: 100%;
-    padding: 20px 40px;
+    padding: 40px 24px;
     overflow-y: auto;
     box-shadow: 2px 4px 8px rgba(0,0,0, 0.35);
     z-index: 2;
