@@ -44,6 +44,8 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     public onSeekMouseUp = (e:React.MouseEvent) => {
         this.setState({ ...this.state, seeking:false })
         this.player.seekTo((e.clientX - 543) / e.currentTarget.clientWidth)
+       // tslint:disable-next-line:no-console
+       console.log("up at:" + e.clientX);
     }
 
     public ref = (player: any) => {
@@ -51,7 +53,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { jump, requestReport, selectedTask, selectedUser, users } = this.props;
+        const { initialPosition, jump, requestReport, selectedTask, selectedUser, users } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
@@ -60,6 +62,10 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             position += jump;
             this.player.seekTo(position);
             this.props.jumpChange(0);
+        }
+        if (position === 0 && initialPosition != null && initialPosition.toString() !== "0") {
+            position += initialPosition
+            this.player.seekTo(position)
         }
         if (requestReport) {
             this.props.reportPosition(selectedTask, audioPlayedSeconds);
@@ -97,6 +103,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 };
 
 interface IStateProps {
+    initialPosition: number;
     playing: boolean;
     playSpeedRate: number;
     requestReport: boolean;
@@ -115,6 +122,7 @@ interface IDispatchProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    initialPosition: state.audio.initialPosition,
     jump:  state.audio.jump,
     playSpeedRate:  state.audio.playSpeedRate,
     playing: state.audio.playing,

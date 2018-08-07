@@ -23,16 +23,26 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         this.keyUp = this.keyUp.bind(this);
     }
 
+    public componentDidMount() {
+        const { fetchTranscription, selectedTask } = this.props;
+
+        fetchTranscription(selectedTask);
+      }
+
     public render() {
-        const { users, selectedProject, selectedUser } = this.props;
+        const { users, selectedProject, selectedUser, transcription } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const project = user && user.project.filter(p => p.id === selectedProject)[0];
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
         const size = project != null? project.fontsize: "12pt"; // Tests null or undefined
 
+        if (transcription != null && this.state.text !== transcription && this.state.text === "") {
+            this.setState({text: transcription})
+        }
         return (
             <div className="EditorPane">
                 <textarea
+                    value={this.state.text}
                     style={{fontFamily: font, fontSize: size}} 
                     onChange={this.change} 
                     onKeyUp={this.keyUp}
@@ -50,7 +60,6 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         if (event.keyCode === 32) {
             requestPosition();
             writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
-
         }
     }
 };
@@ -62,6 +71,7 @@ interface IStateProps {
     selectedProject: string;
     selectedTask: string;
     totalSeconds: number;
+    transcription: string;
     users: IUser[];
 };
 
@@ -72,16 +82,19 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
     totalSeconds: state.audio.totalSeconds,
+    transcription: state.audio.transcription,
     users: state.users.users,
 });
 
 interface IDispatchProps {
+    fetchTranscription: typeof actions2.fetchTranscription;
     requestPosition: typeof actions2.requestPosition;
     writeTranscription: typeof actions.writeTranscription;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
+        fetchTranscription: actions2.fetchTranscription,
         requestPosition: actions2.requestPosition,
         writeTranscription: actions.writeTranscription,
     }, dispatch),

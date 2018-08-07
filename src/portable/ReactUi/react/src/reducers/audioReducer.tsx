@@ -1,12 +1,14 @@
-import { FETCH_TASKS, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS } from '../actions/types';
+import { FETCH_TASKS, FETCH_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS } from '../actions/types';
 
 const initialState = {
+    initialPosition: 0,
     jump: 0,
     playSpeedRate: 1,
     playing: false,
     reportedPosition: 0,
     requestReport: false,
     totalSeconds: 0,
+    transcription: "",
 }
 
 export default function (state = initialState, action: any) {
@@ -46,6 +48,14 @@ export default function (state = initialState, action: any) {
             return {
                 ...state,
                 totalSeconds: action.payload
+            }
+        case FETCH_TRANSCRIPTION:
+            // tslint:disable-next-line:no-console
+            console.log(action.payload.data.position + "<>" + action.payload.data.transcription)
+            return {
+                ...state,
+                initialPosition: action.payload.data.position,
+                transcription: action.payload.data.transcription,
             }
         default:
             return state;

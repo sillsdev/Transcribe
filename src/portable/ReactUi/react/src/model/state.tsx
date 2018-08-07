@@ -13,12 +13,14 @@ export interface IState {
         selectedTask: string;
     };
     audio: {
+        initialPosition: number;
         jump: number;
         playSpeedRate: number;
         playing: boolean;
         reportedPosition: number;
         requestReport: boolean;
         totalSeconds: number;
+        transcription: string;
     };
     strings: {
         transcriber: ITranscriberStrings;

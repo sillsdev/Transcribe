@@ -507,7 +507,10 @@ namespace Transcribe.Windows
 					var id = taskNode.SelectSingleNode("@id");
 					var audioName = CopyAudioFile(id?.InnerText);
 					if (id != null && !string.IsNullOrEmpty(audioName))
+					{
 						id.InnerText = audioName;
+						InitializeTranscription(id.InnerText, taskNode, apiFolder);
+					}
 				}
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
@@ -519,18 +522,51 @@ namespace Transcribe.Windows
 			}
 		}
 
+		private static void InitializeTranscription(string taskId, XmlNode taskNode, string apiFolder)
+		{
+			var idName = Path.GetFileNameWithoutExtension(taskId);
+			var eafName = idName + ".eaf";
+			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(idName.Split('-'))));
+
+			var eafDoc = new XmlDocument();
+			using (var xr = XmlReader.Create(Path.Combine(folder, eafName)))
+			{
+				eafDoc.Load(xr);
+			}
+
+			var transcriptionDoc = new XmlDocument();
+			transcriptionDoc.LoadXml("<root/>");
+			var position = taskNode.SelectSingleNode("@position")?.InnerText;
+			if (position != null)
+				NewAttr(transcriptionDoc.DocumentElement, "position", position);
+			var transcription = eafDoc.SelectSingleNode("//*[local-name()='ANNOTATION_VALUE']")?.InnerText;
+			if (!string.IsNullOrEmpty(transcription))
+			{
+				var transcriptionNode = transcriptionDoc.CreateElement("transcription");
+				transcriptionNode.InnerText = transcription;
+				Debug.Assert(transcriptionDoc.DocumentElement != null, "transcriptionDoc.DocumentElement != null");
+				transcriptionDoc.DocumentElement.AppendChild(transcriptionNode);
+			}
+
+			var transcriptionJson =
+				JsonConvert.SerializeXmlNode(transcriptionDoc.DocumentElement).Replace("\"@", "\"").Substring(8);
+			using (var sw = new StreamWriter(Path.Combine(apiFolder, "audio", idName + ".transcription")))
+			{
+				sw.Write(transcriptionJson.Substring(0, transcriptionJson.Length - 1));
+			}
+		}
+
 		private static void AsArray(XmlNodeList nodes)
 		{
-			if (nodes.Count == 1)
-			{
-				var node = nodes[0];
-				Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
-				var jsonConvertAttr =
-					node.OwnerDocument.CreateAttribute("json", "Array", "http://james.newtonking.com/projects/json");
-				jsonConvertAttr.InnerText = "true";
-				Debug.Assert(node.Attributes != null, "node.Attributes != null");
-				node.Attributes.Append(jsonConvertAttr);
-			}
+			if (nodes.Count != 1)
+				return;
+			var node = nodes[0];
+			Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
+			var jsonConvertAttr =
+				node.OwnerDocument.CreateAttribute("json", "Array", "http://james.newtonking.com/projects/json");
+			jsonConvertAttr.InnerText = "true";
+			Debug.Assert(node.Attributes != null, "node.Attributes != null");
+			node.Attributes.Append(jsonConvertAttr);
 		}
 
 		private string CopyAudioFile(string taskid)
