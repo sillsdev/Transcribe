@@ -8,6 +8,8 @@ interface ITask {
 
 interface IProject {
     id: string;
+    lang: string;
+    direction: string;
     type?: string;
     task: ITask[];
 };

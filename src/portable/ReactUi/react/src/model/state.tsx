@@ -16,6 +16,9 @@ export interface IState {
         jump: number;
         playSpeedRate: number;
         playing: boolean;
+        reportedPosition: number;
+        requestReport: boolean;
+        totalSeconds: number;
     };
     strings: {
         transcriber: ITranscriberStrings;

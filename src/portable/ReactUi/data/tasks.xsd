@@ -22,12 +22,12 @@
       <xs:sequence>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="task"/>
       </xs:sequence>
-      <xs:attribute name="id" use="required" type="xs:string">
+      <xs:attribute name="id" type="xs:string">
         <xs:annotation>
           <xs:documentation>Paratext short name</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="lang" use="required">
+      <xs:attribute name="lang">
         <xs:annotation>
           <xs:documentation>BCP-47 language of project</xs:documentation>
         </xs:annotation>
@@ -37,7 +37,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="direction" use="required">
+      <xs:attribute name="direction">
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="ltr"/>
@@ -66,7 +66,7 @@
         <xs:element minOccurs="0" ref="name"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="history"/>
       </xs:sequence>
-      <xs:attribute name="id" use="required">
+      <xs:attribute name="id">
         <xs:annotation>
           <xs:documentation>PPP-BBB-CCC-ssseee, PPP=project, BBB=Book, CCC=Chapter, sss=start, eee=end</xs:documentation>
         </xs:annotation>
@@ -76,7 +76,21 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="state" use="required">
+      <xs:attribute name="length">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="position">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="state">
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="Transcribe"/>
@@ -104,7 +118,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" ref="comment"/>
       </xs:sequence>
-      <xs:attribute name="id" use="required">
+      <xs:attribute name="id">
         <xs:annotation>
           <xs:documentation>sequential number beginning at zero</xs:documentation>
         </xs:annotation>
@@ -119,7 +133,7 @@
           <xs:documentation>date and time when it happened</xs:documentation>
         </xs:annotation>
       </xs:attribute>
-      <xs:attribute name="action" use="required">
+      <xs:attribute name="action">
         <xs:annotation>
           <xs:documentation>type of action completed</xs:documentation>
         </xs:annotation>
@@ -137,7 +151,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="userid" use="required" type="xs:string">
+      <xs:attribute name="userid" type="xs:string">
         <xs:annotation>
           <xs:documentation>user who is involved</xs:documentation>
         </xs:annotation>

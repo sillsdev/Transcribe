@@ -51,6 +51,9 @@ namespace Transcribe.Windows
 					case "UpdateAvatar":
 						UpdateAvatar(e);
 						break;
+					case "ReportPosition":
+						ReportPosition(e);
+						break;
 					case "WriteTranscription":
 						WriteTranscription(e);
 						break;
@@ -58,42 +61,40 @@ namespace Transcribe.Windows
 			}
 		}
 
+		private void ReportPosition(GeckoObserveHttpModifyRequestEventArgs e)
+		{
+			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var position = parsedQuery["position"];
+			Debug.Print("Reported position=" + position);
+		}
+
 		private void WriteTranscription(GeckoObserveHttpModifyRequestEventArgs e)
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
 			var taskid = parsedQuery["task"];
+			var length = parsedQuery["length"];
+			var lang = parsedQuery["lang"];
+			var dir = parsedQuery["dir"];
 			var transcription = GetRequestElement(e.RequestBody, "text");
 			var xml = Program.XmlTemplate("transcription.eaf");
 			UpdateXml(xml, "@DATE", DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
 			UpdateXml(xml, "*[local-name()='ANNOTATION_VALUE']", transcription);
 			UpdateXml(xml, "@DEFAULT_LOCALE","en");
-			UpdateXml(xml, "@LANGUAGE_CODE", "en");
-			UpdateXml(xml,"*[@TIME_SLOT_ID='ts2']/@TIME_VALUE","10000");
+			UpdateXml(xml, "@LANGUAGE_CODE", lang);
+			var miliseconds = float.Parse(length) * 1000.0;
+			var duration = miliseconds.ToString("F0");
+			UpdateXml(xml,"*[@TIME_SLOT_ID='ts2']/@TIME_VALUE", duration);
 
 			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskid.Split('-'))));
-			var dirInfo = new DirectoryInfo(folder);
-			foreach (var ext in ".mp3;.wav".Split(';'))
+			var name = taskid;
+			var ext = Path.GetExtension(name);
+			UpdateXml(xml, "@MEDIA_FILE", name);
+			UpdateXml(xml, "@MEDIA_URL", name);
+			UpdateXml(xml, "@MIME_TYPE", ext == ".mp3"? "audio/x-mp3" : "audio/x-wav");
+			var outName = Path.Combine(folder, Path.GetFileNameWithoutExtension(name) + ".eaf");
+			using (var xw = XmlWriter.Create(outName, new XmlWriterSettings {Indent = true}))
 			{
-				var files = dirInfo.GetFiles(taskid + "*" + ext);
-				var name = string.Empty;
-				foreach (var fileInfo in files)
-				{
-					if (string.Compare(fileInfo.Name, name, StringComparison.Ordinal) > 1)
-						name = fileInfo.Name;
-				}
-
-				if (string.IsNullOrEmpty(name))
-					continue;
-				UpdateXml(xml, "@MEDIA_FILE", name);
-				UpdateXml(xml, "@MEDIA_URL", name);
-				UpdateXml(xml, "@MIME_TYPE", ext == ".mp3"? "audio/x-mp3" : "audio/x-wav");
-				var outName = Path.Combine(folder, Path.GetFileNameWithoutExtension(name) + ".eaf");
-				using (var xw = XmlWriter.Create(outName, new XmlWriterSettings {Indent = true}))
-				{
-					xml.Save(xw);
-				}
-
-				return;
+				xml.Save(xw);
 			}
 		}
 
@@ -482,16 +483,18 @@ namespace Transcribe.Windows
 				if (taskNodes.Count == 0)
 					continue;
 				AsArray(taskNodes);
-				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
-				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 				foreach (XmlNode taskNode in taskNodes)
 				{
 					var assignedTo = taskNode.SelectSingleNode("@assignedto")?.InnerText;
 					if (assignedTo != user)
 						continue;
 					var id = taskNode.SelectSingleNode("@id");
-					CopyAudioFile(id?.InnerText);
+					var audioName = CopyAudioFile(id?.InnerText);
+					if (id != null && !string.IsNullOrEmpty(audioName))
+						id.InnerText = audioName;
 				}
+				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
+				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
 
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetTasks")))
@@ -514,8 +517,9 @@ namespace Transcribe.Windows
 			}
 		}
 
-		private void CopyAudioFile(string taskid)
+		private string CopyAudioFile(string taskid)
 		{
+			var name = string.Empty;
 			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskid.Split('-'))));
 			var apiFolder = ApiFolder();
 			var audioFolder = Path.Combine(apiFolder, "audio");
@@ -524,21 +528,22 @@ namespace Transcribe.Windows
 			var dirInfo = new DirectoryInfo(folder);
 			foreach (var ext in ".mp3;.wav".Split(';'))
 			{
-				var target = Path.Combine(audioFolder, taskid + ext);
-				if (File.Exists(target))
-					continue;
 				var files = dirInfo.GetFiles(taskid + "*" + ext);
-				var name = string.Empty;
 				foreach (var fileInfo in files)
 				{
 					if (string.Compare(fileInfo.Name, name, StringComparison.Ordinal) > 1)
 						name = fileInfo.Name;
 				}
+				var target = Path.Combine(audioFolder, name);
+				if (File.Exists(target))
+					break;
 				if (!string.IsNullOrEmpty(name))
 				{
 					File.Copy(Path.Combine(folder, name), target);
 				}
 			}
+
+			return name;
 		}
 
 		private void TaskSkillFilter(XmlNodeList taskNodes, XmlNode userNode, string userName)

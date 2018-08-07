@@ -13,9 +13,9 @@ export const unAssignTask = (taskid: string, userid: string) => (dispatch: any) 
         .then(dispatch(fetchTasks(userid)))
 }
 
-export const writeTranscription = (taskid: string, data: any) => (dispatch: any) => {
+export const writeTranscription = (taskid: string, length: number, lang: string, dir: string, data: any) => (dispatch: any) => {
     dispatch({type: WRITE_PENDING});
-    Axios.put('/api/WriteTranscription?task=' + taskid, data)
+    Axios.put('/api/WriteTranscription?task=' + taskid + "&length=" + length.toString() + "&lang=" + lang + "&dir=" + dir, data)
         .then()
 }
 

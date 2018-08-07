@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as actions2 from '../actions/audioActions';
 import * as actions from '../actions/taskActions';
 import { IState } from '../model/state';
+import language from '../selectors/language';
 import './EditorPane.css'
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -44,33 +46,43 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     private keyUp(event: any) {
-        const { selectedTask, writeTranscription } = this.props;
+        const { direction, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
         if (event.keyCode === 32) {
-            writeTranscription(selectedTask, this.state)
+            requestPosition();
+            writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+
         }
     }
 };
 
 interface IStateProps {
+    direction: string;
+    lang: string;
     selectedUser: string;
     selectedProject: string;
     selectedTask: string;
+    totalSeconds: number;
     users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    direction: language(state).direction,
+    lang: language(state).lang,
     selectedProject: state.tasks.selectedProject,
     selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
+    totalSeconds: state.audio.totalSeconds,
     users: state.users.users,
 });
 
 interface IDispatchProps {
-    writeTranscription: typeof actions.writeTranscription,
+    requestPosition: typeof actions2.requestPosition;
+    writeTranscription: typeof actions.writeTranscription;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
+        requestPosition: actions2.requestPosition,
         writeTranscription: actions.writeTranscription,
     }, dispatch),
 });
