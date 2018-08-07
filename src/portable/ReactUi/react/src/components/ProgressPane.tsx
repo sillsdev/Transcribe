@@ -43,7 +43,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 
     public onSeekMouseUp = (e:React.MouseEvent) => {
         this.setState({ ...this.state, seeking:false })
-        this.player.seekTo((e.clientX - 493) / e.currentTarget.clientWidth)
+        this.player.seekTo((e.clientX - 543) / e.currentTarget.clientWidth)
     }
 
     public ref = (player: any) => {

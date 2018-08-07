@@ -1,6 +1,7 @@
 interface ITask {
     assignedto: string;
     id: string;
+    length?: number;
     name: string;
     state: string;
     transcribing: boolean;

@@ -217,7 +217,7 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private saveValue(updates: string[], tag: string, val: string | null) {
-        updates.push(tag + "=" + encodeURI(val !== null? val: ""))
+        updates.push(tag + "=" + encodeURIComponent(val !== null? val: ""))
     }
 
     private save(context: UserSettings) {

@@ -40,6 +40,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 <TaskItem
                     id={t.id}
                     name={t.name}
+                    length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={selectTask.bind(this,t.id)}/>
                 <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
@@ -54,6 +55,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 <TaskItem
                     id={t.id}
                     name={t.name}
+                    length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={selectTask.bind(this,t.id)}/>
                 <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
@@ -71,6 +73,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 <TaskItem
                     id={t.id}
                     name={t.name}
+                    length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={assignTask.bind(this,t.id, selectedUser)}/>
                 <div className="placeHolder">{"\u00A0"}</div>
@@ -82,6 +85,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 <TaskItem
                     id={t.id}
                     name={t.name}
+                    length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={assignTask.bind(this,t.id, selectedUser)}/>
                 <div className="placeHolder">{"\u00A0"}</div>
