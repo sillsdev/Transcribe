@@ -26,56 +26,66 @@ class TaskPanel extends React.Component<IProps, object> {
             selectTask(assignedTranscribe[0].id);
         }
         const assignedHead = (assignedReview.length + assignedTranscribe.length > 0)?
-            (<h3 className="SectionHead">{strings.assigned.toUpperCase()}</h3>): <div/>;
+            (<h3 className="SectionHead">{strings.assigned}</h3>): <div/>;
         const assignedReviewHead = assignedReview.length > 0?
-            (<h4 className="ListHead">{strings.review}</h4>): <div/>;
+            (<h4 className="ListHead">{strings.review.toUpperCase()}</h4>): <div/>;
         const assignedTranscribeHead = assignedTranscribe.length > 0?
-            (<h4 className="ListHead">{strings.transcribe}</h4>): <div/>;
+            (<h4 className="ListHead">{strings.transcribe.toUpperCase()}</h4>): <div/>;
         const assignedReviewList = assignedReview.map((t: ITask) => (
             <div className="AssignedRow">
+                <RevertAction
+                    selected={true}
+                    target={unassignTask.bind(this, t.id, selectedUser)}
+                    text={"\u2B73"} />
                 <TaskItem
                     id={t.id}
                     name={t.name}
                     selected={t.id === selectedTask}
                     select={selectTask.bind(this,t.id)}/>
-                <RevertAction 
-                    selected={t.id === selectedTask}
-                    target={unassignTask.bind(this, t.id, selectedUser)}
-                    text={"\u2B73"} />
+                <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
             </div>
         ));
         const assignedTranscribeList = assignedTranscribe.map((t: ITask) => (
             <div className="AssignedRow">
+                <RevertAction
+                    selected={true}
+                    target={unassignTask.bind(this, t.id, selectedUser)}
+                    text={"\u2B73"} />
                 <TaskItem
                     id={t.id}
                     name={t.name}
                     selected={t.id === selectedTask}
                     select={selectTask.bind(this,t.id)}/>
-                <RevertAction 
-                    selected={t.id === selectedTask}
-                    target={unassignTask.bind(this, t.id, selectedUser)}
-                    text={"\u2B73"} />
+                <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
             </div>
         ));
         const availableHead = (availableReview.length + availableTranscribe.length > 0)?
-            (<h3 className="SectionHead">{strings.available.toUpperCase()}</h3>): <div/>;
+            (<h3 className="SectionHead">{strings.available}</h3>): <div/>;
         const availableReviewHead = availableReview.length > 0?
-            (<h4 className="ListHead">{strings.review}</h4>): <div/>;
+            (<h4 className="ListHead">{strings.review.toUpperCase()}</h4>): <div/>;
         const availableTranscribeHead = availableTranscribe.length > 0?
-            (<h4 className="ListHead">{strings.transcribe}</h4>): <div/>;
+            (<h4 className="ListHead">{strings.transcribe.toUpperCase()}</h4>): <div/>;
         const availableReviewList = availableReview.map((t: ITask) => (
-            <TaskItem
-                id={t.id}
-                name={t.name}
-                selected={t.id === selectedTask}
-                select={assignTask.bind(this,t.id, selectedUser)}/>
+            <div className="AvailableRow">
+                <div className="placeHolder">{"\u00A0"}</div>
+                <TaskItem
+                    id={t.id}
+                    name={t.name}
+                    selected={t.id === selectedTask}
+                    select={assignTask.bind(this,t.id, selectedUser)}/>
+                <div className="placeHolder">{"\u00A0"}</div>
+            </div>
         ));
         const availableTranscribeList = availableTranscribe.map((t: ITask) => (
-            <TaskItem
-                id={t.id}
-                name={t.name}
-                selected={t.id === selectedTask}
-                select={assignTask.bind(this,t.id, selectedUser)}/>
+            <div className="AvailableRow">
+                <div className="placeHolder">{"\u00A0"}</div>
+                <TaskItem
+                    id={t.id}
+                    name={t.name}
+                    selected={t.id === selectedTask}
+                    select={assignTask.bind(this,t.id, selectedUser)}/>
+                <div className="placeHolder">{"\u00A0"}</div>
+            </div>
         ));
         const wrapper: JSX.Element = !pending && loaded? (
             <div>

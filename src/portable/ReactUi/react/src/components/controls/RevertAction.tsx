@@ -12,9 +12,9 @@ class RevertAction extends React.Component<IProps, object> {
         const { selected, target, text } = this.props;
         return (
             <div className="RevertAction" onClick={target}>
-                <span className={selected? "btn-primary": "unselected"}>
+                <div className={selected? "btn-primary": "unselected"}>
                     {text}
-                </span>
+                </div>
             </div>
         )
     }
