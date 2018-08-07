@@ -30,9 +30,9 @@ export function saveTotalSeconds(seconds: number): any {
     }
 }
 
-export const reportPosition = (seconds: number) => (dispatch: any) => {
+export const reportPosition = (taskid: string, seconds: number) => (dispatch: any) => {
     dispatch({payload: seconds, type: REPORT_POSITION});
-    Axios.put('/api/ReportPosition?position=' + seconds.toString());
+    Axios.put('/api/ReportPosition?task=' + taskid + '&position=' + seconds.toString());
 }
 
 export function requestPosition(): any {

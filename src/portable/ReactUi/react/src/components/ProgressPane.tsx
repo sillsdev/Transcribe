@@ -24,9 +24,6 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             if (this.state.totalSeconds === 0) {
                 this.props.saveTotalSeconds(ctrl.loadedSeconds);
             }
-            if (this.props.requestReport) {
-                this.props.reportPosition(ctrl.playedSeconds);
-            }
             this.setState({
                 audioPlayedSeconds: ctrl.playedSeconds,
                 seeking: false,
@@ -37,7 +34,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 
     public onPause = () => {
        // tslint:disable-next-line:no-console
-       console.log("e.target.value");
+       console.log("paused at:" + this.state.audioPlayedSeconds);
     }
 
     public onSeekMouseDown = () => {
@@ -54,7 +51,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { jump, selectedTask, selectedUser, users } = this.props;
+        const { jump, requestReport, selectedTask, selectedUser, users } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
@@ -63,6 +60,9 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             position += jump;
             this.player.seekTo(position);
             this.props.jumpChange(0);
+        }
+        if (requestReport) {
+            this.props.reportPosition(selectedTask, audioPlayedSeconds);
         }
         return (
             <div className="ProgressPane">

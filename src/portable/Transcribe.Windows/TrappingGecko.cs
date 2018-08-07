@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Windows.Forms;
 using System.Xml;
@@ -64,8 +65,23 @@ namespace Transcribe.Windows
 		private void ReportPosition(GeckoObserveHttpModifyRequestEventArgs e)
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var task = ToXmlTaskId(parsedQuery["task"]);
 			var position = parsedQuery["position"];
-			Debug.Print("Reported position=" + position);
+			Debug.Print($@"Reported task={task} at position={position}");
+			var tasksDoc = LoadXmlData("tasks");
+			var taskNode = tasksDoc.SelectSingleNode($@"//*[@id='{task}']");
+			NewAttr(taskNode, "position", position);
+			using (var xw = XmlWriter.Create(XmlFullName("tasks"), new XmlWriterSettings { Indent = true }))
+			{
+				tasksDoc.Save(xw);
+			}
+		}
+
+		private static readonly Regex TaskIdPattern = new Regex(@"(.*)v[0-9]{2}\.(mp3|wav)$", RegexOptions.Compiled);
+		private static string ToXmlTaskId(string taskId)
+		{
+			var match = TaskIdPattern.Match(taskId);
+			return match.Success? match.Groups[1].Value: taskId;
 		}
 
 		private void WriteTranscription(GeckoObserveHttpModifyRequestEventArgs e)
@@ -310,7 +326,7 @@ namespace Transcribe.Windows
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
 			var action = parsedQuery["action"];
-			var task = parsedQuery["task"];
+			var task = ToXmlTaskId(parsedQuery["task"]);
 			var user = parsedQuery["user"];
 			var tasksDoc = LoadXmlData("tasks");
 			var taskNode = tasksDoc.SelectSingleNode($@"//task[@id=""{task}""]");
