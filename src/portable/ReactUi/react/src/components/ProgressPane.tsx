@@ -21,6 +21,9 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 
     public onProgress = (ctrl: any) => {
         if (!this.state.seeking){
+            if (this.state.totalSeconds === 0) {
+                this.props.saveTotalSeconds(ctrl.loadedSeconds);
+            }
             this.setState({
                 audioPlayedSeconds: ctrl.playedSeconds,
                 seeking: false,
@@ -31,7 +34,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 
     public onPause = () => {
        // tslint:disable-next-line:no-console
-       console.log("e.target.value");
+       console.log("paused at:" + this.state.audioPlayedSeconds);
     }
 
     public onSeekMouseDown = () => {
@@ -48,15 +51,18 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { jump, selectedTask, selectedUser, users } = this.props;
+        const { jump, requestReport, selectedTask, selectedUser, users } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
-        const audioFile = '/api/audio/' + selectedTask + '.mp3'
+        const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
         let position = audioPlayedSeconds;
         if (jump !== 0){
             position += jump;
             this.player.seekTo(position);
             this.props.jumpChange(0);
+        }
+        if (requestReport) {
+            this.props.reportPosition(selectedTask, audioPlayedSeconds);
         }
         return (
             <div className="ProgressPane">
@@ -93,6 +99,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 interface IStateProps {
     playing: boolean;
     playSpeedRate: number;
+    requestReport: boolean;
     selectedTask: string;
     selectedUser: string;
     jump: number;
@@ -103,12 +110,15 @@ interface IDispatchProps {
     jumpChange: typeof actions.jumpChange,
     playStatus: typeof actions.playStatus,
     playSpeedRateChange: typeof actions.playSpeedRateChange;
+    reportPosition: typeof actions.reportPosition;
+    saveTotalSeconds: typeof actions.saveTotalSeconds;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     jump:  state.audio.jump,
     playSpeedRate:  state.audio.playSpeedRate,
     playing: state.audio.playing,
+    requestReport: state.audio.requestReport,
     selectedTask:  state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
     users: state.users.users

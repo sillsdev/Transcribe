@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Diagnostics;
 using System.Threading;
+using System.Xml;
 using Gecko;
 using Transcribe.Properties;
 
@@ -161,6 +162,19 @@ namespace Transcribe.Windows
 			File.Delete(initFile);
 		}
 
+		public static XmlDocument XmlTemplate(string name)
+		{
+			const string resourceBase = "ReactUi.data.";
+			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
+			var assembly = Assembly.LoadFile(portableName);
+			var xml = new XmlDocument();
+			using (var str = new StreamReader(assembly.GetManifestResourceStream(resourceBase + name)))
+			{
+				xml.Load(str);
+			}
+
+			return xml;
+		}
 
 		private static string WriteResource(string resourceBase, string folder, Assembly assembly, string projectLocation, string name)
 		{

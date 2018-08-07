@@ -23,6 +23,9 @@ class MainLayout extends React.Component<IProps, any> {
         }
 
         const handlers = {
+            'ctrl+s': (event: any) => {
+                alert('save')
+            },
             'esc': (event: any) => {
                 playStatus(!playing);
             },
@@ -88,6 +91,8 @@ interface IDispatchProps {
     playStatus: typeof actions.playStatus,
     playSpeedRateChange: typeof actions.playSpeedRateChange;
     jumpChange: typeof actions.jumpChange;
+    reportPosition: typeof actions.reportPosition;
+    saveTotalSeconds: typeof actions.saveTotalSeconds;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
@@ -95,6 +100,8 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         jumpChange: actions.jumpChange,
         playSpeedRateChange: actions.playSpeedRateChange,
         playStatus: actions.playStatus,
+        reportPosition: actions.reportPosition,
+        saveTotalSeconds: actions.saveTotalSeconds,
     }, dispatch),
 });
 

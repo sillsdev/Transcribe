@@ -39,6 +39,7 @@ The browser control is monitoring the HTTP requests. When it observes a request 
 - `TaskEvent?action=<action>&task=<task>&user=<user>` - records an action (see XML schema) on the task
 - `UpdateUser?user=<user>&project=<project>&<tag>=<value>` - updates value in user data
 - `UpdateAvatar?user=<user>` - The json object for the state of AvatarEdit is passed as the body. This request updates user with uri to newly created image file.
+- `WriteTranscription?task=<taskid>&length=<value>&lang=<value>&dir=<value>` - The json object for the state of Edit pane. This request writes out the eaf file next to the audio file.
 
 ### List of tags for UpdateUser api
 - name
