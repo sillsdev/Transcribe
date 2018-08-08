@@ -11,7 +11,8 @@ import SpeedBar from './controls/SpeedBar';
 interface IProps extends IStateProps, IDispatchProps {
 };
 
-class ControlPane extends React.Component<IProps, object> {
+class ControlPane extends React.Component<IProps, any> {
+
     public render() {
         return (
             <div className="ControlPane"> 

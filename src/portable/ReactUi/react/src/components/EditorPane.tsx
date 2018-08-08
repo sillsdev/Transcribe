@@ -11,10 +11,12 @@ interface IProps extends IStateProps, IDispatchProps {
 }
 
 const initialState = {
-    text: ""
+    seconds: 0,
+    text: "",
 }
 class EditorPane extends React.Component<IProps, typeof initialState> {
     public state: typeof initialState;
+    private interval: any;
 
     public constructor(props: IProps) {
         super(props);
@@ -27,7 +29,12 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         const { fetchTranscription, selectedTask } = this.props;
 
         fetchTranscription(selectedTask);
+        this.interval = setInterval(() => this.tick(), 1000);
       }
+
+    public componentWillUnmount() {
+        clearInterval(this.interval);
+    }
 
     public render() {
         const { users, selectedProject, selectedUser, transcription } = this.props;
@@ -49,6 +56,22 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
                     />
             </div>
         )
+    }
+
+    public componentWillUpdate() {
+        const { direction, lang, selectedTask, totalSeconds, writeTranscription } = this.props;
+
+        if (this.state.seconds === 60) {
+            writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+            this.setState({
+                seconds: 0
+            });
+        }
+    }
+    private tick() {
+        this.setState(prevState => ({
+            seconds: prevState.seconds + 1
+        }));
     }
 
     private change(event: any) {
