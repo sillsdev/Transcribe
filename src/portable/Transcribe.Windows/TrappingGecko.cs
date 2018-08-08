@@ -527,9 +527,12 @@ namespace Transcribe.Windows
 			var idName = Path.GetFileNameWithoutExtension(taskId);
 			var eafName = idName + ".eaf";
 			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(idName.Split('-'))));
+			var eafFullName = Path.Combine(folder, eafName);
+			if (!File.Exists(eafFullName))
+				return;
 
 			var eafDoc = new XmlDocument();
-			using (var xr = XmlReader.Create(Path.Combine(folder, eafName)))
+			using (var xr = XmlReader.Create(eafFullName))
 			{
 				eafDoc.Load(xr);
 			}
