@@ -95,7 +95,7 @@ namespace Transcribe.Windows
 			var xml = Program.XmlTemplate("transcription.eaf");
 			UpdateXml(xml, "@DATE", DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
 			UpdateXml(xml, "*[local-name()='ANNOTATION_VALUE']", transcription);
-			UpdateXml(xml, "@DEFAULT_LOCALE","en");
+			UpdateXml(xml, "@DEFAULT_LOCALE",lang);
 			UpdateXml(xml, "@LANGUAGE_CODE", lang);
 			var miliseconds = float.Parse(length) * 1000.0;
 			var duration = miliseconds.ToString("F0");

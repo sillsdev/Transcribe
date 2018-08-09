@@ -86,7 +86,7 @@
       <xs:attribute name="position">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:pattern value="[0-9]+"/>
+            <xs:pattern value="[0-9]+(\.[0-9]+)?"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
@@ -140,6 +140,7 @@
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="Assigned"/>
+            <xs:enumeration value="Unassigned"/>
             <xs:enumeration value="TranscribeStart"/>
             <xs:enumeration value="TranscribeEnd"/>
             <xs:enumeration value="ReviewStart"/>

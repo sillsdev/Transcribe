@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xsd:complexType name="licenseType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="LICENSE_URL" type="xsd:anyURI" use="optional"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="propType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="NAME" type="xsd:string" use="optional"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="headType">
+		<xsd:sequence>
+			<xsd:element name="MEDIA_DESCRIPTOR" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LINKED_FILE_DESCRIPTOR" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="PROPERTY" type="propType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="MEDIA_FILE" use="optional" type="xsd:string"> </xsd:attribute>
+		<xsd:attribute name="TIME_UNITS" use="optional" default="milliseconds">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="NTSC-frames"/>
+					<xsd:enumeration value="PAL-frames"/>
+					<xsd:enumeration value="milliseconds"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="timeType">
+		<xsd:sequence>
+			<xsd:element name="TIME_SLOT" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:attribute name="TIME_SLOT_ID" type="xsd:ID" use="required"/>
+					<xsd:attribute name="TIME_VALUE" type="xsd:unsignedInt" use="optional"/>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ANNOTATION_VALUE" type="xsd:string"/>
+	<xsd:attributeGroup name="annotationAttribute">
+		<xsd:attribute name="ANNOTATION_ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="EXT_REF" type="xsd:IDREFS" use="optional"/>
+		<xsd:attribute name="LANG_REF" type="xsd:IDREF" use="optional"/>
+		<xsd:attribute name="CVE_REF" type="xsd:string" use="optional"/>
+	</xsd:attributeGroup>
+	<xsd:complexType name="alignableType">
+		<xsd:sequence>
+			<xsd:element name="ANNOTATION_VALUE" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="annotationAttribute"/>
+		<xsd:attribute name="TIME_SLOT_REF1" type="xsd:IDREF" use="required"/>
+		<xsd:attribute name="TIME_SLOT_REF2" type="xsd:IDREF" use="required"/>
+		<xsd:attribute name="SVG_REF" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="refAnnoType">
+		<xsd:sequence>
+			<xsd:element name="ANNOTATION_VALUE" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attributeGroup ref="annotationAttribute"/>
+		<xsd:attribute name="ANNOTATION_REF" type="xsd:IDREF" use="required"/>
+		<xsd:attribute name="PREVIOUS_ANNOTATION" type="xsd:IDREF" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="annotationType">
+		<xsd:choice>
+			<xsd:element name="ALIGNABLE_ANNOTATION" type="alignableType"/>
+			<xsd:element name="REF_ANNOTATION" type="refAnnoType"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="tierType">
+		<xsd:sequence>
+			<xsd:element name="ANNOTATION" type="annotationType" minOccurs="0" maxOccurs="unbounded"
+			/>
+		</xsd:sequence>
+		<xsd:attribute name="TIER_ID" type="xsd:string" use="required"/>
+		<xsd:attribute name="PARTICIPANT" type="xsd:string" use="optional"/>
+		<xsd:attribute name="ANNOTATOR" type="xsd:string" use="optional"/>
+		<xsd:attribute name="LINGUISTIC_TYPE_REF" type="xsd:string" use="required"/>
+		<xsd:attribute name="DEFAULT_LOCALE" type="xsd:IDREF" use="optional"/>
+		<xsd:attribute name="PARENT_REF" type="xsd:string" use="optional"/>
+		<xsd:attribute name="EXT_REF" type="xsd:IDREF" use="optional"/>
+		<xsd:attribute name="LANG_REF" type="xsd:IDREF" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="lingType">
+		<xsd:attribute name="LINGUISTIC_TYPE_ID" type="xsd:string" use="required"/>
+		<xsd:attribute name="TIME_ALIGNABLE" type="xsd:boolean" use="optional"/>
+		<xsd:attribute name="CONSTRAINTS" type="xsd:IDREF" use="optional"/>
+		<xsd:attribute name="GRAPHIC_REFERENCES" type="xsd:boolean" use="optional"/>
+		<xsd:attribute name="CONTROLLED_VOCABULARY_REF" type="xsd:string" use="optional"/>
+		<xsd:attribute name="EXT_REF" type="xsd:IDREF" use="optional"/>
+		<xsd:attribute name="LEXICON_REF" type="xsd:IDREF" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="constraintType">
+		<xsd:attribute name="STEREOTYPE" type="xsd:ID" use="required"/>
+		<xsd:attribute name="DESCRIPTION" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="cveValueType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="LANG_REF" type="xsd:IDREF" use="required"/>
+				<xsd:attribute name="DESCRIPTION" type="xsd:string" use="optional"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="cventryType">
+		<xsd:sequence>
+			<xsd:element name="CVE_VALUE" type="cveValueType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="CVE_ID" type="xsd:string" use="required"/>
+		<xsd:attribute name="EXT_REF" type="xsd:IDREF" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="descMultiLangType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="LANG_REF" type="xsd:IDREF" use="required"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="convocType">
+		<xsd:sequence>
+			<xsd:element name="DESCRIPTION" type="descMultiLangType" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xsd:element name="CV_ENTRY_ML" type="cventryType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="CV_ID" type="xsd:string" use="required"/>
+		<xsd:attribute name="EXT_REF" type="xsd:IDREF" use="optional">
+			<xsd:annotation>
+				<xsd:documentation> A reference to an url of an external Controlled Vocabulary. Is
+					intended to be mutually exclusive with a sequence of CV_ENTRY_ML elements.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="extRefType">
+		<xsd:attribute name="EXT_REF_ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="TYPE" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="iso12620">
+						<xsd:annotation>
+							<xsd:documentation> A reference to the id of an ISO Data Category (url
+								including id). </xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="ecv">
+						<xsd:annotation>
+							<xsd:documentation> A reference to an external (closed) Controlled
+								Vocabulary (url). </xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="cve_id">
+						<xsd:annotation>
+							<xsd:documentation> A reference to the id of an Entry in an external
+								Controlled Vocabulary (id). </xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="lexen_id">
+						<xsd:annotation>
+							<xsd:documentation> A reference to the id of an entry in a lexicon (url,
+								url+id or id) </xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="resource_url">
+						<xsd:annotation>
+							<xsd:documentation> A reference or hyperlink to any type document (url)
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<!-- other external reference types can be added later -->
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="VALUE" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="localeType">
+		<xsd:attribute name="LANGUAGE_CODE" type="xsd:ID" use="required"/>
+		<xsd:attribute name="COUNTRY_CODE" type="xsd:string" use="optional"/>
+		<xsd:attribute name="VARIANT" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="langType">
+		<xsd:attribute name="LANG_ID" type="xsd:ID" use="required"/>
+		<!-- definition is optional so that user defined languages are easy to add -->
+		<xsd:attribute name="LANG_DEF" type="xsd:string" use="optional">
+			<xsd:annotation>
+				<xsd:documentation> ISO-639-3 still seems to be the best choice for language codes
+					and closest to persistent language ID's seem to be the http://cdb.iso.org/lg/...
+					identifiers also used by the iso-language-639-3 component in the CLARIN
+					ComponentRegistry. </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="LANG_LABEL" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="lexRefType">
+		<xsd:attribute name="LEX_REF_ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="NAME" type="xsd:string" use="required"/>
+		<xsd:attribute name="TYPE" type="xsd:string" use="required"/>
+		<xsd:attribute name="URL" type="xsd:string" use="required"/>
+		<xsd:attribute name="LEXICON_ID" type="xsd:string" use="required"/>
+		<xsd:attribute name="LEXICON_NAME" type="xsd:string" use="required"/>
+		<xsd:attribute name="DATCAT_ID" type="xsd:string" use="optional"/>
+		<xsd:attribute name="DATCAT_NAME" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:element name="ANNOTATION_DOCUMENT">
+		<xsd:annotation>
+			<xsd:documentation>
+				https://www.mpi.nl/tools/elan/EAF_Annotation_Format_3.0_and_ELAN.pdf
+				Section 2.14 doesn't seem to be fully developed and no references are included.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="LICENSE" type="licenseType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="HEADER" type="headType"/>
+				<xsd:element name="TIME_ORDER" type="timeType"/>
+				<xsd:element name="TIER" type="tierType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="LINGUISTIC_TYPE" type="lingType" minOccurs="0"
+					maxOccurs="unbounded"/>
+				<xsd:element name="LOCALE" type="localeType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="LANGUAGE" type="langType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="CONSTRAINT" type="constraintType" minOccurs="0"
+					maxOccurs="unbounded"/>
+				<xsd:element name="CONTROLLED_VOCABULARY" type="convocType" minOccurs="0"
+					maxOccurs="unbounded"/>
+				<xsd:element name="LEXICON_REF" type="lexRefType" minOccurs="0"
+					maxOccurs="unbounded"/>
+				<xsd:element name="EXTERNAL_REF" type="extRefType" minOccurs="0"
+					maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="DATE" type="xsd:dateTime" use="required"/>
+			<xsd:attribute name="AUTHOR" type="xsd:string" use="required"/>
+			<xsd:attribute name="VERSION" type="xsd:string" use="required"/>
+			<xsd:attribute name="FORMAT" type="xsd:string" use="optional" default="3.0"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MEDIA_DESCRIPTOR">
+		<xsd:complexType>
+			<xsd:attribute name="MEDIA_URL" type="xsd:anyURI" use="required"/>
+			<xsd:attribute name="RELATIVE_MEDIA_URL" type="xsd:anyURI" use="optional"/>
+			<xsd:attribute name="MIME_TYPE" type="xsd:string" use="required"/>
+			<xsd:attribute name="TIME_ORIGIN" type="xsd:long" use="optional"/>
+			<xsd:attribute name="EXTRACTED_FROM" type="xsd:anyURI" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="LINKED_FILE_DESCRIPTOR">
+		<xsd:complexType>
+			<xsd:attribute name="LINK_URL" type="xsd:anyURI" use="required"/>
+			<xsd:attribute name="RELATIVE_LINK_URL" type="xsd:anyURI" use="optional"/>
+			<xsd:attribute name="MIME_TYPE" type="xsd:string" use="required"/>
+			<xsd:attribute name="TIME_ORIGIN" type="xsd:long" use="optional"/>
+			<xsd:attribute name="ASSOCIATED_WITH" type="xsd:anyURI" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
