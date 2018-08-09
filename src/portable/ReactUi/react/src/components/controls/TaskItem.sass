@@ -7,28 +7,23 @@ $var1: #93A1A1
 	display: flex
 	flex-direction: column
 	padding-bottom: 24px
+
 	.taskItemContent 
 		margin: 0px 8px
 	
 	.unselected 
-		color: transparent
+		visibility: hidden
+		flex: 1 0 auto
+		color: $var1
+		display: flex
+		flex-direction: column-reverse
+		font-size: 12px
 		background-color: transparent
 		border: none
-		&:hover 
-			flex: 1 0 auto
-			color: $var1 
-			display: flex
-			flex-direction: column-reverse
-			font-size: 12px
 		
-		.displayReference 
-			flex: 1 0 auto
-			color: transparent
-			&:hover 
-				flex: 1 0 auto
-				color: white
-			
-		
+	.displayReference
+		flex: 1 0 auto
+		color: white
 	
 	.selected 
 		flex: 1 0 auto
@@ -39,25 +34,7 @@ $var1: #93A1A1
 		font-size: 12px
 		color: $var1
 		mix-blend-mode: lighten
-		&:hover 
-			flex: 1 0 auto
-			background-color: transparent
-			border: none
-			display: flex
-			flex-direction: column-reverse
-			font-size: 12px
-			color: $var1
-			mix-blend-mode: lighten
 		
-		.displayReference 
-			flex: 1 0 auto
-			color: white
-			&:hover 
-				flex: 1 0 auto
-				color: white
-			
-		
-	
 	.textName 
 		flex: 1 0 auto
 	

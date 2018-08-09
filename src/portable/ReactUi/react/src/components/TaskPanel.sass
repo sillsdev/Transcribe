@@ -13,13 +13,22 @@ $var3: #F5CC4C
 	overflow-y: auto
 	box-shadow: 2px 4px 8px rgba(0,0,0, 0.35)
 	z-index: 2
+
 	.AssignedRow 
 		flex-direction: row
 		display: flex
+		&:hover .TaskItem .unselected
+			visibility: visible
+		&:hover .RevertAction
+			visibility: visible
 	
 	.AvailableRow 
 		flex-direction: row
 		display: flex
+		&:hover .TaskItem .unselected
+			visibility: visible
+		&:hover .RevertAction
+			visibility: visible
 	
 	.SectionHead 
 		font-family: Roboto, sans-serif
