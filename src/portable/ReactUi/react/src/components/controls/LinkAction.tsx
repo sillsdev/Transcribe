@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button } from 'react-bootstrap'
-import './LinkAction.css';
+import './LinkAction.sass';
 
 interface IProps {
     target:  (context: React.Component) => any;

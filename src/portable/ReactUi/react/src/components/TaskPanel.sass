@@ -1,0 +1,54 @@
+
+@import "../_variables.sass"
+
+$var1: #073642
+$var2: #93A1A1
+$var3: #F5CC4C
+
+.TaskPanel 
+	background-color: $var1
+	width: 384px
+	height: 100%
+	padding: 16px 0px
+	overflow-y: auto
+	box-shadow: 2px 4px 8px rgba(0,0,0, 0.35)
+	z-index: 2
+	.AssignedRow 
+		flex-direction: row
+		display: flex
+	
+	.AvailableRow 
+		flex-direction: row
+		display: flex
+	
+	.SectionHead 
+		font-family: Roboto, sans-serif
+		font-weight: medium
+		font-size: 20px
+		text-align: Center
+		letter-spacing: 15%
+		color: $var2
+		margin: 0px
+		padding-top: 24px
+	
+	.ListHead 
+		font-family: Roboto, sans-serif
+		font-weight: medium
+		font-size: 10px
+		text-align: Left
+		letter-spacing: 15%
+		color: $var2
+		margin-top: 0
+		margin-bottom: 14px
+		padding: 0px 24px
+	
+	.selectBar 
+		display: flex
+		flex-direction: column
+		margin-left: 16px
+		margin-bottom: 20px
+		width: 8px
+		background-color: $var3
+	
+	.placeHolder 
+		width: 24px

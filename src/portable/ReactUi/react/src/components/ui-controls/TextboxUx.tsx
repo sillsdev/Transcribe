@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactTooltip from 'react-tooltip'
-import './TextboxUx.css';
+import './TextboxUx.sass';
 
 interface IProps {
     inputValue: string,

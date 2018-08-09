@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactToolTip from 'react-tooltip';
 import * as actions from '../../actions/audioActions';
-import './SpeedBar.css';
+import './SpeedBar.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
 };

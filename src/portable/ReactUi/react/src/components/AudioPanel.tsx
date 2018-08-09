@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as actions from '../actions/audioActions';
 import { ITranscriberStrings } from '../model/localize';
-import './AudioPanel.css';
+import './AudioPanel.sass';
 import ControlPane from './ControlPane';
 import EditorPane from './EditorPane';
 import ProgressPane from './ProgressPane';

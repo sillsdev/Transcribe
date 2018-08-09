@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Duration from './Duration';
-import './TaskItem.css';
+import './TaskItem.sass';
 
 interface IProps {
     id: string;

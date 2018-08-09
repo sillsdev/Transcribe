@@ -7,7 +7,7 @@ import MainLayout from './components/MainLayout'
 import SelectProject from './components/SelectProject'
 import UserLogin from './components/UserLogin'
 import UserSettings from './components/UserSettings';
-import './index.css';
+import './index.sass';
 import registerServiceWorker from './registerServiceWorker';
 import store from "./store"
 

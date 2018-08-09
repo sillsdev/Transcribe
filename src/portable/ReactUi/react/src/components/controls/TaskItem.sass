@@ -1,0 +1,69 @@
+$var1: #93A1A1
+
+.TaskItem 
+	width: 336px
+	height: 50px
+	background: no-repeat url("/assets/waveform.png")
+	display: flex
+	flex-direction: column
+	padding-bottom: 24px
+	.taskItemContent 
+		margin: 0px 8px
+	
+	.unselected 
+		color: transparent
+		background-color: transparent
+		border: none
+		&:hover 
+			flex: 1 0 auto
+			color: $var1 
+			display: flex
+			flex-direction: column-reverse
+			font-size: 12px
+		
+		.displayReference 
+			flex: 1 0 auto
+			color: transparent
+			&:hover 
+				flex: 1 0 auto
+				color: white
+			
+		
+	
+	.selected 
+		flex: 1 0 auto
+		background-color: transparent
+		border: none
+		display: flex
+		flex-direction: column-reverse
+		font-size: 12px
+		color: $var1
+		mix-blend-mode: lighten
+		&:hover 
+			flex: 1 0 auto
+			background-color: transparent
+			border: none
+			display: flex
+			flex-direction: column-reverse
+			font-size: 12px
+			color: $var1
+			mix-blend-mode: lighten
+		
+		.displayReference 
+			flex: 1 0 auto
+			color: white
+			&:hover 
+				flex: 1 0 auto
+				color: white
+			
+		
+	
+	.textName 
+		flex: 1 0 auto
+	
+	.firstLine 
+		flex: 1 0 auto
+		display: flex
+		flex-direction: row
+	
+

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Duration from './Duration';
-import './TimeMarker.css';
+import './TimeMarker.sass';
 
 interface IProps{
     playedSeconds: number,

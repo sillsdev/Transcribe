@@ -5,7 +5,7 @@ import * as actions2 from '../actions/audioActions';
 import * as actions from '../actions/taskActions';
 import { IState } from '../model/state';
 import language from '../selectors/language';
-import './EditorPane.css'
+import './EditorPane.sass'
 
 interface IProps extends IStateProps, IDispatchProps {
 }

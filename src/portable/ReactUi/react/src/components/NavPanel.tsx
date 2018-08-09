@@ -4,7 +4,7 @@ import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 import { ProjectAvatar } from './controls/ProjectAvatar';
-import './NavPanel.css';
+import './NavPanel.sass';
 
 interface IProps {
     selectedProject: string;
