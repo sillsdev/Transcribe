@@ -11,6 +11,8 @@ interface IProps extends IStateProps, IDispatchProps {
 }
 
 const initialState = {
+    initial: true,
+    saved: true,
     seconds: 0,
     text: "",
 }
@@ -43,7 +45,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
         const size = project != null? project.fontsize: "12pt"; // Tests null or undefined
 
-        if (transcription != null && this.state.text !== transcription && this.state.text === "") {
+        if (transcription != null && this.state.text !== transcription && this.state.text === "" && this.state.initial) {
             this.setState({text: transcription})
         }
         return (
@@ -62,27 +64,44 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         const { direction, lang, selectedTask, totalSeconds, writeTranscription } = this.props;
 
         if (this.state.seconds === 60) {
-            writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+            if (!this.state.saved) {
+                writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+            }
             this.setState({
+                ...this.state,
+                saved: true,
                 seconds: 0
             });
         }
     }
     private tick() {
         this.setState(prevState => ({
+            ...this.state,
             seconds: prevState.seconds + 1
         }));
     }
 
     private change(event: any) {
-        this.setState({ text: event.target.value });
+        this.setState({
+            ...this.state,
+            text: event.target.value
+        });
     }
 
     private keyUp(event: any) {
         const { direction, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
+        this.setState({
+            ...this.state,
+            initial: false,
+            saved: false,
+        })
         if (event.keyCode === 32) {
             requestPosition();
             writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+            this.setState({
+                ...this.state,
+                saved: true,
+            })
         }
     }
 };
