@@ -2,9 +2,19 @@
 <project version="14.2">
     <meta>
         <filters directoryPatterns="" filePatterns="" positiveFilePatterns="" showHiddenFiles="false"/>
-        <options/>
+        <options>
+            <serialized version="14.2" xml:space="preserve">
+                <map>
+                    <entry>
+                        <String>key.file.types.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                </map>
+            </serialized>
+        </options>
     </meta>
     <projectTree name="TranscriberSchema.xpr">
+        <file name="EAFv3.0gt.xsd"/>
         <file name="task.rnc"/>
         <file name="tasksInit.xml"/>
         <file name="tasksSample.xml"/>
