@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/audioActions';
 import { IState } from '../model/state';
 import TimeMarker from './controls/TimeMarker';
-import './ProgressPane.css';
+import './ProgressPane.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
 };

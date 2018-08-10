@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './RevertAction.css';
+import './RevertAction.sass';
 
 interface IProps {
     target: React.MouseEventHandler;

@@ -8,7 +8,7 @@ import taskList from '../selectors';
 import userStrings from '../selectors/localize';
 import RevertAction from './controls/RevertAction';
 import TaskItem from './controls/TaskItem';
-import './TaskPanel.css';
+import './TaskPanel.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
 };

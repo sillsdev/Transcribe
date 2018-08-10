@@ -15,7 +15,7 @@ import DropdownUx from './ui-controls/DropdownUx';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
 import TextboxUx from './ui-controls/TextboxUx';
-import './UserSettings.css';
+import './UserSettings.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
 }

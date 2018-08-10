@@ -6,7 +6,7 @@ import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
-import './AvatarEdit.css';
+import './AvatarEdit.sass';
 import BackLink from './controls/BackLink';
 import NextAction from './controls/NextAction';
 

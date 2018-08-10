@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactToolTip from 'react-tooltip';
 import * as actions from '../../actions/audioActions';
-import './JumpAhead.css';
+import './JumpAhead.sass';
 
 interface IProps {
     jumpChange: typeof actions.jumpChange;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './DropdownUx.css';
+import './DropdownUx.sass';
 
 interface IProps {
     collection: any[],

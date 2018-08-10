@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Avatar from 'react-avatar';
 import { Link } from 'react-router-dom';
-import './AvatarLink.css';
+import './AvatarLink.sass';
 
 interface IProps {
     id: string;

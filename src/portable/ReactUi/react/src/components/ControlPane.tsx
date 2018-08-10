@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { jumpChange, playSpeedRateChange, playStatus } from '../actions/audioActions';
 import { ITranscriberStrings } from '../model/localize';
-import './ControlPane.css';
+import './ControlPane.sass';
 import JumpAhead from './controls/JumpAhead';
 import JumpBack from './controls/JumpBack';
 import NextAction from './controls/NextAction';

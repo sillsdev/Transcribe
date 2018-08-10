@@ -7,7 +7,7 @@ import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import AudioPanel from './AudioPanel'
-import './MainLayout.css';
+import './MainLayout.sass';
 import NavPanel from './NavPanel'
 import TaskPanel from './TaskPanel'
 

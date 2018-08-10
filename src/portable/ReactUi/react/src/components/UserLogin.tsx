@@ -6,7 +6,7 @@ import * as actions2 from '../actions/localizationActions';
 import * as actions from '../actions/userActions';
 import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
-import './UserLogin.css';
+import './UserLogin.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
 };

@@ -47,12 +47,14 @@
     <EmbeddedResource Include="react\build\manifest.json" />
     <EmbeddedResource Include="react\build\service-worker.js" />
     <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
+    <EmbeddedResource Include="react\build\assets\smile.svg" />
     <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
     <EmbeddedResource Include="react\build\assets\testAvatar.png" />
-    <EmbeddedResource Include="react\build\static\css\main.5fec3d7e.css" />
-    <EmbeddedResource Include="react\build\static\css\main.5fec3d7e.css.map" />
-    <EmbeddedResource Include="react\build\static\js\main.c84e1e0a.js" />
-    <EmbeddedResource Include="react\build\static\js\main.c84e1e0a.js.map" />
+    <EmbeddedResource Include="react\build\assets\waveform.png" />
+    <EmbeddedResource Include="react\build\static\css\main.e00d198c.css" />
+    <EmbeddedResource Include="react\build\static\css\main.e00d198c.css.map" />
+    <EmbeddedResource Include="react\build\static\js\main.a46026ba.js" />
+    <EmbeddedResource Include="react\build\static\js\main.a46026ba.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\images\" />

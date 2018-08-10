@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Label } from 'react-bootstrap';
-import './LabelUx.css';
+import './LabelUx.sass';
 
 interface IProps {
     name: string

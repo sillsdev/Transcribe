@@ -8,7 +8,7 @@ import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import { ProjectAvatar } from './controls/ProjectAvatar';
-import './SelectProject.css';
+import './SelectProject.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
 };
