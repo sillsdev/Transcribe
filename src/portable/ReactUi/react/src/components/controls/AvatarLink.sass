@@ -1,4 +1,4 @@
-$var1: #FFFFFF
+@import "../../_variables.sass"
 
 .AvatarLink 
 	padding: 20px 0 20px 0
@@ -6,10 +6,11 @@ $var1: #FFFFFF
 	text-align: center
 	.caption 
 		text-align: center
-		color: rgba(202, 208, 212, 0.5)
+		color: $label
+		font-family: $sans
 	
 	.OnHover:hover 
 		-moz-border-radius: 5px
 		border-radius: 5px
-		-moz-box-shadow: 0px 0px 30px 0px $var1
-		box-shadow: 0px 0px 30px 0px $var1
+		-moz-box-shadow: 0px 0px 30px 0px $white
+		box-shadow: 0px 0px 30px 0px $white

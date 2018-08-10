@@ -1,9 +1,9 @@
-$var1: #CCCCCA
-$var2: #FFFFFF
-$var3: #C8DE0E
+@import "../_variables.sass"
+$progressColor: #CCCCCA
+$progressBarColor: #C8DE0E
 
 .ProgressPane 
-	background-color: $var1
+	background-color: $progressColor
 	height: 80px
 	display: flex
 	> * 
@@ -15,8 +15,8 @@ $var3: #C8DE0E
 		&:hover 
 			-moz-border-radius: 5px
 			border-radius: 5px
-			-moz-box-shadow: 0px 0px 30px 0px $var2
-			box-shadow: 0px 0px 30px 0px $var2
+			-moz-box-shadow: 0px 0px 30px 0px $white
+			box-shadow: 0px 0px 30px 0px $white
 		
 	
 	.progressBar 
@@ -30,7 +30,7 @@ $var3: #C8DE0E
 		display: none
 	
 	progress[value]::-moz-progress-bar 
-		background-color: $var3
+		background-color: $progressBarColor
 		border-radius: 2px
 		background-size: 35px 20px, 100% 100%, 100% 100%
 	
