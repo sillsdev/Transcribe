@@ -1,22 +1,22 @@
-$var1: #ffffff
-$var2: #FFFFFF
+@import "../../_variables.sass"
 
 .DropdownUx .css-10nd86i 
 	width: 200px 
 
 .DropdownUx .custom-select 
 	position: relative
-	font-family: Arial
+	font-family: $sans
 	background: transparent
-	color: white
-	border: 1px solid black
+	color: $litUpText
+	border: 1px solid $black
 	border-radius: 4px
+	font-size: 12pt
 	select 
 		display: none
 
   /*hide original SELECT element:*/
   .DropdownUx .select-selected 
-    background-color: black
+    background-color: $black
   
   /*style the arrow inside the select element:*/
   .DropdownUx .select-selected:after 
@@ -38,7 +38,7 @@ $var2: #FFFFFF
   
   /*style the items (options), including the selected item:*/
   .DropdownUx .select-items div,.select-selected 
-    color: #ffffff
+    color: $litUpText
     padding: 8px 16px
     border: 1px solid transparent
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent
@@ -58,7 +58,7 @@ $var2: #FFFFFF
   /*hide the items when the select box is closed:*/
 
 .DropdownUx .select-selected 
-	background-color: black
+	background-color: $black
 	&:after 
 		position: absolute
 		content: ""
@@ -77,7 +77,7 @@ $var2: #FFFFFF
 	
 
 .DropdownUx .select-items div, .select-selected 
-	color: $var1
+	color: $litUpText
 	padding: 8px 16px
 	border: 1px solid transparent
 	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent
@@ -102,6 +102,6 @@ $var2: #FFFFFF
 .DropdownUx select option 
 	margin: 40px
 	background: rgba(0, 0, 0, 0.3)
-	color: $var2
+	color: $litUpText
 	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4)
 

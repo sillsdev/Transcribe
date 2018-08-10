@@ -1,6 +1,4 @@
-$var1: #EEE8D5
-$var2: #000000
-$var3: #716969
+@import "../../_variables.sass"
 
 .TextBoxUx 
 	width: 200px
@@ -10,9 +8,9 @@ $var3: #716969
 	font-size: 14px
 	line-height: 16px
 	text-align: Left
-	color: $var1
+	color: $litUpText
 	background-color: transparent
-	border: 1px solid $var2
+	border: 1px solid $black
 	border-radius: 4px
 	&-read-only 
 		width: 200px
@@ -23,9 +21,9 @@ $var3: #716969
 		line-height: 16px
 		text-align: Left
 		background-color: transparent
-		border: 1px solid $var2
+		border: 1px solid $black
 		border-radius: 4px
-		color: $var3
+		color: $smallLabel
 	
 	.xMark 
 		color: red
@@ -39,7 +37,7 @@ $var3: #716969
 	font-size: 14px
 	line-height: 16px
 	text-align: Left
-	color: $var1
+	color: $litUpText
 	background-color: transparent
 	border: 1px solid red
 	border-radius: 4px

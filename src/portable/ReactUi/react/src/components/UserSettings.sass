@@ -1,14 +1,13 @@
-$var1: #002B36
-$var2: #FFFFFF
+@import "../_variables.sass"
 
 .UserSettings 
-	background-color: $var1
+	background-color: $navBG
 	.AvatarLink 
 		padding: 0px 0px 0px 0px
 	
 	.pencil 
 		font-size: 8pt
-		color: white
+		color: $white
 		width: 8pt
 		transform: rotate(180deg)
 		position: relative
@@ -17,8 +16,8 @@ $var2: #FFFFFF
 		&:hover 
 			-moz-border-radius: 5px
 			border-radius: 5px
-			-moz-box-shadow: 0px 0px 30px 0px $var2
-			box-shadow: 0px 0px 30px 0px $var2
+			-moz-box-shadow: 0px 0px 30px 0px $white
+			box-shadow: 0px 0px 30px 0px $white
 		
 	
 	a 
