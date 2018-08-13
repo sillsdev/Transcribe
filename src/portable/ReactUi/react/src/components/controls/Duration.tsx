@@ -14,9 +14,9 @@ function format (seconds: number) {
   const mm = date.getUTCMinutes()
   const ss = pad(date.getUTCSeconds())
   if (hh) {
-    return `${hh}:${pad(mm)}:${ss}`
+    return `${hh}h ${pad(mm)}m ${ss}s`
   }
-  return `${mm}:${ss}`
+  return `${mm}m ${ss}s`
 }
 
 function pad (text: number) {
