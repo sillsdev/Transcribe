@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { FETCH_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS } from './types';
+import { FETCH_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS, SUBMIT_STATUS } from './types';
 
 
 export function playStatus(playing: boolean): any{
@@ -50,4 +50,11 @@ export const fetchTranscription = (taskid: string) => (dispatch: any) => {
             type: FETCH_TRANSCRIPTION
         });
     });
+}
+
+export function isSubmitted(submit: boolean): any{
+    return {
+        payload: submit,
+        type: SUBMIT_STATUS
+    }
 }
