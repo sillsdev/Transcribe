@@ -62,6 +62,12 @@
 				<target>Merwa</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.unassign">
+			<segment>
+				<source>Unassign</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -186,6 +192,48 @@
 			<segment>
 				<source>REVIEW COMMENTS</source>
 				<target>Mai bada ra'ayi</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.nameErrorMessage">
+			<segment>
+				<source>Please fill in the Name</source>
+				<target>Da fatan a cika sunan</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fontErrorMessage">
+			<segment>
+				<source>Please fill in the Font</source>
+				<target>Da fatan a cika da font</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.playPauseErrorMessage">
+			<segment>
+				<source>Please fill in the Play/Pause</source>
+				<target>Don Allah cika wasan / dakatarwa</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.rewindErrorMessage">
+			<segment>
+				<source>Please fill in the Rewind</source>
+				<target>Don Allah a cika da baya</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fastForwardErrorMessage">
+			<segment>
+				<source>Please fill in the Fast Forward</source>
+				<target>Don Allah cika cika da sauri</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.slowDownErrorMessage">
+			<segment>
+				<source>Please fill in the Slow Down</source>
+				<target>Don Allah a cika jinkirin</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.speedUpErrorMessage">
+			<segment>
+				<source>Please fill in the Speed Up</source>
+				<target>Don Allah cika cikawar</target>
 			</segment>
 		</unit>
 	</file>

@@ -62,6 +62,12 @@
 				<target>Отправить</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.unassign">
+			<segment>
+				<source>Unassign</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -186,6 +192,48 @@
 			<segment>
 				<source>REVIEW COMMENTS</source>
 				<target>ЗАМЕТКИ ПРОВЕРКИ</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.nameErrorMessage">
+			<segment>
+				<source>Please fill in the Name</source>
+				<target>Пожалуйста, заполните Имя</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fontErrorMessage">
+			<segment>
+				<source>Please fill in the Font</source>
+				<target>Пожалуйста, заполните шрифт</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.playPauseErrorMessage">
+			<segment>
+				<source>Please fill in the Play/Pause</source>
+				<target>Пожалуйста, заполните Играть / Пауза</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.rewindErrorMessage">
+			<segment>
+				<source>Please fill in the Rewind</source>
+				<target>Пожалуйста, заполните перемотку</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.fastForwardErrorMessage">
+			<segment>
+				<source>Please fill in the Fast Forward</source>
+				<target>Пожалуйста, заполните Перемотать вперед</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.slowDownErrorMessage">
+			<segment>
+				<source>Please fill in the Slow Down</source>
+				<target>Пожалуйста, заполните Замедлить</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.speedUpErrorMessage">
+			<segment>
+				<source>Please fill in the Speed Up</source>
+				<target>Пожалуйста, заполните Ускорить</target>
 			</segment>
 		</unit>
 	</file>
