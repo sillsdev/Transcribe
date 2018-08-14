@@ -344,5 +344,6 @@
         <file name="TranscriberUi-ha.xlf"/>
         <file name="TranscriberUi-pt.xlf"/>
         <file name="TranscriberUi-ru.xlf"/>
+        <file name="TranscriberUi-ta.xlf"/>
     </projectTree>
 </project>

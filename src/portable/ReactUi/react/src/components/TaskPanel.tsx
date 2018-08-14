@@ -35,8 +35,8 @@ class TaskPanel extends React.Component<IProps, object> {
             <div className="AssignedRow">
                 <RevertAction
                     selected={true}
-                    target={unassignTask.bind(this, t.id, selectedUser)}
-                    text={"\u2B73"} />
+                    strings={strings}
+                    target={unassignTask.bind(this, t.id, selectedUser)} />
                 <TaskItem
                     id={t.id}
                     name={t.name}
@@ -50,8 +50,8 @@ class TaskPanel extends React.Component<IProps, object> {
             <div className="AssignedRow">
                 <RevertAction
                     selected={true}
-                    target={unassignTask.bind(this, t.id, selectedUser)}
-                    text={"\u2B73"} />
+                    strings={strings}
+                    target={unassignTask.bind(this, t.id, selectedUser)} />
                 <TaskItem
                     id={t.id}
                     name={t.name}

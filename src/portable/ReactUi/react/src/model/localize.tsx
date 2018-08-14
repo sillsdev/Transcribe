@@ -11,6 +11,7 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "submit": string;
     "test": string;
     "transcribe": string;
+    "unassign": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
@@ -36,4 +37,11 @@ export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "speedUp": string;
     "transcriber": string;
     "user": string;
+    "nameErrorMessage": string;
+    "fontErrorMessage": string;
+    "playPauseErrorMessage": string;
+    "rewindErrorMessage": string;
+    "fastForwardErrorMessage": string;
+    "slowDownErrorMessage": string;
+    "speedUpErrorMessage": string;
 };
