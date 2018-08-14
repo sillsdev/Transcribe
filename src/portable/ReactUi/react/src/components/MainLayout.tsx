@@ -3,6 +3,7 @@ import { HotKeys } from 'react-hotkeys';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
+import SucessPanel from '../components/controls/SucessPanel'
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
@@ -16,7 +17,7 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class MainLayout extends React.Component<IProps, any> {
     public render() {
-        const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus } = this.props;
+        const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, submit } = this.props;
 
         const keyMap = {
             moveUp: 'up',
@@ -50,6 +51,8 @@ class MainLayout extends React.Component<IProps, any> {
             },
         };
 
+        const editorScreen = submit? <SucessPanel />:  <AudioPanel {...this.props} />;
+
         return (
             <HotKeys keyMap={keyMap} handlers={handlers}>
                 <div className="MainLayout" tabIndex={1}>
@@ -60,7 +63,7 @@ class MainLayout extends React.Component<IProps, any> {
                         <TaskPanel {...this.props} />
                     </div>
                     <div className="MainCol">
-                        <AudioPanel {...this.props} />
+                       {editorScreen}
                     </div>
                 </div>
             </HotKeys>
@@ -72,6 +75,7 @@ interface IStateProps {
     playing: boolean;
     playSpeedRate: number;
     selectedTask: string;
+    submit: boolean;
     jump: number;
     strings: ITranscriberStrings;
 };
@@ -81,7 +85,8 @@ const mapStateToProps = (state: IState): IStateProps => ({
     playSpeedRate: state.audio.playSpeedRate,
     playing: state.audio.playing,
     selectedTask: state.tasks.selectedTask,
-    strings: userStrings(state, {layout: "transcriber"}),
+    strings: userStrings(state, { layout: "transcriber" }),
+    submit: state.audio.submit,
 });
 
 interface IDispatchProps {
@@ -90,10 +95,12 @@ interface IDispatchProps {
     jumpChange: typeof actions.jumpChange;
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
+    isSubmitted: typeof actions.isSubmitted;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
+        isSubmitted: actions.isSubmitted,
         jumpChange: actions.jumpChange,
         playSpeedRateChange: actions.playSpeedRateChange,
         playStatus: actions.playStatus,

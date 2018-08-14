@@ -21,6 +21,7 @@ export interface IState {
         requestReport: boolean;
         totalSeconds: number;
         transcription: string;
+        submit: boolean;
     };
     strings: {
         transcriber: ITranscriberStrings;

@@ -1,6 +1,11 @@
 import * as React from 'react';
-import { jumpChange, playSpeedRateChange, playStatus } from '../actions/audioActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/audioActions';
+/* import { jumpChange, playSpeedRateChange, playStatus } from '../actions/audioActions'; */
 import { ITranscriberStrings } from '../model/localize';
+import { IState } from '../model/state';
+import userStrings from '../selectors/localize';
 import './ControlPane.sass';
 import JumpAhead from './controls/JumpAhead';
 import JumpBack from './controls/JumpBack';
@@ -29,7 +34,10 @@ class ControlPane extends React.Component<IProps, any> {
             )
     }
 
-    private submit = () => {
+private submit = () => {
+        const { isSubmitted } = this.props;
+        isSubmitted(true)
+        // this.props.isSubmitted.bind(true)
         alert("Submitting logic goes here")
     }
 };
@@ -40,10 +48,26 @@ interface IStateProps {
     strings: ITranscriberStrings;
 };
 
+const mapStateToProps = (state: IState): IStateProps => ({
+    playSpeedRate: state.audio.playSpeedRate,
+    playing: state.audio.playing,
+    strings: userStrings(state, { layout: "transcriber" }),
+});
+
 interface IDispatchProps {
-    playStatus: typeof playStatus,
-    playSpeedRateChange: typeof playSpeedRateChange;
-    jumpChange: typeof jumpChange;
+    playStatus: typeof actions.playStatus,
+    playSpeedRateChange: typeof actions.playSpeedRateChange;
+    jumpChange: typeof actions.jumpChange;
+    isSubmitted: typeof actions.isSubmitted;
 };
 
-export default ControlPane;
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+        isSubmitted: actions.isSubmitted,
+        jumpChange: actions.jumpChange,
+        playSpeedRateChange: actions.playSpeedRateChange,
+        playStatus: actions.playStatus,
+    }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ControlPane);
