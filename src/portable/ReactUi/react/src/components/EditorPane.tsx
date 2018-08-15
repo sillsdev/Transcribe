@@ -11,7 +11,6 @@ interface IProps extends IStateProps, IDispatchProps {
 }
 
 const initialState = {
-    initial: true,
     saved: true,
     seconds: 0,
     text: "",
@@ -28,9 +27,6 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     public componentDidMount() {
-        const { fetchTranscription, selectedTask } = this.props;
-
-        fetchTranscription(selectedTask);
         this.interval = setInterval(() => this.tick(), 1000);
       }
 
@@ -39,13 +35,13 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { users, selectedProject, selectedUser, transcription } = this.props;
+        const { initialTranscription, users, selectedProject, selectedUser, transcription } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const project = user && user.project.filter(p => p.id === selectedProject)[0];
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
         const size = project != null? project.fontsize: "12pt"; // Tests null or undefined
 
-        if (transcription != null && this.state.text !== transcription && this.state.text === "" && this.state.initial) {
+        if (transcription != null && this.state.text !== transcription  && initialTranscription) {
             this.setState({text: transcription})
         }
         return (
@@ -89,10 +85,9 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     private keyUp(event: any) {
-        const { direction, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
+        const { direction, setInitialTranscription, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
         this.setState({
             ...this.state,
-            initial: false,
             saved: false,
         })
         if (event.keyCode === 32) {
@@ -103,11 +98,13 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
                 saved: true,
             })
         }
+        setInitialTranscription(false);
     }
 };
 
 interface IStateProps {
     direction: string;
+    initialTranscription: boolean;
     lang: string;
     selectedUser: string;
     selectedProject: string;
@@ -119,6 +116,7 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     direction: language(state).direction,
+    initialTranscription: state.audio.initialTranscription,
     lang: language(state).lang,
     selectedProject: state.tasks.selectedProject,
     selectedTask: state.tasks.selectedTask,
@@ -129,15 +127,15 @@ const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 interface IDispatchProps {
-    fetchTranscription: typeof actions2.fetchTranscription;
     requestPosition: typeof actions2.requestPosition;
+    setInitialTranscription: typeof actions2.setInitialTranscription;
     writeTranscription: typeof actions.writeTranscription;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
-        fetchTranscription: actions2.fetchTranscription,
         requestPosition: actions2.requestPosition,
+        setInitialTranscription: actions2.setInitialTranscription,
         writeTranscription: actions.writeTranscription,
     }, dispatch),
 });

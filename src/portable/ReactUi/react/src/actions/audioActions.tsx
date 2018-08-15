@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { FETCH_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS } from './types';
+import { INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS } from './types';
 
 
 export function playStatus(playing: boolean): any{
@@ -41,13 +41,9 @@ export function requestPosition(): any {
     }
 }
 
-export const fetchTranscription = (taskid: string) => (dispatch: any) => {
-    const part = taskid.split('.');
-    Axios.get('/api/audio/' + part[0] + '.transcription').
-    then(transcription => {
-        dispatch({
-            payload: transcription,
-            type: FETCH_TRANSCRIPTION
-        });
-    });
+export function setInitialTranscription(status: boolean): any {
+    return {
+        payload: status,
+        type: INITIAL_TRANSCRIPTION
+    }
 }

@@ -36,8 +36,8 @@ start =
             element speed { xsd:integer { minInclusive = "25" maxInclusive = "200" } }?,
             element progress { "bar" | "waveform" }?,
             element setting {
-                element name { xsd:string { pattern = "[a-z_]+" } },
-                element value { xsd:string }
+				attribute id { xsd:string { pattern = "[a-z_]+" } },
+				xsd:string
             }*
         }+
     }

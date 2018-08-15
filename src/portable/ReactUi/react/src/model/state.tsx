@@ -14,6 +14,7 @@ export interface IState {
     };
     audio: {
         initialPosition: number;
+        initialTranscription: boolean;
         jump: number;
         playSpeedRate: number;
         playing: boolean;

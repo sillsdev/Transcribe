@@ -1,5 +1,6 @@
 import Axios from 'axios';
-import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING, WRITE_PENDING } from './types';
+import { ASSIGN_TASK_PENDING, FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING, WRITE_PENDING } from './types';
+import { saveUserSetting } from './userActions';
 
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
     dispatch({type: ASSIGN_TASK_PENDING});
@@ -36,9 +37,22 @@ export function selectProject(id: string): any{
     }
 }
 
-export function selectTask(id: string): any{
-    return {
+export const  selectTask = (user: string, id: string) => (dispatch:any) => {
+    dispatch({
         payload: id,
         type: SELECT_TASK
-    }
+    })
+    dispatch(fetchTranscription(id));
+    dispatch(saveUserSetting(user, "lastTask", id))
+}
+
+export const fetchTranscription = (taskid: string) => (dispatch: any) => {
+    const part = taskid.split('.');
+    Axios.get('/api/audio/' + part[0] + '.transcription').
+    then(transcription => {
+        dispatch({
+            payload: transcription,
+            type: FETCH_TRANSCRIPTION
+        });
+    });
 }

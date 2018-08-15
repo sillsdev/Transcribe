@@ -141,6 +141,8 @@ namespace Transcribe.Windows
 			var forward = parsedQuery["forward"];
 			var slower = parsedQuery["slower"];
 			var faster = parsedQuery["faster"];
+			var setting = parsedQuery["setting"];
+			var value = parsedQuery["value"];
 			Debug.Print($"{user}:{project}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
 			var usersDoc = LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
@@ -152,11 +154,12 @@ namespace Transcribe.Windows
 			AddUilang(uilang, userNode, usersDoc);
 			AddFontInfo("fontfamily", font, userNode, project, usersDoc, user);
 			AddFontInfo("fontsize", fontsize, userNode, project, usersDoc, user);
-			AddHotkey("play-pause", playpause, userNode, usersDoc);
-			AddHotkey("back", back, userNode, usersDoc);
-			AddHotkey("forward", forward, userNode, usersDoc);
-			AddHotkey("slower", slower, userNode, usersDoc);
-			AddHotkey("faster", faster, userNode, usersDoc);
+			AddKeyVal("hotkey", "play-pause", playpause, userNode, usersDoc);
+			AddKeyVal("hotkey", "back", back, userNode, usersDoc);
+			AddKeyVal("hotkey", "forward", forward, userNode, usersDoc);
+			AddKeyVal("hotkey", "slower", slower, userNode, usersDoc);
+			AddKeyVal("hotkey", "faster", faster, userNode, usersDoc);
+			AddKeyVal("setting", setting, value, userNode, usersDoc);
 			using (var xw = XmlWriter.Create(XmlFullName("users"), new XmlWriterSettings { Indent = true }))
 			{
 				usersDoc.Save(xw);
@@ -229,19 +232,21 @@ namespace Transcribe.Windows
 			return image;
 		}
 
-		private static void AddHotkey(string keyid, string playpause, XmlNode userNode, XmlDocument usersDoc)
+		private static void AddKeyVal(string tag, string keyid, string val, XmlNode userNode, XmlDocument usersDoc)
 		{
-			if (playpause != null)
+			if (val == null)
+				return;
+			if (!(userNode.SelectSingleNode($"{tag}[@id='{keyid}']") is XmlElement node))
 			{
-				if (!(userNode.SelectSingleNode($"hotkey[@id='{keyid}']") is XmlElement node))
-				{
-					node = usersDoc.CreateElement("hotkey");
-					userNode.InsertAfter(node, FindPreceding(userNode, new List<string> {"hotkey", "project", "role"}));
-					NewAttr(node, "id", keyid);
-				}
-
-				node.InnerText = playpause;
+				node = usersDoc.CreateElement(tag);
+				var preceding = tag == "hotkey"
+					? new List<string> {"hotkey", "project", "role"}
+					: new List<string> {"setting", "progress", "speed", "timer", "uilang", "hotkey", "project", "role"};
+				userNode.InsertAfter(node, FindPreceding(userNode, preceding));
+				NewAttr(node, "id", keyid);
 			}
+
+			node.InnerText = val;
 		}
 
 		private static XmlElement FindPreceding(XmlNode userNode, List<string> list)
@@ -251,7 +256,7 @@ namespace Transcribe.Windows
 			if (nodes.Count > 0)
 				return nodes[nodes.Count - 1] as XmlElement;
 			if (list.Count > 1)
-				return FindPreceding(userNode, list.GetRange(0, list.Count - 1));
+				return FindPreceding(userNode, list.GetRange(1, list.Count - 1));
 			return null;
 		}
 
@@ -422,6 +427,7 @@ namespace Transcribe.Windows
 				AsArray(node.SelectNodes(".//role"));
 				AsArray(node.SelectNodes(".//project"));
 				AsArray(node.SelectNodes(".//hotkey"));
+				AsArray(node.SelectNodes(".//setting"));
 				NewAttr(node, "id", item.ToString());
 				item += 1;
 				NewAttr(node, "displayName", keyValuePair.Key);
