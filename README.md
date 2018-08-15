@@ -52,4 +52,6 @@ The browser control is monitoring the HTTP requests. When it observes a request 
 - forward
 - slower
 - faster
+- setting (name of the setting -- use with value)
+- value (value of the setting -- use with setting)
 
