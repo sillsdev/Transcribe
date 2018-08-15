@@ -1,7 +1,8 @@
-import { FETCH_TASKS, FETCH_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS } from '../actions/types';
+import { FETCH_TASKS, FETCH_TRANSCRIPTION, INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS, SELECT_TASK } from '../actions/types';
 
 const initialState = {
     initialPosition: 0,
+    initialTranscription: true,
     jump: 0,
     playSpeedRate: 1,
     playing: false,
@@ -56,6 +57,17 @@ export default function (state = initialState, action: any) {
                 ...state,
                 initialPosition: action.payload.data.position,
                 transcription: action.payload.data.transcription,
+            }
+        case INITIAL_TRANSCRIPTION:
+            return {
+                ...state,
+                initialTranscription: action.payload,
+            }
+        case SELECT_TASK:
+            return {
+                ...state,
+                initialTranscription: true,
+                transcription: "",
             }
         default:
             return state;

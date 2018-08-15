@@ -172,18 +172,17 @@
   </xs:element>
   <xs:element name="setting">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="name"/>
-        <xs:element ref="value"/>
-      </xs:sequence>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="id" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="[a-z_]+"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
     </xs:complexType>
   </xs:element>
-  <xs:element name="name">
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:pattern value="[a-z_]+"/>
-      </xs:restriction>
-    </xs:simpleType>
-  </xs:element>
-  <xs:element name="value" type="xs:string"/>
 </xs:schema>

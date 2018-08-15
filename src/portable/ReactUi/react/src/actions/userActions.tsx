@@ -30,3 +30,7 @@ export const updateAvatar = (user: string, data: object) => (dispatch: any) => {
     Axios.put('/api/UpdateAvatar?user=' + user, data)
         .then(dispatch(fetchUsers()))
 }
+
+export const saveUserSetting = (user: string, setting: string, value: string) => (dispatch: any) => {
+    Axios.put('/api/UpdateUser?user=' + user + "&setting=" + setting + "&value=" + value)
+}

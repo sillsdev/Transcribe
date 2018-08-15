@@ -4,24 +4,19 @@ interface IUserProjectSettings {
   id: string;
 };
 
-interface IGenericUserSetting {
-  name: string;
-  value: string;
-};
-
-interface IUserHotkey {
+interface IUserKeyVal {
   id: string;
   text: string;
 }
 
 interface IUser {
   displayName: string;
-  hotkey: IUserHotkey[];
+  hotkey: IUserKeyVal[];
   id: number;
   progress: string;
   project: IUserProjectSettings[];
   role: string[];
-  setting: IGenericUserSetting[];
+  setting: IUserKeyVal[];
   speed: number;
   timer: string;
   uilang: string;
