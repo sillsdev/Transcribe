@@ -11,14 +11,20 @@ interface IProps {
 };
 
 class TaskItem extends React.Component<IProps, object> {
+
+    public imgPath: string;
+
     public render() {
         const { id, length, name, select } = this.props;
         const displayName = (name != null &&  name.trim() !== ''? name.trim(): "");
         const idParts = id.split('-');
         const displayId = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "")
-
+        this.imgPath = "/assets/waveform" + (Math.floor(Math.random() * 9) + 1) + ".svg";
+        const backgroundImageStyle = {
+            background: 'no-repeat url(' + this.imgPath + ')'
+          };
         return (
-            <div className="TaskItem">
+            <div className="TaskItem" style={backgroundImageStyle}>
                 <div
                     className={this.props.selected? "selected":"unselected"}
                     onClick={select.bind(id)}>
