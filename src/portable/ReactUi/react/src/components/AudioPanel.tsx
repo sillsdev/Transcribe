@@ -40,6 +40,7 @@ interface IDispatchProps {
     jumpChange: typeof actions.jumpChange;
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
+    setSubmitted: typeof actions.setSubmitted;
 };
 
 export default AudioPanel;

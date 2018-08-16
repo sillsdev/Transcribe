@@ -1,5 +1,7 @@
 import Axios from 'axios';
-import { ASSIGN_TASK_PENDING, FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING, WRITE_PENDING } from './types';
+import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, 
+    FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING,
+    WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { saveUserSetting } from './userActions';
 
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
@@ -14,10 +16,22 @@ export const unAssignTask = (taskid: string, userid: string) => (dispatch: any) 
         .then(dispatch(fetchTasks(userid)))
 }
 
+export const completeTranscription = (taskid: string, userid: string) => (dispatch: any) => {
+    dispatch({type: COMPLETE_TRANSCRIPTION_PENDING});
+    Axios.put('/api/TaskEvent?action=TranscribeEnd&task=' + taskid + '&user=' + userid)
+        .then(dispatch(fetchTasks(userid)))
+}
+
+export const completeReview = (taskid: string, userid: string) => (dispatch: any) => {
+    dispatch({type: COMPLETE_REVIEW_PENDING});
+    Axios.put('/api/TaskEvent?action=ReviewEnd&task=' + taskid + '&user=' + userid)
+        .then(dispatch(fetchTasks(userid)))
+}
+
 export const writeTranscription = (taskid: string, length: number, lang: string, dir: string, data: any) => (dispatch: any) => {
     dispatch({type: WRITE_PENDING});
     Axios.put('/api/WriteTranscription?task=' + taskid + "&length=" + length.toString() + "&lang=" + lang + "&dir=" + dir, data)
-        .then()
+        .then(dispatch({type: WRITE_FULFILLED}))
 }
 
 export const fetchTasks = (username: string) => (dispatch: any) => {

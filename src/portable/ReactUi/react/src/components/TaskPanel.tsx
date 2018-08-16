@@ -19,8 +19,10 @@ class TaskPanel extends React.Component<IProps, object> {
         const { assignedReview, assignedTranscribe, availableReview, availableTranscribe } = this.props;
         const { lastTask, loaded, pending, selectedUser, selectedTask } = this.props;
         const { assignTask, selectTask, strings, unassignTask } = this.props
-        
-        if (this.props.selectedTask.trim() === '' && lastTask != null){
+
+        const selectReview = assignedReview.filter(t => t.id === lastTask);
+        const selectTranscribe = assignedTranscribe.filter(t => t.id === lastTask)
+        if (this.props.selectedTask.trim() === '' && lastTask != null && selectReview.length + selectTranscribe.length > 0){
             selectTask(selectedUser, lastTask)
         }
         else if (this.props.selectedTask.trim() === '' && this.props.assignedReview.length > 0) {

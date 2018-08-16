@@ -1,5 +1,6 @@
 import Axios from 'axios';
-import { INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS } from './types';
+import { INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE,
+    REPORT_POSITION, REQUEST_POSITION, SAVE_STATUS, SAVE_TOTAL_SECONDS, SUBMIT_STATUS } from './types';
 
 
 export function playStatus(playing: boolean): any{
@@ -45,5 +46,19 @@ export function setInitialTranscription(status: boolean): any {
     return {
         payload: status,
         type: INITIAL_TRANSCRIPTION
+    }
+}
+
+export function setSubmitted(submit: boolean): any{
+    return {
+        payload: submit,
+        type: SUBMIT_STATUS
+    }
+}
+
+export function setSaved(saved: boolean): any{
+    return {
+        payload: saved,
+        type: SAVE_STATUS
     }
 }

@@ -21,7 +21,14 @@
 	
 	<xsl:template match="*[local-name()= 'unit']">
 		<xsl:element name="{substring-after(@id, '.')}">
-			<xsl:value-of select=".//*[local-name() = 'target']"/>
+			<xsl:choose>
+				<xsl:when test="normalize-space(.//*[local-name() = 'target']) != ''">
+					<xsl:value-of select=".//*[local-name() = 'target']"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select=".//*[local-name() = 'source']"/>
+				</xsl:otherwise>
+			</xsl:choose>
 		</xsl:element>
 	</xsl:template>
 </xsl:stylesheet>
