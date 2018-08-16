@@ -11,7 +11,6 @@ interface IProps extends IStateProps, IDispatchProps {
 }
 
 const initialState = {
-    saved: true,
     seconds: 0,
     text: "",
 }
@@ -35,7 +34,9 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { initialTranscription, users, selectedProject, selectedUser, transcription } = this.props;
+        const { direction, initialTranscription, saved, submit, lang, users,
+            selectedProject, selectedTask, selectedUser, totalSeconds,
+            transcription, writeTranscription } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const project = user && user.project.filter(p => p.id === selectedProject)[0];
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
@@ -43,6 +44,9 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
 
         if (transcription != null && this.state.text !== transcription  && initialTranscription) {
             this.setState({text: transcription})
+        }
+        if (submit && !saved) {
+            writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
         }
         return (
             <div className="EditorPane">
@@ -57,17 +61,12 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     public componentWillUpdate() {
-        const { direction, lang, selectedTask, totalSeconds, writeTranscription } = this.props;
+        const { direction, lang, saved, selectedTask, totalSeconds, writeTranscription } = this.props;
 
         if (this.state.seconds === 60) {
-            if (!this.state.saved) {
+            if (!saved) {
                 writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
             }
-            this.setState({
-                ...this.state,
-                saved: true,
-                seconds: 0
-            });
         }
     }
     private tick() {
@@ -85,18 +84,12 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     private keyUp(event: any) {
-        const { direction, setInitialTranscription, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
-        this.setState({
-            ...this.state,
-            saved: false,
-        })
+        const { direction, setSaved, setInitialTranscription, lang, requestPosition, saved, selectedTask, totalSeconds, writeTranscription } = this.props;
         if (event.keyCode === 32) {
             requestPosition();
             writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
-            this.setState({
-                ...this.state,
-                saved: true,
-            })
+        } else if (saved) {
+            setSaved(false);
         }
         setInitialTranscription(false);
     }
@@ -105,7 +98,9 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
 interface IStateProps {
     direction: string;
     initialTranscription: boolean;
+    submit: boolean;
     lang: string;
+    saved: boolean;
     selectedUser: string;
     selectedProject: string;
     selectedTask: string;
@@ -118,15 +113,18 @@ const mapStateToProps = (state: IState): IStateProps => ({
     direction: language(state).direction,
     initialTranscription: state.audio.initialTranscription,
     lang: language(state).lang,
+    saved: state.audio.saved,
     selectedProject: state.tasks.selectedProject,
     selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
+    submit: state.audio.submit,
     totalSeconds: state.audio.totalSeconds,
     transcription: state.audio.transcription,
     users: state.users.users,
 });
 
 interface IDispatchProps {
+    setSaved: typeof actions2.setSaved;
     requestPosition: typeof actions2.requestPosition;
     setInitialTranscription: typeof actions2.setInitialTranscription;
     writeTranscription: typeof actions.writeTranscription;
@@ -136,6 +134,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         requestPosition: actions2.requestPosition,
         setInitialTranscription: actions2.setInitialTranscription,
+        setSaved: actions2.setSaved,
         writeTranscription: actions.writeTranscription,
     }, dispatch),
 });

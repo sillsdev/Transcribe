@@ -68,6 +68,18 @@
 				<target>Désallouer</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.congratulations">
+			<segment>
+				<source>Congratulations</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.upload">
+			<segment>
+				<source>Upload</source>
+				<target>Télécharger</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>

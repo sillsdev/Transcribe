@@ -1,4 +1,7 @@
-import { FETCH_TASKS, FETCH_TRANSCRIPTION, INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS, SELECT_TASK } from '../actions/types';
+import { COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING,
+    FETCH_TASKS, FETCH_TRANSCRIPTION, INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS,
+    PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_TOTAL_SECONDS, SELECT_TASK,
+    SUBMIT_STATUS, WRITE_FULFILLED } from '../actions/types';
 
 const initialState = {
     initialPosition: 0,
@@ -8,6 +11,8 @@ const initialState = {
     playing: false,
     reportedPosition: 0,
     requestReport: false,
+    saved: false,
+    submit: false,
     totalSeconds: 0,
     transcription: "",
 }
@@ -51,8 +56,6 @@ export default function (state = initialState, action: any) {
                 totalSeconds: action.payload
             }
         case FETCH_TRANSCRIPTION:
-            // tslint:disable-next-line:no-console
-            console.log(action.payload.data.position + "<>" + action.payload.data.transcription)
             return {
                 ...state,
                 initialPosition: action.payload.data.position,
@@ -67,6 +70,26 @@ export default function (state = initialState, action: any) {
             return {
                 ...state,
                 initialTranscription: true,
+                transcription: "",
+            }
+        case SUBMIT_STATUS:
+            return {
+                ...state,
+                submit: action.payload
+            }
+        case WRITE_FULFILLED:
+            return {
+                ...state,
+                saved: true,
+            }
+        case COMPLETE_TRANSCRIPTION_PENDING:
+            return {
+                ...state,
+                transcription: "",
+            }
+        case COMPLETE_REVIEW_PENDING:
+            return {
+                ...state,
                 transcription: "",
             }
         default:

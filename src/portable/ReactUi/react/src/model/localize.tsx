@@ -5,6 +5,7 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "assigned": string;
     "available": string;
     "bible": string;
+    "congratulations": string;
     "other": string;
     "review": string;
     "storybook": string;
@@ -12,6 +13,7 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "test": string;
     "transcribe": string;
     "unassign": string;
+    "upload": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {

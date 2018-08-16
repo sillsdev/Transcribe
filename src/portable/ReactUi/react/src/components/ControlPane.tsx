@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { jumpChange, playSpeedRateChange, playStatus } from '../actions/audioActions';
+import * as actions from '../actions/audioActions';
 import { ITranscriberStrings } from '../model/localize';
 import './ControlPane.sass';
 import JumpAhead from './controls/JumpAhead';
@@ -30,7 +30,9 @@ class ControlPane extends React.Component<IProps, any> {
     }
 
     private submit = () => {
-        alert("Submitting logic goes here")
+        const { setSubmitted } = this.props;
+
+        setSubmitted(true)
     }
 };
 
@@ -41,9 +43,10 @@ interface IStateProps {
 };
 
 interface IDispatchProps {
-    playStatus: typeof playStatus,
-    playSpeedRateChange: typeof playSpeedRateChange;
-    jumpChange: typeof jumpChange;
+    playStatus: typeof actions.playStatus,
+    playSpeedRateChange: typeof actions.playSpeedRateChange;
+    jumpChange: typeof actions.jumpChange;
+    setSubmitted: typeof actions.setSubmitted;
 };
 
 export default ControlPane;
