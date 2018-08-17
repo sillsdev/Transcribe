@@ -62,8 +62,10 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
 
     public componentWillUpdate() {
         const { direction, lang, saved, selectedTask, totalSeconds, writeTranscription } = this.props;
-
         if (this.state.seconds === 60) {
+            this.setState({
+                seconds: 0
+            });
             if (!saved) {
                 writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
             }
