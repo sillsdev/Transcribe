@@ -80,6 +80,12 @@
 				<target>Télécharger</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.continue">
+			<segment>
+				<source>Continue</source>
+				<target>Suite</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>

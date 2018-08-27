@@ -56,6 +56,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(TargetPath) $(SolutionDir)src\portable\ReactUi\react\build $(SolutionDir)src\portable\ReactUi\ReactUi.csproj</PostBuildEvent>
+    <PostBuildEvent>$(TargetPath) $(SolutionDir)src\portable\ReactUi\react\build $(SolutionDir)src\portable\ReactUi\ReactUi.csproj
+$(TargetPath) $(SolutionDir)src\portable\ReactShared\react\build $(SolutionDir)src\portable\ReactShared\ReactShared.csproj</PostBuildEvent>
   </PropertyGroup>
 </Project>

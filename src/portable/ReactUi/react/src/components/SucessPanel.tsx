@@ -23,7 +23,6 @@ class SuccessPanel extends React.Component<IProps, any> {
 
     public render() {
         const { strings } = this.props;
-        const nextText = (this.state == null || this.state.taskState === "Transcribe")? strings.review: strings.upload;
 
         return (<div className="SucessPanel">
             <div className="Message">
@@ -32,7 +31,7 @@ class SuccessPanel extends React.Component<IProps, any> {
             </div>
             <div className="ActionRow">
                 <div className="Spacer">{"\u00A0"}</div>
-                <NextAction target={this.next} text={nextText} />
+                <NextAction target={this.next} text={strings.continue} />
             </div>
         </div>
         )

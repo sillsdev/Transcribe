@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Icon=transcriber7
+Name=SIL Transcriber
+Comment=Transcriber minority languages for checking with Paratext
+Exec=/usr/bin/siltranscriber
+Path=/usr/lib/siltranscriber
+Terminal=false
+Categories=Education
+Name[en_US]=SIL Transcriber

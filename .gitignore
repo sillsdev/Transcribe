@@ -1,4 +1,5 @@
 Output/*
+output
 */bin/*
 */obj/*
 src/*/obj/*
@@ -23,5 +24,9 @@ src/portable/*/Scripts
 src/portable/*/Content
 src/portable/*/bower*
 src/portable/*/Firefox
+src/portable/*/Firefox-Linux64
+src/portable/*/icu*
+src/portable/*/lib
+src/portable/*/x86
 src/portable/ReactUi/react/public/api
 src/portable/ReactUi/react/public/localization

@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Xml;
 using Gecko;
-using Transcribe.Properties;
+using Transcribe.Linux.Properties;
 
 
 namespace Transcribe.Windows
@@ -26,7 +26,7 @@ namespace Transcribe.Windows
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Xpcom.Initialize("Firefox");
+			Xpcom.Initialize("Firefox-Linux64");
 			var randomName = Path.GetTempFileName();
 			if (File.Exists(randomName))
 				File.Delete(randomName);
@@ -34,18 +34,17 @@ namespace Transcribe.Windows
 			AddLocalization(Path.GetDirectoryName(indexFullName));
 			var startInfo = new ProcessStartInfo
 			{
-				FileName = "SimpleServer.exe",
-				Arguments = $@"3010 ""{Path.GetDirectoryName(indexFullName)}""",
+				FileName = "mono",
+				Arguments = $@"SimpleServer.exe 3010 ""{Path.GetDirectoryName(indexFullName)}""",
 				WindowStyle = ProcessWindowStyle.Hidden,
 				RedirectStandardOutput = true,
 				UseShellExecute = false
 			};
-			using (var reactProcess = new Process {StartInfo = startInfo})
+			using (var reactProcess = new Process { StartInfo = startInfo })
 			{
 				reactProcess.Start();
-				var f = new Form { Size = new Size(1055, 800), MinimumSize = new Size(1055, 270)};
-				f.Icon = Resources.transcriber7;
-				_browser = new TrappingGecko { Folder = Path.GetDirectoryName(indexFullName), Dock = DockStyle.Fill, UseHttpActivityObserver = true};
+				var f = new Form { Size = new Size(1055, 800), MinimumSize = new Size(1055, 270) };
+				_browser = new TrappingGecko { Folder = Path.GetDirectoryName(indexFullName), Dock = DockStyle.Fill, UseHttpActivityObserver = true };
 				f.Text = $"{Application.ProductName}  {Application.ProductVersion}";
 				f.Controls.Add(_browser);
 				var portAddr = GetPortAddr(reactProcess);
@@ -57,7 +56,7 @@ namespace Transcribe.Windows
 
 			var apiFolder = Path.Combine(Path.GetDirectoryName(indexFullName), "api");
 			if (Directory.Exists(apiFolder))
-				Directory.Delete(apiFolder, true);	// remove all api related files
+				Directory.Delete(apiFolder, true);  // remove all api related files
 			foreach (var fullPath in SupportFile)
 			{
 				File.Delete(fullPath);
@@ -69,16 +68,16 @@ namespace Transcribe.Windows
 		{
 			const string name = "strings.json";
 			const string localizationTag = "localization";
-			var srcBaseFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
+			var srcBaseFolder = DataFolder();
 			Debug.Assert(srcBaseFolder != null, nameof(srcBaseFolder) + " != null");
 			var srcFullName = Path.Combine(srcBaseFolder, localizationTag, name);
-			//if (!File.Exists(srcFullName))
-			//{
-				const string resourceBase = "ReactUi.data.";
-				var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
-				var assembly = Assembly.LoadFile(portableName);
+			if (!File.Exists(srcFullName))
+			{
+				const string resourceBase = "ReactShared.data.";
+				var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
+				var assembly = SharedAssembly(portableName);
 				WriteResource(resourceBase, srcBaseFolder, assembly, localizationTag, name);
-			//}
+			}
 
 			var siteLocalizationFolder = Path.Combine(siteFolder, localizationTag);
 			if (!Directory.Exists(siteLocalizationFolder))
@@ -116,12 +115,12 @@ namespace Transcribe.Windows
 
 		private static string CreateResources(string randomName)
 		{
-			const string resourceBase = "ReactUi.react.build.";
+			const string resourceBase =  "ReactShared.react.build.";
 			var folder = Path.Combine(Path.GetTempPath(), randomName);
 			if (!Directory.Exists(folder))
 				Directory.CreateDirectory(folder);
-			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
-			var assembly = Assembly.LoadFile(portableName);
+			var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
+			var assembly = SharedAssembly(portableName);
 			const string assetsTag = "assets";
 			const string staticTag = "static";
 			foreach (var resourceName in assembly.GetManifestResourceNames())
@@ -149,10 +148,10 @@ namespace Transcribe.Windows
 
 		public static void DefaultData(string dataset)
 		{
-			const string resourceBase = "ReactUi.data.";
-			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
-			var assembly = Assembly.LoadFile(portableName);
-			var folder = Path.GetDirectoryName(Application.CommonAppDataPath);
+			const string resourceBase = "ReactShared.data.";
+			var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
+			var assembly = SharedAssembly(portableName);
+			var folder = DataFolder();
 			var initFile = Path.Combine(folder, dataset + "Init.xml");
 			if (File.Exists(initFile))
 				File.Delete(initFile);
@@ -164,9 +163,9 @@ namespace Transcribe.Windows
 
 		public static XmlDocument XmlTemplate(string name)
 		{
-			const string resourceBase = "ReactUi.data.";
-			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
-			var assembly = Assembly.LoadFile(portableName);
+			const string resourceBase = "ReactShared.data.";
+			var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
+			var assembly = SharedAssembly(portableName);
 			var xml = new XmlDocument();
 			using (var str = new StreamReader(assembly.GetManifestResourceStream(resourceBase + name)))
 			{
@@ -180,11 +179,11 @@ namespace Transcribe.Windows
 		{
 			var resourceLocation = resourceBase;
 			if (!string.IsNullOrEmpty(projectLocation))
-				resourceLocation += projectLocation.Replace("/",".") + ".";
-			string  fullPath;
+				resourceLocation += projectLocation.Replace("/", ".") + ".";
+			string fullPath;
 			using (var str = new StreamReader(assembly.GetManifestResourceStream(resourceLocation + name)))
 			{
-				var myFolder = string.IsNullOrEmpty(projectLocation)? folder : Path.Combine(folder, projectLocation);
+				var myFolder = string.IsNullOrEmpty(projectLocation) ? folder : Path.Combine(folder, projectLocation);
 				if (!Directory.Exists(myFolder)) Directory.CreateDirectory(myFolder);
 				fullPath = Path.Combine(myFolder, name);
 				var buffer = new byte[1000];
@@ -203,5 +202,17 @@ namespace Transcribe.Windows
 			return fullPath;
 		}
 
+		public static string DataFolder()
+		{
+            var fileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+            var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), fileVersionInfo.CompanyName, fileVersionInfo.ProductName);
+			return folder;
+		}
+
+		private static Assembly SharedAssembly(string fullName)
+		{
+			return Assembly.LoadFile(fullName);
+			//return AssemblyLoadContext.Default.LoadFromAssemblyPath(fullName);
+		}
 	}
 }

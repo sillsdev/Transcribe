@@ -4,24 +4,19 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Windows.Forms;
 using System.Xml;
 using Gecko;
 using Newtonsoft.Json;
-using Paratext.Data;
-using Paratext.Data.ProjectSettingsAccess;
-using SIL.Scripture;
 using Directory = System.IO.Directory;
-using Exception = System.Exception;
 
 namespace Transcribe.Windows
 {
 	public class TrappingGecko : GeckoWebBrowser//, IPlatformSpecifics
 	{
-		private static readonly string DataFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
+		private static readonly string DataFolder = Program.DataFolder();
 		public string Folder { get; set; }
 
 		protected override void OnObserveHttpModifyRequest(GeckoObserveHttpModifyRequestEventArgs e)
@@ -86,7 +81,7 @@ namespace Transcribe.Windows
 		private static string ToXmlTaskId(string taskId)
 		{
 			var match = TaskIdPattern.Match(taskId);
-			return match.Success ? match.Groups[1].Value : taskId;
+			return match.Success? match.Groups[1].Value: taskId;
 		}
 
 		private void WriteTranscription(GeckoObserveHttpModifyRequestEventArgs e)
@@ -100,20 +95,20 @@ namespace Transcribe.Windows
 			var xml = Program.XmlTemplate("transcription.eaf");
 			UpdateXml(xml, "@DATE", DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
 			UpdateXml(xml, "*[local-name()='ANNOTATION_VALUE']", transcription);
-			UpdateXml(xml, "@DEFAULT_LOCALE", lang);
+			UpdateXml(xml, "@DEFAULT_LOCALE",lang);
 			UpdateXml(xml, "@LANGUAGE_CODE", lang);
 			var miliseconds = float.Parse(length) * 1000.0;
 			var duration = miliseconds.ToString("F0");
-			UpdateXml(xml, "*[@TIME_SLOT_ID='ts2']/@TIME_VALUE", duration);
+			UpdateXml(xml,"*[@TIME_SLOT_ID='ts2']/@TIME_VALUE", duration);
 
 			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskid.Split('-'))));
 			var name = taskid;
 			var ext = Path.GetExtension(name);
 			UpdateXml(xml, "@MEDIA_FILE", name);
 			UpdateXml(xml, "@MEDIA_URL", name);
-			UpdateXml(xml, "@MIME_TYPE", ext == ".mp3" ? "audio/x-mp3" : "audio/x-wav");
+			UpdateXml(xml, "@MIME_TYPE", ext == ".mp3"? "audio/x-mp3" : "audio/x-wav");
 			var outName = Path.Combine(folder, Path.GetFileNameWithoutExtension(name) + ".eaf");
-			using (var xw = XmlWriter.Create(outName, new XmlWriterSettings { Indent = true }))
+			using (var xw = XmlWriter.Create(outName, new XmlWriterSettings {Indent = true}))
 			{
 				xml.Save(xw);
 			}
@@ -128,7 +123,7 @@ namespace Transcribe.Windows
 			}
 			else
 			{
-				Debug.Print("Missing xml path: " + path);
+				Debug.Print("Missing xml path: "+ path);
 			}
 		}
 
@@ -180,7 +175,7 @@ namespace Transcribe.Windows
 			Debug.Print($"{user}:{avatarBase64}");
 			Image newAvatarImage = LoadImage(avatarBase64);
 			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
-			var sourceFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
+			var sourceFolder = Program.DataFolder();
 			if (sourceFolder != null) newAvatarImage.Save(Path.Combine(sourceFolder, "images/" + imageFileName));
 			var usersDoc = LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
@@ -233,7 +228,7 @@ namespace Transcribe.Windows
 					image = Image.FromStream(ms);
 				}
 			}
-			catch { }
+			catch {}
 			return image;
 		}
 
@@ -245,8 +240,8 @@ namespace Transcribe.Windows
 			{
 				node = usersDoc.CreateElement(tag);
 				var preceding = tag == "hotkey"
-					? new List<string> { "hotkey", "project", "role" }
-					: new List<string> { "setting", "progress", "speed", "timer", "uilang", "hotkey", "project", "role" };
+					? new List<string> {"hotkey", "project", "role"}
+					: new List<string> {"setting", "progress", "speed", "timer", "uilang", "hotkey", "project", "role"};
 				userNode.InsertAfter(node, FindPreceding(userNode, preceding));
 				NewAttr(node, "id", keyid);
 			}
@@ -340,8 +335,6 @@ namespace Transcribe.Windows
 			var user = parsedQuery["user"];
 			var tasksDoc = LoadXmlData("tasks");
 			var taskNode = tasksDoc.SelectSingleNode($@"//task[@id=""{task}""]");
-			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(task.Split('-'))));
-			string eafFilePath = Path.Combine(folder, Path.GetFileNameWithoutExtension(parsedQuery["task"]) + ".eaf");
 			if (taskNode == null)
 				return;
 			switch (action)
@@ -368,10 +361,7 @@ namespace Transcribe.Windows
 					break;
 				case "HoldStart": break;
 				case "HoldEnd": break;
-				case "Upload":
-					if (UploadToParatext(parsedQuery["task"], eafFilePath))
-						return;
-					break;
+				case "Upload": break;
 				case "Complete": break;
 			}
 			var historyNodes = taskNode.SelectNodes(".//history");
@@ -380,183 +370,13 @@ namespace Transcribe.Windows
 			var historyNode = tasksDoc.CreateElement("history");
 			NewAttr(historyNode, "id", historyNodes.Count.ToString());
 			NewAttr(historyNode, "datetime", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"));
-			NewAttr(historyNode, "action", action);
+			NewAttr(historyNode,"action", action);
 			NewAttr(historyNode, "userid", user);
 			taskNode.AppendChild(historyNode);
-			using (var xw = XmlWriter.Create(XmlFullName("tasks"), new XmlWriterSettings { Indent = true }))
+			using (var xw = XmlWriter.Create(XmlFullName("tasks"), new XmlWriterSettings{Indent = true}))
 			{
 				tasksDoc.Save(xw);
 			}
-		}
-
-		public static bool UploadToParatext(string taskId, string eafFilePath)
-		{
-			if (!ParatextInfo.IsParatextInstalled)
-			{
-				return false;
-			}
-
-
-			try
-			{
-				// Get Task Details
-				var currentTask = new Task();
-				currentTask = currentTask.GetTask(taskId);
-
-				// Get the Task Transcription Text from EAF
-				var transcriptionArray = GetTranscriptionTextFromEAF(taskId);
-				if (transcriptionArray[0].Trim().ToUpper().StartsWith("File Error:"))
-					return false;
-				var transcription = transcriptionArray[1];
-
-				string pContentFormat = " " + transcription + "\r\n";
-
-
-				string cVerseFormat = @"\c " + Convert.ToInt32(currentTask.ChapterNumber);
-
-				ParatextData.Initialize();
-				var paratextProject = ScrTextCollection.Find(currentTask.Project);
-				if (paratextProject == null)
-					return true;
-				var bookNum =
-					paratextProject.BookNames.ScrText.BookNames.GetBookNumFromName(currentTask.BookName, true, BookNameSource.Abbreviation);
-				if (bookNum == 0)
-				{
-					bookNum = (from i in paratextProject.BookNames.GetBookNames()
-						where i.BookCode == currentTask.BookName
-						select i.BookNum).FirstOrDefault();
-				}
-				var vRef = new VerseRef(bookNum, currentTask.ChapterNumber, Convert.ToInt32(currentTask.VerseStart),
-					paratextProject.Settings.Versification);
-				var sb = new StringBuilder();
-				var chapterContent = paratextProject.GetText(vRef, true, true);
-
-				string newVerseFormat;
-				var list = chapterContent.Split(new[] { "\\v" }, StringSplitOptions.None).ToList();
-				sb.AppendLine(list[0]);
-
-				var chapter = chapterContent.Split(new[] { "\\c" }, StringSplitOptions.None);
-				if (chapter.Length <= 1)
-				{
-					sb.AppendLine(cVerseFormat);
-				}
-
-				var startContains = list.FirstOrDefault(f => f.Trim().StartsWith(currentTask.VerseStart.ToString()));
-				if (startContains != null)
-				{
-					var pericope = startContains.Trim().Split(' ');
-					var pericopeItems = pericope[0].Split('-');
-					var firstPart = pericopeItems[0];
-					int firstIndex;
-					if (pericopeItems.Length > 1)
-					{
-						//With hyphen
-
-						if (pericope[0] == (currentTask.VerseStart + "-" + currentTask.VerseEnd))
-						{
-							//28-36 == 28-36
-							firstIndex = GetIndexFromList(ref list, pericope[0]);
-							list.RemoveAt(firstIndex);
-							newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-							list.Insert(firstIndex, newVerseFormat + pContentFormat);
-						}
-						else
-						{
-							if (Convert.ToInt32(firstPart) == currentTask.VerseStart || Convert.ToInt32(firstPart) > currentTask.VerseStart)
-							{
-								//28-36 = 28-45
-								firstIndex = GetIndexFromList(ref list, pericope[0]);
-								newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-								list.Insert(firstIndex + 1, newVerseFormat + pContentFormat);
-							}
-							else if (Convert.ToInt32(firstPart) < Convert.ToInt32(currentTask.VerseStart))
-							{
-								//29-36 = 26-37
-								firstIndex = GetIndexFromList(ref list, pericope[0]);
-								newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-								list.Insert(firstIndex - 1, newVerseFormat + pContentFormat);
-							}
-						}
-					}
-					else
-					{
-						//without hyphen
-						firstIndex = GetIndexFromList(ref list, currentTask.VerseStart.ToString());
-						var secondIndex = GetIndexFromList(ref list, currentTask.VerseEnd.ToString());
-						list.RemoveRange(firstIndex, (secondIndex - firstIndex) + 1);
-						newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-						list.Insert(firstIndex, newVerseFormat + pContentFormat);
-					}
-				}
-				else
-				{
-					var nextVerse = 0;
-					if (list.Count > 1)
-					{
-						nextVerse = (from v in list
-							let n = Convert.ToInt32(v.Split(' ')[0])
-							where n > currentTask.VerseStart
-							select list.IndexOf(v)).FirstOrDefault();
-					}
-					newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-					if (nextVerse != 0)
-					{
-						list.Insert(nextVerse, newVerseFormat + pContentFormat);
-					}
-					else
-					{
-						list.Add(newVerseFormat + pContentFormat);
-					}
-				}
-
-				for (var i = 1; i < list.Count; i++)
-				{
-					sb.Append("\\v" + list[i]);
-				}
-				paratextProject.PutText(bookNum, currentTask.ChapterNumber, true, sb.ToString(), null);
-
-				return true;
-			}
-			catch (Exception ex)
-			{
-				string error = ex.Message;
-				Debug.Print(error);
-			}
-
-			return false;
-		}
-
-		private static string[] GetTranscriptionTextFromEAF(string taskId)
-		{
-			string[] theTranscriptionText = { "", "" };
-			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskId.Split('-'))));
-			string eafFilePath = Path.Combine(folder, Path.GetFileNameWithoutExtension(taskId) + ".eaf");
-			if (!File.Exists(eafFilePath))
-			{
-				theTranscriptionText[0] = "File Error:";
-				theTranscriptionText[1] = eafFilePath + " does not exist. Please check.";
-			}
-			else
-			{
-				var eafDoc = new XmlDocument();
-				using (var xr = XmlReader.Create(eafFilePath))
-				{
-					eafDoc.Load(xr);
-					theTranscriptionText[0] = "";
-					theTranscriptionText[1] = eafDoc.SelectSingleNode("//*[local-name()='ANNOTATION_VALUE']")?.InnerText;
-				}
-			}
-
-			return theTranscriptionText;
-		}
-
-
-		private static int GetIndexFromList(ref List<string> verseList, string searchString)
-		{
-			int index = verseList.Select((c, i) => new { c, i })
-				.Where(x => x.c.Trim().StartsWith(searchString))
-				.Select(x => x.i).FirstOrDefault();
-			return index;
 		}
 
 		private static bool AssignTask(GeckoObserveHttpModifyRequestEventArgs e, XmlNode taskNode, string user)
@@ -674,7 +494,7 @@ namespace Transcribe.Windows
 			Debug.Assert(avatarNodes != null, nameof(avatarNodes) + " != null");
 			foreach (XmlNode avatarNode in avatarNodes)
 			{
-				var sourceFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
+				var sourceFolder = Program.DataFolder();
 				var avatarRelName = avatarNode.InnerText;
 				var sourceFullName = Path.Combine(sourceFolder, avatarRelName);
 				if (!File.Exists(sourceFullName))
