@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transcribe.Linux", "src\por
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactShared", "src\portable\ReactShared\ReactShared.csproj", "{4CDD53C9-8CE2-4998-B57B-6652A6D3138D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transcribe.Test", "src\portable\Transcribe.Test\Transcribe.Test.csproj", "{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,14 @@ Global
 		{4CDD53C9-8CE2-4998-B57B-6652A6D3138D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4CDD53C9-8CE2-4998-B57B-6652A6D3138D}.Release|x86.ActiveCfg = Release|Any CPU
 		{4CDD53C9-8CE2-4998-B57B-6652A6D3138D}.Release|x86.Build.0 = Release|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Debug|x86.Build.0 = Debug|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Release|x86.ActiveCfg = Release|Any CPU
+		{5BD5A8A3-48B2-4248-A6AE-8CAC22289480}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
