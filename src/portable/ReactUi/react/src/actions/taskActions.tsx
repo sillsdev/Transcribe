@@ -25,6 +25,11 @@ export const completeTranscription = (taskid: string, userid: string) => (dispat
 export const completeReview = (taskid: string, userid: string) => (dispatch: any) => {
     dispatch({type: COMPLETE_REVIEW_PENDING});
     Axios.put('/api/TaskEvent?action=ReviewEnd&task=' + taskid + '&user=' + userid)
+        .then(dispatch(uploadTranscription(taskid, userid)))
+}
+
+export const uploadTranscription = (taskid: string, userid: string) => (dispatch: any) => {
+    Axios.put('/api/TaskEvent?action=Upload&task=' + taskid + '&user=' + userid)
         .then(dispatch(fetchTasks(userid)))
 }
 

@@ -72,13 +72,13 @@ namespace Transcribe.Windows
 			var srcBaseFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
 			Debug.Assert(srcBaseFolder != null, nameof(srcBaseFolder) + " != null");
 			var srcFullName = Path.Combine(srcBaseFolder, localizationTag, name);
-			if (!File.Exists(srcFullName))
-			{
+			//if (!File.Exists(srcFullName))
+			//{
 				const string resourceBase = "ReactUi.data.";
 				var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
 				var assembly = Assembly.LoadFile(portableName);
 				WriteResource(resourceBase, srcBaseFolder, assembly, localizationTag, name);
-			}
+			//}
 
 			var siteLocalizationFolder = Path.Combine(siteFolder, localizationTag);
 			if (!Directory.Exists(siteLocalizationFolder))

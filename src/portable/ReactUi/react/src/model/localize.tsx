@@ -6,6 +6,7 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "available": string;
     "bible": string;
     "congratulations": string;
+    "continue": string;
     "other": string;
     "review": string;
     "storybook": string;
