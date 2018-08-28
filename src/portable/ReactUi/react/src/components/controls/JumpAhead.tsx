@@ -13,7 +13,7 @@ class JumpAhead extends React.Component<IProps, object> {
 
             <div>
                 <ReactToolTip />
-                <div className="JumpAhead" data-tip="F2" onClick={this.props.jumpChange.bind(this, 2)}>
+                <div id="JumpAhead" className="JumpAhead" data-tip="F2" onClick={this.props.jumpChange.bind(this, 2)}>
                     {"\u00BB"}
                 </div>
             </div>

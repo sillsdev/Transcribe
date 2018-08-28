@@ -33,7 +33,7 @@ class UserLogin extends React.Component<IProps, object> {
       </ListGroupItem>);
 
     return (
-      <div className="UserLogin">
+      <div id="UserLogin" className="UserLogin">
         <ListGroup>
             {avatars}
         </ListGroup>

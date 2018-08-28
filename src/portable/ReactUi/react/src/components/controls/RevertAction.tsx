@@ -4,6 +4,7 @@ import { ITranscriberStrings } from '../../model/localize';
 import './RevertAction.sass';
 
 interface IProps {
+    id: string,
     target: React.MouseEventHandler;
     selected: boolean;
     strings: ITranscriberStrings;

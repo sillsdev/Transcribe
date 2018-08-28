@@ -29,7 +29,7 @@ class NavPanel extends React.Component<IProps, object> {
             target="/main"
             uri={ProjectAvatar[project.type !== undefined?project.type:"Bible"]} />):"";
         return (
-            <div className="NavPanel">
+            <div id="NavPanel" className="NavPanel">
                 <BackLink target="/" />
                 {userAvatar}
                 <div>{"\xA0"}</div>

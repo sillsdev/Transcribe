@@ -15,7 +15,7 @@ class LinkAction extends React.Component<IProps, object> {
     public render() {
         const { target, text } = this.props;
         return (
-            <div className="LinkAction">
+            <div id="LinkAction" className="LinkAction">
                 <Button
                     onClick={target}
                     bsStyle="link"

@@ -51,6 +51,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         return (
             <div className="EditorPane">
                 <textarea
+                    id="Editor"
                     value={this.state.text}
                     style={{fontFamily: font, fontSize: size}} 
                     onChange={this.change} 

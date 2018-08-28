@@ -19,7 +19,7 @@ class TaskItem extends React.Component<IProps, object> {
 
         return (
             <div className="TaskItem">
-                <div
+                <div id={id}
                     className={this.props.selected? "selected":"unselected"}
                     onClick={select.bind(id)}>
                     <div className="taskItemContent">

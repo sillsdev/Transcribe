@@ -13,7 +13,7 @@ class TimeMarker extends React.Component<IProps, any> {
         const { totalSeconds, playedSeconds, timer } = this.props;
         const displaySeconds = timer === "countdown"? totalSeconds - playedSeconds : playedSeconds
         return (
-            <div className="TimeMarker">
+            <div id="Time" className="TimeMarker">
                 <Duration seconds={displaySeconds} />/<Duration seconds={totalSeconds} />
             </div>
         )

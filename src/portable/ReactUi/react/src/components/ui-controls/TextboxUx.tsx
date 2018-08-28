@@ -3,6 +3,7 @@ import ReactTooltip from 'react-tooltip'
 import './TextboxUx.sass';
 
 interface IProps {
+    id: string,
     inputValue: string,
     isReadOnly: boolean,
     toolTipText: string,
@@ -25,12 +26,12 @@ class TextBoxUx extends React.Component<IProps, any> {
 
     public render() {
         const { message } = this.state;
-        const { isReadOnly } = this.props;
+        const { id, isReadOnly } = this.props;
         const cName = (this.state.toolTipText.length > 0)? "TextBoxUxRed": "TextBoxUx";
         const star = (this.state.toolTipText.length > 0)? "\u274C": "";
 
         return (
-            <div>
+            <div id={id}>
                 <ReactTooltip />
                 <input
                     readOnly={isReadOnly}

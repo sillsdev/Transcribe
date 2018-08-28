@@ -3,6 +3,7 @@ import './DropdownUx.sass';
 
 interface IProps {
     collection: any[],
+    id: string,
 }
 class DropdownUx extends React.Component<IProps, any> {
     public selected: string;
@@ -22,7 +23,7 @@ class DropdownUx extends React.Component<IProps, any> {
         const doselect = () => this.onselect(this)
         this.selected = this.props.collection[0];
         return (
-            <div className="DropdownUx">
+            <div id={this.props.id} className="DropdownUx">
                 <select ref={this.selectRef} className="custom-select" onMouseUp={doselect}>
                    {options}
                 </select>

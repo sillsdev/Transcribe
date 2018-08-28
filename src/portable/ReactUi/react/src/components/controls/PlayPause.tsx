@@ -16,7 +16,7 @@ class PlayPause extends React.Component<IProps, object> {
         return (
             <div>
                 <ReactToolTip />
-                <div className="PlayPause" data-tip="Esc" onClick={playStatus.bind(this, !playing)}>
+                <div id="PlayPause" className="PlayPause" data-tip="Esc" onClick={playStatus.bind(this, !playing)}>
                     {playCharacter}
                 </div>
             </div>

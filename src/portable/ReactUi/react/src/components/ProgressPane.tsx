@@ -74,6 +74,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             <div className="ProgressPane">
                 <div className="progress">
                     <progress
+                        id="ProgressBar"
                         className="progressBar"
                         max={totalSeconds}
                         onMouseDown={this.onSeekMouseDown}
@@ -88,6 +89,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                 </div>
                 <div className="RealPlayer">
                     <ReactPlayer
+                        id="Player"
                         ref={this.ref}
                         url={audioFile}
                         controls={true}

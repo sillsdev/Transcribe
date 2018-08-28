@@ -11,7 +11,7 @@ class NextAction extends React.Component<IProps, object> {
     public render() {
         const { target, text } = this.props;
         return (
-            <div className="NextAction">
+            <div id="NextAction" className="NextAction">
                 <Button
                     onClick={target}
                     bsStyle="primary"

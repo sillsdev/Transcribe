@@ -16,7 +16,7 @@ class AvatarLink extends React.Component<IProps, object> {
     public render() {
         const { id, name, select=(() => undefined), size="64", target, uri } = this.props;
         return (
-            <div className="AvatarLink">
+            <div id={id} className="AvatarLink">
                 <Link to={target} onClick={select.bind(this, id)}>
                     <Avatar className="OnHover"  name={name} src={uri} size={size} round={true}/>
                     <br /> <br />

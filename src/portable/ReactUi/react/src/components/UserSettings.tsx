@@ -75,7 +75,7 @@ class UserSettings extends React.Component<IProps, any> {
         const resetMethod = () => this.reset(this)
 
         return (
-            <div className="UserSettings">
+            <div id="UserSettings" className="UserSettings">
                 <div className="GridStyle">
                     <Grid>
                         <Row className="show-grid">
@@ -91,6 +91,7 @@ class UserSettings extends React.Component<IProps, any> {
                             <Col xs={10} md={10}>
                                 <Link className="pencil" to="/avatar">{"\u2710"}</Link>
                                 <Avatar
+                                    id={user.id}
                                     size="64"
                                     round={true}
                                     src={user !== undefined? user.username.avatarUri:""} />
@@ -103,7 +104,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.name} />
                             </Col>
                             <Col xs={5} md={5}>
-                                <TextboxUx ref={this.nameRef} isReadOnly={false}
+                                <TextboxUx id="DisplayName" ref={this.nameRef} isReadOnly={false}
                                     inputValue={user !== undefined ? user.displayName : ""}
                                     toolTipText=""/>
                             </Col>
@@ -111,7 +112,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.role} />
                             </Col>
                             <Col xs={4} md={4}>
-                                <TextboxUx isReadOnly={true}
+                                <TextboxUx id="Role" isReadOnly={true}
                                     inputValue={user !== undefined? user.role.join(' + '): ""}
                                     toolTipText=""/>
                             </Col>
@@ -122,7 +123,7 @@ class UserSettings extends React.Component<IProps, any> {
                             <Col xs={3} md={3}>
                                 <LabelCaptionUx name={strings.language.toUpperCase()} />
                             </Col><Col xs={7} md={7}>
-                                <DropdownUx ref={this.languageRef} key="1" collection={languageChoice} />
+                                <DropdownUx id="Language" ref={this.languageRef} key="1" collection={languageChoice} />
                             </Col>
                         </Row>
                         <br />
@@ -137,11 +138,11 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.font} />
                             </Col>
                             <Col xs={3} md={3}>
-                                <TextboxUx ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily}
+                                <TextboxUx id="Font" ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily}
                                     toolTipText="" />
                             </Col>
                             <Col xs={7} md={7}>
-                                <DropdownUx ref={this.fontSizeRef} key="1" collection={fontSizeChoice} />
+                                <DropdownUx id="FontSize" ref={this.fontSizeRef} key="1" collection={fontSizeChoice} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -155,7 +156,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.playPause} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.playpauseRef} isReadOnly={false}  inputValue={playPauseKey} toolTipText="" />
+                                <TextboxUx id="PlayPause" ref={this.playpauseRef} isReadOnly={false}  inputValue={playPauseKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -163,7 +164,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.rewind} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.backRef} isReadOnly={false}  inputValue={backKey} toolTipText="" />
+                                <TextboxUx id="BackKey" ref={this.backRef} isReadOnly={false}  inputValue={backKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -171,7 +172,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.fastForward} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.aheadRef} isReadOnly={false} inputValue={forwardKey} toolTipText="" />
+                                <TextboxUx id="AheadKey" ref={this.aheadRef} isReadOnly={false} inputValue={forwardKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -179,7 +180,12 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.slowDown} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.slowRef} isReadOnly={false} inputValue={slowerKey} toolTipText="" />
+                                <TextboxUx
+                                    id="SlowKey"
+                                    ref={this.slowRef}
+                                    isReadOnly={false}
+                                    inputValue={slowerKey}
+                                    toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -187,7 +193,12 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.speedUp} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx ref={this.fastRef} isReadOnly={false} inputValue={fasterKey} toolTipText="" />
+                                <TextboxUx
+                                    id="FastKey"
+                                    ref={this.fastRef}
+                                    isReadOnly={false}
+                                    inputValue={fasterKey}
+                                    toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">

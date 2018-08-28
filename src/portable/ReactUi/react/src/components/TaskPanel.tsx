@@ -40,6 +40,7 @@ class TaskPanel extends React.Component<IProps, object> {
         const assignedReviewList = assignedReview.map((t: ITask) => (
             <div className="AssignedRow">
                 <RevertAction
+                    id={"Revert" + t.id}
                     selected={true}
                     strings={strings}
                     target={unassignTask.bind(this, t.id, selectedUser)} />
@@ -55,6 +56,7 @@ class TaskPanel extends React.Component<IProps, object> {
         const assignedTranscribeList = assignedTranscribe.map((t: ITask) => (
             <div className="AssignedRow">
                 <RevertAction
+                    id={"Revert" + t.id}
                     selected={true}
                     strings={strings}
                     target={unassignTask.bind(this, t.id, selectedUser)} />

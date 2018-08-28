@@ -13,7 +13,7 @@ class JumpBack extends React.Component<IProps, object> {
         return (
             <div>
                 <ReactToolTip />
-                <div className="JumpBack" data-tip="F1" onClick={this.props.jumpChange.bind(this, -2)}>
+                <div id="JumpBack" className="JumpBack" data-tip="F1" onClick={this.props.jumpChange.bind(this, -2)}>
                     {"\u00AB"}
                 </div>
             </div>

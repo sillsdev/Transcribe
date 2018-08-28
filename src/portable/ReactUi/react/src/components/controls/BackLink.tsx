@@ -10,7 +10,7 @@ class BackLink extends React.Component<IProps, object> {
     public render() {
         const { target } = this.props;
         return (
-            <div className="BackLink">
+            <div id="BackLink" className="BackLink">
                 <Link to={target}>
                     {"\u276E"}
                 </Link>
