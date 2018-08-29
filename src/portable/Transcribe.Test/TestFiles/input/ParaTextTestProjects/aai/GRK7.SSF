@@ -1,0 +1,17 @@
+﻿<ScriptureText>
+<BooksPresent>00000000000000000000000000000000000000011111111111111111111111111100000000000000000000000000</BooksPresent>
+<Encoding>65001</Encoding>
+<DefaultFontSize>12</DefaultFontSize>
+<Directory>D:\My Paratext Projects\grk</Directory>
+<Editable>F</Editable>
+<FullName>UBS Greek New Testament (PT7)</FullName>
+<Language>Greek</Language>
+<LeftToRight>T</LeftToRight>
+<Name>GRK</Name>
+<ResourceText>T</ResourceText>
+<StyleSheet>GRK.STY</StyleSheet>
+<Versification>1</Versification>
+<Version>1.1</Version>
+<Naming PostPart=".GRK" BookNameForm="41MAT"></Naming>
+<Zipped>T</Zipped>
+</ScriptureText>

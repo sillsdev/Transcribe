@@ -1,0 +1,1008 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProgressInfo version="1">
+  <PlanId>21f4f750-3f6a-4b34-b015-4ad4de69a7ae</PlanId>
+  <Stages>
+    <Stage id="1fee04f4-ddb8-4cfb-8a32-762328d6ba6c">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="cd202fa7-80f2-4925-8f9b-57a2f985c383">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Exegesis</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="c14c2cd6-eed0-462d-99f5-c61585993516">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Draft</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="e7c0a8fc-c55a-4ee6-ad29-6be54f5ad330">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>ScriptureText</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Keyboard Text in PT</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="c7e15989-2dbd-482d-b584-b9911c4c05a9">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>ScriptureText</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Draft Supplementary Helps</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Draft Section Headings, Footnotes, Glossary Entries, Book Introductions, Illustrations.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Check id="aa53f438-b1d5-42ad-b2b0-706371df4981">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>ChapterVerse</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="4b5c6968-39f3-4110-bc17-2ccee051a1c3">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Marker</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Names>
+        <item>
+          <string>en</string>
+          <string>Drafting</string>
+        </item>
+      </Names>
+      <Descriptions />
+    </Stage>
+    <Stage id="7d2a59e8-67e5-4a73-9080-27e3da4c1029">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="f3a66e3a-7bdb-4aed-acee-c0bcca67c222">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>ScriptureText</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Team Check   </string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="8a91e112-9932-4beb-a9e7-318f48fa9fce">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>ScriptureText</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Team Check Key Terms   </string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="70673c7a-d735-4e76-8793-b55e6d6f92e4">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>ScriptureText</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Team Check Names, Numbers, Weights, Measures, etc.</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="a532bc19-a806-46ea-b093-0504d6232d18">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>ScriptureText</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Team Check Supplementary Helps</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Team Check  Section Headings, Footnotes, Glossary Entries, Book Introductions, Illustrations.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="a74a2beb-d8f8-4c59-b8d2-36feb777ce46">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>ScriptureText</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>First Testing   </string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="65ec15ba-b923-4dea-81c4-43b2581d232c">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>BackTranslationText</EditingRequired>
+        <BackTranslationProject>MP1BT</BackTranslationProject>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Revise Based on Feedback from Testing</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Check id="91c8e864-a60c-4683-bc41-3758ebffdaed">
+        <Type>BiblicalTermRenderings</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Names>
+        <item>
+          <string>en</string>
+          <string>Team Checking &amp; First Testing</string>
+        </item>
+      </Names>
+      <Descriptions>
+        <item>
+          <string>en</string>
+          <string />
+        </item>
+      </Descriptions>
+    </Stage>
+    <Stage id="fe0f2c67-06b7-42d6-91f7-2ed52c690940">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="5fa6797f-88cc-4440-9026-6d7f5a9ea240">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Prepare Back-Translation</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="c7b1c574-d645-4d3c-a3ec-45a37528031d">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>BackTranslationText</EditingRequired>
+        <BackTranslationProject>MP1BT</BackTranslationProject>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Keyboard Back-Translation in PT</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="96663ac1-8b4b-40e4-a135-ee7a2bbf4733">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>BackTranslationText</EditingRequired>
+        <BackTranslationProject>MP1BT</BackTranslationProject>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Team Check Back-Translation</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string> Team Check Back-Translation, Revise Text and Back-Translation </string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Check id="a0e6417f-d01e-425f-975f-37f2de60601f">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Character</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="ee1d9538-cbdb-4c5f-909a-6c21e05cab71">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Punctuation</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="22caaf72-b4fa-46e1-ba7f-be54731efddd">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Reference</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="d3f04d23-0c9e-4041-a885-215db104b078">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Capitalization</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="affde851-13d0-4b77-a750-6f960fe2525a">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>RepeatedWord</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="c24c70a6-6bac-499d-ad16-dd5dd12f888a">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>MatchedPairs</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="42afb4bb-5822-4353-9645-7b0b64f6e736">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Quotation</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="4221ee33-4f8c-4a29-a607-43c342112531">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Numbers</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="6d331024-3f67-482b-9e3e-a5fca9e9ef33">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>QuotedText</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="da0ea90c-fdbe-4dce-93a5-7dba3fad320b">
+        <Type>SpellCheckUnknown</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="33339fba-53a5-498e-ba5a-b64ee685528c">
+        <Type>SpellCheckIncorrect</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="b0513b8d-9117-4e18-9599-0f7bfbca9ba7">
+        <Type>NoteCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <Details>1</Details>
+        <PostponedBooks />
+      </Check>
+      <Check id="5b52603d-e885-4de7-8808-cdfc545626ba">
+        <Type>BackTranslationChapterVerse</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <Details>MP1BT|ca25e6be6b784f3bd67790a72e4ab21e46908361</Details>
+        <PostponedBooks />
+      </Check>
+      <Check id="b558d0ca-0441-4df3-b57e-dc384a0530bb">
+        <Type>BackTranslationStatus</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <Details>MP1BT|ca25e6be6b784f3bd67790a72e4ab21e46908361</Details>
+        <PostponedBooks />
+      </Check>
+      <Names>
+        <item>
+          <string>en</string>
+          <string>Preparing for Consultant</string>
+        </item>
+      </Names>
+      <Descriptions />
+    </Stage>
+    <Stage id="c2523b4a-8267-495d-b903-f45d98ebe0f0">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="2ef0350c-1efd-46ff-9cd5-711b8fa81e1c">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Create project notes   </string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="f06ce684-24c0-41e5-a493-0e93e78dc187">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Consultant Check &amp; preliminary approval</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Consultant has place report on file.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="6dd794aa-bef3-44f7-a4c0-873fc2dc0708">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Revise Back-Translation   </string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Check id="c5609b2f-141d-4e13-9be7-9fc153db15c9">
+        <Type>PassageCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Names>
+        <item>
+          <string>en</string>
+          <string>Consultant Checking</string>
+        </item>
+      </Names>
+      <Descriptions />
+    </Stage>
+    <Stage id="3e4ce946-cfc3-4fe9-a32e-81c1606a918c">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="1f87c9fa-f873-40a1-af1b-27d2989f6a6a">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Community Testing</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>c2523b4a-8267-495d-b903-f45d98ebe0f0</PrerequisiteStageId>
+      </Task>
+      <Task id="063ebe9b-c4b8-4a1f-b7c0-a2e14bf097d0">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Revise Based on Feedback from Community Testing</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="75bf7f7f-98c3-4ff8-8b16-dafe6cb62f66">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Test Supplementary Helps</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Test Supplementary Section Headings, Footnotes, Glossary Entries, Book Introductions, Illustrations.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>c2523b4a-8267-495d-b903-f45d98ebe0f0</PrerequisiteStageId>
+      </Task>
+      <Task id="0bc2330f-a091-474a-a2d3-61e1d4882ea3">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Test Key Terms for the whole book</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>c2523b4a-8267-495d-b903-f45d98ebe0f0</PrerequisiteStageId>
+      </Task>
+      <Task id="7730a915-f701-4d7f-a2ff-a99b1308972f">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Reviewer Check</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="0689ae35-2e95-4bf7-b477-9a2503bafc0d">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Revise Based on Feedback from Reviewer Check</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="69893191-cff6-431a-81f5-24d0faf11426">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Review Key Terms</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="1b5d67e2-860e-4586-8201-642a83a2426d">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Review Supplementary Helps</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Review Supplementary Helps Section Headings, Footnotes, Glossary Entries, Book Introductions, Illustrations.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Check id="d9411349-a8f3-4ca3-964e-7ff1fa60776c">
+        <Type>SpellingNoteCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="ab79eecd-de70-4201-a800-29b4a6ecda12">
+        <Type>RenderingNoteCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Names>
+        <item>
+          <string>en</string>
+          <string>Community Testing and Reviewing</string>
+        </item>
+      </Names>
+      <Descriptions />
+    </Stage>
+    <Stage id="86ac513a-15c2-45c4-9603-9cde6008b6b5">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="d5930bdc-a280-42ad-a5c5-709cf8b8813a">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Choose Illustrations and Write Captions</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>3e4ce946-cfc3-4fe9-a32e-81c1606a918c</PrerequisiteStageId>
+      </Task>
+      <Task id="802276a9-194c-4fb6-938e-786d6de3a911">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Choose Maps and Label Place Names</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>3e4ce946-cfc3-4fe9-a32e-81c1606a918c</PrerequisiteStageId>
+      </Task>
+      <Task id="94882c23-827a-45fb-8163-06af594b691b">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Consistency Checks</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Consistency Checks Proper Names, Check Numbers, Money, Weights, Measures, etc., Key Terms, Parallel Passages.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>3e4ce946-cfc3-4fe9-a32e-81c1606a918c</PrerequisiteStageId>
+      </Task>
+      <Task id="c47f9c65-64f2-4177-8cd8-a4615c394069">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Formatting Checks</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Formatting Checks Review Section Breaks, Review Section Headings, Review Paragraph Breaks, Review Layout and Indents.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>3e4ce946-cfc3-4fe9-a32e-81c1606a918c</PrerequisiteStageId>
+      </Task>
+      <Task id="4287f31d-a117-4ba0-8f51-8cf716af908a">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Consultant Check Last Items</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>3e4ce946-cfc3-4fe9-a32e-81c1606a918c</PrerequisiteStageId>
+      </Task>
+      <Task id="7aaa1652-ded5-4617-931f-0bd3203627d8">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Final Approval from Consultant</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>3e4ce946-cfc3-4fe9-a32e-81c1606a918c</PrerequisiteStageId>
+      </Task>
+      <Task id="6b140055-fcd8-4064-8c81-18235e5b46d4">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Final Read-Through &amp; Approval</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Final Read-Through &amp; Approval with church &amp; community representatives.</string>
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>3e4ce946-cfc3-4fe9-a32e-81c1606a918c</PrerequisiteStageId>
+      </Task>
+      <Task id="e35a9869-aabe-43ad-8f8b-85cf2d27a6bb">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Final Typesetting</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="df9f4f8d-05da-4176-9517-56ca5c5b2d0b">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item>
+            <string>en</string>
+            <string>Audio Recording</string>
+          </item>
+        </Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string />
+          </item>
+        </Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Names>
+        <item>
+          <string>en</string>
+          <string>Finalizing for Publication</string>
+        </item>
+      </Names>
+      <Descriptions />
+    </Stage>
+  </Stages>
+  <BasePlanType>None</BasePlanType>
+  <PlannedBooks>
+    <Books>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</Books>
+  </PlannedBooks>
+  <EasiestBooks>
+    <Books>000001111111110010000000000000010000000000000000000000000000000000111001111111001010000000000000000000000000000000000000000</Books>
+  </EasiestBooks>
+  <EasyBooks>
+    <Books>110110000000001100000000000000000000000111010000000001111010001111000000000000110101000000000000000000000000000100000000001</Books>
+  </EasyBooks>
+  <ModerateBooks>
+    <Books>001000000000000000111100001000000000101000100110000110000001110000000110000000000000000000000000000000000000000000000000000</Books>
+  </ModerateBooks>
+  <DifficultBooks>
+    <Books>000000000000000001000011110111101111010000001001111000000100000000000000000000000000000000000000000000000000000000000000000</Books>
+  </DifficultBooks>
+</ProgressInfo>

@@ -1,0 +1,526 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ProgressInfo version="1">
+  <PlanId>098573c6-ec97-40e0-802e-721d50324ccc</PlanId>
+  <Stages>
+    <Stage id="1703c346-ce9e-427e-9476-9f3a8af26c67">
+      <BookStatus />
+      <Task id="97876b3b-e8b4-44f7-bdb4-e24d5072dbd6">
+        <Type>ManualByChapter</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Study and translate</string> </item>
+          <item> <string>zh-Hans</string>  <string>研读和翻译</string> </item>
+          <item> <string>es</string>  <string>Estudiar y Traducir</string> </item>
+          <item> <string>zh-Hant</string>  <string>研讀和翻譯</string> </item>
+		  <item> <string>pt</string>  <string>Estudar e Traduzir</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Thorough exegesis at fundamental level</string> </item>
+          <item> <string>zh-Hans</string>  <string>在基础层面上仔细研读和解释经文。</string> </item>
+          <item> <string>es</string>  <string>Exégesis profunda a nivel fundamental</string> </item>
+          <item> <string>zh-Hant</string>  <string>在基礎層面上仔細研讀和解釋經文。</string> </item>
+		  <item> <string>pt</string>  <string>Exegese profunda no nível fundamental</string> </item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Check id="abcaae65-0a7e-412f-bdd3-0e221b43d96f">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>ChapterVerse</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="d4b107c8-f3d8-4940-ab22-d7952cd98500">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Marker</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="671d5845-15fe-4efd-b170-1c555bbb0836">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Character</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="9a59bc29-7f23-42f2-9139-e5c0eb149dc3">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Punctuation</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="86a4a337-8419-4b54-83d7-4f3d8825c65b">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Reference</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="3b2240f9-03b4-49e9-b511-47b6df2cfce9">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>QuotedText</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="c7e738d7-3cca-4831-a063-5fab8aae540b">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Capitalization</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="84aa0be7-fefa-4b1a-835a-d9e3f2afcb80">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>RepeatedWord</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="ab522561-ce32-4454-8734-b072ef90c392">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>MatchedPairs</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="c15fbf06-7920-462b-9428-3a244cae7dec">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Quotation</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="085ff99c-ea6a-4c5e-8d81-39958c0ed3ba">
+        <Type>BasicCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Numbers</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Names>
+          <item> <string>en</string>  <string>Drafting</string> </item>
+          <item> <string>zh-Hans</string>  <string>初稿</string> </item>
+          <item> <string>es</string>  <string>Borrador</string> </item>
+          <item> <string>zh-Hant</string>  <string>初稿</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="c132ac10-5985-4d99-8ad9-3e823809720a">
+      <BookStatus />
+      <Task id="a4d088eb-e23b-4294-9971-6024621ea486">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Co-translator comments on translation</string> </item>
+          <item> <string>zh-Hans</string>  <string>（其他）翻译成员对译稿的意见</string> </item>
+          <item> <string>es</string>  <string>Comentarios de  otro traductor</string> </item>
+          <item> <string>zh-Hant</string>  <string>（其他）翻譯成員對譯稿的意見</string> </item>
+		  <item> <string>pt</string>  <string>Comentários do co-tradutor sobre a tradução</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Thorough exegetical review, or second cycle of review</string> </item>
+          <item> <string>zh-Hans</string>  <string>这可以是进一步释经，或是第二轮复审。</string> </item>
+          <item> <string>es</string>  <string>Revisión exégetica profunda o segundo ciclo de revisión.</string> </item>
+          <item> <string>zh-Hant</string>  <string>這可以是進一步釋經，或是第二輪複審。</string> </item>
+		  <item> <string>pt</string>  <string>Revisão exegética profunda ou segundo ciclo de revisão.</string> </item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>1703c346-ce9e-427e-9476-9f3a8af26c67</PrerequisiteStageId>
+      </Task>
+      <Task id="05980b7f-dcef-4f7c-adbd-5d11db2635df">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Drafter assesses co-translator comments</string> </item>
+          <item> <string>zh-Hans</string>  <string>初译者评价和总结其他成员的意见</string> </item>
+          <item> <string>es</string>  <string>Evaluar los comentarios del co-traductor</string> </item>
+          <item> <string>zh-Hant</string>  <string>初譯者評價和總結其他成員的意見</string> </item>
+		  <item> <string>pt</string>  <string>Avaliar os comentários do co-tradutor</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Input changes and assign notes back to co-translator</string> </item>
+          <item> <string>zh-Hans</string>  <string>在《圣经辅助工具》更新改动，并（如需要）透过“注解”功能针对有关问题与成员沟通。</string> </item>
+          <item> <string>es</string>  <string>Ingresar los cambios y enviar notas al co-traductor.</string> </item>
+          <item> <string>zh-Hant</string>  <string>在《聖經輔助工具》更新改動，並（如需要）透過「註解」功能針對有關問題與成員溝通。</string> </item>
+		  <item> <string>pt</string>  <string>Inserir as alterações e enviar notas ao co-tradutor.</string> </item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="d28ae1e1-2b6c-47f1-8a20-159b3e96b1c8">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Co-translator resolves or reassigns comments</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译成员解决“注解”，或把“注解”再分配给其他成员</string> </item>
+          <item> <string>es</string>  <string>Co-traductor resuelve o reenvia los comentarios</string> </item>
+          <item> <string>zh-Hant</string>  <string>同工解決註解，或再分配有關的意見</string> </item>
+		  <item> <string>pt</string>  <string>Co-tradutor resolve ou reenvia os comentários</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string>也就是说，如果初译者在总结其他成员对初稿意见的过程中，透过“注解”功能回复了个别成员或作进一步咨询，该成员必须解决“注解”，或把该“注解”转发给其他成员。</string> </item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string>也就是說，如果初譯者在總結其他成員對初稿意見的過程中，透過「註解」功能回復了個別成員或作進一步咨詢，該成員必須解決「註解」，或把該「註解」轉發給其他成員。</string></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>1703c346-ce9e-427e-9476-9f3a8af26c67</PrerequisiteStageId>
+      </Task>
+      <Check id="8c08ab8c-1ee5-4d89-8c0d-ffd1c935ae9b">
+        <Type>BiblicalTermRenderings</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="c2259dc2-d9d2-4196-8abe-aca3c8868072">
+        <Type>PassageCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="73780c90-7934-4c5b-aff1-794b9271b11b">
+        <Type>SpellCheckIncorrect</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="98e556a3-dd32-4aec-a652-c480d024e08e">
+        <Type>SpellCheckUnknown</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="baeb8057-54ec-4dbe-9365-efe4f6f307a3">
+        <Type>SpellingNoteCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="3893f827-3e8e-4b11-af9d-488e01afeae5">
+        <Type>RenderingNoteCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="0120916c-ff49-4938-8798-a21ff740952a">
+        <Type>NoteCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <Details>1</Details>
+        <PostponedBooks />
+      </Check>
+      <Check id="e53c1d82-f68a-4bbc-b336-1cbad23b04f7">
+        <Type>NoteCheck</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <Details>-1</Details>
+        <PostponedBooks />
+      </Check>
+      <Names>
+          <item> <string>en</string>  <string>Internal review</string> </item>
+          <item> <string>zh-Hans</string>  <string>内部审阅</string> </item>
+          <item> <string>es</string>  <string>Revisión interna</string> </item>
+          <item> <string>zh-Hant</string>  <string>內部審閱</string> </item>
+		  <item> <string>pt</string>  <string>Revisão interna</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="2a64a7e8-052d-42f3-8e01-e44086f14090">
+      <BookStatus />
+      <Task id="7a640033-f4e0-4f91-801c-ed4bec253f5c">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Exegete comments on translation</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问或特别评审者对译稿的意见</string> </item>
+          <item> <string>es</string>  <string>Exégeta hace comentarios a la traducción</string> </item>
+          <item> <string>zh-Hant</string>  <string>翻譯顧問或特別評審者對譯稿的意見</string> </item>
+		  <item> <string>pt</string>  <string>Exegeta faz comentários sobre a tradução</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string>除了翻译顾问，有些语言群体可能有资深的学者或老师或牧长对《圣经》有很深入的研究和认识，但未能成为翻译小组成员，却愿意参与审阅工作。</string> </item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string>除了翻譯顧問，有些語言群體可能有資深的學者或老師或牧長對《聖經》有很深入的研究和認識，但未能成為翻譯小組成員，卻願意參與審閱工作。</string></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>c132ac10-5985-4d99-8ad9-3e823809720a</PrerequisiteStageId>
+      </Task>
+      <Task id="f15d1946-c2b2-4090-9a78-43cafdb1df09">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Drafter assesses exegetical comments</string> </item>
+          <item> <string>zh-Hans</string>  <string>初译者评价和总结特别评审者反馈的意见</string> </item>
+          <item> <string>es</string>  <string>Revisión de los comentarios exégeticos</string> </item>
+          <item> <string>zh-Hant</string>  <string>初譯者評價和總結特別評審者反饋的意見</string> </item>
+		  <item> <string>pt</string>  <string>Revisão dos comentários exegéticos</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string>在《圣经辅助工具》更新改动，并（如需要）透过“注解”功能针对有关问题与翻译顾问或特别评审者沟通。这是假设他们也使用《圣经辅助工具》。</string></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string>在《聖經輔助工具》更新改動，並（如需要）透過「註解」功能針對有關問題與翻譯顧問或特別評審者溝通。這是假設他們也使用《聖經輔助工具》。</string></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="6121a691-f6e5-48bb-9224-205b93fcc3c4">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Exegete resolves or reassigns comments</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问或特别评审者解决“注解”，或把“注解”再分配给其他同工</string> </item>
+          <item> <string>es</string>  <string>Exégeta resuelve o reenvia los comentarios</string> </item>
+          <item> <string>zh-Hant</string>  <string>翻譯顧問或特別評審者解決「註解」，或把「註解」再分配給其他同工</string> </item>
+		  <item> <string>pt</string>  <string>Exegeta resolve ou reenvia os comentários</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string>也就是说，如果初译者在总结翻译顾问或特别评审者对初稿意见的过程中，透过“注解”功能回复了他们或作进一步咨询，翻译顾问或特别评审者必须解决“注解”，或把该“注解”转发给其他成员。这是假设他们也使用《圣经辅助工具》。</string></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string>也就是說，如果初譯者在總結翻譯顧問或特別評審者對初稿意見的過程中，透過「註解」功能回復了他們或作進一步咨詢，翻譯顧問或特別評審者必須解決「註解」，或把該「註解」轉發給其他成員。這是假設他們也使用《聖經輔助工具》。</string></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>c132ac10-5985-4d99-8ad9-3e823809720a</PrerequisiteStageId>
+      </Task>
+      <Task id="6a4b645f-a24c-41b0-8fe7-ceb2f3b34a50">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Team delivers text to community reviewers</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组向公众审阅者发送文本</string> </item>
+          <item> <string>es</string>  <string>Revision de textos traducidos con la comunidad</string> </item>
+          <item> <string>zh-Hant</string>  <string>翻譯小組向公眾審閱者發送文本</string> </item>
+		  <item> <string>pt</string>  <string>Revisão com a comunidade dos textos traduzidos</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string>在一般情况下，公眾审阅者大概不会使用《圣经辅助工具》；按此，翻译小组只能打印出来分发。</string></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string>在一般情況下，公眾審閱者大概不會使用《聖經輔助工具》；按此，翻譯小組只能打印出來分發。</string></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>c132ac10-5985-4d99-8ad9-3e823809720a</PrerequisiteStageId>
+      </Task>
+      <Task id="de2562d0-8a26-4da4-b38a-3473a1144e7d">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Team assesses community comments</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组评价和总结公众反馈的意见</string> </item>
+          <item> <string>es</string>  <string>Traductores revisan los comentarios de la comunidad</string> </item>
+          <item> <string>zh-Hant</string>  <string>翻譯小組評價和總結公眾反饋的意見</string> </item>
+		  <item> <string>pt</string>  <string>Tradutores revisam os comentários da comunidade</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Names>
+          <item> <string>en</string>  <string>External review</string> </item>
+          <item> <string>zh-Hans</string>  <string>外部审阅</string> </item>
+          <item> <string>es</string>  <string>Revisión Externa</string> </item>
+          <item> <string>zh-Hant</string>  <string>外部審閱</string> </item>
+		  <item> <string>pt</string>  <string>Revisão Externa</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="dbad86ec-fc46-4f93-a943-362155ccec49">
+      <BookStatus />
+      <Task id="d3cd428c-556f-4449-8c57-70b82db47278">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Stylist/editor comments on text</string> </item>
+          <item> <string>zh-Hans</string>  <string>文体审阅者／编辑评论文本</string> </item>
+          <item> <string>es</string>  <string>Comentarios del editor sobre la traducción</string> </item>
+          <item> <string>zh-Hant</string>  <string>文體審閱者／編輯評論文本</string> </item>
+		  <item> <string>pt</string>  <string>Comentários do editor sobre a tradução</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string>这只适用于某些语言群体：当中有特别的文体审阅者或编辑，该审阅者或编辑未能成为翻译小组成员，但愿意参与审阅工作。</string></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string>這只適用於某些語言群體：當中有特別的文體審閱者或編輯，該審閱者或編輯未能成為翻譯小組成員，但願意參與審閱工作。</string></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>2a64a7e8-052d-42f3-8e01-e44086f14090</PrerequisiteStageId>
+      </Task>
+      <Task id="79768302-5c5a-4e30-afdc-7d99260647aa">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Drafter assesses stylist/editor comments</string> </item>
+          <item> <string>zh-Hans</string>  <string>初译者评价和总结文体审阅者／编辑反馈的意见</string> </item>
+          <item> <string>es</string>  <string>Traductores evaluan los comentarios del editor</string> </item>
+          <item> <string>zh-Hant</string>  <string>初譯者評價和總結文體審閱者／編輯反饋的意見</string> </item>
+		  <item> <string>pt</string>  <string>Tradutores avaliam os comentários do editor</string> </item></Names>
+        <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string>在《圣经辅助工具》更新改动，并（如需要）透过“注解”功能针对有关问题与文体审阅者或编辑沟通。</string> </item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string>在《聖經輔助工具》更新改動，並（如需要）透過「註解」功能針對有關問題與文體審閱者或編輯溝通。</string></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="03959294-d8ea-43e0-be88-b2665fbf625f">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Final (oral) reading of text</string> </item>
+          <item> <string>zh-Hans</string>  <string>最后的文本阅读（朗读）</string> </item>
+          <item> <string>es</string>  <string>Lectura final Oral de la traducción</string> </item>
+          <item> <string>zh-Hant</string>  <string>最後的文本閱讀（朗讀）</string> </item>
+		  <item> <string>pt</string>  <string>Leitura final (oral) da tradução</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>2a64a7e8-052d-42f3-8e01-e44086f14090</PrerequisiteStageId>
+      </Task>
+      <Task id="3056c2f9-2b84-40c1-8fd9-f569cda0f67d">
+        <Type>Manual</Type>
+        <EditingRequired>None</EditingRequired>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Consultant gives final approval</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问最后核准文本</string> </item>
+          <item> <string>es</string>  <string>Consultor otroga la aprobación final</string> </item>
+          <item> <string>zh-Hant</string>  <string>翻譯顧問最後核准文本</string> </item>
+		  <item> <string>pt</string>  <string>Consultor aprova o texto final</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <PerStage>false</PerStage>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Names>
+          <item> <string>en</string>  <string>Final review</string> </item>
+          <item> <string>zh-Hans</string>  <string>最后审阅</string> </item>
+          <item> <string>es</string>  <string>Revisión Final</string> </item>
+          <item> <string>zh-Hant</string>  <string>最後審閱</string> </item>
+		  <item> <string>pt</string>  <string>Revisão Final</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>zh-Hant</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+  </Stages>
+  <BasePlanType>StandardPlan</BasePlanType>
+  <BasePlanId>3d620288-e2be-4b59-97e1-c0e0835ef940</BasePlanId>
+  <BasePlanName>UBS Trial Plan</BasePlanName>
+  <ProgressBase>2015-03-03T22:32:04.9711306+02:00</ProgressBase>
+  <PlannedBooks>
+    <Books>000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000</Books>
+  </PlannedBooks>
+  <EasiestBooks>
+    <Books>000001111111110010000000000000010000000000000000000000000000000000111001111111001010000000000000000000000000000000000000000</Books>
+  </EasiestBooks>
+  <EasyBooks>
+    <Books>110110000000001100000000000000000000000111010000000001111010001111000000000000110101000000000000000000000000000100000000001</Books>
+  </EasyBooks>
+  <ModerateBooks>
+    <Books>001000000000000000111100001000000000101000100110000110000001110000000110000000000000000000000000000000000000000000000000000</Books>
+  </ModerateBooks>
+  <DifficultBooks>
+    <Books>000000000000000001000011110111101111010000001001111000000100000000000000000000000000000000000000000000000000000000000000000</Books>
+  </DifficultBooks>
+</ProgressInfo>

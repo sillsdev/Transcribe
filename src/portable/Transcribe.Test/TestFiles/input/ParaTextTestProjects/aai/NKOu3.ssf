@@ -1,0 +1,217 @@
+﻿<ScriptureText>
+  <Name>NKOu3</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Nkonya Unicode13</FullName>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNamePostPart>NKOu3.SFM</FileNamePostPart>
+  <Abbreviations>NullValue</Abbreviations>
+  <ApBooksWithNumbers1>1MA 2MA 3MA 4MA 1ES 2ES PS2 1Ma 2Ma 3Ma 4Ma 1Es 2Es Ps2 </ApBooksWithNumbers1>
+  <AutoKeyboardSwitching>T</AutoKeyboardSwitching>
+  <B01_GEN>NullValue</B01_GEN>
+  <B41_MAT>Mateo</B41_MAT>
+  <B42_MRK>Marko</B42_MRK>
+  <B43_LUK>Luka</B43_LUK>
+  <B44_JHN>Yohane</B44_JHN>
+  <B45_ACT>Gyumagyihɛ</B45_ACT>
+  <B46_ROM>Romafɔ</B46_ROM>
+  <B47_1CO>1 Korintofɔ</B47_1CO>
+  <B48_2CO>2 Korintofɔ</B48_2CO>
+  <B49_GAL>Galatiafɔ</B49_GAL>
+  <B50_EPH>Efesofɔ</B50_EPH>
+  <B51_PHP>Filipifɔ</B51_PHP>
+  <B52_COL>Kolosefɔ</B52_COL>
+  <B53_1TH>1 Tesalonikafɔ</B53_1TH>
+  <B54_2TH>2 Tesalonikafɔ</B54_2TH>
+  <B55_1TI>1 Timoteo</B55_1TI>
+  <B56_2TI>2 Timoteo</B56_2TI>
+  <B57_TIT>Tito</B57_TIT>
+  <B58_PHM>Filemon</B58_PHM>
+  <B59_HEB>Hebrifɔ</B59_HEB>
+  <B60_JAS>Yakobo</B60_JAS>
+  <B61_1PE>1 Petro</B61_1PE>
+  <B62_2PE>2 Petro</B62_2PE>
+  <B63_1JN>1 Yohane</B63_1JN>
+  <B64_2JN>2 Yohane</B64_2JN>
+  <B65_3JN>3 Yohane</B65_3JN>
+  <B66_JUD>Yuda</B66_JUD>
+  <B67_REV>Atɔ Lɛsúnáhɛ́</B67_REV>
+  <BkChSep>;</BkChSep>
+  <Book_1CH>1 Chronicles</Book_1CH>
+  <Book_1CO>1 Corinthians</Book_1CO>
+  <Book_1JN>1 John</Book_1JN>
+  <Book_1KI>1 Kings</Book_1KI>
+  <Book_1PE>1 Peter</Book_1PE>
+  <Book_1SA>1 Samuel</Book_1SA>
+  <Book_1TH>1 Thessalonians</Book_1TH>
+  <Book_1TI>1 Timothy</Book_1TI>
+  <Book_2CH>2 Chronicles</Book_2CH>
+  <Book_2CO>2 Corinthians</Book_2CO>
+  <Book_2JN>2 John</Book_2JN>
+  <Book_2KI>2 Kings</Book_2KI>
+  <Book_2PE>2 Peter</Book_2PE>
+  <Book_2SA>2 Samuel</Book_2SA>
+  <Book_2TH>2 Thessalonians</Book_2TH>
+  <Book_2TI>2 Timothy</Book_2TI>
+  <Book_3JN>3 John</Book_3JN>
+  <Book_ACT>Acts</Book_ACT>
+  <Book_AMO>Amos</Book_AMO>
+  <Book_COL>Colossians</Book_COL>
+  <Book_DAN>Daniel</Book_DAN>
+  <Book_DEU>Deuteronomy</Book_DEU>
+  <Book_ECC>Ecclesiastes</Book_ECC>
+  <Book_EPH>Ephesians</Book_EPH>
+  <Book_EST>Esther</Book_EST>
+  <Book_EXO>Exodus</Book_EXO>
+  <Book_EZK>Ezekiel</Book_EZK>
+  <Book_EZR>Ezra</Book_EZR>
+  <Book_GAL>Galatians</Book_GAL>
+  <Book_GEN>Genesis</Book_GEN>
+  <Book_HAB>Habakkuk</Book_HAB>
+  <Book_HAG>Haggai</Book_HAG>
+  <Book_HEB>Hebrews</Book_HEB>
+  <Book_HOS>Hosea</Book_HOS>
+  <Book_ISA>Isaiah</Book_ISA>
+  <Book_JAS>James</Book_JAS>
+  <Book_JDG>Judges</Book_JDG>
+  <Book_JER>Jeremiah</Book_JER>
+  <Book_JHN>John</Book_JHN>
+  <Book_JOB>Job</Book_JOB>
+  <Book_JOL>Joel</Book_JOL>
+  <Book_JON>Jonah</Book_JON>
+  <Book_JOS>Joshua</Book_JOS>
+  <Book_JUD>Jude</Book_JUD>
+  <Book_LAM>Lamentationes</Book_LAM>
+  <Book_LEV>Leviticus</Book_LEV>
+  <Book_LUK>Luke</Book_LUK>
+  <Book_MAL>Malachi</Book_MAL>
+  <Book_MAT>Matthew</Book_MAT>
+  <Book_MIC>Micah</Book_MIC>
+  <Book_MRK>Mark</Book_MRK>
+  <Book_NAM>Nahum</Book_NAM>
+  <Book_NEH>Nehemiah</Book_NEH>
+  <Book_NUM>Numbers</Book_NUM>
+  <Book_OBA>Obadiah</Book_OBA>
+  <Book_PHM>Philemon</Book_PHM>
+  <Book_PHP>Philippians</Book_PHP>
+  <Book_PRO>Proverbs</Book_PRO>
+  <Book_PSA>Psalms</Book_PSA>
+  <Book_REV>Revelation</Book_REV>
+  <Book_ROM>Romans</Book_ROM>
+  <Book_RUT>Rut</Book_RUT>
+  <Book_SNG>Song of Songs</Book_SNG>
+  <Book_TIT>Titus</Book_TIT>
+  <Book_ZEC>Zechariah</Book_ZEC>
+  <Book_ZEP>Zephaniah</Book_ZEP>
+  <CVsep>:</CVsep>
+  <CVseparator1>:</CVseparator1>
+  <CapitalizedSuffixes>NullValue</CapitalizedSuffixes>
+  <ChBrdg>--</ChBrdg>
+  <CloseBy>\p</CloseBy>
+  <CloseParen>)</CloseParen>
+  <ContSp>yes</ContSp>
+  <ContinueAt>p</ContinueAt>
+  <ContinueInnerQuotes>Yes</ContinueInnerQuotes>
+  <ContinueQuotes>Yes</ContinueQuotes>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <DecimalSep1>.</DecimalSep1>
+  <DefaultFont>Taogu</DefaultFont>
+  <DefaultFontSize>18</DefaultFontSize>
+  <DotAll>Yes</DotAll>
+  <Editable>T</Editable>
+  <Encoding>65001</Encoding>
+  <FileName>RC_A.lcf</FileName>
+  <FinalPunc>”&gt;’.;,:!?</FinalPunc>
+  <FindExpression.cms_parameter1>\\fig .*?\\fig\*</FindExpression.cms_parameter1>
+  <IgnoreCharacters>-</IgnoreCharacters>
+  <IgnoreFollowing>q q1 q2 q3 q4 qr qc qa qm qm1 qm2 qm3 b</IgnoreFollowing>
+  <IgnoreIntroductions>Yes</IgnoreIntroductions>
+  <IgnoreLowerCaseFollowing>’</IgnoreLowerCaseFollowing>
+  <IgnoreNotes>Yes</IgnoreNotes>
+  <IgnoreTheseAfterNumber>NullValue</IgnoreTheseAfterNumber>
+  <InitialPunc>‘&lt;“ </InitialPunc>
+  <InnerInnerQuotes>&lt;&lt; &gt;&gt;</InnerInnerQuotes>
+  <InnerQuotes>&lt; &gt;</InnerQuotes>
+  <IsolatedPunc>NullValue</IsolatedPunc>
+  <Language>GhanaUnicode</Language>
+  <LeftToRight>T</LeftToRight>
+  <MarkersFollowedByCapitals>p</MarkersFollowedByCapitals>
+  <MarkersRequiringSentenceFinalPunctuation>iex im imi imq ip ipi ipq ipr m mi nb p p1 p2 pc pi pi1 pi2 pi3</MarkersRequiringSentenceFinalPunctuation>
+  <MarkersToInclude>NullValue</MarkersToInclude>
+  <MatchCase>No</MatchCase>
+  <MaxErrorCount>0</MaxErrorCount>
+  <MedialPunc>-.</MedialPunc>
+  <NTBooksWithNumbers1>1CO 2CO 1TH 2TH 1TI 2TI 1PE 2PE 1JN 2JN 3JN 1Co 2Co 1Th 2Th 1Ti 2Ti 1Pe 2Pe 1Jn 2Jn 3Jn</NTBooksWithNumbers1>
+  <NestMarkers>No</NestMarkers>
+  <NumberFinal1>)}"&gt;’›”»'.!?%:],¢;</NumberFinal1>
+  <NumberInitial1>-+"({&lt;‘‹“«'[$</NumberInitial1>
+  <NumberMedial1>-</NumberMedial1>
+  <OTBooksWithNumbers1>1KI 2KI 1CH 2CH 1SA 2SA 1Ki 2Ki 1Ch 2Ch 1Sa 2Sa </OTBooksWithNumbers1>
+  <OccurrenceLimit>1</OccurrenceLimit>
+  <OpenParen>(</OpenParen>
+  <Pairs>(/) [/] {/}</Pairs>
+  <ParenReqd>yes</ParenReqd>
+  <Punctuation>.,?:;!()[]&lt;&gt;|</Punctuation>
+  <PunctuationFollowedByCapitals>. ! ?</PunctuationFollowedByCapitals>
+  <Quotes>&lt;&lt; &gt;&gt;</Quotes>
+  <RTL>No</RTL>
+  <RangeIndicator>-</RangeIndicator>
+  <RepeatableWords>NullValue</RepeatableWords>
+  <ReportCounts>No</ReportCounts>
+  <RequireRMarkerToFollowSMarker>Yes</RequireRMarkerToFollowSMarker>
+  <SegmentOrder>a b c d e f g h i j k l m n o p q r s t u v w x y z aa bb cc dd ee ff gg hh ii jj kk ll mm nn oo pp qq rr ss tt uu vv ww xx yy zz</SegmentOrder>
+  <SentenceFinalPunctuation>.?!</SentenceFinalPunctuation>
+  <SequenceIndicator>,</SequenceIndicator>
+  <ShowContext>No</ShowContext>
+  <ShowOnly1>NullValue</ShowOnly1>
+  <ShowOptions>No</ShowOptions>
+  <ShowParaEndingPunct>No</ShowParaEndingPunct>
+  <ShowParaEndingWord>Yes</ShowParaEndingWord>
+  <ShowReferences>Yes</ShowReferences>
+  <SortByCount>No</SortByCount>
+  <SortOrder>Yes</SortOrder>
+  <SoundAlikeCharacters>á/áa/a é/ée/e ɛ́/ɛ́ɛ/ɛ í/íi/i ɩ́/ɩ́ɩ/ɩ ó/óo/o ɔ́/ɔ́ɔ/ɔ ú/úu/u ʋ́/ʋ́ʋ/ʋ</SoundAlikeCharacters>
+  <StandardText>GNTUK</StandardText>
+  <Suffix1>pʋ sɩ sʋ tɔ</Suffix1>
+  <ThouSep1>,</ThouSep1>
+  <UncapitalizedPrefixes>NullValue</UncapitalizedPrefixes>
+  <UnusedDivider>NullValue</UnusedDivider>
+  <VerboseQuotes>No</VerboseQuotes>
+  <Versification>4</Versification>
+  <VsBrdg>-</VsBrdg>
+  <VsSegmentOrder>abcdefg</VsSegmentOrder>
+  <VsSep>,</VsSep>
+  <WordlistRefreshBooksPresent>111111111111111111111111111111111111111111111111111111111111111111000000000000000000000000011101000000000000000000000000000</WordlistRefreshBooksPresent>
+  <WordlistSelectedBookString>111111111111111111111111111111111111111111111111111111111111111111000000000000000000000000011101000000000000000000000000000</WordlistSelectedBookString>
+  <WordlistTimeLastRetrievedSelectedBookString>8/14/2009 6:00:53 PM</WordlistTimeLastRetrievedSelectedBookString>
+  <bSep>;\s</bSep>
+  <cSep>(?:;\s+|--)</cSep>
+  <ccSep>-</ccSep>
+  <cvSep>\.</cvSep>
+  <markersToCheck>\r</markersToCheck>
+  <optEnding>[\(\)]</optEnding>
+  <printCheckSetup>No</printCheckSetup>
+  <vRange>-</vRange>
+  <vSep>,\s</vSep>
+  <AdvancedView>False</AdvancedView>
+  <ValidCharacters>M o s e Ɔ w ʋ l ʋ́ G y a n k p t D r f b d - A ɩ á ɩ́ ɔ́ L u B ɛ́ ɔ ɛ m i ŋ ú W ó h O é í g N Ɛ Ɩ Ɩ́ I E T P H S K F Y Á R U v Ó z Z Ɛ́ Ʋ É c Í Ʋ́ Ɔ́ Ŋ q X C J x j V * Q Ú -- ‌ ‍</ValidCharacters>
+  <TextHasChanged>F</TextHasChanged>
+  <LastBackedUp>2011Feb23</LastBackedUp>
+  <StylesheetModificationDate>11/25/2009 6:59:09 PM</StylesheetModificationDate>
+  <BooksPresent>110000000000000000000000000000010000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+  <TranslationInfo>Standard::</TranslationInfo>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <FileNamePrePart />
+  <FileNameChapterNumberForm />
+  <InitialImportBooksDirectory>D:\Manjula\Projects\SIL\Task\TD-4557\KFY 2011-06-24</InitialImportBooksDirectory>
+  <Guid>10eee787240364ed651190b1e7bdc6cc6d1ec9d0</Guid>
+  <AssociatedLexicalProject />
+  <Copyright />
+  <Directory>D:\My Paratext Projects\NKOu3</Directory>
+  <LanguageIsoCode>:::</LanguageIsoCode>
+  <EthnologueCode />
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <Naming PrePart="" PostPart="NKOu3.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

@@ -1,0 +1,29 @@
+﻿<ScriptureText>
+  <Name>D33</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>DIV3</FullName>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNamePostPart>D33.SFM</FileNamePostPart>
+  <Versification>4</Versification>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Encoding>65001</Encoding>
+  <Language>Dhivehi</Language>
+  <DefaultFont>Faruma</DefaultFont>
+  <DefaultFontSize>14</DefaultFontSize>
+  <TranslationInfo>Standard::</TranslationInfo>
+  <LanguageIsoCode>dv:::</LanguageIsoCode>
+  <EthnologueCode>dv</EthnologueCode>
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <Editable>T</Editable>
+  <InitialImportBooksDirectory>C:\Users\Bruce\Documents\My Paratext Projects\DIV</InitialImportBooksDirectory>
+  <TextHasChanged>F</TextHasChanged>
+  <LastBackedUp>2014Aug11</LastBackedUp>
+  <BooksPresent>000000000000000000000000000000010000000000100001000000000000000000000000000000000000000000000000000000000000100000000000000</BooksPresent>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <FileNamePrePart />
+  <FileNameChapterNumberForm />
+  <Naming PrePart="" PostPart="D33.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

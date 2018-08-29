@@ -1,0 +1,992 @@
+# Version 1.1
+# Default BETA PT6(uSFM) Stylesheet
+# Updated by Ed Peters October 25, 2002
+# Updated by Reinier de Blois April 16, 2003 - version info added
+# Released with Paratext 6.0.15 Beta
+
+# File Identification
+
+\Marker id
+\Name (id) FILE [Identification] 
+\Description File Information (BOOKID, FILENAME, EDITOR, MODIFICATION DATE)
+\StyleType Paragraph
+\TextType Other
+\TextProperties paragraph nonpublishable nonvernacular book
+\FontSize 12
+
+\Marker ide
+\Name (ide) FILE [Encoding] 
+\Description File Encoding Information
+\StyleType Paragraph
+\TextType Other
+\TextProperties paragraph nonpublishable nonvernacular book
+\FontSize 12
+
+# Headers
+
+\Marker h
+\Name (h) FILE [Header]
+\Description Running Header Text for a book
+\OccursUnder id  # id
+\Rank 1
+\TextType Other
+\TextProperties paragraph publishable nonvernacular
+\StyleType Paragraph
+\FontSize 12
+
+# Remarks and Comments
+
+\Marker rem
+\Name (rem) FILE [Remark]
+\Description Comments and remarks
+\OccursUnder id  # id
+\TextType Other
+\TextProperties paragraph publishable nonvernacular
+\StyleType Paragraph
+\FontSize 12
+
+# Introduction
+
+\Marker imt
+\Name (imt) INTRODUCTION [Major Title Level 1]
+\Description Introduction Major Title, level 1 (If single level)
+\OccursUnder id  # id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_1
+\TextType Title
+\StyleType Paragraph
+\FontSize 20
+\Bold
+\Justification Center
+
+\Marker imt1
+\Name (imt1) INTRODUCTION [Major Title Level 1]
+\Description Introduction Major Title, level 1 (If multiple levels)
+\OccursUnder id  # id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_1
+\TextType Title
+\StyleType Paragraph
+\FontSize 20
+\Bold
+\Justification Center
+
+\Marker imt2
+\Name (imt2) INTRODUCTION [Major Title Level 2]
+\Description Introduction Major Title, level 2 (usually before Main Title)
+\OccursUnder id  # id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_2
+\TextType Title
+\StyleType Paragraph
+\FontSize 16
+\Italic
+\Justification Center
+\SpaceAfter 2
+
+\Marker imt3
+\Name (imt3) INTRODUCTION [Major Title Level 3]
+\Description Introduction Major Title, level 3 (usually after Main Title)
+\OccursUnder id  # id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_3
+\TextType Title
+\StyleType Paragraph
+\FontSize 16
+\Bold
+\Justification Center
+\SpaceBefore 2
+\SpaceAfter 2
+
+\Marker imt4
+\Name (imt4) INTRODUCTION [Major Title Level 4]
+\Description Introduction Major Title, level 4 (usually within parenthesis)
+\OccursUnder id  # id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_4
+\TextType Title
+\StyleType Paragraph
+\FontSize 12
+\Justification Center
+\SpaceBefore 2
+\SpaceAfter 2
+
+\Marker is 
+\Name (is) INTRODUCTION [Section Heading Level 1]
+\Description Introduction Section Heading, level 1 (If single level)
+\OccursUnder id  # id
+\Rank 5
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\NotRepeatable
+\StyleType Paragraph
+\FontSize 12
+\Bold
+\Justification Center
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker is1 
+\Name (is1) INTRODUCTION [Section Heading Level 1]
+\Description Introduction Section Heading, level 1 (If multiple levels)
+\OccursUnder id  # id
+\Rank 5
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\NotRepeatable
+\StyleType Paragraph
+\FontSize 12
+\Bold
+\Justification Center
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker is2
+\Name (is2) INTRODUCTION [Section Heading Level 2]
+\Description Introduction Section Heading, level 2 
+\OccursUnder id  # id
+\Rank 5
+\TextType Section
+\TextProperties paragraph publishable vernacular level_2
+\NotRepeatable
+\StyleType Paragraph
+\FontSize 12
+\Bold
+\Justification Center
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker iot 
+\Name (iot) INTRODUCTION [Outline Title]
+\Description Introduction Outline Title
+\OccursUnder id  # id
+\Rank 6
+\TextType Other
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\Bold
+\Justification Center
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker io1
+\Name (io1) INTRODUCTION [Outline Level 1]
+\Description Introduction Outline Text, level 1 
+\OccursUnder id  # id
+\Rank 7
+\TextType Other
+\TextProperties paragraph publishable vernacular level_1
+\StyleType paragraph
+\FontSize 12
+\LeftMargin .5
+
+\Marker io2
+\Name (io2) INTRODUCTION [Outline Level 2]
+\Description Introduction Outline Text, level 2 
+\OccursUnder id  # id
+\Rank 7
+\TextType Other
+\TextProperties paragraph publishable vernacular level_2
+\StyleType paragraph
+\FontSize 12
+\LeftMargin 1
+
+\Marker io3
+\Name (io3) INTRODUCTION [Outline Level 3]
+\Description Introduction Outline Text, level 3 
+\OccursUnder id  # id
+\Rank 7
+\TextType Other
+\TextProperties paragraph publishable vernacular level_3
+\StyleType paragraph
+\FontSize 12
+\LeftMargin 1.5
+
+\Marker ip
+\Name (ip) INTRODUCTION [Paragraph]
+\Description Introduction prose paragraph
+\OccursUnder id  # id
+\Rank 6
+\TextType Other
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\FirstLineIndent .125   # 1/8 inch first line indent
+
+\Marker iq
+\Name (iq) INTRODUCTION [Poetry Level 1]
+\Description Introduction Poetry text, level 1 (If single level)
+\OccursUnder id  # id
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_1
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.75  # 1/4 inch indent, 1 inch wrap
+
+\Marker iq1
+\Name (iq1) INTRODUCTION [Poetry Level 1]
+\Description Introduction Poetry text, level 1 (If multiple levels)
+\OccursUnder id  # id
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_1
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.75  # 1/4 inch indent, 1 inch wrap
+
+\Marker iq2
+\Name (iq2) INTRODUCTION [Poetry Level 2]
+\Description Introduction Poetry text, level 2 
+\OccursUnder id  # id
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_2
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.5  # 1/2 inch indent, 1 inch wrap
+
+\Marker iq3
+\Name (iq3) INTRODUCTION [Poetry Level 3]
+\Description Introduction Poetry text, level 3
+\OccursUnder id  # id
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_3
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.25 # 3/4 inch indent, 1 inch wrap
+
+# Chapters and Verses
+
+\Marker c
+\Name (c) CHAPTER [Number]
+\Description Chapter number (Necessary for normal paratext operation)
+\OccursUnder id  # id
+\Rank 8
+\TextType ChapterNumber
+\TextProperties chapter
+\StyleType Paragraph
+\Bold
+\FontSize 18
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker ca
+\Name (ca) CHAPTER [Alternate Number]
+\Description Chapter Number (Publishing option A, a Number)
+\OccursUnder c   # c
+\Rank 1
+\TextType Other
+\TextProperties chapter
+\StyleType Paragraph
+\Bold
+\FontSize 18
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker cp
+\Name (cp) CHAPTER [Publishing Alternate]
+\Description Chapter Number (Publishing option P, a DC Option)
+\OccursUnder c   # c
+\Rank 2
+\TextType Other
+\TextProperties chapter
+\StyleType Paragraph
+\Bold
+\FontSize 18
+\SpaceBefore 8
+\SpaceAfter 4
+\Justification Center
+
+\Marker cl
+\Name (cl) CHAPTER [Publishing Label]
+\Description Chapter Label (Publishing option L, e.g. Psalms)
+\OccursUnder c   # c
+\Rank 3
+\TextType Other
+\TextProperties chapter
+\StyleType Paragraph
+\Bold
+\FontSize 18
+\SpaceBefore 8
+\SpaceAfter 4
+\Justification Center
+
+\Marker v
+\Name (v) VERSE [Number]
+\Description A verse number (Necessary for normal paratext operation)
+\OccursUnder p m nb ps pi mi q q1 q2 q3 q4 qc qr li tb1 tb2 tb3 s3 d
+\TextType VerseNumber
+\TextProperties verse
+\StyleType Character
+\FontSize 12
+\Superscript
+
+\Marker va
+\Name (va) VERSE [Alternate Number]
+\Description A verse number (Publishing option A, a Number)
+\OccursUnder v
+\TextType Other
+\TextProperties verse
+\StyleType Character
+\FontSize 12
+\Superscript
+
+\Marker vp
+\Name (vp) VERSE [Publishing Option]
+\Description A verse number (Publishing option P, a DC Option
+\OccursUnder v
+\TextType Other
+\TextProperties verse
+\StyleType Character
+\FontSize 12
+\Superscript
+
+# Paragraphs
+
+\Marker p
+\Name (p) PARAGRAPH [First Line Indent]
+\Description Paragraph text, with first line indent
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\FirstLineIndent .125   # 1/8 inch first line indent
+
+\Marker m
+\Name (m) PARAGRAPH [First Line No Indent]
+\Description Paragraph text, with no first line indent (may occur after poetry)
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+
+\Marker pi
+\Name (pi) PARAGRAPH [Indented First Line Indent]
+\Description Paragraph text, indented, with first line indent; often used for discourse
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\FirstLineIndent .125   # 1/8 inch first line indent
+\LeftMargin .25
+\RightMargin .25
+
+\Marker mi
+\Name (mi) PARAGRAPH [Indented First Line No Indent]
+\Description Paragraph text, indented, with no first line indent; often used for discourse
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin .25
+\RightMargin .25
+
+
+
+\Marker ps
+\Name (ps) PARAGRAPH [No Break with Next Paragraph]
+\Description Paragraph text, with no break with next paragraph text (at chapter boundary)
+\OccursUnder c s s1 s2 
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+
+\Marker nb
+\Name (nb) PARAGRAPH [No Break with Previous Paragraph]
+\Description Paragraph text, with no break from previous paragraph text (at chapter boundary)
+\OccursUnder c 
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+
+
+# Poetry
+
+\Marker q
+\Name (q) POETRY [Level 1]
+\Description Poetry text, level 1 indent (If single level)
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_1
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.75  # 1/4 inch indent, 1 inch wrap
+
+\Marker q1
+\Name (q1) POETRY [Level 1]
+\Description Poetry text, level 1 indent (If multiple levels)
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_1
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.75  # 1/4 inch indent, 1 inch wrap
+
+\Marker q2
+\Name (q2) POETRY [Level 2]
+\Description Poetry text, level 2 indent
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_2
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.5  # 1/2 inch indent, 1 inch wrap
+
+\Marker q3
+\Name (q3) POETRY [Level 3]
+\Description Poetry text, level 3 indent
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic level_3
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1
+\FirstLineIndent -.25 # 3/4 inch indent, 1 inch wrap
+
+\Marker qc
+\Name (qc) POETRY [Centered]
+\Description Poetry text, centered
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic
+\StyleType Paragraph
+\FontSize 12
+\Justification Center
+
+\Marker qr
+\Name (qr) POETRY [Right Adjusted]
+\Description Poetry text, Right Aligned
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic
+\StyleType Paragraph
+\FontSize 12
+\Justification Right
+
+\Marker qs
+\Name (qs) POETRY [Right Adjusted Same Line]
+\Description Poetry text, Right Adjusted, Same Line (e.g. Selah)
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular poetic
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Right
+
+\Marker b
+\Name (b) POETRY [Blank Line]
+\Description Poetry text, Blank Line (e.g. stanza break)
+\OccursUnder c
+\TextProperties paragraph publishable vernacular poetic
+\TextType VerseText
+\FontSize 5
+\StyleType paragraph
+
+# Title/Heading
+
+\Marker mt
+\Name (mt) TITLE [Major Title Level 1]
+\Description The main title of the book
+\OccursUnder id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_1
+\TextType Title
+\StyleType Paragraph
+\FontSize 20
+\Bold
+\Justification Center
+
+\Marker mt1
+\Name (mt1) TITLE [Major Title Level 1]
+\Description The main title of the book
+\OccursUnder id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_1
+\TextType Title
+\StyleType Paragraph
+\FontSize 20
+\Bold
+\Justification Center
+
+\Marker mt2
+\Name (mt2) TITLE [Major Title Level 2]
+\Description A secondary title occurring before the Main Title
+\OccursUnder id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_2
+\TextType Title
+\StyleType Paragraph
+\FontSize 16
+\Italic
+\Justification Center
+\SpaceAfter 2
+
+\Marker mt3
+\Name (mt3) TITLE [Major Title Level 3]
+\Description A secondary title occurring after the Main Title
+\OccursUnder id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_3
+\TextType Title
+\StyleType Paragraph
+\FontSize 16
+\Bold
+\Justification Center
+\SpaceBefore 2
+\SpaceAfter 2
+
+\Marker mt4
+\Name (mt4) TITLE [Major Title level 4]
+\Description A small secondary title sometimes occuring within parentheses
+\OccursUnder id
+\Rank 4
+\TextProperties paragraph publishable vernacular level_4
+\TextType Title
+\StyleType Paragraph
+\FontSize 12
+\Justification Center
+\SpaceBefore 2
+\SpaceAfter 2
+
+\Marker s
+\Name (s) HEADING [Section Level 1]
+\Description A section heading, level 1 (If single level)
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 12
+\Bold
+\Justification Center
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker s1
+\Name (s1) HEADING [Section Level 1]
+\Description A section heading, level 1 (If multiple levels)
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 12
+\Bold
+\Justification Center
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker s2
+\Name (s2) HEADING [Section Level 2]
+\Description A section heading, level 2 (e.g. Proverbs 22-24)
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_2
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Center
+\SpaceBefore 8
+\SpaceAfter 4
+
+\Marker s3
+\Name (s3) HEADING [Section Level 3]
+\Description A section heading, level 3 (e.g. Genesis "The First Day")
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_3
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Left
+\SpaceBefore 6
+
+\Marker r
+\Name (r) HEADING [Parallel Reference]
+\Description Parallel reference(s)
+\OccursUnder s s1 f f* x x*
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\NotRepeatable
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Center
+\SpaceAfter 4
+
+\Marker ms
+\Name (ms) HEADING [Main Section Level 1]
+\Description A main section, level 1 (If single level)
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 14
+\Bold
+\Justification Center
+\SpaceBefore 16
+\SpaceAfter 4
+
+\Marker ms1
+\Name (ms1) HEADING [Main Section Level 1]
+\Description A main section, level 1 (If multiple levels)
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 14
+\Bold
+\Justification Center
+\SpaceBefore 16
+\SpaceAfter 4
+
+\Marker ms2
+\Name (ms2) HEADING [Main Section Level 2]
+\Description A main section, level 2
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 14
+\Bold
+\Justification Center
+\SpaceBefore 16
+\SpaceAfter 4
+
+
+\Marker mr
+\Name (mr) HEADING [Main Section Reference]
+\Description A main section reference
+\OccursUnder ms ms1 ms2
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Center
+\SpaceAfter 4
+
+\Marker sp
+\Name (sp) HEADING [Speaker]
+\Description A heading, to identify the speaker (e.g. Job)
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Left
+
+\Marker d
+\Name d - Heading - Descriptive Title - Hebrew Subtitle
+\Description A Hebrew text heading, to provide description (e.g. Psalms)
+\OccursUnder c
+\Rank 4
+\TextType VerseText
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Center
+\SpaceBefore 4
+\SpaceAfter 4
+
+# spd is used in Deuteronomy for the divisions of Moses' speech
+
+\Marker spd
+\Name (spd) HEADING [Speech Section Division]
+\Description A heading, to indicate the divisions of a speech discourse
+\OccursUnder c
+\TextType Section
+\TextProperties paragraph publishable vernacular level_1
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\Justification Center      
+\SpaceBefore 8
+\SpaceAfter 4
+
+# Tables
+
+\Marker th1 
+\Name (th1) TABLE [Column 1 Heading]
+\Description A table heading, column 1
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\LeftMargin .5
+\FirstLineIndent -.375  # 6/16 inch
+\SpaceBefore 8
+
+\Marker th2
+\Name (th2) TABLE [Column 2 Heading]
+\Description A table heading, column 2
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\LeftMargin 1.5
+\FirstLineIndent -.375  # 6/16 inch
+
+\Marker th3
+\Name (th3) TABLE [Column 3 Heading]
+\Description A table heading, column 3
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\Italic
+\LeftMargin 2.5
+\FirstLineIndent -.375  # 6/16 inch
+
+\Marker tb1 
+\Name (tb1) TABLE [Column 1]
+\Description A table item, column 1
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin .5
+\FirstLineIndent -.375  # 6/16 inch
+
+\Marker tb2
+\Name (tb2) TABLE [Column 2]
+\Description A table item, column 2
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 1.5
+\FirstLineIndent -.375  # 6/16 inch
+
+\Marker tb3
+\Name (tb3) TABLE [Column 3]
+\Description A table item, column 3
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Paragraph
+\FontSize 12
+\LeftMargin 2.5
+\FirstLineIndent -.375  # 6/16 inch
+
+# Lists
+
+\Marker li
+\Name (li) LIST [Level 1]
+\Description A list item
+\OccursUnder c
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType paragraph
+\FontSize 12
+\LeftMargin .625
+\FirstLineIndent -.375 # 1/4 inch indent, 5/8 inch wrap
+
+# Footnote Text
+
+\Marker f
+\Endmarker f*
+\Name (f) FOOTNOTE 
+\Description A Footnote text item
+\OccursUnder id c p m pi mi q q1 q2 q3 q4 qc qr li tb1 tb2 tb3 
+\TextProperties publishable vernacular note
+\TextType NoteText
+\Styletype Note
+\FontSize 12
+
+\Marker fr
+\Endmarker fr*
+\Name (fr) FOOTNOTE [Reference]
+\Description A Footnote reference
+\OccursUnder f
+\TextType NoteText
+\TextProperties publishable vernacular
+\StyleType Character
+\FontSize 12
+\Bold
+
+\Marker fk
+\Endmarker fk*
+\Name (fk) FOOTNOTE [Keyterm Text]
+\Description A Footnote Keyterm Text
+\OccursUnder f
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+\Italic
+
+\Marker ft
+\Endmarker ft*
+\Name (ft) FOOTNOTE [Text]
+\Description A Footnote text, Protocanon
+\OccursUnder f
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+
+\Marker fq
+\Endmarker fq*
+\Name (fq) FOOTNOTE [Quote]
+\Description A Footnote Scripture quote or alternate rendering
+\OccursUnder f
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+
+\Marker fv
+\Endmarker fv*
+\Name (fv) FOOTNOTE [Verse Number]
+\Description A Footnote verse number, within the note text
+\OccursUnder f
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+\Superscript
+
+
+\Marker fdc
+\Endmarker fdc*
+\Name (fdc) FOOTNOTE [DC text]
+\Description A Footnote text, Deuterocanon
+\OccursUnder f
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+
+
+# Cross Reference Text
+
+\Marker x
+\Endmarker x*
+\Name (x) CROSS REFERENCE 
+\Description A Cross-reference text item
+\OccursUnder id c p m pi mi q q1 q2 q3 q4 qc qr li tb1 tb2 tb3 
+\TextProperties publishable vernacular note crossreference
+\TextType NoteText
+\Styletype Note
+\FontSize 12
+
+\Marker xo
+\Endmarker xo*
+\Name (xo) CROSS REFERENCE [Origin]
+\Description A Cross-reference, origin reference
+\OccursUnder x
+\TextProperties publishable vernacular note
+\StyleType Character
+\FontSize 12
+\Bold
+
+\Marker xt
+\Endmarker xt*
+\Name (xt) CROSS REFERENCE [Target]
+\Description A Cross-reference, Protocanon target reference(s)
+\OccursUnder x
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+
+\Marker xk
+\Endmarker xk*
+\Name (xk) CROSS REFERENCE [Keyword]
+\Description A Cross-reference, Keyword
+\OccursUnder x
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+
+\Marker xdc
+\Endmarker xdc*
+\Name (xdc) CROSS REFERENCE [DC Target]
+\Description A Cross-reference, Deuterocanon target reference(s)
+\OccursUnder x
+\TextProperties publishable vernacular note
+\TextType NoteText
+\StyleType Character
+\FontSize 12
+
+# Font Styles
+
+\Marker it
+\Endmarker it*
+\Name (it) CHARACTER [Italic]
+\Description A Character style, use ITALIC
+# \OccursUnder ip f x
+# Do we really want \it in body of text?
+\OccursUnder ip p pi mi m q q1 q2 q3 qc li f x s s1 s2 s3 sp
+\TextType NoteText
+\TextProperties publishable vernacular
+\StyleType Character
+\FontSize 12
+\Italic
+
+\Marker bd
+\Endmarker bd*
+\Name (bd) CHARACTER [Bold]
+\Description A Character style, use BOLD
+\OccursUnder ip f x
+\TextType NoteText
+\TextProperties publishable vernacular
+\StyleType Character
+\FontSize 12
+\Bold
+
+\Marker bk
+\Endmarker bk*
+\Name (bk) CHARACTER [Name of quoted book]
+\Description A Character style, used for NAME OF A QUOTED BOOK
+\OccursUnder v ip p pi mi m q q1 q2 q3 qc qr li f f* x x* s s1 s2 s3 sp
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Character
+\FontSize 12
+\Italic
+
+\Marker nd
+\Endmarker nd*
+\Name (nd) CHARACTER [Name of Deity]
+\Description A Character style, for NAME OF DIETY
+\OccursUnder v ip p pi mi m q q1 q2 q3 qc qr li f f* x x* s s1 s2 s3 sp d
+\TextType VerseText
+\TextProperties paragraph publishable vernacular
+\StyleType Character
+\FontSize 12
+\Color 16711680
+\Bold
+
+\Marker sc
+\Endmarker sc*
+\Name (sc) CHARACTER [Small Caps, Other]
+\Description A Character style, use SMALLCAP for small capitalization text
+\OccursUnder ip p pi mi m q q1 q2 q3 qc li f x s s1 s2 s3 sp
+\TextType Other
+\TextProperties paragraph publishable vernacular
+\StyleType Character
+\FontSize 12
+

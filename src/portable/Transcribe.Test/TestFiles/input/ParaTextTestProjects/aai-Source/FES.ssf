@@ -1,0 +1,32 @@
+﻿<ScriptureText>
+  <Name>FES</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Footnote End Sentence</FullName>
+  <Directory>D:\My Paratext Projects\FES</Directory>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <FileNamePostPart>FES.SFM</FileNamePostPart>
+  <FileNamePrePart />
+  <Versification>4</Versification>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Encoding>65001</Encoding>
+  <TranslationInfo>Standard::</TranslationInfo>
+  <Language>English</Language>
+  <DefaultFont>Cambria</DefaultFont>
+  <DefaultFontSize>14</DefaultFontSize>
+  <AssociatedLexicalProject />
+  <Copyright />
+  <LanguageIsoCode>en:::</LanguageIsoCode>
+  <EthnologueCode>en</EthnologueCode>
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <Editable>T</Editable>
+  <AllowReadAccess>F</AllowReadAccess>
+  <AllowAdvancedMorphology>F</AllowAdvancedMorphology>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <BooksPresent>000000000000000000000000000000000000000100000000000000100000000000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+  <Guid>9f86e56b638ae80dd9bfe9706588d8070725e2db</Guid>
+  <Naming PrePart="" PostPart="FES.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

@@ -1,0 +1,32 @@
+<ScriptureText>
+   <AutoKeyboardSwitching>F</AutoKeyboardSwitching>
+   <BooksPresent>000000000000000000000000000000000000000111111111111111111111111111000000000000000000000000000000000</BooksPresent>
+   <CallerSequence/>
+   <ChapterMarker>c</ChapterMarker>
+   <CreatedWithPTW6>T</CreatedWithPTW6>
+   <DefaultFont>Lucida Sans Unicode</DefaultFont>
+   <DefaultFontSize>12</DefaultFontSize>
+   <Directory>D:\My Paratext Projects\NEC</Directory>
+   <DraftVersion/>
+   <Editable>T</Editable>
+   <Encoding>NonExistent.map</Encoding>
+   <FileNameChapterNumberForm/>
+   <FileNameForm>41MAT</FileNameForm>
+   <FileNamePostPart>.NEC</FileNamePostPart>
+   <FileNamePrePart/>
+   <FullName>Proj with No Encoding Converter</FullName>
+   <Language>ENGLISH</Language>
+   <LastBackedUp>Nov 27, 2002</LastBackedUp>
+   <LeftToRight>T</LeftToRight>
+   <Name>NEC</Name>
+   <ResourceText/>
+   <SharedP5Project/>
+   <StyleSheet>D:\My Paratext Projects\default.sty</StyleSheet>
+   <TextHasChanged>T</TextHasChanged>
+   <VerseMarker>v</VerseMarker>
+   <Versification>4</Versification>
+   <WordlistCorrectCharacter/>
+   <WordlistInCorrectCharacter/>
+   <WordlistUndecidedCharacter/>
+   <Naming PostPart=".NEC" BookNameForm="41MAT"/>
+</ScriptureText>

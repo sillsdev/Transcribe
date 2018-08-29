@@ -1,0 +1,107 @@
+﻿<ScriptureText>
+  <Name>LLBSBL</Name>
+  <StyleSheet>usfm_sb.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>LLB SB MTF</FullName>
+  <Directory>D:\My Paratext Projects\LLBSBL</Directory>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <FileNamePostPart>LLBSB.SFM</FileNamePostPart>
+  <FileNamePrePart />
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Encoding>65001</Encoding>
+  <Language>English</Language>
+  <DefaultFont>Cambria</DefaultFont>
+  <DefaultFontSize>14</DefaultFontSize>
+  <BaseTranslation>StudyBible:LLB:9d663256956eafb2fa45b5df3786a11d970cfc6f</BaseTranslation>
+  <Editable>T</Editable>
+  <SegmentOrder>a b c d e f g h i j k l m n o p q r s t u v w x y z aa bb cc dd ee ff gg hh ii jj kk ll mm nn oo pp qq rr ss tt uu vv ww xx yy zz</SegmentOrder>
+  <ValidPunctuation>._ !_ ?_ - ' ´ — ‌ ‍ &lt; ,_ _&lt; &gt;_ :_ )_ _( ;_ _[ ]_ '_ _' "_ _" … …_ ? _"_ _&gt;_ _”_ _-_ _…_ . _… =</ValidPunctuation>
+  <AdvancedView>False</AdvancedView>
+  <ValidMixedCapitalization>iLatino iGrego aMedos aPartos muLivuru ASamariya aGerego ARoma aElamita aPanfiliya aFirijiya vaNyumba aKreta aAziya aJudeya aMesopotemiya aPonto aKapadosiya muUmweneni MuSamariya aGalileya muSamariya muFarizewu MuJeruzalemu aYijipitu MuFarizewu muNyumba aEberewu vaPwandoni iEberewu mMalamoni aGrego muNazareti muSidadi muuMweneni mMalamuloni iHebrewu muKiristawu aNazareti ARomano muNikuruni uRomano aEfezo muEfezo muDamasku iAramayiko iJudewu aGalata muKreta iGerego mMunembani aTesalonika MuKiristuni muKiristuni aJudewuve aIzarayelene MuCipireni aTiyagu aPawulo APawulo aKiristawu muHeberewu MuIjipitu aItopiya muItopiya muLivuruni aAtena aDjasawu aJudewale aKorinto maSabado iLikoniya AJudewale muGrego MaSabado aKoloso aIjipitu aFilistewu MaBibiliya aLevita AFilistewu aYeepusi aHeevi muIjipitu muIzarayeli aBali aKenewu aAmaleki muFilistewu aFilisteu aAmonita aAmorewu aHeberewu aFlistewu aKanani muHevewu muHiiti aPerisi aIzarayeli oKiliyati muAramu oPenuwele iAramu aMidiyani muJeruzalemu aJudewu mMusasani aFarizewu muGalileya aSadusewu ASadusewu aPeletewu aJesuri aJirizi nFilistewu aDavi aKerete aTase aKeretewu aKalebi aJeramolita mMazuni aPeduru muNyumbani AJudewu mMalrembani muGerego MMazuni aRomano muJudewu AFarizewu aRoma aSamariya muRomano aZilote mBibiliyani MBibiliyani miOlivera muFigera maBibliya AIzarayeli APeduru muGeregu AZelote muLevita muRoma muNiluni aEmini AEvi aJuda aBabiloniya muJebuse aEdomi aSidoni aAmate aAmoni aAmore aAnaki aAnami aArika aArivada ABabiloniya AEberewu muIjipitule aEti aEvi aFilipo aGomora AIjipitu aJebuse AJebuse aJeriko aJibeyawu AJibeyawu aJirigazi aJomayilale aJomayili AJomayili AJuda aKadamune aKaldewu AKaldewu aElami aItira aKaledewu AKaledewu aKana aKasuluhi aKene aKenize aKerubi AKorinto aKowate aLazaro aLehabi aLevi ALevi aLuti aMakate aMariya aMedo aMore aNafetumi aNefili aNowe ANowe aParto aPelete aPerize aRefayina aSine aSiriya aSodoma aZanzumi aZemare maBibiliya muAmoni muEberewu muAriki MuEberewu muEdeni MuEdeni muEfarayini muJeriko muJezereli muKana muKaxani muLevi MuTchipireni muTijibi MuUmweneni muZelote NFilistewu iAramayiku uRoma vaNyumbani muMweneni muNazereti aKereta AEti muEti aKafitori iGeregu aZelote AMore muBerori muArbi aGeregu aJebuze AJebuze muAribi nFilistewule muEboroni aEte AEte muJebuze aAseri aNafitali aManasesi aGadi aRubeni aEmi muBeroti aZuze aBenjami iLolo aSimiyawu aIsakari aZebulomi aJudewu' aGalasiya aKuxe aSeba noUmbutcheda muuKiristuni aMowabe muSodoma aJeruzalemu muDamasiku aJasawu aKereti aJebuzi muZeloti aPeleti aFerizi muSalmu aZeloti AGerego muDamaxiku AJebuzi muJebuzi iRoma AKerubi aKorneliyo aKalidewu muEtiyopiya MuXipireni aLudi aKasuluwimi aLeyabimi aKenezi aMesopotamiya aKowati noWumbutcheda muAziya ILolo jiLolo AAmoni AKana AKalidewu AKiristu uJudewu vaMusasani muKereta AZeloti MuZeloti iEpikuri aMezopotamiya MuuKiristini aBaali aAxitaroti muNilu MuKiristawu aMediya</ValidMixedCapitalization>
+  <InvalidMixedCapitalization>muJudewuali vamPandoni oJowabe AMorewu muArbita aIzarayelive aEberewuve MuwFari muKiristunive tchaMulugu</InvalidMixedCapitalization>
+  <RepeatableWords>gwindji godo tapa jaye pipiri kari kukumuwa datene molapa vaye gona gubu Polre do zuzu avi we wewo vati pwi ngwindji mwatene owopiha simbwa ciguwo udja ngi mbu dilukulu tangaranga tuwe gidi vakwikwi gi nzana pwe tu matene gondjiha ila peruwa notamanga ineliwa wana andimuwa dugu bure mmirimani angasi naye pama malogo waye yaye nikuru sanga nyoka zulu mapitika ohiyana polre funa mmohi makuru jatene mburu pesa pindula gwembelre waheya jilukulu oka kunya atene dingasi maka mangasi apama fe kwizi ati pule pure zagi balala japama pora Zulu tempu dapama tchiguwo mwadeya kambwalra mwana mwemule yewa dabwa ngasi gibidi yavi imohi muzulu mbinli ng'ono vang'ono sayi eno donga tavi ala gwadeya kototoliwa olapa pe ndura kwe tchawa tcho dere kotowa kauwa uve ndo vazulu aye ambinli mbwe jimohive ndoweni muwari jewa eka kwiyo kaya jingasi futuku were</RepeatableWords>
+  <NonRepeatableWords>eto ilukulu enne keraga eni vande ihiwandamela na pilri</NonRepeatableWords>
+  <Quotes>&lt;&lt; &gt;&gt;</Quotes>
+  <InnerQuotes>&lt; &gt;</InnerQuotes>
+  <InnerInnerQuotes>“ ”</InnerInnerQuotes>
+  <ContinueQuotes>Yes</ContinueQuotes>
+  <VerboseQuotes>No</VerboseQuotes>
+  <ContinueAt>p p/q1 b/q1 li1 pi pi/q1 s1/q1 m/q1</ContinueAt>
+  <GuessTranslationsDestinationText>ESV01</GuessTranslationsDestinationText>
+  <TranslationInfo>StudyBible:LLB:9d663256956eafb2fa45b5df3786a11d970cfc6f</TranslationInfo>
+  <TextEntryFontSizeAdjustment>0</TextEntryFontSizeAdjustment>
+  <WordPrefixes>omu mu kamu wa a o yo wo do no bo ko koho doho oho noho jo to ma aha na da ka mwa va  ma du na ni di d ki j ohomu ohon ohodi ohou ohoni amu adi au ani mo u udi uMulugu du mwaa unau nama anama uno oa muna ji jo dou unamu ana nnou nna au ua kannavi kanadi kanau kannau kanamu kinadi kinau kinamu kinavi kannamu kaa kannau m n mm mw v una ano dihi nihi muhu dahana wahana ahana mwahana kahana dogoho wogoho ogoho mogoho kogoho tcha nno ha muno kaha am daha n waha wahana dahana kahana nahana naha mwaha mwahana koha mmu i mi mma moa mwan kan kohaa kagamu kamuna unomu ' ana ano ku va vi vo ja kavi ni ma umu uni udi dimu tchamu tchadi tchani w om</WordPrefixes>
+  <WordSuffixes>nomu na ni ga aga le ve o ole waga u ihiwa a e ege aye ewa iwa awo ye ga wo nyu wa enyu inyu eve ave egeve agave iwa iwe iwile elo iwelo iwaga ile ele ene waye waga ani eni egeni eca agawo iwe elaga ale i ileve ela wo mo vo eya iwene ila iyo ihu ehu iye ayene ewene iwene ihaga ihiwe iheye iheya iha ihe wene wehu waga wihu ' ayele agole yo ?</WordSuffixes>
+  <SpellCheckingOn>F</SpellCheckingOn>
+  <InterlinearModelText>RC295</InterlinearModelText>
+  <InterlinearRelatedLanguages.RA293>False</InterlinearRelatedLanguages.RA293>
+  <InterlinearExportOnApprove.RA293>False</InterlinearExportOnApprove.RA293>
+  <LanguageIsoCode>en:::</LanguageIsoCode>
+  <CrossReferenceSettingsHaveBeenReviewed>T</CrossReferenceSettingsHaveBeenReviewed>
+  <RangeIndicator>-</RangeIndicator>
+  <SequenceIndicator>,</SequenceIndicator>
+  <ChapterVerseSeparator>:</ChapterVerseSeparator>
+  <ChapterRangeSeparator>-</ChapterRangeSeparator>
+  <BookSequenceSeparator>; </BookSequenceSeparator>
+  <ChapterNumberSeparator>, </ChapterNumberSeparator>
+  <BookSourceForMarkerXt>ShortName</BookSourceForMarkerXt>
+  <BookSourceForMarkerR>ShortName</BookSourceForMarkerR>
+  <InterlinearRelatedLanguages.ESV01>False</InterlinearRelatedLanguages.ESV01>
+  <InterlinearExportOnApprove.ESV01>False</InterlinearExportOnApprove.ESV01>
+  <InterlinearRelatedLanguages.RC295>False</InterlinearRelatedLanguages.RC295>
+  <InterlinearExportOnApprove.RC295>False</InterlinearExportOnApprove.RC295>
+  <ValidCharacters>  a A b B c d D e E f F g G h H i I j J k K l L m M n N o O p P — Q r R s S t T u U v V w W x X y Y z Z - ‌ ‍ ! &lt; 7 &gt; ' ] [ 0 5 4 2 3 8 6 ; ( ) 9 ? 1 : , . 
+ ” + \ ´ " “ * ‘ … q w' g' o' .' !' u' ?' s' l' a' 
+ C</ValidCharacters>
+  <CharacterAdvancedView>True</CharacterAdvancedView>
+  <InvalidCharacters>` ª õ &amp; ó á é / ã ’ C</InvalidCharacters>
+  <ContinueInnerQuotes>Yes</ContinueInnerQuotes>
+  <InvalidPunctuation>_)_ _‘ _/_ /_ _- _. _,_ _:_ _..._ / _&lt;_ _... ) ... _? : .._ , _?_ ( &gt; _._ ’ _“_ _;_ “_</InvalidPunctuation>
+  <Pairs>(/) [/] {/}</Pairs>
+  <ClosedByParagraph>No</ClosedByParagraph>
+  <PoeticStyles>ib iq iq1 iq2 iq3 q q1 q2 q3 q4 qc qr qs qa qac qm qm1 qm2 qm3 b</PoeticStyles>
+  <IntroductionOutlineStyles>io io1 io2 io3 io4</IntroductionOutlineStyles>
+  <ValidUncapitalizedStyles>mt2 ip qt q1 fq fk ior fr ft q2 fqa m pi it</ValidUncapitalizedStyles>
+  <InvalidUncapitalizedStyles>s1 ef k p</InvalidUncapitalizedStyles>
+  <ValidSentenceFinalPunctCapitalization>" ? ; : ) ] ! . &gt; ' , …</ValidSentenceFinalPunctCapitalization>
+  <Continuer>&lt;&lt;</Continuer>
+  <QuoteClosesAllQuoteLevels>No</QuoteClosesAllQuoteLevels>
+  <NumberDecimalPoint>,</NumberDecimalPoint>
+  <NumberThousandsSeparator>.</NumberThousandsSeparator>
+  <NumberInitialPunctuation>"({&lt;[</NumberInitialPunctuation>
+  <NumberFinalPunctuation>)}"&gt;.!?:],;</NumberFinalPunctuation>
+  <NumberMedialPunctuation>–-:</NumberMedialPunctuation>
+  <NumberOrdinalType>suffix</NumberOrdinalType>
+  <NumberSettingsHaveBeenReviewed>T</NumberSettingsHaveBeenReviewed>
+  <RefsMustMatchVerseSegments>False</RefsMustMatchVerseSegments>
+  <SegmentsMustHaveFinalPunctuation>False</SegmentsMustHaveFinalPunctuation>
+  <NoSpaceBetweenBookAndChapter>False</NoSpaceBetweenBookAndChapter>
+  <EthnologueCode>en</EthnologueCode>
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <InterlinearRelatedLanguages.LLBSB>False</InterlinearRelatedLanguages.LLBSB>
+  <InterlinearExportOnApprove.LLBSB>False</InterlinearExportOnApprove.LLBSB>
+  <SentenceFinalAdvancedView>False</SentenceFinalAdvancedView>
+  <SentenceFinalPunctuation>. ! ?</SentenceFinalPunctuation>
+  <MarkersCheckedForFinalPunctuation>io ip im ipi imi ipq imq ipr ib iq iq1 iq2 iq3 iex ie p m pmo pm pmc pmr pi pi1 pi2 pi3 pc mi nb cls q q1 q2 q3 q4 qc qr qa qm qm1 qm2 qm3 b d tr li li1 li2 li3 li4 lit p1 p2 k1 k2 pr ph ph1 ph2 ph3 phi tr1 tr2 ps psi pub toc pref intro conc glo idx maps cov spine</MarkersCheckedForFinalPunctuation>
+  <MarkersStartingNewSentencesForFinalPunctuation>ip p b is is1 is2 ms mse ms1 ms2 ms2e ms3 ms3e mr s s1 s1e s2 s2e s3 s3e s4 s4e sr r sp periph</MarkersStartingNewSentencesForFinalPunctuation>
+  <MarkersSkippedForFinalPunctuation>qs</MarkersSkippedForFinalPunctuation>
+  <CheckFinalPunctuationInFootnotes>No</CheckFinalPunctuationInFootnotes>
+  <CheckFinalPunctuationInCrossRefs>No</CheckFinalPunctuationInCrossRefs>
+  <CheckFinalPunctuationInFigures>No</CheckFinalPunctuationInFigures>
+  <OriginRangeOption>NoteInAnyVerse</OriginRangeOption>
+  <DefaultExFootnoteCaller>+</DefaultExFootnoteCaller>
+  <MarkerAdvancedView>False</MarkerAdvancedView>
+  <InterlinearExportText.RC295 />
+  <InterlinearExportText.ESV01 />
+  <ReferenceFinalPunctuation />
+  <ReferenceExtraMaterial />
+  <BibleModuleAssociations>XXE:Literacy.sfm</BibleModuleAssociations>
+  <BooksPresent>100000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+  <InitialImportBooksDirectory>C:\Users\Trihus\Desktop</InitialImportBooksDirectory>
+  <Guid>6e6a2930645fc608c55b7bee820f73e071178775</Guid>
+  <Naming PrePart="" PostPart="LLBSB.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

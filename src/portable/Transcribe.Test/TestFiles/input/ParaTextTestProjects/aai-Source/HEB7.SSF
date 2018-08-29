@@ -1,0 +1,29 @@
+﻿
+<ScriptureText>
+<AutoKeyboardSwitching>F</AutoKeyboardSwitching>
+<BooksPresent>111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+<CallerSequence></CallerSequence>
+<ChapterMarker>c</ChapterMarker>
+<DefaultFont>SBL Hebrew</DefaultFont>
+<DefaultFontSize>16</DefaultFontSize>
+<Directory>D:\My Paratext Projects\heb</Directory>
+<Editable>F</Editable>
+<Encoding>65001</Encoding>
+<FileNameChapterNumberForm></FileNameChapterNumberForm>
+<FileNameForm>41MAT</FileNameForm>
+<FileNamePostPart>.HEB</FileNamePostPart>
+<FileNamePrePart></FileNamePrePart>
+<FullName>Biblia Hebraica (PT7)</FullName>
+<Language>Hebrew</Language>
+<LeftToRight>F</LeftToRight>
+<Name>HEB</Name>
+<ResourceText>T</ResourceText>
+<RunFromCD>F</RunFromCD>
+<StyleSheet>heb.sty</StyleSheet>
+<StylesheetModificationDate>4/10/2003 3:13:14 PM</StylesheetModificationDate>
+<VerseMarker>v</VerseMarker>
+<Versification>1</Versification>
+<Version>1.1</Version>
+<Naming PostPart=".HEB" BookNameForm="41MAT"></Naming>
+<Zipped>T</Zipped>
+</ScriptureText>

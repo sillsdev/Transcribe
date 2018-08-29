@@ -1,0 +1,31 @@
+﻿<ScriptureText>
+  <Name>LTu</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Lu Taogu</FullName>
+  <Directory>D:\My Paratext Projects\LTu</Directory>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <FileNamePostPart>LTu.SFM</FileNamePostPart>
+  <FileNamePrePart />
+  <Versification>4</Versification>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Encoding>65001</Encoding>
+  <TranslationInfo>Standard::</TranslationInfo>
+  <Language>taogu</Language>
+  <DefaultFont>Taogu</DefaultFont>
+  <DefaultFontSize>10</DefaultFontSize>
+  <AssociatedLexicalProject />
+  <Copyright />
+  <LanguageIsoCode>khb:::</LanguageIsoCode>
+  <EthnologueCode>khb</EthnologueCode>
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <Editable>T</Editable>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <InitialImportBooksDirectory>C:\Users\Trihus\Downloads</InitialImportBooksDirectory>
+  <BooksPresent>000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+  <TextEntryFontSizeAdjustment>0</TextEntryFontSizeAdjustment>
+  <Naming PrePart="" PostPart="LTu.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

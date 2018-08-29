@@ -1,0 +1,32 @@
+<ScriptureText>
+  <Name>KFY</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Kumaoni</FullName>
+  
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <FileNamePostPart>KFY.SFM</FileNamePostPart>
+  <FileNamePrePart />
+  <Versification>4</Versification>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Encoding>65001</Encoding>
+  <Language>Devanagari</Language>
+  <DefaultFont>Arial Unicode MS</DefaultFont>
+  <DefaultFontSize>16</DefaultFontSize>
+  <Editable>T</Editable>
+  <InitialImportBooksDirectory>D:\Manjula\Projects\SIL\Task\TD-4557\KFY 2011-06-24</InitialImportBooksDirectory>
+  <Quotes>“ ”</Quotes>
+  <InnerQuotes>‘ ’</InnerQuotes>
+  <InnerInnerQuotes>“ ”</InnerInnerQuotes>
+  <ContinueQuotes>Yes</ContinueQuotes>
+  <VerboseQuotes>No</VerboseQuotes>
+  <ContinueAt>p p/q p/q1</ContinueAt>
+  
+  <TranslationInfo />
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <Guid>c9fec723aaf5f693bd5b703a9e1e21f24f6daa5d</Guid>
+  <Naming PrePart="" PostPart="KFY.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+<Directory>D:\My Paratext Projects\KFY</Directory><BooksPresent>110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</BooksPresent></ScriptureText>

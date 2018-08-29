@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ErrorMessageDenialsList>
+  <ScrTextName>aai</ScrTextName>
+  <Denials>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">MAT 17:21</VerseRef>
+      <SelectedText>Luke 9.43b-45</SelectedText>
+      <Message>Target invalid: Luke 9.43b-45</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">LUK 7:18-19</VerseRef>
+      <SelectedText>7.19-20</SelectedText>
+      <Message>Expected reference [7.18-19] but found reference [7.19-20] in \xo origin</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">ACT 4:27</VerseRef>
+      <SelectedText>Mat 27.1‑2</SelectedText>
+      <Message>Target invalid: Mat 27.1‑2</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">ACT 11:19</VerseRef>
+      <SelectedText>Act 8.1‑4</SelectedText>
+      <Message>Target invalid: Act 8.1‑4</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">1CO 10:33</VerseRef>
+      <SelectedText>1Cor 9.20‑22</SelectedText>
+      <Message>Target invalid: 1Cor 9.20‑22</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">1CO 14:26</VerseRef>
+      <SelectedText>1Cor 12.8‑10</SelectedText>
+      <Message>Target invalid: 1Cor 12.8‑10</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">1CO 15:4</VerseRef>
+      <SelectedText>Act 2.24‑32</SelectedText>
+      <Message>Target invalid: Act 2.24‑32</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">1CO 16:1</VerseRef>
+      <SelectedText>Rom 15.25‑26</SelectedText>
+      <Message>Target invalid: Rom 15.25‑26</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">HEB 6:10</VerseRef>
+      <SelectedText>Heb 10.32‑34</SelectedText>
+      <Message>Target invalid: Heb 10.32‑34</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">HEB 12:25</VerseRef>
+      <SelectedText>Heb 2.1‑3</SelectedText>
+      <Message>Target invalid: Heb 2.1‑3</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">REV 3:5</VerseRef>
+      <SelectedText>Exo 32.32‑33</SelectedText>
+      <Message>Target invalid: Exo 32.32‑33</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">REV 11:6</VerseRef>
+      <SelectedText>Exo 7.17‑20</SelectedText>
+      <Message>Target invalid: Exo 7.17‑20</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">REV 14:10</VerseRef>
+      <SelectedText>Jer 25.15‑16</SelectedText>
+      <Message>Target invalid: Jer 25.15‑16</Message>
+    </ErrorMessageDenial>
+    <ErrorMessageDenial>
+      <VerseRef Versification="English">REV 19:20</VerseRef>
+      <SelectedText>Rev 13.12‑17</SelectedText>
+      <Message>Target invalid: Rev 13.12‑17</Message>
+    </ErrorMessageDenial>
+  </Denials>
+</ErrorMessageDenialsList>

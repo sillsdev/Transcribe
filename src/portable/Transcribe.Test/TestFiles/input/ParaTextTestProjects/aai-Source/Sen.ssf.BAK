@@ -1,0 +1,34 @@
+﻿<ScriptureText>
+  <Name>Sen</Name>
+  <StyleSheet>Sena 3.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Sena 3</FullName>
+  <Directory>D:\My Paratext Projects\Sen</Directory>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <FileNamePostPart>Sen.sfm</FileNamePostPart>
+  <FileNamePrePart />
+  <BooksPresent>100000000000000000000000000000010000000110000000000000000000000000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+  <Copyright />
+  <Editable>T</Editable>
+  <Encoding>65001</Encoding>
+  <Language>Sena</Language>
+  <LeftToRight>T</LeftToRight>
+  <Versification>4</Versification>
+  <TranslationInfo>Standard::</TranslationInfo>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <DefaultFont>Doulos SIL</DefaultFont>
+  <DefaultFontSize>10</DefaultFontSize>
+  <LanguageIsoCode>seh:::</LanguageIsoCode>
+  <NeedsPortugueseLanguageFix />
+  <AssociatedLexicalProject>FieldWorks:Sena 3</AssociatedLexicalProject>
+  <EthnologueCode>seh</EthnologueCode>
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <AllowReadAccess>F</AllowReadAccess>
+  <AllowAdvancedMorphology>F</AllowAdvancedMorphology>
+  <AllowSharingWithSLDR>F</AllowSharingWithSLDR>
+  <EncodingConverter />
+  <Guid>352baac7c7d3ec2a1b196a7919e76f63f47329b3</Guid>
+  <Naming PrePart="" PostPart="Sen.sfm" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

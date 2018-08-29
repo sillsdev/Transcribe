@@ -1,0 +1,45 @@
+﻿<ScriptureText>
+  <Name>avt</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Au NT [avt] Papua New Guinea 1982</FullName>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNamePostPart>avt.SFM</FileNamePostPart>
+  <AdvancedView>False</AdvancedView>
+  <CharacterAdvancedView>True</CharacterAdvancedView>
+  <ContinueAt>p p/q p/q1</ContinueAt>
+  <ContinueInnerQuotes>Yes</ContinueInnerQuotes>
+  <ContinueQuotes>Yes</ContinueQuotes>
+  <Copyright>Wycliffe Bible Translators, Inc.</Copyright>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <DefaultFont>Charis SIL</DefaultFont>
+  <DefaultFontSize>14</DefaultFontSize>
+  <Editable>T</Editable>
+  <Encoding>65001</Encoding>
+  <EthnologueCode>avt</EthnologueCode>
+  <InitialImportBooksDirectory>C:\My Paratext Projects\~PNG\avtNT\Phil</InitialImportBooksDirectory>
+  <InnerInnerQuotes>“ ”</InnerInnerQuotes>
+  <InnerQuotes>‘ ’</InnerQuotes>
+  <InvalidPunctuation>,</InvalidPunctuation>
+  <Language>avt</Language>
+  <LanguageIsoCode>avt:::</LanguageIsoCode>
+  <Quotes>“ ”</Quotes>
+  <ValidCharacters>a A b B c C d D e E f F g G h H i I ɨ Ɨ j J k K l L m M n N o O p P q Q r R s S t T u U v V w W x X y Y z Z - ‌ ‍ — ! ( ) , . / : ; ? [ ] ‘ ’ “ ” © • 0 1 2 3 4 5 6 7 8 9 –</ValidCharacters>
+  <ValidPunctuation>_[_ _[ ]_ ( _—_ _•_ ’ / _-_ _?_ _©_ -_ ;_ ._ _“ ,_ _( . )_ ?_ !_ - ’_ ”_ :_ _‘ : [ _–_ ] ‌ ‍</ValidPunctuation>
+  <VerboseQuotes>No</VerboseQuotes>
+  <Versification>4</Versification>
+  <CrossReferenceSettingsHaveBeenReviewed>T</CrossReferenceSettingsHaveBeenReviewed>
+  <RangeIndicator>-</RangeIndicator>
+  <SequenceIndicator>, </SequenceIndicator>
+  <ChapterVerseSeparator>:</ChapterVerseSeparator>
+  <ChapterRangeSeparator>–</ChapterRangeSeparator>
+  <BookSequenceSeparator>; </BookSequenceSeparator>
+  <ChapterNumberSeparator>, </ChapterNumberSeparator>
+  <BookSourceForMarkerXt>Abbreviation</BookSourceForMarkerXt>
+  <BookSourceForMarkerR>Abbreviation</BookSourceForMarkerR>
+  <BooksPresent>000000000000000000000000000000000000000111111111111111111111111111000000000000000000000000001000000100000000000000000000000</BooksPresent>
+  <TranslationInfo />
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <Naming PrePart="" PostPart="avt.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

@@ -1,0 +1,682 @@
+﻿# Version=2.404
+# ********************************************************************
+# * usfm.sty is the default stylesheet for Paratext 7 projects       *
+# *   using USFM markup.                                             *
+# * Latest documentation and stylesheets are maintained at:          *
+# *   http://paratext.org/usfm                                       *
+# ********************************************************************
+
+\Marker id
+\Name id - 檔案 - 標識
+
+\Marker ide
+\Name ide - 檔案 - 編碼
+
+\Marker h
+\Name h - 檔案 - 標題
+
+\Marker h1
+\Name h1 - 檔案 - 標題
+
+\Marker h2
+\Name h2 - 檔案 - 左標題
+
+\Marker h3
+\Name h3 - 檔案 - 右標題
+
+\Marker toc1
+\Name toc1 - 檔案 - 長目錄文本
+
+\Marker toc2
+\Name toc2 - 檔案 - 短目錄文本
+
+\Marker toc3
+\Name toc3 - 檔案 - 書卷縮寫
+
+\Marker rem
+\Name rem - 檔案 - 備註
+
+\Marker sts
+\Name rem - 檔案 - 狀態
+
+\Marker restore
+\Name restore - 檔案 - 回存資料
+
+\Marker imt
+\Name imt - 簡介 - 主要標題第一層
+
+\Marker imt1
+\Name imt1 - 簡介 - 主要標題第一層
+
+\Marker imt2
+\Name imt2 - 簡介 - 主要標題第二層
+
+\Marker imt3
+\Name imt3 - 簡介 - 主要標題第三層
+
+\Marker imt4
+\Name imt4 - 簡介 - 主要標題第四層
+
+\Marker imte
+\Name imte - 簡介 - [不常見] 標示簡介結束的主要標題第一層
+
+\Marker imte1
+\Name imte1 - 簡介 - [不常見] 標示簡介結束的主要標題第一層
+
+\Marker imte2
+\Name imte2 - 簡介 - [不常見] 標示簡介結束的主要標題第二層
+
+\Marker is
+\Name is - 簡介 - 分段標題第一層
+
+\Marker is1
+\Name is1 - 簡介 - 分段標題第一層
+
+\Marker is2
+\Name is2 - 簡介 - 分段標題第二層
+
+\Marker iot
+\Name iot - 簡介 - 大綱標題
+
+\Marker io
+\Name io - 簡介 - 大綱第一層
+
+\Marker io1
+\Name io1 - 簡介 - 大綱第一層
+
+\Marker io2
+\Name io2 - 簡介 - 大綱第二層
+
+\Marker io3
+\Name io3 - 簡介 - 大綱第三層
+
+\Marker io4
+\Name io4 - 簡介 - 大綱第四層
+
+\Marker ior
+\Name ior...ior* - 簡介 - 大綱參照範圍
+
+\Marker ip
+\Name ip - 簡介 - 段落
+
+\Marker im
+\Name im - 簡介 - 段落 - 第一行不縮排
+
+\Marker ipi
+\Name ipi - 簡介 - 縮排段落 - 第一行縮排
+
+\Marker imi
+\Name imi - 簡介 - 縮排段落 - 第一行不縮排
+
+\Marker ili
+\Name ili - 簡介 - 列表項 - 第一層
+
+\Marker ili1
+\Name ili1 - 簡介 - 列表項 - 第一層
+
+\Marker ili2
+\Name ili2 - 簡介 - 列表項 - 第二層
+
+\Marker ipq
+\Name ipq - 簡介 - 段落 - 引自文本
+
+\Marker imq
+\Name imq - 簡介 - 段落 - 引自文本 - 第一行不縮排
+
+\Marker ipr
+\Name ipr - 簡介 - 段落 - 右對齊
+
+\Marker ib
+\Name ib - 簡介 - 空行
+
+\Marker iq
+\Name iq - 簡介 - 詩體第一層
+
+\Marker iq1
+\Name iq1 - 簡介 - 詩體第一層
+
+\Marker iq2
+\Name iq2 - 簡介 - 詩體第二層
+
+\Marker iq3
+\Name iq3 - 簡介 - 詩體第三層
+
+\Marker iex
+\Name iex - 簡介 - 解釋或橋接文本
+
+\Marker iqt
+\Name iqt...iqt* - 特別文本 - 簡介中的聖經引文
+
+\Marker ie
+\Name ie - 簡介 - 結束格式碼
+
+\Marker c
+\Name c - 章碼
+
+\Marker ca
+\Name ca...ca* - 章碼 - 另一種章碼
+
+\Marker cp
+\Name cp - 章碼 - 另一種發佈章碼
+
+\Marker cl
+\Name cl - 章 - 發佈標籤
+
+\Marker cd
+\Name cd - 章 - 描述
+
+\Marker v
+\Name v - 節碼
+
+\Marker va
+\Name va...va* - 節碼 - 另一種節碼
+
+\Marker vp
+\Name vp...vp* - 節碼 - 另一種發佈節碼
+
+\Marker p
+\Name p - 段落 - 正常 - 第一行縮排
+
+\Marker m
+\Name m - 段落 - 頁邊 - 第一行不縮排
+
+\Marker pmo
+\Name pmo - 段落 - 嵌入文本的開端
+
+\Marker pm
+\Name pm - 段落 - 嵌入文本
+
+\Marker pmc
+\Name pmc - 段落 - 嵌入文本的結尾
+
+\Marker pmr
+\Name pmr - 段落 - 嵌入文本的疊句
+
+\Marker pi
+\Name pi - 段落 - 縮排 - 第一層 - 第一行縮排
+
+\Marker pi1
+\Name pi1 - 段落 - 縮排 - 第一層 - 第一行縮排
+
+\Marker pi2
+\Name pi2 - 段落 - 縮排 - 第二層 - 第一行縮排
+
+\Marker pi3
+\Name pi3 - 段落 - 縮排 - 第三層 - 第一行縮排
+
+\Marker pc
+\Name pc - 段落 - 置中（標題）
+
+\Marker mi
+\Name mi - 段落 - 縮排 - 第一行不縮排
+
+\Marker nb
+\Name nb - 段落 - 與前一段落沒有中斷
+
+\Marker cls
+\Name cls - 段落 - 書信的結束
+
+\Marker q
+\Name q - 詩體 - 第一層縮排 - 只限單層
+
+\Marker q1
+\Name q1 - 詩體 - 第一層縮排
+
+\Marker q2
+\Name q2 - 詩體 - 第二層縮排
+
+\Marker q3
+\Name q3 - 詩體 - 第三層縮排
+
+\Marker q4
+\Name q4 - 詩體 - 第四層縮排
+
+\Marker qc
+\Name qc - 詩體 - 置中
+
+\Marker qr
+\Name qr - 詩體 - 右對齊
+
+\Marker qs
+\Name qs...qs* - 詩體文本 - 細拉
+
+\Marker qa
+\Name qa - 詩體 - 離合體標題／格式碼
+
+\Marker qac
+\Name qac...qac* - 詩體文本 - 離合體字母
+
+\Marker qm
+\Name qm - 詩體 - 嵌入文本 - 第一層縮排 - 只限單層
+
+\Marker qm1
+\Name qm1 - 詩體 - 嵌入文本 - 第一層縮排
+
+\Marker qm2
+\Name qm2 - 詩體 - 嵌入文本 - 第二層縮排
+
+\Marker qm3
+\Name qm3 - 詩體 - 嵌入文本 - 第三層縮排
+
+\Marker b
+\Name b - 詩體 - 詩節間歇（空行）
+
+\Marker mt
+\Name mt - 全書標題 - 主要標題第一層
+
+\Marker mt1
+\Name mt1 - 全書標題 - 主要標題第一層
+
+\Marker mt2
+\Name mt2 - 全書標題 - 主要標題第二層
+
+\Marker mt3
+\Name mt3 - 全書標題 - 主要標題第三層
+
+\Marker mt4
+\Name mt4 - 全書標題 - 主要標題第四層
+
+\Marker mte
+\Name mte - 全書標題 - [不常見] 主要標題結束第一層
+
+\Marker mte1
+\Name mte1 - 全書標題 - [不常見] 主要標題結束第一層
+
+\Marker mte2
+\Name mte2 - 全書標題 - [不常見]主要標題結束第二層
+
+\Marker ms
+\Name ms - 章節標題 - 主要分段標題第一層
+
+\Marker ms1
+\Name ms1 - 章節標題 - 主要分段標題第一層
+
+\Marker ms2
+\Name ms2 - 章節標題 - 主要分段標題第二層
+
+\Marker ms3
+\Name ms3 - 章節標題 - 主要分段標題第三層
+
+\Marker mr
+\Name mr - 章節標題 - 主要分段範圍參照
+
+\Marker s
+\Name s - 章節標題 - 分段標題第一層
+
+\Marker s1
+\Name s1 - 章節標題 - 分段標題第一層
+
+\Marker s2
+\Name s2 - 章節標題 - 分段標題第二層
+
+\Marker s3
+\Name s3 - 章節標題 - 分段標題第三層
+
+\Marker s4
+\Name s4 - 章節標題 - 分段標題第四層
+
+\Marker sr
+\Name sr - 章節標題 - 分段範圍參照
+
+\Marker r
+\Name r - 章節標題 - 平行參照
+
+\Marker sp
+\Name sp - 章節標題 - 說話者
+
+\Marker d
+\Name d - 章節標題 - 描述性標題 - 希伯來語副標題
+
+\Marker tr
+\Name tr - 表格 - 行
+
+\Marker th1
+\Name th1 - 表格 - 第一列標題
+
+\Marker th2
+\Name th2 - 表格 - 第二列標題
+
+\Marker th3
+\Name th3 - 表格 - 第三列標題
+
+\Marker th4
+\Name th4 - 表格 - 第四列標題
+
+\Marker th5
+\Name th5 - 表格 - 第五列標題
+
+\Marker tc1
+\Name tc1 - 表格 - 第一列單元格
+
+\Marker tc2
+\Name tc2 - 表格 - 第二列單元格
+
+\Marker tc3
+\Name tc3 - 表格 - 第三列單元格
+
+\Marker tc4
+\Name tc4 - 表格 - 第四列單元格
+
+\Marker tc5
+\Name tc5 - 表格 - 第五列單元格
+
+\Marker thc1
+\Name thc1 - 表格 - 第一列標題 - 置中對齊
+
+\Marker thc2
+\Name thc2 - 表格 - 第二列標題 - 置中對齊
+
+\Marker thc3
+\Name thc3 - 表格 - 第三列標題 - 置中對齊
+
+\Marker thc4
+\Name thc4 - 表格 - 第四列標題 - 置中對齊
+
+\Marker thc5
+\Name thc5 - 表格 - 第五列標題 - 置中對齊
+
+\Marker tcc1
+\Name tcc1 - 表格 - 第一列單元格 - 置中對齊
+
+\Marker tcc2
+\Name tcc2 - 表格 - 第二列單元格 - 置中對齊
+
+\Marker tcc3
+\Name tcc3 - 表格 - 第三列單元格 - 置中對齊
+
+\Marker tcc4
+\Name tcc4 - 表格 - 第四列單元格 - 置中對齊
+
+\Marker tcc5
+\Name tcc5 - 表格 - 第五列單元格 - 置中對齊
+
+\Marker thr1
+\Name thr1 - 表格 - 第一列標題 - 右對齊
+
+\Marker thr2
+\Name thr2 - 表格 - 第二列標題 - 右對齊
+
+\Marker thr3
+\Name thr3 - 表格 - 第三列標題 - 右對齊
+
+\Marker thr4
+\Name thr4 - 表格 - 第四列標題 - 右對齊
+
+\Marker thr5
+\Name thr5 - 表格 - 第五列標題 - 右對齊
+
+\Marker tcr1
+\Name tcr1 - 表格 - 第一列單元格 - 右對齊
+
+\Marker tcr2
+\Name tcr2 - 表格 - 第二列單元格 - 右對齊
+
+\Marker tcr3
+\Name tcr3 - 表格 - 第三列單元格 - 右對齊
+
+\Marker tcr4
+\Name tcr4 - 表格 - 第四列單元格 - 右對齊
+
+\Marker tcr5
+\Name tcr5 - 表格 - 第五列單元格 - 右對齊
+
+\Marker li
+\Name li - 列表項 - 第一層
+
+\Marker li1
+\Name li1 - 列表項 - 第一層
+
+\Marker li2
+\Name li2 - 列表項 - 第二層
+
+\Marker li3
+\Name li3 - 列表項 - 第三層
+
+\Marker li4
+\Name li4 - 列表項 - 第四層
+
+\Marker f
+\Name f...f* - 註腳
+
+\Marker fe
+\Name fe...fe* - 尾註
+
+\Marker fr
+\Name fr - 註腳 - 參照
+
+\Marker ft
+\Name ft - 註腳 - 文本
+
+\Marker fk
+\Name fk - 註腳 - 關鍵詞
+
+\Marker fq
+\Name fq - 註腳 - 引句或另一種譯法
+
+\Marker fqa
+\Name fqa - 註腳 - 另一種譯法
+
+\Marker fl
+\Name fl - 註腳 - 標記文本
+
+\Marker fp
+\Name fp - 註腳段落標記
+
+\Marker fv
+\Name fv...fv* - 註腳 - 嵌入的節碼
+
+\Marker fdc
+\Name fdc...fdc* - 註腳 - 舊約次經文本
+
+\Marker fm
+\Name fm - 註腳 - 指前一個附註的附加調用碼
+
+\Marker x
+\Name x...x* - 經文參照
+
+\Marker xo
+\Name xo - 經文參照 - 源參照
+
+\Marker xt
+\Name xt - 經文參照 - 目標參照
+
+\Marker xk
+\Name xk - 經文參照 - 關鍵詞
+
+\Marker xq
+\Name xq - 經文參照 - 引句
+
+\Marker xot
+\Name xot...xot* - 經文參照 - 舊約參照（可選）
+
+\Marker xnt
+\Name xnt...xnt* - 經文參照 - 新約參照（可選）
+
+\Marker xdc
+\Name xdc...xdc* - 經文參照 - 舊約次經參照
+
+\Marker rq
+\Name rq...rq* - 經文參照 - 嵌入引句參照
+
+\Marker qt
+\Name qt...qt* - 特別文本 - 引用經文 - 新約中的舊約引文
+
+\Marker nd
+\Name nd...nd* - 特別文本 - 神名
+
+\Marker tl
+\Name tl...tl* - 特別文本 - 音譯詞
+
+\Marker dc
+\Name dc...dc* - 特別文本 - 舊約次經／《七十士譯本》的附加文本
+
+\Marker bk
+\Name bk...bk* - 特別文本 - 引用書名
+
+\Marker sig
+\Name sig...sig* - 特別文本 - 作者簽名（新約書信）
+
+\Marker pn
+\Name pn...pn* - 特別文本 - 專有名詞
+
+\Marker addpn
+\Name addpn...addpn* - 中文特別文本
+
+\Marker wj
+\Name wj...wj* - 特別文本 - 耶穌的話語
+
+\Marker k
+\Name k...k* - 特別文本 - 關鍵詞
+
+\Marker sls
+\Name sls...sls* - 特別文本 - 第二語言或文本來源
+
+\Marker ord
+\Name ord...ord* - 特別文本 - 序數文本部分
+
+\Marker add
+\Name add...add* - 特別文本 - 附加翻譯
+
+\Marker lit
+\Name lit - 特別文本 - 禮儀附註
+
+\Marker no
+\Name no...no* - 字符 - 正常文本
+
+\Marker it
+\Name it...it* - 字符 - 斜體文本
+
+\Marker bd
+\Name bd...bd* - 字符 - 黑體文本
+
+\Marker bdit
+\Name bdit...bdit* - 字符 - 黑體斜體文本
+
+\Marker em
+\Name em...em* - 字符 - 強調文本
+
+\Marker sc
+\Name sc...sc* - 字符 - 小體大寫字母
+
+\Marker pb
+\Name pb - 中斷 - 分頁
+
+\Marker fig
+\Name fig...fig* - 輔助 - 圖表／圖解／地圖
+
+\Marker pro
+\Name pro...pro* - 特別文本 - CJK 發音
+
+\Marker w
+\Name w...w* - 外圍參考 - 字詞表條目
+
+\Marker wh
+\Name wh...wh* - 外圍參考 - 希伯來語字詞表條目
+
+\Marker wg
+\Name wg...wg* - 外圍參考 - 希臘語字詞表條目
+
+\Marker ndx
+\Name ndx...ndx* - 外圍參考 - 主題索引條目
+
+\Marker periph
+\Name periph - 外圍資料 - 內容類別區分格式碼
+
+\Marker p1
+\Name p1 - 外圍資料 - 前頁／後頁段落第一層
+
+\Marker p2
+\Name p2 - 外圍資料 - 前頁／後頁段落第二層
+
+\Marker k1
+\Name k1 - 外圍資料 - 彙編關鍵詞第一層
+
+\Marker k2
+\Name k2 - 外圍資料 - 彙編關鍵詞第二層
+
+\Marker xtSee
+\Name xtSee - 彙編與名字索引 - 交替條目參照
+
+\Marker xtSeeAlso
+\Name xtSeeAlso - 彙編與名字索引 - 附加條目參照
+
+\Marker pr
+\Name DEPRECATED pr - 段落 - 右對齊
+
+\Marker ph
+\Name DEPRECATED ph - 段落 - 第一行凸排 - 第一層
+
+\Marker ph1
+\Name DEPRECATED ph1 - 段落 - 第一行凸排 - 第一層
+
+\Marker ph2
+\Name DEPRECATED ph2 - 段落 - 第一行凸排 - 第二層
+
+\Marker ph3
+\Name DEPRECATED ph3 - 段落 - 第一行凸排 - 第三層
+
+\Marker phi
+\Name DEPRECATED phi - 段落 - 縮排 - 第一行凸排
+
+\Marker tr1
+\Name OBSOLETE tr1 - 表格 - 行 - 第一層
+
+\Marker tr2
+\Name OBSOLETE tr2 - 表格 - 行 - 第二層
+
+\Marker ps
+\Name OBSOLETE ps - 段落 - 與下一段落沒有中斷
+
+\Marker psi
+\Name OBSOLETE psi - 段落 - 縮排 - 與下一段落沒有中斷
+
+\Marker fs
+\Name DEPRECATED fs - 註腳 - 註腳摘要
+
+\Marker wr
+\Name OBSOLETE wr...wr* - 輔助 - 字詞表／詞彙表參照
+
+\Marker pub
+\Name OBSOLETE pub Peripherals - （外圍資料）前頁的發佈資料
+
+\Marker toc
+\Name OBSOLETE toc Peripherals - （外圍資料）前頁的目錄
+
+\Marker pref
+\Name OBSOLETE pref Peripherals - （外圍資料）前頁的前言
+
+\Marker intro
+\Name OBSOLETE intro Peripherals - （外圍資料）前頁的簡介
+
+\Marker conc
+\Name OBSOLETE conc Peripherals - （外圍資料）後頁的彙編
+
+\Marker glo
+\Name OBSOLETE glo Peripherals - （外圍資料）後頁的詞彙表
+
+\Marker idx
+\Name OBSOLETE idx Peripherals - （外圍資料）後頁的索引
+
+\Marker maps
+\Name OBSOLETE maps Peripherals - （外圍資料）後頁的地圖索引
+
+\Marker cov
+\Name OBSOLETE cov Peripherals - （外圍資料）其他 - 封面
+
+\Marker spine
+\Name OBSOLETE spine Peripherals - （外圍資料）其他 - 書脊
+
+\Marker pubinfo
+\Name OBSOLETE pubinfo - 發佈 - 資料
+
+\Marker zpa-xb
+\Name zpa-xb - 外圍資料 - 書卷
+
+\Marker zpa-xc
+\Name zpa-xc - 外圍資料 - 章
+
+\Marker zpa-xv
+\Name zpa-xv - 外圍資料 - 節
+
+\Marker zpa-d
+\Name zpa-d - 外圍資料 - 描述

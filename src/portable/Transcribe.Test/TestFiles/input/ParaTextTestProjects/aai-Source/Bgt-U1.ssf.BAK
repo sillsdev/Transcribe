@@ -1,0 +1,38 @@
+﻿<ScriptureText>
+  <Name>Bgt-U1</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Bughotu-U1</FullName>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNamePostPart>Bgt-U1.SFM</FileNamePostPart>
+  <BooksPresent>000000000000000000000000000000000000000111111111111111111111111111000000000000000000000000001000000111000000001000000000000</BooksPresent>
+  <ContinueAt>p p/q1 b/q1 c/q1</ContinueAt>
+  <ContinueInnerQuotes>Yes</ContinueInnerQuotes>
+  <ContinueQuotes>Yes</ContinueQuotes>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <DefaultFont>Cambria</DefaultFont>
+  <DefaultFontSize>14</DefaultFontSize>
+  <Editable>T</Editable>
+  <Encoding>1252</Encoding>
+  <InnerInnerQuotes>NullValue</InnerInnerQuotes>
+  <InnerQuotes>&lt; &gt;</InnerQuotes>
+  <Language>English</Language>
+  <LastBackedUp>2013Feb13</LastBackedUp>
+  <Quotes>&lt;&lt; &gt;&gt;</Quotes>
+  <RangeIndicator>-</RangeIndicator>
+  <SegmentOrder>a b c d e f g h i j k l m n o p q r s t u v w x y z aa bb cc dd ee ff gg hh ii jj kk ll mm nn oo pp qq rr ss tt uu vv ww xx yy zz</SegmentOrder>
+  <SequenceIndicator>,</SequenceIndicator>
+  <StylesheetModificationDate>11/17/2008 3:36:58 PM</StylesheetModificationDate>
+  <TextHasChanged>F</TextHasChanged>
+  <VerboseQuotes>No</VerboseQuotes>
+  <Versification>4</Versification>
+  <TranslationInfo />
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix />
+  <FileNamePrePart />
+  <FileNameChapterNumberForm />
+  <Guid>66341d014efe073baec884e50e073051333d35b4</Guid>
+  <LanguageIsoCode>en:::</LanguageIsoCode>
+  <Naming PrePart="" PostPart="Bgt-U1.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

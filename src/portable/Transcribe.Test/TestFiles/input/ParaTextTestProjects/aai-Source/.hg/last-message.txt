@@ -1,0 +1,5 @@
+<Summary>
+  <Comment>After update: Fix problem with duplicate discussion notes</Comment>
+  <MachineName>MANJULA-PC</MachineName>
+  <ApplicationVersion>8.0.100.67</ApplicationVersion>
+</Summary>
