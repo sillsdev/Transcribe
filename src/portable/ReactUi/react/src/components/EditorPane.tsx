@@ -5,7 +5,8 @@ import * as actions2 from '../actions/audioActions';
 import * as actions from '../actions/taskActions';
 import { IState } from '../model/state';
 import language from '../selectors/language';
-import './EditorPane.sass'
+import './EditorPane.sass';
+
 
 interface IProps extends IStateProps, IDispatchProps {
 }
@@ -17,12 +18,18 @@ const initialState = {
 class EditorPane extends React.Component<IProps, typeof initialState> {
     public state: typeof initialState;
     private interval: any;
+    private textArea:any;
 
     public constructor(props: IProps) {
         super(props);
         this.state = initialState
         this.change = this.change.bind(this);
         this.keyUp = this.keyUp.bind(this);
+        this.textArea = React.createRef();
+    }
+
+    public componentDidUpdate(){
+        this.textArea.focus();
     }
 
     public componentDidMount() {
@@ -52,11 +59,13 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             <div className="EditorPane">
                 <textarea
                     id="Editor"
+                    ref={(textArea) => this.textArea = textArea}
                     value={this.state.text}
                     style={{fontFamily: font, fontSize: size}} 
                     onChange={this.change} 
                     onKeyUp={this.keyUp}
-                    />
+                    onFocus={this.movePositionAtEnd}
+                />
             </div>
         )
     }
@@ -95,6 +104,12 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             setSaved(false);
         }
         setInitialTranscription(false);
+    }
+
+    private movePositionAtEnd(e: any) {
+        const tempValue = e.target.value
+        e.target.value = ''
+        e.target.value = tempValue
     }
 };
 
