@@ -13,20 +13,19 @@
     <None Remove="data\usersInit.xml" />
     <None Remove="data\usersSample.xml" />
     <None Remove="react\build\asset-manifest.json" />
-    <None Remove="react\build\assets\bibleAvatar.png" />
-    <None Remove="react\build\assets\smile.svg" />
-    <None Remove="react\build\assets\storyAvatar.png" />
-    <None Remove="react\build\assets\testAvatar.png" />
-    <None Remove="react\build\assets\waveform.png" />
-    <None Remove="react\build\assets\waveform.svg" />
     <None Remove="react\build\favicon.ico" />
     <None Remove="react\build\index.html" />
     <None Remove="react\build\manifest.json" />
     <None Remove="react\build\service-worker.js" />
+    <None Remove="react\build\assets\bibleAvatar.png" />
+    <None Remove="react\build\assets\storyAvatar.png" />
+    <None Remove="react\build\assets\testAvatar.png" />
+    <None Remove="react\build\assets\waveform.png" />
+    <None Remove="react\build\localization\strings.json" />
     <None Remove="react\build\static\css\main.bf970957.css" />
     <None Remove="react\build\static\css\main.bf970957.css.map" />
-    <None Remove="react\build\static\js\main.9c405797.js" />
-    <None Remove="react\build\static\js\main.9c405797.js.map" />
+    <None Remove="react\build\static\js\main.1dd53935.js" />
+    <None Remove="react\build\static\js\main.1dd53935.js.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="data\localization\strings.json" />
@@ -38,19 +37,18 @@
     <EmbeddedResource Include="data\usersInit.xml" />
     <EmbeddedResource Include="data\usersSample.xml" />
     <EmbeddedResource Include="react\build\asset-manifest.json" />
-    <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
-    <EmbeddedResource Include="react\build\assets\smile.svg" />
-    <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
-    <EmbeddedResource Include="react\build\assets\testAvatar.png" />
-    <EmbeddedResource Include="react\build\assets\waveform.png" />
-    <EmbeddedResource Include="react\build\assets\waveform.svg" />
     <EmbeddedResource Include="react\build\favicon.ico" />
     <EmbeddedResource Include="react\build\index.html" />
     <EmbeddedResource Include="react\build\manifest.json" />
     <EmbeddedResource Include="react\build\service-worker.js" />
+    <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
+    <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
+    <EmbeddedResource Include="react\build\assets\testAvatar.png" />
+    <EmbeddedResource Include="react\build\assets\waveform.png" />
+    <EmbeddedResource Include="react\build\localization\strings.json" />
     <EmbeddedResource Include="react\build\static\css\main.bf970957.css" />
     <EmbeddedResource Include="react\build\static\css\main.bf970957.css.map" />
-    <EmbeddedResource Include="react\build\static\js\main.9c405797.js" />
-    <EmbeddedResource Include="react\build\static\js\main.9c405797.js.map" />
+    <EmbeddedResource Include="react\build\static\js\main.1dd53935.js" />
+    <EmbeddedResource Include="react\build\static\js\main.1dd53935.js.map" />
   </ItemGroup>
 </Project>

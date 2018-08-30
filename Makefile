@@ -39,6 +39,9 @@ build:
 	#cd $(binsrc)/src/portable/ReactUi/react; npm run test all
 	cd $(binsrc)/src/portable/ReactUi/react; npm run build
 	#sudo apt install nuget -y
+	#Need 2.12 of nuget not available on package repo but at:
+	#https://github.com/mono/nuget-binary/tree/2.12
+	#sudo git clone https://github.com/mono/nuget-binary.git /usr/lib/nuget
 	nuget Restore $(binsrc)/Transcribe.Windows.sln
 	rm -rf $(binsrc)/src/portable/ReactShared/react/build/*
 	cp -r $(binsrc)/src/portable/ReactUi/react/build/* $(binsrc)/src/portable/ReactShared/react/build/.

@@ -180,6 +180,7 @@ namespace Transcribe.Windows
 			var resourceLocation = resourceBase;
 			if (!string.IsNullOrEmpty(projectLocation))
 				resourceLocation += projectLocation.Replace("/", ".") + ".";
+			// MessageBox.Show($@"resourceLocation: {resourceLocation}, folder: {folder}, projectLocation: {projectLocation}, name: {name}");
 			string fullPath;
 			using (var str = new StreamReader(assembly.GetManifestResourceStream(resourceLocation + name)))
 			{

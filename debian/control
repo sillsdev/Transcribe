@@ -8,7 +8,7 @@ Homepage: http://software.sil.org/transcriber
 Vcs-Git: git://github.com/sillsdev/transcribe.git
 Vcs-Browser: http://github.com/sillsdev/transcribe/
 
-Package: siltranscribe
+Package: siltranscriber
 Architecture: all
 Depends: mono4-sil, gtk-sharp4-sil
 Recommends:
