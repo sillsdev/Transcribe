@@ -16,6 +16,7 @@ interface IProps extends IStateProps, IDispatchProps {
 class SelectProject extends React.Component<IProps, object> {
   public componentDidMount() {
     const { fetchTasks, selectedUser } = this.props
+
     fetchTasks(selectedUser);
   }
 
@@ -37,10 +38,9 @@ class SelectProject extends React.Component<IProps, object> {
     if (loaded){
       switch (projects.length){
         case 0:
-          wrapper = (<Redirect to="/"/>)
+          wrapper = (<Redirect to="/uilang"/>)
           break;
         case 1:
-          selectProject(projects[0].id)
           wrapper = (<Redirect to="/main"/>)
         default:
           break;

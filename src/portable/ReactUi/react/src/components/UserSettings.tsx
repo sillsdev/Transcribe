@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
+import { UserLanguages } from '../model/UserLanguages';
 import userStrings from '../selectors/localize';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
@@ -21,7 +22,6 @@ interface IProps extends IStateProps, IDispatchProps {
 }
 
 class UserSettings extends React.Component<IProps, any> {
-    private languages: string[];
     private nameRef: React.RefObject<TextboxUx>;
     private languageRef: React.RefObject<DropdownUx>;
     private fontRef: React.RefObject<TextboxUx>;
@@ -36,7 +36,6 @@ class UserSettings extends React.Component<IProps, any> {
 
     constructor(props: IProps) {
         super(props)
-        this.languages =  [ 'en:English', 'ar:عربى', 'fr:Français', 'ha:Hausa', 'pt:Português', 'ru:Pусский', 'ta:தமிழ்' ];
         this.nameRef = React.createRef();
         this.languageRef = React.createRef();
         this.fontRef = React.createRef();
@@ -62,8 +61,8 @@ class UserSettings extends React.Component<IProps, any> {
         const fasterKey = this.keyCode(user, "faster", "F4");
 
         const userLanguageCode = user !== undefined? user.uilang.slice(0,2): "en";
-        const languageChoice = [this.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].slice(3)].concat(
-            this.languages.filter(i => i.slice(0,2) !== userLanguageCode).map(i => i.slice(3))
+        const languageChoice = [UserLanguages.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].slice(3)].concat(
+            UserLanguages.languages.filter(i => i.slice(0,2) !== userLanguageCode).map(i => i.slice(3))
         )
 
         this.fontSizeDef = ['medium', 'xx-small', 'x-small', 'small', 'large', 'x-large', 'xx-large'];
@@ -260,7 +259,7 @@ class UserSettings extends React.Component<IProps, any> {
         }
         // Ui-Lang
         const language = context.languageRef.current && context.languageRef.current.selected;
-        const languageCode = context.languages.filter(l => l.slice(3) === language)[0].slice(0,2)
+        const languageCode = UserLanguages.languages.filter(l => l.slice(3) === language)[0].slice(0,2)
         if (user.uilang.slice(0,2) !== languageCode) {
             this.saveValue(updates, "uilang", languageCode)
         }

@@ -19,6 +19,13 @@ export function selectUser(id: string): any{
     }
 }
 
+export const selectLanguage = (user: string, lang: string) => (dispatch: any) => {
+    alert("selecting " + lang + " for user " + user)
+    dispatch({type: UPDATE_USER_PENDING});
+    Axios.put('/api/UpdateUser?user=' + user + '&uilang=' + lang)
+        .then(dispatch(fetchUsers()))
+}
+
 export const updateUser = (user: string, project: string, query: string) => (dispatch: any) => {
     dispatch({type: UPDATE_USER_PENDING});
     Axios.put('/api/UpdateUser?user=' + user + '&project=' + project + query)

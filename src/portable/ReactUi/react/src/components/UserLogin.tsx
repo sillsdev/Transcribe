@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/localizationActions';
 import * as actions from '../actions/userActions';
@@ -20,7 +21,7 @@ class UserLogin extends React.Component<IProps, object> {
   }
 
   public render() {
-    const { selectUser, users } = this.props
+    const { loaded, selectUser, users } = this.props
 
     const avatars = users.map((user:IUser) => 
       <ListGroupItem key={user.id}>
@@ -32,21 +33,31 @@ class UserLogin extends React.Component<IProps, object> {
           select={selectUser} />
       </ListGroupItem>);
 
+    let wrapper = (<ListGroup>
+          {avatars}
+      </ListGroup>)
+
+    if (loaded) {
+      if (users.length === 1) {
+        wrapper = (<Redirect to="/project"/>)
+      }
+    }
+
     return (
       <div id="UserLogin" className="UserLogin">
-        <ListGroup>
-            {avatars}
-        </ListGroup>
+        {wrapper}
       </div>
     );
   }
 }
 
 interface IStateProps {
+  loaded: boolean;
   users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+  loaded: state.users.loaded,
   users: state.users.users
 });
 

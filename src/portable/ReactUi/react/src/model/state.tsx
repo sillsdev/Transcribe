@@ -2,6 +2,7 @@ import { ITranscriberStrings, IUserSettingsStrings } from "./localize";
 
 export interface IState {
     users: {
+        loaded: boolean;
         users: IUser[];
         selectedUser: string;
     };

@@ -1,6 +1,7 @@
 import { FETCH_USERS, SELECT_USER } from '../actions/types';
 
 const initialState = {
+    loaded: false,
     selectedUser: "",
     users: Array<IUser>(),
 }
@@ -10,6 +11,9 @@ export default function (state = initialState, action: any) {
         case FETCH_USERS:
             return {
                 ...state,
+                loaded: true,
+                selectedUser: action.payload.data.length === 1?
+                     action.payload.data[0].username.id: state.selectedUser,
                 users: action.payload.data
             };
         case SELECT_USER:
