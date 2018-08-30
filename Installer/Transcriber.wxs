@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?define Product="Transcriber"?>
+<?define Product="SIL Transcriber"?>
 <?define UpgradeCode="5B73C2DB-296F-416A-9C5B-9989D826EAE8"?>
 <?define BUILD_NUMBER="0.2.0"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
@@ -26,8 +26,8 @@
       <Directory Id="ProgramMenuFolder" SourceName="Programs">
         <Directory Id="TranscriberMenu" Name="Transcriber $(var.BUILD_NUMBER)">
           <Component Id="AddShortcutApp" Guid="CA8CC61B-3398-4B9C-887A-B02EDD43C203">
-            <Shortcut Id="ShortcutApp" Name="Transcriber Tool" Target="[!transcribe.windows.exe]" Hotkey="0" IconIndex="0" Show="normal" WorkingDirectory="APPLICATIONFOLDER" />
-            <Shortcut Id="desktopShortcutApp" Directory="DesktopFolder" Name="Transcriber Tool" Target="[!transcribe.windows.exe]" IconIndex="0" WorkingDirectory="APPLICATIONFOLDER" />
+            <Shortcut Id="ShortcutApp" Name="SIL Transcriber" Target="[!transcribe.windows.exe]" Hotkey="0" IconIndex="0" Show="normal" WorkingDirectory="APPLICATIONFOLDER" />
+            <Shortcut Id="desktopShortcutApp" Directory="DesktopFolder" Name="SIL Transcriber" Target="[!transcribe.windows.exe]" IconIndex="0" WorkingDirectory="APPLICATIONFOLDER" />
             <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
             <RegistryValue Root="HKCU" Key="Software\SIL\Transcriber" Name="TranscriberDir" Type="string" Value="[APPLICATIONFOLDER]" />
           </Component>
