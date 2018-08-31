@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Transcribe.Windows.Tests
+namespace Transcribe.Test
 {
 	public static class Common
 	{
