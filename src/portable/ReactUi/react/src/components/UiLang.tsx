@@ -5,7 +5,7 @@ import * as actions from '../actions/userActions';
 import { ITranscriberStrings } from '../model/localize';
 import { UserLanguages } from '../model/UserLanguages';
 import userStrings from '../selectors/localize';
-import LabelCaptionUx from './ui-controls/LabelCaptionUx';
+import ButtonLink from './controls/ButtonLink'
 import './UiLang.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -16,23 +16,19 @@ class UiLang extends React.Component<IProps, object> {
 
         const languageList = UserLanguages.languages.map((lang: any) => 
             (<li className="list-item"
-                onClick={this.selectLanguage.bind(this, lang.split(':')[0])}>{lang.split(':')[1]}</li>))
+                onClick={this.selectLanguage.bind(this, lang.split(':')[0])}>
+                <div className="name">{lang.split(':')[1]}</div>
+                <div className="code">{lang.split(':')[0]}</div>
+            </li>))
 
         return (
             <div className="UiLang">
-                <div className="col">
-                    <div className="spacer">{"\u00A0"}</div>
-                    <div className="row">
-                        <div className="spacer">{"\u00A0"}</div>
-                        <div className="list">
-                            <LabelCaptionUx name={"Select your preferred language:"} />
-                            <ul>
-                                {languageList}
-                            </ul>
-                        </div>
-                        <div className="spacer">{"\u00A0"}</div>
-                    </div>
-                    <div className="spacer">{"\u00A0"}</div>
+                <div className="list">
+                    <div id="ChooseLanguage" className="label">{"Choose a language"}</div>
+                    <ul>
+                        {languageList}
+                    </ul>
+                    <ButtonLink text={"Skip"} target="/uilang" type="outline-light" />
                 </div>
             </div>
             )
