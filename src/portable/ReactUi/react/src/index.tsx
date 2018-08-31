@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AvatarEdit from './components/AvatarEdit';
 import MainLayout from './components/MainLayout'
 import SelectProject from './components/SelectProject'
+import UiLang from './components/UiLang'
 import UserLogin from './components/UserLogin'
 import UserSettings from './components/UserSettings';
 import './index.sass';
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="/main" component={MainLayout} />
         <Route path="/settings" component={UserSettings}/>
         <Route path="/avatar" component={AvatarEdit} />
+        <Route exact={true} path="/uilang" component={UiLang} />
       </div>
     </Router>
   </Provider>,

@@ -30,7 +30,8 @@ export default function (state = initialState, action: any) {
                 loaded: true,
                 pending: false,
                 projects: action.payload.data,
-                selectedTask: "",
+                selectedProject: action.payload.data.length === 1?
+                    action.payload.data[0].id: state.selectedProject
             };
         case SELECT_PROJECT:
             return {
