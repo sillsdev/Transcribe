@@ -76,13 +76,14 @@ namespace Transcribe.Windows
 			var tasksDoc = LoadXmlData("tasks");
 			var taskNode = tasksDoc.SelectSingleNode($@"//*[@id='{task}']");
 			NewAttr(taskNode, "position", position);
-			using (var xw = XmlWriter.Create(XmlFullName("tasks"), new XmlWriterSettings { Indent = true }))
+			using (var xw = XmlWriter.Create(XmlFullName("tasks"), new XmlWriterSettings {Indent = true}))
 			{
 				tasksDoc.Save(xw);
 			}
 		}
 
 		private static readonly Regex TaskIdPattern = new Regex(@"(.*)v[0-9]{2}\.(mp3|wav)$", RegexOptions.Compiled);
+
 		private static string ToXmlTaskId(string taskId)
 		{
 			var match = TaskIdPattern.Match(taskId);
@@ -113,7 +114,7 @@ namespace Transcribe.Windows
 			UpdateXml(xml, "@MEDIA_URL", name);
 			UpdateXml(xml, "@MIME_TYPE", ext == ".mp3" ? "audio/x-mp3" : "audio/x-wav");
 			var outName = Path.Combine(folder, Path.GetFileNameWithoutExtension(name) + ".eaf");
-			using (var xw = XmlWriter.Create(outName, new XmlWriterSettings { Indent = true }))
+			using (var xw = XmlWriter.Create(outName, new XmlWriterSettings {Indent = true}))
 			{
 				xml.Save(xw);
 			}
@@ -165,7 +166,7 @@ namespace Transcribe.Windows
 			AddKeyVal("hotkey", "slower", slower, userNode, usersDoc);
 			AddKeyVal("hotkey", "faster", faster, userNode, usersDoc);
 			AddKeyVal("setting", setting, value, userNode, usersDoc);
-			using (var xw = XmlWriter.Create(XmlFullName("users"), new XmlWriterSettings { Indent = true }))
+			using (var xw = XmlWriter.Create(XmlFullName("users"), new XmlWriterSettings {Indent = true}))
 			{
 				usersDoc.Save(xw);
 			}
@@ -189,7 +190,7 @@ namespace Transcribe.Windows
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
 			AddAvatarUri("images/" + imageFileName, usernameNode, usersDoc);
-			using (var xw = XmlWriter.Create(XmlFullName("users"), new XmlWriterSettings { Indent = true }))
+			using (var xw = XmlWriter.Create(XmlFullName("users"), new XmlWriterSettings {Indent = true}))
 			{
 				usersDoc.Save(xw);
 			}
@@ -245,8 +246,8 @@ namespace Transcribe.Windows
 			{
 				node = usersDoc.CreateElement(tag);
 				var preceding = tag == "hotkey"
-					? new List<string> { "hotkey", "project", "role" }
-					: new List<string> { "setting", "progress", "speed", "timer", "uilang", "hotkey", "project", "role" };
+					? new List<string> {"hotkey", "project", "role"}
+					: new List<string> {"setting", "progress", "speed", "timer", "uilang", "hotkey", "project", "role"};
 				userNode.InsertAfter(node, FindPreceding(userNode, preceding));
 				NewAttr(node, "id", keyid);
 			}
@@ -301,7 +302,7 @@ namespace Transcribe.Windows
 			if (!(userNode.SelectSingleNode("uilang") is XmlElement uilangNode))
 			{
 				uilangNode = usersDoc.CreateElement("uilang");
-				userNode.InsertAfter(uilangNode, FindPreceding(userNode, new List<string> { "hotkey", "project", "role" }));
+				userNode.InsertAfter(uilangNode, FindPreceding(userNode, new List<string> {"hotkey", "project", "role"}));
 			}
 
 			uilangNode.InnerText = uilang;
@@ -389,13 +390,19 @@ namespace Transcribe.Windows
 			}
 		}
 
+		/// <summary>
+		/// The Transcribed Data is moved to Paratext SFM
+		/// </summary>
+		/// <param name="taskId">Task Id</param>
+		/// <param name="eafFilePath">EAF File Path</param>
+		/// <param name="paratextProjectsPath">Path for the Paratext Projects File for Testing</param>
+		/// <returns>true if upload successful</returns>
 		public static bool UploadToParatext(string taskId, string eafFilePath)
 		{
 			if (!ParatextInfo.IsParatextInstalled)
 			{
 				return false;
 			}
-
 
 			try
 			{
@@ -404,133 +411,201 @@ namespace Transcribe.Windows
 				currentTask = currentTask.GetTask(taskId);
 
 				// Get the Task Transcription Text from EAF
-				var transcriptionArray = GetTranscriptionTextFromEAF(taskId);
+				var transcriptionArray = GetTranscriptionTextFromEAF(eafFilePath);
 				if (transcriptionArray[0].Trim().ToUpper().StartsWith("File Error:"))
 					return false;
-				var transcription = transcriptionArray[1];
-
-				string pContentFormat = " " + transcription + "\r\n";
-
-
-				string cVerseFormat = @"\c " + Convert.ToInt32(currentTask.ChapterNumber);
-
 				ParatextData.Initialize();
 				var paratextProject = ScrTextCollection.Find(currentTask.Project);
 				if (paratextProject == null)
-					return true;
+					return false;
+
 				var bookNum =
-					paratextProject.BookNames.ScrText.BookNames.GetBookNumFromName(currentTask.BookName, true, BookNameSource.Abbreviation);
+					paratextProject.BookNames.ScrText.BookNames.GetBookNumFromName(currentTask.BookName, true,
+						BookNameSource.Abbreviation);
 				if (bookNum == 0)
 				{
 					bookNum = (from i in paratextProject.BookNames.GetBookNames()
 						where i.BookCode == currentTask.BookName
 						select i.BookNum).FirstOrDefault();
 				}
+
 				var vRef = new VerseRef(bookNum, currentTask.ChapterNumber, Convert.ToInt32(currentTask.VerseStart),
 					paratextProject.Settings.Versification);
-				var sb = new StringBuilder();
+
 				var chapterContent = paratextProject.GetText(vRef, true, true);
+				var sb = GenerateParatextData(currentTask, chapterContent, transcriptionArray[1]);
 
-				string newVerseFormat;
-				var list = chapterContent.Split(new[] { "\\v" }, StringSplitOptions.None).ToList();
-				sb.AppendLine(list[0]);
-
-				var chapter = chapterContent.Split(new[] { "\\c" }, StringSplitOptions.None);
-				if (chapter.Length <= 1)
-				{
-					sb.AppendLine(cVerseFormat);
-				}
-
-				var startContains = list.FirstOrDefault(f => f.Trim().StartsWith(currentTask.VerseStart.ToString()));
-				if (startContains != null)
-				{
-					var pericope = startContains.Trim().Split(' ');
-					var pericopeItems = pericope[0].Split('-');
-					var firstPart = pericopeItems[0];
-					int firstIndex;
-					if (pericopeItems.Length > 1)
-					{
-						//With hyphen
-
-						if (pericope[0] == (currentTask.VerseStart + "-" + currentTask.VerseEnd))
-						{
-							//28-36 == 28-36
-							firstIndex = GetIndexFromList(ref list, pericope[0]);
-							list.RemoveAt(firstIndex);
-							newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-							list.Insert(firstIndex, newVerseFormat + pContentFormat);
-						}
-						else
-						{
-							if (Convert.ToInt32(firstPart) == currentTask.VerseStart || Convert.ToInt32(firstPart) > currentTask.VerseStart)
-							{
-								//28-36 = 28-45
-								firstIndex = GetIndexFromList(ref list, pericope[0]);
-								newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-								list.Insert(firstIndex + 1, newVerseFormat + pContentFormat);
-							}
-							else if (Convert.ToInt32(firstPart) < Convert.ToInt32(currentTask.VerseStart))
-							{
-								//29-36 = 26-37
-								firstIndex = GetIndexFromList(ref list, pericope[0]);
-								newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-								list.Insert(firstIndex - 1, newVerseFormat + pContentFormat);
-							}
-						}
-					}
-					else
-					{
-						//without hyphen
-						firstIndex = GetIndexFromList(ref list, currentTask.VerseStart.ToString());
-						var secondIndex = GetIndexFromList(ref list, currentTask.VerseEnd.ToString());
-						list.RemoveRange(firstIndex, (secondIndex - firstIndex) + 1);
-						newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-						list.Insert(firstIndex, newVerseFormat + pContentFormat);
-					}
-				}
-				else
-				{
-					var nextVerse = 0;
-					if (list.Count > 1)
-					{
-						nextVerse = (from v in list
-							let n = Convert.ToInt32(v.Split(' ')[0])
-							where n > currentTask.VerseStart
-							select list.IndexOf(v)).FirstOrDefault();
-					}
-					newVerseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
-					if (nextVerse != 0)
-					{
-						list.Insert(nextVerse, newVerseFormat + pContentFormat);
-					}
-					else
-					{
-						list.Add(newVerseFormat + pContentFormat);
-					}
-				}
-
-				for (var i = 1; i < list.Count; i++)
-				{
-					sb.Append("\\v" + list[i]);
-				}
 				paratextProject.PutText(bookNum, currentTask.ChapterNumber, true, sb.ToString(), null);
-
 				return true;
 			}
 			catch (Exception ex)
 			{
-				string error = ex.Message;
+				var error = ex.Message;
 				Debug.Print(error);
 			}
-
 			return false;
 		}
 
-		private static string[] GetTranscriptionTextFromEAF(string taskId)
+
+		public static StringBuilder GenerateParatextData(Task currentTask, string chapterContent, string transcription)
+		{
+			var sb = new StringBuilder();
+			var firstIndex = 0;
+			var list = chapterContent.Split(new string[] { "\\v" }, StringSplitOptions.None).ToList();
+
+			if (!chapterContent.Contains(@"\c " + Convert.ToInt32(currentTask.ChapterNumber)))
+			{
+				list.Insert(1, @"\c " + Convert.ToInt32(currentTask.ChapterNumber));
+			}
+
+			var startContains = list.FirstOrDefault(f => f.StartsWith(" " + currentTask.VerseStart.ToString() + " ")
+			                                             || f.StartsWith(" " + currentTask.VerseStart.ToString() + "-")
+			                                             || f.StartsWith(" " + currentTask.VerseStart.ToString() + "\r\n"));
+			if (startContains == null)
+			{
+				firstIndex = InsertVerseAsNew(currentTask, null, ref list);
+			}
+			else if (startContains.Trim().IndexOf('-') > 0 && startContains.Trim().IndexOf('-') <= 3)
+			{
+				firstIndex = InsertVerseWithPericope(startContains, currentTask, firstIndex, ref list);
+			}
+			else
+			{
+				firstIndex = InsertVerseWithoutPericope(currentTask, ref list);
+			}
+
+			var verseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
+			var pContentFormat = " " + transcription + "\r\n";
+			list.Insert(firstIndex, verseFormat + pContentFormat);
+
+			for (int i = 0; i < list.Count; i++)
+			{
+				if(list[i].Trim().Length == 0) continue;
+				if (i == 0 || list[i].Contains(@"\c " + Convert.ToInt32(currentTask.ChapterNumber)))
+				{
+					if (i == 0 && !list[i].EndsWith("\r\n") || i > 0)
+					{
+						sb.Append(list[i] + Environment.NewLine);
+					}
+					else
+					{
+						sb.Append(list[i]);
+					}
+				}
+				else
+				{
+					sb.Append("\\v" + list[i]);
+				}
+			}
+
+			return sb;
+		}
+
+		/// <summary>
+		/// It handles the verse numbers without hyphen(-)
+		/// </summary>
+		/// <param name="currTask">Current Task Id</param>
+		/// <param name="list">List of Verses from SFM File of the Current Chapter</param>
+		/// <returns>Index of the new Verse Number</returns>
+		private static int InsertVerseWithoutPericope(Task currTask, ref List<string> list)
+		{
+			var firstIndex = GetIndexFromList(ref list, currTask.VerseStart.ToString());
+			var secondIndex = GetIndexFromList(ref list, currTask.VerseEnd.ToString());
+			list.RemoveRange(firstIndex, (secondIndex - firstIndex) + 1);
+			return firstIndex;
+		}
+
+		/// <summary>
+		/// It handles the verse numbers with hyphen(-)
+		/// </summary>
+		/// <param name="startContains">Starting Verse Content</param>
+		/// <param name="currTask">Current Task Id</param>
+		/// <param name="firstIndex">Index of the Starting Verse</param>
+		/// <param name="list">List of Verses from SFM File of the Current Chapter</param>
+		/// <returns>Index of the new Verse Number</returns>
+		private static int InsertVerseWithPericope(string startContains, Task currTask, int firstIndex, ref List<string> list)
+		{
+			string[] pericope = startContains.Trim().Split(' ');
+
+			if (pericope[0] == (currTask.VerseStart + "-" + currTask.VerseEnd))
+			{
+				firstIndex = GetIndexFromList(ref list, pericope[0]);
+				list.RemoveAt(firstIndex);
+			}
+			else
+			{
+				string[] pericopeItems = pericope[0].Split('-');
+				string firstPart = pericopeItems[0];
+				if (Convert.ToInt32(firstPart) >= currTask.VerseStart)
+				{
+					if (int.Parse(pericopeItems[1]) > currTask.VerseEnd)
+					{
+						firstIndex = GetIndexFromList(ref list, pericope[0]);
+					}
+					else
+					{
+						firstIndex = GetIndexFromList(ref list, pericope[0]) + 1;
+					}
+				}
+				else if (Convert.ToInt32(firstPart) < Convert.ToInt32(currTask.VerseStart))
+				{
+					firstIndex = GetIndexFromList(ref list, pericope[0]) - 1;
+				}
+			}
+			return firstIndex;
+		}
+
+		/// <summary>
+		/// It handles verse numbers that does not exist already in the SFM File
+		/// </summary>
+		/// <param name="currTask">Current Task Id</param>
+		/// <param name="startContains">Starting Verse Content</param>
+		/// <param name="list">List of Verses from SFM File of the Current Chapter</param>
+		/// <returns>Index of the new Verse Number</returns>
+		private static int InsertVerseAsNew(Task currTask, string startContains, ref List<string> list)
+		{
+			int firstIndex;
+			for (int i = currTask.VerseStart - 1; i > 0; i--)
+			{
+				startContains = list.FirstOrDefault(f => f.Trim().StartsWith(i.ToString()));
+				if (startContains != null)
+					break;
+			}
+
+			if (startContains != null)
+			{
+				string[] pericope = startContains.Trim().Split(' ');
+				firstIndex = GetIndexFromList(ref list, pericope[0]) + 1;
+			}
+			else
+			{
+				firstIndex = list.Count;
+			}
+			return firstIndex;
+		}
+
+		/// <summary>
+		/// Gets Index of the Verse Range of the Transcribed Data from the Verses List
+		/// </summary>
+		/// <param name="verseList">List of Verses from SFM File of the Current Chapter</param>
+		/// <param name="searchString">Verse Range of the Transcribed Data</param>
+		/// <returns>Index of the Verse Range</returns>
+		private static int GetIndexFromList(ref List<string> verseList, string searchString)
+		{
+			int index = verseList.Select((c, i) => new { c, i })
+				.Where(x => x.c.Trim().StartsWith(searchString))
+				.Select(x => x.i).FirstOrDefault();
+			return index;
+		}
+
+		/// <summary>
+		/// Reads the Transcription Data of a Verse Range from the EAF File
+		/// </summary>
+		/// <param name="eafFilePath">EAF File Name with Full Path</param>
+		/// <returns>String Array with Transcription Data and Error in case of failure</returns>
+		private static string[] GetTranscriptionTextFromEAF(string eafFilePath)
 		{
 			string[] theTranscriptionText = { "", "" };
-			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskId.Split('-'))));
-			string eafFilePath = Path.Combine(folder, Path.GetFileNameWithoutExtension(taskId) + ".eaf");
 			if (!File.Exists(eafFilePath))
 			{
 				theTranscriptionText[0] = "File Error:";
@@ -548,15 +623,6 @@ namespace Transcribe.Windows
 			}
 
 			return theTranscriptionText;
-		}
-
-
-		private static int GetIndexFromList(ref List<string> verseList, string searchString)
-		{
-			int index = verseList.Select((c, i) => new { c, i })
-				.Where(x => x.c.Trim().StartsWith(searchString))
-				.Select(x => x.i).FirstOrDefault();
-			return index;
 		}
 
 		private static bool AssignTask(GeckoObserveHttpModifyRequestEventArgs e, XmlNode taskNode, string user)

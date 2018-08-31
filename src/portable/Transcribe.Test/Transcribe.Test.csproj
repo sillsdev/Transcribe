@@ -95,7 +95,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TestFiles\input\aai-LUK-001-001004.eaf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -126,10 +125,10 @@
     <Content Include="Firefox\sandboxbroker.dll" />
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
-    <Content Include="TestFiles\input\aai-LUK-001-001004.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TestFiles\expected\" />
+    <Folder Include="TestFiles\input\" />
     <Folder Include="TestFiles\output\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
