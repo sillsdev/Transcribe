@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace Transcribe.Windows.Tests
+namespace Transcribe.Test
 {
 	public static class Common
 	{
@@ -47,19 +43,6 @@ namespace Transcribe.Windows.Tests
 			returnPath = returnPath.Replace('\\', Path.DirectorySeparatorChar);
 			return returnPath;
 
-		}
-
-		/// <summary>
-		/// Make sure the path contains the proper / for the operating system.
-		/// </summary>
-		/// <param name="path">input path</param>
-		/// <returns>normalized with "/" path</returns>
-		public static string DirectoryPathReplaceWithSlash(string path)
-		{
-			if (String.IsNullOrEmpty(path)) return path;
-			string returnPath = path.Replace('\\', '/');
-			returnPath = returnPath.Replace(Path.DirectorySeparatorChar, '/');
-			return returnPath;
 		}
 
 		/// <summary>
