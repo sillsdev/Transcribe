@@ -1,0 +1,31 @@
+<ScriptureText>
+   <AutoKeyboardSwitching>F</AutoKeyboardSwitching>
+   <BooksPresent>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111</BooksPresent>
+   <CallerSequence/>
+   <ChapterMarker>c</ChapterMarker>
+   <CreatedWithPTW6>T</CreatedWithPTW6>
+   <DefaultFont>Lucida Sans Unicode</DefaultFont>
+   <DefaultFontSize>12</DefaultFontSize>
+   <Directory>D:\My Paratext Projects\NSF</Directory>
+   <DraftVersion/>
+   <Editable>T</Editable>
+   <FileNameChapterNumberForm/>
+   <FileNameForm>41MAT</FileNameForm>
+   <FileNamePostPart>.NSF</FileNamePostPart>
+   <FileNamePrePart/>
+   <FullName>Proj with No Style File</FullName>
+   <Language>ENGLISH</Language>
+   <LastBackedUp>Nov 27, 2002</LastBackedUp>
+   <LeftToRight>T</LeftToRight>
+   <Name>NSF</Name>
+   <ResourceText/>
+   <SharedP5Project/>
+   <StyleSheet>D:\My Paratext Projects\MissingFile.sty</StyleSheet>
+   <TextHasChanged>T</TextHasChanged>
+   <VerseMarker>v</VerseMarker>
+   <Versification>4</Versification>
+   <WordlistCorrectCharacter/>
+   <WordlistInCorrectCharacter/>
+   <WordlistUndecidedCharacter/>
+   <Naming PostPart=".NSF" BookNameForm="41MAT"/>
+</ScriptureText>

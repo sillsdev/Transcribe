@@ -1,0 +1,81 @@
+<ScriptureText>
+  <Name>MTP</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>My Test Project</FullName>
+  
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <FileNamePostPart>MTP.SFM</FileNamePostPart>
+  <FileNamePrePart />
+  <Versification>4</Versification>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Encoding>65001</Encoding>
+  <TranslationInfo>Standard::</TranslationInfo>
+  <Language>Nkonya</Language>
+  <DefaultFont>Charis SIL Compact</DefaultFont>
+  <DefaultFontSize>14</DefaultFontSize>
+  <AssociatedLexicalProject />
+  <Copyright>2015, SIL International</Copyright>
+  <LanguageIsoCode>var:::</LanguageIsoCode>
+  <EthnologueCode>var</EthnologueCode>
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <Editable>T</Editable>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <InitialImportBooksDirectory>C:\Users\Trihus\Desktop\ScrTests</InitialImportBooksDirectory>
+  
+  
+  
+  <TextEntryFontSizeAdjustment>0</TextEntryFontSizeAdjustment>
+  <SegmentOrder>a b c d e f g h i j k l m n o p q r s t u v w x y z aa bb cc dd ee ff gg hh ii jj kk ll mm nn oo pp qq rr ss tt uu vv ww xx yy zz</SegmentOrder>
+  <ValidPunctuation>._ !_ ?_</ValidPunctuation>
+  <Pairs>(/) [/] {/}</Pairs>
+  <ClosedByParagraph>No</ClosedByParagraph>
+  <PoeticStyles>ib iq iq1 iq2 iq3 q q1 q2 q3 q4 qc qr qs qa qac qm qm1 qm2 qm3 b</PoeticStyles>
+  <IntroductionOutlineStyles>io io1 io2 io3 io4</IntroductionOutlineStyles>
+  <ContinueQuotes>Yes</ContinueQuotes>
+  <ContinueInnerQuotes>Yes</ContinueInnerQuotes>
+  <AdvancedView>False</AdvancedView>
+  <CharacterAdvancedView>True</CharacterAdvancedView>
+  <ValidCharacters>  
+ 
+ * + \ 0 1 2 3 4 5 6 7 8 9 a A á Á b B c C d D e E é É ɛ Ɛ ɛ́ Ɛ́ f F g G h H i I ɨ Ɨ í Í ɩ Ɩ ɩ́ Ɩ́ j J k K l L m M n N ŋ Ŋ o O ó Ó ɔ Ɔ ɔ́ Ɔ́ p P q Q r R s S t T u U ʉ Ʉ ú Ú ʋ Ʋ ʋ́ Ʋ́ v V w W x X y Y z Z ꞌ - — ‌ ‍ – ; : ~ , . ” “ ( / ? &gt; &lt; ! ) ’ ‘ '</ValidCharacters>
+  <InvalidCharacters />
+  <Quotes>“ ”</Quotes>
+  <InnerQuotes>‘ ’</InnerQuotes>
+  <InnerInnerQuotes>“ ”</InnerInnerQuotes>
+  <Continuer>“</Continuer>
+  <InnerContinuer>‘</InnerContinuer>
+  <InnerInnerContinuer>“</InnerInnerContinuer>
+  <VerboseQuotes>No</VerboseQuotes>
+  <QuoteClosesAllQuoteLevels>No</QuoteClosesAllQuoteLevels>
+  <ContinueAt>p p/q1 b/q1</ContinueAt>
+  <NumberDecimalPoint>.</NumberDecimalPoint>
+  <NumberThousandsSeparator>,</NumberThousandsSeparator>
+  <NumberOrdinals>st nd rd th</NumberOrdinals>
+  <NumberInitialPunctuation>-+"({&lt;[$</NumberInitialPunctuation>
+  <NumberFinalPunctuation>)}"&gt;.!?:],;</NumberFinalPunctuation>
+  <NumberMedialPunctuation>-/</NumberMedialPunctuation>
+  <NumberOrdinalType>suffix</NumberOrdinalType>
+  <NumberSettingsHaveBeenReviewed>T</NumberSettingsHaveBeenReviewed>
+  <CrossReferenceSettingsHaveBeenReviewed>T</CrossReferenceSettingsHaveBeenReviewed>
+  <RangeIndicator>-</RangeIndicator>
+  <SequenceIndicator>,</SequenceIndicator>
+  <ChapterVerseSeparator>:</ChapterVerseSeparator>
+  <ChapterRangeSeparator>—</ChapterRangeSeparator>
+  <BookSequenceSeparator>; </BookSequenceSeparator>
+  <ChapterNumberSeparator>; </ChapterNumberSeparator>
+  <ReferenceFinalPunctuation />
+  <ReferenceExtraMaterial>(|)</ReferenceExtraMaterial>
+  <BookSourceForMarkerXt>Abbreviation</BookSourceForMarkerXt>
+  <BookSourceForMarkerR>ShortName</BookSourceForMarkerR>
+  <RefsMustMatchVerseSegments>False</RefsMustMatchVerseSegments>
+  <SegmentsMustHaveFinalPunctuation>False</SegmentsMustHaveFinalPunctuation>
+  <NoSpaceBetweenBookAndChapter>False</NoSpaceBetweenBookAndChapter>
+  <ValidUncapitalizedStyles>w it ft fq q2 q1 q3 add fqa ord sc no tl</ValidUncapitalizedStyles>
+  <InvalidUncapitalizedStyles />
+  <Guid>59b5e9649e338a8cdee196e3f8ee5164ed5d62d4</Guid>
+  <Naming PrePart="" PostPart="MTP.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+<Directory>C:\My Paratext Projects\MTP</Directory><TextHasChanged>F</TextHasChanged><LastBackedUp>2015Jul28</LastBackedUp><BooksPresent>111101100000001110100100000000000000000111101101000111111001000001000000000000000000000000000000000000000000000000000000000</BooksPresent></ScriptureText>

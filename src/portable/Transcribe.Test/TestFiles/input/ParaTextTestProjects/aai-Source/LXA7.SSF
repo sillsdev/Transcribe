@@ -1,0 +1,29 @@
+﻿
+<ScriptureText>
+<AutoKeyboardSwitching>F</AutoKeyboardSwitching>
+<BooksPresent>0000011000000000000000000000000000000000000000000000000000000000001000000011000000000000000000000000000000000001000</BooksPresent>
+<CallerSequence></CallerSequence>
+<ChapterMarker>c</ChapterMarker>
+<DefaultFont>Galatia SIL</DefaultFont>
+<DefaultFontSize>14</DefaultFontSize>
+<Directory>D:\My Paratext Projects\lxx</Directory>
+<Editable>F</Editable>
+<Encoding>65001</Encoding>
+<FileNameChapterNumberForm></FileNameChapterNumberForm>
+<FileNameForm>41MAT</FileNameForm>
+<FileNamePostPart>.LXA</FileNamePostPart>
+<FileNamePrePart></FileNamePrePart>
+<FullName>Septuagint (Alternative Texts)</FullName>
+<Language>GREEK</Language>
+<LeftToRight>T</LeftToRight>
+<Name>LXA</Name>
+<ResourceText>T</ResourceText>
+<RunFromCD>T</RunFromCD>
+<StyleSheet>LXX.STY</StyleSheet>
+<StylesheetModificationDate>16-4-2003 7:58:20</StylesheetModificationDate>
+<VerseMarker>v</VerseMarker>
+<Versification>2</Versification>
+<Version>1.2</Version>
+<Naming PostPart=".LXA" BookNameForm="41MAT"></Naming>
+<Zipped>T</Zipped>
+</ScriptureText>

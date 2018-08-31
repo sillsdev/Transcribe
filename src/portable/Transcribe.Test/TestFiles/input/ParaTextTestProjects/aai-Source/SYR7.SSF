@@ -1,0 +1,34 @@
+﻿
+<ScriptureText>
+<AutoKeyboardSwitching>F</AutoKeyboardSwitching>
+<BooksPresent>1111111111111111111111111111111111111111111111111111111111111111111101111011111110111100000000000000000100000000011</BooksPresent>
+<CallerSequence></CallerSequence>
+<ChapterMarker>c</ChapterMarker>
+<Copyright></Copyright>
+<CreatedWithPTW6>T</CreatedWithPTW6>
+<DefaultFont>Estrangelo Edessa</DefaultFont>
+<DefaultFontSize>24</DefaultFontSize>
+<Directory>D:\My Paratext Projects\syr</Directory>
+<Editable>F</Editable>
+<Encoding>65001</Encoding>
+<FileNameChapterNumberForm></FileNameChapterNumberForm>
+<FileNameForm>41MAT</FileNameForm>
+<FileNamePostPart>.SYR</FileNamePostPart>
+<FileNamePrePart></FileNamePrePart>
+<FullName>Syriac Peshitta</FullName>
+<Language>Syriac</Language>
+<LeftToRight>F</LeftToRight>
+<Name>SYR</Name>
+<NeverShowBackupReminder>T</NeverShowBackupReminder>
+<ResourceText>T</ResourceText>
+<RunFromCD></RunFromCD>
+<SharedP5Project></SharedP5Project>
+<StyleSheet>SYR.STY</StyleSheet>
+<StylesheetModificationDate>17-1-2006 8:13:12</StylesheetModificationDate>
+<TextHasChanged>T</TextHasChanged>
+<VerseMarker>v</VerseMarker>
+<Versification>22</Versification>
+<Version>1.1</Version>
+<Zipped>T</Zipped>
+<Naming PostPart=".SYR" BookNameForm="41MAT"></Naming>
+</ScriptureText>

@@ -1,0 +1,27 @@
+﻿<ScriptureText>
+  <BooksPresent>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+  <Versification>4</Versification>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Name>GCN</Name>
+  <Encoding>65001</Encoding>
+  <Language>English</Language>
+  <DefaultFont>Verdana</DefaultFont>
+  <DefaultFontSize>10</DefaultFontSize>
+  <FileNamePostPart>GCN.SFM</FileNamePostPart>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <TranslationInfo>GlobalConsultantNotes::</TranslationInfo>
+  <FullName>Global Consultant Notes</FullName>
+  <Copyright>(c) UBS 2012</Copyright>
+  <Directory>c:\My Paratext Projects\GCN</Directory>
+  <BiblicalTermsListSetting>Project:GCN:ProjectBiblicalTerms.xml</BiblicalTermsListSetting>
+  <FileNamePrePart />
+  <FileNameChapterNumberForm />
+  <Editable>F</Editable>
+  <ResourceText>T</ResourceText>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <Naming PrePart="" PostPart="GCN.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

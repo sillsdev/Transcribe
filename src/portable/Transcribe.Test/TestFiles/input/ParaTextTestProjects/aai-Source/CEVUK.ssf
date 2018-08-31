@@ -1,0 +1,31 @@
+﻿<ScriptureText>
+  <Versification>4</Versification>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <Name>CEVUK</Name>
+  <Encoding>65001</Encoding>
+  <TranslationInfo>Standard::</TranslationInfo>
+  <Language>English</Language>
+  <DefaultFont>Cambria</DefaultFont>
+  <DefaultFontSize>14</DefaultFontSize>
+  <FileNamePrePart />
+  <FileNamePostPart>CEVUK.SFM</FileNamePostPart>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <AssociatedLexicalProject />
+  <FullName>CEVUK</FullName>
+  <Copyright />
+  <Directory>D:\My Paratext Projects\CEVUK</Directory>
+  <LanguageIsoCode />
+  <EthnologueCode />
+  <BiblicalTermsListSetting>Major::BiblicalTerms.xml</BiblicalTermsListSetting>
+  <Editable>T</Editable>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <InitialImportBooksDirectory>D:\</InitialImportBooksDirectory>
+  <Guid>872b6f5b69d4d5c65108c76ef0e4a9f3a01141bf</Guid>
+  <BooksPresent>100000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000</BooksPresent>
+  <Naming PrePart="" PostPart="CEVUK.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

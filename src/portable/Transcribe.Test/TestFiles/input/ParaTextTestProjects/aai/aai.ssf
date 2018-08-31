@@ -1,0 +1,53 @@
+﻿<ScriptureText>
+  <Name>aai</Name>
+  <StyleSheet>usfm.sty</StyleSheet>
+  <ChapterMarker>c</ChapterMarker>
+  <VerseMarker>v</VerseMarker>
+  <FullName>Arifama-Miniafia [aai] PNG 2009</FullName>
+  <Directory>D:\My Paratext Projects\aai</Directory>
+  <FileNameBookNameForm>41MAT</FileNameBookNameForm>
+  <FileNameChapterNumberForm />
+  <FileNamePostPart>aai.SFM</FileNamePostPart>
+  <FileNamePrePart />
+  <AdvancedView>False</AdvancedView>
+  <ContinueAt>p p/q p/q1</ContinueAt>
+  <ContinueQuotes>Yes</ContinueQuotes>
+  <CreatedWithPTW6>T</CreatedWithPTW6>
+  <DefaultFontSize>14</DefaultFontSize>
+  <Editable>T</Editable>
+  <Encoding>65001</Encoding>
+  <EthnologueCode>aai</EthnologueCode>
+  <InitialImportBooksDirectory>C:\My Paratext Projects\~from Mike Johnson (PNG)\aai</InitialImportBooksDirectory>
+  <InnerInnerQuotes>“ ”</InnerInnerQuotes>
+  <InnerQuotes>‘ ’</InnerQuotes>
+  <InvalidCharacters>'</InvalidCharacters>
+  <InvalidPunctuation>___</InvalidPunctuation>
+  <Language>aai</Language>
+  <LanguageIsoCode>aai:::</LanguageIsoCode>
+  <LeftToRight>T</LeftToRight>
+  <Quotes>“ ”</Quotes>
+  <ValidCharacters>a A b B c C d D e E f F g G h H i I j J k K l L m M n N o O p P q Q r R s S t T u U v V w W x X y Y z Z - * ‌ ‍ ’ 3 — 2 4 9 – 8 1 ( . ) ; 7 5 / ‑ © _ ] [ ” “ 6 ? : ! ‘ , 0 •</ValidCharacters>
+  <ValidPunctuation>– ? / _)_ ! :_ _(_ _/_ _—_ _-_ ] _©_ : [ ;_ _“ ”_ )_ ,_ ._ _( ?_ - , _‘ . !_ _•_</ValidPunctuation>
+  <VerboseQuotes>No</VerboseQuotes>
+  <Versification>4</Versification>
+  <Copyright>Wycliffe Bible Translators, Inc.</Copyright>
+  <CrossReferenceSettingsHaveBeenReviewed>T</CrossReferenceSettingsHaveBeenReviewed>
+  <RangeIndicator>-</RangeIndicator>
+  <SequenceIndicator>, </SequenceIndicator>
+  <ChapterVerseSeparator>.</ChapterVerseSeparator>
+  <ChapterRangeSeparator>–</ChapterRangeSeparator>
+  <BookSequenceSeparator>; </BookSequenceSeparator>
+  <ChapterNumberSeparator>; </ChapterNumberSeparator>
+  <BookSourceForMarkerXt>Abbreviation</BookSourceForMarkerXt>
+  <BookSourceForMarkerR>ShortName</BookSourceForMarkerR>
+  <DefaultFont>Charis SIL</DefaultFont>
+  <ReferenceExtraMaterial>a|b</ReferenceExtraMaterial>
+  <TextHasChanged>F</TextHasChanged>
+  <LastBackedUp>2013Jan12</LastBackedUp>
+  <StylesheetModificationDate>8/7/2012 9:11:34 PM</StylesheetModificationDate>
+  <BooksPresent>000000000000000000000000000000000000000111111111111111111111111111000000000000000000000000000000000100000000100000000000000</BooksPresent>
+  <NeedsEnglishLanguageFix>No</NeedsEnglishLanguageFix>
+  <NeedsPortugueseLanguageFix>No</NeedsPortugueseLanguageFix>
+  <TranslationInfo />
+  <Naming PrePart="" PostPart="aai.SFM" BookNameForm="41MAT" ChapterNumberForm="" />
+</ScriptureText>

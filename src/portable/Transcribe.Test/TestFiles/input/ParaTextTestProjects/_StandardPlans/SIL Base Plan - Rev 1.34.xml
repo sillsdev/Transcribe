@@ -1,0 +1,1837 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProgressInfo version="1">
+  <PlanId>ec747b2c-a9b2-41c6-9de1-e6fd564ab4bb</PlanId>
+  <Stages>
+    <Stage id="9eddb82d-ed66-4e24-bdab-060dea2294de">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="79540c20-9aed-4d84-8e64-d3a3e1e98ccd">
+        <Type>ManualByProject</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>1000</EasiestBooksVPD>
+        <EasyBooksVPD>1000</EasyBooksVPD>
+        <ModerateBooksVPD>1000</ModerateBooksVPD>
+        <DifficultBooksVPD>1000</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Complete translation brief</string> </item>
+          <item> <string>fr</string>  <string>Consigne de traduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>完成翻译纲要</string> </item>
+          <item> <string>es</string>  <string>Traducción Completa - Sumario</string> </item>
+		  <item> <string>pt</string>  <string>Tradução Completa - Sumário</string> </item></Names>
+        <Descriptions>
+          <item><string>en</string><string>Developing the translation Brief
+
+The translation brief is a statement of the standards for the project, such as which source texts are used,  and the specific audience and intended uses of the translation. Setting these principles out at the beginning will help the translation team work together towards the common goal.
+
+For more information about the translation brief read:
+
+
+Introducing the Translation Brief: A Practical Tool for Improving Translations
+The translation brief, also referred to as translation instructions (Nord, 1991b), is a
+set of instructions prepared by a requester that accompanies a translation assignment,
+thus enabling the requester to convey information about the source text, the specific
+communicative purpose and context in which the text is used, the intended uses of
+the translation and what it aims to accomplish. In short, it enables the requester and
+translator to be, quite literally, on the same page from start to finish.
+
+http://www.hablamosjuntos.org/mtw/html_toolkit/pdf/tool_3dev_transbrief-feb5_final.pdf
+</string></item>
+        <item><string>fr</string><string>Développez la consigne de traduction du projet. La consigne de traduction est un document qui définit les rôles et responsabilités des parties prenantes dans un projet de traduction : communautés locales, églises, SIL, traducteurs. La consigne de traduction définit ce qui sera traduit, qui est le public cible, quel genre de traduction on vise, comment on pense publier, etc. La consigne de traduction permet à toutes les parties prenantes de savoir exactement quel est leur rôle tout au long du processus de la traduction.</string> </item>
+        <item><string>zh-Hans</string><string>制定翻译纲要
+
+在两种不同语言之间，能达至逐字逐句相同的文本是很难做到的。发起翻译项目的人或翻译请求者（translation requester）若能提供翻译纲要，便可以使译者创建目标语言内容时，更接近原来文本的原意，以致目标语言读者能明白和使用。
+
+翻译：一个共同的责任
+提出翻译纲要：一个改良翻译的实用工具
+
+翻译纲要，也称为翻译指引（Nord, 1991b），是翻译请求者分配翻译任务时所准备的一组指示，使翻译请求者能够传达他的想法，包括关乎源文本的信息，使用文本的特定交流目的和语境，翻译的预期用途以及要达到的目的。简单来说，翻译纲要能使翻译请求者和译者，在实际上，从开始到结束都在同一个节奏上。
+
+http://www.hablamosjuntos.org/mtw/html_toolkit/pdf/tool_3dev_transbrief-feb5_final.pdf</string></item>
+		 <item><string>es</string><string>Desarrollando la traducción - Sumario
+
+Un texto equivalente en otro idioma palabra-por-palabra es dificil de lograr. El sumario de la traducción habilita a los solicitantes permitir a los traductores crear contenido en el idioma deseado que se aproxime al significado original de un texto de una manera que los lectores del idioma deseado puedan entender y usar.
+Traducción: Una responsabilidad compartida
+Presentando el sumario de la traducción: Una herramienta práctica para mejorar traducciones
+El sumario de la traducción, tambien referida como instrucciones de traducción (Nord, 1991b), es un conjunto de instrucciones preparadas por un solicitante y que es parte de un proyecto de traducción, permitiendo así que el solicitante transmita información sobre el texto original, el propósito comunicativo específico y el contexto en el que se usa el texto, además de los usos previstos de traducción y lo que se pretende lograr. En resumen, permite al solicitante y al traductor estar, literalmente en la misma página desde el principio hasta el final.
+
+http://www.hablamosjuntos.org/mtw/html_toolkit/pdf/tool_3dev_transbrief-feb5_final.pdf</string></item>
+		 <item><string>pt</string><string>Resumo completo da tradução - Sumario
+
+O resumo da tradução é uma declaração dos padrões para o projeto, quais textos de origem serão utilizados, e o público específico e os usos pretendidos da tradução.
+A definição destes princípios, no início, ajudará a equipe de tradução a trabalhar em conjunto na direção de um objetivo comum.
+
+Para mais informações sobre a tradução, leia:
+
+Introduzindo o Resumo de Tradução: Uma Ferramenta Prática para Melhorar traduções
+O resumo da tradução, também referido como instruções de tradução (Nord, 1991b), e é um conjunto de instruções preparado por um solicitante que é parte de um projeto de tradução,
+permitindo, assim, que o solicitante transmita informações sobre o texto-fonte, o objetivo comunicativo específico e o contexto em que o texto é usado, os usos pretendidos da
+tradução e o que ela pretende realizar. Em suma, permite que o solicitante e o tradutor estejam, literalmente, na mesma página do início ao fim do projeto.
+
+http://www.hablamosjuntos.org/mtw/html_toolkit/pdf/tool_3dev_transbrief-feb5_final.pdf</string></item></Descriptions>
+        <Availability>WhenProjectStarts</Availability>
+      </Task>
+      <Task id="9f99673c-cb6a-4c05-a9cd-4629eb7f6b20">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Exegesis</string> </item>
+          <item> <string>fr</string>  <string>Exégèse</string> </item>
+          <item> <string>zh-Hans</string>  <string>经文解释</string> </item>
+          <item> <string>es</string>  <string>Exégesis</string> </item>
+		  <item> <string>pt</string>  <string>Exegese</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The first translation task is to study the text carefully, using Bible versions and commentaries. This is called “doing the exegesis”. There should be at least one person on each translation team who is a skilled exegete.</string> </item>
+          <item> <string>fr</string>  <string>La première tâche du traducteur est de lire tout le livre dans une version qu’il comprend bien. Ensuite, il étudie le texte attentivement en comparant plusieurs versions. Il consulte aussi des manuels de traduction et des commentaires. C'est ce qu'on appelle « faire l'exégèse ». Dans chaque équipe de traduction, il doit y avoir au moins une personne capable de faire ce travail.</string> </item>
+          <item> <string>zh-Hans</string>  <string>第一个翻译任务是利用不同的圣经版本和注释书来仔细研读并理解经文。这就称之为“经文解释”。每个翻译小组最少要有一位善于解释的人。</string> </item>
+          <item> <string>es</string>  <string>La primera tarea en la traducción es estudiar el texto cuidadosamente, usando versiones de la Biblia y comentarios. Esto se llama “haciendo la exégesis”. Debe haber al menos una persona en cada equipo de traducción que sea un exégeta experto.</string> </item>
+		  <item> <string>pt</string>  <string>A primeira tarefa da tradução é estudar o texto cuidadosamente, utilizando versões da Bíblia e comentários. 
+Este é chamado de "Fazer a exegese". Deve ter pelo menos uma pessoas em cada equipe de tradução que seja um exegeta.</string> </item></Descriptions>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="3c7a3e20-ffe0-4b32-b11c-f6948b8f5a81">
+        <EditingRequired proj="MTT2" type="BackTranslationText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Oral retelling and processing of the text</string> </item>
+          <item> <string>fr</string>  <string>Ébauche orale</string> </item>
+          <item> <string>zh-Hans</string>  <string>口头复述和文本处理</string> </item>
+          <item> <string>es</string>  <string>Recuento oral y procesamiento del texto</string> </item>
+		  <item> <string>pt</string>  <string>Recontar oralmente e processar o texto</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>A translator, a mother-tongue speaker of the receptor language, studies the text in a LWC, then retells the text in the vernacular to others on the team. It may be recorded for use in the drafting of the text in the next step.</string> </item>
+          <item> <string>fr</string>  <string>Le traducteur étudie le texte dans une langue véhiculaire, puis il le dit dans sa langue à ses collègues. On peut enregistrer cette étape. Cela peut aider la rédaction de l’ébauche de la traduction dans l’étape suivante.</string> </item>
+          <item> <string>zh-Hans</string>  <string>以译入语（或受体语言）为母语的译者首先在 LWC 【？】研读经文，然后用白话向翻译小组的其他成员复述经文。小组可以把这段复述录下来，留待下一步的草拟初稿时使用。</string> </item>
+          <item> <string>es</string>  <string>Un traductor, un hablante que tenga como lengua materna el lenguaje receptor, estudia el texto en un LWC (Siglas en Inglés para Lenguaje de comunicación más amplia), luego vuelve a contar el texto en la lengua vernácula a otros en el equipo. Podría ser grabado para su uso en la redacción del texto en el siguiente paso</string> </item>
+		  <item> <string>pt</string>  <string>Um tradutor, um falante nativo da língua receptora, estuda o texto em um LWC (Siglas em Inglês que siginifica Linguagem de Comunicação mais Ampla), em seguida, 
+é recontado o texto na lígua vernacular para os outros da equipe. Pode-se gravar para ser utilizado na elaboração do texto na próxima etapa</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="4bce47e9-37c3-42ae-a8ec-5a5006c0e21e">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Keyboarding the first draft</string> </item>
+          <item> <string>fr</string>  <string>Saisie de la première ébauche</string> </item>
+          <item> <string>zh-Hans</string>  <string>输入初稿</string> </item>
+          <item> <string>es</string>  <string>Redactando el primer borrador</string> </item>
+		  <item> <string>pt</string>  <string>Digitar o primeiro rascunho</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The translator, a mother-tongue speaker of the receptor language, makes the first draft of the translation, typing it into Paratext. </string> </item>
+          <item> <string>fr</string>  <string>Le traducteur, un locuteur de la langue réceptrice, rédige le texte dans Paratext. Après avoir traduit un passage, il met des titres en tête de section et des notes de bas de page s’il en voit la nécessité.</string> </item>
+          <item> <string>zh-Hans</string>  <string>以译入语（或受体语言）为母语的译者拟定翻译的初稿，并输入到《圣经辅助工具》中。</string> </item>
+          <item> <string>es</string>  <string>Un traductor, un hablante que tenga como lengua materna el lenguaje receptor, ingresa el texto del primer borrador de la traducción en ParaTExt.</string> </item>
+		  <item> <string>pt</string>  <string>Um tradutor, um falante nativo da língua receptora, faz o primeiro rascunho da tradução, digitando-a no ParaText.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="58089389-d741-4c35-848b-64a65229ffb1">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Read the draft aloud</string> </item>
+          <item> <string>fr</string>  <string>Lecture à haute voix du texte traduit</string> </item>
+          <item> <string>zh-Hans</string>  <string>朗读初稿</string> </item>
+          <item> <string>es</string>  <string>Lea el borrador en voz alta</string> </item>
+		  <item> <string>pt</string>  <string>Ler o rascunho em voz alta</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The translator, a mother-tongue speaker of the receptor language, reads the draft aloud to the team, and possibly other mother tongue speakers of the language to check for naturalness and clarity. Then adjust the text based on comments from the group.</string> </item>
+          <item> <string>fr</string>  <string>Le traducteur lit le texte traduit à haute voix à l'équipe (et éventuellement à d’autres locuteurs de la langue) pour vérifier le naturel et la clarté du texte. Il modifie le texte en tenant compte des observations formulées par le groupe.</string> </item>
+          <item> <string>zh-Hans</string>  <string>以译入语（或受体语言）为母语的译者向翻译小组朗读初稿，其他以译入语为母语的组员查看译文是否自然和清晰。然后根据小组的意见调整译文。</string> </item>
+          <item> <string>es</string>  <string>Un traductor, un hablante que tenga como lengua materna el lenguaje receptor, lee en voz alta el borrador para el equipo, y posiblemente a otros hablantes del lenguaje receptor para comprobar la naturalidad y claridad del texto. A continuación, el texto se ajusta en base a los comentarios del grupo.</string> </item>
+		  <item> <string>pt</string>  <string>Um tradutor, um falante nativo da língua receptora, lê em voz alta o rascunho para a equipe e, possivelmente, a outros falantes da língua materna 
+para verificar a naturalidade e a claridade do texto. Em seguida, ajuste o texto com base nos comentários do grupo.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="40b6dcd4-3b9d-4790-819d-28f0fc02bc53">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Draft section headings</string> </item>
+          <item> <string>fr</string>  <string>Vérification des en-têtes de section</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟分段标题</string> </item>
+          <item> <string>es</string>  <string>Preparar los Encabezados de Sección</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho dos Títulos de seções</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Draft section headings</string> </item>
+          <item> <string>fr</string>  <string>Une fois que tout un livre est traduit, vérifiez les en-têtes de section</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟分段标题</string> </item>
+          <item> <string>es</string>  <string>Preparar los Encabezados de Sección</string> </item>
+		  <item> <string>pt</string>  <string>Prepara o rascunho dos títulos de seções</string> </item></Descriptions>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="b1ee4198-d3fe-4a2f-9cd7-4e0fa1ec8bd3">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Draft footnotes</string> </item>
+          <item> <string>fr</string>  <string>Rédaction des notes de bas de page</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟脚注</string> </item>
+          <item> <string>es</string>  <string>Preparar las Notas al Pie de Página</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho das notas de rodapé</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Draft footnotes. These may be drafted after main text has been finalized. After you have drafted the footnotes, it may be helpful to go to Tools--&gt;Checklist--&gt;Footnotes. This checklist will compare the footnotes in your text to other resources that you specify.</string> </item>
+          <item> <string>fr</string>  <string>Rédigez les notes de bas de page. Cela peut se faire quand tout le livre a été traduit.</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟脚注。可以在主要文本定稿后才草拟脚注。</string> </item>
+          <item> <string>es</string>  <string>Preparar las notas al pie de página. Estos pueden ser elaborados luego de que el texto principal haya sido finalizado.</string> </item>
+		  <item> <string>pt</string>  <string>Digitar o rascunho das notas de rodapé. Estes podem ser elaborados depois que o texto principal estiver finalizado. 
+Depois de ter redigido as notas de rodapé, pode ser útil ir para Ferramentas--&gt;Lista de verificação...-- &gt;Notas de rodapé. 
+Esta lista de verificação irá comparar as notas de rodapé no seu texto com outros recursos que você especificar.</string> </item></Descriptions>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="1ce56f6c-82fc-41b6-9876-7a25572b4951">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Draft book introductions</string> </item>
+          <item> <string>fr</string>  <string>Rédaction des introductions des livres</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟书卷简介</string> </item>
+          <item> <string>es</string>  <string>Preparar la Introduccion del Libro</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho da Introduçãdo do Livro</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Draft the book introduction. Be careful to use the same key terms in the introduction as in the text.</string> </item>
+          <item> <string>fr</string>  <string>Rédigez l’introduction du livre traduit. Pensez à utiliser les mêmes termes clés que ceux utilisés dans le texte traduit.</string> </item>
+        <item><string>zh-Hans</string><string>草拟书卷简介。
+
+注意在简介中必须使用与文本相同的主要用词。</string></item>
+          <item> <string>es</string>  <string>Elaborar la introducción del libro. Tenga cuidado de usar los mismos términos clave en la introducción como en el texto principal.</string> </item>
+		  <item> <string>pt</string>  <string>Elaborar a introdução do livro. Tenha cuidado para usar os mesmos termos-chave na introdução como no texto principal.</string> </item></Descriptions>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="5c28e0c8-0c8a-45a4-afab-9c5f22512928">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Draft glossary entries</string> </item>
+          <item> <string>fr</string>  <string>Rédaction des entrées du glossaire</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟《词汇表》条目</string> </item>
+          <item> <string>es</string>  <string>Preparar Entradas del Glosario</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho do Glossário</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Draft glossary entries. The glossary is one of the books that occur after Revelation, and its short name is GLO. It is recommended to add glossary entries from within the Biblical terms tool. Using the Biblical terms tool will create GLO book for you. Look in Help under "glossary" for more information.</string> </item>
+          <item> <string>fr</string>  <string>Le glossaire (GLO) se trouve après l’Apocalypse. Il faut décider quels mots inclure dans le glossaire à partir du livre que vous venez de traduire. Rédigez les entrées du glossaire. Il est recommandé d’ajouter les entrées du glossaire à l'aide de l’outil « Termes Bibliques » qui crée le livre GLO. Pour plus d’informations, allez dans « Aide » puis « Glossaire ».</string> </item>
+        <item><string>zh-Hans</string><string>草拟《词汇表》条目。
+
+在《圣经辅助工具》里，《词汇表》是放在《启示录》后面的一个书卷，简称是 GLO。《词汇表》条目最好从“圣经专门用词”工具内部添加。使用“圣经专门用词”工具时会为你创建一个 GLO 书卷。查看“帮助”里面的“词汇表”可以获取更多信息。</string></item>
+          <item> <string>es</string>  <string>Preparar las entradas del glosario. El glosario es uno de los libros localizados después de Apocalipsis y su nombre corto es GLO. Se recomienda añadir entradas del glosario usando la herramienta de Vocablos Bíblicos. El uso de esta herramienta creará el libro GLO por usted. Busque "glosario" en la Ayuda para más información.</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho do Glossário. O glossário é um dos livros que ocorrem após o Apocalipse, e seu nome abreviado é GLO. 
+Recomenda-se adicionar entradas de glossário utilizando a ferramenta de termos bíblicos. O uso desta ferramenta criará o livro GLO para você. 
+Procure "glossário" em Ajuda para ter mais informações.</string> </item></Descriptions>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="2913d3d8-3691-4576-95bb-4c9cd7f03adb">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>14</EasiestBooksVPD>
+        <EasyBooksVPD>12</EasyBooksVPD>
+        <ModerateBooksVPD>10</ModerateBooksVPD>
+        <DifficultBooksVPD>8</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Insert illustrations</string> </item>
+          <item> <string>fr</string>  <string>Insertion des illustrations</string> </item>
+          <item> <string>zh-Hans</string>  <string>插入插图</string> </item>
+          <item> <string>es</string>  <string>Insertar Ilustraciones</string> </item>
+		  <item> <string>pt</string>  <string>Inserir Ilustrações</string> </item></Names>
+        <Descriptions>
+          <item><string>en</string><string>Make initial decisions on illustrations. If captions contain text not
+directly from the scriptures, they should be consultant checked. This
+should be done in conjunction with the publications department. Sample
+illustrations can be seen at:
+https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string></item>
+          <item><string>fr</string><string>Faites un premier choix pour les illustrations. Si les légendes contiennent du texte qui ne provient pas directement du texte biblique, elles doivent être vérifiées par un conseiller et le département de publications. Pour voir un échantillon d’illustrations allez sur:
+https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string></item>
+        <item><string>zh-Hans</string><string>初步决定使用哪些插图。如果插图标题包含非直接引用经文的文本，就必须要求翻译顾问检查文本。这应该与出版部门一起完成。示例插图可在以下位置找到：
+
+https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string></item>
+		<item><string>es</string><string>Empezar a tomar las decisiones iniciales sobre las ilustraciones a usar. Si los subtitulos no contienen texto directo de las Escrituras entonces deben ser revisados por el consultor. Esto debe hacerse en coordinación con el departamento de Publicaciones. Se puede ver ejemplos de ilustraciones en:
+https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string></item>
+		<item><string>pt</string><string>Faça as primeiras decisões sobre ilustrações. Se as legendas contiverem texto não diretamente das escrituras, elas devem ser checadas pelo consultor.
+Isso deve ser feito em conjunto com o departamento de publicações. Exemplos de ilustrações podem ser vistos em:
+https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string></item></Descriptions>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Check id="ff588448-6faf-4da9-bdbe-e5a79c2d9e2e">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>ChapterVerse</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="e479d1c2-ad7d-4574-a5e0-eb23e2fcaa41">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Marker</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="de495b64-0cd5-42da-a8cc-cbbcad3df781">
+        <Type>NotesAssignedToMeCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Names>
+          <item> <string>en</string>  <string>Drafting</string> </item>
+          <item> <string>fr</string>  <string>Rédaction de l’ébauche</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟初稿</string> </item>
+          <item> <string>es</string>  <string>Borrador</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string></item>
+		<item><string>fr</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="9443afef-8302-4727-8f85-1cb4ef464168">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="7bebeaeb-5932-4232-add9-22f60ac05007">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Naturalness check</string> </item>
+          <item> <string>fr</string>  <string>Vérification du naturel du texte</string> </item>
+          <item> <string>zh-Hans</string>  <string>检查译文的自然度</string> </item>
+          <item> <string>es</string>  <string>Comprobando la naturalidad del Texto</string> </item>
+		  <item> <string>pt</string>  <string>Verificar de naturalidade do Texto</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>This check is done by the translation team (Read the draft, check the general flow of the discourse, its logic, chronology, participant reference, sentence length &amp; rhythm, language style and register, etc.)</string> </item>
+          <item> <string>fr</string>  <string>L’équipe de traduction fait cette vérification. Elle consiste à lire le texte en prêtant attention au naturel du discours, à sa logique, à la chronologie, la référence aux participants, la longueur des phrases, le style et le registre de la langue, etc.</string> </item>
+          <item> <string>zh-Hans</string>  <string>这项检查由翻译小组进行（阅读初稿，检查语篇是否流畅，检查它的逻辑、年代顺序、经文中出现的所指对象（participant reference）、句子长度和节奏、语言风格和语言方式等。）</string> </item>
+          <item> <string>es</string>  <string>Este chequeo es realizado por el equipo de traducción (Leer el borrador, comprobar el flujo general del discurso, su lógica, cronología, referencia del participante, duración y ritmo de la oración, estilo del lenguaje y registro, etc.)</string> </item>
+		  <item> <string>pt</string>  <string>Esta verificação é feita pela equipe de tradução (lê-se o rascunho, verifica o fluxo geral do discurso, sua lógica, cronología, referência do participante, duração e ritmo da oração, estilo de linguagem e registro, etc.)</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>9eddb82d-ed66-4e24-bdab-060dea2294de</PrerequisiteStageId>
+      </Task>
+      <Task id="3480d1ca-6ee7-40eb-a31e-f0e06dbf73a8">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Exegetical check</string> </item>
+          <item> <string>fr</string>  <string>Vérification de l’exégèse</string> </item>
+          <item> <string>zh-Hans</string>  <string>经文解释的检查</string> </item>
+          <item> <string>es</string>  <string>Chequeo Exegético</string> </item>
+		  <item> <string>pt</string>  <string>Verificação exegética</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>This check is done by the translation team. Compare the draft with one or two translations in the national language, discuss exegetical choices that have been made in the translation, identify possible exegetical mistakes in the translation; identify any missing verses or sentences.)</string> </item>
+          <item> <string>fr</string>  <string>L’équipe de traduction fait cette vérification. Il s’agit de comparer le texte traduit avec une ou deux traductions dans une langue véhiculaire, de discuter des choix exégétiques qui ont été faits pendant la traduction, d’identifier d’éventuelles erreurs exégétiques dans la traduction et de vérifier que rien ne manque (ni versets, ni parties de versets).</string> </item>
+          <item> <string>zh-Hans</string>  <string>这项检查由翻译小组进行（用一个或两个本国语言的译本与初稿作一比较，讨论翻译中对经文解释方面的选择，识别翻译中可能有错的经文解释；识别是否有漏译的经节或句子。）</string> </item>
+          <item> <string>es</string>  <string>Este chequeo es realizado por el equipo de traducción. Comparar el borrador con una o dos traducciones en el idioma nacional, discutir las opciones exegéticas que se hicieron en la traducción, identificar posible errores exegéticos en la traducción; identificar cualquier versículo u oración faltantes.</string> </item>
+		  <item> <string>pt</string>  <string>Esta verificação é feita pela equipe de tradução. Compare o rascunho com uma ou duas traduções na língua nacional, discutir as escolhas exegéticas que foram feitas na tradução, identificar possíveis erros exegéticos na tradução; Identificar quaisquer versículos ou sentenças ausentes.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="8ca385ae-24ad-41ab-8a63-707505e039a1">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Proper names check</string> </item>
+          <item> <string>fr</string>  <string>Vérification des noms propres</string> </item>
+          <item> <string>zh-Hans</string>  <string>专有名词的检查</string> </item>
+          <item> <string>es</string>  <string>Comprobación de Nombres Propios</string> </item>
+		  <item> <string>pt</string>  <string>Verificação dos Nomes Próprios</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Verify that proper names have been transliterated according to agreed upon rules, and are consistent. Verify that capitalization has been done correctly and consistently. For languages with word level and grammatical honorifics, verify that they are used correctly. The Greek and Hebrew texts will not have the level of honorifics that some languages will need. Therefore Paratext cannot check for them reliably. Paratext can help if you add the honorifics plus the name as an acceptable rendering for a name, but only native speakers can say for a given instance of a name whether a honorific is required or not. Note: The Biblical terms tool can help with the verification of names if the list is filtered for the "Names" category. The Biblical terms tool will not find instances of a name in book introductions, section headings, footnotes, illustration captions and glossary entries. You will have to find the proper names in these locations manually.</string> </item>
+          <item> <string>fr</string>  <string>Il s’agit de vérifier que les noms propres ont été translittérés selon les règles convenues et de manière cohérente et que les majuscules sont mises là où il le faut. L’outil « Termes bibliques » peut aider à vérifier les noms si on applique le filtre « Noms propres » à la liste des noms. Cependant, cet outil ne tient pas compte des noms propres dans les introductions des livres, dans les en-têtes de section, dans les notes de bas de page, ni dans les entrées du glossaire. À ces endroits, on est obligé de vérifier les noms propres manuellement.</string> </item>
+          <item> <string>zh-Hans</string>  <string>确定专有名词已经按照商定的规则来进行音译，并且是一致的。确定专有名词的大写是正确和一致的。对于用语要分层次和语法中有敬语的语言，要确定这些都用得正确。希腊语和希伯来语原文文本不一定具备某些语言所需要的不同层次的敬语。因此，《圣经辅助工具》无法可靠地进行这类检查。你若添加了一些带敬语的名字作为某个名字可接受的译法，《圣经辅助工具》也可以帮助检查，但只有说本地语的人能分辨什么时候需要有敬语，什么时候不需要。注意：“圣经专门用词”工具可以有助验证这些名字，只需要在列表中为“名字”的类别进行筛选。“圣经专门用词”工具不会在书卷简介、分段标题、脚注、插图标题和词汇表条目中查找名字。你需要在这些位置手动查找所有的专有名词。</string> </item>
+          <item> <string>es</string>  <string>Verificar que los nombres propios hayan sido transliterados consistentemente de acuerdo a las reglas acordadas con anterioridad. Compruebe que las capitalización se haya realizado correctamente y de forma coherente. Verificar que los idiomas con nivel de palabra (Word Level) y honoríficos gramaticales (grammatical honorifics) sean usados correctamente. Textos hebreos y griegos no tendrán el nivel de honorificos que algunas lenguas necesitarán. Por lo tanto ParaTExt no podrá comprobarlos de forma segura. ParaTExt puede ayudar si se agrega los honoríficos más el nombre como una traducción aceptable para el nombre, pero sólo nativo hablantes pueden decir si un honorífico es necesario o no para una instancia dada de un nombre. Nota: La herramienta de Vocablos Bíblicos puede ayudar con la verificación de nombres si la lista usa el filtro de Categoría "Nombres". La herramienta de Vocablos Bíblicos no encontrará instancias de un nombre en las instroducciones de los libros, encabezamientos de sección, notas de pie de página, subtítulos de ilustraciones y entradas de glosario. Se tendrá que encontrar los nombres propios en estas ubicaciones manualmente.</string> </item>
+		  <item> <string>pt</string>  <string>Verifica se os nomes próprios foram transliterados de acordo com regras acordadas e são consistentes. Verifica se as capitalização foi feita corretamente e consistentemente. Para idiomas com nível de palavra e honoríficos gramaticais, verifique se eles são usados corretamente. Os textos grego e hebraico não terão o nível de honoríficos que algumas línguas necessitarão. Portanto, o Paratext não pode verificá-los de forma confiável. O Paratext pode ajudar se você adiciona os honoríficos mais o nome como uma tradução aceitável para o nome, mas somente falantes nativos podem decidir para uma determinada instância se um honorífico é necessário ou não. Nota: A ferramenta de termos bíblicos pode ajudar na verificação de nomes se a lista for filtrada para a categoria "Nomes". A ferramenta de termos bíblicos não encontrará instâncias de um nome em introduções de livros, títulos de seção, notas de rodapé, legendas de ilustração e entradas de glossário. Você terá que encontrar os nomes próprios nesses locais manualmente.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="5908f5a3-33bd-4929-bff3-692bb7189c22">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Biblical key terms check</string> </item>
+          <item> <string>fr</string>  <string>Vérification des termes bibliques</string> </item>
+          <item> <string>zh-Hans</string>  <string>主要圣经专门用词的检查</string> </item>
+          <item> <string>es</string>  <string>Comprobación de Términos Clave</string> </item>
+		  <item> <string>pt</string>  <string>Verificação dos Termos-chave bíblicos</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>This check is done by the translation team (Identify the Biblical key terms in the passage, keyboard the renderings into the Biblical terms Tool, check the consistency of the Biblical key terms used in the passage with the terms documented in the Biblical terms Tool, discuss and document significant variations and/or alternatives that need to be discussed with the translation consultant), compare the draft with one or two translations in the national language, discuss exegetical choices that have been made in the translation, identify possible exegetical mistakes in the translation; identify any missing verses or sentences.)</string> </item>
+          <item> <string>fr</string>  <string>Cette vérification doit être effectuée par l’équipe de traduction. Il s’agit d’identifier les principaux termes bibliques dans un passage, de saisir les équivalents dans l'outil « Termes bibliques », de vérifier que les équivalents ont été utilisés de manière cohérente dans des contextes appropriés, de discuter et documenter des variations importantes et/ou des alternatives qui doivent être discutées avec le conseiller et de comparer le texte avec une ou deux traductions dans une langue véhiculaire.</string> </item>
+          <item> <string>zh-Hans</string>  <string>这项检查由翻译小组进行（在经文段落中识别主要圣经专门用词，把译法输入到“圣经专门用词”工具中，检查经文段落中使用的主要圣经专门用词与“圣经专门用词”工具中所记录的专门用词是否一致，讨论和记录重要的差异和／或需要与翻译顾问讨论的替代选项，用一个或两个本国语言的译本与初稿做一比较，讨论翻译中对经文解释方面的选择，识别翻译中可能有错的经文解释；识别是否有漏译的经节或句子。）</string> </item>
+          <item> <string>es</string>  <string>Este chequeo es realizado por el equipo de traducción (Identificar los términos clave bíblicos en el pasaje, ingresar los terminos generados en la herramienta de Vocablos Bíblicos, compruebar la consistencia de los términos clave usados en el pasaje con los términos documentados en la herramienta de Vocablos Bíblicos, discutir y documentar variaciones significativas y/o alternativas que necesiten ser comentados con el consultor de traducción), comparar el borrador con una o dos traducciones en el idioma nacional, discutir las decisiones exegéticas que se han hecho en la traducción, identificar posibles errores exegéticos en la traducción; Identificar cualquier versículo u oración que falte.)</string> </item>
+		  <item> <string>pt</string>  <string>Essa verificação é feita pela equipe de tradução (Identificar os termos-chave bíblicos na passagem, digitar os termos generados na ferramenta de termos Bíblicos, Verifique a consistência dos termos-chave bíblicos usados na passagem com os termos documentados na ferramenta de termos bíblicos, discutir e documentar variações significativas e/ou alternativas que precisam ser discutidas com o consultor de tradução), comparar o rascunho com uma ou duas traduções na língua nacional, discutir as escolhas exegéticas que foram feitas na tradução, identificar possíveis erros exegéticos na tradução; identificar quaisquer versículos ou frases que faltam.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="386e0970-f1fc-4ce9-bffa-c2d92a772fc1">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Run "Spell Check Current Book"</string> </item>
+          <item> <string>fr</string>  <string>Activation de l’outil « Vérifier l'orthographe du livre actuel »</string> </item>
+          <item> <string>zh-Hans</string>  <string>给当前书卷运行“拼写检查”</string> </item>
+          <item> <string>es</string>  <string>Ejecutar "Verificar ortografía de este libro:"</string> </item>
+		  <item> <string>pt</string>  <string>Verificar ortografia no livro atual</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Under the Checking Menu is "Spell Check Current Book", click on this and accept or correct the spelling of all of the words present. For those that need more discussion open the wordlist tool and add a spelling discussion note.</string> </item>
+          <item> <string>fr</string>  <string>Dans le menu « Vérification », cliquez sur « Vérifier l'orthographe du livre actuel ». Acceptez ou corrigez l’orthographe de tous les mots. Si vous devez discuter l’orthographe de certains mots en équipe, ouvrez l’outil « Liste de mots » et ajoutez une note de discussion d’orthographe.</string> </item>
+          <item> <string>zh-Hans</string>  <string>在“检查”菜单下有“给当前书卷运行‘拼写检查’”的选项，单击这个选项，然后接受或纠正所有出现字词的拼写。至于需要更多讨论的字词，请打开“词表”工具，然后添加一个拼写讨论附注。</string> </item>
+          <item> <string>es</string>  <string>Bajo el menú Verificación haga click en la opción "Verificar ortografía de este libro:", luego acepte a corrija la ortografía de todas las palabras listadas. Para aquellas palabras que necesiten más discusión, abra la herramienta Lista de Palabras y agregar una nota de ortografía.</string> </item>
+		  <item> <string>pt</string>  <string>Sob o menu de Verificação clique na opção "Verificar ortografia no livro atual" e aceite ou corrija a ortografia de todas as palavras presentes. Para aquelas palavras que precisam de mais discussão, abra a ferramenta Lista de Palavras e adicione uma nota de discussão ortográfica.</string> </item></Descriptions>
+        <Availability>WhenBookStarts</Availability>
+      </Task>
+      <Task id="a54b251a-daee-4366-9431-ebe4a5f0a210">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Section breaks and headings - format check</string> </item>
+          <item> <string>fr</string>  <string>Vérification des sauts de section et en-têtes de section</string> </item>
+          <item> <string>zh-Hans</string>  <string>分段符和标题 – 格式检查</string> </item>
+          <item> <string>es</string>  <string>Saltos de sección y encabezados - chequeo de formato</string> </item>
+		  <item> <string>pt</string>  <string>Títulos de seções - verificação de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Discuss the format used in the translation and check if this is consistent with the agreed upon model translation (if there is one). Formatting to be checked includes but is not limited to: prose format, indented poetry format, differences in format in the translation and introductions. If another translation is used as a model then this check can be done using Tools &gt; Checklists &gt; Compare Section Headings</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez que le formatage utilisé est conforme à la traduction modèle que l’équipe utilise (si un modèle a été choisi). Ce formatage inclut, entre autres : la mise en forme de la prose, de la poésie et de l’introduction. Si une autre traduction est utilisée comme modèle, cette vérification peut se faire à l’aide d’« Outils » &gt; « Listes récapitulatives » &gt; « En-têtes de section ».</string> </item>
+          <item> <string>zh-Hans</string>  <string>彼此讨论译文中使用的格式，检查这格式与商定的范本译本（若有）是否一致。需要检查的格式包括（但不限于）以下各项：散文（或叙述文）格式，诗歌的缩排格式，译文与简介的不同格式。若是使用另一个译本作为范本，可以通过以下途径运行这项检查：“工具 ＞ 检查表工具（checklists） ＞ 比较分段标题”。</string> </item>
+          <item> <string>es</string>  <string>Discutir el formato usado en la traducción y comprobar si este es consistente con el modelo de traducción previamente acordado (si es que hubo alguno). El Formato a comprobar incluye, pero no se limita a: formato de prosa, formato de poesía con sangría, diferencias en el formato de traducción e introducciones. Si otra traducción es usada como modelo entonces esta comprobación se puede realizar usando Herramientas &gt; Lista de verificaciones... &gt; Comparar encabezados de secciones</string> </item>
+		  <item> <string>pt</string>  <string>Discuta o formato usado na tradução e verifique se isso é consistente com a tradução de modelo acordada (se houver). A formatação a ser verificada inclui, mas não se limita a: formato de prosa, formato de poesia com recuo, diferenças do formato ne tradução e nas introduções. Se outra tradução for usada como um modelo, então essa verificação pode ser feita usando Ferramentas &gt; Listas de verificação &gt; Comparar Títulos de Seção</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="9cc94d91-bd01-418c-8bcd-c114e99b7d26">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Paragraph breaks - format check</string> </item>
+          <item> <string>fr</string>  <string>Vérification des sauts de paragraphe</string> </item>
+          <item> <string>zh-Hans</string>  <string>段落符 – 格式检查</string> </item>
+          <item> <string>es</string>  <string>Interrupciones de Párrafo - chequeo de formato</string> </item>
+		  <item> <string>pt</string>  <string>Quebras de parágrafos - verificação de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Read the text and verify that the paragraph breaks are in the desired places. If another translation is used as a base then this check can be done using Tools &gt; Checklists &gt; Compare Markers and look for the new paragraph markers such as \p, and \m.</string> </item>
+          <item> <string>fr</string>  <string>Lisez le texte et vérifiez que les sauts de paragraphe sont aux endroits désirés. Si vous suivez une version modèle, ce contrôle peut être fait à l’aide d’« Outils » &gt; « Listes récapitulatives » &gt; « Marqueurs ». Comparez les marqueurs qui indiquent les sauts de paragraphe, tels que \p et \m.</string> </item>
+          <item> <string>zh-Hans</string>  <string>阅读文本，确定段落符都在想要放置的地方。若是使用另一个译本作为根据，可以通过以下途径运行这项检查：“工具 ＞ 检查表工具（checklists） ＞ 比较格式码”，然后寻找新的段落格式码，如：\p，和 \m。</string> </item>
+          <item> <string>es</string>  <string>Lea el texto y verifique que los saltos de párrafo estén en los lugares deseados. Si otra traducción es usada como modelo entonces esta comprobación se puede realizar usando Herramientas &gt; Lista de verificaciones... &gt; Comparar marcadores y buscar marcadores de nuevo párrafo como \p, y \m.</string> </item>
+		  <item> <string>pt</string>  <string>Leia o texto e verifique se as quebras de parágrafo estão nos locais desejados. Se outra tradução for usada como uma base, então essa verificação pode ser feita usando a Ferramentas &gt; Listas de verificação &gt; Comparar marcadores e procure os novos marcadores de parágrafo como \p e \m.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="739ab389-cb89-4347-8c29-9c11bb673af7">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Layout and indents - format check</string> </item>
+          <item> <string>fr</string>  <string>Vérification de la mise en page et les mises en retrait</string> </item>
+          <item> <string>zh-Hans</string>  <string>版式和缩排 – 格式检查</string> </item>
+          <item> <string>es</string>  <string>Diseño y sangría - chequeo de formato</string> </item>
+		  <item> <string>pt</string>  <string>Layout e recuos - verificação de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Verify other layout issues such as poetry. Particular attention should be given to poetry indentations. If another translation is used as a base then this check can be done using Tools &gt; Checklists &gt; Compare Markers and look for the new paragraph markers such as \q, \q1 and \q2.</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez les autres questions de mise en page. Pour les textes poétiques, attention aux mises en retrait. Si vous suivez une version modèle, ce contrôle peut être fait à l’aide d'« Outils » &gt; « Listes récapitulatives » &gt; « Marqueurs ». Recherchez les marqueurs de paragraphe ajoutés ou manquants comme \q et \q1 et \q2.</string> </item>
+          <item> <string>zh-Hans</string>  <string>确定其他版式问题，如诗歌。要特别注意诗歌的缩排。若是使用另一个译本作为根据，可以通过以下途径运行这项检查：“工具 ＞ 检查表工具（checklists） ＞ 比较格式码”，然后寻找新的段落格式码，如：\q， \q1 和 \q2。</string> </item>
+          <item> <string>es</string>  <string>Comprobar otros problemas de diseño como poesía. Debe prestarse especial atención a las sangrías en la poesía. Si otra traducción es usada como modelo entonces esta comprobación se puede realizar usando Herramientas &gt; Lista de verificaciones... &gt; Comparar marcadores y buscar marcadores de nuevo párrafo como \q, \q1 y \q2.</string> </item>
+		  <item> <string>pt</string>  <string>Verifique outros problemas de layout, como poesia. Deve-se dar atenção especial aos recuos de poesia. Se outra tradução for usada como uma base, então essa verificação pode ser feita usando a Ferramentas &gt; Listas de verificação &gt; Comparar marcadores e buscar os novos marcadores de parágrafo como \q, \q1 e \q2.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="3d26c07e-637e-4e11-980d-3689884d7157">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Special formatting - format check</string> </item>
+          <item> <string>fr</string>  <string>Vérification de la mise en forme spéciale</string> </item>
+          <item> <string>zh-Hans</string>  <string>特殊格式 – 格式检查</string> </item>
+          <item> <string>es</string>  <string>Formato especial - chequeo de formato</string> </item>
+		  <item> <string>pt</string>  <string>Formato especial - verificação de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>See list of special formatting issues such as genealogies, words on the cross, letters, etc. Verify that text is marked using the correct standard format markers (USFMs). See http://paratext.org/about/usfm for latest guide to using USFMs.</string> </item>
+          <item> <string>fr</string>  <string>Consultez la liste des cas spéciaux de mise en forme (les généalogies, les mots sur la croix, les épîtres, etc.). Vérifiez que les marqueurs de formatage standard (UFSM) sont corrects et bien placés. Voyez http://paratext.org/about/usfm pour le guide d’utilisation des marqueurs USFM le plus récent.</string> </item>
+          <item> <string>zh-Hans</string>  <string>见特殊格式问题列表，如：家谱、十字架上的字词、信件等。确定文本是使用正确的“标准格式格式码”（USFM）来标记。有关使用 USFM 的最新指南，见 http://paratext.org/about/usfm。</string> </item>
+          <item> <string>es</string>  <string>Consulte la lista de problemas especiales de formato tales como en genealogías, palabras en la cruz, cartas, etc. Verifique que el texto use marcadores bajo el correcto estándar (USFM). Consultar http://paratext.org/about/usfm para obtener la guía más reciente sobre el uso de USFM.</string> </item>
+		  <item> <string>pt</string>  <string>Veja a lista de questões especiais de formatação, como genealogias, palavras na cruz, letras, etc.Consulte a lista de problemas especiales de formato tales como en genealogías, palabras en la cruz, cartas, etc. Verifique que el texto use marcadores bajo el correcto estándar (USFM). Consultar http://paratext.org/about/usfm para obtener la guía más reciente sobre el uso de USFM.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="0b6cbd07-9f68-4ec9-9eb6-684ce68f7dac">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Print preliminary version</string> </item>
+          <item> <string>fr</string>  <string>Impression de l’ébauche provisoire</string> </item>
+          <item> <string>zh-Hans</string>  <string>打印初版</string> </item>
+          <item> <string>es</string>  <string>Imprimir Versión Preliminar</string> </item>
+		  <item> <string>pt</string>  <string>Imprimir versão preliminar</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Open the "Assignments and Progress" window and correct all errors/issues shown there. Once all errors are corrected and open notes are resolved, print a copy of the books or chapters to be reviewed by community group. The two simplest ways to print text from Paratext are found under the "File" menu. They are "Print Draft" and "Save as RTF". There are other methods available for more advanced formatting, such as "Export to Pathway". Use the method specified by your project administrator or translation consultant.</string> </item>
+          <item> <string>fr</string>  <string>Ouvrez la fenêtre « Affectations et progrès[a]  » et corrigez tout problème ou erreur signalé. Une fois que toutes les erreurs sont corrigées et les notes résolues, imprimez un exemplaire des livres ou chapitres qui devront être examinés par les réviseurs. Pour imprimer, allez dans le menu « Fichier » et choisissez soit « Imprimer ébauche », soit « Enregistrer en RTF ». Il existe d’autres méthodes disponibles pour une mise en forme plus avancée, telles qu’« Exporter à Pathway ». Utilisez la méthode demandée par votre administrateur de projet ou conseiller en traduction.</string> </item>
+          <item> <string>zh-Hans</string>  <string>打开“工作分配和进度”窗口，然后改正所有在窗口中显示的错误／问题。改正所有错误和解决所有未解决的附注之后，打印一些书卷或章，交给该语言群体中的公众审阅者审阅。要从《圣经辅助工具》打印文本，两种最简单的方法可见于“文件”菜单，就是“打印草稿”和“另存为 RTF 文件”。较高级的格式还可以使用其他的方法，如“导出至 Pathway 软件”。请使用项目管理员或翻译顾问所指定的方法。</string> </item>
+          <item> <string>es</string>  <string>Abrir la ventana "Asignaciones y Progreso" y corregir todos los errores/problemas mostrados allí. Una vez corregidos los problemas y las nostas sean resueltas, imprima una copia de los libros o capítulos para que sean revisados por el grupo de la comunidad. La dos formas más sencillas de imprimir texto desde ParaTExt se encuentran bajo el menú "Archivo". Estos son "Imprimir borrador..." y "Guardar como RTF...". Otros métodos están disponibles que permiten un formato más avanzado, como "Exportar a Pathway". Use el método especificado por el administrador del proyecto o por el consultor de traducción.</string> </item>
+		  <item> <string>pt</string>  <string>Abra a janela "Atribuições e Progresso" e corrija todos os erros/problemas mostrados lá. Depois que todos os erros forem corrigidos e as notas abertas forem resolvidas, imprima uma cópia dos livros ou capítulos a serem revisados pelo grupo da comunidade. As duas formas mais simples de imprimir texto no Paratext estão localizadas no menu "Arquivo". Elas são "Imprimir rascunho..." e "Salvar como RTF...". Há outros métodos disponíveis que permitem un formato mais avançado, como "Exportar para Pathway". Use o método especificado pelo administrador do projeto ou pelo consultor de tradução.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="75365725-9717-46de-85f9-413d44af9b59">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Prepare for comprehension testing</string> </item>
+          <item> <string>fr</string>  <string>Préparation pour les tests de compréhension</string> </item>
+          <item> <string>zh-Hans</string>  <string>准备理解译文测试</string> </item>
+          <item> <string>es</string>  <string>Preparación para la prueba de comprensión</string> </item>
+		  <item> <string>pt</string>  <string>Preparo para o teste de compreensão</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>This is comprehension testing done with members of the language community who were not involved in preparing the Preliminary Version of the text. (Re-read the translation draft; Draft general retell questions for comprehension testing; Identify possible issues of misunderstanding; Draft specific questions related to the main events in the passage, participant reference, key terms, foreign concepts, metaphors, rhetorical questions, inferential information, positive or negative associations, etc.) </string> </item>
+          <item> <string>fr</string>  <string>Il s’agit de tests de compréhension faits avec des membres de la communauté de langue qui n’ont pas été impliqués dans la préparation de l’ébauche du texte. Relisez le texte traduit et rédigez des questions pour les tests de compréhension. Pour cela, identifiez les problèmes d’incompréhension potentiels; rédigez des questions spécifiques ayant trait aux événements principaux dans le passage, aux références aux participants, aux termes clés, aux concepts étrangers, aux métaphores, questions rhétoriques, informations inférées, associations positives ou négatives, etc.</string> </item>
+          <item> <string>zh-Hans</string>  <string>这项理解译文的测试是与语言群体中没有参与准备文本初稿的人一起去做。（重新阅读译稿；为理解译文测试拟定一般性的复述问题；识别可能出现的误解；拟定一些具体问题，例如与关乎经文中的主要事件、经文中出现的所指对象（participant reference）、主要圣经用词、外来的观念、比喻、修辞性疑问句、推理信息、正面或负面的关联等。）</string> </item>
+          <item> <string>es</string>  <string>Se trata de pruebas de comprensión hechas con miembros de la comunidad lingüística que no estuvieron involucrados en la preparación de la Versión Preliminar del texto. (Releyendo el borrador de la traducción; redactar preguntas generales para las pruebas de comprensión, identificación de posibles problemas de malentendidos, redactar preguntas específicas relacionadas con los principales eventos del pasaje, referencia de los participantes, términos clave, conceptos ajenos a la cultura, metáforas, preguntas retóricas, información inferencial , asociaciones positivas o negativas, etc.)</string> </item>
+		  <item> <string>pt</string>  <string>Este é um teste de compreensão realizado com membros da comunidade linguística que não estavam envolvidos na preparação da Versão Preliminar do texto. (Relê o rascunho da tradução; Rescrever perguntas gerais para testes de compreensão; Identificar possíveis problemas de mal-entendido; Esboçar questões específicas relacionadas aos principais eventos da passagem, referência de participante, termos-chave, conceitos desconhecidos, metáforas, perguntas retóricas, informação implícita, associações positivas ou negativas, etc.)</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Check id="9d5bba8a-19bc-44c5-b086-ca86ee9e428c">
+        <Type>NoteCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <Details>-1</Details>
+        <PostponedBooks />
+      </Check>
+      <Check id="284e05e6-e87b-4bc7-a253-f3952f1b98ee">
+        <Type>NoteCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <Details>1</Details>
+        <PostponedBooks />
+      </Check>
+      <Check id="5ae2f5c6-88c6-4692-8ced-eb6439483403">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Character</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="c534b7ee-ddf0-42da-bd0e-0ebdc7282a3c">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Punctuation</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="e010aa8e-8a52-4eec-94ac-f13c7938ec49">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Capitalization</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="7d5c214e-8bf6-4a4e-ae1a-0aa7e4ad2d9e">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>RepeatedWord</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Names>
+          <item> <string>en</string>  <string>Team Checking</string> </item>
+          <item> <string>fr</string>  <string>Vérification en équipe</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组的检查</string> </item>
+          <item> <string>es</string>  <string>Comprobaciones realizadas por el Equipo</string> </item>
+		  <item> <string>pt</string>  <string>Verificação em Equipe</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string></item>
+		<item><string>fr</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="20974cee-9f40-43c4-a0ae-5e733238e134">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="e2642958-0d86-450b-8c6d-df076b05ab5f">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>First comprehension testing</string> </item>
+          <item> <string>fr</string>  <string>Premier test de compréhension</string> </item>
+          <item> <string>zh-Hans</string>  <string>第一次译文理解测试</string> </item>
+          <item> <string>es</string>  <string>Primera prueba de comprensión</string> </item>
+		  <item> <string>pt</string>  <string>Primeiro teste de compreensão</string> </item></Names>
+        <Descriptions>
+          <item><string>en</string>   <string>In this plan it is assumed that any checks found unfinished from a previous stage should be dealt with appropriately. NOTE: if a check from a previously completed stage is found to have errors it will show up in the current working stage.
+While supplementary helps are specifically mentioned in the drafting section, it is assumed that all other checks will also be completed on supplementary materials and that these are a part of the final text.</string></item>
+          <item> <string>fr</string>  <string>Tout contrôle inachevé lors d’une étape précédente doit être traité de façon appropriée. N.B. Si un contrôle d’une étape déjà complétée présente des erreurs, elles s’afficheront dans l’étape en cours. Il faut également effectuer tous les contrôles pour toutes les aides paratextuelles ainsi que les sections liminaires et annexes qui font partie du texte final.</string> </item>
+        <item><string>zh-Hans</string><string>在这计划中，任何前一阶段未完成的检查都应适当地加以处理。注意：如果前一个完成阶段的检查中出现错误，这情况会在当前的工作阶段中显示出来。
+
+初稿部分特别提到一些辅助性的帮助材料，这里假设所有其他关乎补充材料的检查也会完成，并且是最后文本的一部分。</string></item>
+		<item><string>es</string><string>En este plan se supone que cualquier chequeo de una etapa anterior que no haya sido finalizado debe ser procesado apropiadamente. NOTA: si un chequeo de una etapa previamente completada muestra errores, estos aparecerán en la etapa de trabajo actual.
+Si bien ayudas suplementarias son mencionadas específicamente en la sección de redacción, se supone que todos los demás chequeos también se realizarán en los materiales complementarios y que éstos forman parte del texto final.</string></item>
+		<item><string>pt</string><string>Neste plano, presume-se que qualquer verificação inacabada  durante uma etapa anterior deve ser tratada de forma adequada. NOTA: se uma verificação de uma etapa já concluída contém erros, eles serão exibidos na etapa atual.
+Embora as ajudas suplementares sejam especificamente mencionadas na seção de rascunho, presume-se que todos os outros controles serão igualmente preenchidos com materiais suplementares e que estes são parte do texto final.</string></item></Descriptions>
+		<Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>9443afef-8302-4727-8f85-1cb4ef464168</PrerequisiteStageId>
+      </Task>
+      <Task id="17f2161c-086e-4016-975d-c58dfb7f55cf">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>First revision</string> </item>
+          <item> <string>fr</string>  <string>Première révision</string> </item>
+          <item> <string>zh-Hans</string>  <string>第一次修订</string> </item>
+          <item> <string>es</string>  <string>Primera revisión</string> </item>
+		  <item> <string>pt</string>  <string>Primeira revisão</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team discusses the comments from first comprehension testing and revises the text where appropriate. (Resolve any issues documented by project, spelling and rendering notes.)</string> </item>
+          <item> <string>fr</string>  <string>L’équipe examine les commentaires des premiers tests de compréhension et révise le texte si nécessaire. (Résoudre tous les problèmes liés au projet, à l’orthographe et à la traduction.)</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组讨论第一次译文理解测试所得出的意见，并适当地修订文本。（解决所有用项目附注以及拼写和译法附注记录的问题。）</string> </item>
+          <item> <string>es</string>  <string>El equipo discute los comentarios de la primera prueba de comprensión y revisa el texto donde sea necesario. (Resuelva cualquier problema documentado por el proyecto, la ortografía y las notas de traducción.)</string> </item>
+		  <item> <string>pt</string>  <string>A equipe discute os comentários dos primeiros testes de compreensão e revisa o texto onde for necessário. (Resolver todos os problemas relacionados com o projeto, ortografia e tradução.)</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="b5c6a130-0254-407b-963f-856f580d3698">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Print first revision</string> </item>
+          <item> <string>fr</string>  <string>Impression de la première révision</string> </item>
+          <item> <string>zh-Hans</string>  <string>打印第一次修订文本</string> </item>
+          <item> <string>es</string>  <string>Imprimir la Primera Versión</string> </item>
+		  <item> <string>pt</string>  <string>Impressão da primeira revisão</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Print chapter(s) or book(s) being reviewed using method specified by project administrator or translation consultant.</string> </item>
+          <item> <string>fr</string>  <string>Imprimez les chapitres ou le livre en cours de révision en utilisant la méthode demandée par l’administrateur du projet ou le conseiller en traduction.</string> </item>
+          <item> <string>zh-Hans</string>  <string>使用项目管理员或翻译顾问指定的方法打印（一个或多个）章或书卷。</string> </item>
+          <item> <string>es</string>  <string>Imprima el(los) capítulo(s) o libro(s) que está(n) siendo revisado(s) usando el método especificado por el administrador del proyecto o por el consultor de traducción</string> </item>
+		  <item> <string>pt</string>  <string>Imprimir capítulo(s) ou livro(s) sob revisão usando o método solicitado pelo gerente de projeto ou o consultor de tradução.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="986ee40b-6f38-400a-b7f0-b6085faeb476">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Second comprehension testing</string> </item>
+          <item> <string>fr</string>  <string>Deuxième test de compréhension</string> </item>
+          <item> <string>zh-Hans</string>  <string>第二次译文理解测试</string> </item>
+          <item> <string>es</string>  <string>Segunda prueba de comprensión</string> </item>
+		  <item> <string>pt</string>  <string>Segundo teste de compreensão</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>This check is done with a group of UNSs (Read the first revision of the passage; ask general retell questions; ask follow up questions; document problems of understanding that need to be fixed in the translation; issues related to spelling should be documented with a spelling note in the word list tool, and issues related to rendering words should be documented with a rendering note in the Biblical terms tool. Also note any changes related to improved naturalness of the draft)</string> </item>
+          <item> <string>fr</string>  <string>Ce contrôle s’effectue avec un groupe de locuteurs natifs non initiés : leur lire la première révision du passage, poser des questions générales et de suivi et noter les problèmes de compréhension qui doivent être corrigés dans la traduction. Les questions liées à l’orthographe doivent être consignées dans une note d’orthographe dans l’outil « Liste de mots ». Les questions associées aux équivalents des termes bibliques doivent être consignées dans une note dans l’outil « Termes bibliques ». Notez également tout changement qui a été fait pour améliorer la langue dans le texte.</string> </item>
+          <item> <string>zh-Hans</string>  <string>这项检查与一个 UNS 小组一起去做（阅读经文的第一个修订文本；发问一般性的复述问题；发问后续的问题；记录需要在翻译中处理的理解问题；关乎拼写的问题要在“词表”工具用拼写附注来记录，关乎字词译法的问题要在“圣经专门用词”工具用译法附注来记录。同时注意任何与改进初稿自然度相关的更改。）</string> </item>
+          <item> <string>es</string>  <string>Este control se realiza con un grupo de UNS (leer la primera revisión del pasaje, hacer preguntas generales, hacer preguntas de seguimiento, documentar problemas de comprensión que deben ser arreglados en la traducción, cuestiones relacionadas con la ortografía deben ser documentados con una nota de ortografía en la herramienta lista de palabras, y temas relacionados con la generación de palabras traducidas deben ser documentados con una nota de traducción en la herramienta vocablos bíblicos. También tenga en cuenta los cambios relacionados con la mejora de la naturalidad de la redacción del borrador)</string> </item>
+		  <item> <string>pt</string>  <string>Este controle é feito com um grupo de falantes nativos não iniciados (eles lêem a primeira revisão da passagem, fazer perguntas gerais e para monitorar e registra a compreensão de problemas que devem ser corrigidos na tradução, questões relacionadas com a ortografia devem ser registadas numa nota ortografia na ferramente lista de palavras, e os problemas associados com os termos bíblicos equivalentes devem ser registados na ferramenta de termos bíblicos. Observe também que qualquer alteração foi realizada para melhoria da naturalidade do rascunho)</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="3fde76e5-bc52-419c-8a08-f4f68d876742">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Second revision</string> </item>
+          <item> <string>fr</string>  <string>Deuxième révision</string> </item>
+          <item> <string>zh-Hans</string>  <string>第二次修订</string> </item>
+          <item> <string>es</string>  <string>Segunda revisión</string> </item>
+		  <item> <string>pt</string>  <string>Segunda revisão</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team discusses the comments from first comprehension testing and revises the text where appropriate. (Resolve any issues documented by project, spelling and rendering notes.)</string> </item>
+          <item> <string>fr</string>  <string>L’équipe examine les commentaires du deuxième test de compréhension et révise le texte si nécessaire. (Résoudre tous les problèmes liés au projet, à l’orthographe et à la traduction.)</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组讨论第一次译文理解测试所得出的意见，并适当地修订文本。（解决所有用项目附注以及拼写和译法附注记录的问题。）</string> </item>
+          <item> <string>es</string>  <string>El equipo discute los comentarios de las primera prueba de comprensión y revisa el texto donde sea necesario. (Resuelva cualquier problema documentado por el proyecto, la ortografía y las notas de traducción.)</string> </item>
+		  <item> <string>pt</string>  <string>A equipe discute os comentários dos primeiros testes de compreensão e revisa o texto onde for necessário. (Resolver todos os problemas relacionados com o projeto, ortografia e tradução.)</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="6a15bff7-ae13-45cc-b393-82eee01ff8ae">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Comprehension testing of supplementary materials</string> </item>
+          <item> <string>fr</string>  <string>Test de compréhension des aides paratextuelles</string> </item>
+          <item> <string>zh-Hans</string>  <string>补充材料的理解测试</string> </item>
+          <item> <string>es</string>  <string>Prueba de comprensión de materiales complementarios</string> </item>
+		  <item> <string>pt</string>  <string>Teste de compreensão dos materiais suplementares</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Working with a group of UNSs, test any supplementary materials that have not already been tested. This would most likely include but is not limited to: glossary entries, illustration captions and book introductions.</string> </item>
+          <item> <string>fr</string>  <string>Avec un groupe de locuteurs de la langue qui ne connaissent pas le texte traduit, testez tous les aides paratextuelles ainsi que les sections liminaires et annexes qui n’ont pas déjà été testées (entrées du glossaire, légendes des illustrations et introductions de livre).</string> </item>
+          <item> <string>zh-Hans</string>  <string>与一个 UNS 小组合作，测试任何尚未测试的补充材料。当中极可能会包括但不限于：词汇表条目，图表标题和书卷简介。</string> </item>
+          <item> <string>es</string>  <string>Trabajando con un grupo de UNS, chequee cualquier material suplementario que no haya sido comprobado. Esto probablemente incluirá, pero no se limitará a: entradas de glosario, subtítulos de ilustración e introducciones de libros.</string> </item>
+		  <item> <string>pt</string>  <string>Com um grupo de falantes da língua que não conhecem o texto traduzido, avaliar todos os materiais suplementares que não tenham sido testadas (Entradas do glossário, legendas das ilistrações e Introdução dos livros).</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>9443afef-8302-4727-8f85-1cb4ef464168</PrerequisiteStageId>
+      </Task>
+      <Task id="e5be1d89-7c8f-433f-888e-f59fe36c6b7b">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Revision of supplementary materials</string> </item>
+          <item> <string>fr</string>  <string>Révision des aides paratextuelles</string> </item>
+          <item> <string>zh-Hans</string>  <string>修订补充材料</string> </item>
+          <item> <string>es</string>  <string>Revisión de material suplementario</string> </item>
+		  <item> <string>pt</string>  <string>Revisão dos materiais suplementares</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team discusses the comments from the comprehension testing of supplementary materials and revises the text where appropriate.</string> </item>
+          <item> <string>fr</string>  <string>Examinez les remarques soulevées par le test de compréhension et révisez les aides paratextuelles ainsi que les sections liminaires et annexes si nécessaire.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组讨论补充材料理解测试所得出的意见，并适当地修订文本。</string> </item>
+          <item> <string>es</string>  <string>El equipo discute los comentarios hechos durante las pruebas de comprensión de los materiales suplementarios y revisa el texto donde sea necesario.</string> </item>
+		  <item> <string>pt</string>  <string>A equipe discute os comentários dos testes de compreensão de materiais complementares e revisa o texto, se necessário.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="f8afb80c-dab6-470b-a564-89b3d44dbaad">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Update Biblical terms tool</string> </item>
+          <item> <string>fr</string>  <string>Mettre à jour les équivalents des termes bibliques</string> </item>
+          <item> <string>zh-Hans</string>  <string>更新“圣经专门用词”工具</string> </item>
+          <item> <string>es</string>  <string>Actualizar la herramienta de Vocablos Bíblicos</string> </item>
+		  <item> <string>pt</string>  <string>Atualização de Termos Bíblicos</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Open Biblical terms tool and filter for chapter(s) being prepared for consultant check. Verify that all the Biblical terms have approved renderings. Update any that are missing, or need to be changed because of a better understanding of what the Greek or Hebrew means. It is likely some are out-of-date, because of the revisions made after comprehension testing.</string> </item>
+          <item> <string>fr</string>  <string>Ouvrez l’outil « Termes bibliques » et sélectionnez les chapitres qui doivent être contrôlés par le conseiller. Vérifiez que tous les termes bibliques ont des équivalents approuvés. Mettez à jour la liste : ajoutez ceux qui manquent et modifiez ceux qui doivent l’être à cause d’une meilleure compréhension de leur sens en grec ou en hébreu ou à cause des révisions faites suite aux tests de compréhension.</string> </item>
+          <item> <string>zh-Hans</string>  <string>打开“圣经专门用词”工具，筛选出一些篇章以便翻译顾问进行检查。确定所有“圣经专门用词”已经有核准的译法。更新缺失的译法，或由于进一步理解希腊语或希伯来语的意思而更改的译法。当中有些极可能已经过期，因为译文理解测试后已有修订。</string> </item>
+          <item> <string>es</string>  <string>Abra la herramienta de Vocablos Bíblicos y filtre los resultados para que muestre(n) el(los) capítulo(s) preparado(s) para el chequeo del Consultor. Compruebe que todos los términos clave hayan sido aprobados. Actualize cualquier término ausente, o que necesite ser cambiado debido a un mejor entendimiento del significado del término en Griego o Hebreo. Es probable que algunos estén desactualizados, debido a las revisiones hechas luego de las pruebas de comprensión.</string> </item>
+		  <item> <string>pt</string>  <string>Abra a ferramenta "termos bíblicos" e selecione o(s) capítulo(s) para ser(em) verificado(s) pelo Consultor. Verifique se todos os termos bíblicos foram aprovados. Atualizar qualquer termo ausente, ou que necessita ser editado devido a uma melhor compreensão de seu significado em grego ou hebraico. É provável que alguns estejam desactualizados devido às revisões feitas após o teste de compreensão.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="fa01aafa-8b8f-489b-99d2-4cf63cdb53ea">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Grammar and discourse write up</string> </item>
+          <item> <string>fr</string>  <string>Esquisse grammaticale et analyse du discours</string> </item>
+          <item> <string>zh-Hans</string>  <string>关于语法和语段的详细描写</string> </item>
+          <item> <string>es</string>  <string>Redacción Gramatical y discursos</string> </item>
+		  <item> <string>pt</string>  <string>Esboço gramatical e da análise do discurso</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Prepare or revise a write up relevant grammar and discourse analysis and send to the translation consultant. A list of all connector words would be especially helpful for the consultant.</string> </item>
+          <item> <string>fr</string>  <string>Rédigez une analyse concise de la grammaire et du discours et envoyez-le au conseiller. N'oubliez pas d’inclure une liste de tous les connecteurs employés dans la traduction, ce qui sera très utile pour le conseiller.</string> </item>
+          <item> <string>zh-Hans</string>  <string>准备或修订一份相关语法和语段分析的详细描写，然后发送给翻译顾问。列出所有连接字词的列表会对翻译顾问特别有用。</string> </item>
+          <item> <string>es</string>  <string>Preparar o revisar un análisis gramatical y discursivo pertinente y enviarlo al consultor de traducción. Una lista de todas las palabras conectoras sería especialmente útil para el consultor.</string> </item>
+		  <item> <string>pt</string>  <string>Preparar ou revisar uma análise relevante da gramatica e do discurso para ser enviado ao consultor de tradução. Não se esqueça de incluir uma lista de todos os conectores usados na tradução, o que será muito útil para o consultor.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>9443afef-8302-4727-8f85-1cb4ef464168</PrerequisiteStageId>
+      </Task>
+      <Task id="0b6970df-00ce-4da4-a46a-28be4c7f2e6a">
+        <EditingRequired proj="MPBt6" type="BackTranslationText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Draft the back translation</string> </item>
+          <item> <string>fr</string>  <string>Rédaction de la retraduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟回译</string> </item>
+          <item> <string>es</string>  <string>Redactar la Retro Traducción</string> </item>
+		  <item> <string>pt</string>  <string>Rascunho da Retrotradução</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>A back-translation is a translation into the major national or trade language of the area. It should be done by a speaker of the language other than the translator. It helps to show whether the translation is communicating effectively and accurately, and it serves as the basis for the consultant check.</string> </item>
+          <item> <string>fr</string>  <string>Une retraduction est une traduction dans une langue nationale ou véhiculaire du texte du projet. Cette retraduction est faite normalement par un locuteur de la langue autre que le traducteur. Cela permet de savoir si la traduction est claire et naturelle. La retraduction écrite sert aussi de texte de base au conseiller.</string> </item>
+          <item> <string>zh-Hans</string>  <string>回译就是翻译成该地区的主要国家或贸易语言。这步骤应该由译者以外的另一个说该语言的人来完成。这将显示翻译是否能准确有效地沟通，也可用作翻译顾问检查的根据。</string> </item>
+          <item> <string>es</string>  <string>Una retrotraducción es una traducción al idioma nacional o comercial del área. Debe ser hecho por un nativo hablante del idioma que no sea el traductor. Ayuda a demostrar si la traducción es comunicada con eficacia y precisión, y sirve como base para el chequeo del Consultor.</string> </item>
+		  <item> <string>pt</string>  <string>A retrotradução é uma tradução na língua nacional ou comum da região. Esta retrotradução é normalmente feita por um falante da língua que não seja o tradutor. Isso permite saber se a tradução é clara e natural. E serve como base para verificação do Consultor.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>9443afef-8302-4727-8f85-1cb4ef464168</PrerequisiteStageId>
+      </Task>
+      <Task id="7c50ab22-d2cb-415b-b5b7-be52aaf02016">
+        <EditingRequired proj="MPBt6" type="BackTranslationText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>42</EasiestBooksVPD>
+        <EasyBooksVPD>36</EasyBooksVPD>
+        <ModerateBooksVPD>30</ModerateBooksVPD>
+        <DifficultBooksVPD>24</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Check back translation</string> </item>
+          <item> <string>fr</string>  <string>Vérification de la retraduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>检查回译</string> </item>
+          <item> <string>es</string>  <string>Chequeo de la Retro Traducción</string> </item>
+		  <item> <string>pt</string>  <string>Verificação da Retrotradução</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team should verify that back translation is complete, and there are no missing words or phrases, so it is usable by consultant. The purpose of this check is not for the team to change what the back translator thinks the text means.</string> </item>
+          <item> <string>fr</string>  <string>L’équipe devrait vérifier que la retraduction est complète (pas de mots ou expressions qui manquent) avant de l’envoyer au conseiller. Le but de ce contrôle n’est pas de modifier ce que le retraducteur a écrit.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组应确定回译是完整的，没有遗漏字词或片语，以便于顾问使用。这项检查的目的不是让翻译小组去改变回译者对文本意思的理解。</string> </item>
+          <item> <string>es</string>  <string>El equipo debe verificar que la retro traducción este completa, y que no existan palabras o frases faltantes, para que pueda ser usado por el Consultor. El propósito de esta comprobación no es para que el equipo cambie lo que el retro traductor piensa lo que significa el texto.</string> </item>
+		  <item> <string>pt</string>  <string>A equipe deve verificar se a retrotradução está completa, e que não existam palavras ou frazes ausentes, para que possa ser utilizado pelo Consultor. O objetivo desta verificação não é alterar o que o retrotradutor pensa sobre o significado do texto.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Check id="3e252305-75e7-4b64-a850-2385559fb31d">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Reference</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="f344898d-47a1-44f8-9d94-2da2291af6b8">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>QuotedText</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="1e3ad0ab-6ba4-4a50-a002-9add07d90f76">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Numbers</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="3f8ad932-a081-4c6e-b144-b7f498f8eb19">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>MatchedPairs</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="f033fe1b-4066-47c8-9908-62da5bab8894">
+        <Type>BasicCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType>Quotation</BasicCheckType>
+        <PostponedBooks />
+      </Check>
+      <Check id="99848a8b-db6f-4c93-8324-5bbc8776c2f6">
+        <Type>SpellCheckUnknown</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="f04853b4-3773-45b8-9bc6-d1c687481b1e">
+        <Type>SpellCheckIncorrect</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="13708566-a54d-4495-8806-def9b06c2265">
+        <Type>SpellingNoteCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="b9bd07ed-3039-47bf-a796-1a236713831a">
+        <Type>RenderingNoteCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Check id="581bcedd-6eca-4b80-b9ff-9b4efa47eaf1">
+        <Type>BiblicalTermRenderings</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Names>
+          <item> <string>en</string>  <string>Preparing for the consultant check</string> </item>
+          <item> <string>fr</string>  <string>Préparation du texte pour la vérification du conseiller en traduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>为顾问检查做准备</string> </item>
+          <item> <string>es</string>  <string>Preparación para el chequeo con el Consultor</string> </item>
+		  <item> <string>pt</string>  <string>Preparo para a verificação do Consultor</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string></item>
+		<item><string>fr</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="b270751c-03d8-463b-abbf-5c8e3c4a188b">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="fd6c2f9b-c34f-4762-bcd0-845ff03c1785">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Evaluation of text</string> </item>
+          <item> <string>fr</string>  <string>Évaluation du texte</string> </item>
+          <item> <string>zh-Hans</string>  <string>评价文本</string> </item>
+          <item> <string>es</string>  <string>Evaluación del Texto</string> </item>
+		  <item> <string>pt</string>  <string>Avaliação do Texto</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Consultant evaluates the text and places notes with his observations in the text (or back translation). The evaluation should focus on accuracy, clarity, naturalness, and acceptability of the translation including all supplementary materials and illustrations used.</string> </item>
+          <item> <string>fr</string>  <string>Le conseiller évalue le texte et poste ses remarques dans le texte (ou la retraduction). L’évaluation doit porter sur l’exactitude, la clarté, le naturel et l’acceptabilité de la traduction, y compris des aides paratextuelles et des illustrations utilisées.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问评价文本，并把附注连同他在文本（或回译）中的观察所得写在附注中。评价的焦点应放在文本的准确、清晰、自然和翻译的可接受性，包括所有补充材料和所使用的例证。</string> </item>
+          <item> <string>es</string>  <string>El Consultor examina el texto y coloca notas con sus observaciones en el texto (o en la retro traducción). La evaluación debe concentrarse en la precisión, claridad, naturalidad y aceptabilidad de la traducción, incluyendo todas las ilustraciones y materiales complementarios.</string> </item>
+		  <item> <string>pt</string>  <string>O Consultor examina o texto e faz notas com suas observações sobre o textos (ou sobre a retrotradução). A avaliação deve foca a precisão, claridade, naturalidade e aceitabilidade da tradução, incluindo todas as ilustrações e materiais complementares.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>20974cee-9f40-43c4-a0ae-5e733238e134</PrerequisiteStageId>
+      </Task>
+      <Task id="25931f1d-cc55-46c9-a3e8-8f0bea379b90">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Consultant visit</string> </item>
+          <item> <string>fr</string>  <string>Vérification du conseiller en traduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问的访问</string> </item>
+          <item> <string>es</string>  <string>Visita del Consultor</string> </item>
+		  <item> <string>pt</string>  <string>Consultoria presencial</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Consultant interacts with the translation team concerning his observations about the text and supplementary materials, and gives assistance and advice as requested. The project administrator should give one team member (that could be himself) editing permission in the Assignments and Progress window for the "Consultant visit" task</string> </item>
+          <item> <string>fr</string>  <string>Le conseiller en traduction parle de ce qu’il a noté sur la traduction (texte biblique et aides paratextuelles) avec l’équipe et offre aide et conseils selon le besoin. L’administrateur du projet donne à un membre de l’équipe le droit de modification pour la tâche ̀« Vérification par le conseiller en traduction » dans le « Plan du Projet ».</string> </item>
+          <item> <string>zh-Hans</string>  <string>顾问与翻译小组进行交流，讨论他对译本和补充材料的观察，并按要求提供协助和建议。项目管理员应在“工作分配和进度”窗口，把编辑权限授予一名组员（可以是他自己），去处理“翻译顾问的访问”任务。</string> </item>
+          <item> <string>es</string>  <string>!@# El Consultor interactúa con el equipo de traducción en base a sus observaciones sobre el texto y materiales complementarios, además de brindar asistencia y asesoramiento según sea necesario. El administrador del proyecto debe dar permiso de edición a un miembro del equipo (que podría ser él mismo) en la ventana de Asignaciones y Progreso para la tarea "Visita del Consultor"</string> </item>
+		  <item> <string>pt</string>  <string>O consultor interage com a equipe de tradução em relação às suas observações sobre o texto e materiais complementares, e fornece assistência e aconselhos conforme a necessidade. O administrador do projeto dá permissão a um membro da equipe (que podería ser ele mesmo) na janela Atribuição e Processo para a tarefa "Visita do Consultor"</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>20974cee-9f40-43c4-a0ae-5e733238e134</PrerequisiteStageId>
+      </Task>
+      <Task id="9955d13b-4d77-4c77-81a3-a728bf11b77e">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Third revision</string> </item>
+          <item> <string>fr</string>  <string>Troisième révision</string> </item>
+          <item> <string>zh-Hans</string>  <string>第三次修订</string> </item>
+          <item> <string>es</string>  <string>Tercera Revisión</string> </item>
+		  <item> <string>pt</string>  <string>Terceira Revisão</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The text and supplementary materials are revised based on input from the translation consultant. This task is for the editing that is done after the consultant has left. Some consultants call these edits "action items", "to do list", "homework" or something else.</string> </item>
+          <item> <string>fr</string>  <string>Le texte et les aides paratextuelles sont révisés en fonction des commentaires du conseiller en traduction. Ce travail peut se faire en l’absence du conseiller. Certains conseillers appellent ces modifications le « suivi » ou la « liste de tâches » ou les « devoirs ».</string> </item>
+          <item> <string>zh-Hans</string>  <string>根据翻译顾问的意见修订文本和补充材料。这任务是在顾问离开后进行的编辑工作。有些顾问称这类编辑为“行动项”、“待办事项”、“作业”或其他。</string> </item>
+          <item> <string>es</string>  <string>El texto y el material complementario son revisados en base a las sugerencias del Consultor. Esta tarea de edición se debe hacer una vez que el Consultor se haya ido. Algunos Consultores llaman a estas tareas de edición "elementos de acción", "lista por hacer", "tarea" o cualquier otro nombre.</string> </item>
+		  <item> <string>pt</string>  <string>O texto e o material complementar são revisados com base nas sugestões do Consultor. Esta tarefa é feita depois que o Consutor for embora. Algunus Consultores chama esta tarefa de edição de "itens de ação", "lista de tarefa", "lição de casa" ou qualquer outro nome.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="ec5c2bbe-f91b-4d2d-85e3-6160779a319d">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Biblical terms tool revision</string> </item>
+          <item> <string>fr</string>  <string>Révision des équivalents des termes bibliques.</string> </item>
+          <item> <string>zh-Hans</string>  <string>“圣经专门用词”工具中的修订</string> </item>
+          <item> <string>es</string>  <string>Revisión usando la herramienta Vocablos Bíblicos</string> </item>
+		  <item> <string>pt</string>  <string>Revisão da ferramenta de Termos Bíblicos</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Revise renderings in the Biblical terms tool as needed.</string> </item>
+          <item> <string>fr</string>  <string>Révisez les équivalents dans l’outil « Termes bibliques » si nécessaire.</string> </item>
+          <item> <string>zh-Hans</string>  <string>按需要在“圣经专门用词”工具中修订译法。</string> </item>
+          <item> <string>es</string>  <string>Revisar las traducciones en la herramienta Vocablos Biblicos según sea necesario.</string> </item>
+		  <item> <string>pt</string>  <string>Revisar as traduções na ferramenta termos Bíblico se for necessário.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="aa176048-9a38-4356-9ea7-2e726e6e632a">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Back translation revision</string> </item>
+          <item> <string>fr</string>  <string>Révision de la retraduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>回译修订</string> </item>
+          <item> <string>es</string>  <string>Revisión de la Retro Traducción</string> </item>
+		  <item> <string>pt</string>  <string>Revisão da Retrotradução</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Revise the back translation as needed.</string> </item>
+          <item> <string>fr</string>  <string>Mettre à jour la retraduction si nécessaire.</string> </item>
+          <item> <string>zh-Hans</string>  <string>按需要修订回译。</string> </item>
+          <item> <string>es</string>  <string>Revisar la Retro Traducción según se necesite.</string> </item>
+		  <item> <string>pt</string>  <string>Revisar a Retrotradução se for necessário.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>20974cee-9f40-43c4-a0ae-5e733238e134</PrerequisiteStageId>
+      </Task>
+      <Task id="c6f68e0f-7edd-4841-bf2a-502fd1dd6daf">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Preliminary consultant approval</string> </item>
+          <item> <string>fr</string>  <string>Approbation provisoire du conseiller en traduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问初步核准</string> </item>
+          <item> <string>es</string>  <string>Aprobación preliminar del Consultor</string> </item>
+		  <item> <string>pt</string>  <string>Aprovação Preliminar do Consultor</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Consultant gives preliminary approval of the text, but it may have some follow-up tasks which are clearly defined.</string> </item>
+          <item> <string>fr</string>  <string>Le conseiller approuve provisoirement le texte, sous réserve de terminer certaines tâches bien définies.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问初步核准译文，但可能会有一些明确的后续任务。</string> </item>
+          <item> <string>es</string>  <string>El Consultor aprueba preliminarmente el texto, pero puede haber algunos pasos de seguimiento que estarán claramente definidas.</string> </item>
+		  <item> <string>pt</string>  <string>O Consultor aprova preliminarmente o texto, mas podorá existir algumas tarefas definidas que necessitam ser concluídas.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>20974cee-9f40-43c4-a0ae-5e733238e134</PrerequisiteStageId>
+      </Task>
+      <Task id="97931ae7-27a7-43e4-8baf-75f7f3790234">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Consultant report distributed</string> </item>
+          <item> <string>fr</string>  <string>Envoi du rapport du conseiller en traduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>分发顾问报告</string> </item>
+          <item> <string>es</string>  <string>Informe del Consultor distribuido</string> </item>
+		  <item> <string>pt</string>  <string>Entrega do relatório do consultor</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Consultant report shared with the translation team and with major stakeholders.</string> </item>
+          <item> <string>fr</string>  <string>Le rapport du conseiller en traduction est partagé avec l’équipe de traduction et les parties prenantes.</string> </item>
+          <item> <string>zh-Hans</string>  <string>与翻译小组和主要利益相关者共享顾问报告。</string> </item>
+          <item> <string>es</string>  <string>El informe del Consultor compartido con el equipo de traducción y con las principales partes interesadas.</string> </item>
+		  <item> <string>pt</string>  <string>O relatório do consultor é compartilhado com a equipe de tradução e com as principais partes interessadas.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>20974cee-9f40-43c4-a0ae-5e733238e134</PrerequisiteStageId>
+      </Task>
+      <Names>
+          <item> <string>en</string>  <string>Consultant Check</string> </item>
+          <item> <string>fr</string>  <string>Vérification par le conseiller en traduction</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问检查</string> </item>
+          <item> <string>es</string>  <string>Comprobación con el Consultor</string> </item>
+		  <item> <string>pt</string>  <string>Verificação do Consultor</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string></item>
+		<item><string>fr</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="16385cc6-d555-4b29-b342-1f78a9853656">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="ad1e60e2-0340-4832-b914-16fc9c76c76e">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Naturalness review</string> </item>
+          <item> <string>fr</string>  <string>Révision du naturel du texte</string> </item>
+          <item> <string>zh-Hans</string>  <string>审阅翻译是否自然</string> </item>
+          <item> <string>es</string>  <string>Revisión de Naturalidad del texto</string> </item>
+		  <item> <string>pt</string>  <string>Revisão de naturalidade</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The community does a naturalness review of the text based on the oral and/or written communication of the third revision.</string> </item>
+          <item> <string>fr</string>  <string>À partir de la version orale ou écrite de la troisième révision, la communauté vérifie que le texte traduit est naturel.</string> </item>
+          <item> <string>zh-Hans</string>  <string>公众审阅者根据第三次修订时口述和／或笔录的意见复审译文的自然度。</string> </item>
+          <item> <string>es</string>  <string>La comunidad hace una revisión de la naturalidad del texto basado en la comunicación oral y/o escrita de la tercera revisión.</string> </item>
+		  <item> <string>pt</string>  <string>A partir da versão oral ou escrita da terceira revisão, a comunidade garante que o texto traduzido é natural.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>b270751c-03d8-463b-abbf-5c8e3c4a188b</PrerequisiteStageId>
+      </Task>
+      <Task id="69a7d76b-0c5c-4066-8c6a-dcce2e02bee2">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Fourth revision</string> </item>
+          <item> <string>fr</string>  <string>Quatrième révision</string> </item>
+          <item> <string>zh-Hans</string>  <string>第四次修订</string> </item>
+          <item> <string>es</string>  <string>Cuarta revisión</string> </item>
+		  <item> <string>pt</string>  <string>Quarta revisão</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team should discuss the comments of the naturalness review and make the changes suggested that are valid.</string> </item>
+          <item> <string>fr</string>  <string>L’équipe évalue les observations faites lors de la vérification du naturel du texte et modifie le texte si elle le juge nécessaire.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组讨论自然度复审的意见，然后根据有效的更改建议进行修改。</string> </item>
+          <item> <string>es</string>  <string>El equipo debe discutir los comentarios hechos durante la revisión de naturalidad del texto y hacer los cambios necesarios que sean válidos.</string> </item>
+		  <item> <string>pt</string>  <string>A equipe avalia as observações feitas durante a verificação de naturalidade do texto e faz os ajustes que julgar necessário.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="ed3f57fb-e3de-4b13-bfe8-c9754d61e044">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Team progress report</string> </item>
+          <item> <string>fr</string>  <string>Rapport de progression de l’équipe</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组进度报告</string> </item>
+          <item> <string>es</string>  <string>Informe del progreso del equipo</string> </item>
+		  <item> <string>pt</string>  <string>Relatório de progresso da equipe</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team writes a report about what changes were made in the fourth revision and why those changes were made, and sends it to the consultant.</string> </item>
+          <item> <string>fr</string>  <string>L’équipe rédige un rapport sur les modifications faites suite à la quatrième révision ainsi que sur le pourquoi de ces modifications et l’envoie au conseiller en traduction.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组撰写一份报告，交待第四次修订所做的更改，以及为何作出那些更改，然后发送给翻译顾问。</string> </item>
+          <item> <string>es</string>  <string>El Equipo escribe un informe sobre los cambios que se hicieron en la cuarta revisión y porqué esos cambios fueron hechos. Este informe es enviado al Consultor.</string> </item>
+		  <item> <string>pt</string>  <string>A equipe escreve um relatório sobre quais mudanças foram feitas na quarta revisão e por que tais mudanças foram feitas, e o encaminha ao consultor.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="ab24ebef-f715-4a6e-b505-b5c9172ba6c9">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Community review of Biblical key terms</string> </item>
+          <item> <string>fr</string>  <string>Révision des termes bibliques par la communauté</string> </item>
+          <item> <string>zh-Hans</string>  <string>公众审阅者复审主要的圣经专门用词</string> </item>
+          <item> <string>es</string>  <string>Revisión de los Términos Clave por la Comunidad</string> </item>
+		  <item> <string>pt</string>  <string>Revisão dos termos Bíblicos pela comunidade</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Community leaders, church leaders, and other community members discuss how key terms are rendered.</string> </item>
+          <item> <string>fr</string>  <string>Les leaders de la communauté, les chefs religieux et autres membres de la communauté évaluent les termes clés choisis par l'équipe.</string> </item>
+          <item> <string>zh-Hans</string>  <string>社区领袖、教会领袖和其他社区成员讨论主要圣经用词的译法。</string> </item>
+          <item> <string>es</string>  <string>Líderes de la comunidad, de las Iglesias y miembros de la comunidad discuten como los términos claves son generados.</string> </item>
+		  <item> <string>pt</string>  <string>Os líderes da comunidade, das Igrejas e membros da comunidade avaliam os termos-chaves escolhidos pela equipe.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="9784a38c-2c37-4d90-82bf-ee7f4125057e">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Key term revision</string> </item>
+          <item> <string>fr</string>  <string>Révision des termes clés</string> </item>
+          <item> <string>zh-Hans</string>  <string>主要圣经用词的修订</string> </item>
+          <item> <string>es</string>  <string>Revisión de los Términos Clave</string> </item>
+		  <item> <string>pt</string>  <string>Revisão dos Termos-chaves</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team discusses comments about key terms made at the community review and uses those changes they think are valid.</string> </item>
+          <item> <string>fr</string>  <string>L’équipe évalue les commentaires faits par la communauté lors de la révision sur les termes clés et modifie ceux qui doivent être changés.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组讨论公众审阅对主要圣经用词所给予的意见，然后使用一些他们认为有效的更改。</string> </item>
+          <item> <string>es</string>  <string>El equipo discute los comentarios sobre los términos claves hechos por la revisón de la comunidad y hacen los cambios que crean necesarios</string> </item>
+		  <item> <string>pt</string>  <string>A equipe avalia os comentários feitos pela comunidade durante a revisão dos termos-chave e fazem as devitas mudanças.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Task id="7f371a2d-bd1c-48ef-99f7-c16136246dee">
+        <Type>ManualByChapter</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>210</EasiestBooksVPD>
+        <EasyBooksVPD>180</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>120</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Team Biblical key terms report</string> </item>
+          <item> <string>fr</string>  <string>Rapport sur les termes clés bibliques</string> </item>
+          <item> <string>zh-Hans</string>  <string>有关主要圣经专门用词的翻译小组报告</string> </item>
+          <item> <string>es</string>  <string>Informe sobre los Términos Clave</string> </item>
+		  <item> <string>pt</string>  <string>Relatório dos Termos-chaves</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>The team writes a report about what changes were made in the key terms and why those changes were made, and sends it to the consultant. The team should open the Biblical terms tool and consult the notes, and history sections for the terms being reported on. It is best practice to enter this information in the tool as the changes were being discussed and decided on.</string> </item>
+          <item> <string>fr</string>  <string>L’équipe rédige un rapport sur les modifications faites aux termes clés ainsi que le pourquoi et l’envoie au conseiller en traduction. Pour cela, l’équipe ouvre l’outil « Termes bibliques » et consulte les notes et l’historique pour les termes mentionnés dans le rapport. Il est recommandé de saisir les décisions prises dans l’outil au fur et à mesure de la traduction.</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译小组撰写一份报告，交待他们针对主要圣经用词所做的更改，以及为何作出那些更改，然后发送给翻译顾问。小组应打开“圣经专门用词”工具，查阅报告中主要圣经用词的附注和历史记录部分。把针对更改所进行的讨论和决定输入到“圣经专门用词”工具中，是一个很好的习惯。</string> </item>
+          <item> <string>es</string>  <string>El equipo redacta un informe sobre los cambios hechos en los términos clave y la razón detrás de estos cambios, luego se lo envía al Consultor. El equipo debe consultar las notas de traducción en la herramienta de Vocablos Bíblicos, como también el historial de traducciones de los términos que están siendo incluidos en el informe. Una buena práctica es la de ingresar toda esta información en la herramienta mientras sea discutida y cualquier decisión sea tomada.</string> </item>
+		  <item> <string>pt</string>  <string>A equipe elabora um relatório sobre as alterações feitas nos termos-chave e a razão das alterações, e envia ao Consultor. Para isso, a equipe deve abrir a ferramenta "termos Bíblicos" e consultar as notas, e o histórico de traduções dos termos que serão inserudos no relatório. Uma boa prática é inserir essa informação na ferramenta à medida que as mudanças são discutidas e decididas.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForChapter</Availability>
+      </Task>
+      <Names>
+          <item> <string>en</string>  <string>Review by the community</string> </item>
+          <item> <string>fr</string>  <string>Vérification par la communauté</string> </item>
+          <item> <string>zh-Hans</string>  <string>公众审阅者的复审</string> </item>
+          <item> <string>es</string>  <string>Revisión hecha por la Comunidad</string> </item>
+		  <item> <string>pt</string>  <string>Revisão pela Comunidade</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string></item>
+		<item><string>fr</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+    <Stage id="c66ede6b-1e7b-4d55-b5c3-f8aff60217d7">
+      <BookStatus />
+      <TargetCompletionDateMap />
+      <Task id="4363aa1f-aeca-4831-8562-085b9381bad6">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Choose final illustrations and write captions</string> </item>
+          <item> <string>fr</string>  <string>Choix définitif des illustrations et rédaction des légendes</string> </item>
+          <item> <string>zh-Hans</string>  <string>最后选择插图和撰写标题</string> </item>
+          <item> <string>es</string>  <string>Elejir Ilustraciones definitivas y escribir subtítulos</string> </item>
+		  <item> <string>pt</string>  <string>Escolher ilustrações finais e escrever legendas</string> </item></Names>
+        <Descriptions>
+          <item>
+            <string>en</string>
+            <string>Make final decisions on illustrations. If captions contain text not directly from the scriptures, they should be consultant checked. This should be done in conjunction with the publications department. Sample illustrations can be seen at: https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0
+</string>
+          </item>
+          <item> <string>fr</string>  <string>Prenez les décisions finales concernant les illustrations. Si les légendes contiennent du texte qui ne provient pas directement du texte biblique, elles doivent être vérifiées par un conseiller en traduction et par le département des publications. Vous trouverez un échantillon d’illustrations sur le lien : https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string> </item>
+        <item><string>zh-Hans</string><string>最后决定使用哪些插图。如果插图标题包含非直接引用经文的文本，就必须要求顾问检查文本。这应该与出版部门一起完成。示例插图可在以下位置找到：
+
+https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string></item>
+          <item> <string>es</string>  <string>Tomas decisiones finales sobre las ilustraciones a usar. Si los subtitulos no contienen texto directo de las Escrituras entonces deben ser revisados por el consultor. Esto debe hacerse en coordinación con el departamento de Publicaciones. Se puede ver ejemplos de ilustraciones en: https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string> </item>
+		  <item> <string>pt</string>  <string>Tomar as decisões finais sobre as ilustrações. Se as legendas contêm texto que não são diretamente das Escrituras, elas devem ser consultadas. Isso deve ser feito em conjunto com o departamento de publicações. Você pode encontrar uma amostra de ilustrações no link: https://www.dropbox.com/sh/cs0qspb52iwa2rj/AACr9xi7s2LVoheonn0OnjPla?dl=0</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>16385cc6-d555-4b29-b342-1f78a9853656</PrerequisiteStageId>
+      </Task>
+      <Task id="9fca00d9-bb43-4718-aa64-8d4e07f9ab43">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Choose maps and label place names</string> </item>
+          <item> <string>fr</string>  <string>Choix des cartes et annotation des noms de lieux</string> </item>
+          <item> <string>zh-Hans</string>  <string>选择地图和标示地方名</string> </item>
+          <item> <string>es</string>  <string>Elejir Mapas y etiquetar nombres de lugares</string> </item>
+		  <item> <string>pt</string>  <string>Escolher mapas e nomear lugares</string> </item></Names>
+        <Descriptions>
+          <item><string>en</string>
+            <string>Make final decisions on maps. This should be done in conjunction with the publications department. Sample maps can be seen at:
+https://www.dropbox.com/sh/0bi5dg8v7vj7y74/AAANSWfsC6uSL_mRSYKBx6T9a?dl=0</string></item>
+          <item> <string>fr</string>  <string>Prenez les décisions finales concernant les cartes. Cela devrait se faire conjointement avec le département des publications. Vous trouverez des exemples de cartes sur le lien suivant : https://www.dropbox.com/sh/0bi5dg8v7vj7y74/AAANSWfsC6uSL_mRSYKBx6T9a?dl=0</string> </item>
+        <item><string>zh-Hans</string><string>最后决定使用哪些地图。这应该与出版部门一起完成。示例地图可在以下位置找到：
+
+https://www.dropbox.com/sh/0bi5dg8v7vj7y74/AAANSWfsC6uSL_mRSYKBx6T9a?dl=0</string></item>
+		<item><string>es</string><string>Tomar las decisiones finales sobre los mapas. Esto se debe hacer en coordinación con el departamento de publicaciones. Ejemplos de mapas se puede ver aquí:
+https://www.dropbox.com/sh/0bi5dg8v7vj7y74/AAANSWfsC6uSL_mRSYKBx6T9a?dl=0</string></item>
+		<item><string>pt</string><string>Tomar as decisões finais sobre os mapas. Isso deve ser feito em conjunto com o departamento de publicações. Você pode encontrar exemplos de mapas no link:
+https://www.dropbox.com/sh/0bi5dg8v7vj7y74/AAANSWfsC6uSL_mRSYKBx6T9a?dl=0</string></item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>16385cc6-d555-4b29-b342-1f78a9853656</PrerequisiteStageId>
+      </Task>
+      <Task id="819e4803-d2fb-465e-8242-3ce0d58edde2">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Draft introduction to Bible/NT, other front &amp; back matter</string> </item>
+          <item> <string>fr</string>  <string>Rédaction des pages liminaires et des annexes</string> </item>
+          <item> <string>zh-Hans</string>  <string>草拟圣经／新约简介和其他前文与附录</string> </item>
+          <item> <string>es</string>  <string>Redactar la Introducción de la Biblia/NT, material anterior/posterior</string> </item>
+		  <item> <string>pt</string>  <string>Elaboração de páginas introdutórias e apêndices</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>All planned front and back matter that has not already been done should be drafted by this stage.</string> </item>
+          <item> <string>fr</string>  <string>Rédigez les pages liminaires (ex: introduction générale) et les parties annexes.</string> </item>
+          <item> <string>zh-Hans</string>  <string>这个阶段应要草拟所有已计划但仍未撰写的前文和附录。</string> </item>
+          <item> <string>es</string>  <string>Todo el material anterior y posterior que se ha planeado que no se haya hecho todavía debe ser redactado en esta etapa.</string> </item>
+		  <item> <string>pt</string>  <string>Todo material introduções e apêndices que ainda não foram feitos devem ser elaboradas nesta etapa.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>16385cc6-d555-4b29-b342-1f78a9853656</PrerequisiteStageId>
+      </Task>
+      <Task id="f6540822-253b-4b50-8699-179ebb9ea5b7">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Check parallel passages</string> </item>
+          <item> <string>fr</string>  <string>Vérification des passages parallèles</string> </item>
+          <item> <string>zh-Hans</string>  <string>检查平行经文</string> </item>
+          <item> <string>es</string>  <string>Comprobar Pasajes Paralelos</string> </item>
+		  <item> <string>pt</string>  <string>Verificação de Passagens Paralelas</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Go to the Tools--&gt;Parallel Passages menu, and use the Parallel Passages tool to guide you to make parallel passages the same to the appropriate level.</string> </item>
+          <item> <string>fr</string>  <string>Dans le menu « Outils », cliquez sur « Textes parallèles ». Utilisez cet outil pour harmoniser les passages parallèles au cas par cas.</string> </item>
+          <item> <string>zh-Hans</string>  <string>转到“工具--&gt;平行经文”菜单，使用“平行经文”工具作指引，使平行经文之间有相应的译法。</string> </item>
+          <item> <string>es</string>  <string>Ir al menú Herramientas--&gt;Pasajes paralelos..., y usar la herramienta como guía para hacer que los pasajes paralelos coincida con el texto en el nivel apropiado.</string> </item>
+		  <item> <string>pt</string>  <string>Ir ao menu Ferramentas--&gt;Passagens paralelas..., e utilizar essa ferramenta para alinhar as passagens paralelas com o texto no nível apropriado.</string> </item></Descriptions>
+        <Availability>WhenStageIsComplete</Availability>
+        <PrerequisiteStageId>16385cc6-d555-4b29-b342-1f78a9853656</PrerequisiteStageId>
+      </Task>
+      <Task id="3936924b-7158-4628-a6d5-8dbd7e23885a">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Verify that all Paratext checks are complete</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez que tous les contrôles de Paratext ont été effectués</string> </item>
+          <item> <string>zh-Hans</string>  <string>确定所有《圣经辅助工具》的检查都已完成</string> </item>
+          <item> <string>es</string>  <string>Verificar que todos los chequeos de ParaTExt estén completados.</string> </item>
+		  <item> <string>pt</string>  <string>Checar se todas as verificações do Paratext foram realizadas</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Open the Assignments and progress window, and correct all errors and resolve all outstanding issues reported there.</string> </item>
+          <item> <string>fr</string>  <string>Ouvrez la fenêtre « Affectations et Progrès » et corrigez toutes les erreurs signalées et résolvez toute question en suspens.</string> </item>
+          <item> <string>zh-Hans</string>  <string>打开“工作分配和进度”窗口，更正所有错误和解决所有尚待解决的问题。</string> </item>
+          <item> <string>es</string>  <string>Abrir la ventana de Asignaciones y Progreso del proyecto, y correjir todos los errores y resolver todos los problemas pendientes.</string> </item>
+		  <item> <string>pt</string>  <string>Abrir a janela Atribuiçoes e Progresso, e corrigir eventuais erros relatados e resolver todas as questões pendentes.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="ea8585f9-a9fa-4778-863f-61ce41542068">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Proper names - final check</string> </item>
+          <item> <string>fr</string>  <string>Vérification finale des noms propres</string> </item>
+          <item> <string>zh-Hans</string>  <string>专有名称 – 最后检查</string> </item>
+          <item> <string>es</string>  <string>Nombres propios - Comprobación final</string> </item>
+		  <item> <string>pt</string>  <string>Nomes próprios - verificação final</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>In the Biblical terms tool, create a new filter for the "Names" category.</string> </item>
+          <item> <string>fr</string>  <string>Dans l’outil « Termes bibliques », créez un nouveau filtre pour la catégorie « Noms propres ».</string> </item>
+          <item> <string>zh-Hans</string>  <string>在“圣经专门用词”工具中创建一个新的“名字”类别筛选器。</string> </item>
+          <item> <string>es</string>  <string>En la herramienta Vocablos Bíblicos, crear un nuevo filtro para la categoría "Nombres".</string> </item>
+		  <item> <string>pt</string>  <string>Na ferramenta Termos Bíblicos, crier un novo filtro para a categoría "Nomes próprios".</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="ba93cc52-db81-4b97-9fa4-7acd521c1601">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Numbers - final check</string> </item>
+          <item> <string>fr</string>  <string>Vérification finale des chiffres</string> </item>
+          <item> <string>zh-Hans</string>  <string>数目 – 最后检查</string> </item>
+          <item> <string>es</string>  <string>Números - chequeo final</string> </item>
+		  <item> <string>pt</string>  <string>Números - verificação final</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Select the list "Numbers" as the Biblical terms list in the Biblical terms tool to find all the numbers in the New Testament.</string> </item>
+          <item> <string>fr</string>  <string>Sélectionnez la liste « Chiffres » dans l'outil « Termes bibliques » pour afficher tous les chiffres employés dans le Nouveau Testament.</string> </item>
+          <item> <string>zh-Hans</string>  <string>在“圣经专门用词”工具中选择“数”的列表作为“圣经专门用词”列表，以查找新约中所有的数目。</string> </item>
+          <item> <string>es</string>  <string>Seleccione la lista "Números" como la lista de términos clave en la herramienta de Vocablos Bíblicos para encontrar todos los números en el Nuevo Testamento.</string> </item>
+		  <item> <string>pt</string>  <string>Na ferramenta Termos Bíblicos, no menu Arquivo--&gt;Selecionar lista de termos..., selecione "Números" para encontrar todos os números no Novo Testamento.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="c420d607-9eba-4bf3-92c1-fd5a77bc0915">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Money - final check</string> </item>
+          <item> <string>fr</string>  <string>Vérification finale des termes liés à l’argent</string> </item>
+          <item> <string>zh-Hans</string>  <string>金钱 – 最后检查</string> </item>
+          <item> <string>es</string>  <string>Moneda - chequeo final</string> </item>
+		  <item> <string>pt</string>  <string>Moedas - verificação final</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Verify that words such as money, coin, silver, gold, denarii, and shekel are adequately differentiated and rendered consistently rendered.</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez que des mots comme argent, or, monnaie, deniers et shekel sont toujours traduits de la même manière et qu’ils sont différents les uns des autres.</string> </item>
+          <item> <string>zh-Hans</string>  <string>确定所有诸如金钱、钱币、银子、金子、得拿利和舍客勒等字词都有充分的区分和一致的译法。</string> </item>
+          <item> <string>es</string>  <string>Comprobar que palabras como dinero, moneda, plata, oro, denario, y siclos esten diferenciados adecuadamente y generados consistentemente.</string> </item>
+		  <item> <string>pt</string>  <string>Verifique se as palavras dinheiro, moeda, prata, ouro, denário e siclos são sempre traduzidos da mesma forma e elas são diferentes entre si.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="1ac01594-c549-410f-bd50-2c248f767c6f">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Weights - final check</string> </item>
+          <item> <string>fr</string>  <string>Vérification finale des termes liés au poids</string> </item>
+          <item> <string>zh-Hans</string>  <string>重量 – 最后检查</string> </item>
+          <item> <string>es</string>  <string>Pesos - chequeo final</string> </item>
+		  <item> <string>pt</string>  <string>Pesos - verificação final</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Verify that words such as talent, mina, shekel, pim, beka, gerah etc., are adequately differentiated and rendered consistently.</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez que des mots comme talent, mina, shekel, pim, beka, gera, etc., sont toujours traduits de la même manière et qu’ils sont différents les uns des autres.</string> </item>
+          <item> <string>zh-Hans</string>  <string>确定所有诸如他连得、弥拿、舍客勒、pim 、比加、季拉等字词都有充分的区分和一致的译法。</string> </item>
+          <item> <string>es</string>  <string>Comprobar que palabras como talento, libra, siclos, pim, medio siclo, geras etc., esten diferenciados adecuadamente y generados consistentemente.</string> </item>
+		  <item> <string>pt</string>  <string>Verifique se as palavras talento, mina, siclo, pim, beca, gera etc. são sempre traduzidos da mesma forma e elas são diferentes entre si.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="a643c702-c6c2-4ba9-98c5-4d3191ac4ccb">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Measures - final check</string> </item>
+          <item> <string>fr</string>  <string>Vérification finale des mesures</string> </item>
+          <item> <string>zh-Hans</string>  <string>计量单位 – 最后检查</string> </item>
+          <item> <string>es</string>  <string>Medidas - chequeo final</string> </item>
+		  <item> <string>pt</string>  <string>Medidas - verificação final</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Verify that words such as cubit, span, handbreadth, orgyia, stadion, milion, cor, lethech, ephah, seah, omer, cab, bath, hin, log, etc., are adequately differentiated and rendered consistently rendered.</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez que des mots comme coudée, travée, quatre doigts, orgyia, stadion, milion, cor, lethech, épha, seah, omer, cab, bath, hin, log, etc., sont toujours traduits de la même manière et qu’ils sont différents les uns des autres.</string> </item>
+          <item> <string>zh-Hans</string>  <string>确定所有诸如肘、虎口、一掌、 orgyia 、斯他迪、百万、 cor 、半賀梅珥、伊法、细亚、賀梅珥、 cab 、罢特、欣、 log 等字词都有充分的区分和一致的译法。</string> </item>
+          <item> <string>es</string>  <string>Comprobar que palabras como codos, palmo, palmo menor, orgyia, stadion, milion, coros, lethech, efa, seah, omer, cab, bath, hin, log, etc., esten diferenciados adecuadamente y generados consistentemente.</string> </item>
+		  <item> <string>pt</string>  <string>Verifique se as palavras côvado, palmo, palmo menor, estádios, milhas, coro, leteque, efa, seá (alqueire), gômer cabo, bato, him, logue, etc. são sempre traduzidos da mesma forma e elas são diferentes entre si.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="9bd5b294-ef93-4e48-a622-8e6907aab38c">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Consistency check - Biblical key terms</string> </item>
+          <item> <string>fr</string>  <string>Test de la cohérence des termes clés bibliques</string> </item>
+          <item> <string>zh-Hans</string>  <string>一致性检查 – 主要圣经专门用词</string> </item>
+          <item> <string>es</string>  <string>Chequeos de consistencias - términos clave</string> </item>
+		  <item> <string>pt</string>  <string>Verficação de consistência - Termos Bíblicos chaves</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Open Biblical terms tool and review all renderings for consistency, and make any last changes needed.</string> </item>
+          <item> <string>fr</string>  <string>Ouvrez l’outil « Termes bibliques » et examinez tous les équivalents pour voir s’ils sont traduits toujours de la même manière. Corrigez si nécessaire.</string> </item>
+          <item> <string>zh-Hans</string>  <string>打开“圣经专门用词”工具，审阅所有译法的一致性，按需要进行最后的更改。</string> </item>
+          <item> <string>es</string>  <string>Abrir la herramienta Vocablos Bíblicos y comprobar la consistencia de todos los términos y realizar los últimos cambios necesarios.</string> </item>
+		  <item> <string>pt</string>  <string>Abrir a ferramenta Termos Bíblicos para verificar a consistência de todos os termos e corrigir se necessário.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="48728fe8-6dd3-49d0-aea0-c90406faad03">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Consistency check - parallel passages</string> </item>
+          <item> <string>fr</string>  <string>Test de la cohérence pour les textes parallèles</string> </item>
+          <item> <string>zh-Hans</string>  <string>一致性检查 – 平行经文</string> </item>
+          <item> <string>es</string>  <string>Chequeos de consistencias - pasajes paralelos</string> </item>
+		  <item> <string>pt</string>  <string>Verificação de consistência - Passagens Paralelas</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Open Parallel Passage tool and confirm all parallel passages. (This check is not simply that parallel passages have check marks, it is meant to read the verses and see if the appropriate words are green and yellow in each passage.)</string> </item>
+          <item> <string>fr</string>  <string>Ouvrez l’outil « Textes parallèles » et validez tous les textes parallèles. (Il ne s’agit pas simplement de vérifier que les cases des textes parallèles sont cochées; on doit relire les versets et voir si les bons mots sont en vert ou en jaune dans chaque passage.)</string> </item>
+          <item> <string>zh-Hans</string>  <string>打开“平行经文”工具并确认所有平行经文。（这项检查并非只是确定所有平行经文都有勾选标记，而是要细阅所有经节，看看每段经文是否都有相应的绿色和黄色标记字词。）</string> </item>
+          <item> <string>es</string>  <string>Abra la herramienta de Pasajes Paralelos y confirme todos los pasajes paralelos. (Este chequeo no es simplemente para que los pasajes paralelos tengan marcas de verificación, esta pensado para que se lean los versículos y verificar que las palabras apropiadas estén resaltados de verde y amarillo en cada pasaje).</string> </item>
+		  <item> <string>pt</string>  <string>Abra a ferramenta Passagens Paralelas para verificar todas as passagens paralelas. (Esta verificação não é, simplemnte, para assinalar a passagens paralelas como verificada, é preciso ler o versículos e verificar as palavras apropriadas estão destacadas em verde e amarelo em casa passagem).</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="b7263773-5022-4ec2-9442-c07f681f9f91">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Check references</string> </item>
+          <item> <string>fr</string>  <string>Vérification des références</string> </item>
+          <item> <string>zh-Hans</string>  <string>检查经文参照</string> </item>
+          <item> <string>es</string>  <string>Comprobación de referencias</string> </item>
+		  <item> <string>pt</string>  <string>Verificação de referências</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Look up and verify that all Scripture references in footnotes, cross references, book introductions, etc., are referring to verse(s) that talk about the correct topic. (This is not the automated Paratext check to verify that a Scripture reference is in the correct format and exists in the cannon.)</string> </item>
+          <item> <string>fr</string>  <string>Recherchez toutes les références bibliques dans les notes de bas de page, les renvois, les introductions aux livres, etc., et vérifiez qu’elles font référence aux passages voulus. (Il ne s’agit pas de l’outil de Paratext qui vérifie automatiquement le formatage des références et de leur existence dans le canon.)</string> </item>
+          <item> <string>zh-Hans</string>  <string>在脚注、经文相互参照、书卷简介等，查阅所有经文参照，确定当中列出的经节都谈论相应的主题。（这并不是《圣经辅助工具》的自动检查，不是要确定经文参照格式是正确和存在于经目表的。）</string> </item>
+          <item> <string>es</string>  <string>Buscar y verificar que todas las referencias bíblicas en las notas al pie de página, referencias cruzadas, introducción a libros, etc., mencionen el(los) versículo(s) que traten el tema correcto. (Este no es el chequeo automático de ParaTExt para comprobar que una referencia biblica este en el formato correcto y que exista en el canon).</string> </item>
+		  <item> <string>pt</string>  <string>Pesquisar todas as referências bíblicas nas notas de rodapé, referências cruzadas, introduções aos livros, etc., verificar se ela(s) trata(m) do(s) tema(s) correto(s). (Esta não é uma verificação automática que o Paratext faz para checar a formatação de referências bíblicas e sua existência no cânon).</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="92d5838b-bce2-4207-a7dc-5c6001f6d7d9">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Footnotes and cross references - format check</string> </item>
+          <item> <string>fr</string>  <string>Contrôle du formatage des notes de bas de pages et renvois</string> </item>
+          <item> <string>zh-Hans</string>  <string>脚注和经文相互参照 – 格式检查</string> </item>
+          <item> <string>es</string>  <string>Notas al pie de página y referencias cruzadas - Chequeo de formato</string> </item>
+		  <item> <string>pt</string>  <string>Notas de Rodapé e Referências - ver. formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Read all footnotes and cross references looking for inconsistencies in how they are formatted. The goal is to have a consistent look and feel across all footnotes, and not merely the absence of marker errors in the footnotes.  It may be helpful to go to Tools--&gt;Checklist--&gt;Footnotes. This checklist will compare the footnotes in your text to other resources that you specify.</string> </item>
+          <item> <string>fr</string>  <string>Revoyez le formatage de toutes les notes de bas de page et les renvois pour qu’il soit uniforme. Il s’agit d’avoir une même mise en forme pour toutes les notes et pas simplement d’éviter les erreurs de marqueur.</string> </item>
+          <item> <string>zh-Hans</string>  <string>细阅所有脚注和经文参照，查看所使用的格式是否不一致。检查的目标是使所有脚注都有一致的外观和感觉，并非只是检查脚注的格式码错误。</string> </item>
+          <item> <string>es</string>  <string>Leer todas las notas al piede página y referencias cruzadas buscando inconsistencias en su formato. La meta es tener una apariencia consistente en todas las notas al pie de página, no sólo no teniendo errores en los marcadores en las notas al pie de página.</string> </item>
+		  <item> <string>pt</string>  <string>Leia todas as notas de rodapé e referências cruzadas procurando inconsistências em seu formato. O objetivo é ter a mesma formatação em todas as notas de rodapé, e não apenas evitar erros de marcadores nas notas de rodapé.
+		  Pode ser útil para ir em Ferramentas--&gt;Lista de verificações--&gt;Notas de rodapé... Esta lista de verificação irá comparar as notas de rodapé em seu texto com outros recursos que você especificar. </string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="60fc3151-1b71-4910-b9f4-96dbaf84c225">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Section breaks and headings - final format check</string> </item>
+          <item> <string>fr</string>  <string>Dernier contrôle de formatage des sauts de section et en-têtes de section</string> </item>
+          <item> <string>zh-Hans</string>  <string>分段符和标题 – 最后的格式检查</string> </item>
+          <item> <string>es</string>  <string>Saltos de sección y encabezados - comprobación del formato final</string> </item>
+		  <item> <string>pt</string>  <string>Títulos de seções - ver. final de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>If another translation is used as a base then this check can be done using Tools &gt; Checklists &gt; Compare Section Headings</string> </item>
+          <item> <string>fr</string>  <string>Si vous suivez une version modèle, cette vérification peut se faire à l’aide d'« Outils » &gt; « Listes récapitulatives » &gt; « En-têtes de section »</string> </item>
+          <item> <string>zh-Hans</string>  <string>若是使用另一个译本为根据，可以进行这项检查如下：“工具 ＞ 检查表工具（Checklists） ＞ 比较分段标题”。</string> </item>
+          <item> <string>es</string>  <string>Si otra traducción es usada como base entonces se puede realizar este chequeo en Herramientas &gt; Lista de Verificaciones &gt; Comparar encabezados de secciones</string> </item>
+		  <item> <string>pt</string>  <string>Se outra tradução foi usada como base, essa verificação pode ser feita usando a Ferramentas &gt; Lista de Verificações &gt; Comparar títulos de seções</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="a5b28c00-1dce-405f-8cb2-fb9fb0fd346e">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Paragraph breaks - final format check</string> </item>
+          <item> <string>fr</string>  <string>Dernier contrôle final de formatage des sauts de paragraphe</string> </item>
+          <item> <string>zh-Hans</string>  <string>段落符 – 最后的格式检查</string> </item>
+          <item> <string>es</string>  <string>Saltos de Párrafos - comprobación del formato final</string> </item>
+		  <item> <string>pt</string>  <string>Quebras de parágrafos - ver. final de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>If another translation is used as a base then this check can be done using Tools &gt; Checklists &gt; Compare Markers and look for the new paragraph markers such as \p, and \m.</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez les marqueurs de paragraphe comme \p et \m. Si vous suivez une version modèle, ce contrôle peut être fait à l’aide d'« Outils » &gt; « Listes récapitulatives » &gt; « Marqueurs ». Affichez la version modèle pour comparer et trouver les endroits où il y a des paragraphes non souhaités ou des paragraphes manquants.</string> </item>
+          <item> <string>zh-Hans</string>  <string>若是使用另一个译本为根据，可以进行这项检查如下：“工具 ＞ 检查表工具（Checklists） ＞ 比较格式码”，然后寻找新的段落格式码，如　\p 和 \m。</string> </item>
+          <item> <string>es</string>  <string>Si otra traducción es usada como base entonces se puede realizar este chequeo en Herramientas &gt; Lista de Verificaciones &gt; Comparar Marcadores y buscar por nuevos marcadores de párrafo como \p y \m.</string> </item>
+		  <item> <string>pt</string>  <string>Se outra tradução foi usada como base, essa verificação pode ser feita usando a Ferramentas &gt; Lista de Verificações &gt; Comparar Marcadores e procurar por novos marcadores de parágrafo como \p e \m.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="ce33f6a6-b46c-4abe-a234-5fa6bbe06ea5">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Layout and indents - final format check</string> </item>
+          <item> <string>fr</string>  <string>Dernier contrôle de formatage pour la mise en page et les mises en retrait</string> </item>
+          <item> <string>zh-Hans</string>  <string>版式和缩排 – 最后的格式检查</string> </item>
+          <item> <string>es</string>  <string>Diseño y sangrías - Chequeo de formato final</string> </item>
+		  <item> <string>pt</string>  <string>Layout e recuos - ver. final de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Verify other layout issues such as poetry. Particular attention should be given to poetry indentations. If another translation is used as a base then this check can be done using Tools &gt; Checklists &gt; Compare Markers and look for the new paragraph markers such as \q, \q1 and \q2.</string> </item>
+          <item> <string>fr</string>  <string>Vérifiez d’autres questions de mise en page telles que celle de la poésie. Faites attention en particulier aux mises en retrait poétique. Si vous suivez une version modèle, ce contrôle peut être fait à l’aide d'« Outils » &gt; « Listes récapitulatives » &gt; « Marqueurs ». Affichez la version modèle pour comparer et trouver les endroits où il y a des marqueurs \q, \q1, \q2, en trop ou manquants.</string> </item>
+          <item> <string>zh-Hans</string>  <string>确定其他版式问题，如诗歌的版式。要特别注意诗歌的缩排。若是使用另一个译本为根据，可以进行这项检查如下：“工具 ＞ 检查表工具（Checklists） ＞ 比较格式码”，然后寻找新的段落格式码，如　\q，\q1 和 \q2。</string> </item>
+          <item> <string>es</string>  <string>Revisar otros problemas de diseño como en la poesía. Debe prestarse especial atención a la sangría en el texto de poesía. Si otra traducción es usada como base entonces se puede realizar este chequeo en Herramientas &gt; Lista de Verificaciones &gt; Comparar Marcadores y buscar por marcadores de nuevos párrafos como \q, \q1 y \q2.</string> </item>
+		  <item> <string>pt</string>  <string>Verifique outros problemas de layout, tais como poesia. Preste atenção especial para colocar os recúos poéticos. Se outra tradução foi usada como base, essa verificação pode ser feita usando a Ferramentas &gt; Lista de Verificações &gt; Comparar Marcadores e procurar por novos marcadores de parágrafo como \q, \q1 e \q2.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="e66023ab-dc4d-4f5c-94a5-93fded851e7a">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Special formatting - final format check</string> </item>
+          <item> <string>fr</string>  <string>Dernier contrôle de formatage pour la mise en forme spéciale</string> </item>
+          <item> <string>zh-Hans</string>  <string>特殊格式 – 最后的格式检查</string> </item>
+          <item> <string>es</string>  <string>Formato especial - Comprobación del formato final</string> </item>
+		  <item> <string>pt</string>  <string>Formatação especial - ver. final de formatação</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>See list of special formatting issues such as genealogies, words on the cross, letters, etc. Verify that text is marked using the correct standard format markers (USFM). See http://paratext.org/about/usfm for latest guide to using USFMs.</string> </item>
+          <item> <string>fr</string>  <string>Voyez la liste des cas spéciaux de mise en forme (les généalogies, les mots sur la croix, les épîtres, etc.). Vérifiez que les marqueurs de formatage standard (USFM) sont corrects et bien placés. Voyez http://paratext.org/about/usfm pour le guide d’utilisation des marqueurs le plus récent.</string> </item>
+          <item> <string>zh-Hans</string>  <string>见特殊格式问题列表，如：家谱、十字架上的字词、信件等。确定文本是使用正确的“标准格式格式码”（USFM）来标记。有关使用 USFM 的最新指南，见 http://paratext.org/about/usfm。</string> </item>
+          <item> <string>es</string>  <string>Consulte la lista de problemas de formato especial como en genealogías, palabras en la cruz, cartas, etc. Verifique que el texto use marcadores bajo el correcto estándar (USFM). Consultar http://paratext.org/about/usfm para obtener la guía más reciente sobre el uso de USFM.</string> </item>
+		  <item> <string>pt</string>  <string>Veja a lista de casos especiais de formatação como genealogias, as palavras na cruz, as epístolas, etc. Verifique se os marcadores de formatação padrão (USFM) estão corretoes. Consultar http://paratext.org/about/usfm para obter o guia mais recente sobre o uso do USFM.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="bf163865-a207-42b7-950e-b855539b9337">
+        <EditingRequired proj="MP6" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Consultant check - final items</string> </item>
+          <item> <string>fr</string>  <string>Dernières vérifications du conseiller</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问的检查 – 最后几项</string> </item>
+          <item> <string>es</string>  <string>Chequeo del Consultor - puntos finales</string> </item>
+		  <item> <string>pt</string>  <string>Verificação do consultor - itens finais</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Consultant will check any new supplementary materials such as maps, illustrations, front matter, and back matter.</string> </item>
+          <item> <string>fr</string>  <string>Le conseiller vérifie toutes les aides paratextuelles (cartes, illustrations, pages liminaires et parties annexes).</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问会检查所有新的补充材料，如地图、图表、前文和附录。</string> </item>
+          <item> <string>es</string>  <string>El Consultor revisará cualquiere materia nuevo suplementario como mapas, ilustraciones, páginas preliminares y páginas finales.</string> </item>
+		  <item> <string>pt</string>  <string>O Consultor  verifica todos os materiais suplementares como: mapas, ilustrações, páginas introdutórias e apêndices.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="e09339d3-83e9-479e-a387-76b83067007d">
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Final approval from consultant</string> </item>
+          <item> <string>fr</string>  <string>Approbation finale du conseiller</string> </item>
+          <item> <string>zh-Hans</string>  <string>翻译顾问最后的核准</string> </item>
+          <item> <string>es</string>  <string>Aprobación final del Consultor</string> </item>
+		  <item> <string>pt</string>  <string>Aprovação final pelo consultor</string> </item></Names>
+        <Descriptions>
+          <item><string>en</string></item>
+		<item><string>fr</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="1cbff9af-07b6-4d6b-b970-aeb548b5b95a">
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Final read through and approval with church and community</string> </item>
+          <item> <string>fr</string>  <string>Lecture finale et approbation par l'Église et la communauté</string> </item>
+          <item> <string>zh-Hans</string>  <string>与教会和语言群体中的公众审阅者一起进行最后的通读和核准。</string> </item>
+          <item> <string>es</string>  <string>Lectura final del texto y aprobación de la Iglesia y la comunidad</string> </item>
+		  <item> <string>pt</string>  <string>Leitura final e aprovação com igreja e comunidade</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>This should use a draft produced by PA/InDesign so that the text is in close to final format.</string> </item>
+          <item> <string>fr</string>  <string>Pour ce contrôle, imprimez un exemplaire avec Publishing Assistant ou InDesign afin que le texte ressemble le plus au produit fini.</string> </item>
+          <item> <string>zh-Hans</string>  <string>应使用一个用 PA/InDesign 来制作的草稿，使文本接近最终的格式。</string> </item>
+          <item> <string>es</string>  <string>Esta lectura debe usar un borrador producido por Publishing Assistant (PA)/InDesign para que el texto esté cerca del formato final.</string> </item>
+		  <item> <string>pt</string>  <string>Para esta verificação, imprima uma cópia com o software Publishing Wizard ou InDesign para que o texto esteja o mais próximo do formato final.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="fdb55ea8-675a-4748-938e-29baeb639b04">
+        <EditingRequired proj="BEP" type="ScriptureText" />
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Revise text based on final read through</string> </item>
+          <item> <string>fr</string>  <string>Révision du texte suite à la lecture finale</string> </item>
+          <item> <string>zh-Hans</string>  <string>根据最后的通读来修订文本</string> </item>
+          <item> <string>es</string>  <string>Revisar el texto basado en la lectura final</string> </item>
+		  <item> <string>pt</string>  <string>Revisão do texto baseado na leitura final</string> </item></Names>
+        <Descriptions>
+			<item><string>en</string></item>
+			<item><string>fr</string><string /></item>
+			<item><string>zh-Hans</string><string /></item>
+			<item><string>es</string><string /></item>
+			<item><string>pt</string><string /></item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="a9a461dc-23c0-460c-a33b-8a5d49ea88e9">
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>150</EasiestBooksVPD>
+        <EasyBooksVPD>150</EasyBooksVPD>
+        <ModerateBooksVPD>150</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Do final typesetting</string> </item>
+          <item> <string>fr</string>  <string>Mise en page finale</string> </item>
+          <item> <string>zh-Hans</string>  <string>进行最后的排版</string> </item>
+          <item> <string>es</string>  <string>Hacer la composición tipográfica final</string> </item>
+		  <item> <string>pt</string>  <string>Diagramação final</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>This task is not done by the translation team. It is done by a typesetter who is part of Global Printing Services (GPS).</string> </item>
+          <item> <string>fr</string>  <string>Cette tâche n’est pas réalisée par l’équipe de traduction. Elle est faite par un typographe du Services de Publication Globale (GPS).</string> </item>
+          <item> <string>zh-Hans</string>  <string>这并不是翻译小组的任务。这任务由全球印刷服务（GPS）的排版员来执行。</string> </item>
+          <item> <string>es</string>  <string>Este paso no es realizado por el equipo de traducción. Es hecho por un tipógrafo que forma parte del equipo Global Printing Services (GPS).</string> </item>
+		  <item> <string>pt</string>  <string>Esta tarefa não é realizada pela equipe de tradução. É feita por um diagramador da Global Publishing Services (GPS).</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Task id="d2159520-6cc0-4fcb-a7c2-e9c68a1b740e">
+        <Type>Manual</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <EasiestBooksVPD>250</EasiestBooksVPD>
+        <EasyBooksVPD>250</EasyBooksVPD>
+        <ModerateBooksVPD>200</ModerateBooksVPD>
+        <DifficultBooksVPD>150</DifficultBooksVPD>
+        <Names>
+          <item> <string>en</string>  <string>Do audio recording</string> </item>
+          <item> <string>fr</string>  <string>Enregistrement audio du texte biblique</string> </item>
+          <item> <string>zh-Hans</string>  <string>进行录音</string> </item>
+          <item> <string>es</string>  <string>Hacer grabación de audio</string> </item>
+		  <item> <string>pt</string>  <string>Gravação em Áudio</string> </item></Names>
+        <Descriptions>
+          <item> <string>en</string>  <string>Ask your entity what partner organizations are in your area that do Scripture recordings.</string> </item>
+          <item> <string>fr</string>  <string>Renseignez-vous pour savoir qui fait l’enregistrement audio du texte biblique dans votre région.</string> </item>
+          <item> <string>zh-Hans</string>  <string>问问你的单位或机构你地区中有哪些合作伙伴组织会做圣经录音。</string> </item>
+          <item> <string>es</string>  <string>Pregunte a su entidad cuáles son las organizaciones socias en su área que realizan grabaciones de las Escrituras.</string> </item>
+		  <item> <string>pt</string>  <string>Pergunte à sua organização quais são as organizações parceiras na sua região que fazem gravações das Escrituras.</string> </item></Descriptions>
+        <Availability>AfterPreviousTaskForBook</Availability>
+      </Task>
+      <Check id="cf13573a-f9a3-41d1-ae28-7d3788cdc02c">
+        <Type>PassageCheck</Type>
+        <AutoGrantEditRights>false</AutoGrantEditRights>
+        <BasicCheckType />
+        <PostponedBooks />
+      </Check>
+      <Names>
+          <item> <string>en</string>  <string>Finalizing for Publication</string> </item>
+          <item> <string>fr</string>  <string>Mettre la touche finale avant la publication</string> </item>
+          <item> <string>zh-Hans</string>  <string>定稿出版</string> </item>
+          <item> <string>es</string>  <string>Finalizando para la Publicación</string> </item>
+		  <item> <string>pt</string>  <string>Finalização para publicação</string> </item></Names>
+      <Descriptions>
+        <item><string>en</string></item>
+		<item><string>fr</string><string /></item>
+		<item><string>zh-Hans</string><string /></item>
+		<item><string>es</string><string /></item>
+		<item><string>pt</string><string /></item></Descriptions>
+    </Stage>
+  </Stages>
+  <BasePlanType>StandardPlan</BasePlanType>
+  <BasePlanId>2fa4347f-10bb-4d7c-8168-26a76fb000f3</BasePlanId>
+  <BasePlanName>SIL Base Plan - Rev 1.33</BasePlanName>
+  <PlannedBooks>
+    <Books>111111111111111111111111111111111111111111111111111111111111111111000000000000000000000000000000000000000000000000000000000</Books>
+  </PlannedBooks>
+  <EasiestBooks>
+    <Books>000001111111110010000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</Books>
+  </EasiestBooks>
+  <EasyBooks>
+    <Books>110110000000001100000000000000000000000111010000000001111010001111000000000000000000000000000000000000000000000000000000000</Books>
+  </EasyBooks>
+  <ModerateBooks>
+    <Books>001000000000000000111100001000000000101000100110000110000001110000000000000000000000000000000000000000000000000000000000000</Books>
+  </ModerateBooks>
+  <DifficultBooks>
+    <Books>000000000000000001000011110111101111010000001001111000000100000000000000000000000000000000000000000000000000000000000000000</Books>
+  </DifficultBooks>
+</ProgressInfo>

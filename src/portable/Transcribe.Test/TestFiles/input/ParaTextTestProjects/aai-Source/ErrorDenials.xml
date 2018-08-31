@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Denials>
+  <ScrTextName>aai</ScrTextName>
+  <Denial ref="MAT 17:21" key="Ref_TargetInvalid" text="Luke 9.43b-45" />
+  <Denial ref="LUK 7:18-19" key="Ref_OriginRefFoundButWrong" text="7.19-20" />
+  <Denial ref="ACT 4:27" key="Ref_TargetInvalid" text="Mat 27.1‑2" />
+  <Denial ref="ACT 11:19" key="Ref_TargetInvalid" text="Act 8.1‑4" />
+  <Denial ref="1CO 10:33" key="Ref_TargetInvalid" text="1Cor 9.20‑22" />
+  <Denial ref="1CO 14:26" key="Ref_TargetInvalid" text="1Cor 12.8‑10" />
+  <Denial ref="1CO 15:4" key="Ref_TargetInvalid" text="Act 2.24‑32" />
+  <Denial ref="1CO 16:1" key="Ref_TargetInvalid" text="Rom 15.25‑26" />
+  <Denial ref="HEB 6:10" key="Ref_TargetInvalid" text="Heb 10.32‑34" />
+  <Denial ref="HEB 12:25" key="Ref_TargetInvalid" text="Heb 2.1‑3" />
+  <Denial ref="REV 3:5" key="Ref_TargetInvalid" text="Exo 32.32‑33" />
+  <Denial ref="REV 11:6" key="Ref_TargetInvalid" text="Exo 7.17‑20" />
+  <Denial ref="REV 14:10" key="Ref_TargetInvalid" text="Jer 25.15‑16" />
+  <Denial ref="REV 19:20" key="Ref_TargetInvalid" text="Rev 13.12‑17" />
+</Denials>
