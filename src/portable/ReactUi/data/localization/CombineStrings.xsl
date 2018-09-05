@@ -31,6 +31,15 @@
 				<xsl:copy-of select="$ru//userSettings/ru"/>
 				<xsl:copy-of select="$ta//userSettings/ta"/>
 			</userSettings>
+			<projectSettings>
+				<xsl:copy-of select="$en//projectSettings/en"/>
+				<xsl:copy-of select="$ar//projectSettings/ar"/>
+				<xsl:copy-of select="$fr//projectSettings/fr"/>
+				<xsl:copy-of select="$ha//projectSettings/ha"/>
+				<xsl:copy-of select="$pt//projectSettings/pt"/>
+				<xsl:copy-of select="$ru//projectSettings/ru"/>
+				<xsl:copy-of select="$ta//projectSettings/ta"/>
+			</projectSettings>
 		</strings>
 	</xsl:template>
 </xsl:stylesheet>

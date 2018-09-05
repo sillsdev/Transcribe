@@ -1,23 +1,20 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap'
 import './NextAction.sass';
 
 interface IProps {
-    target: (context: React.Component) => any;
+    target: (context: any) => any;
     text: string;
+    type: string;
 };
 
 class NextAction extends React.Component<IProps, object> {
     public render() {
-        const { target, text } = this.props;
+        const { target, text, type } = this.props;
         return (
             <div id="NextAction" className="NextAction">
-                <Button
-                    onClick={target}
-                    bsStyle="primary"
-                    bsSize="small">
-                    {text}
-                </Button>
+                <button className={type} onClick={target}>
+                {text}
+                </button>
             </div>
         )
     }

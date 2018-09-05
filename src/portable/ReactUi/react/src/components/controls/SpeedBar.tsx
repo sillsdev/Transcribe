@@ -21,7 +21,7 @@ class SpeedBar extends React.Component<IProps, any> {
         const { playSpeedRate } = this.props;
 
         return (
-            <div>
+        <div>
             <ReactToolTip />
             <div className="SpeedBar" data-tip="F3 ⬌ F4">
                 <i className="slider-origin" />

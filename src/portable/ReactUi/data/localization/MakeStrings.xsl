@@ -16,6 +16,11 @@
 					<xsl:apply-templates select="//*[local-name()='unit' and starts-with(@id, 'userSettings.')]"/>
 				</xsl:element>
 			</userSettings>
+			<projectSettings>
+				<xsl:element name="{/*/@trgLang}">
+					<xsl:apply-templates select="//*[local-name()='unit' and starts-with(@id, 'projectSettings.')]"/>
+				</xsl:element>
+			</projectSettings>
 		</strings>
 	</xsl:template>
 	

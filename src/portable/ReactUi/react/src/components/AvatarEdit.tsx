@@ -44,7 +44,7 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
                     />
                 <div className="preview">
                     <img src={this.state.preview} alt="Preview" />
-                    <NextAction target={this.onSave} text={strings.save} />
+                    <NextAction target={this.onSave} text={strings.save} type="primary" />
                 </div>
             </div>
         )

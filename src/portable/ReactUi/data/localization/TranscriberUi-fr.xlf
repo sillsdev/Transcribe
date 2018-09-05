@@ -260,5 +260,47 @@
 				<target>S'il vous plaît remplir le Accélérer</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.next">
+			<segment>
+				<source>Next</source>
+				<target>Suite</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseALanguage">
+			<segment>
+				<source>Choose a language</source>
+				<target>Choisisser une langue</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.lookForProjects">
+			<segment>
+				<source>Looking for Paratext projects on this computer...</source>
+				<target>Chercher les projects Paratext à l'orginateur ...</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.selectProject">
+			<segment>
+				<source>Select a Paratext Project</source>
+				<target>Selectionner un project Paratext</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.browseForProject">
+			<segment>
+				<source>Browse for a project</source>
+				<target>Rechercher un project Paratext</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.createEmptyProject">
+			<segment>
+				<source>Create empty project</source>
+				<target>Créer un project vide</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.noProjectsFound">
+			<segment>
+				<source>We didn’t find any Paratext projects on your computer.</source>
+				<target>On n'a pas trouver aucun project Paratext à l'ordinateur</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

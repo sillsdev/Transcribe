@@ -4,7 +4,9 @@ import Ionicon from 'react-ionicons'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/paratextProjectActions';
+import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
+import userStrings from '../selectors/localize';
 import ButtonLink from './controls/ButtonLink';
 import './NewOrBrowseParatextProject.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
@@ -16,8 +18,7 @@ interface IProps extends IStateProps, IDispatchProps {
 class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
     
     public render() {
-
-        
+        const { strings } = this.props;
 
         return (
             <div className="NewOrBrowseParatextProjects">
@@ -25,7 +26,7 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                     <Row className="name-row">
                         
                         <Col xs={12} md={12}>
-                            <LabelCaptionUx name="We didn’t find any Paratext projects on your computer." />
+                            <LabelCaptionUx name={strings.noProjectsFound} />
                         </Col>
                         
                     </Row>
@@ -38,12 +39,12 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                     <Row className="name-row">                        
                         <Col xs={6} md={6}>       
                         <span className="ButtonLink">           
-                           <ButtonLink text="BROWSE FOR A PROJECT" target="/" type="text-light"/>
+                           <ButtonLink text={strings.browseForProject.toUpperCase()} target="/" type="text-light"/>
                            </span>                           
                         </Col>
                         <Col xs={6} md={6}>
                         <span className="ButtonLink"> 
-                                <ButtonLink text="Create empty project" target="/" type="primary" />
+                                <ButtonLink text={strings.createEmptyProject.toUpperCase()} target="/" type="primary" />
                             </span>
                         </Col>                     
                     </Row>
@@ -60,11 +61,13 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
 interface IStateProps {
     loaded: boolean;
     paratextProjects: IParatextProject[];
+    strings: IProjectSettingsStrings;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.paratextProjects.loaded,
-    paratextProjects: state.paratextProjects.paratextProjects
+    paratextProjects: state.paratextProjects.paratextProjects,
+    strings: userStrings(state, { layout: "projectSettings" }),
 });
 
 interface IDispatchProps {

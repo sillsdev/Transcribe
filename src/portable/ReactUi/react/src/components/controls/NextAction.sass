@@ -1,26 +1,56 @@
 @import "../../_variables.sass"
-$btnPri: #286090
-$btnPriHover: #337ab7
 
 .NextAction 
 	display: flex
-	align-items: center
-	margin: 10px
-	.btn-primary:hover 
-		color: $white
-		background-color: $btnPriHover
-	
-	.btn-primary 
+	flex: 0 0 auto
+	font-family: $sans
+	font-size: 14px
+	line-height: 16px
+	letter-spacing: 0.75px
+	height: 36px
+	width: 86px
+	border-radius: 4px
+	&:hover
+		-moz-border-radius: 4px
+		border-radius: 4px
+		-moz-box-shadow: 0px 0px 30px 0px $white
+		box-shadow: 0px 0px 30px 0px $white
+	a
+		text-decoration: none
+	.safe
+		flex: 1 0 auto
+		background-color: $blue
 		color: $base3
-		background-color: $btnPri
-		border: 1px solid transparent
-		border-radius: 3px
-		font-weight: 400
-		font-size: 12px
-		line-height: 1.5
-		margin: 0
-		padding: 5px 10px
-		text-align: center
-		vertical-align: middle
-	
-
+		border-radius: 4px
+	.primary
+		flex: 1 0 auto
+		background-color: $yellowLight
+		color: $base03
+		border-radius: 4px
+	.danger
+		flex: 1 0 auto
+		background-color: $red
+		color: $base3
+		border-radius: 4px
+	.outline-dark
+		flex: 1 0 auto
+		background-color: transparent
+		border: 1px solid $base03
+		color: $base03
+		border-radius: 4px
+	.outline-light
+		flex: 1 0 auto
+		background-color: transparent
+		border: 1px solid $base3
+		color: $base3
+		border-radius: 4px
+	.text-dark
+		flex: 1 0 auto
+		background-color: transparent
+		color: $base03
+		border-radius: 4px
+	.text-light
+		flex: 1 0 auto
+		background-color: transparent
+		color: $base3
+		border-radius: 4px

@@ -20,6 +20,7 @@ interface IUser {
   speed: number;
   timer: string;
   uilang: string;
+  oslang: string;
   username: {
       avatarUri: string;
       id: string;

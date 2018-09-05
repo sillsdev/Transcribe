@@ -254,5 +254,47 @@
 				<target>Пожалуйста, заполните Ускорить</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.next">
+			<segment>
+				<source>Next</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseALanguage">
+			<segment>
+				<source>Choose a language</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.lookForProjects">
+			<segment>
+				<source>Looking for Paratext projects on this computer...</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.selectProject">
+			<segment>
+				<source>Select a Paratext Project</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.browseForProject">
+			<segment>
+				<source>Browse for a project</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.createEmptyProject">
+			<segment>
+				<source>Create empty project</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.noProjectsFound">
+			<segment>
+				<source>We didn’t find any Paratext projects on your computer.</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>
