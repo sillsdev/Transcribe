@@ -9,17 +9,36 @@ start =
     },
     element project {
       (
-       ## Paratext short name
-       attribute id { xsd:string }
+		## Paratext short name
+		attribute id { xsd:string }
        | 
-         ## BCP-47 language of project
-         attribute lang {
-           xsd:string {
-             pattern = "[a-z]{2,3}(-[A-Za-z]{4})?(-[A-Z]{2})?(-[a-z]+)?"
-           }
-         }
-       | attribute direction { "ltr" | "rtl" }
-       | 
+		## Paratext full name
+		attribute name { xsd:string }?
+       |
+		## Paratext guid
+		attribute guid { xsd:string }?
+       |
+		## BCP-47 language of project
+		attribute lang {
+			xsd:string {
+				pattern = "[a-z]{2,3}(-[A-Za-z]{4})?(-[A-Z]{2})?(-[a-z]+)?"
+			}
+		}
+       |
+		## Language name
+		attribute langName { xsd:string }?
+       |
+		## font family
+		attribute font { xsd:string }?
+       |
+		## font size
+		attribute size { xsd:string }?
+       |
+		## font features
+		attribute features { xsd:string }?
+       |
+		attribute direction { "ltr" | "rtl" }?
+       |
          ## type defaults to bible if none is present
          attribute type { "Bible" | "Story" | "Other" | "Test" }?),
       element task {

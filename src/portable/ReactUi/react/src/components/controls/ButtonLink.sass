@@ -1,6 +1,7 @@
 @import "../../_variables.sass"
 
 .ButtonLink 
+	display: flex
 	flex: 0 0 auto
 	font-family: $sans
 	font-size: 14px
@@ -16,41 +17,40 @@
 		box-shadow: 0px 0px 30px 0px $white
 	a 
 		text-decoration: none
-.ButtonLink.safe
-	background-color: $blue
-	color: $base3
-	a
+	.safe
+		flex: 1 0 auto
+		background-color: $blue
 		color: $base3
-.ButtonLink.primary
-	background-color: $yellowLight
-	color: $base03
-	a
-		color: base03
-.ButtonLink.danger
-	background-color: $red
-	color: $base3
-	a
-		color: $base3
-.ButtonLink.outline-dark
-	background-color: transparent
-	border: 1px solid $base03
-	color: $base03
-	a
+		border-radius: 4px
+	.primary
+		flex: 1 0 auto
+		background-color: $yellowLight
 		color: $base03
-.ButtonLink.outline-light
-	background-color: transparent
-	border: 1px solid $base3
-	color: $base3
-	a
+		border-radius: 4px
+	.danger
+		flex: 1 0 auto
+		background-color: $red
 		color: $base3
-.ButtonLink.text-dark
-	background-color: transparent
-	color: $base03
-	a
+		border-radius: 4px
+	.outline-dark
+		flex: 1 0 auto
+		background-color: transparent
+		border: 1px solid $base03
 		color: $base03
-.ButtonLink.text-light
-	background-color: transparent
-	color $base3
-	a
+		border-radius: 4px
+	.outline-light
+		flex: 1 0 auto
+		background-color: transparent
+		border: 1px solid $base3
 		color: $base3
-	
+		border-radius: 4px
+	.text-dark
+		flex: 1 0 auto
+		background-color: transparent
+		color: $base03
+		border-radius: 4px
+	.text-light
+		flex: 1 0 auto
+		background-color: transparent
+		color: $base3
+		border-radius: 4px

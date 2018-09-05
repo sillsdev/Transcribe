@@ -28,7 +28,10 @@ class UiLang extends React.Component<IProps, object> {
                     <ul>
                         {languageList}
                     </ul>
-                    <ButtonLink text={"Skip"} target="/uilang" type="outline-light" />
+
+                    <div className="ButtonLink">
+                        <ButtonLink text={"Skip"} target="/SearchParatextProjects" type="outline-light" />
+                    </div>
                 </div>
             </div>
             )

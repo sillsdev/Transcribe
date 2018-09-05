@@ -40,6 +40,9 @@ namespace Transcribe.Windows
 					case "GetTasks":
 						GetTasks(e.Uri.Query);
 						break;
+					case "GetParatextProjects":
+						GetParatextProjects();
+						break;
 				}
 			}
 			else if (method == "PUT")
@@ -699,6 +702,56 @@ namespace Transcribe.Windows
 			{
 				sw.Write($"[{string.Join(",", jsonList)}]");
 			}
+		}
+
+		private void GetParatextProjects()
+		{
+			var apiFolder = ApiFolder();
+			if (!ParatextInfo.IsParatextInstalled)
+			{
+				return;
+			}
+			try
+			{
+				ParatextData.Initialize();
+				var paratextProjects = ScrTextCollection.ScrTexts(IncludeProjects.ScriptureOnly);
+				if (paratextProjects == null)
+					return;
+
+				var jsonList = ParatextProjectsJsonList(paratextProjects);
+
+				using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetParatextProjects")))
+				{
+					sw.Write($"[{string.Join(",", jsonList)}]");
+				}
+			}
+			catch (Exception ex)
+			{
+				string error = ex.Message;
+			}
+		}
+
+		private static List<string> ParatextProjectsJsonList(IEnumerable<ScrText> paratextProjects)
+		{
+			var jsonList = new List<string>();
+			var jsonString = new StringBuilder();
+			foreach (var aProject in paratextProjects)
+			{
+				jsonString = new StringBuilder();
+				jsonString.Append("{\"id\": \"" + aProject.Name + "\",");
+				jsonString.Append("\"name\": \"" + aProject.Settings.FullName + "\",");
+				jsonString.Append("\"guid\": \"" + aProject.Settings.Guid + "\",");
+				jsonString.Append("\"lang\": \"" + aProject.Language.LanguageId.Id + "\",");
+				jsonString.Append("\"langName\": \"" + aProject.Settings.LanguageName + "\",");
+				jsonString.Append("\"font\": \"" + aProject.Settings.DefaultFont + "\",");
+				jsonString.Append("\"features\": \"" + aProject.Settings.DefaultFontFeatures + "\",");
+				jsonString.Append("\"size\": \"" + aProject.Settings.DefaultFontSize + "\",");
+				jsonString.Append("\"direction\": \"" + (aProject.Language.RightToLeft ? "rtl" : "ltr") + "\",");
+				jsonString.Append("\"type\": \"" + (aProject.Settings.TranslationInfo.Type.IsScripture() ? "Bible" : "Other") + "\"}");
+				jsonList.Add(jsonString.ToString());
+			}
+
+			return jsonList;
 		}
 
 		private static List<string> UsersJsonList(XmlDocument usersDoc)

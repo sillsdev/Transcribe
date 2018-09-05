@@ -30,4 +30,9 @@ export interface IState {
         transcriber: ITranscriberStrings;
         userSettings: IUserSettingsStrings;
     };
+    paratextProjects: {
+        loaded: boolean;
+        paratextProjects: IParatextProject[];
+        selectedParatextProject: string;
+    };
 }
