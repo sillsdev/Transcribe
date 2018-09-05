@@ -27,6 +27,16 @@
           <xs:documentation>Paratext short name</xs:documentation>
         </xs:annotation>
       </xs:attribute>
+      <xs:attribute name="name" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Paratext full name</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="guid" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Paratext guid</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
       <xs:attribute name="lang">
         <xs:annotation>
           <xs:documentation>BCP-47 language of project</xs:documentation>
@@ -36,6 +46,26 @@
             <xs:pattern value="[a-z]{2,3}(-[A-Za-z]{4})?(-[A-Z]{2})?(-[a-z]+)?"/>
           </xs:restriction>
         </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="langName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Language name</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="font" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>font family</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="size" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>font size</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="features" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>font features</xs:documentation>
+        </xs:annotation>
       </xs:attribute>
       <xs:attribute name="direction">
         <xs:simpleType>

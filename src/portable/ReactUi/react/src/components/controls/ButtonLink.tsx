@@ -8,17 +8,17 @@ interface IProps {
     type: string;
 };
 
-class BackLink extends React.Component<IProps, object> {
+class ButtonLink extends React.Component<IProps, object> {
     public render() {
         const { target, text, type } = this.props;
         return (
-            <button id="ButtonLink" className={"ButtonLink " + type}>
-                <Link to={target}>
-                    {text}
-                </Link>
-            </button>
+            <Link to={target} className="ButtonLink">
+                <button className={type}>
+                {text}
+                </button>
+            </Link>
         )
     }
 };
 
-export default BackLink;
+export default ButtonLink;

@@ -1,0 +1,96 @@
+@import "../_variables.sass"
+
+.NewOrBrowseParatextProjects
+	background-color: $taskBG
+	width: 100%
+	height: 100%
+	display: flex
+	overflow-y: auto	
+
+	.grid		
+		margin: auto
+		width: 700%
+
+	.name-row		
+		text-align: center
+
+	.label
+		color: $base1
+		font-family: $robato
+		font-size: 24px
+		line-height: 28px
+		width: 456px
+		text-align: center
+		padding-top: 64px
+
+	.LinkAction
+		font-family: $robato	
+		width: 300px
+		height: 10%	
+
+	.ButtonLink
+		margin: auto
+		cursor: pointer
+		width: 200px
+		padding: 0px 5px
+
+	.name-row 
+		padding: 10px 0px 0px 0px
+		vertical-align: middle
+		height: 10%
+	
+	[class*="col-"] 
+		float: left
+		width: 8.333%
+	
+	[class*="row"] 
+		clear: both
+		padding: 15px
+	
+	.col-md-1 
+		text-align: right
+		&0 
+			width: 83.333%
+		
+		&1 
+			width: 91.666%
+		
+	
+	.col-md-2 
+		text-align: right
+	
+	.saveAction 
+		float: right
+		width: 50%
+	
+	.col-md-2 
+		width: 15.666%
+	
+	.col-md-3 
+		width: 25%
+	
+	.col-md-4 
+		width: 33.333%
+	
+	.col-md-5 
+		width: 41.666%
+	
+	.col-md-6 
+		width: 50%
+		text-align: right
+	
+	.col-md-7 
+		width: 58.333%
+	
+	.col-md-8 
+		width: 66.666%
+	
+	.col-md-9 
+		width: 75%	
+
+	.col-md-12
+		width: 100%
+		vertical-align: middle
+
+html, body, #root, #root>*
+	height: 100%

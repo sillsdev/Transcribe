@@ -4,6 +4,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AvatarEdit from './components/AvatarEdit';
 import MainLayout from './components/MainLayout'
+import NewOrBrowseParatextProjects from './components/NewOrBrowseParatextProject';
+import SearchParatextProjects from './components/SearchParatextProjects';
 import SelectProject from './components/SelectProject'
 import UiLang from './components/UiLang'
 import UserLogin from './components/UserLogin'
@@ -23,6 +25,8 @@ ReactDOM.render(
         <Route path="/settings" component={UserSettings}/>
         <Route path="/avatar" component={AvatarEdit} />
         <Route exact={true} path="/uilang" component={UiLang} />
+        <Route path="/SearchParatextProjects" component={SearchParatextProjects} />
+        <Route path="/NewOrBrowseParatextProjects" component={NewOrBrowseParatextProjects} />
       </div>
     </Router>
   </Provider>,

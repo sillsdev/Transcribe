@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?xml-model href="task.rnc" type="application/relax-ng-compact-syntax"?>
-<tasks version="1.0">
+<tasks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="tasks.xsd" version="1.0">
 	<project id="aai" lang="aai" direction="ltr" type="Bible">
 		<task id="aai-JHN-001-001003" state="Transcribe" hold="false"/>
 		<task id="aai-JHN-003-001019" state="Transcribe" assignedto="Ayo">

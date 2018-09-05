@@ -1,0 +1,58 @@
+@import "../_variables.sass"
+
+.SearchParatextProjects
+	background-color: $taskBG
+	width: 100%
+	height: 100%
+	display: flex
+	overflow-y: auto
+
+	.label
+		color: $base1
+		font-family: $sans
+		font-size: 24px
+		line-heigh: 28px
+		width: 456px
+		text-align: center
+		padding-top: 64px
+
+	.list
+		color: $base2
+		margin: auto
+		display: flex
+		flex-direction: column
+		&:hover
+			cursor: pointer
+		ul
+			padding: 8px 0
+			background-color: #264B54
+		li
+			list-style-type: none
+			height: 40px
+			width: 456px
+			padding: 12px
+			background-color: #264B54
+			border-bottom: 2px solid $base00 
+			&:last-child
+				border: none
+		.name
+			font-family: $sans
+			color: $greenLight
+			font-size: 16px
+			line-height: 24px
+			letter-spacing: 0.15px
+		.code
+			font-family: $sans
+			font-size: 12px
+			line-height: 16px
+			letter-spacing: 0.4px
+
+	.ButtonLink
+		margin: auto
+		cursor: pointer
+	
+	.loadIconStyle
+		margin: auto
+
+html, body, #root, #root>*
+	height: 100%
