@@ -31,7 +31,7 @@ class SuccessPanel extends React.Component<IProps, any> {
             </div>
             <div className="ActionRow">
                 <div className="Spacer">{"\u00A0"}</div>
-                <NextAction target={this.next} text={strings.continue} />
+                <NextAction target={this.next} text={strings.continue} type="safe" />
             </div>
         </div>
         )

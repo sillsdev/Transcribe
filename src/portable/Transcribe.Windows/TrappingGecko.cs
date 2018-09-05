@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -780,6 +781,11 @@ namespace Transcribe.Windows
 				NewAttr(node, "id", item.ToString());
 				item += 1;
 				NewAttr(node, "displayName", keyValuePair.Key);
+				if (userNodes.Count == 1)
+				{
+					var ci = CultureInfo.InstalledUICulture;
+					NewAttr(node, "oslang", ci.TwoLetterISOLanguageName);
+				}
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Replace("#text", "text").Substring(8);
 				jsonList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}

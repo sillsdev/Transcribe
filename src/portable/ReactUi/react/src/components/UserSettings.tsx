@@ -209,7 +209,7 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={10} md={10}>&nbsp;</Col>
                             <Col xs={2} md={2} className="saveAction">
-                                <NextAction target={saveMethod} text={strings.save} />
+                                <NextAction target={saveMethod} text={strings.save} type="primary"/>
                             </Col>
                         </Row>
                     </Grid>
