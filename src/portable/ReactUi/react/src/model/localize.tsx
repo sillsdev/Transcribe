@@ -48,3 +48,13 @@ export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "slowDownErrorMessage": string;
     "speedUpErrorMessage": string;
 };
+
+export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethods {
+    "next": string;
+    "chooseALanguage": string;
+    "lookingForProjects": string;
+    "selectProject": string;
+    "noProjectsFound": string;
+    "browseForProject": string;
+    "createEmptyProject": string;
+};

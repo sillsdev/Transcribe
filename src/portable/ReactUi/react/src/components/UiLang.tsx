@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/userActions';
-import { ITranscriberStrings } from '../model/localize';
+import { IProjectSettingsStrings } from '../model/localize';
 import { UserLanguages } from '../model/UserLanguages';
 import userStrings from '../selectors/localize';
 import NextAction from './controls/NextAction'
@@ -14,9 +14,10 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class UiLang extends React.Component<IProps, object> {
     public render() {
-        const { selectedUser, users } = this.props;
+        const { selectedUser, strings, users } = this.props;
         const currentUser = users.filter((u: IUser) => u.username.id === selectedUser)[0];
         const oslang = (currentUser != null && currentUser.oslang != null) ? currentUser.oslang: "";
+        const hasOsLang = UserLanguages.languages.filter((lang: string) => lang.split(':')[0] === oslang);
 
         const languageList = UserLanguages.languages.map((lang: any) => 
             (<li className={"list-item" + (lang.split(':')[0] === oslang ? " selected": "")}
@@ -26,9 +27,9 @@ class UiLang extends React.Component<IProps, object> {
             </li>))
 
         const selectOsLanguage = () => this.selectOsLanguage(this, selectedUser, oslang);
-        const next = oslang != null && oslang !== ''? (
+        const next = hasOsLang.length > 0? (
             <div className="ButtonLink">
-                <NextAction text={"Next"} target={selectOsLanguage} type="outline-light" />
+                <NextAction text={strings.next.toUpperCase()} target={selectOsLanguage} type="outline-light" />
             </div>): ""
 
         let wrapper;
@@ -37,7 +38,7 @@ class UiLang extends React.Component<IProps, object> {
                 wrapper = (<Redirect to="/SearchParatextProjects" />)
             } else {
                 wrapper = (<div className="list">
-                    <div id="ChooseLanguage" className="label">{"Choose a language"}</div>
+                    <div id="ChooseLanguage" className="label">{strings.chooseALanguage}</div>
                     <ul>
                         {languageList}
                     </ul>
@@ -66,13 +67,13 @@ class UiLang extends React.Component<IProps, object> {
 
 interface IStateProps {
     selectedUser: string;
-    strings: ITranscriberStrings;
+    strings: IProjectSettingsStrings;
     users: IUser[];
 };
 
 const mapStateToProps = (state: any): IStateProps => ({
     selectedUser: state.users.selectedUser,
-    strings: userStrings(state, { layout: "transcriber" }),
+    strings: userStrings(state, { layout: "projectSettings" }),
     users: state.users.users,
 });
 
