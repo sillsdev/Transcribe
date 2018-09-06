@@ -55,4 +55,7 @@
     <EmbeddedResource Include="react\build\static\js\main.4204e860.js" />
     <EmbeddedResource Include="react\build\static\js\main.4204e860.js.map" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
 </Project>
