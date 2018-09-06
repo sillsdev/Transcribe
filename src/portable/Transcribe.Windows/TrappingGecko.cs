@@ -53,27 +53,28 @@ namespace Transcribe.Windows
 				switch (e.Uri.Segments[2])
 				{
 					case "TaskEvent":
-						TaskEvent(e);
+						if (TaskEvent(e.Uri.Query))
+							e.Cancel = true;
 						break;
 					case "UpdateUser":
-						UpdateUser(e);
+						UpdateUser(e.Uri.Query);
 						break;
 					case "UpdateAvatar":
-						UpdateAvatar(e);
+						UpdateAvatar(e.Uri.Query, e.RequestBody);
 						break;
 					case "ReportPosition":
-						ReportPosition(e);
+						ReportPosition(e.Uri.Query);
 						break;
 					case "WriteTranscription":
-						WriteTranscription(e);
+						WriteTranscription(e.Uri.Query, e.RequestBody);
 						break;
 				}
 			}
 		}
 
-		private void ReportPosition(GeckoObserveHttpModifyRequestEventArgs e)
+		private void ReportPosition(string query)
 		{
-			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var task = ToXmlTaskId(parsedQuery["task"]);
 			var position = parsedQuery["position"];
 			Debug.Print($@"Reported task={task} at position={position}");
@@ -94,14 +95,14 @@ namespace Transcribe.Windows
 			return match.Success ? match.Groups[1].Value : taskId;
 		}
 
-		private void WriteTranscription(GeckoObserveHttpModifyRequestEventArgs e)
+		private void WriteTranscription(string query, byte[] requestBody)
 		{
-			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var taskid = parsedQuery["task"];
 			var length = parsedQuery["length"];
 			var lang = parsedQuery["lang"];
 			var dir = parsedQuery["dir"];
-			var transcription = GetRequestElement(e.RequestBody, "text");
+			var transcription = GetRequestElement(requestBody, "text");
 			var xml = Program.XmlTemplate("transcription.eaf");
 			UpdateXml(xml, "@DATE", DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
 			UpdateXml(xml, "*[local-name()='ANNOTATION_VALUE']", transcription);
@@ -137,9 +138,9 @@ namespace Transcribe.Windows
 			}
 		}
 
-		private void UpdateUser(GeckoObserveHttpModifyRequestEventArgs e)
+		private void UpdateUser(string query)
 		{
-			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
 			var project = parsedQuery["project"];
 			var name = parsedQuery["name"];
@@ -177,11 +178,11 @@ namespace Transcribe.Windows
 
 		}
 
-		private void UpdateAvatar(GeckoObserveHttpModifyRequestEventArgs e)
+		private void UpdateAvatar(string query, byte[] requestBody)
 		{
-			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
-			var avatarBase64 = GetRequestElement(e.RequestBody, "preview");
+			var avatarBase64 = GetRequestElement(requestBody, "preview");
 			Debug.Print($"{user}:{avatarBase64}");
 			Image newAvatarImage = LoadImage(avatarBase64);
 			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
@@ -337,9 +338,9 @@ namespace Transcribe.Windows
 			avatarNode.InnerText = avatarUri;
 		}
 
-		private void TaskEvent(GeckoObserveHttpModifyRequestEventArgs e)
+		private bool TaskEvent(string query)
 		{
-			var parsedQuery = HttpUtility.ParseQueryString(e.Uri.Query);
+			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var action = parsedQuery["action"];
 			var task = ToXmlTaskId(parsedQuery["task"]);
 			var user = parsedQuery["user"];
@@ -348,34 +349,34 @@ namespace Transcribe.Windows
 			var folder = Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(task.Split('-'))));
 			string eafFilePath = Path.Combine(folder, Path.GetFileNameWithoutExtension(parsedQuery["task"]) + ".eaf");
 			if (taskNode == null)
-				return;
+				return true;
 			switch (action)
 			{
 				case "Assigned":
-					if (AssignTask(e, taskNode, user))
-						return;
+					if (AssignTask(taskNode, user))
+						return true;
 					break;
 				case "Unassigned":
-					if (UnassignTask(e, taskNode, user))
-						return;
+					if (UnassignTask(taskNode, user))
+						return true;
 					break;
 				case "TranscribeStart": break;
 				case "TranscribeEnd":
-					if (UnassignTask(e, taskNode, user))
-						return;
-					if (CompleteTranscription(e, taskNode))
-						return;
+					if (UnassignTask(taskNode, user))
+						return true;
+					if (CompleteTranscription(taskNode))
+						return true;
 					break;
 				case "ReviewStart": break;
 				case "ReviewEnd":
-					if (CompleteReview(e, taskNode))
-						return;
+					if (CompleteReview(taskNode))
+						return true;
 					break;
 				case "HoldStart": break;
 				case "HoldEnd": break;
 				case "Upload":
 					if (UploadToParatext(parsedQuery["task"], eafFilePath))
-						return;
+						return true;
 					break;
 				case "Complete": break;
 			}
@@ -392,6 +393,8 @@ namespace Transcribe.Windows
 			{
 				tasksDoc.Save(xw);
 			}
+
+			return false;
 		}
 
 		/// <summary>
@@ -629,53 +632,41 @@ namespace Transcribe.Windows
 			return theTranscriptionText;
 		}
 
-		private static bool AssignTask(GeckoObserveHttpModifyRequestEventArgs e, XmlNode taskNode, string user)
+		private static bool AssignTask(XmlNode taskNode, string user)
 		{
 			var assignedTo = taskNode.SelectSingleNode("@assignedto");
 			if (!string.IsNullOrEmpty(assignedTo?.InnerText))
-			{
-				e.Cancel = true;
 				return true;
-			}
 
 			NewAttr(taskNode, "assignedto", user);
 			return false;
 		}
 
-		private static bool CompleteTranscription(GeckoObserveHttpModifyRequestEventArgs e, XmlNode taskNode)
+		private static bool CompleteTranscription(XmlNode taskNode)
 		{
 			var state = taskNode.SelectSingleNode("@state") as XmlAttribute;
 			if (state?.InnerText != "Transcribe")
-			{
-				e.Cancel = true;
 				return true;
-			}
 
 			NewAttr(taskNode, "state", "Review");
 			return false;
 		}
 
-		private static bool CompleteReview(GeckoObserveHttpModifyRequestEventArgs e, XmlNode taskNode)
+		private static bool CompleteReview(XmlNode taskNode)
 		{
 			var state = taskNode.SelectSingleNode("@state") as XmlAttribute;
 			if (state?.InnerText != "Review")
-			{
-				e.Cancel = true;
 				return true;
-			}
 
 			NewAttr(taskNode, "state", "Upload");
 			return false;
 		}
 
-		private static bool UnassignTask(GeckoObserveHttpModifyRequestEventArgs e, XmlNode taskNode, string user)
+		private static bool UnassignTask(XmlNode taskNode, string user)
 		{
 			var assignedTo2 = taskNode.SelectSingleNode("@assignedto") as XmlAttribute;
 			if (string.IsNullOrEmpty(assignedTo2?.InnerText) || assignedTo2.InnerText != user)
-			{
-				e.Cancel = true;
 				return true;
-			}
 
 			Debug.Assert(taskNode.Attributes != null, "taskNode.Attributes != null");
 			taskNode.Attributes.Remove(assignedTo2);
