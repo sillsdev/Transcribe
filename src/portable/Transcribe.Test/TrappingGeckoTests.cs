@@ -7,7 +7,7 @@ using Transcribe.Windows;
 namespace Transcribe.Test
 {
 	[TestFixture]
-	public class TrappingGeckoTests
+	public class TrappingGeckoTests : ForParatext
 	{
 		#region Private Variables
 
@@ -51,7 +51,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberAtStart.sfm");
 			string chapterContent = File.ReadAllText(Path.Combine(_inputPath, "WithParatextData.sfm"));
 			string transcription = "This is sample case with verse number";
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
@@ -75,7 +75,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInMiddle.sfm");
 			string chapterContent = File.ReadAllText(Path.Combine(_inputPath, "WithParatextData.sfm"));
 			string transcription = "the test data";
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
@@ -98,7 +98,7 @@ namespace Transcribe.Test
 			string transcription = "This is example of replace verse with the existing one";
 			string outputFilePath = Path.Combine(_outputPath, "VerseNumberReplaceContentOnSameNumber.sfm");
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberReplaceContentOnSameNumber.sfm");
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath,	expectedFilePath);
 		}
@@ -124,7 +124,7 @@ namespace Transcribe.Test
 			string transcription = "A new text value from eaf file";
 			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenNearRangeExists.sfm");
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenNearRangeExists.sfm");
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
@@ -148,7 +148,7 @@ namespace Transcribe.Test
 			string transcription = "The text in the EAF File";
 			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenChapterNotFound.sfm");
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenChapterNotFound.sfm");
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
@@ -172,7 +172,7 @@ namespace Transcribe.Test
 			string transcription = "some text some text some text";
 			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenEndVerseDiffers.sfm");
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenEndVerseDiffers.sfm");
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
@@ -200,7 +200,7 @@ namespace Transcribe.Test
 			string transcription = "This is sample case with verse number";
 			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenAllVersesAreEmpty.sfm");
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenAllVersesAreEmpty.sfm");
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
@@ -227,7 +227,7 @@ namespace Transcribe.Test
 			string transcription = "This is sample case with verse number";
 			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenNoChapterAndVerse.sfm");
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenNoChapterAndVerse.sfm");
-			StringBuilder sb = TrappingGecko.GenerateParatextData(currentTask, chapterContent, transcription);
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
 			FileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}

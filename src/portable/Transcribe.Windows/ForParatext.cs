@@ -73,7 +73,7 @@ namespace Transcribe.Windows
 		}
 
 
-		private static StringBuilder GenerateParatextData(Windows.Task currentTask, string chapterContent, string transcription)
+		protected static StringBuilder GenerateParatextData(Windows.Task currentTask, string chapterContent, string transcription)
 		{
 			var sb = new StringBuilder();
 			var firstIndex = 0;
