@@ -74,8 +74,8 @@ namespace Transcribe.Windows
 			var srcFullName = Path.Combine(srcBaseFolder, localizationTag, name);
 			//if (!File.Exists(srcFullName))
 			//{
-				const string resourceBase = "ReactUi.data.";
-				var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
+				const string resourceBase = "ReactShared.data.";
+				var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
 				var assembly = Assembly.LoadFile(portableName);
 				WriteResource(resourceBase, srcBaseFolder, assembly, localizationTag, name);
 			//}
@@ -116,11 +116,11 @@ namespace Transcribe.Windows
 
 		private static string CreateResources(string randomName)
 		{
-			const string resourceBase = "ReactUi.react.build.";
+			const string resourceBase = "ReactShared.react.build.";
 			var folder = Path.Combine(Path.GetTempPath(), randomName);
 			if (!Directory.Exists(folder))
 				Directory.CreateDirectory(folder);
-			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
+			var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
 			var assembly = Assembly.LoadFile(portableName);
 			const string assetsTag = "assets";
 			const string staticTag = "static";
@@ -149,8 +149,8 @@ namespace Transcribe.Windows
 
 		public static void DefaultData(string dataset)
 		{
-			const string resourceBase = "ReactUi.data.";
-			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
+			const string resourceBase = "ReactShared.data.";
+			var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
 			var assembly = Assembly.LoadFile(portableName);
 			var folder = Path.GetDirectoryName(Application.CommonAppDataPath);
 			var initFile = Path.Combine(folder, dataset + "Init.xml");
@@ -164,8 +164,8 @@ namespace Transcribe.Windows
 
 		public static XmlDocument XmlTemplate(string name)
 		{
-			const string resourceBase = "ReactUi.data.";
-			var portableName = new DirectoryInfo(".").GetFiles("ReactUi.dll")[0].FullName;
+			const string resourceBase = "ReactShared.data.";
+			var portableName = new DirectoryInfo(".").GetFiles("ReactShared.dll")[0].FullName;
 			var assembly = Assembly.LoadFile(portableName);
 			var xml = new XmlDocument();
 			using (var str = new StreamReader(assembly.GetManifestResourceStream(resourceBase + name)))
