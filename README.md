@@ -34,6 +34,7 @@ The browser control is monitoring the HTTP requests. When it observes a request 
 - `GetUsers` - loads the list of all users
 - `GetTasks` - loads the list of all tasks
 - `GetTasks?user=<username>` - loads that list of tasks that are available to the `<username>`
+- `GetParatextProjects` - loads a list of Paratext 8 rojects currently on the computer.
 
 ## This is a PUT request:
 - `TaskEvent?action=<action>&task=<task>&user=<user>` - records an action (see XML schema) on the task
