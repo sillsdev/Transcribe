@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="dotnet run --no-build $(SolutionDir)src\portable\ReactUi\react\build $(SolutionDir)src\portable\ReactShared\ReactShared.csproj&#xD;&#xA;rmdir $(SolutionDir)src\portable\ReactShared\data /s/q&#xD;&#xA;chdir $(SolutionDir)src\portable\ReactShared &amp;&amp; mkdir data&#xD;&#xA;copy $(SolutionDir)src\portable\ReactUi\data\*.xsd $(SolutionDir)src\portable\ReactShared\data&#xD;&#xA;copy $(SolutionDir)src\portable\ReactUi\data\*.xml $(SolutionDir)src\portable\ReactShared\data&#xD;&#xA;copy $(SolutionDir)src\portable\ReactUi\data\*.eaf $(SolutionDir)src\portable\ReactShared\data&#xD;&#xA;chdir $(SolutionDir)src\portable\ReactShared\data &amp;&amp; mkdir localization&#xD;&#xA;copy $(SolutionDir)src\portable\ReactUi\data\localization\*.json $(SolutionDir)src\portable\ReactShared\data\localization&#xD;&#xA;rmdir $(SolutionDir)src\portable\ReactShared\react /s/q&#xD;&#xA;chdir $(SolutionDir)src\portable\ReactShared &amp;&amp; mkdir react &amp;&amp; chdir react &amp;&amp; mkdir build&#xD;&#xA;xcopy /s /y $(SolutionDir)src\portable\ReactUi\react\build $(SolutionDir)src\portable\ReactShared\react\build" />
+  </Target>
+
+</Project>

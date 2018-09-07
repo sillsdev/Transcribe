@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Windows.Forms;
 using System.Xml;
 
-namespace UpdateEmbeddedResourceNames
+namespace UpdateSharedResources
 {
-	static class Program
+	class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
 		static void Main(string[] args)
 		{
 			if (args.Length != 2) throw new ArgumentException("Usage: UpdateEmbeddedResourceNames folder fullName.csproj");
@@ -90,3 +85,4 @@ namespace UpdateEmbeddedResourceNames
 		}
 	}
 }
+

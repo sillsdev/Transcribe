@@ -123,6 +123,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Task.cs" />
+    <Compile Include="ForParatext.cs" />
     <Compile Include="TrappingGecko.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -164,9 +165,9 @@
       <Project>{950071ad-461d-492a-b027-907a8ccb84a6}</Project>
       <Name>SimpleServer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ReactUi\ReactUi.csproj">
-      <Project>{7bd60572-df37-43ea-80c9-ed55daaded4a}</Project>
-      <Name>ReactUi</Name>
+    <ProjectReference Include="..\ReactShared\ReactShared.csproj">
+      <Project>{4cdd53c9-8ce2-4998-b57b-6652a6d3138d}</Project>
+      <Name>ReactShared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
