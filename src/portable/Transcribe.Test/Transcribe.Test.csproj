@@ -84,15 +84,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Transcribe.Windows\Transcribe.Windows.csproj">
-      <Project>{259c1ae4-7715-4c7a-8ed1-2f0c71e90b0d}</Project>
-      <Name>Transcribe.Windows</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="TestFiles\expected\" />
     <Folder Include="TestFiles\input\" />
     <Folder Include="TestFiles\output\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReactShared\ReactShared.csproj">
+      <Project>{4cdd53c9-8ce2-4998-b57b-6652a6d3138d}</Project>
+      <Name>ReactShared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

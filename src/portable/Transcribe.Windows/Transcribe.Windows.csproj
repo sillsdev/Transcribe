@@ -122,7 +122,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Task.cs" />
     <Compile Include="ForParatext.cs" />
     <Compile Include="TrappingGecko.cs">
       <SubType>Component</SubType>

@@ -2,12 +2,12 @@
 using System.IO;
 using System.Text;
 using NUnit.Framework;
-using Transcribe.Windows;
+using ReactShared;
 
 namespace Transcribe.Test
 {
 	[TestFixture]
-	public class TrappingGeckoTests : ForParatext
+	public class TrappingGeckoTests : ParatextUpdate
 	{
 		#region Private Variables
 
