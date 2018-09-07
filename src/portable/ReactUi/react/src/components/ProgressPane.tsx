@@ -58,12 +58,12 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
         let position = audioPlayedSeconds;
-        if (jump !== 0){
+        if (this.player !== undefined && jump !== 0){
             position += jump;
             this.player.seekTo(position);
             this.props.jumpChange(0);
         }
-        if (position === 0 && initialPosition != null && initialPosition.toString() !== "0") {
+        if (this.player !== undefined && position === 0 && initialPosition != null && initialPosition.toString() !== "0") {
             position += initialPosition
             this.player.seekTo(position)
         }
