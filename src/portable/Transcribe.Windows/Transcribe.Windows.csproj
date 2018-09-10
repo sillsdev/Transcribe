@@ -65,8 +65,8 @@
     <Reference Include="Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
       <HintPath>..\..\..\packages\Geckofx45.45.0.34\lib\net45\Geckofx-Winforms.dll</HintPath>
     </Reference>
-    <Reference Include="icu.net, Version=2.3.3.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=x86">
-      <HintPath>..\..\..\packages\icu.net.2.3.3\lib\net451\icu.net.dll</HintPath>
+    <Reference Include="icu.net, Version=2.3.4.0, Culture=neutral, PublicKeyToken=416fdd914afa6b66, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\icu.net.2.3.4\lib\net451\icu.net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=2.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Microsoft.DotNet.PlatformAbstractions.2.0.4\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
@@ -78,25 +78,32 @@
       <HintPath>..\..\..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Paratext.LexicalContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9a5af29a0e638a7b, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\ParatextData.8.1.1\lib\net461\Paratext.LexicalContracts.dll</HintPath>
+      <HintPath>..\..\..\packages\ParatextData.8.1.6\lib\net461\Paratext.LexicalContracts.dll</HintPath>
     </Reference>
     <Reference Include="ParatextData, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\ParatextData.8.1.1\lib\net461\ParatextData.dll</HintPath>
+      <HintPath>..\..\..\packages\ParatextData.8.1.6\lib\net461\ParatextData.dll</HintPath>
     </Reference>
     <Reference Include="PtxUtils, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\ParatextData.8.1.1\lib\net461\PtxUtils.dll</HintPath>
+      <HintPath>..\..\..\packages\ParatextData.8.1.6\lib\net461\PtxUtils.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Core, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SIL.Lib.4.2.0.0\lib\net46\SIL.Core.dll</HintPath>
+    <Reference Include="ReactShared">
+      <HintPath>..\..\..\lib\netstandard2.0\ReactShared.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.Scripture, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SIL.Lib.4.2.0.0\lib\net46\SIL.Scripture.dll</HintPath>
+    <Reference Include="SIL.Core, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SIL.Lib.5.0.5\lib\net46\SIL.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SIL.WritingSystems, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\SIL.Lib.4.2.0.0\lib\net46\SIL.WritingSystems.dll</HintPath>
+    <Reference Include="SIL.Core.Desktop, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\SIL.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.Scripture, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SIL.Lib.5.0.5\lib\net46\SIL.Scripture.dll</HintPath>
+    </Reference>
+    <Reference Include="SIL.WritingSystems, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\SIL.Lib.5.0.5\lib\net46\SIL.WritingSystems.dll</HintPath>
     </Reference>
     <Reference Include="Spart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=14d24e064e474331, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\ParatextData.8.1.1\lib\net461\Spart.dll</HintPath>
+      <HintPath>..\..\..\packages\SIL.Lib.5.0.5\lib\net46\Spart.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -164,10 +171,6 @@
       <Project>{950071ad-461d-492a-b027-907a8ccb84a6}</Project>
       <Name>SimpleServer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ReactShared\ReactShared.csproj">
-      <Project>{4cdd53c9-8ce2-4998-b57b-6652a6d3138d}</Project>
-      <Name>ReactShared</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -185,14 +188,14 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\..\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Geckofx45.45.0.34\build\Geckofx45.targets'))" />
     <Error Condition="!Exists('..\..\..\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\Geckofx45.45.0.34\build\Geckofx45.targets'))" />
-    <Error Condition="!Exists('..\..\..\packages\SIL.Lib.4.2.0.0\build\SIL.Lib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\SIL.Lib.4.2.0.0\build\SIL.Lib.targets'))" />
-    <Error Condition="!Exists('..\..\..\packages\ParatextData.8.1.1\build\ParatextData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\ParatextData.8.1.1\build\ParatextData.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets'))" />
+    <Error Condition="!Exists('..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets'))" />
   </Target>
   <PropertyGroup>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\..\packages\Geckofx45.45.0.34\build\Geckofx45.targets" Condition="Exists('..\..\..\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" />
-  <Import Project="..\..\..\packages\SIL.Lib.4.2.0.0\build\SIL.Lib.targets" Condition="Exists('..\..\..\packages\SIL.Lib.4.2.0.0\build\SIL.Lib.targets')" />
-  <Import Project="..\..\..\packages\ParatextData.8.1.1\build\ParatextData.targets" Condition="Exists('..\..\..\packages\ParatextData.8.1.1\build\ParatextData.targets')" />
+  <Import Project="..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets" Condition="Exists('..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets')" />
+  <Import Project="..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets" Condition="Exists('..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets')" />
 </Project>
