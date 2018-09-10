@@ -17,7 +17,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transcribe.Linux", "src\portable\Transcribe.Linux\Transcribe.Linux.csproj", "{7D8F806F-B974-4F28-9C78-D40CD023F9A3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{950071AD-461D-492A-B027-907A8CCB84A6} = {950071AD-461D-492A-B027-907A8CCB84A6}
-		{4CDD53C9-8CE2-4998-B57B-6652A6D3138D} = {4CDD53C9-8CE2-4998-B57B-6652A6D3138D}
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactShared", "src\portable\ReactShared\ReactShared.csproj", "{4CDD53C9-8CE2-4998-B57B-6652A6D3138D}"
