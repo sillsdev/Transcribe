@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Threading;
 using Gecko;
 using ReactShared;
-using Transcribe.Linux.Properties;
+using SIL.Reporting;
 
 namespace Transcribe.Windows
 {
@@ -23,6 +23,8 @@ namespace Transcribe.Windows
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Xpcom.Initialize("Firefox");
+			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion));
+			Logger.WriteEvent("Launch {0} {1}", Application.ProductName, Application.ProductVersion);
 			var randomName = Path.GetTempFileName();
 			if (File.Exists(randomName))
 				File.Delete(randomName);

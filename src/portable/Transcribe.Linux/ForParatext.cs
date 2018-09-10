@@ -7,6 +7,7 @@ using System.Text;
 using Paratext.Data;
 using Paratext.Data.ProjectSettingsAccess;
 using ReactShared;
+using SIL.Reporting;
 using SIL.Scripture;
 
 namespace Transcribe.Windows
@@ -66,6 +67,7 @@ namespace Transcribe.Windows
 			{
 				var error = ex.Message;
 				Debug.Print(error);
+				Logger.WriteEvent(error);
 			}
 
 			return false;
@@ -97,6 +99,8 @@ namespace Transcribe.Windows
 			catch (Exception ex)
 			{
 				string error = ex.Message;
+				Debug.Print(error);
+				Logger.WriteEvent(error);
 			}
 		}
 

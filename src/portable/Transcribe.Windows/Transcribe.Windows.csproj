@@ -94,7 +94,7 @@
     </Reference>
     <Reference Include="SIL.Core.Desktop, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\lib\SIL.Core.Desktop.dll</HintPath>
+      <HintPath>..\..\..\packages\SIL.Lib.5.0.5\lib\net46\SIL.Core.Desktop.dll</HintPath>
     </Reference>
     <Reference Include="SIL.Scripture, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\SIL.Lib.5.0.5\lib\net46\SIL.Scripture.dll</HintPath>
