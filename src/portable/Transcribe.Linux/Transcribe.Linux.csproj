@@ -177,7 +177,7 @@
     <Error Condition="!Exists('..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>copy $(SolutionDir)\output\$(ConfigurationName)\Simple*.* $(TargetDir)</PostBuildEvent>
+    <PostBuildEvent>xcopy /y $(SolutionDir)output\$(ConfigurationName)\Simple*.* $(TargetDir)</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets" Condition="Exists('..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets')" />
   <Import Project="..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets" Condition="Exists('..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets')" />
