@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>C:\Users\Trihus\git\Transcribe\lib\</OutputPath>
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="data\localization\strings.json" />
     <None Remove="data\tasks.xsd" />
@@ -24,10 +28,10 @@
     <None Remove="react\build\assets\testAvatar.png" />
     <None Remove="react\build\assets\waveform.png" />
     <None Remove="react\build\assets\waveform.svg" />
-    <None Remove="react\build\static\css\main.7a9752df.css" />
-    <None Remove="react\build\static\css\main.7a9752df.css.map" />
-    <None Remove="react\build\static\js\main.4204e860.js" />
-    <None Remove="react\build\static\js\main.4204e860.js.map" />
+    <None Remove="react\build\static\css\main.e26f68e8.css" />
+    <None Remove="react\build\static\css\main.e26f68e8.css.map" />
+    <None Remove="react\build\static\js\main.16508915.js" />
+    <None Remove="react\build\static\js\main.16508915.js.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="data\localization\strings.json" />
@@ -50,10 +54,10 @@
     <EmbeddedResource Include="react\build\assets\testAvatar.png" />
     <EmbeddedResource Include="react\build\assets\waveform.png" />
     <EmbeddedResource Include="react\build\assets\waveform.svg" />
-    <EmbeddedResource Include="react\build\static\css\main.7a9752df.css" />
-    <EmbeddedResource Include="react\build\static\css\main.7a9752df.css.map" />
-    <EmbeddedResource Include="react\build\static\js\main.4204e860.js" />
-    <EmbeddedResource Include="react\build\static\js\main.4204e860.js.map" />
+    <EmbeddedResource Include="react\build\static\css\main.e26f68e8.css" />
+    <EmbeddedResource Include="react\build\static\css\main.e26f68e8.css.map" />
+    <EmbeddedResource Include="react\build\static\js\main.16508915.js" />
+    <EmbeddedResource Include="react\build\static\js\main.16508915.js.map" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
