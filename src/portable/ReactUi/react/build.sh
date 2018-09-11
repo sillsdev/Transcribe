@@ -1,4 +1,5 @@
-﻿#/usr/bash echo Updating ReactShared...
+﻿#!/usr/bin/bash
+npm run build
 cd ../../../UpdateSharedResources
 dotnet run ../portable/ReactUi/react/build ../portable/ReactShared/ReactShared.csproj
 cd ../portable/ReactShared
