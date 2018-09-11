@@ -34,31 +34,25 @@ endif
 PATH := $(MONO_PREFIX)/bin:$(PATH)
 
 build:
-	#sudo apt install npm -y
-	cd $(binsrc)/src/portable/ReactUi/react; npm install
-	#cd $(binsrc)/src/portable/ReactUi/react; npm run test all
-	cd $(binsrc)/src/portable/ReactUi/react; npm run build
+	mkdir -p $(bindst)
+	#Get binary from build server since mono won't access .net core assemblies as dependencies
+	#cp -r /home/lsdev/Downloads/Transcribe_linux-master-continuous_0.3.1.116_artifacts/* $(bindst)
+	wget -P$(binsrc)/output/ https://build.palaso.org/guestAuth/repository/downloadAll/Transcribe_LinuxMasterContinuous/.lastSuccessful/artifacts.zip
+	cd $(binsrc)/output ; unzip -d Release artifacts.zip
+	cd $(bindst) ; chmod +x runmono
+
+buildFull:
 	#sudo apt install nuget -y
 	#Need 2.12 of nuget not available on package repo but at:
 	#https://github.com/mono/nuget-binary/tree/2.12
 	#sudo git clone https://github.com/mono/nuget-binary.git /usr/lib/nuget
 	nuget Restore $(binsrc)/Transcribe.Windows.sln
-	rm -rf $(binsrc)/src/portable/ReactShared/react/build/*
-	cp -r $(binsrc)/src/portable/ReactUi/react/build/* $(binsrc)/src/portable/ReactShared/react/build/.
-	mkdir -p $(binsrc)/src/portable/ReactShared/data/localization
-	cp $(binsrc)/src/portable/ReactUi/data/localization/strings.json $(binsrc)/src/portable/ReactShared/data/localization/.
-	cp $(binsrc)/src/portable/ReactUi/data/tasks.xsd $(binsrc)/src/portable/ReactShared/data/.
-	cp $(binsrc)/src/portable/ReactUi/data/tasksInit.xml $(binsrc)/src/portable/ReactShared/data/.
-	cp $(binsrc)/src/portable/ReactUi/data/tasksSample.xml $(binsrc)/src/portable/ReactShared/data/.
-	cp $(binsrc)/src/portable/ReactUi/data/transcription.eaf $(binsrc)/src/portable/ReactShared/data/.
-	cp $(binsrc)/src/portable/ReactUi/data/users.xsd $(binsrc)/src/portable/ReactShared/data/.
-	cp $(binsrc)/src/portable/ReactUi/data/usersInit.xml $(binsrc)/src/portable/ReactShared/data/.
-	cp $(binsrc)/src/portable/ReactUi/data/usersSample.xml $(binsrc)/src/portable/ReactShared/data/.
-	cd $(binsrc)/src/portable/ReactShared; dotnet build
+	#sudo apt install npm -y
+	cd $(binsrc)/src/portable/ReactUi/react; npm install
+	#cd $(binsrc)/src/portable/ReactUi/react; npm run test all
+	cd $(binsrc)/src/portable/ReactUi/react; bash build.sh
 	mkdir -p $(bindst)
-	cp $(binsrc)/src/portable/ReactShared/bin/Debug/netstandard2.0/* $(bindst)
-	xbuild /t:Rebuild /p:SolutionDir=$(binsrc)/\;PostBuildEvent= $(binsrc)/src/UpdateEmbeddedResourceNames/UpdateEmbeddedResourceNames.csproj
-	mono $(binsrc)/src/UpdateEmbeddedResourceNames/bin/Debug/UpdateEmbeddedResourceNames.exe $(SolutionDir)src/portable/ReactShared/react/build $(SolutionDir)src/portable/ReactShared/ReactShared.csproj
+	cp $(binsrc)/lib/netstandard2.0/* $(bindst)
 	xbuild /t:Rebuild /p:SolutionDir=$(binsrc)/\;Platform=x86\;Configuration=Release\;OutputPath=$(bindst) $(binsrc)/src/SimpleServer/SimpleServer.csproj
 	xbuild /t:Rebuild /p:SolutionDir=$(binsrc)/\;Platform=x86\;Configuration=Release\;OutputPath=$(bindst) $(binsrc)/src/portable/Transcribe.Linux/Transcribe.Linux.csproj
 	cp $(binsrc)/src/portable/Transcribe.Linux/runmono $(bindst)
