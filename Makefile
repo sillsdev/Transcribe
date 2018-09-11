@@ -39,7 +39,8 @@ build:
 	#cp -r /home/lsdev/Downloads/Transcribe_linux-master-continuous_0.3.1.116_artifacts/* $(bindst)
 	wget -P$(binsrc)/output/ https://build.palaso.org/guestAuth/repository/downloadAll/Transcribe_LinuxMasterContinuous/.lastSuccessful/artifacts.zip
 	cd $(binsrc)/output ; unzip -d Release artifacts.zip
-	cd $(bindst) ; chmod +x runmono
+	cp $(binsrc)/src/portable/Transcribe.Linux/runmono $(bindst)
+	chmod +x $(bindst)/runmono
 
 buildFull:
 	#sudo apt install nuget -y
