@@ -23,7 +23,7 @@ namespace Transcribe.Windows
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Xpcom.Initialize("Firefox");
-			MessageBox.Show($@"Data folder= {Util.DataFolder}");
+			Util.DataFolder = Path.Combine(Util.DataFolder, Application.CompanyName, Application.ProductName);
 			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion));
 			Logger.WriteEvent("Launch {0} {1}", Application.ProductName, Application.ProductVersion);
 			var randomName = Path.GetTempFileName();
