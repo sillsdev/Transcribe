@@ -1,4 +1,4 @@
-import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
+import { ASSIGN_TASK_PENDING, FETCH_TASKS, FETCH_TASKS_OF_PROJECT, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
 
 const initialState = {
     loaded: false,
@@ -25,6 +25,15 @@ export default function (state = initialState, action: any) {
                 projects: projects(state.projects, action),
             }
         case FETCH_TASKS:
+            return {
+                ...state,
+                loaded: true,
+                pending: false,
+                projects: action.payload.data,
+                selectedProject: action.payload.data.length === 1?
+                    action.payload.data[0].id: state.selectedProject
+            };
+        case FETCH_TASKS_OF_PROJECT:
             return {
                 ...state,
                 loaded: true,

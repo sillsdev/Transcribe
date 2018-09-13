@@ -1,0 +1,31 @@
+@import "../_variables.sass"
+
+.TasksList
+	background-color: $taskBG
+	width: 100%
+	display: flex
+	overflow-y: auto
+	top: 354px
+	position: absolute
+	bottom: 32px
+	
+	.SortFilterStyle
+		position: absolute
+		left: 35%
+
+	.list-group
+		list-style: none
+		columns: 2
+		-webkit-columns: 2
+		-moz-columns: 2
+		-moz-columns-width: 50%
+		
+	.TaskItem
+		display: inline-block
+
+	.LinkAction
+		display: inline
+		text-align: right
+	
+	.container
+		width: 45%

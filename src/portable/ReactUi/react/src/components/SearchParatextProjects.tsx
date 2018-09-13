@@ -30,7 +30,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
         {
             wrapper=(
                 <div className="list">
-                    <LabelCaptionUx name={strings.lookingForProjects} />
+                    <LabelCaptionUx name={strings.lookingForProjects} type=""/>
                     <span className="loadIconStyle">
                         <Ionicon icon="ios-refresh" fontSize="60px" color="#347eff" rotate={true} />
                     </span>
@@ -60,7 +60,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
                     <div id="ParatextProject" className="label">{strings.selectProject}</div><ul>
             {projects}
                 </ul><div className="ButtonLink">
-                        <ButtonLink text={strings.next} target="/NewOrBrowseParatextProjects" type="outline-light" />
+                        <ButtonLink text={strings.next} target="/ProjectSettings" type="outline-light" />
                     </div>
                 </div>
              )

@@ -5,10 +5,12 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AvatarEdit from './components/AvatarEdit';
 import MainLayout from './components/MainLayout'
 import NewOrBrowseParatextProjects from './components/NewOrBrowseParatextProject';
+import ProjectSettings from './components/ProjectSettings';
 import SearchParatextProjects from './components/SearchParatextProjects';
 import SelectProject from './components/SelectProject'
+import TaskDetails from './components/TaskDetails';
 import UiLang from './components/UiLang'
-import UserLogin from './components/UserLogin'
+import UserLogin from './components/UserLogin';
 import UserSettings from './components/UserSettings';
 import './index.sass';
 import registerServiceWorker from './registerServiceWorker';
@@ -27,6 +29,8 @@ ReactDOM.render(
         <Route exact={true} path="/uilang" component={UiLang} />
         <Route path="/SearchParatextProjects" component={SearchParatextProjects} />
         <Route path="/NewOrBrowseParatextProjects" component={NewOrBrowseParatextProjects} />
+        <Route path="/ProjectSettings" component={ProjectSettings} />
+        <Route path='/TaskDetails/:id' exact={true} component={TaskDetails} />
       </div>
     </Router>
   </Provider>,

@@ -26,7 +26,7 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                     <Row className="name-row">
                         
                         <Col xs={12} md={12}>
-                            <LabelCaptionUx name={strings.noProjectsFound} />
+                            <LabelCaptionUx name={strings.noProjectsFound} type=""/>
                         </Col>
                         
                     </Row>
