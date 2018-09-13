@@ -3,13 +3,15 @@ import { Label } from 'react-bootstrap';
 import './LabelCaptionUx.sass';
 
 interface IProps {
-    name: string
+    name: string,
+    type: string,
 }
 class LabelCaptionUx extends React.Component<IProps, any> {
     public render() {
+        const style = "LabelCaptionUx " + this.props.type;
         return (
             <div>
-                <Label bsClass="LabelCaptionUx">{this.props.name}</Label>
+                <Label bsClass={style}>{this.props.name}</Label>
             </div>
         )
     }

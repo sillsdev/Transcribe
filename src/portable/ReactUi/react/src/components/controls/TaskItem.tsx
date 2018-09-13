@@ -6,7 +6,7 @@ interface IProps {
     id: string;
     length: number;
     name: string;
-    select: (id: string) => any;
+    select?: (id: string) => any;
     selected?: boolean;
 };
 
@@ -21,7 +21,7 @@ class TaskItem extends React.Component<IProps, object> {
             <div className="TaskItem">
                 <div id={id}
                     className={this.props.selected? "selected":"unselected"}
-                    onClick={select.bind(id)}>
+                    onClick={(select !== undefined)? select.bind(id):null}>
                     <div className="taskItemContent">
                         <div className="firstLine">
                             <span className="displayReference">{displayId}</span>

@@ -28,6 +28,9 @@ namespace Transcribe.Windows
 					case "GetTasks":
 						new GetTasks(e.Uri.Query);
 						break;
+					case "GetTasksOfProject":
+						new GetTasksOfProject(e.Uri.Query);
+						break;
 					case "GetParatextProjects":
 						ForParatext.GetParatextProjects();
 						break;
