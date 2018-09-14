@@ -302,5 +302,83 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.pairedWithParatextProject">
+			<segment>
+				<source>Paired with Paratext project</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.projectSettings">
+			<segment>
+				<source>Project Settings</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.autoSyncParatext">
+			<segment>
+				<source>Auto-sync with Paratext</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.allowClaimUnassignedTasks">
+			<segment>
+				<source>Allow transcribers to claim unassigned tasks</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.people">
+			<segment>
+				<source>People</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.tasks">
+			<segment>
+				<source>Tasks</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addUser">
+			<segment>
+				<source>Add User</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addTask">
+			<segment>
+				<source>Add Task</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addMany">
+			<segment>
+				<source>Add Many</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.sortByPrivileges">
+			<segment>
+				<source>Sort by privileges</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.sortByType">
+			<segment>
+				<source>Sort by type</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.projectName">
+			<segment>
+				<source>Project Name</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.clickToPair">
+			<segment>
+				<source>Click to pair with Paratext</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

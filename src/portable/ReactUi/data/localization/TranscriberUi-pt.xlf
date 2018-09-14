@@ -257,42 +257,120 @@
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
-				<target></target>
+				<target>Próximo</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.chooseALanguage">
 			<segment>
 				<source>Choose a language</source>
-				<target></target>
+				<target>Escolha um idioma</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.lookForProjects">
 			<segment>
 				<source>Looking for Paratext projects on this computer...</source>
-				<target></target>
+				<target>Procurando por projetos Paratext neste computador...</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.selectProject">
 			<segment>
 				<source>Select a Paratext Project</source>
-				<target></target>
+				<target>Selecione um projeto Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.browseForProject">
 			<segment>
 				<source>Browse for a project</source>
-				<target></target>
+				<target>Consulte um projecto</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.createEmptyProject">
 			<segment>
 				<source>Create empty project</source>
-				<target></target>
+				<target>Crie um projeto vazio</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.noProjectsFound">
 			<segment>
 				<source>We didn’t find any Paratext projects on your computer.</source>
+				<target>Não encontramos nenhum projeto Paratexto no seu computador.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.pairedWithParatextProject">
+			<segment>
+				<source>Paired with Paratext project</source>
+				<target>Emparelhado com o projeto Paratext</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.projectSettings">
+			<segment>
+				<source>Project Settings</source>
+				<target>Configurações do projeto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.autoSyncParatext">
+			<segment>
+				<source>Auto-sync with Paratext</source>
+				<target>Sincronização automática com o Paratexto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.allowClaimUnassignedTasks">
+			<segment>
+				<source>Allow transcribers to claim unassigned tasks</source>
+				<target>Permitir que as transcrições reivindiquem tarefas não atribuídas</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.people">
+			<segment>
+				<source>People</source>
+				<target>Pessoas</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.tasks">
+			<segment>
+				<source>Tasks</source>
+				<target>Tarefas</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addUser">
+			<segment>
+				<source>Add User</source>
+				<target>Adicionar usuário</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addTask">
+			<segment>
+				<source>Add Task</source>
+				<target>Adicionar tarefa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addMany">
+			<segment>
+				<source>Add Many</source>
+				<target>Adicionar muitos</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.sortByPrivileges">
+			<segment>
+				<source>Sort by privileges</source>
+				<target>Ordenar por privilégios</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.sortByType">
+			<segment>
+				<source>Sort by type</source>
+				<target>Ordenar por tipo</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.projectName">
+			<segment>
+				<source>Project Name</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.clickToPair">
+			<segment>
+				<source>Click to pair with Paratext</source>
 				<target></target>
 			</segment>
 		</unit>

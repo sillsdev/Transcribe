@@ -1,0 +1,56 @@
+@import "../_variables.sass"
+
+.ProjectSettings
+	background-color: $taskBG
+	width: 100%
+	height: 100%
+	display: flex
+	flex-direction: row
+	flex: 0 0 auto
+
+	.rows
+		display: flex
+		flex-direction: column
+		flex: 1 0 auto
+		.titles
+			display: flex
+			flex-direction: row
+			flex: 0 0 auto
+			padding-top: 24px
+			.left
+				display: flex
+				flex-direction: row
+				flex: 1 0 auto
+				&>*
+					align-self: baseline
+					margin-right: 8px
+					flex: 0 0 auto
+		.paringRow
+			display: flex
+			flex-direction: row
+			flex: 0 0 auto
+			*
+				align-self: baseline
+				padding-top: 0
+				margin: 0
+			.LinkAction
+				margin-bottom: 16px
+				color: $base1
+			.visible
+				visibility: visible
+				flex: 0 0 auto
+			.hidden
+				visibility: hidden
+				flex: 0 0 auto
+		.switches>*
+			padding: 0 0 16px 32px
+		.lists
+			display: flex
+			flex-direction: row
+			flex: 1 0 auto
+			padding-top: 16px
+			&>*
+				flex: 1 0 auto
+				margin: 16px 0 0 24px
+	.rows>*
+		padding: 0 24px

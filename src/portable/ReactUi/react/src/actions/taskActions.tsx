@@ -51,6 +51,20 @@ export const fetchTasks = (username: string) => (dispatch: any) => {
         })
 }
 
+export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
+    Axios.get('/api/GetTasks?project=' + projectname)
+        .then(tasks => {
+            dispatch({
+                payload: tasks,
+                type: FETCH_TASKS
+            });
+            dispatch({
+                payload: projectname,
+                type: SELECT_TASK
+            })
+        })
+    }
+
 export function selectProject(id: string): any{
     return {
         payload: id,

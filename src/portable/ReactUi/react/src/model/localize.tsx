@@ -57,4 +57,17 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "noProjectsFound": string;
     "browseForProject": string;
     "createEmptyProject": string;
+    "pairedWithParatextProject": string;
+    "projectSettings": string;
+    "autoSyncParatext": string;
+    "allowClaimUnassignedTasks": string;
+    "people": string;
+    "tasks": string;
+    "addUser": string;
+    "addTask": string;
+    "addMany": string;
+    "sortByPrivileges": string;
+    "sortByType": string;
+    "projectName": string;
+    "clickToPair": string;
 };

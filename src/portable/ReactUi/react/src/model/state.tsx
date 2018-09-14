@@ -1,4 +1,4 @@
-import { ITranscriberStrings, IUserSettingsStrings } from "./localize";
+import { IProjectSettingsStrings, ITranscriberStrings, IUserSettingsStrings } from "./localize";
 
 export interface IState {
     users: {
@@ -27,6 +27,7 @@ export interface IState {
         saved: boolean;
     };
     strings: {
+        projectSettings: IProjectSettingsStrings;
         transcriber: ITranscriberStrings;
         userSettings: IUserSettingsStrings;
     };
