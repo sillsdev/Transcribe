@@ -4,13 +4,27 @@ import { FETCH_LOCALIZATION } from '../actions/types';
 const initialState = {
     "projectSettings": new LocalizedStrings({
 		"en": {
+			"addMany": "Add Many",
+			"addTask": "Add Task",
+			"addUser": "Add User",
+			"allowClaimUnassignedTasks": "Allow transcribers to claim unassigned tasks",
+			"autoSyncParatext": "Auto-sync with Paratext",
 			"browseForProject": "Browse for a project",
 			"chooseALanguage": "Choose a language",
+			"clickToPair": "Click to pair with Paratext",
 			"createEmptyProject": "Create empty project",
 			"lookForProjects": "Looking for Paratext projects on this computer...",
 			"next": "Next",
 			"noProjectsFound": "We didn\u2019t find any Paratext projects on your computer.",
-			"selectProject": "Select a Paratext Project",		}
+			"pairedWithParatextProject": "Paired with Paratext project",
+			"people": "People",
+			"projectName": "Project Name",
+			"projectSettings": "Project Settings",
+			"selectProject": "Select a Paratext Project",
+			"sortByPrivileges": "Sort by privileges",
+			"sortByType": "Sort by type",
+			"tasks": "Tasks",
+		}
 	}),
     "transcriber": new LocalizedStrings({
 		"en": {

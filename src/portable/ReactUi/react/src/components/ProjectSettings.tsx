@@ -1,15 +1,16 @@
 import * as React from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize'
+import LinkAction from './controls/LinkAction';
+import PencilAction from './controls/PencilAction';
 import ToggleSwitch from './controls/ToggleSwitch';
 import PeopleList from './PeopleList';
 import './ProjectSettings.sass';
-import TasksList from './TasksList';
+import TaskList from './TaskList';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -18,51 +19,46 @@ interface IProps extends IStateProps, IDispatchProps {
 class ProjectSettings extends React.Component<IProps, object> {
     public render() {
         const{strings} = this.props
+        const paired = false;
         return (
             <div id="ProjectSettings" className="ProjectSettings">
-                <div className="grid">
-                    <Grid>
-                        <Row className="name-row">
-                            <Col xs={1} md={1}>
-                                <div className="EditPencil P1">
-                                    <img src={require("./Images/Pencil.svg")} />
-                                </div>
-                            </Col>
-                            <Col xs={6} md={6}>
-                                <LabelCaptionUx name={"Luo Bible"} type="H1" />
-                            </Col>
-                            <Col xs={5} md={5}>
+                <div className="rows">
+                    <div className="titles">
+                        <div className="left">
+                            <PencilAction target={this.editProjectName} />
+                            <LabelCaptionUx name={strings.projectName} type="H1" />
+                        </div>
+                        <div className="right">
+                            <div className="col">
                                 <LabelCaptionUx name={strings.projectSettings} type="H2" />
-                            </Col>
-                        </Row>
-                        <Row className="name-row">
-                            <Col xs={1} md={1}>
-                                <div className="EditPencil P2">
-                                    <img src={require("./Images/Pencil.svg")} /></div>
-                            </Col>
-                            <Col xs={11} md={11}>
-                                <LabelCaptionUx name={strings.pairedWithParatextProject} type="Small" />
-                            </Col>
-                        </Row>
-                        <Row className="name-row">
-                            <Col xs={12} md={12}>
-                                <ToggleSwitch switched={false} text={strings.autoSyncParatext} type="switch1" />
-                            </Col>
-                        </Row>
-                        <Row className="name-row">
-                            <Col xs={12} md={12}>
-                                <ToggleSwitch switched={false} text={strings.allowClaimUnassignedTasks} type="switch2" />
-                            </Col>
-                        </Row>
-                        <Row className="name-row">
-                            <Col xs={6} md={6}><PeopleList /></Col>
-                            <Col xs={6} md={6}><TasksList /></Col>
-                        </Row>
-                        <br />
-                    </Grid>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="paringRow">
+                        <div className={(paired? "visible": "hidden")}>
+                            <PencilAction target={this.pair} />
+                        </div>
+                        <LinkAction text={strings.clickToPair} target={this.pair} />
+                    </div>
+                    <div className="switches">
+                        <ToggleSwitch switched={false} text={strings.autoSyncParatext} type="switch1" />
+                        <ToggleSwitch switched={false} text={strings.allowClaimUnassignedTasks} type="switch1" />
+                    </div>
+                    <div className="lists">
+                        <PeopleList />
+                        <TaskList />
+                    </div>
                 </div>
             </div >
         )
+    }
+
+    private editProjectName() {
+        alert("Edit project name")
+    }
+
+    private pair() {
+        alert("pair")
     }
 }
 

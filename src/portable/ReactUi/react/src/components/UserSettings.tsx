@@ -82,7 +82,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <BackLink target="/main" />
                             </Col>
                             <Col xs={10} md={10}>
-                                <LabelCaptionUx name={strings.user.toUpperCase()} type=""/>
+                                <LabelCaptionUx name={strings.user.toUpperCase()} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -120,7 +120,7 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={3} md={3}>
-                                <LabelCaptionUx name={strings.language.toUpperCase()} type=""/>
+                                <LabelCaptionUx name={strings.language.toUpperCase()} />
                             </Col><Col xs={7} md={7}>
                                 <DropdownUx id="Language" ref={this.languageRef} key="1" collection={languageChoice} />
                             </Col>
@@ -129,7 +129,7 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <LabelCaptionUx name={strings.transcriber.toUpperCase()} type=""/>
+                                <LabelCaptionUx name={strings.transcriber.toUpperCase()} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -147,7 +147,7 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <LabelCaptionUx name={strings.keyboardShortcuts} type=""/>
+                                <LabelCaptionUx name={strings.keyboardShortcuts} />
                             </Col>
                         </Row>
                         <Row className="show-grid">

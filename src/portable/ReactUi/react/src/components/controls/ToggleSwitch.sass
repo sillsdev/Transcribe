@@ -1,26 +1,23 @@
 @import "../../_variables.sass"
 
 .ToggleSwitch
-	width: 644px
-	height: 56px
-	left: 82px
 	padding: 0 10px
-	top: 27.78%
-	position: relative
+	display: flex
 
 	.switch
 		border: 1px solid #ccc
-		width: 64px
-		height: 32px
+		width: 40px
+		height: 24px
 		border-radius: 50px
 		cursor: pointer
 		display: inline-block
 		background: #586E75
 		box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.02)
+		margin-right: 8px
 	
 	.switch-toggle
-		width: 30px
-		height: 30px
+		width: 21px
+		height: 21px
 		left: 0
 		background: #657B83
 		position: relative
@@ -30,27 +27,13 @@
 		border-radius: 50px
 
 	.switch.on .switch-toggle
-		left: 32px
+		left: 16px
 		background: #C7DE31
 
 	.switch.on.SwitchStyle 
 		background: #657B83
 	
-.switch1
-	top: 183px
-	left: 80px
-	position: absolute
-
-.switch2
-	top: 237px
-	left: 80px
-	position: absolute
-
 .SwitchLabel
-	position: absolute
-	height: 20px
-	left: 100px
-	right: 12px
 	font-family: $sans
 	font-style: normal
 	font-weight: normal

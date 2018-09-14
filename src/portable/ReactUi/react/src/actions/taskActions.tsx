@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, 
-    FETCH_TASKS, FETCH_TASKS_OF_PROJECT, FETCH_TRANSCRIPTION, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING,
+    FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING,
     WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { saveUserSetting } from './userActions';
 
@@ -52,12 +52,16 @@ export const fetchTasks = (username: string) => (dispatch: any) => {
 }
 
 export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
-    Axios.get('/api/GetTasksOfProject?project=' + projectname)
+    Axios.get('/api/GetTasks?project=' + projectname)
         .then(tasks => {
             dispatch({
                 payload: tasks,
-                type: FETCH_TASKS_OF_PROJECT
+                type: FETCH_TASKS
             });
+            dispatch({
+                payload: projectname,
+                type: SELECT_TASK
+            })
         })
     }
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
-import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/localizationActions';
@@ -21,9 +20,11 @@ class PeopleList extends React.Component<any, object> {
         fetchLocalization();
     }
     public render() {
-        const { selectUser, users, strings } = this.props
+        const { selectedUser, selectUser, users, strings } = this.props
 
-        const avatars = users.map((user: IUser) =>
+        const otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
+
+        const avatars = otherUsers.map((user: IUser) =>
             <ListGroupItem key={user.id}>
                 <AvatarLink
                     id={user.username.id}
@@ -33,55 +34,51 @@ class PeopleList extends React.Component<any, object> {
                     select={selectUser} />
             </ListGroupItem>);
 
-        const wrapper = (<ListGroup>
-            {avatars}
-        </ListGroup>)
-        const sortByPrivilegesMethod = () => this.sortByPrivileges(this)
+        const userWrapper = (
+            <ListGroup>
+                {avatars}
+            </ListGroup>);
+
+        const sortByPrivilegesMethod = () => this.sortByPrivileges();
+
+        const filterWrapper = otherUsers.length === 0? "": (
+            <div className="SortFilterStyle">
+                <LinkAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
+                <img src={"/assets/Filter.svg"} alt="Filter" />
+            </div>);
+
+        const buttonWrapper = (
+            <div className="Buttons">
+                <ButtonLink text={strings.addUser} target="/PeopleList" type="outline-light" />
+            </div>);
+
         return (
             <div className="PeopleList">
-                <Grid>
-                    <Row className="name-row">
-                        <Col xs={6} md={6}>
-                            <LabelCaptionUx name={strings.people} type="H3" />
-                        </Col>
-                        <Col xs={6} md={6}>
-                            <div className="SortFilterStyle">
-                                <LinkAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
-                                <img src={require("./Images/Filter.svg")} alt="FIlter" />
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row className="name-row">
-                        <Col xs={12} md={12}>
-                            {wrapper}
-                        </Col>
-                    </Row>
-                    <Row className="name-row">
-                        <Col xs={12} md={12}>
-                            <div className="ButtonLink">
-                                <ButtonLink text={strings.addUser} target="/PeopleList" type="outline-light" />
-                            </div>
-                        </Col>
-                    </Row>
-                </Grid>
+                <div className="title">
+                    <LabelCaptionUx name={strings.people} type="H3" />
+                    {otherUsers.length === 0? buttonWrapper: filterWrapper}
+                </div>
+                {userWrapper}
+                {otherUsers.length === 0? "": buttonWrapper}
             </div>
         )
     }
 
-    private sortByPrivileges(context: PeopleList) {
-        const { fetchUsers } = this.props
-        fetchUsers();
+    private sortByPrivileges() {
+        alert("Filter by Priviledges")
     }
 }
 
 interface IStateProps {
     loaded: boolean;
     users: IUser[];
+    selectedUser: string;
     strings: IProjectSettingsStrings;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
+    selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "projectSettings"}),
     users: state.users.users,
 });

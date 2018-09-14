@@ -68,4 +68,6 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "addMany": string;
     "sortByPrivileges": string;
     "sortByType": string;
+    "projectName": string;
+    "clickToPair": string;
 };

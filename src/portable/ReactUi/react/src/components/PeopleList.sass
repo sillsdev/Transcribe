@@ -2,65 +2,30 @@
 
 .PeopleList 
 	display: flex
-	height: 100%
-	justify-content: left
-	text-align: left
-	transform: translate(-0%, -0%)
-	vertical-align: middle
+	flex-direction: column
 	overflow-x: visible
-	width: 100%
-	z-index: 1
-	top: 354px
-	width: 100%
-	bottom: 32px
-	position: absolute
 
-	.name-row  
-  		padding: 10px 0px 0px 0px
-  		vertical-align: middle
-  		height: 10%
-  		flex-direction: row
-  		display: flex  
-  		width: 100%
+	.title
+		display: flex
+		flex-direction: row
+
+	.LabelCaptionUx
+		align-self: flex-start
 
 	.SortFilterStyle
-		position: absolute
-		left: 35%
-
-	.list-group
-		left: 58px
-
-	.list-group-item 
-		display: inline-flex
-		background-color: transparent
-		border: none
-	
-	ul 
-		list-style-type: none
-	
-	a 
-		text-decoration: none
-		background-color: $navBG
-	
-	.col-md-12
-		width: 100%
-
-	.col-md-6 
-		width: 50%
-
-	.name-row		
-		padding: 10px 0px 0px 0px
-		vertical-align: middle
-		height: 2%
+		display: flex
+		justify-content: flex-end
 		flex-direction: row
-		display: flex		
-		width: 100%
+		flex: 1 0 auto
+		padding-right: 8px
 
-	.LinkAction
-		display: inline
+	.Buttons
+		display: flex
+		justify-content: flex-end
+		flex-direction: row
+		flex: 1 0 auto
+		padding-right: 8px
 
-	.container
-		width: 45%
 
 body 
 	background-color: $navBG

@@ -14,25 +14,33 @@ namespace ReactShared
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
+			var project = parsedQuery["project"];
 			var userNode = Util.UserNode(user);
 			var apiFolder = Util.ApiFolder();
 			var tasksDoc = Util.LoadXmlData("tasks");
-			var projectNodes = tasksDoc.SelectNodes("//*[local-name()='project']");
+			var projectXpath = string.IsNullOrEmpty(project)?
+				"//*[local-name()='project']":
+				$"//*[local-name()='project' and @name='{project}']";
+			var projectNodes = tasksDoc.SelectNodes(projectXpath);
 			Debug.Assert(projectNodes != null, nameof(projectNodes) + " != null");
 			var taskList = new List<string>();
 			foreach (XmlNode node in projectNodes)
 			{
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
 				Debug.Assert(taskNodes != null, nameof(taskNodes) + " != null");
-				TaskSkillFilter(taskNodes, userNode, user);
+				if (!string.IsNullOrEmpty(user))
+					TaskSkillFilter(taskNodes, userNode, user);
 				if (taskNodes.Count == 0)
 					continue;
 				Util.AsArray(taskNodes);
 				foreach (XmlNode taskNode in taskNodes)
 				{
-					var assignedTo = taskNode.SelectSingleNode("@assignedto")?.InnerText;
-					if (assignedTo != user)
-						continue;
+					if (!string.IsNullOrEmpty(user))
+					{
+						var assignedTo = taskNode.SelectSingleNode("@assignedto")?.InnerText;
+						if (assignedTo != user)
+							continue;
+					}
 					var id = taskNode.SelectSingleNode("@id");
 					var audioName = CopyAudioFile(id?.InnerText);
 					if (id != null && !string.IsNullOrEmpty(audioName))

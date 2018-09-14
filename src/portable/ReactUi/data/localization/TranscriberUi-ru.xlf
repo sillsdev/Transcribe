@@ -257,42 +257,120 @@
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
-				<target></target>
+				<target>следующий</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.chooseALanguage">
 			<segment>
 				<source>Choose a language</source>
-				<target></target>
+				<target>Выберите язык</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.lookForProjects">
 			<segment>
 				<source>Looking for Paratext projects on this computer...</source>
-				<target></target>
+				<target>Поиск проектов Paratext на этом компьютере...</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.selectProject">
 			<segment>
 				<source>Select a Paratext Project</source>
-				<target></target>
+				<target>Выберите проект Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.browseForProject">
 			<segment>
 				<source>Browse for a project</source>
-				<target></target>
+				<target>Просмотр Проекта</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.createEmptyProject">
 			<segment>
 				<source>Create empty project</source>
-				<target></target>
+				<target>Создать пустой проект</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.noProjectsFound">
 			<segment>
 				<source>We didn’t find any Paratext projects on your computer.</source>
+				<target>Мы не нашли никаких проектов Paratext на вашем компьютере.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.pairedWithParatextProject">
+			<segment>
+				<source>Paired with Paratext project</source>
+				<target>Сопряжен с проектом Paratext</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.projectSettings">
+			<segment>
+				<source>Project Settings</source>
+				<target>Настройки проекта</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.autoSyncParatext">
+			<segment>
+				<source>Auto-sync with Paratext</source>
+				<target>Автоматическая синхронизация с Paratext</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.allowClaimUnassignedTasks">
+			<segment>
+				<source>Allow transcribers to claim unassigned tasks</source>
+				<target>Разрешить подписчикам требовать невысокие задачи</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.people">
+			<segment>
+				<source>People</source>
+				<target>люди</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.tasks">
+			<segment>
+				<source>Tasks</source>
+				<target>Задания</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addUser">
+			<segment>
+				<source>Add User</source>
+				<target>Добавить пользователя</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addTask">
+			<segment>
+				<source>Add Task</source>
+				<target>Добавить задачу</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.addMany">
+			<segment>
+				<source>Add Many</source>
+				<target>Добавить много</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.sortByPrivileges">
+			<segment>
+				<source>Sort by privileges</source>
+				<target>Сортировать по привилегиям</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.sortByType">
+			<segment>
+				<source>Sort by type</source>
+				<target>Сортировать по типу</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.projectName">
+			<segment>
+				<source>Project Name</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.clickToPair">
+			<segment>
+				<source>Click to pair with Paratext</source>
 				<target></target>
 			</segment>
 		</unit>

@@ -2,19 +2,21 @@
 
 .ButtonLink 
 	display: flex
-	flex: 0 0 auto
 	font-family: $sans
 	font-size: 14px
 	line-height: 16px
 	letter-spacing: 0.75px
 	height: 36px
-	width: 86px
+	min-width: 86px
 	border-radius: 4px
+	text-decoration: none
 	&:hover
 		-moz-border-radius: 4px
 		border-radius: 4px
 		-moz-box-shadow: 0px 0px 30px 0px $white
 		box-shadow: 0px 0px 30px 0px $white
+	button
+		text-decoration: none
 	a
 		text-decoration: none
 	.safe
@@ -48,9 +50,9 @@
 		flex: 1 0 auto
 		background-color: transparent
 		color: $base03
-		border-radius: 4px
+		border: none
 	.text-light
 		flex: 1 0 auto
 		background-color: transparent
 		color: $base3
-		border-radius: 4px
+		border: none
