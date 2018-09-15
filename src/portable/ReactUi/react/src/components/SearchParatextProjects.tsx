@@ -76,7 +76,6 @@ class SearchParatextProjects extends React.Component<IProps, object> {
     }
 
     private selectProject(projectId: string){
-        alert("selecting:"+projectId)
         this.props.selectParatextProject(projectId);
     }
 }
