@@ -40,7 +40,6 @@ namespace ReactShared
 			{
 				xDoc.Load(xr);
 			}
-
 			return xDoc;
 		}
 
@@ -58,6 +57,19 @@ namespace ReactShared
 		}
 
 		public static void AsArray(XmlNodeList nodes)
+		{
+			if (nodes.Count != 1)
+				return;
+			var node = nodes[0];
+			Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
+			var jsonConvertAttr =
+				node.OwnerDocument.CreateAttribute("json", "Array", "http://james.newtonking.com/projects/json");
+			jsonConvertAttr.InnerText = "true";
+			Debug.Assert(node.Attributes != null, "node.Attributes != null");
+			node.Attributes.Append(jsonConvertAttr);
+		}
+
+		public static void AsArray(List<XmlNode> nodes)
 		{
 			if (nodes.Count != 1)
 				return;
