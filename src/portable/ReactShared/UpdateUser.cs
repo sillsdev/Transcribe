@@ -44,7 +44,6 @@ namespace ReactShared
 			{
 				usersDoc.Save(xw);
 			}
-
 		}
 
 		private static void AddUserName(string name, XmlElement usernameNode, XmlDocument usersDoc)

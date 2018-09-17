@@ -7,28 +7,26 @@ using ReactShared;
 namespace Transcribe.Test
 {
 	[TestFixture]
-	public class TrappingGeckoTests : ParatextUpdate
+	public class ParatextUpdateTests : ParatextUpdate
 	{
 		#region Private Variables
-
 		private string _inputPath;
 		private string _outputPath;
 		private string _expectedPath;
-		private string _expectedlinuxPath;
-
 		#endregion Private Variables
 
-		[TestFixtureSetUp]
-		protected void SetUp()
+		#region Setup
+		[SetUp]
+		public void SetUp()
 		{
 			string testPath = Common.Bin(AppDomain.CurrentDomain.BaseDirectory, "TestFiles");
 			_inputPath = Common.PathCombine(testPath, "input");
 			_outputPath = Common.PathCombine(testPath, "output");
 			_expectedPath = Common.PathCombine(testPath, "expected");
-			_expectedlinuxPath = Common.PathCombine(testPath, "expectedlinux");
 			Common.DeleteDirectory(_outputPath);
 			Directory.CreateDirectory(_outputPath);
 		}
+		#endregion
 
 		// Case 1
 		//==================Paratext==================
