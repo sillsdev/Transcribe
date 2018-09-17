@@ -26,14 +26,15 @@ namespace ReactShared
 			var taskList = new List<string>();
 			foreach (XmlNode node in projectNodes)
 			{
+				var fileterNodeList = new List<XmlNode>();
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
 				Debug.Assert(taskNodes != null, nameof(taskNodes) + " != null");
 				if (!string.IsNullOrEmpty(user))
-					TaskSkillFilter(taskNodes, userNode, user);
-				if (taskNodes.Count == 0)
+					TaskSkillFilter(taskNodes, ref fileterNodeList, userNode, user);
+				if (fileterNodeList.Count == 0)
 					continue;
-				Util.AsArray(taskNodes);
-				foreach (XmlNode taskNode in taskNodes)
+				Util.AsArray(fileterNodeList);
+				foreach (XmlNode taskNode in fileterNodeList)
 				{
 					if (!string.IsNullOrEmpty(user))
 					{
@@ -59,7 +60,7 @@ namespace ReactShared
 			}
 		}
 
-		private void TaskSkillFilter(XmlNodeList taskNodes, XmlNode userNode, string userName)
+		private void TaskSkillFilter(XmlNodeList taskNodes, ref List<XmlNode> filterNodeList, XmlNode userNode, string userName)
 		{
 			var skill = userNode?.SelectSingleNode("./@skill")?.InnerText;
 			switch (skill)
@@ -69,9 +70,9 @@ namespace ReactShared
 					{
 						var projectType = node.SelectSingleNode("./parent::*/@type")?.InnerText;
 						if (!string.IsNullOrEmpty(projectType) && projectType == "test")
-							continue;
-						Debug.Assert(node.ParentNode != null, "node.ParentNode != null");
-						node.ParentNode.RemoveChild(node);
+						{
+							filterNodeList.Add(node);
+						}
 					}
 					break;
 				case "supervised":
@@ -79,9 +80,9 @@ namespace ReactShared
 					{
 						var assignedTo = node.SelectSingleNode("./@assignedto")?.InnerText;
 						if (assignedTo == userName)
-							continue;
-						Debug.Assert(node.ParentNode != null, "node.ParentNode != null");
-						node.ParentNode.RemoveChild(node);
+						{
+							filterNodeList.Add(node);
+						}
 					}
 					break;
 				default:
@@ -89,12 +90,11 @@ namespace ReactShared
 					{
 						var assignedTo = node.SelectSingleNode("./@assignedto")?.InnerText;
 						if (string.IsNullOrEmpty(assignedTo) || assignedTo == userName)
-							continue;
-						Debug.Assert(node.ParentNode != null, "node.ParentNode != null");
-						node.ParentNode.RemoveChild(node);
+						{
+							filterNodeList.Add(node);
+						}
 					}
 					break;
-
 			}
 		}
 

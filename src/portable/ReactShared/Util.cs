@@ -40,7 +40,6 @@ namespace ReactShared
 			{
 				xDoc.Load(xr);
 			}
-
 			return xDoc;
 		}
 
@@ -58,6 +57,13 @@ namespace ReactShared
 		}
 
 		public static void AsArray(XmlNodeList nodes)
+		{
+			if (nodes.Count != 1)
+				return;
+			AsArray(new List<XmlNode> { nodes[0] });
+		}
+
+		public static void AsArray(List<XmlNode> nodes)
 		{
 			if (nodes.Count != 1)
 				return;
