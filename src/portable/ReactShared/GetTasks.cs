@@ -31,7 +31,7 @@ namespace ReactShared
 				if (!string.IsNullOrEmpty(user))
 					TaskSkillFilter(taskNodes, ref filterNodeList, userNode, user);
 				if (filterNodeList.Count == 0)
-					if (user != null)
+					if (user != null && user != "admin")
 						continue;
 					else
 					{

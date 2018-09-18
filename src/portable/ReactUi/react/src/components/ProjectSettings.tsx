@@ -21,7 +21,7 @@ class ProjectSettings extends React.Component<IProps, object> {
     public render() {
         const{ project, strings } = this.props
         const title = project != null && project.name != null? project.name: strings.projectName;
-        const paired = false;
+        const paired = project.id !== "ztt";
         return (
             <div id="ProjectSettings" className="ProjectSettings">
                 <div className="rows">
