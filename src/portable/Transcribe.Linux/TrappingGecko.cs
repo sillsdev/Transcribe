@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using Gecko;
 using ReactShared;
+using SIL.Reporting;
 
 namespace Transcribe.Windows
 {
-	public class TrappingGecko : GeckoWebBrowser //, IPlatformSpecifics
+	public class TrappingGecko : GeckoWebBrowser
 	{
 		protected override void OnObserveHttpModifyRequest(GeckoObserveHttpModifyRequestEventArgs e)
 		{
@@ -50,6 +49,9 @@ namespace Transcribe.Windows
 					case "UpdateAvatar":
 						new UpdateAvatar(e.Uri.Query, e.RequestBody, SaveImage);
 						break;
+					case "UpdateProject":
+						new UpdateProject(e.Uri.Query);
+						break;
 					case "ReportPosition":
 						new ReportPosition(e.Uri.Query);
 						break;
@@ -82,8 +84,9 @@ namespace Transcribe.Windows
 					image = Image.FromStream(ms);
 				}
 			}
-			catch
+			catch (Exception err)
 			{
+				Logger.WriteEvent($"LoadImage error: {err.Message}");
 			}
 
 			return image;

@@ -5,6 +5,7 @@ import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize'
+import currentProject from '../selectors/project';
 import LinkAction from './controls/LinkAction';
 import PencilAction from './controls/PencilAction';
 import ToggleSwitch from './controls/ToggleSwitch';
@@ -18,15 +19,16 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class ProjectSettings extends React.Component<IProps, object> {
     public render() {
-        const{strings} = this.props
-        const paired = false;
+        const{ project, strings } = this.props
+        const title = project != null && project.name != null? project.name: strings.projectName;
+        const paired = project.id !== "ztt";
         return (
             <div id="ProjectSettings" className="ProjectSettings">
                 <div className="rows">
                     <div className="titles">
                         <div className="left">
                             <PencilAction target={this.editProjectName} />
-                            <LabelCaptionUx name={strings.projectName} type="H1" />
+                            <LabelCaptionUx name={title} type="H1" />
                         </div>
                         <div className="right">
                             <div className="col">
@@ -63,6 +65,8 @@ class ProjectSettings extends React.Component<IProps, object> {
 }
 
 interface IStateProps {
+    project: IProject;
+    selectedProject: string;
     selectedUser: string;
     projects: IProject[];
     loaded: boolean;
@@ -71,7 +75,9 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.tasks.loaded,
+    project: currentProject(state),
     projects: state.tasks.projects,
+    selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings:  userStrings(state, {layout: "projectSettings"}),
 });

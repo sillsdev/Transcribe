@@ -49,11 +49,11 @@ class SearchParatextProjects extends React.Component<IProps, object> {
             } else {
                 const projects = paratextProjects.map((paratextProject:IParatextProject) =>
                     <li className="list-item" key={paratextProject.id}
-                        onClick={this.selectProject.bind(this, paratextProject.id)}>
+                        onClick={this.selectProject.bind(this, paratextProject)}>
                         <div className="name">{paratextProject.name != null? paratextProject.name: paratextProject.id}</div>
                         <div className="code">{paratextProject.langName != null? paratextProject.langName: paratextProject.lang}</div>
                     </li>);
-                const selectEmptyProject = () => this.selectProject("ztt");
+                const selectEmptyProject = () => this.selectProject({id:"ztt", guid:"", lang:""});
                 wrapper = (
                     <div className="list">
                         <div id="ParatextProject" className="label">{strings.selectProject}</div>
@@ -75,8 +75,8 @@ class SearchParatextProjects extends React.Component<IProps, object> {
         );
     }
 
-    private selectProject(projectId: string){
-        this.props.selectParatextProject(projectId);
+    private selectProject(project: IParatextProject){
+        this.props.selectParatextProject(project);
     }
 }
 

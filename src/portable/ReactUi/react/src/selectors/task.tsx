@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { IState } from '../model/state';
 
-const selectorProject = (state: IState) => state.paratextProjects.selectedParatextProject;
+const selectorProject = (state: IState) => state.tasks.selectedProject;
 const selectAllProjects = (state: IState) => state.tasks.projects;
 
 const allTasks = createSelector( selectAllProjects, selectorProject, (allProjects, projectId) => {

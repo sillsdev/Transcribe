@@ -38,6 +38,8 @@ start =
 		attribute features { xsd:string }?
        |
 		attribute direction { "ltr" | "rtl" }?
+       | attribute sync { xsd:boolean }?
+       | attribute claim { xsd:boolean }?
        |
          ## type defaults to bible if none is present
          attribute type { "Bible" | "Story" | "Other" | "Test" }?),

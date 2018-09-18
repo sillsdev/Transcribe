@@ -8,8 +8,8 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import allTasks from '../selectors/task';
-import ButtonLink from './controls/ButtonLink'
-import LinkAction from './controls/LinkAction';
+import FilterAction from './controls/FilterAction';
+import NextAction from './controls/NextAction'
 import TaskItem from './controls/TaskItem';
 import './TaskList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
@@ -19,9 +19,13 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class TaskList extends React.Component<IProps, object> {
     public componentDidMount() {
-        const { fetchLocalization, fetchTasksOfProject, selectedParatextProject } = this.props;
-        fetchTasksOfProject(selectedParatextProject);
-        fetchLocalization();
+        const { fetchLocalization, fetchTasksOfProject, localizationLoaded, selectedParatextProject, selectedProject } = this.props;
+        if (selectedParatextProject !== "" && selectedParatextProject !== selectedProject){
+            fetchTasksOfProject(selectedParatextProject);
+        }
+        if (!localizationLoaded) {
+            fetchLocalization();
+        }
     }
     public render() {
         const { strings, tasks } = this.props
@@ -45,14 +49,15 @@ class TaskList extends React.Component<IProps, object> {
 
         const filterWrapper = tasks.length === 0? "": (
             <div className="SortFilterStyle">
-                <LinkAction target={sortByType} text={strings.sortByType} />
-                <img src={"/assets/Filter.svg"} alt="Filter" />
+                <FilterAction target={sortByType} text={strings.sortByType} />
             </div>);
 
+        const AddTask = () => { alert("Add Task Details") }
+        const ManyTask = () => { alert("Add Many Tasks") }
         const buttonWrapper = (
             <div className="Buttons">
-                <ButtonLink text={strings.addMany} target="/TaskList" type="text-light" />
-                <ButtonLink text={strings.addTask} target="/TaskList" type="outline-light" />
+                <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
+                <NextAction text={strings.addTask} target={AddTask} type="outline-light" />
             </div>);
 
         return (
@@ -74,8 +79,10 @@ class TaskList extends React.Component<IProps, object> {
 
 interface IStateProps {
     loaded: boolean;
+    localizationLoaded: boolean;
     users: IUser[];
     selectedParatextProject: string;
+    selectedProject: string;
     selectedUser: string;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
@@ -83,7 +90,9 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
+    localizationLoaded: state.strings.loaded,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
+    selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "projectSettings"}),
     tasks: allTasks(state),

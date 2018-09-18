@@ -21,13 +21,17 @@ class SelectProject extends React.Component<IProps, object> {
   }
 
   public render() {
-    const { loaded, projects, selectProject, strings } = this.props
+    const { loaded, projects, selectProject, selectedUser, strings, users } = this.props
+
+    const user: IUser = users.filter((u: IUser) => u.username.id === selectedUser)[0];
+    const admin = user.role.filter((s: string) => s.toLowerCase() === "administrator")[0];
+    const dest = (admin != null)? "/ProjectSettings": "/main";
 
     const avatars = projects.map((p:IProject) => 
       <ListGroupItem key={p.id}>
         <AvatarLink id={p.id}
           name={strings[p.id.toLowerCase()]}
-          target="/main"
+          target={dest}
           uri={p.type !== undefined? ProjectAvatar[p.type]: ""}
           select={selectProject} />
       </ListGroupItem>);
@@ -41,7 +45,8 @@ class SelectProject extends React.Component<IProps, object> {
           wrapper = (<Redirect to="/uilang"/>)
           break;
         case 1:
-          wrapper = (<Redirect to="/main"/>)
+          selectProject(projects[0].id);
+          wrapper = (<Redirect to={dest}/>)
         default:
           break;
       }
@@ -60,6 +65,7 @@ interface IStateProps {
   projects: IProject[];
   loaded: boolean;
   strings: ITranscriberStrings;
+  users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -67,6 +73,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
   projects: state.tasks.projects,
   selectedUser: state.users.selectedUser,
   strings: state.strings.transcriber,
+  users: state.users.users,
 });
 
 interface IDispatchProps {

@@ -50,6 +50,8 @@ namespace ReactShared
 
 		public static void NewAttr(XmlNode node, string name, string val)
 		{
+			if (val == null || val == "undefined")
+				return;
 			Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
 			var idAttr = node.OwnerDocument.CreateAttribute(name);
 			idAttr.InnerText = val;

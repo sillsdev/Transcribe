@@ -9,8 +9,16 @@ interface ITask {
 
 interface IProject {
     id: string;
+    name?: string;
+    guid?: string;
     lang: string;
+    langName?: string;
+    font?: string;
+    size?: string;
+    features?: string;
     direction: string;
+    sync?: boolean;
+    claim?: boolean;
     type?: string;
     task: ITask[];
 };
