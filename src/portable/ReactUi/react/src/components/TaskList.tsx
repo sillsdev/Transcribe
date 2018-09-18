@@ -8,7 +8,7 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import allTasks from '../selectors/task';
-import LinkAction from './controls/LinkAction';
+import FilterAction from './controls/FilterAction';
 import NextAction from './controls/NextAction'
 import TaskItem from './controls/TaskItem';
 import './TaskList.sass';
@@ -49,8 +49,7 @@ class TaskList extends React.Component<IProps, object> {
 
         const filterWrapper = tasks.length === 0? "": (
             <div className="SortFilterStyle">
-                <LinkAction target={sortByType} text={strings.sortByType} />
-                <img src={"/assets/Filter.svg"} alt="Filter" />
+                <FilterAction target={sortByType} text={strings.sortByType} />
             </div>);
 
         const AddTask = () => { alert("Add Task Details") }

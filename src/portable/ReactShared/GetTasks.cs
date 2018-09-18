@@ -26,15 +26,21 @@ namespace ReactShared
 			var taskList = new List<string>();
 			foreach (XmlNode node in projectNodes)
 			{
-				var fileterNodeList = new List<XmlNode>();
+				var filterNodeList = new List<XmlNode>();
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
-				Debug.Assert(taskNodes != null, nameof(taskNodes) + " != null");
 				if (!string.IsNullOrEmpty(user))
-					TaskSkillFilter(taskNodes, ref fileterNodeList, userNode, user);
-				if (fileterNodeList.Count == 0)
-					continue;
-				Util.AsArray(fileterNodeList);
-				foreach (XmlNode taskNode in fileterNodeList)
+					TaskSkillFilter(taskNodes, ref filterNodeList, userNode, user);
+				if (filterNodeList.Count == 0)
+					if (user != null)
+						continue;
+					else
+					{
+						var emptyTaskNode = tasksDoc.CreateElement("task");
+						node.AppendChild(emptyTaskNode);
+						Util.AsArray(new List<XmlNode> {emptyTaskNode});
+					}
+				Util.AsArray(filterNodeList);
+				foreach (XmlNode taskNode in filterNodeList)
 				{
 					if (!string.IsNullOrEmpty(user))
 					{
@@ -56,7 +62,7 @@ namespace ReactShared
 
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetTasks")))
 			{
-				sw.Write($"[{string.Join(",", taskList)}]");
+				sw.Write($"[{string.Join(",", taskList)}]".Replace("{}", ""));
 			}
 		}
 

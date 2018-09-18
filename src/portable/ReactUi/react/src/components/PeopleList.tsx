@@ -8,7 +8,7 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize'
 import AvatarLink from './controls/AvatarLink';
-import LinkAction from './controls/LinkAction';
+import FilterAction from './controls/FilterAction';
 import NextAction from './controls/NextAction'
 import './PeopleList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
@@ -48,8 +48,7 @@ class PeopleList extends React.Component<any, object> {
 
         const filterWrapper = otherUsers.length === 0? "": (
             <div className="SortFilterStyle">
-                <LinkAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
-                <img src={"/assets/Filter.svg"} alt="Filter" />
+                <FilterAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
             </div>);
 
         const AddUser = () => { alert("Add User Details") }
