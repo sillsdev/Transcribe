@@ -21,10 +21,14 @@
 				display: flex
 				flex-direction: row
 				flex: 1 0 auto
+				width: -moz-min-content
+				overflow: hidden
 				&>*
 					align-self: baseline
 					margin-right: 8px
 					flex: 0 0 auto
+			.right
+				padding-left: 16px
 		.paringRow
 			display: flex
 			flex-direction: row
@@ -49,6 +53,7 @@
 			flex-direction: row
 			flex: 1 0 auto
 			padding-top: 16px
+			height: 50%
 			&>*
 				flex: 1 0 auto
 				margin: 16px 0 0 24px
