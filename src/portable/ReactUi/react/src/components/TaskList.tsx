@@ -19,9 +19,13 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class TaskList extends React.Component<IProps, object> {
     public componentDidMount() {
-        const { fetchLocalization, fetchTasksOfProject, selectedParatextProject } = this.props;
-        fetchTasksOfProject(selectedParatextProject);
-        fetchLocalization();
+        const { fetchLocalization, fetchTasksOfProject, localizationLoaded, selectedParatextProject, selectedProject } = this.props;
+        if (selectedParatextProject !== "" && selectedParatextProject !== selectedProject){
+            fetchTasksOfProject(selectedParatextProject);
+        }
+        if (!localizationLoaded) {
+            fetchLocalization();
+        }
     }
     public render() {
         const { strings, tasks } = this.props
@@ -74,8 +78,10 @@ class TaskList extends React.Component<IProps, object> {
 
 interface IStateProps {
     loaded: boolean;
+    localizationLoaded: boolean;
     users: IUser[];
     selectedParatextProject: string;
+    selectedProject: string;
     selectedUser: string;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
@@ -83,7 +89,9 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
+    localizationLoaded: state.strings.loaded,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
+    selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "projectSettings"}),
     tasks: allTasks(state),

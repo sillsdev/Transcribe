@@ -60,7 +60,7 @@ export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
             });
             dispatch({
                 payload: projectname,
-                type: SELECT_TASK
+                type: SELECT_PROJECT
             })
         })
     }

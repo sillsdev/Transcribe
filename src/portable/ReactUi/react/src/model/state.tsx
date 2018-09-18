@@ -27,6 +27,7 @@ export interface IState {
         saved: boolean;
     };
     strings: {
+        loaded: boolean;
         projectSettings: IProjectSettingsStrings;
         transcriber: ITranscriberStrings;
         userSettings: IUserSettingsStrings;

@@ -20,7 +20,7 @@ namespace ReactShared
 			var tasksDoc = Util.LoadXmlData("tasks");
 			var projectXpath = string.IsNullOrEmpty(project)?
 				"//*[local-name()='project']":
-				$"//*[local-name()='project' and @name='{project}']";
+				$"//*[local-name()='project' and @id='{project}']";
 			var projectNodes = tasksDoc.SelectNodes(projectXpath);
 			Debug.Assert(projectNodes != null, nameof(projectNodes) + " != null");
 			var taskList = new List<string>();

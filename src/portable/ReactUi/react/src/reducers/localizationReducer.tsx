@@ -2,6 +2,7 @@ import LocalizedStrings from 'react-localization';
 import { FETCH_LOCALIZATION } from '../actions/types';
 
 const initialState = {
+	"loaded": false,
     "projectSettings": new LocalizedStrings({
 		"en": {
 			"addMany": "Add Many",
@@ -83,6 +84,7 @@ export default function (state = initialState, action: any) {
     switch (action.type) {
         case FETCH_LOCALIZATION:
             return {
+				"loaded": true,
 				"projectSettings" : new LocalizedStrings(action.payload.data.projectSettings),
 				"transcriber" : new LocalizedStrings(action.payload.data.transcriber),
 				"userSettings" : new LocalizedStrings(action.payload.data.userSettings),

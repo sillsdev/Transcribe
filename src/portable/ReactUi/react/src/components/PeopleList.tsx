@@ -15,9 +15,13 @@ import LabelCaptionUx from './ui-controls/LabelCaptionUx'
 
 class PeopleList extends React.Component<any, object> {
     public componentDidMount() {
-        const { fetchLocalization, fetchUsers } = this.props;
-        fetchUsers();
-        fetchLocalization();
+        const { fetchLocalization, fetchUsers, localizationLoaded, users } = this.props;
+        if (users.length === 0) {
+            fetchUsers();
+        }
+        if (!localizationLoaded) {
+            fetchLocalization();
+        }
     }
     public render() {
         const { selectedUser, selectUser, users, strings } = this.props
@@ -71,6 +75,7 @@ class PeopleList extends React.Component<any, object> {
 
 interface IStateProps {
     loaded: boolean;
+    localizationLoaded: boolean;
     users: IUser[];
     selectedUser: string;
     strings: IProjectSettingsStrings;
@@ -78,6 +83,7 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
+    localizationLoaded: state.strings.loaded,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "projectSettings"}),
     users: state.users.users,
