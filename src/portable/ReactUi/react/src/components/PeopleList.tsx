@@ -8,8 +8,8 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize'
 import AvatarLink from './controls/AvatarLink';
-import ButtonLink from './controls/ButtonLink'
 import LinkAction from './controls/LinkAction';
+import NextAction from './controls/NextAction'
 import './PeopleList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
 
@@ -24,10 +24,11 @@ class PeopleList extends React.Component<any, object> {
         }
     }
     public render() {
-        const { selectedUser, selectUser, users, strings } = this.props
+        const { selectedUser, users, strings } = this.props
 
         const otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
 
+        const selectUser = () => { alert("User Details") }
         const avatars = otherUsers.map((user: IUser) =>
             <ListGroupItem key={user.id}>
                 <AvatarLink
@@ -51,9 +52,10 @@ class PeopleList extends React.Component<any, object> {
                 <img src={"/assets/Filter.svg"} alt="Filter" />
             </div>);
 
+        const AddUser = () => { alert("Add User Details") }
         const buttonWrapper = (
             <div className="Buttons">
-                <ButtonLink text={strings.addUser} target="/PeopleList" type="outline-light" />
+                <NextAction text={strings.addUser} target={AddUser} type="outline-light" />
             </div>);
 
         return (
@@ -92,14 +94,12 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     fetchLocalization: typeof actions2.fetchLocalization;
     fetchUsers: typeof actions.fetchUsers;
-    selectUser: typeof actions.selectUser;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchLocalization: actions2.fetchLocalization,
         fetchUsers: actions.fetchUsers,
-        selectUser: actions.selectUser,
     }, dispatch),
 });
 

@@ -8,8 +8,8 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import allTasks from '../selectors/task';
-import ButtonLink from './controls/ButtonLink'
 import LinkAction from './controls/LinkAction';
+import NextAction from './controls/NextAction'
 import TaskItem from './controls/TaskItem';
 import './TaskList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
@@ -53,10 +53,12 @@ class TaskList extends React.Component<IProps, object> {
                 <img src={"/assets/Filter.svg"} alt="Filter" />
             </div>);
 
+        const AddTask = () => { alert("Add Task Details") }
+        const ManyTask = () => { alert("Add Many Tasks") }
         const buttonWrapper = (
             <div className="Buttons">
-                <ButtonLink text={strings.addMany} target="/TaskList" type="text-light" />
-                <ButtonLink text={strings.addTask} target="/TaskList" type="outline-light" />
+                <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
+                <NextAction text={strings.addTask} target={AddTask} type="outline-light" />
             </div>);
 
         return (
