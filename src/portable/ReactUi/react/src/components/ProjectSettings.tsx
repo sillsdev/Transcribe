@@ -15,14 +15,22 @@ import TaskList from './TaskList';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 
 interface IProps extends IStateProps, IDispatchProps {
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
 };
 
 class ProjectSettings extends React.Component<IProps, object> {
     public render() {
         const{ project, strings } = this.props
         const title = project != null && project.name != null? project.name: strings.projectName;
+       // tslint:disable-next-line:no-console
+       console.log(this.props)
+        const modal = this.props.history.location.pathname.length > 17? " Modal": ""
         return (
-            <div id="ProjectSettings" className="ProjectSettings">
+            <div id="ProjectSettings" className={"ProjectSettings" + modal}>
                 <div className="rows">
                     <div className="titles">
                         <div className="left">

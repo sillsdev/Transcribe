@@ -8,6 +8,7 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import allTasks from '../selectors/task';
+import ButtonLink from './controls/ButtonLink'
 import FilterAction from './controls/FilterAction';
 import NextAction from './controls/NextAction'
 import TaskItem from './controls/TaskItem';
@@ -52,12 +53,11 @@ class TaskList extends React.Component<IProps, object> {
                 <FilterAction target={sortByType} text={strings.sortByType} />
             </div>);
 
-        const AddTask = () => { alert("Add Task Details") }
         const ManyTask = () => { alert("Add Many Tasks") }
         const buttonWrapper = (
             <div className="Buttons">
                 <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
-                <NextAction text={strings.addTask} target={AddTask} type="outline-light" />
+                <ButtonLink text={strings.addTask} target={"/ProjectSettings/Task"} type="outline-light" />
             </div>);
 
         return (

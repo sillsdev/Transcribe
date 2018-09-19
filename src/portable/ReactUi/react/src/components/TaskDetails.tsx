@@ -5,9 +5,10 @@ import LabelUx from './ui-controls/LabelUx';
 class TaskDetails extends React.Component<any, object> {
     public render(){
 
-        const {id} = this.props.match.params
         return(
-            <div><LabelUx name={id}/></div>
+            <div className="TaskDetails">
+                <LabelUx name={"TaskDetails"}/>
+            </div>
         )
     }
 }
