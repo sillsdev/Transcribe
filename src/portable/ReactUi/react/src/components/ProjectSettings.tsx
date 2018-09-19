@@ -21,7 +21,6 @@ class ProjectSettings extends React.Component<IProps, object> {
     public render() {
         const{ project, strings } = this.props
         const title = project != null && project.name != null? project.name: strings.projectName;
-        const paired = project.id !== "ztt";
         return (
             <div id="ProjectSettings" className="ProjectSettings">
                 <div className="rows">
@@ -37,9 +36,6 @@ class ProjectSettings extends React.Component<IProps, object> {
                         </div>
                     </div>
                     <div className="paringRow">
-                        <div className={(paired? "visible": "hidden")}>
-                            <PencilAction target={this.pair} />
-                        </div>
                         <LinkAction text={strings.clickToPair} target={this.pair} />
                     </div>
                     <div className="switches">
