@@ -9,8 +9,8 @@ import userStrings from '../selectors/localize'
 import NextAction from './controls/NextAction';
 import './TaskDetails.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
-import TextInputFieldUx from './ui-controls/TextInputFieldUx';
-import TextSelectFieldUx from './ui-controls/TextSelectFieldUx';
+import SelectField from './ui-controls/SelectField';
+import TextField from './ui-controls/TextField';
 
 // interface IProps extends IStateProps, IDispatchProps {
 // };
@@ -49,17 +49,16 @@ class TaskDetails extends React.Component<IStateProps, object> {
                                 </div>
                                 <div className="textName">The Birth of John the Baptist Foretold</div>
                             </div>
-                            <div className="AvatarIcon">
+                            <div className="AvatarRow">
                                 <Avatar name={name} src={"/assets/storyAvatar.png"} size={64} round={true} />
-                                <br /> <br />
                                 <div className="AvatarCaption">Greg Trihus</div>
                             </div>
                         </div>
                         <div className="resultsRight">
-                            <div><TextInputFieldUx id="id1" captionValue="Audio File" inputValue="xyz-07292018.mp3" messageValue="" isReadOnly={true} /></div>
-                            <div><TextInputFieldUx id="id2" captionValue="Reference" inputValue="Luke 1:26–38" messageValue="" isReadOnly={false} /></div>
-                            <div><TextInputFieldUx id="id3" captionValue="Heading" inputValue="The Birth of John the Baptist Foretold" messageValue="" isReadOnly={true} /></div>
-                            <div><TextSelectFieldUx id="id4" captionValue="Assigned To" selectOptions="The Birth of John the Baptist Foretold" messageValue="" /></div>
+                            <div><TextField id="id1" caption="Audio File" inputValue="xyz-07292018.mp3" message="Error" isReadOnly={false} /></div>
+                            <div><TextField id="id2" caption="Reference" inputValue="Luke 1:26–38" isReadOnly={true} /></div>
+                            <div><TextField id="id3" caption="Heading" /></div>
+                            <div><SelectField id="id4" caption="Assigned To" options={["Greg Trihus", "Paul Nelson", "Karthikeyan V", "Manjula T"]} /></div>
                         </div>
                     </div>
                 </div>
