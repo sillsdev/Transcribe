@@ -14,6 +14,7 @@ const initialState = {
 			"chooseALanguage": "Choose a language",
 			"clickToPair": "Click to pair with Paratext",
 			"createEmptyProject": "Create empty project",
+			"delete": "Delete",
 			"lookForProjects": "Looking for Paratext projects on this computer...",
 			"next": "Next",
 			"noProjectsFound": "We didn\u2019t find any Paratext projects on your computer.",
@@ -24,6 +25,7 @@ const initialState = {
 			"selectProject": "Select a Paratext Project",
 			"sortByPrivileges": "Sort by privileges",
 			"sortByType": "Sort by type",
+			"taskDetails": "Task Details",
 			"tasks": "Tasks",
 		}
 	}),
