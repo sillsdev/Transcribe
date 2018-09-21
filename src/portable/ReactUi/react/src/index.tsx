@@ -31,6 +31,7 @@ ReactDOM.render(
         <Route path="/NewOrBrowseParatextProjects" component={NewOrBrowseParatextProjects} />
         <Route path="/ProjectSettings" component={ProjectSettings} />
         <Route path="/ProjectSettings/Task" component={TaskDetails} />
+        <Route path="/ProjectSettings/NewTask" component={TaskDetails} />
       </div>
     </Router>
   </Provider>,

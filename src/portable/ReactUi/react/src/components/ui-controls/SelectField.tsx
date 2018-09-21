@@ -4,7 +4,7 @@ import './SelectField.sass';
 interface IProps {
     id?: string;
     caption: string;
-    options: string[];
+    options: any;
     selected?: string;
     message?: string;
 }
@@ -30,10 +30,10 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
         const messageStyle = (errorMessage.length > 0) ? "Message CaptionRed BorderTopRed" : "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0) ? "Caption CaptionRed" : "Caption CaptionGreen";
         const dataStyle = (current && current !== "" && current !== caption)? "DataColor": "CaptionGrey";
-        const optionsList = [caption].concat(options) ;
-        const userList = optionsList.map((user: string) =>
-            <option key={user}>{user}</option>
-        );
+
+        const userList = options.map((user: IUser) =>
+        <option key={user.id}>{user.displayName}</option>
+        )
         const captionText = (current && current !== "" && current !== caption)? caption: "";
 
         return (

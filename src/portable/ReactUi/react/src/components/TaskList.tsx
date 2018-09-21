@@ -11,7 +11,7 @@ import allTasks from '../selectors/task';
 import ButtonLink from './controls/ButtonLink'
 import FilterAction from './controls/FilterAction';
 import NextAction from './controls/NextAction'
-import TaskItem from './controls/TaskItem';
+import TaskItemPopup from './controls/TaskItemPopup';
 import './TaskList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
 
@@ -29,16 +29,14 @@ class TaskList extends React.Component<IProps, object> {
         }
     }
     public render() {
-        const { strings, tasks } = this.props
-
-        const selectTask = () => { alert("Task Details") }
+        const { selectPopupTask, strings, tasks } = this.props
         const taskList = tasks.map((t: ITask) =>
             <ListGroupItem key={t.id}>
-                <TaskItem
+                <TaskItemPopup
                     id={t.id}
                     name={t.name}
                     length={t.length != null? t.length: 0}
-                    select={selectTask}/>
+                    select= {selectPopupTask.bind(t.id)}/>
             </ListGroupItem>);
 
         const taskWrapper = (
@@ -57,7 +55,7 @@ class TaskList extends React.Component<IProps, object> {
         const buttonWrapper = (
             <div className="Buttons">
                 <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
-                <ButtonLink text={strings.addTask} target={"/ProjectSettings/Task"} type="outline-light" />
+                <ButtonLink text={strings.addTask} target={"/ProjectSettings/NewTask"} type="outline-light" />
             </div>);
 
         return (
@@ -102,12 +100,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     fetchLocalization: typeof actions2.fetchLocalization;
     fetchTasksOfProject: typeof actions.fetchTasks;
+    selectPopupTask: typeof actions.selectPopupTask;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchLocalization: actions2.fetchLocalization,
         fetchTasksOfProject: actions.fetchTasksOfProject,
+        selectPopupTask: actions.selectPopupTask,
     }, dispatch),
 });
 
