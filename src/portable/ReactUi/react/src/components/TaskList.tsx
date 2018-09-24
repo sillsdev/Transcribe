@@ -19,6 +19,12 @@ interface IProps extends IStateProps, IDispatchProps {
 };
 
 class TaskList extends React.Component<IProps, object> {
+    public constructor(props: IProps) {
+        super(props);
+        // tslint:disable-next-line:no-console
+        console.log(this.props.users)
+    }
+
     public componentDidMount() {
         const { fetchLocalization, fetchTasksOfProject, localizationLoaded, selectedParatextProject, selectedProject } = this.props;
         if (selectedParatextProject !== "" && selectedParatextProject !== selectedProject){
@@ -58,8 +64,14 @@ class TaskList extends React.Component<IProps, object> {
         const buttonWrapper = (
             <div className="Buttons">
                 <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
-                <ButtonLink text={strings.addTask} target={"/ProjectSettings/NewTask"} type="outline-light" />
+                <ButtonLink
+                    text={strings.addTask}
+                    target={"/ProjectSettings/NewTask"}
+                    select={this.noSelectedTask}
+                    type="outline-light" />
             </div>);
+        // tslint:disable-next-line:no-console
+        console.log(this.props.popupTask + " " + this.props.users[1].username.id)
 
         return (
             <div className="TaskList">
@@ -76,6 +88,10 @@ class TaskList extends React.Component<IProps, object> {
     private sortByType(){
         alert("Sort By Type")
     }
+
+    private noSelectedTask() {
+        this.props.selectPopupTask("");
+    }
 }
 
 interface IStateProps {
@@ -87,11 +103,13 @@ interface IStateProps {
     selectedUser: string;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
+    popupTask: string;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
     localizationLoaded: state.strings.loaded,
+    popupTask: state.tasks.selectedPopupTask,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
