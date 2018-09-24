@@ -380,5 +380,41 @@
 				<target>Cliquer à jumelé avec Paratext</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.taskDetails">
+			<segment>
+				<source>Task Details</source>
+				<target>Détails de la tâche</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.delete">
+			<segment>
+				<source>Delete</source>
+				<target>Effacer</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.audioFile">
+			<segment>
+				<source>Audio File</source>
+				<target>Firchier audio</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reference">
+			<segment>
+				<source>Reference</source>
+				<target>Référence</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.heading">
+			<segment>
+				<source>Heading</source>
+				<target>Sous titre</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.assignedTo">
+			<segment>
+				<source>Assigned To</source>
+				<target>Allouer à</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>
