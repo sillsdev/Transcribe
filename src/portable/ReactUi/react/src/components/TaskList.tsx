@@ -30,6 +30,8 @@ class TaskList extends React.Component<IProps, object> {
     }
     public render() {
         const { selectPopupTask, strings, tasks } = this.props
+
+        // const selectTask = () => { alert("Task Details") }
         const taskList = tasks.map((t: ITask) =>
             <ListGroupItem key={t.id}>
                 <TaskItemPopup

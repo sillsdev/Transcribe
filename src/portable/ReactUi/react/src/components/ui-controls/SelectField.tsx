@@ -20,7 +20,11 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
     }
 
     public handleChange(event: any) {
-        this.setState({ current: event.target.value });
+        // this.setState({ current: event.target.value });
+        const { options, } = this.props;
+        const selectOption = options.filter((u: IUser) => u.displayName === event.target.value);
+        alert(selectOption[0].username.id);
+        this.setState({ current: selectOption[0].username.id });
     }
 
     public render() {
@@ -32,7 +36,7 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
         const dataStyle = (current && current !== "" && current !== caption)? "DataColor": "CaptionGrey";
 
         const userList = options.map((user: IUser) =>
-        <option key={user.id}>{user.displayName}</option>
+        <option key={user.username.id} value={user.username.id}>{user.displayName}</option>
         )
         const captionText = (current && current !== "" && current !== caption)? caption: "";
 

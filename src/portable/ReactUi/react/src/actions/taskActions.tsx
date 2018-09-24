@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, 
     FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK,  UNASSIGN_TASK_PENDING,
-    WRITE_FULFILLED, WRITE_PENDING } from './types';
+    UPDATE_TASK, WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { saveUserSetting } from './userActions';
 
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
@@ -98,4 +98,10 @@ export const fetchTranscription = (taskid: string) => (dispatch: any) => {
             type: FETCH_TRANSCRIPTION
         });
     });
+}
+
+export const updateTask = (task: string, project: string, query: string) => (dispatch: any) => {
+    dispatch({type: UPDATE_TASK});
+    Axios.put('/api/UpdateTask?task=' + task + '&project=' + project + query)
+        .then(dispatch(fetchTasksOfProject(project)))
 }

@@ -30,6 +30,13 @@ namespace ReactShared
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
 				if (!string.IsNullOrEmpty(user))
 					TaskSkillFilter(taskNodes, ref filterNodeList, userNode, user);
+				else
+				{
+					foreach (XmlNode tNode in taskNodes)
+					{
+						filterNodeList.Add(tNode);
+					}
+				}
 				if (filterNodeList.Count == 0)
 					if (user != null && user != "admin")
 						continue;
