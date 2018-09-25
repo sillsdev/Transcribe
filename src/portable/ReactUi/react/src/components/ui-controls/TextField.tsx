@@ -7,6 +7,7 @@ interface IProps {
     inputValue?: string,
     message?: string,
     isReadOnly?: boolean,
+    onChange?: (value: string) => any;
 }
 
 class TextInputFieldUx extends React.Component<IProps, any> {
@@ -22,6 +23,9 @@ class TextInputFieldUx extends React.Component<IProps, any> {
 
     public handleChange(event: any) {
         this.setState({current: event.target.value });
+        if (this.props.onChange != null) {
+            this.props.onChange(event.target.value)
+        }
     }
 
     public handleClear(event: any) {

@@ -11,7 +11,7 @@ import allTasks from '../selectors/task';
 import ButtonLink from './controls/ButtonLink'
 import FilterAction from './controls/FilterAction';
 import NextAction from './controls/NextAction'
-import TaskItemPopup from './controls/TaskItemPopup';
+import TaskItem from './controls/TaskItem';
 import './TaskList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
 
@@ -34,11 +34,12 @@ class TaskList extends React.Component<IProps, object> {
         // const selectTask = () => { alert("Task Details") }
         const taskList = tasks.map((t: ITask) =>
             <ListGroupItem key={t.id}>
-                <TaskItemPopup
+                <TaskItem
                     id={t.id}
                     name={t.name}
                     length={t.length != null? t.length: 0}
-                    select= {selectPopupTask.bind(t.id)}/>
+                    select= {selectPopupTask.bind(t.id)}
+                    target="/ProjectSettings/Task"/>
             </ListGroupItem>);
 
         const taskWrapper = (
