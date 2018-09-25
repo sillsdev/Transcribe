@@ -4,9 +4,10 @@ import './SelectField.sass';
 interface IProps {
     id?: string;
     caption: string;
-    options: any;
+    options: string[];
     selected?: string;
     message?: string;
+    onChange?: (value: string) => any;
 }
 
 class TextSelectFieldUx extends React.Component<IProps, any> {
@@ -20,11 +21,19 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
     }
 
     public handleChange(event: any) {
-        // this.setState({ current: event.target.value });
-        const { options, } = this.props;
-        const selectOption = options.filter((u: IUser) => u.displayName === event.target.value);
-        alert(selectOption[0].username.id);
-        this.setState({ current: selectOption[0].username.id });
+        /* alert("event.target.value: " + event.target.value)
+        alert("this.props.caption: " + this.props.caption) */
+        if (event.target.value === this.props.caption) {
+            this.setState({ current: undefined });
+            if (this.props.onChange != null) {
+                this.props.onChange("")
+            }
+        } else {
+            this.setState({ current: event.target.value });
+            if (this.props.onChange != null) {
+                this.props.onChange(event.target.value)
+            }
+        }
     }
 
     public render() {
@@ -34,10 +43,15 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
         const messageStyle = (errorMessage.length > 0) ? "Message CaptionRed BorderTopRed" : "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0) ? "Caption CaptionRed" : "Caption CaptionGreen";
         const dataStyle = (current && current !== "" && current !== caption)? "DataColor": "CaptionGrey";
+        let optionsList;
+        if(optionsList === undefined) {
+            optionsList = [caption].concat(options)
+        }
+        const elementList = optionsList.map((item: string) =>
+            <option key={this.skey(item)} value={this.skey(item)}>{this.svalue(item)}</option>
+        );
+        // alert("elementList: " + elementList)
 
-        const userList = options.map((user: IUser) =>
-        <option key={user.username.id} value={user.username.id}>{user.displayName}</option>
-        )
         const captionText = (current && current !== "" && current !== caption)? caption: "";
 
         return (
@@ -48,7 +62,7 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
                         <select className={"Body " + dataStyle}
                             onChange={this.handleChange}
                             defaultValue={current}>
-                                {userList}
+                                {elementList}
                         </select>
                     </div>
                 </div>
@@ -57,6 +71,16 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
                 </div>
             </div>
         )
+    }
+
+    private skey(item: string) {
+        const pieces = item.split(":")
+        return pieces.length > 1? pieces[0]: item;
+    }
+
+    private svalue(item: string) {
+        const pieces = item.split(":")
+        return pieces.length > 1? pieces[1]: item;
     }
 }
 

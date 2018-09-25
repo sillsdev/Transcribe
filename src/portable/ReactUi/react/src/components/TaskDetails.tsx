@@ -24,60 +24,63 @@ interface IProps extends IStateProps, IDispatchProps {
     }
 };
 
-class TaskDetails extends React.Component<IProps, any> {
-    private audioFileRef: React.RefObject<TextField>;
-    private referenceRef: React.RefObject<TextField>;
-    private headingRef: React.RefObject<TextField>;
-    private assignedToRef: React.RefObject<SelectField>;
+const initialState = {
+    assignedTo: "",
+    fileName: "",
+    fullPath: "",
+    heading: "",
+    reference: "",
+}
+
+class TaskDetails extends React.Component<IProps, typeof initialState> {
+    public state = initialState;
+    private original: typeof initialState;
+    private taskId: string;
+    private task: ITask;
 
     constructor(props: IProps) {
         super(props)
-        this.audioFileRef = React.createRef();
-        this.referenceRef = React.createRef();
-        this.headingRef = React.createRef();
-        this.assignedToRef = React.createRef();
+        this.updateAssignedTo = this.updateAssignedTo.bind(this);
+        this.updateFileName = this.updateFileName.bind(this);
+        this.updateHeading = this.updateHeading.bind(this);
+        this.updateReference = this.updateReference.bind(this);
+        // tslint:disable-next-line:no-console
+        console.log(this.props.users)
+        // tslint:disable-next-line:no-console
+        console.log(this.props.users[1].username.id)
+        const { popupTask } = this.props;
+        this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
+        if (this.taskId && this.taskId !== "") {
+            this.task = this.myTask(this.taskId);
+            this.state.fileName = this.task.id
+            const idParts = this.taskId.split('-');
+            this.state.reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "");
+            this.state.heading = this.task.name;
+            if (this.task.assignedto != null) {
+                this.state.assignedTo = this.task.assignedto;
+                // tslint:disable-next-line:no-console
+                console.log("Assigned to:" + this.task.assignedto)
+            }
+        }
+        // tslint:disable-next-line:no-console
+        console.log(this.props.users[1].username.id)
+        this.original = {...this.state};
     }
 
     public render() {
-
-        // Display Strings
-        let displayHeading = "Heading";
-        let displayReference = "Reference";
-        let displayUserName = "Assigned To";
-        let displayUserAvatarUri = "Avatar";
-        let displayDuration = 0;
-
-        let taskAudioFile = "";
-        let taskReference = "";
-        let taskHeading = "";
-        let taskAssignedTo = "";
-        let displayId = "";
-        let task;
+        const { fileName, reference, heading, assignedTo } = this.state
+        const { strings, users } = this.props;
+        // alert(JSON.stringify(users))
+        const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
+        // alert(JSON.stringify(userDisplayNames));
 
         const deleteTask = () => { alert("Delete Task") }
-        const { tasks, selectedPopupTask, strings, users } = this.props;
-        const theCurrentTask = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : selectedPopupTask;
-
-        if (theCurrentTask !== "") {
-            task = tasks.filter(t => t.id === theCurrentTask)[0];
-            const idParts = theCurrentTask.split('-');
-            displayReference = displayId = ((idParts.length === 4) ? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0, 3)) + "-" + Number(idParts[3].slice(3, 6)) : "")
-            taskAudioFile = task.id;
-            taskReference = displayId;
-            displayHeading = taskHeading = task.name;
-            taskAssignedTo = task.assignedto;
-            const taskUser = users.filter(u => u.username.id = taskAssignedTo)[0];
-            displayUserName = taskAssignedTo = taskUser.displayName;
-            displayUserAvatarUri = taskUser.username.avatarUri;
-            displayDuration = task.length ? task.length : 0
-        }
-
-        const saveMethod = () => this.save(this)
-
+        const save = () => this.save(this);
+        // alert(this.state.assignedTo + " " + this.displayName(assignedTo));
         return (
             <div className="TaskDetails">
                 <div className="closeRow">
-                    <Link onClick={saveMethod} to="/ProjectSettings">
+                    <Link onClick={save} to="/ProjectSettings" >
                         <img src="/assets/close-x.svg" alt="X" />
                     </Link>
                 </div>
@@ -85,31 +88,33 @@ class TaskDetails extends React.Component<IProps, any> {
                     <div className="title">
                         <LabelCaptionUx name={strings.taskDetails} type="H2" />
                     </div>
-                    <div className="deleteButton">
+                    <div className={"deleteButton" + (this.taskId !== ""? "": " hide")}>
                         <NextAction text={strings.delete} target={deleteTask} type="danger" />
                     </div>
                 </div>
                 <div className="details">
                     <div className="results">
                         <div className="resultsLeft">
-                            <img src="/assets/waveform.png" />
+                            <img src="/assets/waveform.png" className={fileName !== ""? "": "hide"} />
                             <div className="taskItemContent">
                                 <div className="firstLine">
-                                    <span className="displayReference">{displayReference}</span>
-                                    <span className="totalTime"><Duration seconds={displayDuration} /></span>
+                                    <span className="displayReference">{reference}</span>
+                                    <span className={"totalTime" + (fileName !== ""? "": " hide")}>
+                                        <Duration seconds={this.duration()} />
+                                    </span>
                                 </div>
-                                <div className="textName">{displayHeading}</div>
+                                <div className="textName">{heading}</div>
                             </div>
-                            <div className="AvatarRow">
-                                <Avatar name={displayUserName} src={displayUserAvatarUri} size={64} round={true} />
-                                <div className="AvatarCaption">{displayUserName}</div>
+                            <div className={"AvatarRow" + (assignedTo !== ""? "": " hide")}>
+                                <Avatar name={this.displayName(assignedTo)} src={this.avatar(assignedTo)} size={64} round={true} />
+                                <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
                             </div>
                         </div>
                         <div className="resultsRight">
-                            <div><TextField id="id1" ref={this.audioFileRef} caption="Audio File" inputValue={taskAudioFile} isReadOnly={false} /></div>
-                            <div><TextField id="id2" ref={this.referenceRef} caption="Reference" inputValue={taskReference} isReadOnly={true} /></div>
-                            <div><TextField id="id3" ref={this.headingRef} caption="Heading" inputValue={taskHeading} /></div>
-                            <div><SelectField id="id4" ref={this.assignedToRef} caption="Assigned To" selected={taskAssignedTo} options={users} /></div>
+                            <div><TextField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} /></div>
+                            <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} /></div>
+                            <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
+                            <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} /></div>
                         </div>
                     </div>
                 </div>
@@ -117,131 +122,86 @@ class TaskDetails extends React.Component<IProps, any> {
         )
     }
 
-    private saveValue(updates: string[], tag: string, val: string | null) {
-        updates.push(tag + "=" + encodeURIComponent(val !== null ? val : ""))
+    private updateFileName(file: string) {
+        this.setState({...this.state, fileName: file})
     }
 
-    private save(context: TaskDetails) {
-        // const { selectedParatextProject, selectedPopupTask, selectedProject, tasks, updateTask, users } = this.props;
-        const { selectedPopupTask, selectedProject, tasks, updateTask } = this.props;
-        const theCurrentTask = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : selectedPopupTask;
-        // let taskAudioFile = "";
-        let taskReference = "";
-        let taskHeading = "";
-        let taskAssignedTo = "";
-        let displayId = "";
-        let task;
-        // let taskUser;
+    private updateHeading(header: string) {
+        this.setState({...this.state, heading: header})
+    }
 
-        if (theCurrentTask !== "") {
-            task = tasks.filter(t => t.id === theCurrentTask)[0];
-            const idParts = theCurrentTask.split('-');
-            displayId = ((idParts.length === 4) ? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0, 3)) + "-" + Number(idParts[3].slice(3, 6)) : "")
-            // taskAudioFile = task.id;
-            taskReference = displayId;
-            taskHeading = task.name;
-            taskAssignedTo = task.assignedto;
-            // taskUser = users.filter(u => u.username.id = taskAssignedTo)[0];
-        }
+    private updateReference(ref: string) {
+        this.setState({...this.state, reference: ref})
+    }
+
+    private updateAssignedTo(userId: string) {
+        // tslint:disable-next-line:no-console
+        console.log(this.props.users)
+        // alert(JSON.stringify(this.props.users));
+        this.setState({...this.state, assignedTo: userId})
+        // tslint:disable-next-line:no-console
+        console.log("Assigning:" + userId)
+        // alert(userId);
+    }
+
+    private myTask(taskId: string): ITask {
+        return {...this.props.tasks.filter(t => t.id === taskId)[0]};
+    }
+
+    private duration(): number {
+        return this.task && this.task.length? this.task.length: 0
+    }
+
+    private taskUser(userId: string): IUser {
+        return {...this.props.users.filter((u: IUser) => u.username.id = userId)[0]};
+    }
+
+    private displayName(userId: string): string {
+        const user = this.taskUser(userId)
+        return user? user.displayName: ""
+    }
+
+    private avatar(userId: string): string {
+        const user = this.taskUser(userId)
+        return user && user.username.avatarUri? user.username.avatarUri: ""
+    }
+
+    private saveValue(updates: string[], tag: string, val: string | null) {
+        updates.push(tag + '=' + encodeURIComponent(val != null? val: ""))
+    }
+
+    private save(ctx: TaskDetails) {
+        const { selectedProject, updateTask } = this.props;
 
         const updates = Array<string>();
-        let isValid = true;
-        // Name
-        const audioFile = context.audioFileRef.current && context.audioFileRef.current.state.current;
-        if (audioFile !== null && audioFile !== undefined) {
-            if (audioFile.length === 0) {
-                if (context.audioFileRef.current !== null) {
-                    context.audioFileRef.current.state.current = "Please fill in the Audio File.";
-                    this.setState({ message: "Please fill in the Audio File." });
-                    isValid = false;
-                }
-            }
-            else if (audioFile.length > 0) {
-                if (context.audioFileRef.current !== null) {
-                    context.audioFileRef.current.state.current = "";
-                    this.setState({ message: "" });
-                    isValid = true;
-                }
-                if (taskAssignedTo !== audioFile) {
-                    this.saveValue(updates, "audioFile", audioFile)
-                }
-            }
+
+        if (this.state.fileName !== this.original.fileName) {
+            this.saveValue(updates, "audioFile", this.state.fileName);
         }
 
-        const reference = context.referenceRef.current && context.referenceRef.current.state.current;
-        if (reference !== null && reference !== undefined) {
-            if (reference.length === 0) {
-                if (context.referenceRef.current !== null) {
-                    context.referenceRef.current.state.current = "Please fill in the Reference.";
-                    this.setState({ message: "Please fill in the Reference." });
-                    isValid = false;
-                }
-            }
-            else if (reference.length > 0) {
-                if (context.referenceRef.current !== null) {
-                    context.referenceRef.current.state.current = "";
-                    this.setState({ message: "" });
-                    isValid = true;
-                }
-                if (taskReference !== reference) {
-                    this.saveValue(updates, "reference", reference)
-                }
-            }
+        if (this.state.reference !== this.original.reference) {
+            this.saveValue(updates, "reference", this.state.reference);
         }
 
-        const heading = context.headingRef.current && context.headingRef.current.state.current;
-        if (heading !== null && heading !== undefined) {
-            if (heading.length === 0) {
-                if (context.headingRef.current !== null) {
-                    context.headingRef.current.state.current = "Please fill in the Reference.";
-                    this.setState({ message: "Please fill in the Reference." });
-                    isValid = false;
-                }
-            }
-            else if (heading.length > 0) {
-                if (context.headingRef.current !== null) {
-                    context.headingRef.current.state.current = "";
-                    this.setState({ message: "" });
-                    isValid = true;
-                }
-                if (taskHeading !== heading) {
-                    this.saveValue(updates, "heading", heading)
-                }
-            }
+        if (this.state.heading !== this.original.heading) {
+            this.saveValue(updates, "heading", this.state.heading);
         }
 
-        const assignedTo = context.assignedToRef.current && context.assignedToRef.current.state.current;
-        if (assignedTo !== null && assignedTo !== undefined) {
-            if (assignedTo.length === 0) {
-                if (context.assignedToRef.current !== null) {
-                    context.assignedToRef.current.state.current = "Please fill in the Reference.";
-                    this.setState({ message: "Please fill in the Reference." });
-                    isValid = false;
-                }
-            }
-            else if (assignedTo.length > 0) {
-                if (context.assignedToRef.current !== null) {
-                    context.assignedToRef.current.state.current = "";
-                    this.setState({ message: "" });
-                    isValid = true;
-                }
-                if (taskAssignedTo !== assignedTo) {
-                    this.saveValue(updates, "assignedTo", assignedTo)
-                }
-            }
+        if (this.state.assignedTo !== this.original.assignedTo) {
+            this.saveValue(updates, "assignedTo", this.state.assignedTo)
         }
 
-        if (isValid === true && updates.length > 0) {
+        if (updates.length > 0) {
             const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
-            console.log("/api/UpdateTask?task=" + theCurrentTask, "&project=" + selectedProject + query);
-            updateTask(theCurrentTask, selectedProject, query)
+            console.log("/api/UpdateTask?task=" + this.taskId, '&project=' + selectedProject + query);
+            updateTask(this.taskId, selectedProject, query);
         }
     }
 }
 
 interface IStateProps {
-    selectedPopupTask: string;
+    popupTask: string;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
     users: IUser[];
@@ -250,8 +210,8 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    popupTask: state.tasks.selectedPopupTask,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
-    selectedPopupTask: state.tasks.selectedPopupTask,
     selectedProject: state.tasks.selectedProject,
     strings: userStrings(state, { layout: "projectSettings" }),
     tasks: allTasks(state),
@@ -260,15 +220,16 @@ const mapStateToProps = (state: IState): IStateProps => ({
 
 interface IDispatchProps {
     fetchUsers: typeof actions2.fetchUsers;
-    selectPopupTask: typeof actions.selectPopupTask;
+    selectTask: typeof actions.selectTask;
     updateTask: typeof actions.updateTask;
-};
-
-const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
-    ...bindActionCreators({
+ };
+ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+     ...bindActionCreators({
         fetchUsers: actions2.fetchUsers,
-        selectPopupTask: actions.selectPopupTask,
+        selectTask: actions.selectTask,
         updateTask: actions.updateTask,
-    }, dispatch),
-});
-export default connect(mapStateToProps, mapDispatchToProps)(TaskDetails);
+     }, dispatch),
+ });
+export default connect(mapStateToProps,
+    mapDispatchToProps
+)(TaskDetails);
