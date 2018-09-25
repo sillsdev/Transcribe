@@ -26,10 +26,8 @@ class TaskList extends React.Component<IProps, object> {
     }
 
     public componentDidMount() {
-        const { fetchLocalization, fetchTasksOfProject, localizationLoaded, selectedParatextProject, selectedProject } = this.props;
-        if (selectedParatextProject !== "" && selectedParatextProject !== selectedProject){
-            fetchTasksOfProject(selectedParatextProject);
-        }
+        const { fetchLocalization, fetchTasksOfProject, localizationLoaded, selectedParatextProject } = this.props;
+        fetchTasksOfProject(selectedParatextProject);
         if (!localizationLoaded) {
             fetchLocalization();
         }

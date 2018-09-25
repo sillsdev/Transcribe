@@ -14,7 +14,7 @@ namespace ReactShared
 		public static string DataFolder =
 			Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 		public static readonly List<string> SupportFile = new List<string>();
-		private static readonly Regex TaskIdPattern = new Regex(@"(.*)v[0-9]{2}\.(mp3|wav)$", RegexOptions.Compiled);
+		public static readonly Regex TaskIdPattern = new Regex(@"(.*)v[0-9]{2}\.(mp3|wav)$", RegexOptions.Compiled);
 
 		public static string ApiFolder()
 		{
@@ -56,6 +56,18 @@ namespace ReactShared
 			var idAttr = node.OwnerDocument.CreateAttribute(name);
 			idAttr.InnerText = val;
 			node.Attributes.Append(idAttr);
+		}
+
+		public static void UpdateAttr(XmlElement node, string name, string val)
+		{
+			if (string.IsNullOrEmpty(val) || val == "undefined")
+				return;
+			if (node.HasAttribute(name))
+				node.Attributes[name].InnerText = val;
+			else
+			{
+				NewAttr(node, name, val);
+			}
 		}
 
 		public static void AsArray(XmlNodeList nodes)
