@@ -1,4 +1,12 @@
-siltranscriber (0.3.2.118)  experimental; urgency=high
+siltranscriber (0.3.3.124)  experimental; urgency=high
+
+  * Add ProjectSettings
+  * Add TaskDetails
+  * Add Material ui controls: TextField, SelectField
+
+ -- Greg Trihus <greg_trihus@sil.org>  Thu, 25 Sep 2018 17:24:00 -0600
+
+ siltranscriber (0.3.2.118)  experimental; urgency=high
 
   * MVP items
   * dependencies
