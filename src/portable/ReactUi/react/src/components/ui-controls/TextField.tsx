@@ -43,7 +43,7 @@ class TextInputFieldUx extends React.Component<IProps, any> {
         const clearStyle = isReadOnly? "Hide": "clearButton";
 
         return (
-            <div id={id} className="TextInputFieldUx">
+            <div id={id} className="TextField">
                 <div className="bodyRow">
                     <div className="dataColumn">
                         <label  className={captionStyle}>{current && current !== ""? caption: ""}</label>

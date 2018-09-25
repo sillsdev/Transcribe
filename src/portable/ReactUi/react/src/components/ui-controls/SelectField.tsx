@@ -55,7 +55,7 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
         const captionText = (current && current !== "" && current !== caption)? caption: "";
 
         return (
-            <div id={id} className="TextSelectFieldUx">
+            <div id={id} className="SelectField">
                 <div className="bodyRow">
                     <div className="dataColumn">
                         <label  className={captionStyle}>{captionText}</label>
