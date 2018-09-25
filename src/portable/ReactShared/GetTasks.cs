@@ -49,12 +49,7 @@ namespace ReactShared
 				Util.AsArray(filterNodeList);
 				foreach (XmlNode taskNode in filterNodeList)
 				{
-					if (!string.IsNullOrEmpty(user))
-					{
-						var assignedTo = taskNode.SelectSingleNode("@assignedto")?.InnerText;
-						if (assignedTo != user)
-							continue;
-					}
+					Util.AsArray(taskNode.SelectNodes("./history"));
 					var id = taskNode.SelectSingleNode("@id");
 					var audioName = CopyAudioFile(id?.InnerText);
 					if (id != null && !string.IsNullOrEmpty(audioName))
@@ -62,8 +57,12 @@ namespace ReactShared
 						id.InnerText = audioName;
 						InitializeTranscription(id.InnerText, taskNode, apiFolder);
 					}
-					Util.AsArray(taskNode.SelectNodes("./history"));
 				}
+
+				foreach (XmlNode taskNode in taskNodes)
+					node.RemoveChild(taskNode);
+				foreach (XmlNode taskNode in filterNodeList)
+					node.AppendChild(taskNode);
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
