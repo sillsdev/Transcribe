@@ -62,6 +62,7 @@ namespace ReactShared
 						id.InnerText = audioName;
 						InitializeTranscription(id.InnerText, taskNode, apiFolder);
 					}
+					Util.AsArray(taskNode.SelectNodes("./history"));
 				}
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
