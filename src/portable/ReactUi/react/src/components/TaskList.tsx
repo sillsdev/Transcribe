@@ -42,7 +42,7 @@ class TaskList extends React.Component<IProps, object> {
             <ListGroupItem key={t.id}>
                 <TaskItem
                     id={t.id}
-                    name={t.name}
+                    name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     select= {selectPopupTask.bind(t.id)}
                     target="/ProjectSettings/Task"/>
@@ -61,17 +61,20 @@ class TaskList extends React.Component<IProps, object> {
             </div>);
 
         const ManyTask = () => { alert("Add Many Tasks") }
+        const noSelectedTask = () => this.props.selectPopupTask("")
         const buttonWrapper = (
             <div className="Buttons">
                 <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
                 <ButtonLink
                     text={strings.addTask}
                     target={"/ProjectSettings/NewTask"}
-                    select={this.noSelectedTask}
+                    select={noSelectedTask}
                     type="outline-light" />
             </div>);
         // tslint:disable-next-line:no-console
-        console.log(this.props.popupTask + " " + this.props.users[1].username.id)
+        console.log(this.props.popupTask + " " + 
+            this.props.users && this.props.users.length > 1? this.props.users[1].username.id:
+            "There aren't two users!")
 
         return (
             <div className="TaskList">
@@ -87,10 +90,6 @@ class TaskList extends React.Component<IProps, object> {
 
     private sortByType(){
         alert("Sort By Type")
-    }
-
-    private noSelectedTask() {
-        this.props.selectPopupTask("");
     }
 }
 

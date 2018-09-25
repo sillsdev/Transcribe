@@ -24,7 +24,7 @@ class SelectProject extends React.Component<IProps, object> {
     const { loaded, projects, selectProject, selectedUser, strings, users } = this.props
 
     const user: IUser = users.filter((u: IUser) => u.username.id === selectedUser)[0];
-    const admin = user.role.filter((s: string) => s.toLowerCase() === "administrator")[0];
+    const admin = user && user.role.filter((s: string) => s.toLowerCase() === "administrator")[0];
     const dest = (admin != null)? "/ProjectSettings": "/main";
 
     const avatars = projects.map((p:IProject) => 
