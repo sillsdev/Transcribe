@@ -47,7 +47,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         // tslint:disable-next-line:no-console
         console.log(this.props.users)
         // tslint:disable-next-line:no-console
-        console.log(this.props.users[1].username.id)
+        console.log(this.props.users.length > 1? this.props.users[1].username.id: "Only one user")
         const { popupTask } = this.props;
         this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
         if (this.taskId && this.taskId !== "") {
@@ -63,7 +63,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             }
         }
         // tslint:disable-next-line:no-console
-        console.log(this.props.users[1].username.id)
+        console.log(this.props.users.length > 1? this.props.users[1].username.id: "Only one user")
         this.original = {...this.state};
     }
 
@@ -163,7 +163,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
     private avatar(userId: string): string {
         const user = this.taskUser(userId)
-        return user && user.username.avatarUri? user.username.avatarUri: ""
+        return user && user.username && user.username.avatarUri? user.username.avatarUri: ""
     }
 
     private saveValue(updates: string[], tag: string, val: string | null) {

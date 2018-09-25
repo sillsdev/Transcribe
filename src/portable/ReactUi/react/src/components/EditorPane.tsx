@@ -45,7 +45,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             selectedProject, selectedTask, selectedUser, totalSeconds,
             transcription, writeTranscription } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
-        const project = user && user.project.filter(p => p.id === selectedProject)[0];
+        const project = user && user.project && user.project.filter(p => p.id === selectedProject)[0];
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
         const size = project != null? project.fontsize: "12pt"; // Tests null or undefined
 

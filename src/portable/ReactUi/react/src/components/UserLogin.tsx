@@ -29,7 +29,7 @@ class UserLogin extends React.Component<IProps, object> {
           id={user.username.id}
           name={user.displayName}
           target="/project"
-          uri={user.username.avatarUri}
+          uri={user.username.avatarUri? user.username.avatarUri: ""}
           select={selectUser} />
       </ListGroupItem>);
 

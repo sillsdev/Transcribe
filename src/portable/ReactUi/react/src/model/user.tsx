@@ -1,6 +1,6 @@
 interface IUserProjectSettings {
-  fontfamily: string;
-  fontsize:string;
+  fontfamily?: string;
+  fontsize?:string;
   id: string;
 };
 
@@ -10,20 +10,23 @@ interface IUserKeyVal {
 }
 
 interface IUser {
-  displayName: string;
-  hotkey: IUserKeyVal[];
   id: number;
-  progress: string;
-  project: IUserProjectSettings[];
-  role: string[];
-  setting: IUserKeyVal[];
-  speed: number;
-  timer: string;
-  uilang: string;
-  oslang: string;
+  skill?: string;
   username: {
-      avatarUri: string;
-      id: string;
+    avatarUri?: string;
+    fullName?: string;
+    id: string;
+    password?: string;
   }
+  role: string[];
+  project?: IUserProjectSettings[];
+  displayName: string;
+  hotkey?: IUserKeyVal[];
+  uilang?: string;
+  oslang?: string;
+  timer?: string;
+  speed?: number;
+  progress?: string;
+  setting?: IUserKeyVal[];
 };
   
