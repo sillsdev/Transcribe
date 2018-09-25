@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SIL Transcriber",
+  "name": "Resource Poor Language Transcription",
   "icons": [
     {
       "src": "favicon.ico",

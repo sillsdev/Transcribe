@@ -51,8 +51,8 @@ class UserSettings extends React.Component<IProps, any> {
         const { users, selectedProject, selectedUser, strings } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
-        const project = user !== undefined? user.project.filter(u => u.id === selectedProject)[0]: 
-        {fontfamily: "SIL Charis", fontsize: "medium", id:""};
+        const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
+        {fontfamily: "SIL Charis", fontsize: "large", id:""};
 
         const playPauseKey = this.keyCode(user, "play-pause", "ESC");
         const backKey = this.keyCode(user, "back", "F1");
@@ -60,14 +60,14 @@ class UserSettings extends React.Component<IProps, any> {
         const slowerKey = this.keyCode(user, "slower", "F3");
         const fasterKey = this.keyCode(user, "faster", "F4");
 
-        const userLanguageCode = user !== undefined? user.uilang.slice(0,2): "en";
+        const userLanguageCode = user && user.uilang? user.uilang.slice(0,2): "en";
         const languageChoice = [UserLanguages.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].slice(3)].concat(
             UserLanguages.languages.filter(i => i.slice(0,2) !== userLanguageCode).map(i => i.slice(3))
         )
 
         this.fontSizeDef = ['medium', 'xx-small', 'x-small', 'small', 'large', 'x-large', 'xx-large'];
         this.fontSizeLoc = [strings.medium, 'xx-' + strings.small, 'x-' + strings.small, strings.small, strings.large, 'x-' + strings.large, 'xx-' + strings.large];
-        const projFontSize = this.fontSizeLoc[this.fontSizeDef.indexOf(project.fontsize)]
+        const projFontSize = this.fontSizeLoc[this.fontSizeDef.indexOf(project.fontsize? project.fontsize: "large")]
         const fontSizeChoice = [projFontSize].concat(this.fontSizeLoc.filter(v => v !== projFontSize));
 
         const saveMethod = () => this.save(this)
@@ -137,7 +137,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.font} />
                             </Col>
                             <Col xs={3} md={3}>
-                                <TextboxUx id="Font" ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily}
+                                <TextboxUx id="Font" ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily? project.fontfamily: "SIL Charis"}
                                     toolTipText="" />
                             </Col>
                             <Col xs={7} md={7}>
@@ -219,7 +219,7 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private keyCode(user: IUser, tag: string, defCode: string){
-        if (user === undefined) {
+        if (user === undefined || user.hotkey === undefined) {
             return "";
         }
         const hotKey = user.hotkey.filter(h => h.id === tag)[0];
@@ -233,8 +233,8 @@ class UserSettings extends React.Component<IProps, any> {
     private save(context: UserSettings) {
         const { selectedProject, selectedUser, users, updateUser } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
-        const project = user !== undefined? user.project.filter(u => u.id === selectedProject)[0]: 
-        {fontfamily: "SIL Charis", fontsize: "medium", id:""};
+        const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
+        {fontfamily: "SIL Charis", fontsize: "large", id:""};
 
         const updates = Array<string>();
         let isValid = true;
@@ -260,7 +260,7 @@ class UserSettings extends React.Component<IProps, any> {
         // Ui-Lang
         const language = context.languageRef.current && context.languageRef.current.selected;
         const languageCode = UserLanguages.languages.filter(l => l.slice(3) === language)[0].slice(0,2)
-        if (user.uilang.slice(0,2) !== languageCode) {
+        if (user.uilang && user.uilang.slice(0,2) !== languageCode) {
             this.saveValue(updates, "uilang", languageCode)
         }
         // Font
@@ -303,7 +303,7 @@ class UserSettings extends React.Component<IProps, any> {
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
-            if (user.hotkey.filter(k => k.id === "play-pause")[0].text !== playpause) {
+            if (user.hotkey && user.hotkey.filter(k => k.id === "play-pause")[0].text !== playpause) {
                 this.saveValue(updates, "playpause", playpause)
             }
         }
@@ -322,7 +322,7 @@ class UserSettings extends React.Component<IProps, any> {
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
-            if (user.hotkey.filter(k => k.id === "back")[0].text !== back) {
+            if (user.hotkey && user.hotkey.filter(k => k.id === "back")[0].text !== back) {
                 this.saveValue(updates, "back", back)
             }
         }
@@ -341,7 +341,7 @@ class UserSettings extends React.Component<IProps, any> {
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
-            if (user.hotkey.filter(k => k.id === "forward")[0].text !== forward) {
+            if (user.hotkey && user.hotkey.filter(k => k.id === "forward")[0].text !== forward) {
                 this.saveValue(updates, "forward", forward)
             }
         }
@@ -360,7 +360,7 @@ class UserSettings extends React.Component<IProps, any> {
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
-            if (user.hotkey.filter(k => k.id === "slower")[0].text !== slower) {
+            if (user.hotkey && user.hotkey.filter(k => k.id === "slower")[0].text !== slower) {
                 this.saveValue(updates, "slower", slower)
             }
         }
@@ -379,7 +379,7 @@ class UserSettings extends React.Component<IProps, any> {
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
-            if (user.hotkey.filter(k => k.id === "faster")[0].text !== faster) {
+            if (user.hotkey && user.hotkey.filter(k => k.id === "faster")[0].text !== faster) {
                 this.saveValue(updates, "faster", faster)
             }
         }

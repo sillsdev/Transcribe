@@ -30,7 +30,8 @@ ReactDOM.render(
         <Route path="/SearchParatextProjects" component={SearchParatextProjects} />
         <Route path="/NewOrBrowseParatextProjects" component={NewOrBrowseParatextProjects} />
         <Route path="/ProjectSettings" component={ProjectSettings} />
-        <Route path="/TaskDetails" component={TaskDetails} />
+        <Route path="/ProjectSettings/Task" component={TaskDetails} />
+        <Route path="/ProjectSettings/NewTask" component={TaskDetails} />
       </div>
     </Router>
   </Provider>,

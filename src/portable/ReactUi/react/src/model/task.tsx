@@ -1,10 +1,21 @@
+interface IHistory {
+    id: number;
+    datetime?: string;
+    action: string;
+    userid: string;
+    comment: string;
+};
+
 interface ITask {
-    assignedto: string;
     id: string;
     length?: number;
-    name: string;
+    position?: number;
     state: string;
-    transcribing: boolean;
+    hold?: string;
+    assignedto?: string;
+    name?: string;
+    transcribing?: boolean;
+    history?: IHistory[];
 };
 
 interface IProject {
@@ -16,7 +27,7 @@ interface IProject {
     font?: string;
     size?: string;
     features?: string;
-    direction: string;
+    direction?: string;
     sync?: boolean;
     claim?: boolean;
     type?: string;

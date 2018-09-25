@@ -12,6 +12,7 @@ export interface IState {
         projects: IProject[];
         selectedProject: string;
         selectedTask: string;
+        selectedPopupTask: string;
     };
     audio: {
         initialPosition: number;

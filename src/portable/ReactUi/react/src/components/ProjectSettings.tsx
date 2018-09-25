@@ -15,15 +15,20 @@ import TaskList from './TaskList';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 
 interface IProps extends IStateProps, IDispatchProps {
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
 };
 
 class ProjectSettings extends React.Component<IProps, object> {
     public render() {
         const{ project, strings } = this.props
         const title = project != null && project.name != null? project.name: strings.projectName;
-        const paired = project.id !== "ztt";
+        const modal = this.props.history.location.pathname.length > 17? " Modal": ""
         return (
-            <div id="ProjectSettings" className="ProjectSettings">
+            <div id="ProjectSettings" className={"ProjectSettings" + modal}>
                 <div className="rows">
                     <div className="titles">
                         <div className="left">
@@ -37,9 +42,6 @@ class ProjectSettings extends React.Component<IProps, object> {
                         </div>
                     </div>
                     <div className="paringRow">
-                        <div className={(paired? "visible": "hidden")}>
-                            <PencilAction target={this.pair} />
-                        </div>
                         <LinkAction text={strings.clickToPair} target={this.pair} />
                     </div>
                     <div className="switches">

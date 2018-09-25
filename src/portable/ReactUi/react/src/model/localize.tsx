@@ -70,4 +70,10 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "sortByType": string;
     "projectName": string;
     "clickToPair": string;
+    "taskDetails": string;
+    "delete": string;
+    "audioFile": string;
+    "reference": string;
+    "heading": string;
+    "assignedTo": string;
 };

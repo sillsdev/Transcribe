@@ -46,7 +46,7 @@ class TaskPanel extends React.Component<IProps, object> {
                     target={unassignTask.bind(this, t.id, selectedUser)} />
                 <TaskItem
                     id={t.id}
-                    name={t.name}
+                    name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={selectTask.bind(this,selectedUser, t.id)}/>
@@ -62,7 +62,7 @@ class TaskPanel extends React.Component<IProps, object> {
                     target={unassignTask.bind(this, t.id, selectedUser)} />
                 <TaskItem
                     id={t.id}
-                    name={t.name}
+                    name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={selectTask.bind(this,selectedUser, t.id)}/>
@@ -80,7 +80,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 <div className="placeHolder">{"\u00A0"}</div>
                 <TaskItem
                     id={t.id}
-                    name={t.name}
+                    name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={assignTask.bind(this,t.id, selectedUser)}/>
@@ -92,7 +92,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 <div className="placeHolder">{"\u00A0"}</div>
                 <TaskItem
                     id={t.id}
-                    name={t.name}
+                    name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
                     select={assignTask.bind(this,t.id, selectedUser)}/>

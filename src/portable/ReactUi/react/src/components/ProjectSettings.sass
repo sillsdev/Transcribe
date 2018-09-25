@@ -1,5 +1,12 @@
 @import "../_variables.sass"
 
+.ProjectSettings.Modal
+    background-color: $base03
+    -webkit-filter: blur(5px)
+    -moz-filter: blur(5px)
+    -o-filter: blur(5px)
+    -ms-filter: blur(5px)
+    filter: blur(5px)
 .ProjectSettings
 	background-color: $taskBG
 	width: 100%
@@ -7,7 +14,6 @@
 	display: flex
 	flex-direction: row
 	flex: 0 0 auto
-
 	.rows
 		display: flex
 		flex-direction: column
@@ -16,13 +22,16 @@
 			display: flex
 			flex-direction: row
 			flex: 0 0 auto
-			padding-top: 24px
+			padding-top: 8px
 			.left
 				display: flex
 				flex-direction: row
 				flex: 1 0 auto
+				width: min-content
 				width: -moz-min-content
 				overflow: hidden
+				.LabelCaptionUx.H1
+					line-height: 88px
 				&>*
 					align-self: baseline
 					margin-right: 8px
@@ -33,19 +42,9 @@
 			display: flex
 			flex-direction: row
 			flex: 0 0 auto
-			*
-				align-self: baseline
-				padding-top: 0
-				margin: 0
 			.LinkAction
-				margin-bottom: 16px
 				color: $base1
-			.visible
-				visibility: visible
-				flex: 0 0 auto
-			.hidden
-				visibility: hidden
-				flex: 0 0 auto
+				margin: 0 0 16px 20px
 		.switches>*
 			padding: 0 0 16px 32px
 		.lists

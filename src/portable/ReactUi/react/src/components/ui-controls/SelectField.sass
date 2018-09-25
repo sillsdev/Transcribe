@@ -1,0 +1,76 @@
+@import "../../_variables.sass"
+
+.SelectField
+    width: 320px !important
+    height: 56px !important
+    display: flex
+    flex-direction: column
+    background: transparent
+    justify-content: flex-start
+    padding-bottom: 20px
+
+    .bodyRow
+        display: flex
+        flex-direction: row
+        background-color: rgba(255, 255, 255, 0.15)
+        padding: 9px 12px 0 12px
+
+    .dataColumn
+        display: flex
+        flex-direction: column
+        flex: 1 0 auto
+
+    .Caption
+        font-family: $sans
+        font-size: 12px
+        height: 16px
+        letter-spacing: 0.4px
+        line-height: 16px
+
+    .Body
+        font-family: $sans
+        line-height: 28px
+        display: flex
+    .DataColor
+        color: $base2
+    .CaptionGrey
+        color: $base1
+
+    select
+        flex: 1 0 auto
+        border: none
+        background: url("/assets/Dropdown.svg") 96% / 5% no-repeat transparent
+        -webkit-appearance: none
+        -moz-appearance: none
+        font-family: $sans
+        line-height: 28px
+        font-size: 16px
+        letter-spacing: 0.444444px
+
+        option
+            margin: 40px
+            background: #2a525a
+            color: $base2
+            border: none
+            line-height: 22px
+            font-size: 14px
+
+    .Message
+        font-family: $sans
+        font-size: 12px
+        height: 16px
+        letter-spacing: 0.4px
+        line-height: 16px
+        padding: 0 12px
+
+    .BorderTopGreen
+        border-top: 2px solid $greenLight
+
+    .BorderTopRed
+        border-top: 2px solid $red
+
+    .CaptionGreen
+        color: $greenLight
+
+    .CaptionRed
+        color: $red

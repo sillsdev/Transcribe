@@ -8,6 +8,7 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import allTasks from '../selectors/task';
+import ButtonLink from './controls/ButtonLink'
 import FilterAction from './controls/FilterAction';
 import NextAction from './controls/NextAction'
 import TaskItem from './controls/TaskItem';
@@ -18,26 +19,31 @@ interface IProps extends IStateProps, IDispatchProps {
 };
 
 class TaskList extends React.Component<IProps, object> {
+    public constructor(props: IProps) {
+        super(props);
+        // tslint:disable-next-line:no-console
+        console.log(this.props.users)
+    }
+
     public componentDidMount() {
-        const { fetchLocalization, fetchTasksOfProject, localizationLoaded, selectedParatextProject, selectedProject } = this.props;
-        if (selectedParatextProject !== "" && selectedParatextProject !== selectedProject){
-            fetchTasksOfProject(selectedParatextProject);
-        }
+        const { fetchLocalization, fetchTasksOfProject, localizationLoaded, selectedParatextProject } = this.props;
+        fetchTasksOfProject(selectedParatextProject);
         if (!localizationLoaded) {
             fetchLocalization();
         }
     }
     public render() {
-        const { strings, tasks } = this.props
+        const { selectPopupTask, strings, tasks } = this.props
 
-        const selectTask = () => { alert("Task Details") }
+        // const selectTask = () => { alert("Task Details") }
         const taskList = tasks.map((t: ITask) =>
             <ListGroupItem key={t.id}>
                 <TaskItem
                     id={t.id}
-                    name={t.name}
+                    name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
-                    select={selectTask}/>
+                    select= {selectPopupTask.bind(t.id)}
+                    target="/ProjectSettings/Task"/>
             </ListGroupItem>);
 
         const taskWrapper = (
@@ -52,13 +58,21 @@ class TaskList extends React.Component<IProps, object> {
                 <FilterAction target={sortByType} text={strings.sortByType} />
             </div>);
 
-        const AddTask = () => { alert("Add Task Details") }
         const ManyTask = () => { alert("Add Many Tasks") }
+        const noSelectedTask = () => this.props.selectPopupTask("")
         const buttonWrapper = (
             <div className="Buttons">
                 <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
-                <NextAction text={strings.addTask} target={AddTask} type="outline-light" />
+                <ButtonLink
+                    text={strings.addTask}
+                    target={"/ProjectSettings/NewTask"}
+                    select={noSelectedTask}
+                    type="outline-light" />
             </div>);
+        // tslint:disable-next-line:no-console
+        console.log(this.props.popupTask + " " + 
+            this.props.users && this.props.users.length > 1? this.props.users[1].username.id:
+            "There aren't two users!")
 
         return (
             <div className="TaskList">
@@ -86,11 +100,13 @@ interface IStateProps {
     selectedUser: string;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
+    popupTask: string;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
     localizationLoaded: state.strings.loaded,
+    popupTask: state.tasks.selectedPopupTask,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
@@ -102,12 +118,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     fetchLocalization: typeof actions2.fetchLocalization;
     fetchTasksOfProject: typeof actions.fetchTasks;
+    selectPopupTask: typeof actions.selectPopupTask;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchLocalization: actions2.fetchLocalization,
         fetchTasksOfProject: actions.fetchTasksOfProject,
+        selectPopupTask: actions.selectPopupTask,
     }, dispatch),
 });
 

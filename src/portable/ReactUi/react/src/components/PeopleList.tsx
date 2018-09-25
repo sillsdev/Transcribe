@@ -35,7 +35,7 @@ class PeopleList extends React.Component<any, object> {
                     id={user.username.id}
                     name={user.displayName}
                     target="/project"
-                    uri={user.username.avatarUri}
+                    uri={user.username.avatarUri? user.username.avatarUri: ""}
                     select={selectUser} />
             </ListGroupItem>);
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ButtonLink.sass';
 
 interface IProps {
+    select?: () => any;
     target: string;
     text: string;
     type: string;
@@ -10,9 +11,9 @@ interface IProps {
 
 class ButtonLink extends React.Component<IProps, object> {
     public render() {
-        const { target, text, type } = this.props;
+        const { select, target, text, type } = this.props;
         return (
-            <Link to={target} className="ButtonLink">
+            <Link to={target} className="ButtonLink" onClick={select? select.bind(this):null}>
                 <button className={type}>
                 {text}
                 </button>

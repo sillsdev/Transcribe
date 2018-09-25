@@ -45,7 +45,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             selectedProject, selectedTask, selectedUser, totalSeconds,
             transcription, writeTranscription } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
-        const project = user && user.project.filter(p => p.id === selectedProject)[0];
+        const project = user && user.project && user.project.filter(p => p.id === selectedProject)[0];
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
         const size = project != null? project.fontsize: "12pt"; // Tests null or undefined
 
@@ -53,7 +53,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             this.setState({text: transcription})
         }
         if (submit && !saved) {
-            writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+            writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
         }
         return (
             <div className="EditorPane">
@@ -77,7 +77,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
                 seconds: 0
             });
             if (!saved) {
-                writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+                writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
             }
         }
     }
@@ -99,7 +99,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         const { direction, setSaved, setInitialTranscription, lang, requestPosition, saved, selectedTask, totalSeconds, writeTranscription } = this.props;
         if (event.keyCode === 32) {
             requestPosition();
-            writeTranscription(selectedTask, totalSeconds, lang, direction, this.state)
+            writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
         } else if (saved) {
             setSaved(false);
         }
@@ -114,7 +114,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
 };
 
 interface IStateProps {
-    direction: string;
+    direction?: string;
     initialTranscription: boolean;
     submit: boolean;
     lang: string;

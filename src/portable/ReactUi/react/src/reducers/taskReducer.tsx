@@ -1,4 +1,4 @@
-import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
+import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
 
 const initialState = {
     loaded: false,
@@ -15,14 +15,14 @@ export default function (state = initialState, action: any) {
                 ...state,
                 loaded: false,
                 pending: true,
-                projects: projects(state.projects, action),
+                projects: state.projects.map((p: IProject) => project(p, action)),
             }
         case UNASSIGN_TASK_PENDING:
             return {
                 ...state,
                 loaded: false,
                 pending: true,
-                projects: projects(state.projects, action),
+                projects: state.projects.map((p: IProject) => project(p, action)),
             }
         case FETCH_TASKS:
             return {
@@ -33,16 +33,22 @@ export default function (state = initialState, action: any) {
                 selectedProject: action.payload.data.length === 1?
                     action.payload.data[0].id: state.selectedProject
             };
+        case SELECT_POPUP_TASK:
+            return {
+                ...state,
+                projects: state.projects.map((p: IProject) => project(p, action)),
+                selectedPopupTask: action.payload,
+        }
         case SELECT_PROJECT:
             return {
                 ...state,
-                projects: projects(state.projects, action),
+                projects: state.projects.map((p: IProject) => project(p, action)),
                 selectedProject: action.payload,
             }
         case SELECT_TASK:
             return {
                 ...state,
-                projects: projects(state.projects, action),
+                projects: state.projects.map((p: IProject) => project(p, action)),
                 selectedTask: action.payload,
             }
         default:
@@ -50,14 +56,22 @@ export default function (state = initialState, action: any) {
     }
 }
 
-function projects (state:IProject[] = Array<IProject>(), action:any) {
+function project (state:IProject = {id: "", lang:"", task: Array<ITask>()}, action:any) {
     switch (action.type) {
-        case SELECT_PROJECT:
-        case SELECT_TASK:
-            return [
-                ...state,
-            ];
         default:
-            return state;
+            return {
+                ...state,
+                task: state.task.map((t: ITask) => task(t, action)),
+            }
+    }
+}
+
+function task (state:ITask = {id:"", state:"Transcribe"}, action: any) {
+    switch (action.type) {
+        default:
+            return {
+                ...state,
+                history: state.history && state.history.map((h: IHistory) => ({...h})),
+            }
     }
 }

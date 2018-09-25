@@ -380,5 +380,41 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.taskDetails">
+			<segment>
+				<source>Task Details</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.delete">
+			<segment>
+				<source>Delete</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.audioFile">
+			<segment>
+				<source>Audio File</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reference">
+			<segment>
+				<source>Reference</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.heading">
+			<segment>
+				<source>Heading</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.assignedTo">
+			<segment>
+				<source>Assigned To</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>
