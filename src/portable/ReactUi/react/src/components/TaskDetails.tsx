@@ -33,7 +33,7 @@ const initialState = {
 }
 
 class TaskDetails extends React.Component<IProps, typeof initialState> {
-    public state = initialState;
+    public state = {...initialState};
     private original: typeof initialState;
     private taskId: string;
     private task: ITask;
@@ -50,18 +50,27 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         console.log(this.props.users.length > 1? this.props.users[1].username.id: "Only one user")
         const { popupTask } = this.props;
         this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
+        // tslint:disable-next-line:no-console
+        console.log(this.taskId === undefined? "taskId is undefined":(this.taskId === ""? "taskId is empty": JSON.stringify(this.taskId)))
         if (this.taskId && this.taskId !== "") {
             this.task = this.myTask(this.taskId);
             this.state.fileName = this.task.id
             const idParts = this.taskId.split('-');
             this.state.reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "");
-            this.state.heading = this.task.name;
+            this.state.heading = this.task.name?this.task.name:"";
             if (this.task.assignedto != null) {
                 this.state.assignedTo = this.task.assignedto;
                 // tslint:disable-next-line:no-console
                 console.log("Assigned to:" + this.task.assignedto)
             }
+        } else {
+            // tslint:disable-next-line:no-console
+            console.log("setting empty state")
+            this.task = {id:"", state:"Transcribe"}
+            this.state = {...initialState}
         }
+        // tslint:disable-next-line:no-console
+        console.log(this.state)
         // tslint:disable-next-line:no-console
         console.log(this.props.users.length > 1? this.props.users[1].username.id: "Only one user")
         this.original = {...this.state};

@@ -13,7 +13,7 @@ class ButtonLink extends React.Component<IProps, object> {
     public render() {
         const { select, target, text, type } = this.props;
         return (
-            <Link to={target} className="ButtonLink" onClick={(select !== undefined)? select.bind(this):null}>
+            <Link to={target} className="ButtonLink" onClick={select? select.bind(this):null}>
                 <button className={type}>
                 {text}
                 </button>
