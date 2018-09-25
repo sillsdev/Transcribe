@@ -34,7 +34,7 @@ function users(state: IUser[] = Array<IUser>(), action: any) {
                 return {
                     ...user,
                     hotkey: user.hotkey && user.hotkey.map((h: IUserKeyVal) => ({...h})),
-                    project: {...user.project},
+                    project: user.project && user.project.map((p: IUserProjectSettings) => ({...p})),
                     role: user.role.map(s => s),
                     setting: user.setting && user.setting.map((s: IUserKeyVal) => ({...s})),
                     username: {...user.username}
