@@ -45,14 +45,8 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
 
-        // tslint:disable-next-line:no-console
-        console.log(this.props.users)
-        // tslint:disable-next-line:no-console
-        console.log(this.props.users.length > 1? this.props.users[1].username.id: "Only one user")
         const { popupTask } = this.props;
         this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
-        // tslint:disable-next-line:no-console
-        console.log(this.taskId === undefined? "taskId is undefined":(this.taskId === ""? "taskId is empty": JSON.stringify(this.taskId)))
         if (this.taskId && this.taskId !== "") {
             this.task = this.myTask(this.taskId);
             this.state.fileName = this.task.id
@@ -61,32 +55,21 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             this.state.heading = this.task.name?this.task.name:"";
             if (this.task.assignedto != null) {
                 this.state.assignedTo = this.task.assignedto;
-                // tslint:disable-next-line:no-console
-                console.log("Assigned to:" + this.task.assignedto)
             }
         } else {
-            // tslint:disable-next-line:no-console
-            console.log("setting empty state")
             this.task = {id:"", state:"Transcribe"}
             this.state = {...initialState}
         }
-        // tslint:disable-next-line:no-console
-        console.log(this.state)
-        // tslint:disable-next-line:no-console
-        console.log(this.props.users.length > 1? this.props.users[1].username.id: "Only one user")
         this.original = {...this.state};
     }
 
     public render() {
         const { fileName, reference, heading, assignedTo } = this.state
         const { strings, users } = this.props;
-        // alert(JSON.stringify(users))
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
-        // alert(JSON.stringify(userDisplayNames));
 
         const deleteTask = () => { alert("Delete Task") }
         const save = () => this.save(this);
-        // alert(this.state.assignedTo + " " + this.displayName(assignedTo));
         return (
             <div className="TaskDetails">
                 <div className="closeRow">
@@ -145,15 +128,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private updateAssignedTo(userId: string) {
-        // tslint:disable-next-line:no-console
-        console.log(this.props.users)
-        alert(JSON.stringify(this.props.users))
-        // alert(JSON.stringify(this.props.users));
-        // this.setState({...this.state, assignedTo: userId})
-        // tslint:disable-next-line:no-console
-        console.log("Assigning:" + userId)
-        // alert(userId);
-        this.state.assignedTo = userId;
+        this.setState({...this.state, assignedTo: userId})
     }
 
     private myTask(taskId: string): ITask {
