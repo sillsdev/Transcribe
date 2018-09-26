@@ -59,10 +59,13 @@ namespace ReactShared
 					}
 				}
 
+				var deleteNodes = new List<XmlNode>();
 				foreach (XmlNode taskNode in taskNodes)
-					node.RemoveChild(taskNode);
-				foreach (XmlNode taskNode in filterNodeList)
-					node.AppendChild(taskNode);
+					if (!filterNodeList.Contains(taskNode))
+						deleteNodes.Add(taskNode);
+				foreach (var t in deleteNodes)
+					node.RemoveChild(t);
+
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
