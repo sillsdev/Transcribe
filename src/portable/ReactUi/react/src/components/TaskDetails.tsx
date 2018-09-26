@@ -44,6 +44,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateFileName = this.updateFileName.bind(this);
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
+
         // tslint:disable-next-line:no-console
         console.log(this.props.users)
         // tslint:disable-next-line:no-console
@@ -146,11 +147,13 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     private updateAssignedTo(userId: string) {
         // tslint:disable-next-line:no-console
         console.log(this.props.users)
+        alert(JSON.stringify(this.props.users))
         // alert(JSON.stringify(this.props.users));
-        this.setState({...this.state, assignedTo: userId})
+        // this.setState({...this.state, assignedTo: userId})
         // tslint:disable-next-line:no-console
         console.log("Assigning:" + userId)
         // alert(userId);
+        this.state.assignedTo = userId;
     }
 
     private myTask(taskId: string): ITask {
@@ -162,7 +165,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private taskUser(userId: string): IUser {
-        return {...this.props.users.filter((u: IUser) => u.username.id = userId)[0]};
+        return {...this.props.users.filter((u: IUser) => u.username.id === userId)[0]};
     }
 
     private displayName(userId: string): string {
