@@ -123,6 +123,8 @@ namespace ReactShared
 			if (!Directory.Exists(audioFolder))
 				Directory.CreateDirectory(audioFolder);
 			var dirInfo = new DirectoryInfo(folder);
+			if (!dirInfo.Exists)
+				return null;
 			foreach (var ext in ".mp3;.wav".Split(';'))
 			{
 				var files = dirInfo.GetFiles(taskid + "*" + ext);
