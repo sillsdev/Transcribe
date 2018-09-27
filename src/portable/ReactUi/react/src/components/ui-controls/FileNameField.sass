@@ -1,0 +1,86 @@
+@import "../../_variables.sass"
+
+.FileNameField
+    width: 320px !important
+    height: 56px !important
+    display: flex
+    flex-direction: column
+    background: transparent
+    justify-content: flex-start
+    padding-bottom: 24px
+
+    .bodyRow
+        display: flex
+        flex-direction: row
+        background-color: rgba(255, 255, 255, 0.15)
+        padding: 9px 12px 0 12px
+        min-height: min-content
+
+    .dataColumn
+        display: flex
+        flex-direction: column
+        flex: 1 0 auto
+        max-width: 264px
+        overflow: hidden
+
+
+    .clearButton
+        display: flex
+        flex: 0 0 auto
+        padding-left: 8px
+
+    .Caption
+        font-family: $sans
+        font-size: 12px
+        height: 16px
+        letter-spacing: 0.4px
+        line-height: 16px
+
+    input
+        display: none
+
+    .fileInput
+        display: flex
+        flex-direction: row
+        flex: 1 0 auto
+        height: 28px
+        background: rgb(42, 82, 90)
+        border: none
+        visibility: hidden
+        &::before
+            visibility: visible
+            display: flex
+            flex-direction: row
+            flex: 1 0 auto
+            height: 28px
+            content: attr(data-content)
+            font-family: $sans
+            font-size: 16px
+            letter-spacing: 0.44px
+    .DataColor
+        color: $base2
+    .CaptionGrey
+        color: $base1
+
+    .Message
+        font-family: $sans
+        font-size: 12px
+        height: 16px
+        letter-spacing: 0.4px
+        line-height: 16px
+        padding: 0 12px
+
+    .BorderTopGreen
+        border-top: 2px solid $greenLight
+
+    .BorderTopRed
+        border-top: 2px solid $red
+
+    .CaptionGreen
+        color: $greenLight
+
+    .CaptionRed
+        color: $red
+
+    .Hide
+        visibility: hidden

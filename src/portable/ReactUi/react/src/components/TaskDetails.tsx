@@ -12,6 +12,7 @@ import userStrings from '../selectors/localize'
 import allTasks from '../selectors/task';
 import NextAction from './controls/NextAction';
 import './TaskDetails.sass';
+import FileNameField from './ui-controls/FileNameField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import SelectField from './ui-controls/SelectField';
 import TextField from './ui-controls/TextField';
@@ -104,7 +105,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             </div>
                         </div>
                         <div className="resultsRight">
-                            <div><TextField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} /></div>
+                            <div><FileNameField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} /></div>
                             <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} /></div>
                             <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
                             <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} /></div>
@@ -132,7 +133,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private myTask(taskId: string): ITask {
-        return {...this.props.tasks.filter(t => t.id === taskId)[0]};
+        return this.props.tasks.filter(t => t.id === taskId)[0];
     }
 
     private duration(): number {
@@ -140,7 +141,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private taskUser(userId: string): IUser {
-        return {...this.props.users.filter((u: IUser) => u.username.id === userId)[0]};
+        return this.props.users.filter((u: IUser) => u.username.id === userId)[0];
     }
 
     private displayName(userId: string): string {

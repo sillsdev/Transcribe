@@ -39,7 +39,6 @@ class TaskList extends React.Component<IProps, object> {
     public render() {
         const { selectPopupTask, strings, tasks } = this.props
 
-        // const selectTask = () => { alert("Task Details") }
         const taskList = tasks.map((t: ITask) =>
             <ListGroupItem key={t.id}>
                 <TaskItem
@@ -73,10 +72,6 @@ class TaskList extends React.Component<IProps, object> {
                     select={noSelectedTask}
                     type="outline-light" />
             </div>);
-        // tslint:disable-next-line:no-console
-        console.log(this.props.popupTask + " " + 
-            this.props.users && this.props.users.length > 1? this.props.users[1].username.id:
-            "There aren't two users!")
 
         return (
             <div className="TaskList">
