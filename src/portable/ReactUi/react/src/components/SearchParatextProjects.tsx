@@ -53,7 +53,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
                         <div className="name">{paratextProject.name != null? paratextProject.name: paratextProject.id}</div>
                         <div className="code">{paratextProject.langName != null? paratextProject.langName: paratextProject.lang}</div>
                     </li>);
-                const selectEmptyProject = () => this.selectProject({id:"ztt", guid:"", lang:""});
+                const selectEmptyProject = () => this.selectProject({id:"ztt", guid:"", lang:"und"});
                 wrapper = (
                     <div className="list">
                         <div id="ParatextProject" className="label">{strings.selectProject}</div>
