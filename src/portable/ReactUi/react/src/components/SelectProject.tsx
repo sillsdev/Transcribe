@@ -21,11 +21,12 @@ class SelectProject extends React.Component<IProps, object> {
   }
 
   public render() {
-    const { loaded, projects, selectProject, selectedUser, strings, users } = this.props
+    const { loaded, projects, selectProject, strings } = this.props
 
-    const user: IUser = users.filter((u: IUser) => u.username.id === selectedUser)[0];
-    const admin = user && user.role.filter((s: string) => s.toLowerCase() === "administrator")[0];
-    const dest = (admin != null)? "/ProjectSettings": "/main";
+    // const user: IUser = users.filter((u: IUser) => u.username.id === selectedUser)[0];
+    // const admin = user && user.role.filter((s: string) => s.toLowerCase() === "administrator")[0];
+    // const dest = (admin != null)? "/ProjectSettings": "/main";
+    const dest = "/main"
 
     const avatars = projects.map((p:IProject) => 
       <ListGroupItem key={p.id}>
@@ -65,7 +66,7 @@ interface IStateProps {
   projects: IProject[];
   loaded: boolean;
   strings: ITranscriberStrings;
-  users: IUser[];
+  // users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -73,7 +74,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
   projects: state.tasks.projects,
   selectedUser: state.users.selectedUser,
   strings: state.strings.transcriber,
-  users: state.users.users,
+  // users: state.users.users,
 });
 
 interface IDispatchProps {

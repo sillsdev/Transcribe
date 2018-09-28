@@ -6,6 +6,7 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize'
 import currentProject from '../selectors/project';
+import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
 import PencilAction from './controls/PencilAction';
 import ToggleSwitch from './controls/ToggleSwitch';
@@ -31,6 +32,7 @@ class ProjectSettings extends React.Component<IProps, object> {
             <div id="ProjectSettings" className={"ProjectSettings" + modal}>
                 <div className="rows">
                     <div className="titles">
+                        <BackLink target="/main" />
                         <div className="left">
                             <PencilAction target={this.editProjectName} />
                             <LabelCaptionUx name={title} type="H1" />
