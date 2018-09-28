@@ -18,8 +18,6 @@ namespace ReactShared
 			var user = parsedQuery["user"];
 			var tasksDoc = Util.LoadXmlData("tasks");
 			var taskNode = tasksDoc.SelectSingleNode($@"//task[@id=""{task}""]");
-			var folder = Path.Combine(Util.DataFolder, Path.GetDirectoryName(Path.Combine(task.Split('-'))));
-			string eafFilePath = Path.Combine(folder, Path.GetFileNameWithoutExtension(parsedQuery["task"]) + ".eaf");
 			if (taskNode == null)
 				return true;
 			switch (action)

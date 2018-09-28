@@ -15,6 +15,15 @@ namespace ReactShared
 			Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 		public static readonly List<string> SupportFile = new List<string>();
 		public static readonly Regex TaskIdPattern = new Regex(@"(.*)v[0-9]{2}\.(mp3|wav)$", RegexOptions.Compiled);
+		private static readonly Regex FileTaskIdPattern = new Regex(@"(.*)(v[0-9]{2})(\.mp3|\.wav)?$", RegexOptions.Compiled);
+
+		public static string FileFolder(string taskId)
+		{
+			var match = FileTaskIdPattern.Match(taskId);
+			if (match.Success)
+				taskId = match.Groups[1].Value;
+			return Path.Combine(DataFolder, Path.GetDirectoryName(Path.Combine(taskId.Split('-'))));
+		}
 
 		public static string ApiFolder()
 		{

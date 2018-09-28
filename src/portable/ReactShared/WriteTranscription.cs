@@ -25,7 +25,7 @@ namespace ReactShared
 			var duration = miliseconds.ToString("F0");
 			UpdateXml(xml, "*[@TIME_SLOT_ID='ts2']/@TIME_VALUE", duration);
 
-			var folder = Path.Combine(Util.DataFolder, Path.GetDirectoryName(Path.Combine(taskid.Split('-'))));
+			var folder = Util.FileFolder(taskid);
 			var name = taskid;
 			var ext = Path.GetExtension(name);
 			UpdateXml(xml, "@MEDIA_FILE", name);

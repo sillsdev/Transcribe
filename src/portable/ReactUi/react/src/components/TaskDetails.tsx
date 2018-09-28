@@ -38,6 +38,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     private original: typeof initialState;
     private taskId: string;
     private task: ITask;
+    private fileRef: React.RefObject<FileNameField>;
 
     constructor(props: IProps) {
         super(props)
@@ -45,6 +46,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateFileName = this.updateFileName.bind(this);
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
+        this.fileRef = React.createRef();
 
         const { popupTask } = this.props;
         this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
@@ -105,7 +107,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             </div>
                         </div>
                         <div className="resultsRight">
-                            <div><FileNameField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} /></div>
+                            <div><FileNameField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
                             <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} /></div>
                             <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
                             <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} /></div>
@@ -162,9 +164,11 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         const { selectedProject, updateTask } = this.props;
 
         const updates = Array<string>();
+        let data: object = {}
 
         if (this.state.fileName !== this.original.fileName) {
             this.saveValue(updates, "audioFile", this.state.fileName);
+            data = {data: this.fileRef.current && this.fileRef.current.state.data}
         }
 
         if (this.state.reference !== this.original.reference) {
@@ -183,7 +187,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
             console.log("/api/UpdateTask?task=" + this.taskId, '&project=' + selectedProject + query);
-            updateTask(this.taskId, selectedProject, query);
+            updateTask(this.taskId, selectedProject, query, data);
         }
     }
 }

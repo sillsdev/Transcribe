@@ -100,8 +100,8 @@ export const fetchTranscription = (taskid: string) => (dispatch: any) => {
     });
 }
 
-export const updateTask = (task: string, project: string, query: string) => (dispatch: any) => {
+export const updateTask = (task: string, project: string, query: string, data: object) => (dispatch: any) => {
     dispatch({type: UPDATE_TASK});
-    Axios.put('/api/UpdateTask?task=' + task + '&project=' + project + query)
+    Axios.put('/api/UpdateTask?task=' + task + '&project=' + project + query, data)
         .then(dispatch(fetchTasksOfProject(project)))
 }
