@@ -33,7 +33,7 @@ namespace Transcribe.Windows
 				currentTask = currentTask.GetTask(taskId);
 
 				// Get the Task Transcription Text from EAF
-				var folder = Path.Combine(Util.DataFolder, Path.GetDirectoryName(Path.Combine(taskId.Split('-'))));
+				var folder = Util.FileFolder(taskId);
 				string eafFilePath = Path.Combine(folder, Path.GetFileNameWithoutExtension(taskId) + ".eaf");
 
 				var transcriptionArray = GetTranscriptionTextFromEAF(eafFilePath);

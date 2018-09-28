@@ -58,6 +58,9 @@ namespace Transcribe.Windows
 					case "WriteTranscription":
 						new WriteTranscription(e.Uri.Query, e.RequestBody);
 						break;
+					case "UpdateTask":
+						new UpdateTask(e.Uri.Query, e.RequestBody);
+						break;
 				}
 			}
 		}

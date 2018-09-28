@@ -13,6 +13,7 @@ interface IProps {
 class FileNameField extends React.Component<IProps, any> {
     public state = {
         current: this.props.inputValue,
+        data: "",
     }
 
     constructor(props: IProps) {
@@ -28,6 +29,11 @@ class FileNameField extends React.Component<IProps, any> {
         console.log(event.target.files[0]);
         let val: string = event.target.value;
         val = val.replace("C:\\fakepath\\", "")
+        const reader = new FileReader()
+        reader.readAsDataURL(event.target.files[0])
+        reader.onload = (e: any) => {
+            this.setState({...this.state, data: e.target.result})
+        }
         this.setState({current: val });
         if (this.props.onChange != null) {
             this.props.onChange(val)

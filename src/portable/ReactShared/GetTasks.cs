@@ -117,7 +117,7 @@ namespace ReactShared
 		private string CopyAudioFile(string taskid)
 		{
 			var name = string.Empty;
-			var folder = Path.Combine(Util.DataFolder, Path.GetDirectoryName(Path.Combine(taskid.Split('-'))));
+			var folder = Util.FileFolder(taskid);
 			var apiFolder = Util.ApiFolder();
 			var audioFolder = Path.Combine(apiFolder, "audio");
 			if (!Directory.Exists(audioFolder))
@@ -149,7 +149,7 @@ namespace ReactShared
 		{
 			var idName = Path.GetFileNameWithoutExtension(taskId);
 			var eafName = idName + ".eaf";
-			var folder = Path.Combine(Util.DataFolder, Path.GetDirectoryName(Path.Combine(idName.Split('-'))));
+			var folder = Util.FileFolder(idName);
 			var eafFullName = Path.Combine(folder, eafName);
 			if (!File.Exists(eafFullName))
 				return;

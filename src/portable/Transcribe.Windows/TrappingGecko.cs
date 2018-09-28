@@ -59,7 +59,7 @@ namespace Transcribe.Windows
 						new WriteTranscription(e.Uri.Query, e.RequestBody);
 						break;
 					case "UpdateTask":
-						new UpdateTask(e.Uri.Query);
+						new UpdateTask(e.Uri.Query, e.RequestBody);
 						break;
 				}
 			}
