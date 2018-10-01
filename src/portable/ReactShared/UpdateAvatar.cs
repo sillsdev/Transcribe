@@ -16,9 +16,10 @@ namespace ReactShared
 			var avatarBase64 = Util.GetRequestElement(requestBody, "preview");
 			Debug.Print($"{user}:{avatarBase64}");
 			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
-			var sourceFolder = Util.DataFolder;
-			if (sourceFolder != null)
-				saveImage(avatarBase64, Path.Combine(sourceFolder, "images/" + imageFileName));
+			var sourceFolder = Path.Combine(Util.DataFolder, "images");
+			var sourceInfo = new DirectoryInfo(sourceFolder);
+			sourceInfo.Create();
+			saveImage(avatarBase64, Path.Combine(sourceFolder, imageFileName));
 			var usersDoc = Util.LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
 			if (userNode == null)
