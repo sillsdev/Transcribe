@@ -1,16 +1,17 @@
 import * as React from 'react';
-import './FileNameField.sass';
+import './FileField.sass';
 
 interface IProps {
-    id?: string,
-    caption: string,
-    inputValue?: string,
-    message?: string,
-    isReadOnly?: boolean,
+    id?: string;
+    caption: string;
+    inputValue?: string;
+    extensions?: string;
+    message?: string;
+    isReadOnly?: boolean;
     onChange?: (value: string) => any;
 }
 
-class FileNameField extends React.Component<IProps, any> {
+class FileField extends React.Component<IProps, any> {
     public state = {
         current: this.props.inputValue,
         data: "",
@@ -23,10 +24,6 @@ class FileNameField extends React.Component<IProps, any> {
     }
 
     public handleChange(event: any) {
-        // tslint:disable-next-line:no-console
-        console.log(URL.createObjectURL(event.target.files[0]));
-        // tslint:disable-next-line:no-console
-        console.log(event.target.files[0]);
         let val: string = event.target.value;
         val = val.replace("C:\\fakepath\\", "")
         const reader = new FileReader()
@@ -48,18 +45,17 @@ class FileNameField extends React.Component<IProps, any> {
 
     public render() {
         const { current } = this.state;
-        const { caption, id, isReadOnly, message } = this.props;
+        const { extensions, caption, id, isReadOnly, message } = this.props;
         const errorMessage = current !== "" && message? message: "";
         const messageStyle = (errorMessage.length > 0)? "Message CaptionRed BorderTopRed": "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0)? "Caption CaptionRed": "Caption CaptionGreen";
-        const clearStyle = isReadOnly? "Hide": "clearButton";
+        const clearStyle = isReadOnly || current === ""? "Hide": "clearButton";
         const labelContent = (current && current !== "")? current : caption
         const labelStyle = (current && current !== "")? "DataColor" : "CaptionGrey"
-        // tslint:disable-next-line:no-console
-        console.log('caption='+caption + ', current="'+current+'", label="'+labelContent+'"')
+        const accept = extensions != null? extensions: ".mp3,.wav";
 
         return (
-            <div id={id} className="FileNameField">
+            <div id={id} className="FileField">
                 <div className="bodyRow">
                     <div className="dataColumn">
                         <label
@@ -74,7 +70,7 @@ class FileNameField extends React.Component<IProps, any> {
                             id="Upload"
                             readOnly={isReadOnly}
                             type="file"
-                            accept=".mp3,.wav"
+                            accept={accept}
                             onChange={this.handleChange}/>
                     </div>
                     <div className={clearStyle} onClick={this.handleClear}>
@@ -89,4 +85,4 @@ class FileNameField extends React.Component<IProps, any> {
     }
 }
 
-export default FileNameField;
+export default FileField;

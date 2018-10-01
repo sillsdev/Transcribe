@@ -12,7 +12,7 @@ import userStrings from '../selectors/localize'
 import allTasks from '../selectors/task';
 import NextAction from './controls/NextAction';
 import './TaskDetails.sass';
-import FileNameField from './ui-controls/FileNameField';
+import FileField from './ui-controls/FileField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import SelectField from './ui-controls/SelectField';
 import TextField from './ui-controls/TextField';
@@ -38,7 +38,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     private original: typeof initialState;
     private taskId: string;
     private task: ITask;
-    private fileRef: React.RefObject<FileNameField>;
+    private fileRef: React.RefObject<FileField>;
 
     constructor(props: IProps) {
         super(props)
@@ -107,7 +107,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             </div>
                         </div>
                         <div className="resultsRight">
-                            <div><FileNameField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
+                            <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
                             <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} /></div>
                             <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
                             <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} /></div>

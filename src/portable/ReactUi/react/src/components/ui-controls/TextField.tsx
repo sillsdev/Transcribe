@@ -40,7 +40,7 @@ class TextInputFieldUx extends React.Component<IProps, any> {
         const errorMessage = current !== "" && message? message: "";
         const messageStyle = (errorMessage.length > 0)? "Message CaptionRed BorderTopRed": "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0)? "Caption CaptionRed": "Caption CaptionGreen";
-        const clearStyle = isReadOnly? "Hide": "clearButton";
+        const clearStyle = isReadOnly || current === ""? "Hide": "clearButton";
 
         return (
             <div id={id} className="TextField">
