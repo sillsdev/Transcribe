@@ -10,6 +10,7 @@ import SearchParatextProjects from './components/SearchParatextProjects';
 import SelectProject from './components/SelectProject';
 import TaskDetails from './components/TaskDetails';
 import UiLang from './components/UiLang';
+import UserDetails from './components/UserDetails';
 import UserLogin from './components/UserLogin';
 import UserSettings from './components/UserSettings';
 import './index.sass';
@@ -32,6 +33,7 @@ ReactDOM.render(
         <Route path="/ProjectSettings" component={ProjectSettings} />
         <Route path="/ProjectSettings/Task" component={TaskDetails} />
         <Route path="/ProjectSettings/NewTask" component={TaskDetails} />
+        <Route path="/ProjectSettings/User" component={UserDetails} />
       </div>
     </Router>
   </Provider>,

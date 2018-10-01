@@ -5,6 +5,7 @@ export interface IState {
         loaded: boolean;
         users: IUser[];
         selectedUser: string;
+        selectedPopupUser: string;
     };
     tasks: {
         loaded: boolean;

@@ -365,49 +365,55 @@
 		<unit id="projectSettings.projectName">
 			<segment>
 				<source>Project Name</source>
-				<target></target>
+				<target>Sunan aikin</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.clickToPair">
 			<segment>
 				<source>Click to pair with Paratext</source>
-				<target></target>
+				<target>Danna don daidaita tare da Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.taskDetails">
 			<segment>
 				<source>Task Details</source>
-				<target></target>
+				<target>Taswalin Task</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.taskDetails">
+			<segment>
+				<source>User Details</source>
+				<target>Bayanan mai amfani</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.delete">
 			<segment>
 				<source>Delete</source>
-				<target></target>
+				<target>Share</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.audioFile">
 			<segment>
 				<source>Audio File</source>
-				<target></target>
+				<target>Fayil ɗin Audio</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reference">
 			<segment>
 				<source>Reference</source>
-				<target></target>
+				<target>Magana</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.heading">
 			<segment>
 				<source>Heading</source>
-				<target></target>
+				<target>Rubutun</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.assignedTo">
 			<segment>
 				<source>Assigned To</source>
-				<target></target>
+				<target>Rabawa To</target>
 			</segment>
 		</unit>
 	</file>

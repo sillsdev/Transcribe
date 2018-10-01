@@ -365,49 +365,55 @@
 		<unit id="projectSettings.projectName">
 			<segment>
 				<source>Project Name</source>
-				<target></target>
+				<target>اسم المشروع</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.clickToPair">
 			<segment>
 				<source>Click to pair with Paratext</source>
-				<target></target>
+				<target>Paratext انقر للاقتران مع </target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.taskDetails">
 			<segment>
 				<source>Task Details</source>
-				<target></target>
+				<target>تفاصيل المهمة</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.taskDetails">
+			<segment>
+				<source>User Details</source>
+				<target>بيانات المستخدم</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.delete">
 			<segment>
 				<source>Delete</source>
-				<target></target>
+				<target>حذف</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.audioFile">
 			<segment>
 				<source>Audio File</source>
-				<target></target>
+				<target>ملف الصوت</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reference">
 			<segment>
 				<source>Reference</source>
-				<target></target>
+				<target>مرجع</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.heading">
 			<segment>
 				<source>Heading</source>
-				<target></target>
+				<target>عنوان</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.assignedTo">
 			<segment>
 				<source>Assigned To</source>
-				<target></target>
+				<target>مخصص ل</target>
 			</segment>
 		</unit>
 	</file>

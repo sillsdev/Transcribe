@@ -386,6 +386,12 @@
 				<target>Détails de la tâche</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.taskDetails">
+			<segment>
+				<source>User Details</source>
+				<target>Détails de l'utilisateur</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.delete">
 			<segment>
 				<source>Delete</source>
