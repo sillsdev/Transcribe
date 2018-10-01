@@ -1,9 +1,11 @@
-import { ASSIGN_TASK_PENDING, FETCH_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
+import { ASSIGN_TASK_PENDING, DELETE_TASK, FETCH_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
 
 const initialState = {
+    deleted: false,
     loaded: false,
     pending: false,
     projects: Array<IProject>(),
+    selectedPopupTask: "",
     selectedProject: "",
     selectedTask: "",
 }
@@ -36,8 +38,15 @@ export default function (state = initialState, action: any) {
         case SELECT_POPUP_TASK:
             return {
                 ...state,
+                deleted: false,
                 projects: state.projects.map((p: IProject) => project(p, action)),
                 selectedPopupTask: action.payload,
+        }
+        case DELETE_TASK:
+            return {
+                ...state,
+                deleted: true,
+                projects: state.projects.map((p: IProject) => project(p, action)),
         }
         case SELECT_PROJECT:
             return {

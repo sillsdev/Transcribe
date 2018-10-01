@@ -9,6 +9,7 @@ export interface IState {
     tasks: {
         loaded: boolean;
         pending: boolean;
+        deleted: boolean;
         projects: IProject[];
         selectedProject: string;
         selectedTask: string;

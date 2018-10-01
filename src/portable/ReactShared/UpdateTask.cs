@@ -9,7 +9,7 @@ namespace ReactShared
 {
 	public class UpdateTask
 	{
-		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]{3}) ([0-9]{1,3}):([0-9]{1,3})-([0-9]{1,3})$", RegexOptions.Compiled);
+		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3}):([0-9]{1,3})-([0-9]{1,3})$", RegexOptions.Compiled);
 
 		public UpdateTask(string query, byte[] requestBody)
 		{

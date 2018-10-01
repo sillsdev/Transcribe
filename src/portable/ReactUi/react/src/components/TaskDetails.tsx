@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Avatar from 'react-avatar';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import * as actions2 from '../actions/userActions';
@@ -68,10 +68,14 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
     public render() {
         const { fileName, reference, heading, assignedTo } = this.state
-        const { strings, users } = this.props;
+        const { deleted, strings, users } = this.props;
+
+        if (deleted) {
+            return (<Redirect to="/ProjectSettings" />)
+        }
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
 
-        const deleteTask = () => { alert("Delete Task") }
+        const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         return (
             <div className="TaskDetails">
@@ -160,6 +164,11 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         updates.push(tag + '=' + encodeURIComponent(val != null? val: ""))
     }
 
+    private deleteTask() {
+        const { deleteTask, popupTask } = this.props;
+        return deleteTask(popupTask);
+    }
+
     private save(ctx: TaskDetails) {
         const { selectedProject, updateTask } = this.props;
 
@@ -193,6 +202,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 }
 
 interface IStateProps {
+    deleted: boolean;
     popupTask: string;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
@@ -202,6 +212,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    deleted: state.tasks.deleted,
     popupTask: state.tasks.selectedPopupTask,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedProject: state.tasks.selectedProject,
@@ -211,12 +222,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 interface IDispatchProps {
+    deleteTask: typeof actions.deleteTask;
     fetchUsers: typeof actions2.fetchUsers;
     selectTask: typeof actions.selectTask;
     updateTask: typeof actions.updateTask;
  };
  const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
      ...bindActionCreators({
+        deleteTask: actions.deleteTask,
         fetchUsers: actions2.fetchUsers,
         selectTask: actions.selectTask,
         updateTask: actions.updateTask,

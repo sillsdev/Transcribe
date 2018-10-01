@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import { setSubmitted } from './audioActions';
-import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, 
+import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, DELETE_TASK,
     FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK,  UNASSIGN_TASK_PENDING,
     UPDATE_TASK, WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { saveUserSetting } from './userActions';
@@ -64,6 +64,13 @@ export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
             })
         })
     }
+
+export const deleteTask = (taskid: string) => (dispatch: any) => {
+    const project = taskid.split('-')[0];
+    dispatch({type: DELETE_TASK});
+    Axios.put('/api/DeleteTask?action=Unassigned&task=' + taskid )
+        .then(dispatch(fetchTasksOfProject(project)))
+}
 
 export function selectProject(id: string): any{
     return {

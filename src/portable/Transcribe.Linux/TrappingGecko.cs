@@ -61,6 +61,9 @@ namespace Transcribe.Windows
 					case "UpdateTask":
 						new UpdateTask(e.Uri.Query, e.RequestBody);
 						break;
+					case "DeleteTask":
+						new DeleteTask(e.Uri.Query);
+						break;
 				}
 			}
 		}
