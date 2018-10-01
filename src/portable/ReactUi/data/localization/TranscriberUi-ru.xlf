@@ -365,49 +365,55 @@
 		<unit id="projectSettings.projectName">
 			<segment>
 				<source>Project Name</source>
-				<target></target>
+				<target>название проекта</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.clickToPair">
 			<segment>
 				<source>Click to pair with Paratext</source>
-				<target></target>
+				<target>Нажмите для сопряжения с Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.taskDetails">
 			<segment>
 				<source>Task Details</source>
-				<target></target>
+				<target>Сведения о задаче</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.taskDetails">
+			<segment>
+				<source>User Details</source>
+				<target>Информация о пользователе</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.delete">
 			<segment>
 				<source>Delete</source>
-				<target></target>
+				<target>Удалить</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.audioFile">
 			<segment>
 				<source>Audio File</source>
-				<target></target>
+				<target>Аудиофайл</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reference">
 			<segment>
 				<source>Reference</source>
-				<target></target>
+				<target>Справка</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.heading">
 			<segment>
 				<source>Heading</source>
-				<target></target>
+				<target>заголовок</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.assignedTo">
 			<segment>
 				<source>Assigned To</source>
-				<target></target>
+				<target>Назначено</target>
 			</segment>
 		</unit>
 	</file>

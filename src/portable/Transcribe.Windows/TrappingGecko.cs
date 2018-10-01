@@ -52,14 +52,17 @@ namespace Transcribe.Windows
 					case "UpdateProject":
 						new UpdateProject(e.Uri.Query);
 						break;
+					case "UpdateTask":
+						new UpdateTask(e.Uri.Query, e.RequestBody);
+						break;
 					case "ReportPosition":
 						new ReportPosition(e.Uri.Query);
 						break;
 					case "WriteTranscription":
 						new WriteTranscription(e.Uri.Query, e.RequestBody);
 						break;
-					case "UpdateTask":
-						new UpdateTask(e.Uri.Query, e.RequestBody);
+					case "DeleteUser":
+						new DeleteUser(e.Uri.Query);
 						break;
 					case "DeleteTask":
 						new DeleteTask(e.Uri.Query);

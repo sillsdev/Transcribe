@@ -24,19 +24,18 @@ class PeopleList extends React.Component<any, object> {
         }
     }
     public render() {
-        const { selectedUser, users, strings } = this.props
+        const { selectedUser, selectPopupUser, users, strings } = this.props
 
         const otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
 
-        const selectUser = () => { alert("User Details") }
         const avatars = otherUsers.map((user: IUser) =>
             <ListGroupItem key={user.id}>
                 <AvatarLink
                     id={user.username.id}
                     name={user.displayName}
-                    target="/project"
+                    target="/ProjectSettings/User"
                     uri={user.username.avatarUri? user.username.avatarUri: ""}
-                    select={selectUser} />
+                    select={selectPopupUser.bind(user.id)} />
             </ListGroupItem>);
 
         const userWrapper = (
@@ -80,11 +79,13 @@ interface IStateProps {
     users: IUser[];
     selectedUser: string;
     strings: IProjectSettingsStrings;
+    popupUser: string;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
     localizationLoaded: state.strings.loaded,
+    popupUser: state.users.selectedPopupUser,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "projectSettings"}),
     users: state.users.users,
@@ -93,12 +94,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     fetchLocalization: typeof actions2.fetchLocalization;
     fetchUsers: typeof actions.fetchUsers;
+    selectPopupUser: typeof actions.selectPopupUser;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchLocalization: actions2.fetchLocalization,
         fetchUsers: actions.fetchUsers,
+        selectPopupUser: actions.selectPopupUser,
     }, dispatch),
 });
 

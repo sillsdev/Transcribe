@@ -11,6 +11,7 @@ namespace ReactShared
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
+			var role = parsedQuery["role"];
 			var project = parsedQuery["project"];
 			var name = parsedQuery["name"];
 			var uilang = parsedQuery["uilang"];
@@ -31,6 +32,9 @@ namespace ReactShared
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
 			AddUserName(name, usernameNode, usersDoc);
+			var userRoleNode = userNode.SelectNodes("role") as XmlNodeList;
+			Debug.Assert(userRoleNode != null, nameof(userRoleNode) + " != null");
+			AddUserRole(role, userRoleNode, usernameNode, usersDoc);
 			AddUilang(uilang, userNode, usersDoc);
 			AddFontInfo("fontfamily", font, userNode, project, usersDoc, user);
 			AddFontInfo("fontsize", fontsize, userNode, project, usersDoc, user);
@@ -57,6 +61,50 @@ namespace ReactShared
 			}
 
 			fullNameNode.InnerText = name;
+		}
+
+		private static void AddUserRole(string role, XmlNodeList userRoleNodeList, XmlElement usernameNode, XmlDocument usersDoc)
+		{
+			if (role == null)
+				return;
+
+			//Remove the old roles
+			for (int i = userRoleNodeList.Count - 1; i >= 0; i--)
+			{
+				userRoleNodeList[i].ParentNode.RemoveChild(userRoleNodeList[i]);
+			}
+
+			string roleAdmin = "administrator";
+			string roleReviewer = "reviewer";
+			string roleTranscriber = "transcriber";
+			List<string> roleArray = new List<string>();
+			string newRole = roleTranscriber;
+			if (role.ToLower() == "admin")
+			{
+				roleArray.Add(roleAdmin);
+				roleArray.Add(roleReviewer);
+				roleArray.Add(roleTranscriber);
+			}
+			else if (role.ToLower() == roleReviewer)
+			{
+				roleArray.Add(roleReviewer);
+			}
+			else if (role.ToLower() == roleTranscriber)
+			{
+				roleArray.Add(roleTranscriber);
+			}
+			else if (role.ToLower() == roleReviewer + " + " + roleTranscriber)
+			{
+				roleArray.Add(roleReviewer);
+				roleArray.Add(roleTranscriber);
+			}
+
+			foreach (string userRole in roleArray)
+			{
+				XmlElement roleNode = usersDoc.CreateElement("role");
+				roleNode.InnerText = userRole;
+				usernameNode.ParentNode.InsertAfter(roleNode, usernameNode);
+			}			
 		}
 
 		private static void AddUilang(string uilang, XmlNode userNode, XmlDocument usersDoc)

@@ -1,4 +1,4 @@
-import { FETCH_USERS, SELECT_USER } from '../actions/types';
+import { DELETE_USER, FETCH_USERS, SELECT_POPUP_USER, SELECT_USER } from '../actions/types';
 
 const initialState = {
     loaded: false,
@@ -21,6 +21,16 @@ export default function (state = initialState, action: any) {
                 ...state,
                 selectedUser: action.payload,
                 users: users(state.users, action)
+            }
+        case SELECT_POPUP_USER:
+            return {
+                ...state,
+                selectedPopupUser: action.payload,
+            }
+        case DELETE_USER:
+            return {
+                ...state,
+                selectedPopupUser: '',
             }
         default:
             return state;
