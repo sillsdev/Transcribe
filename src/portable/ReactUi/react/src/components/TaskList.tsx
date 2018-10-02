@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/localizationActions';
@@ -40,19 +39,19 @@ class TaskList extends React.Component<IProps, object> {
         const { selectPopupTask, strings, tasks } = this.props
 
         const taskList = tasks.map((t: ITask) =>
-            <ListGroupItem key={t.id}>
+            <div className="item" key={t.id}>
                 <TaskItem
                     id={t.id}
                     name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     select= {selectPopupTask.bind(t.id)}
                     target="/ProjectSettings/Task"/>
-            </ListGroupItem>);
+            </div>);
 
         const taskWrapper = (
-            <ListGroup>
+            <div className="grid">
                 {taskList}
-            </ListGroup>);
+            </div>);
 
         const sortByType = () => this.sortByType();
 
