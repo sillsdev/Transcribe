@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/localizationActions';
@@ -39,20 +38,24 @@ class TaskList extends React.Component<IProps, object> {
     public render() {
         const { selectPopupTask, strings, tasks } = this.props
 
-        const taskList = tasks.map((t: ITask) =>
-            <ListGroupItem key={t.id}>
-                <TaskItem
-                    id={t.id}
-                    name={t.name?t.name:""}
-                    length={t.length != null? t.length: 0}
-                    select= {selectPopupTask.bind(t.id)}
-                    target="/ProjectSettings/Task"/>
-            </ListGroupItem>);
-
+        let taskList = Array<JSX.Element>()
+        const leftLimit = (tasks.length + 1) / 2
+        for (let i=0; leftLimit >= 1 && i < leftLimit; i++) {
+            let col2 = <div/>
+            if (i * 2 + 1 < tasks.length) {
+                col2 = this.taskJsx(tasks[i * 2 + 1],selectPopupTask)
+            }
+            taskList = taskList.concat(
+                <div className="itemRow" key={i}>
+                    {this.taskJsx(tasks[i * 2], selectPopupTask)}
+                    {col2}
+                </div>
+            )
+        }
         const taskWrapper = (
-            <ListGroup>
+            <div className="grid">
                 {taskList}
-            </ListGroup>);
+            </div>);
 
         const sortByType = () => this.sortByType();
 
@@ -82,6 +85,19 @@ class TaskList extends React.Component<IProps, object> {
                 {taskWrapper}
                 {tasks.length === 0? "": buttonWrapper}
             </div>
+        )
+    }
+
+    private taskJsx(t:ITask, selectPopupTask: typeof actions.selectPopupTask): JSX.Element {
+        return (
+            <div className="item" key={t.id}>
+            <TaskItem
+                id={t.id}
+                name={t.name?t.name:""}
+                length={t.length != null? t.length: 0}
+                select= {selectPopupTask.bind(t.id)}
+                target="/ProjectSettings/Task"/>
+        </div>
         )
     }
 

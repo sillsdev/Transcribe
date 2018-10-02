@@ -31,26 +31,26 @@ class ProjectSettings extends React.Component<IProps, object> {
         return (
             <div id="ProjectSettings" className={"ProjectSettings" + modal}>
                 <div className="rows">
-                    <div className="titles">
-                        <BackLink target="/main" />
+                    <div className="properties">
+                        <div className="header">
+                            <BackLink target="/main" />
+                            <LabelCaptionUx name={strings.projectSettings} type="H3" />
+                        </div>
                         <div className="left">
-                            <PencilAction target={this.editProjectName} />
-                            <LabelCaptionUx name={title} type="H1" />
-                        </div>
-                        <div className="right">
-                            <div className="col">
-                                <LabelCaptionUx name={strings.projectSettings} type="H2" />
+                            <div className="title">
+                                <LabelCaptionUx name={title} type="H1" />
                             </div>
+                            <PencilAction target={this.editProjectName} />
+                        </div>
+                        <div className="paringRow">
+                            <LinkAction text={strings.clickToPair} target={this.pair} />
+                        </div>
+                        <div className="switches">
+                            <ToggleSwitch switched={false} text={strings.autoSyncParatext} type="switch1" />
+                            <ToggleSwitch switched={false} text={strings.allowClaimUnassignedTasks} type="switch1" />
                         </div>
                     </div>
-                    <div className="paringRow">
-                        <LinkAction text={strings.clickToPair} target={this.pair} />
-                    </div>
-                    <div className="switches">
-                        <ToggleSwitch switched={false} text={strings.autoSyncParatext} type="switch1" />
-                        <ToggleSwitch switched={false} text={strings.allowClaimUnassignedTasks} type="switch1" />
-                    </div>
-                    <div className="lists">
+                    <div className="contents">
                         <PeopleList />
                         <TaskList />
                     </div>
