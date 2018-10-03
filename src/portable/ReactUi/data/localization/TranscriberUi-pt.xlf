@@ -365,49 +365,55 @@
 		<unit id="projectSettings.projectName">
 			<segment>
 				<source>Project Name</source>
-				<target></target>
+				<target>Nome do Projeto</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.clickToPair">
 			<segment>
 				<source>Click to pair with Paratext</source>
-				<target></target>
+				<target>Clique para parear com o Paratexto</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.taskDetails">
 			<segment>
 				<source>Task Details</source>
-				<target></target>
+				<target>Detalhes da Tarefa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.taskDetails">
+			<segment>
+				<source>User Details</source>
+				<target>Detalhes do usuario</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.delete">
 			<segment>
 				<source>Delete</source>
-				<target></target>
+				<target>Excluir</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.audioFile">
 			<segment>
 				<source>Audio File</source>
-				<target></target>
+				<target>Arquivo de áudio</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reference">
 			<segment>
 				<source>Reference</source>
-				<target></target>
+				<target>Referência</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.heading">
 			<segment>
 				<source>Heading</source>
-				<target></target>
+				<target>Título</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.assignedTo">
 			<segment>
 				<source>Assigned To</source>
-				<target></target>
+				<target>Atribuído a</target>
 			</segment>
 		</unit>
 	</file>

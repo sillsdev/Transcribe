@@ -71,6 +71,7 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "projectName": string;
     "clickToPair": string;
     "taskDetails": string;
+    "userDetails": string;
     "delete": string;
     "audioFile": string;
     "reference": string;
