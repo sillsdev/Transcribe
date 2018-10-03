@@ -28,7 +28,18 @@ namespace ReactShared
 			var usersDoc = Util.LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
 			if (userNode == null)
-				return;
+			{
+				userNode = usersDoc.CreateElement("user");
+				var userName = usersDoc.CreateElement("username");
+				userNode.AppendChild(userName);
+				var userId = !string.IsNullOrEmpty(user)? user:
+					(!string.IsNullOrEmpty(name)? name.Replace(" ","").ToLower():
+					$@"u{usersDoc.SelectNodes("//user").Count + 1}");
+				Util.NewAttr(userName, "id", userId);
+				if (string.IsNullOrEmpty(role))
+					role = "Transcriber";
+				usersDoc.DocumentElement.AppendChild(userNode);
+			}
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
 			AddUserName(name, usernameNode, usersDoc);

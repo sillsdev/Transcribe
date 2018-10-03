@@ -60,6 +60,7 @@ namespace Transcribe.Windows
 						break;
 					case "DeleteUser":
 						new DeleteUser(e.Uri.Query);
+						break;
 					case "UpdateTask":
 						new UpdateTask(e.Uri.Query, e.RequestBody);
 						break;

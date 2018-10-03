@@ -8,8 +8,8 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize'
 import AvatarLink from './controls/AvatarLink';
+import ButtonLink from './controls/ButtonLink';
 import FilterAction from './controls/FilterAction';
-import NextAction from './controls/NextAction'
 import './PeopleList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
 
@@ -50,10 +50,13 @@ class PeopleList extends React.Component<any, object> {
                 <FilterAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
             </div>);
 
-        const AddUser = () => { alert("Add User Details") }
         const buttonWrapper = (
             <div className="Buttons">
-                <NextAction text={strings.addUser} target={AddUser} type="outline-light" />
+                <ButtonLink
+                    text={strings.addUser}
+                    target="/ProjectSettings/User"
+                    select={selectPopupUser.bind(this,"")}
+                    type="outline-light" />
             </div>);
 
         return (

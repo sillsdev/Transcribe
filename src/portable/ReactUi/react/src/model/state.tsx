@@ -3,6 +3,7 @@ import { IProjectSettingsStrings, ITranscriberStrings, IUserSettingsStrings } fr
 export interface IState {
     users: {
         loaded: boolean;
+        deleted: boolean;
         users: IUser[];
         selectedUser: string;
         selectedPopupUser: string;
