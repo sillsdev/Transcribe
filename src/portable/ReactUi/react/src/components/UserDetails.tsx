@@ -33,7 +33,7 @@ const initialState = {
     name: "",
     otherProjects: [],
     privileges: "",
-    role: "",
+    role: "Transcriber",
     selectedValue: "",
 }
 
@@ -49,8 +49,8 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
 
         const { popupUser, users } = this.props;
         this.userId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupUser;
-        const user: IUser = users.filter((u: IUser) => u.username.id === this.userId)[0];
-        if (user && user !== undefined) {
+        if (this.userId && this.userId !== "") {
+            const user: IUser = users.filter((u: IUser) => u.username.id === this.userId)[0];
             this.state.name = user.displayName
             if (user.username.avatarUri !== undefined) {
                 this.state.avatarUrl = user.username.avatarUri
@@ -66,27 +66,26 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
             else if (roleCount === 1) {
                 this.state.role = user.role[0];
             }
-            else {
-                this.state.role = "Transcriber";
-            }
+        } else {
+            this.state = {...initialState}
         }
         this.original = { ...this.state };
     }
 
     public render() {
 
-        const { strings, project, popupUser, users } = this.props;
+        const { deleted, strings, project, popupUser, users } = this.props;
 
         const save = () => this.save(this);
         const roleList = ["Admin", "Reviewer", "Transcriber", "Reviewer + Transcriber"];
         // const projectName = project != null && project.name != null ? project.name : strings.projectName;
-        if (popupUser === '') {
+        if (deleted) {
             return <Redirect to="/ProjectSettings" />
         }
         this.userId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupUser;
         const deleteUser = () => { this.delete(this) }
         const user: IUser = users.filter((u: IUser) => u.username.id === this.userId)[0];
-        const projectAvatar = user.project ? (
+        const projectAvatar = user && user.project ? (
             <AvatarLink id={project.id}
                 name={project.id}
                 size="48"
@@ -185,6 +184,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
 }
 
 interface IStateProps {
+    deleted: boolean;
     project: IProject;
     popupUser: string;
     strings: IProjectSettingsStrings;
@@ -194,6 +194,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    deleted: state.users.deleted,
     popupUser: state.users.selectedPopupUser,
     project: currentProject(state),
     selectedParatextProject: state.paratextProjects.selectedParatextProject,

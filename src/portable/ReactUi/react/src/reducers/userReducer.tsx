@@ -1,6 +1,7 @@
 import { DELETE_USER, FETCH_USERS, SELECT_POPUP_USER, SELECT_USER } from '../actions/types';
 
 const initialState = {
+    deleted: false,
     loaded: false,
     selectedUser: "",
     users: Array<IUser>(),
@@ -25,11 +26,13 @@ export default function (state = initialState, action: any) {
         case SELECT_POPUP_USER:
             return {
                 ...state,
+                deleted: false,
                 selectedPopupUser: action.payload,
             }
         case DELETE_USER:
             return {
                 ...state,
+                deleted: true,
                 selectedPopupUser: '',
             }
         default:
