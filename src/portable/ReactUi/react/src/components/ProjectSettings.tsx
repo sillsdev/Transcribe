@@ -46,8 +46,8 @@ class ProjectSettings extends React.Component<IProps, object> {
                             <LinkAction text={strings.clickToPair} target={this.pair} />
                         </div>
                         <div className="switches">
-                            <ToggleSwitch switched={false} text={strings.autoSyncParatext} type="switch1" />
                             <ToggleSwitch switched={false} text={strings.allowClaimUnassignedTasks} type="switch1" />
+                            <ToggleSwitch switched={false} text={strings.autoSyncParatext} type="switch1" />
                         </div>
                     </div>
                     <div className="contents">
