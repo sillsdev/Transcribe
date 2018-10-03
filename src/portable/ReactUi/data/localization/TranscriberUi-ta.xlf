@@ -212,6 +212,12 @@
 				<target>மதிப்புரை கருத்துக்கள்</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.chooseAvatar">
+			<segment>
+				<source>Choose an image file</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="userSettings.nameErrorMessage">
 			<segment>
 				<source>Please fill in the Name</source>
@@ -380,7 +386,7 @@
 				<target>பணி விவரங்கள்</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.taskDetails">
+		<unit id="projectSettings.userDetails">
 			<segment>
 				<source>User Details</source>
 				<target>பயனர் விவரங்கள்</target>
@@ -414,6 +420,18 @@
 			<segment>
 				<source>Assigned To</source>
 				<target>ஒதுக்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.privileges">
+			<segment>
+				<source>Privileges</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.otherProjects">
+			<segment>
+				<source>Other Projects</source>
+				<target>Autres projects</target>
 			</segment>
 		</unit>
 	</file>

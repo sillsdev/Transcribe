@@ -21,8 +21,10 @@ const initialState = {
 			"lookForProjects": "Looking for Paratext projects on this computer...",
 			"next": "Next",
 			"noProjectsFound": "We didn\u2019t find any Paratext projects on your computer.",
+			"otherProjects": "Other Projects",
 			"pairedWithParatextProject": "Paired with Paratext project",
 			"people": "People",
+			"privileges": "Privileges",
 			"projectName": "Project Name",
 			"projectSettings": "Project Settings",
 			"reference": "Reference",
@@ -31,6 +33,7 @@ const initialState = {
 			"sortByType": "Sort by type",
 			"taskDetails": "Task Details",
 			"tasks": "Tasks",
+			"userDetails": "User Details",
 		}
 	}),
     "transcriber": new LocalizedStrings({

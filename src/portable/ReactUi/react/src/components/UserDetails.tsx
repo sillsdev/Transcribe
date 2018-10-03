@@ -103,7 +103,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                 <div className="titleRow">
                     <div className="title">
                         {/* <LabelCaptionUx name={strings.userDetails} type="H2" /> */}
-                        <LabelCaptionUx name={"User Details"} type="H2" />
+                        <LabelCaptionUx name={strings.userDetails} type="H2" />
                     </div>
                     <div className={"deleteButton" + (this.userId !== "" ? "" : " hide")}>
                         <NextAction text={strings.delete} target={deleteUser} type="danger" />
@@ -125,11 +125,11 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                             <div className="resultsRightBox">
                                 <div><TextField id="id1" caption={"Name"} inputValue={this.state.name} onChange={this.updateUserName} /></div>
                                 <div className="privilegesBox">
-                                    <LabelUx name={"Privilieges"} />
+                                    <LabelUx name={strings.privileges} />
                                     <RadioListField options={roleList} selected={this.state.role} onChange={this.updatePrivileges} />
                                 </div>
                                 <div className="OtherProjectsBox">
-                                    <LabelUx name={"Other Projects"} />
+                                    <LabelUx name={strings.otherProjects} />
                                     {projectAvatar}
                                 </div>
                             </div>

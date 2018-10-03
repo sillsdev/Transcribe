@@ -136,7 +136,7 @@
 		</unit>
 		<unit id="userSettings.keyboardShortcuts">
 			<segment>
-				<source>KEYBOARD SHORTCUTS</source>
+				<source>Keyboard shortcuts</source>
 				<target>اختصارات لوحة المفاتيح</target>
 			</segment>
 		</unit>
@@ -172,7 +172,7 @@
 		</unit>
 		<unit id="userSettings.reset">
 			<segment>
-				<source>RESET TO DEFAULTS</source>
+				<source>Reset to defaults</source>
 				<target>إعادة التعيين كافة الافتباضيات</target>
 			</segment>
 		</unit>
@@ -208,8 +208,14 @@
 		</unit>
 		<unit id="userSettings.reviewComments">
 			<segment>
-				<source>REVIEW COMMENTS</source>
+				<source>Review Comments</source>
 				<target>تعليقات المراجعة</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.chooseAvatar">
+			<segment>
+				<source>Choose an image file</source>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.nameErrorMessage">
@@ -380,7 +386,7 @@
 				<target>تفاصيل المهمة</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.taskDetails">
+		<unit id="projectSettings.userDetails">
 			<segment>
 				<source>User Details</source>
 				<target>بيانات المستخدم</target>
@@ -414,6 +420,18 @@
 			<segment>
 				<source>Assigned To</source>
 				<target>مخصص ل</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.privileges">
+			<segment>
+				<source>Privileges</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.otherProjects">
+			<segment>
+				<source>Other Projects</source>
+				<target></target>
 			</segment>
 		</unit>
 	</file>

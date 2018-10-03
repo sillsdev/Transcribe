@@ -45,7 +45,6 @@ export const updateAvatar = (user: string, data: object) => (dispatch: any) => {
 }
 
 export const deleteUser = (user: string) => (dispatch: any) => {
-    alert("I am on delete action");
     dispatch({type: DELETE_USER});
     Axios.put('/api/DeleteUser?user=' + user)
         .then(dispatch(fetchUsers()))

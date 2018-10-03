@@ -386,7 +386,7 @@
 				<target>Détails de la tâche</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.taskDetails">
+		<unit id="projectSettings.userDetails">
 			<segment>
 				<source>User Details</source>
 				<target>Détails de l'utilisateur</target>
@@ -420,6 +420,18 @@
 			<segment>
 				<source>Assigned To</source>
 				<target>Allouer à</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.privileges">
+			<segment>
+				<source>Privileges</source>
+				<target>Droits</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.otherProjects">
+			<segment>
+				<source>Other Projects</source>
+				<target>Autres projects</target>
 			</segment>
 		</unit>
 	</file>
