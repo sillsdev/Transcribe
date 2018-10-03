@@ -2,12 +2,14 @@ import * as React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
 import Ionicon from 'react-ionicons'
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/paratextProjectActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import ButtonLink from './controls/ButtonLink';
+import NextAction from './controls/NextAction';
 import './NewOrBrowseParatextProject.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 
@@ -18,17 +20,20 @@ interface IProps extends IStateProps, IDispatchProps {
 class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
     
     public render() {
-        const { strings } = this.props;
-
+        const { selectedParatextProject, strings } = this.props;
+        if (selectedParatextProject !== "") {
+            return <Redirect to='/ProjectSettings' />
+        }
+        const selectEmptyProject = () => {
+            this.selectProject({id:"ztt", guid:"", lang:"und"})
+        }
         return (
             <div className="NewOrBrowseParatextProjects">
                 <Grid className="grid">
                     <Row className="name-row">
-                        
                         <Col xs={12} md={12}>
                             <LabelCaptionUx name={strings.noProjectsFound} />
                         </Col>
-                        
                     </Row>
                     <Row className="name-row">
                         <Col xs={12} md={12}>
@@ -43,8 +48,8 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                            </span>                           
                         </Col>
                         <Col xs={6} md={6}>
-                        <span className="ButtonLink"> 
-                                <ButtonLink text={strings.createEmptyProject.toUpperCase()} target="/" type="primary" />
+                        <span className="NextAction">
+                                <NextAction text={strings.createEmptyProject.toUpperCase()} target={selectEmptyProject} type="primary" />
                             </span>
                         </Col>                     
                     </Row>
@@ -53,20 +58,22 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
         );
     }
 
-    
+    private selectProject(project: IParatextProject){
+        this.props.selectParatextProject(project);
+    }
 }
-
-
 
 interface IStateProps {
     loaded: boolean;
     paratextProjects: IParatextProject[];
     strings: IProjectSettingsStrings;
+    selectedParatextProject: string;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.paratextProjects.loaded,
     paratextProjects: state.paratextProjects.paratextProjects,
+    selectedParatextProject: state.paratextProjects.selectedParatextProject,
     strings: userStrings(state, { layout: "projectSettings" }),
 });
 
