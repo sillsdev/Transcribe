@@ -386,7 +386,7 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.taskDetails">
+		<unit id="projectSettings.userDetails">
 			<segment>
 				<source>User Details</source>
 				<target></target>
@@ -419,6 +419,18 @@
 		<unit id="projectSettings.assignedTo">
 			<segment>
 				<source>Assigned To</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.privileges">
+			<segment>
+				<source>Privileges</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.otherProjects">
+			<segment>
+				<source>Other Projects</source>
 				<target></target>
 			</segment>
 		</unit>

@@ -77,4 +77,6 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "reference": string;
     "heading": string;
     "assignedTo": string;
+    "privileges": string;
+    "otherProjects": string;
 };
