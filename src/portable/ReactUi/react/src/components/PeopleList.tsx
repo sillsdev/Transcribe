@@ -24,28 +24,53 @@ class PeopleList extends React.Component<any, object> {
         }
     }
     public render() {
-        const { selectedUser, selectPopupUser, users, strings } = this.props
+        const { selectedProject, selectPopupUser, selectedUser, users, strings } = this.props
 
-        const otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
+        let otherUsers = [];
+        let projectUsers;
+        let userExists = false;
+        if (selectedUser !== ""){
+            otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
+        }
 
-        const avatars = otherUsers.map((user: IUser) =>
-            <ListGroupItem key={user.id}>
-                <AvatarLink
-                    id={user.username.id}
-                    name={user.displayName}
-                    target="/ProjectSettings/User"
-                    uri={user.username.avatarUri? user.username.avatarUri: ""}
-                    select={selectPopupUser.bind(user.id)} />
-            </ListGroupItem>);
+        if (otherUsers.length > 0)
+        {
+            // projectUsers = otherUsers.filter((user: IUser) => user.project !== undefined && user.project.filter((proj: IUserProjectSettings) => proj.id ===  selectedParatextProject)[0].id === selectedParatextProject);
+            projectUsers = otherUsers.filter((user: IUser) => {
+                const project = user.project && user.project.filter((p: IUserProjectSettings) => p.id === selectedProject)[0]
+                return project != null
+            })
+            if (projectUsers.length > 0){
+                userExists = true;
+            }
+        }
 
-        const userWrapper = (
-            <ListGroup>
-                {avatars}
-            </ListGroup>);
+        let avatars;
+        let userWrapper;
+
+        if(userExists) {
+            avatars = projectUsers.map((user: IUser) =>
+                <ListGroupItem key={user.id}>
+                    <AvatarLink
+                        id={user.username.id}
+                        name={user.displayName}
+                        target="/ProjectSettings/User"
+                        uri={user.username.avatarUri? user.username.avatarUri: ""}
+                        select={selectPopupUser.bind(user.id)} />
+                </ListGroupItem>);
+            userWrapper = (
+                <ListGroup>
+                    {avatars}
+                </ListGroup>);
+        }
+        else
+        {
+            userWrapper = "";
+        }
 
         const sortByPrivilegesMethod = () => this.sortByPrivileges();
 
-        const filterWrapper = otherUsers.length === 0? "": (
+        const filterWrapper = (!userExists) ? "": (
             <div className="SortFilterStyle">
                 <FilterAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
             </div>);
@@ -63,10 +88,10 @@ class PeopleList extends React.Component<any, object> {
             <div className="PeopleList">
                 <div className="title">
                     <LabelCaptionUx name={strings.people} type="H3" />
-                    {otherUsers.length === 0? buttonWrapper: filterWrapper}
+                    {(!userExists)? buttonWrapper: filterWrapper}
                 </div>
                 {userWrapper}
-                {otherUsers.length === 0? "": buttonWrapper}
+                {(!userExists)? "": buttonWrapper}
             </div>
         )
     }
@@ -80,6 +105,7 @@ interface IStateProps {
     loaded: boolean;
     localizationLoaded: boolean;
     users: IUser[];
+    selectedProject: string;
     selectedUser: string;
     strings: IProjectSettingsStrings;
     popupUser: string;
@@ -89,6 +115,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
     localizationLoaded: state.strings.loaded,
     popupUser: state.users.selectedPopupUser,
+    selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "projectSettings"}),
     users: state.users.users,

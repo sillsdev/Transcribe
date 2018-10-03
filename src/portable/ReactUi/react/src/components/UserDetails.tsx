@@ -104,7 +104,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                         {/* <LabelCaptionUx name={strings.userDetails} type="H2" /> */}
                         <LabelCaptionUx name={strings.userDetails} type="H2" />
                     </div>
-                    <div className={"deleteButton" + (this.userId !== "" ? "" : " hide")}>
+                    <div className={"deleteButton" + (this.userId && this.userId !== "" ? "" : " hide")}>
                         <NextAction text={strings.delete} target={deleteUser} type="danger" />
                     </div>
                 </div>
