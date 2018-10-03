@@ -36,6 +36,12 @@ namespace ReactShared
 					(!string.IsNullOrEmpty(name)? name.Replace(" ","").ToLower():
 					$@"u{usersDoc.SelectNodes("//user").Count + 1}");
 				Util.NewAttr(userName, "id", userId);
+				if (!string.IsNullOrEmpty(project))
+				{
+					var projectNode = usersDoc.CreateElement("project");
+					userNode.AppendChild(projectNode);
+					Util.NewAttr(projectNode, "id", project);
+				}
 				if (string.IsNullOrEmpty(role))
 					role = "Transcriber";
 				usersDoc.DocumentElement.AppendChild(userNode);
