@@ -24,29 +24,50 @@ class PeopleList extends React.Component<any, object> {
         }
     }
     public render() {
-        const { selectedUser, users, strings } = this.props
+        const { selectedParatextProject, selectedUser, users, strings } = this.props
 
-        const otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
+        let otherUsers = [];
+        let projectUsers;
+        let userExists = false;
+        if(selectedUser !== ""){
+            otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
+        }
+
+        if(otherUsers.length > 0)
+        {
+            projectUsers = otherUsers.filter((user: IUser) => user.project !== undefined && user.project.filter((proj: IUserProjectSettings) => proj.id ===  selectedParatextProject)[0].id === selectedParatextProject);
+            if(projectUsers.length > 0){
+                userExists = true;
+            }
+        }
 
         const selectUser = () => { alert("User Details") }
-        const avatars = otherUsers.map((user: IUser) =>
-            <ListGroupItem key={user.id}>
-                <AvatarLink
-                    id={user.username.id}
-                    name={user.displayName}
-                    target="/project"
-                    uri={user.username.avatarUri? user.username.avatarUri: ""}
-                    select={selectUser} />
-            </ListGroupItem>);
+        let avatars;
+        let userWrapper;
 
-        const userWrapper = (
-            <ListGroup>
-                {avatars}
-            </ListGroup>);
+        if(userExists) {
+            avatars = projectUsers.map((user: IUser) =>
+                <ListGroupItem key={user.id}>
+                    <AvatarLink
+                        id={user.username.id}
+                        name={user.displayName}
+                        target="/project"
+                        uri={user.username.avatarUri? user.username.avatarUri: ""}
+                        select={selectUser} />
+                </ListGroupItem>);
+            userWrapper = (
+                <ListGroup>
+                    {avatars}
+                </ListGroup>);
+        }
+        else
+        {
+            userWrapper = "";
+        }
 
         const sortByPrivilegesMethod = () => this.sortByPrivileges();
 
-        const filterWrapper = otherUsers.length === 0? "": (
+        const filterWrapper = (!userExists) ? "": (
             <div className="SortFilterStyle">
                 <FilterAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
             </div>);
@@ -61,10 +82,10 @@ class PeopleList extends React.Component<any, object> {
             <div className="PeopleList">
                 <div className="title">
                     <LabelCaptionUx name={strings.people} type="H3" />
-                    {otherUsers.length === 0? buttonWrapper: filterWrapper}
+                    {(!userExists)? buttonWrapper: filterWrapper}
                 </div>
                 {userWrapper}
-                {otherUsers.length === 0? "": buttonWrapper}
+                {(!userExists)? "": buttonWrapper}
             </div>
         )
     }
@@ -78,6 +99,7 @@ interface IStateProps {
     loaded: boolean;
     localizationLoaded: boolean;
     users: IUser[];
+    selectedParatextProject: string;
     selectedUser: string;
     strings: IProjectSettingsStrings;
 };
@@ -85,6 +107,7 @@ interface IStateProps {
 const mapStateToProps = (state: IState): IStateProps => ({
     loaded: state.users.loaded,
     localizationLoaded: state.strings.loaded,
+    selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "projectSettings"}),
     users: state.users.users,
