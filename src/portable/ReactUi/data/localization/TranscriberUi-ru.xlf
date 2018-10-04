@@ -65,25 +65,43 @@
 		<unit id="transcribe.unassign">
 			<segment>
 				<source>Unassign</source>
-				<target></target>
+				<target>Отмена назначения</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.congratulations">
 			<segment>
 				<source>Congratulations</source>
-				<target></target>
+				<target>Поздравляю</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.upload">
 			<segment>
 				<source>Upload</source>
-				<target></target>
+				<target>Загрузить</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.continue">
 			<segment>
 				<source>Continue</source>
-				<target></target>
+				<target>Продолжать</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.haveaniceday">
+			<segment>
+				<source>Have a nice day</source>
+				<target>Хорошего дня</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inboxzero">
+			<segment>
+				<source>inbox zero</source>
+				<target>inbox zero</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.youhavereached">
+			<segment>
+				<source>You've reached</source>
+				<target>Вы достигли</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -425,13 +443,31 @@
 		<unit id="projectSettings.privileges">
 			<segment>
 				<source>Privileges</source>
-				<target></target>
+				<target>привилегии</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
-				<target>Autres projects</target>
+				<target>Другие проекты</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.admin">
+			<segment>
+				<source>Admin</source>
+				<target>Администратор</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>рецензент</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>Транскрайбер</target>
 			</segment>
 		</unit>
 	</file>

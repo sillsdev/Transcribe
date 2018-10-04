@@ -15,6 +15,9 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "transcribe": string;
     "unassign": string;
     "upload": string;
+    "youhavereached": string;
+    "inboxzero": string;
+    "haveaniceday": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
@@ -79,4 +82,7 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "assignedTo": string;
     "privileges": string;
     "otherProjects": string;
+    "admin": string;
+    "reviewer": string;
+    "transcriber": string;
 };
