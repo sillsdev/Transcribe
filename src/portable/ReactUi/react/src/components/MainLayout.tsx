@@ -4,22 +4,25 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
 import * as actions2 from '../actions/taskActions';
-import SucessPanel from '../components/SucessPanel'
+import SucessPanel from '../components/SucessPanel';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
+import taskList from '../selectors';
 import userStrings from '../selectors/localize';
 import projectState from '../selectors/projectState';
-import AudioPanel from './AudioPanel'
+import AudioPanel from './AudioPanel';
+import GreetingPanel from './GreetingPanel';
 import './MainLayout.sass';
-import NavPanel from './NavPanel'
-import TaskPanel from './TaskPanel'
+import NavPanel from './NavPanel';
+import TaskPanel from './TaskPanel';
 
 interface IProps extends IStateProps, IDispatchProps {
 };
 
 class MainLayout extends React.Component<IProps, any> {
     public render() {
-        const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, saved, submit } = this.props;
+        const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, saved, submit,
+            assignedReview, assignedTranscribe, availableReview,  availableTranscribe} = this.props;
 
         const keyMap = {
             moveUp: 'up',
@@ -37,23 +40,26 @@ class MainLayout extends React.Component<IProps, any> {
             },
             'f3': (event: any) => {
                 let speedDown = playSpeedRate - 0.1;
-                if(playSpeedRate <= 0.5)
-                {
+                if (playSpeedRate <= 0.5) {
                     speedDown = 0.5
                 }
                 playSpeedRateChange(speedDown);
             },
             'f4': (event: any) => {
                 let speedUp = playSpeedRate + 0.1;
-                if(playSpeedRate >= 2.0)
-                {
+                if (playSpeedRate >= 2.0) {
                     speedUp = 2.0
                 }
                 playSpeedRateChange(speedUp);
             },
         };
 
-        const editorScreen = (submit && saved)? <SucessPanel  {...this.props} />:  <AudioPanel {...this.props} />;
+        let editorScreen = <GreetingPanel   {...this.props} />
+
+        if(assignedReview.length + assignedTranscribe.length + availableReview.length + availableTranscribe.length > 0)
+        {
+            editorScreen = (submit && saved) ? <SucessPanel  {...this.props} /> : <AudioPanel {...this.props} />;
+        }
 
         return (
             <HotKeys keyMap={keyMap} handlers={handlers}>
@@ -65,7 +71,7 @@ class MainLayout extends React.Component<IProps, any> {
                         <TaskPanel {...this.props} />
                     </div>
                     <div className="MainCol">
-                       {editorScreen}
+                        {editorScreen}
                     </div>
                 </div>
             </HotKeys>
@@ -83,9 +89,17 @@ interface IStateProps {
     submit: boolean;
     jump: number;
     strings: ITranscriberStrings;
+    assignedReview: ITask[];
+    assignedTranscribe: ITask[];
+    availableReview: ITask[];
+    availableTranscribe: ITask[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    assignedReview: taskList(state).assignedReview,
+    assignedTranscribe: taskList(state).assignedTranscribe,
+    availableReview: taskList(state).availableReview,
+    availableTranscribe: taskList(state).availableTranscribe,
     jump: state.audio.jump,
     playSpeedRate: state.audio.playSpeedRate,
     playing: state.audio.playing,
@@ -106,10 +120,13 @@ interface IDispatchProps {
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
     setSubmitted: typeof actions.setSubmitted;
+    assignTask: typeof actions2.assignTask;
+    unassignTask: typeof actions2.unAssignTask;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
+        assignTask: actions2.assignTask,
         completeReview: actions2.completeReview,
         completeTranscription: actions2.completeTranscription,
         jumpChange: actions.jumpChange,
@@ -118,6 +135,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         reportPosition: actions.reportPosition,
         saveTotalSeconds: actions.saveTotalSeconds,
         setSubmitted: actions.setSubmitted,
+        unassignTask: actions2.unAssignTask,
     }, dispatch),
 });
 

@@ -8,6 +8,7 @@ const initialState = {
 			"addMany": "Add Many",
 			"addTask": "Add Task",
 			"addUser": "Add User",
+			"admin": "Admin",
 			"allowClaimUnassignedTasks": "Allow transcribers to claim unassigned tasks",
 			"assignedTo": "Assigned To",
 			"audioFile": "Audio File",
@@ -28,11 +29,13 @@ const initialState = {
 			"projectName": "Project Name",
 			"projectSettings": "Project Settings",
 			"reference": "Reference",
+			"reviewer": "Reviewer",
 			"selectProject": "Select a Paratext Project",
 			"sortByPrivileges": "Sort by privileges",
 			"sortByType": "Sort by type",
 			"taskDetails": "Task Details",
 			"tasks": "Tasks",
+			"transcriber": "Transcriber",
 			"userDetails": "User Details",
 		}
 	}),
@@ -44,6 +47,8 @@ const initialState = {
 			"bible": "Bible",
 			"congratulations": "Congratulations",
 			"continue": "Continue",
+			"haveaniceday": "Have a nice day",
+			"inboxzero": "inbox zero",
 			"other": "Other",
 			"review": "Review",
 			"storybook": "Storybook",
@@ -52,6 +57,7 @@ const initialState = {
 			"transcribe": "Transcribe",
 			"unassign": "Unassign",
 			"upload": "Upload",
+			"youhavereached": "You've reached",
 		}
     }),
     "userSettings": new LocalizedStrings({

@@ -86,6 +86,24 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="transcribe.haveaniceday">
+			<segment>
+				<source>Have a nice day</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inboxzero">
+			<segment>
+				<source>inbox zero</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.youhavereached">
+			<segment>
+				<source>You've reached</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -431,6 +449,24 @@
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.admin">
+			<segment>
+				<source>Admin</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
 				<target></target>
 			</segment>
 		</unit>
