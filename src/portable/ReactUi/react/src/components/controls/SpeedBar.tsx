@@ -7,9 +7,24 @@ interface IProps extends IStateProps, IDispatchProps {
 };
 
 class SpeedBar extends React.Component<IProps, any> {
+    private faster: string;
+    private slower: string;
+
     constructor(props: IProps) {
         super(props);
         this.onChange = this.onChange.bind(this);
+    }
+
+    public componentWillMount()
+    {
+        const { selectedUser, users } = this.props;
+        const user = users.filter(u => u.username.id === selectedUser)[0];
+
+        // Get the slower and faster hotkeys specified for the user
+        if (user.hotkey !== undefined){
+            this.slower = user.hotkey.filter(h => h.id === "slower")[0].text;
+            this.faster = user.hotkey.filter(h => h.id === "faster")[0].text;
+        }
     }
 
     public onChange(e: any) {
@@ -23,7 +38,7 @@ class SpeedBar extends React.Component<IProps, any> {
         return (
         <div>
             <ReactToolTip />
-            <div className="SpeedBar" data-tip="F3 ⬌ F4">
+            <div className="SpeedBar" data-tip={this.slower + " ⬌ " + this.faster}>
                 <i className="slider-origin" />
                 <input
                     id="speed"
@@ -42,6 +57,8 @@ class SpeedBar extends React.Component<IProps, any> {
 
 interface IStateProps {
     playSpeedRate: number;
+    selectedUser: string;
+    users: IUser[];
 };
 
 interface IDispatchProps {
