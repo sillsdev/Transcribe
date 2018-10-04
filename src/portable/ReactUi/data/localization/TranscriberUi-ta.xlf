@@ -65,25 +65,43 @@
 		<unit id="transcribe.unassign">
 			<segment>
 				<source>Unassign</source>
-				<target></target>
+				<target>ஒதுக்கவில்லை</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.congratulations">
 			<segment>
 				<source>Congratulations</source>
-				<target></target>
+				<target>வாழ்த்துக்கள்</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.upload">
 			<segment>
 				<source>Upload</source>
-				<target></target>
+				<target>பதிவேற்றம்</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.continue">
 			<segment>
 				<source>Continue</source>
-				<target></target>
+				<target>தொடரு</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.haveaniceday">
+			<segment>
+				<source>Have a nice day</source>
+				<target>ஒரு நல்ல நாள்</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inboxzero">
+			<segment>
+				<source>inbox zero</source>
+				<target>இன்பாக்ஸ் பூஜ்யம்</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.youhavereached">
+			<segment>
+				<source>You've reached</source>
+				<target>நீங்கள் அடைந்துவிட்டீர்கள்</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -425,13 +443,31 @@
 		<unit id="projectSettings.privileges">
 			<segment>
 				<source>Privileges</source>
-				<target></target>
+				<target>சிறப்புரிமைகள்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
-				<target>Autres projects</target>
+				<target>பிற திட்டங்கள்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.admin">
+			<segment>
+				<source>Admin</source>
+				<target>நிர்வாகி</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>சரிபார்ப்பவர்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>எழுத்துவடிமாக்குபவர்</target>
 			</segment>
 		</unit>
 	</file>

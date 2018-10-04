@@ -77,8 +77,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
         const { deleted, strings, project, popupUser, users } = this.props;
 
         const save = () => this.save(this);
-        const roleList = ["Admin", "Reviewer", "Transcriber", "Reviewer + Transcriber"];
-        // const projectName = project != null && project.name != null ? project.name : strings.projectName;
+        const roleList = [strings.admin, strings.reviewer, strings.transcriber, strings.reviewer + strings.transcriber];
         if (deleted) {
             return <Redirect to="/ProjectSettings" />
         }
@@ -101,7 +100,6 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                 </div>
                 <div className="titleRow">
                     <div className="title">
-                        {/* <LabelCaptionUx name={strings.userDetails} type="H2" /> */}
                         <LabelCaptionUx name={strings.userDetails} type="H2" />
                     </div>
                     <div className={"deleteButton" + (this.userId && this.userId !== "" ? "" : " hide")}>
