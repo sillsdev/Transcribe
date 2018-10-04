@@ -65,25 +65,43 @@
 		<unit id="transcribe.unassign">
 			<segment>
 				<source>Unassign</source>
-				<target></target>
+				<target>Ba tare da izini ba</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.congratulations">
 			<segment>
 				<source>Congratulations</source>
-				<target></target>
+				<target>Taya murna</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.upload">
 			<segment>
 				<source>Upload</source>
-				<target></target>
+				<target>Upload</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.continue">
 			<segment>
 				<source>Continue</source>
-				<target></target>
+				<target>Ci gaba</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.haveaniceday">
+			<segment>
+				<source>Have a nice day</source>
+				<target>Yi rana mai kyau</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inboxzero">
+			<segment>
+				<source>inbox zero</source>
+				<target>akwatin sažo mai shiga</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.youhavereached">
+			<segment>
+				<source>You've reached</source>
+				<target>Kun isa</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -425,13 +443,31 @@
 		<unit id="projectSettings.privileges">
 			<segment>
 				<source>Privileges</source>
-				<target></target>
+				<target>Abubuwa</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
-				<target>Autres projects</target>
+				<target>Sauran Ayyuka</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.admin">
+			<segment>
+				<source>Admin</source>
+				<target>Admin</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>Mai sharhi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>Transcriber</target>
 			</segment>
 		</unit>
 	</file>

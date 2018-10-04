@@ -97,22 +97,25 @@ namespace ReactShared
 			}
 
 			var audioParts = audioData.Split(',').ToList<string>();
-			string dummyData = audioParts[1].Trim().Replace(" ", "+");
-			if (dummyData.Length % 4 > 0)
-				dummyData = dummyData.PadRight(dummyData.Length + 4 - dummyData.Length % 4, '=');
-			var bytes = Convert.FromBase64String(dummyData);
-
-			using (var ms = new MemoryStream(bytes))
+			if (audioParts.Count > 1)
 			{
-				var buffer = new byte[1000];
-				using (var os = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
+				string dummyData = audioParts[1].Trim().Replace(" ", "+");
+				if (dummyData.Length % 4 > 0)
+					dummyData = dummyData.PadRight(dummyData.Length + 4 - dummyData.Length % 4, '=');
+				var bytes = Convert.FromBase64String(dummyData);
+
+				using (var ms = new MemoryStream(bytes))
 				{
-					int count;
-					do
+					var buffer = new byte[1000];
+					using (var os = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
 					{
-						count = ms.Read(buffer, 0, 1000);
-						os.Write(buffer, 0, count);
-					} while (count > 0);
+						int count;
+						do
+						{
+							count = ms.Read(buffer, 0, 1000);
+							os.Write(buffer, 0, count);
+						} while (count > 0);
+					}
 				}
 			}
 		}

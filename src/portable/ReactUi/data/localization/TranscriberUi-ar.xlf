@@ -86,6 +86,24 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="transcribe.haveaniceday">
+			<segment>
+				<source>Have a nice day</source>
+				<target>أتمنى لك نهارا سعيد</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inboxzero">
+			<segment>
+				<source>inbox zero</source>
+				<target>صندوق الوارد صفر</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.youhavereached">
+			<segment>
+				<source>You've reached</source>
+				<target>لقد وصلت</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -425,13 +443,31 @@
 		<unit id="projectSettings.privileges">
 			<segment>
 				<source>Privileges</source>
-				<target></target>
+				<target>امتيازات</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
-				<target></target>
+				<target>مشاريع أخرى</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.admin">
+			<segment>
+				<source>Admin</source>
+				<target>مشرف</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>مراجع</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>النساخ</target>
 			</segment>
 		</unit>
 	</file>

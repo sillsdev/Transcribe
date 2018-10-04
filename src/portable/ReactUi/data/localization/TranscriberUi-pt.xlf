@@ -65,25 +65,43 @@
 		<unit id="transcribe.unassign">
 			<segment>
 				<source>Unassign</source>
-				<target></target>
+				<target>Cancelar atribuição</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.congratulations">
 			<segment>
 				<source>Congratulations</source>
-				<target></target>
+				<target>Parabéns</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.upload">
 			<segment>
 				<source>Upload</source>
-				<target></target>
+				<target>Envio</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.continue">
 			<segment>
 				<source>Continue</source>
-				<target></target>
+				<target>Continuar</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.haveaniceday">
+			<segment>
+				<source>Have a nice day</source>
+				<target>Tenha um bom dia</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inboxzero">
+			<segment>
+				<source>inbox zero</source>
+				<target>caixa de entrada zero</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.youhavereached">
+			<segment>
+				<source>You've reached</source>
+				<target>Você chegou</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -425,13 +443,31 @@
 		<unit id="projectSettings.privileges">
 			<segment>
 				<source>Privileges</source>
-				<target></target>
+				<target>Privilégios</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
-				<target>Autres projects</target>
+				<target>Outros projetos</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.admin">
+			<segment>
+				<source>Admin</source>
+				<target>Admin</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewer">
+			<segment>
+				<source>Reviewer</source>
+				<target>Revisor</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcriber">
+			<segment>
+				<source>Transcriber</source>
+				<target>Transcritor</target>
 			</segment>
 		</unit>
 	</file>
