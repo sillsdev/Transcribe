@@ -4,5 +4,10 @@
 	<user skill="unsupervised">
 		<username id="admin"></username>
 		<role>administrator</role>
+		<hotkey id="play-pause">ESC</hotkey>
+		<hotkey id="back">F2</hotkey>
+		<hotkey id="forward">F3</hotkey>
+		<hotkey id="slower">F4</hotkey>
+		<hotkey id="faster">F5</hotkey>
 	</user>
 </users>

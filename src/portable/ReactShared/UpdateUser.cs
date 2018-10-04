@@ -42,6 +42,15 @@ namespace ReactShared
 					userNode.AppendChild(projectNode);
 					Util.NewAttr(projectNode, "id", project);
 				}
+				var keyDefaults = new Dictionary<string, string> {{"play-pause", "ESC"}, {"back", "F2"}, {"forward", "F3"}, {"slower", "F4"}, {"faster", "F5"}};
+				foreach (var keyMap in keyDefaults)
+				{
+					var arg = parsedQuery[keyMap.Key.Replace("-","")];
+					var hotkey = usersDoc.CreateElement("hotkey");
+					Util.NewAttr(hotkey, "id", keyMap.Key);
+					hotkey.InnerText = !string.IsNullOrEmpty(arg) ? arg : keyMap.Value;
+					userNode.AppendChild(hotkey);
+				}
 				if (string.IsNullOrEmpty(role))
 					role = "Transcriber";
 				usersDoc.DocumentElement.AppendChild(userNode);
