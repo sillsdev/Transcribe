@@ -18,38 +18,63 @@ interface IProps extends IStateProps, IDispatchProps {
 };
 
 class MainLayout extends React.Component<IProps, any> {
+    private back: string;
+    private faster: string;
+    private forward: string;
+    private playPause: string;
+    private slower: string;
+
+    public componentWillMount()
+    {
+        const { selectedUser, users } = this.props;
+        const user = users.filter(u => u.username.id === selectedUser)[0];
+
+        // Get the hotkeys specified for the user
+        if (user.hotkey !== undefined){
+            this.playPause = user.hotkey.filter(h => h.id === "play-pause")[0].text.toLowerCase();
+            this.back = user.hotkey.filter(h => h.id === "back")[0].text.toLowerCase();
+            this.forward = user.hotkey.filter(h => h.id === "forward")[0].text.toLowerCase();
+            this.slower = user.hotkey.filter(h => h.id === "slower")[0].text.toLowerCase();
+            this.faster = user.hotkey.filter(h => h.id === "faster")[0].text.toLowerCase();         
+        }
+    }
+
     public render() {
         const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, saved, submit } = this.props;
 
         const keyMap = {
-            moveUp: 'up',
+            backKey: this.back,
+            fasterKey: this.faster,
+            forwardKey: this.forward,
+            playPauseKey: this.playPause,
+            slowerKey: this.slower,
         }
 
         const handlers = {
-            'esc': (event: any) => {
-                playStatus(!playing);
-            },
-            'f1': (event: any) => {
+            backKey: (event: any) => {
                 jumpChange(-2);
             },
-            'f2': (event: any) => {
-                jumpChange(2);
-            },
-            'f3': (event: any) => {
-                let speedDown = playSpeedRate - 0.1;
-                if(playSpeedRate <= 0.5)
-                {
-                    speedDown = 0.5
-                }
-                playSpeedRateChange(speedDown);
-            },
-            'f4': (event: any) => {
+            fasterKey: (event: any) => {
                 let speedUp = playSpeedRate + 0.1;
                 if(playSpeedRate >= 2.0)
                 {
                     speedUp = 2.0
                 }
                 playSpeedRateChange(speedUp);
+            },
+            forwardKey: (event: any) => {
+                jumpChange(2);
+            },
+            playPauseKey : (event: any) => {
+                playStatus(!playing);
+            },
+            slowerKey: (event: any) => {
+                let speedDown = playSpeedRate - 0.1;
+                if(playSpeedRate <= 0.5)
+                {
+                    speedDown = 0.5
+                }
+                playSpeedRateChange(speedDown);
             },
         };
 
@@ -83,6 +108,7 @@ interface IStateProps {
     submit: boolean;
     jump: number;
     strings: ITranscriberStrings;
+    users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -95,6 +121,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, { layout: "transcriber" }),
     submit: state.audio.submit,
+    users: state.users.users,
 });
 
 interface IDispatchProps {

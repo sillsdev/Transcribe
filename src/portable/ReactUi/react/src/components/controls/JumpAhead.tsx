@@ -3,22 +3,38 @@ import * as ReactToolTip from 'react-tooltip';
 import * as actions from '../../actions/audioActions';
 import './JumpAhead.sass';
 
-interface IProps {
+interface IProps extends IStateProps{
     jumpChange: typeof actions.jumpChange;
 };
 
 class JumpAhead extends React.Component<IProps, object> {
+    private forward: string;
+
+    public componentWillMount()
+    {
+        const { selectedUser, users } = this.props;
+        const user = users.filter(u => u.username.id === selectedUser)[0];
+
+        // Get the forward hotkey specified for the user
+        if (user.hotkey !== undefined){
+            this.forward = user.hotkey.filter(h => h.id === "forward")[0].text;
+        }
+    }
     public render() {
         return (
-
             <div>
                 <ReactToolTip />
-                <div id="JumpAhead" className="JumpAhead" data-tip="F2" onClick={this.props.jumpChange.bind(this, 2)}>
+                <div id="JumpAhead" className="JumpAhead" data-tip={this.forward} onClick={this.props.jumpChange.bind(this, 2)}>
                     {"\u00BB"}
                 </div>
             </div>
         )
     }
+};
+
+interface IStateProps {
+    selectedUser: string;
+    users: IUser[];
 };
 
 export default JumpAhead;

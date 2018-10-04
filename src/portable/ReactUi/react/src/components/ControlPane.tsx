@@ -40,6 +40,8 @@ interface IStateProps {
     playing: boolean;
     playSpeedRate: number;
     strings: ITranscriberStrings;
+    selectedUser: string;
+    users: IUser[];
 };
 
 interface IDispatchProps {

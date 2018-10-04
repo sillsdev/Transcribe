@@ -30,8 +30,10 @@ interface IStateProps {
     playing: boolean;
     playSpeedRate: number;
     selectedTask: string;
+    selectedUser: string;
     jump: number;
     strings: ITranscriberStrings;
+    users: IUser[];
 };
 
 interface IDispatchProps {
