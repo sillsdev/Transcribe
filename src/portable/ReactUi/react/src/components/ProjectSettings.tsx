@@ -24,10 +24,48 @@ interface IProps extends IStateProps, IDispatchProps {
 };
 
 class ProjectSettings extends React.Component<IProps, object> {
-    public render() {
-        const{ project, strings } = this.props
+    public state = {
+        showTextBox: false,
+        titleText: "",};
+
+    constructor(props: IProps) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    public handleChange(event: any) {
+        this.setState({ titleText: event.target.value });
+    }
+
+    public onClick = () => {
+        this.setState({showTextBox : true});
+    }
+
+    public onBlur = () => {
+        this.setState({showTextBox : false});
+    }
+
+    public componentWillMount()
+     {
+        const{ project, strings } = this.props;
         const title = project != null && project.name != null? project.name: strings.projectName;
+        this.setState({titleText : title});
+     }
+
+    public render() {
+        const{ strings } = this.props
         const modal = this.props.history.location.pathname.length > 17? " Modal": ""
+
+        let titleWrapper;
+        if(this.state.showTextBox){
+            titleWrapper = (<input value={this.state.titleText} onBlur={this.onBlur} className="inputTitle" 
+            onChange={this.handleChange} autoFocus={true} />);
+        }
+        else
+        {
+            titleWrapper = (<div className="title" onClick={this.onClick}>
+            <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
+        }
         return (
             <div id="ProjectSettings" className={"ProjectSettings" + modal}>
                 <div className="rows">
@@ -37,9 +75,7 @@ class ProjectSettings extends React.Component<IProps, object> {
                             <LabelCaptionUx name={strings.projectSettings} type="H3" />
                         </div>
                         <div className="left">
-                            <div className="title">
-                                <LabelCaptionUx name={title} type="H1" />
-                            </div>
+                            {titleWrapper}
                             <PencilAction target={this.editProjectName} />
                         </div>
                         <div className="paringRow">
@@ -59,8 +95,8 @@ class ProjectSettings extends React.Component<IProps, object> {
         )
     }
 
-    private editProjectName() {
-        alert("Edit project name")
+    private editProjectName = () => {
+        this.setState({showTextBox : true});
     }
 
     private pair() {
