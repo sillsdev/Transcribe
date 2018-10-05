@@ -23,6 +23,7 @@ const initialState = {
 			"next": "Next",
 			"noProjectsFound": "We didn\u2019t find any Paratext projects on your computer.",
 			"otherProjects": "Other Projects",
+			"pairWithParatext": "Pair with Paratext",
 			"pairedWithParatextProject": "Paired with Paratext project",
 			"people": "People",
 			"privileges": "Privileges",

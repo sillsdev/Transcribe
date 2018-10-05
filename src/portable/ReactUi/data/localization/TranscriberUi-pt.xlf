@@ -470,5 +470,11 @@
 				<target>Transcritor</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.pairWithParatext">
+			<segment>
+				<source>Pair with Paratext</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

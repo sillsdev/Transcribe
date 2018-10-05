@@ -48,24 +48,21 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         this.setState({showTextBox : false});
     }
 
-    public componentWillMount()
-     {
+    public componentWillMount() {
         const{ project, strings } = this.props;
         const title = project != null && project.name != null? project.name: strings.projectName;
         this.setState({titleText : title});
-     }
+    }
 
     public render() {
         const{ strings } = this.props
         const modal = this.props.history.location.pathname.length > 17? " Modal": ""
 
         let titleWrapper;
-        if(this.state.showTextBox){
+        if (this.state.showTextBox) {
             titleWrapper = (<input value={this.state.titleText} onBlur={this.onBlur} className="inputTitle" 
             onChange={this.handleChange} autoFocus={true} />);
-        }
-        else
-        {
+        } else {
             titleWrapper = (<div className="title" onClick={this.onClick}>
             <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
         }
@@ -86,7 +83,8 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                         </div>
                         <div className="switches">
                             <ToggleSwitch switched={false} text={strings.allowClaimUnassignedTasks} type="switch1" />
-                            <ToggleSwitch switched={false} text={strings.autoSyncParatext} type="switch1" />
+                            <ToggleSwitch switched={false} text={strings.pairWithParatext} type="switch1" />
+                            <ToggleSwitch switched={false} text={strings.autoSyncParatext} enabled={false} type="switch1" />
                         </div>
                     </div>
                     <div className="contents">
