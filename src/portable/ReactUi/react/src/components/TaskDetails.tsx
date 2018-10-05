@@ -9,7 +9,7 @@ import Duration from '../components/controls/Duration';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize'
-import allTasks from '../selectors/task';
+import projectTasks from '../selectors/projectTasks';
 import NextAction from './controls/NextAction';
 import './TaskDetails.sass';
 import FileField from './ui-controls/FileField';
@@ -217,7 +217,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedProject: state.tasks.selectedProject,
     strings: userStrings(state, { layout: "projectSettings" }),
-    tasks: allTasks(state),
+    tasks: projectTasks(state),
     users: state.users.users,
 });
 

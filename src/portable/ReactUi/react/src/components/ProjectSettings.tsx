@@ -10,10 +10,10 @@ import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
 import PencilAction from './controls/PencilAction';
 import ToggleSwitch from './controls/ToggleSwitch';
-import PeopleList from './PeopleList';
 import './ProjectSettings.sass';
 import TaskList from './TaskList';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
+import UserList from './UserList';
 
 interface IProps extends IStateProps, IDispatchProps {
     history: {
@@ -90,7 +90,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                         </div>
                     </div>
                     <div className="contents">
-                        <PeopleList />
+                        <UserList />
                         <TaskList />
                     </div>
                 </div>
