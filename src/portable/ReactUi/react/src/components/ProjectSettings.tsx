@@ -23,10 +23,13 @@ interface IProps extends IStateProps, IDispatchProps {
     }
 };
 
-class ProjectSettings extends React.Component<IProps, object> {
-    public state = {
-        showTextBox: false,
-        titleText: "",};
+const initialState = {
+    showTextBox: false,
+    titleText: "",
+};
+
+class ProjectSettings extends React.Component<IProps, typeof initialState> {
+    public state = {...initialState}
 
     constructor(props: IProps) {
         super(props);
