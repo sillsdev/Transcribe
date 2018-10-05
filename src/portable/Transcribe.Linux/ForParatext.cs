@@ -18,8 +18,9 @@ namespace Transcribe.Windows
 		/// The Transcribed Data is moved to Paratext SFM
 		/// </summary>
 		/// <param name="taskId">Task Id</param>
+		/// <param name="heading">Heading for scripture</param>
 		/// <returns>true if upload successful</returns>
-		public static bool Upload(string taskId)
+		public static bool Upload(string taskId, string heading)
 		{
 			if (!ParatextInfo.IsParatextInstalled)
 			{
@@ -58,7 +59,8 @@ namespace Transcribe.Windows
 					paratextProject.Settings.Versification);
 
 				var chapterContent = paratextProject.GetText(vRef, true, true);
-				var sb = GenerateParatextData(currentTask, chapterContent, transcriptionArray[1]);
+
+				var sb = GenerateParatextData(currentTask, chapterContent, transcriptionArray[1], heading);
 
 				paratextProject.PutText(bookNum, currentTask.ChapterNumber, true, sb.ToString(), null);
 				return true;

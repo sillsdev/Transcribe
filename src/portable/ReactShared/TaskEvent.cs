@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Web;
 using System.Xml;
 
@@ -8,7 +7,7 @@ namespace ReactShared
 {
 	public class TaskEvent
 	{
-		public delegate bool Upload(string task);
+		public delegate bool Upload(string task, string heading);
 
 		public bool Exec(string query, Upload ToParatext = null)
 		{
@@ -45,7 +44,7 @@ namespace ReactShared
 				case "HoldStart": break;
 				case "HoldEnd": break;
 				case "Upload":
-					if (ToParatext != null && ToParatext(parsedQuery["task"]))
+					if (ToParatext != null && ToParatext(parsedQuery["task"], parsedQuery["heading"]))
 						return true;
 					break;
 				case "Complete": break;

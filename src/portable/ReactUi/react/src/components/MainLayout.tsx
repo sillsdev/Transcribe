@@ -10,6 +10,7 @@ import { IState } from '../model/state';
 import taskList from '../selectors';
 import userStrings from '../selectors/localize';
 import projectState from '../selectors/projectState';
+import taskValues from '../selectors/taskValues';
 import AudioPanel from './AudioPanel';
 import GreetingPanel from './GreetingPanel';
 import './MainLayout.sass';
@@ -114,6 +115,7 @@ interface IStateProps {
     saved: boolean;
     submit: boolean;
     jump: number;
+    heading: string;
     strings: ITranscriberStrings;
     users: IUser[];
     assignedReview: ITask[];
@@ -127,6 +129,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     assignedTranscribe: taskList(state).assignedTranscribe,
     availableReview: taskList(state).availableReview,
     availableTranscribe: taskList(state).availableTranscribe,
+    heading: taskValues(state).heading,
     jump: state.audio.jump,
     playSpeedRate: state.audio.playSpeedRate,
     playing: state.audio.playing,

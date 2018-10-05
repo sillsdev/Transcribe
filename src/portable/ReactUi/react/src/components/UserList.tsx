@@ -10,10 +10,10 @@ import userStrings from '../selectors/localize'
 import AvatarLink from './controls/AvatarLink';
 import ButtonLink from './controls/ButtonLink';
 import FilterAction from './controls/FilterAction';
-import './PeopleList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
+import './UserList.sass';
 
-class PeopleList extends React.Component<any, object> {
+class UserList extends React.Component<any, object> {
     public componentDidMount() {
         const { fetchLocalization, fetchUsers, localizationLoaded, users } = this.props;
         if (users.length === 0) {
@@ -85,7 +85,7 @@ class PeopleList extends React.Component<any, object> {
             </div>);
 
         return (
-            <div className="PeopleList">
+            <div className="UserList">
                 <div className="title">
                     <LabelCaptionUx name={strings.people} type="H3" />
                     {(!userExists)? buttonWrapper: filterWrapper}
@@ -135,4 +135,4 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     }, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PeopleList);
+export default connect(mapStateToProps, mapDispatchToProps)(UserList);

@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Xml;
 using Paratext.Data;
 using Paratext.Data.ProjectSettingsAccess;
 using ReactShared;
@@ -19,8 +18,9 @@ namespace Transcribe.Windows
 		/// The Transcribed Data is moved to Paratext SFM
 		/// </summary>
 		/// <param name="taskId">Task Id</param>
+		/// <param name="heading">Heading for scripture</param>
 		/// <returns>true if upload successful</returns>
-		public static bool Upload(string taskId)
+		public static bool Upload(string taskId, string heading)
 		{
 			if (!ParatextInfo.IsParatextInstalled)
 			{
@@ -60,16 +60,6 @@ namespace Transcribe.Windows
 
 				var chapterContent = paratextProject.GetText(vRef, true, true);
 
-				var heading = string.Empty;
-				var taskMatch = Util.TaskIdPattern.Match(taskId);
-				var currtaskId = taskMatch.Success ? taskMatch.Groups[1].Value : taskId;
-				var tasksDoc = Util.LoadXmlData("tasks");
-				var taskNode = tasksDoc.SelectSingleNode($"//project[@id='{currentTask.Project}']/task[@id='{Path.GetFileNameWithoutExtension(currtaskId)}']") as XmlElement;
-				if (taskNode != null)
-				{
-					heading = taskNode.InnerText;
-				}
-
 				var sb = GenerateParatextData(currentTask, chapterContent, transcriptionArray[1], heading);
 
 				paratextProject.PutText(bookNum, currentTask.ChapterNumber, true, sb.ToString(), null);
@@ -79,7 +69,7 @@ namespace Transcribe.Windows
 			{
 				var error = ex.Message;
 				Debug.Print(error);
-				Logger.WriteEvent(ex.Message);
+				Logger.WriteEvent(error);
 			}
 
 			return false;
@@ -111,6 +101,7 @@ namespace Transcribe.Windows
 			catch (Exception ex)
 			{
 				string error = ex.Message;
+				Debug.Print(error);
 				Logger.WriteEvent(error);
 			}
 		}

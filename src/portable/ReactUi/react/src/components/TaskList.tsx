@@ -6,7 +6,7 @@ import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
-import allTasks from '../selectors/task';
+import allTasks from '../selectors/projectTasks';
 import ButtonLink from './controls/ButtonLink'
 import FilterAction from './controls/FilterAction';
 import NextAction from './controls/NextAction'
