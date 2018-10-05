@@ -4,46 +4,50 @@ import Switch from 'react-toggle-switch'
 import './ToggleSwitch.sass';
 
 interface IProps {
-    switched: boolean,
-    text: string,
-    type: string,
-}
+    enabled?: boolean;
+    onChange?: (value: boolean) => any;
+    switched?: boolean;
+    text: string;
+    type?: string;
+};
 
-class ToggleSwitch extends React.Component<IProps, any> {
-    public state = {
-        switched: true,
-    }
+const initialState = {
+    switched: true,
+};
+
+class ToggleSwitch extends React.Component<IProps, typeof initialState> {
+    public state = {...initialState};
 
     constructor(props: IProps) {
         super(props);
-        this.state = {
-            switched: true,
-        };
+        if (this.props.switched !== undefined){
+            this.state = {switched: this.props.switched};
+        }
         this.handleChange = this.handleChange.bind(this);
     }
 
-
-
     public toggleSwitch = () => {
-        this.setState((prevState: any) => {
-            return {
-                switched: !prevState.switched,
-            };
-        });
+        this.setState({ switched: !this.state.switched });
     };
 
     public handleChange(event: any) {
        // tslint:disable-next-line:no-console
        console.log(this.state.switched)
+       if (this.props.onChange) {
+           this.props.onChange(this.state.switched);
+       }
     }
 
     public render() {
-        const { type, text } = this.props
+        const { enabled, type, text } = this.props
         const style = "ToggleSwitch " + type
-        const lableStyle = (this.state.switched)? "SwitchLabel SwitchLabelOn":"SwitchLabel SwitchLabelOff"
+        const lableStyle = (enabled !== undefined && !enabled)? "SwitchLabel SwitchLabelDisabled": "SwitchLabel SwitchLabelOn";
         return (
             <div className={style}>
-                <Switch onClick={this.toggleSwitch} on={this.state.switched} />
+                <Switch
+                    onClick={this.toggleSwitch}
+                    on={this.state.switched && (enabled === undefined || enabled)}
+                    enabled={enabled === undefined || enabled} />
                 <Label bsClass={lableStyle}>{text}</Label>
             </div>
         )

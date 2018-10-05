@@ -14,12 +14,14 @@
 		background: #586E75
 		box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.02)
 		margin-right: 8px
+		&.disabled>*
+			background: #657BB3
 	
 	.switch-toggle
 		width: 21px
 		height: 21px
 		left: 0
-		background: #657B83
+		background: white
 		position: relative
 		transition: left .2s ease-in-out
 		box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.08)
@@ -33,22 +35,17 @@
 	.switch.on.SwitchStyle 
 		background: #657B83
 	
-.SwitchLabel
-	font-family: $sans
-	font-style: normal
-	font-weight: normal
-	line-height: 28px
-	font-size: 16px
-	letter-spacing: 0.444444px
+	.SwitchLabel
+		font-family: $sans
+		font-style: normal
+		font-weight: normal
+		line-height: 28px
+		font-size: 16px
+		letter-spacing: 0.444444px
 
-.SwitchLabelOn
-		color: $base2
-	
-.SwitchLabelOff
-		text-decoration: line-through
-		color: #657B83
-
-
-
-			
+	.SwitchLabelOn
+			color: $base2
 		
+	.SwitchLabelDisabled
+			text-decoration: line-through
+			color: #657B83
