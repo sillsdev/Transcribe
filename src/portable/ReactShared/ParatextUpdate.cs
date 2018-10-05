@@ -9,7 +9,7 @@ namespace ReactShared
 {
 	public class ParatextUpdate
 	{
-		protected static StringBuilder GenerateParatextData(Task currentTask, string chapterContent, string transcription)
+		protected static StringBuilder GenerateParatextData(Task currentTask, string chapterContent, string transcription, string heading)
 		{
 			var sb = new StringBuilder();
 			var firstIndex = 0;
@@ -57,7 +57,29 @@ namespace ReactShared
 				}
 				else
 				{
-					sb.Append("\\v" + list[i]);
+					if (i == firstIndex)
+					{
+						string previousVerse = list[i - 1].ToString();
+						if (heading != string.Empty)
+						{
+							if (!previousVerse.Contains("\\s1 "))
+							{
+								sb.Append("\\s1 " + heading + "\r\n\\p \\v" + list[i]);
+							}
+							else
+							{
+								sb.Append("\\v" + list[i]);
+							}
+						}
+						else
+						{
+							sb.Append("\\p \\v" + list[i]);
+						}
+					}
+					else
+					{
+						sb.Append("\\v" + list[i]);
+					}
 				}
 			}
 

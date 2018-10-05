@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using Paratext.Data;
 using Paratext.Data.ProjectSettingsAccess;
 using ReactShared;
@@ -58,7 +59,18 @@ namespace Transcribe.Windows
 					paratextProject.Settings.Versification);
 
 				var chapterContent = paratextProject.GetText(vRef, true, true);
-				var sb = GenerateParatextData(currentTask, chapterContent, transcriptionArray[1]);
+
+				var heading = string.Empty;
+				var taskMatch = Util.TaskIdPattern.Match(taskId);
+				var currtaskId = taskMatch.Success ? taskMatch.Groups[1].Value : taskId;
+				var tasksDoc = Util.LoadXmlData("tasks");
+				var taskNode = tasksDoc.SelectSingleNode($"//project[@id='{currentTask.Project}']/task[@id='{Path.GetFileNameWithoutExtension(currtaskId)}']") as XmlElement;
+				if (taskNode != null)
+				{
+					heading = taskNode.InnerText;
+				}
+
+				var sb = GenerateParatextData(currentTask, chapterContent, transcriptionArray[1], heading);
 
 				paratextProject.PutText(bookNum, currentTask.ChapterNumber, true, sb.ToString(), null);
 				return true;
@@ -120,7 +132,7 @@ namespace Transcribe.Windows
 				jsonString.Append("\"size\": \"" + aProject.Settings.DefaultFontSize + "\",");
 				jsonString.Append("\"direction\": \"" + (aProject.Language.RightToLeft ? "rtl" : "ltr") + "\",");
 				jsonString.Append("\"type\": \"" +
-				                  (aProject.Settings.TranslationInfo.Type.IsScripture() ? "Bible" : "Other") + "\"}");
+						  (aProject.Settings.TranslationInfo.Type.IsScripture() ? "Bible" : "Other") + "\"}");
 				jsonList.Add(jsonString.ToString());
 			}
 
