@@ -43,11 +43,15 @@ The browser control is monitoring the HTTP requests. When it observes a request 
 - `GetParatextProjects` - loads a list of Paratext 8 rojects currently on the computer.
 
 ## This is a PUT request:
-- `TaskEvent?action=<action>&task=<task>&user=<user>` - records an action (see XML schema) on the task
+- `TaskEvent?action=<action>&task=<task>&user=<user>&heading=<heading>` - records an action (see XML schema) on the task. The Upload event uploads the data to Paratext if possible.
 - `UpdateUser?user=<user>&project=<project>&<tag>=<value>` - updates value in user data
+- `DeleteUser?user=<user>` - deletes the user data
 - `UpdateAvatar?user=<user>` - The json object for the state of AvatarEdit is passed as the body. This request updates user with uri to newly created image file.
+- `UpdateProject?id=<project>&name=<name>&guid=<guid>&lang=<lang>&langName=<langName>&font=<font>&size=<size>&features=<features>&dir=<direction>&sync=<sync>&claim=<claim>&type=<type>` - update (or create) values for the project
 - `WriteTranscription?task=<taskid>&length=<value>&lang=<value>&dir=<value>` - The json object for the state of Edit pane. This request writes out the eaf file next to the audio file.
 - `ReportPosition?task=<taskid>&position=<value>` - saves the audio play position in the task file.
+- `UpdateTask?task=<taskid>&project=<projectid>&audioFile=<audioFileName>&reference=<scriptureReference>&heading=<headingText>&assignedTo=<userid>&timeDuration=<recordingLengthInMilliseconds>` - The json object for the audio file contents  is passed as the request body. The request updates value in task data.
+- `DeleteTask?task=<taskid>` - deletes the task data.
 
 ### List of tags for UpdateUser api
 - name
