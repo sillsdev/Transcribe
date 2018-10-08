@@ -47,7 +47,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
         this.updateUserName = this.updateUserName.bind(this);
         this.updatePrivileges = this.updatePrivileges.bind(this);
 
-        const { popupUser, users } = this.props;
+        const { popupUser, users, strings } = this.props;
         this.userId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupUser;
         if (this.userId && this.userId !== "") {
             const user: IUser = users.filter((u: IUser) => u.username.id === this.userId)[0];
@@ -58,13 +58,21 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
 
             const roleCount = user.role.length
             if (roleCount === 3) {
-                this.state.role = "Admin";
+                this.state.role = strings.admin;
             }
             else if (roleCount === 2) {
-                this.state.role = "Reviewer + Transcriber";
+                this.state.role = strings.reviewer + " + " + strings.transcriber;
             }
             else if (roleCount === 1) {
-                this.state.role = user.role[0];
+                if(user.role[0] === strings.transcriber) {
+                    this.state.role = strings.transcriber;
+                }
+                else if(user.role[0] === strings.reviewer) {
+                    this.state.role = strings.reviewer;
+                }
+                else {
+                    this.state.role = strings.transcriber;
+                }
             }
         } else {
             this.state = {...initialState}
@@ -77,7 +85,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
         const { deleted, strings, project, popupUser, users } = this.props;
 
         const save = () => this.save(this);
-        const roleList = [strings.admin, strings.reviewer, strings.transcriber, strings.reviewer + strings.transcriber];
+        const roleList = [strings.admin, strings.reviewer, strings.transcriber, strings.reviewer + " + " + strings.transcriber];
         if (deleted) {
             return <Redirect to="/ProjectSettings" />
         }
