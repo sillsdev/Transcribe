@@ -28,8 +28,9 @@ namespace ReactShared
 			{
 				var filterNodeList = new List<XmlNode>();
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
+				var claim = node.SelectSingleNode("./@claim") as XmlAttribute;
 				if (!string.IsNullOrEmpty(user))
-					TaskSkillFilter(taskNodes, ref filterNodeList, userNode, user);
+					TaskSkillFilter(taskNodes, ref filterNodeList, userNode, user, claim);
 				else
 				{
 					foreach (XmlNode tNode in taskNodes)
@@ -66,7 +67,7 @@ namespace ReactShared
 				foreach (var t in deleteNodes)
 					node.RemoveChild(t);
 
-				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"@", "\"").Substring(11);
+				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"false\"","false").Replace("\"true\"","true").Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
 
@@ -76,9 +77,11 @@ namespace ReactShared
 			}
 		}
 
-		private void TaskSkillFilter(XmlNodeList taskNodes, ref List<XmlNode> filterNodeList, XmlNode userNode, string userName)
+		private void TaskSkillFilter(XmlNodeList taskNodes, ref List<XmlNode> filterNodeList, XmlNode userNode, string userName, XmlAttribute claim)
 		{
 			var skill = userNode?.SelectSingleNode("./@skill")?.InnerText;
+			if (claim != null && claim.Value == "false")
+				skill = "supervised";
 			switch (skill)
 			{
 				case "trainee":

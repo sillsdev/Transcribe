@@ -12,12 +12,12 @@ class SuccessPanel extends React.Component<IProps, any> {
     constructor(props: IProps){
         super(props)
         const { projectState } = this.props;
-        const { completeReview, completeTranscription, heading, selectedTask, selectedUser } = this.props;
+        const { completeReview, completeTranscription, heading, selectedTask, selectedUser, sync } = this.props;
 
         if (projectState === "Transcribe") {
             completeTranscription(selectedTask, selectedUser);
         } else {
-            completeReview(selectedTask, selectedUser, heading);
+            completeReview(selectedTask, selectedUser, heading, sync);
         }
     }
 
@@ -48,6 +48,7 @@ interface IStateProps {
     selectedTask: string;
     selectedUser: string;
     strings: ITranscriberStrings;
+    sync: boolean | undefined;
 }
 
 interface IDispatchProps {

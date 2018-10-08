@@ -9,6 +9,7 @@ import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import taskList from '../selectors';
 import userStrings from '../selectors/localize';
+import currentProject from '../selectors/project';
 import projectState from '../selectors/projectState';
 import taskValues from '../selectors/taskValues';
 import AudioPanel from './AudioPanel';
@@ -122,6 +123,7 @@ interface IStateProps {
     assignedTranscribe: ITask[];
     availableReview: ITask[];
     availableTranscribe: ITask[];
+    sync: boolean | undefined;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -139,6 +141,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, { layout: "transcriber" }),
     submit: state.audio.submit,
+    sync: currentProject(state).sync,
     users: state.users.users,
 });
 

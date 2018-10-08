@@ -23,19 +23,6 @@ class ToggleSwitch extends React.Component<IProps, typeof initialState> {
         if (this.props.switched !== undefined){
             this.state = {switched: this.props.switched};
         }
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    public toggleSwitch = () => {
-        this.setState({ switched: !this.state.switched });
-    };
-
-    public handleChange(event: any) {
-       // tslint:disable-next-line:no-console
-       console.log(this.state.switched)
-       if (this.props.onChange) {
-           this.props.onChange(this.state.switched);
-       }
     }
 
     public render() {
@@ -52,6 +39,14 @@ class ToggleSwitch extends React.Component<IProps, typeof initialState> {
             </div>
         )
     }
+
+    private toggleSwitch = () => {
+        if (this.props.onChange) {
+            this.props.onChange(!this.state.switched);
+        }
+         this.setState({ switched: !this.state.switched });
+    };
+
 };
 
 export default ToggleSwitch;

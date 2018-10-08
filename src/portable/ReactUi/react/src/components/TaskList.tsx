@@ -39,8 +39,8 @@ class TaskList extends React.Component<IProps, object> {
         const { selectPopupTask, strings, tasks } = this.props
 
         let taskList = Array<JSX.Element>()
-        const leftLimit = (tasks.length + 1) / 2
-        for (let i=0; leftLimit >= 1 && i < leftLimit; i++) {
+        const leftLimit = Math.floor( (tasks.length + 1) / 2 )
+        for (let i=0; i < leftLimit; i++) {
             let col2 = <div/>
             if (i * 2 + 1 < tasks.length) {
                 col2 = this.taskJsx(tasks[i * 2 + 1],selectPopupTask)

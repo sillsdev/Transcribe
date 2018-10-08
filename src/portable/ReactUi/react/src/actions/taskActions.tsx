@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, DELETE_TASK,
     FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK,  UNASSIGN_TASK_PENDING,
-    UPDATE_TASK, WRITE_FULFILLED, WRITE_PENDING } from './types';
+    UPDATE_PROJECT, UPDATE_TASK, WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { saveUserSetting } from './userActions';
 
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
@@ -24,10 +24,10 @@ export const completeTranscription = (taskid: string, userid: string) => (dispat
         .then(dispatch(fetchTasks(userid)))
 }
 
-export const completeReview = (taskid: string, userid: string, heading: string) => (dispatch: any) => {
+export const completeReview = (taskid: string, userid: string, heading: string, sync: boolean | undefined) => (dispatch: any) => {
     dispatch({type: COMPLETE_REVIEW_PENDING});
     Axios.put('/api/TaskEvent?action=ReviewEnd&task=' + taskid + '&user=' + userid)
-        .then(dispatch(uploadTranscription(taskid, userid, heading)))
+        .then(dispatch(sync? uploadTranscription(taskid, userid, heading): fetchTasks(userid)))
 }
 
 export const uploadTranscription = (taskid: string, userid: string, heading: string) => (dispatch: any) => {
@@ -111,4 +111,13 @@ export const updateTask = (task: string, project: string, query: string, data: o
     dispatch({type: UPDATE_TASK});
     Axios.put('/api/UpdateTask?task=' + task + '&project=' + project + query, data)
         .then(dispatch(fetchTasksOfProject(project)))
+}
+
+export const updateProject = (project: IProject) => (dispatch: any) => {
+    dispatch({
+        payload: project.id,
+        type: UPDATE_PROJECT
+    })
+    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&sync=' + project.sync + '&claim=' + project.claim + '&type=' + project.type ).
+        then (dispatch(fetchTasksOfProject(project.id)));
 }

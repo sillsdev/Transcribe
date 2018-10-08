@@ -44,7 +44,9 @@ namespace ReactShared
 				case "HoldStart": break;
 				case "HoldEnd": break;
 				case "Upload":
-					if (ToParatext != null && ToParatext(parsedQuery["task"], parsedQuery["heading"]))
+					if (ToParatext != null && !ToParatext(parsedQuery["task"], parsedQuery["heading"]))
+						return true;
+					if (CompleteUpload(taskNode))
 						return true;
 					break;
 				case "Complete": break;
@@ -93,6 +95,16 @@ namespace ReactShared
 				return true;
 
 			Util.NewAttr(taskNode, "state", "Upload");
+			return false;
+		}
+
+		private bool CompleteUpload(XmlNode taskNode)
+		{
+			var state = taskNode.SelectSingleNode("@state") as XmlAttribute;
+			if (state?.InnerText != "Upload")
+				return true;
+
+			Util.NewAttr(taskNode, "state", "Complete");
 			return false;
 		}
 

@@ -19,6 +19,6 @@ export const selectParatextProject = (project: IParatextProject) => (dispatch: a
         payload: project.id,
         type: SELECT_PARATEXT_PROJECT
     })
-    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&type=' + project.type ).
+    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&type=' + project.type + '&sync=true&claim=true' ).
         then (dispatch(fetchTasksOfProject(project.id)));
 }

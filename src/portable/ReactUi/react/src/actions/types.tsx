@@ -29,3 +29,4 @@ export const UPDATE_TASK = 'UPDATE_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 export const SELECT_POPUP_USER = 'SELECT_POPUP_USER';
 export const DELETE_USER = 'DELETE_USER';
+export const UPDATE_PROJECT = 'UPDATE_PROJECT';

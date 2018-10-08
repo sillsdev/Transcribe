@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions2 from '../actions/paratextProjectActions';
 import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -34,35 +33,37 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
 
     constructor(props: IProps) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.onNameChange = this.onNameChange.bind(this);
+        this.onNameKeyDown = this.onNameKeyDown.bind(this);
+        this.onClaim = this.onClaim.bind(this);
+        this.onSync = this.onSync.bind(this);
     }
 
-    public handleChange(event: any) {
+    public onNameChange(event: any) {
         this.setState({ titleText: event.target.value });
     }
 
-    public handleKeyDown(event: any){
+    public onNameKeyDown(event: any){
         if(event.keyCode === 13){
             this.setState({showTextBox : false});
             const{ project } = this.props;
             const projectName = (project.name !== undefined)?project.name:"";
             if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
-                this.selectProject({id: project.id, name:this.state.titleText, lang: project.lang, guid: (project.guid? project.guid: "")})
+                this.props.updateProject({...project, name:this.state.titleText})
             }
         }
     }
 
-    public onClick = () => {
+    public onNameClick = () => {
         this.setState({showTextBox : true});
     }
 
-    public onBlur = () => {
+    public onNameLooseFocus = () => {
         this.setState({showTextBox : false});
         const{ project } = this.props;
         const projectName = (project.name !== undefined)?project.name:"";
         if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
-            this.selectProject({id: project.id, name:this.state.titleText, lang: project.lang, guid: (project.guid? project.guid: "")})
+            this.props.updateProject({...project, name:this.state.titleText})
         }
     }
 
@@ -73,17 +74,21 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const{ strings } = this.props
+        const{ project, strings } = this.props
         const modal = this.props.history.location.pathname.length > 17? " Modal": ""
 
         let titleWrapper;
         if (this.state.showTextBox) {
-            titleWrapper = (<input value={this.state.titleText} onBlur={this.onBlur} className="inputTitle" 
-            onChange={this.handleChange} autoFocus={true} onKeyDown={this.handleKeyDown} />);
+            titleWrapper = (<input value={this.state.titleText} onBlur={this.onNameLooseFocus} className="inputTitle" 
+            onChange={this.onNameChange} autoFocus={true} onKeyDown={this.onNameKeyDown} />);
         } else {
-            titleWrapper = (<div className="title" onClick={this.onClick}>
+            titleWrapper = (<div className="title" onClick={this.onNameClick}>
             <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
         }
+        const claim = project && project.claim? project.claim: false;
+        const pair = project && project.guid && project.guid !== ""? true: false;
+        const pairText = pair? strings.pairedWithParatextProject: strings.clickToPair;
+        const sync = project && project.sync? project.sync: false;
         return (
             <div id="ProjectSettings" className={"ProjectSettings" + modal}>
                 <div className="rows">
@@ -97,12 +102,12 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                             <PencilAction target={this.editProjectName} />
                         </div>
                         <div className="paringRow">
-                            <LinkAction text={strings.clickToPair} target={this.pair} />
+                            <LinkAction text={pairText} target={this.pair} />
                         </div>
                         <div className="switches">
-                            <ToggleSwitch switched={false} text={strings.allowClaimUnassignedTasks} type="switch1" />
-                            <ToggleSwitch switched={false} text={strings.pairWithParatext} type="switch1" />
-                            <ToggleSwitch switched={false} text={strings.autoSyncParatext} enabled={false} type="switch1" />
+                            <ToggleSwitch switched={claim} text={strings.allowClaimUnassignedTasks} onChange={this.onClaim}/>
+                            <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair} />
+                            <ToggleSwitch switched={sync} text={strings.autoSyncParatext} enabled={pair} onChange={this.onSync} />
                         </div>
                     </div>
                     <div className="contents">
@@ -122,8 +127,12 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         alert("pair")
     }
 
-    private selectProject(project: IParatextProject){
-        this.props.selectParatextProject(project);
+    private onClaim = (val: boolean) => {
+        this.props.updateProject({...this.props.project, claim: val})
+    }
+
+    private onSync = (val: boolean) => {
+       this.props.updateProject({...this.props.project, sync: val})
     }
 }
 
@@ -147,15 +156,15 @@ const mapStateToProps = (state: IState): IStateProps => ({
 
 interface IDispatchProps {
     fetchTasks: typeof actions.fetchTasks;
-    selectParatextProject: typeof actions2.selectParatextProject;
+    updateProject: typeof actions.updateProject;
     selectProject: typeof actions.selectProject;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchTasks: actions.fetchTasks,
-        selectParatextProject: actions2.selectParatextProject,
         selectProject: actions.selectProject,
+        updateProject: actions.updateProject,
     }, dispatch),
 });
 
