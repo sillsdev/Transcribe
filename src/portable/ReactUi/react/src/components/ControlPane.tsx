@@ -12,8 +12,14 @@ interface IProps extends IStateProps, IDispatchProps {
 };
 
 class ControlPane extends React.Component<IProps, any> {
-
     public render() {
+
+        let submitWrapper = <div className="SubmitSpacer" />;
+        if(this.props.assignedReview.length + this.props.assignedTranscribe.length > 0)
+        {
+            submitWrapper = <NextAction target={this.submit} text={this.props.strings.submit} type="safe"/>;
+        }
+
         return (
             <div className="ControlPane"> 
                 <SpeedBar {...this.props} />
@@ -24,19 +30,20 @@ class ControlPane extends React.Component<IProps, any> {
                 </div>
                 <JumpAhead {...this.props} />
                 <div className="Spacer" />
-                <NextAction target={this.submit} text={this.props.strings.submit} type="safe"/>
+                {submitWrapper}
             </div>
             )
     }
 
     private submit = () => {
         const { setSubmitted } = this.props;
-
         setSubmitted(true)
     }
 };
 
 interface IStateProps {
+    assignedReview: ITask[];
+    assignedTranscribe: ITask[];
     playing: boolean;
     playSpeedRate: number;
     strings: ITranscriberStrings;

@@ -27,6 +27,8 @@ class AudioPanel extends React.Component<IProps, object> {
 };
 
 interface IStateProps {
+    assignedReview: ITask[];
+    assignedTranscribe: ITask[];
     playing: boolean;
     playSpeedRate: number;
     selectedTask: string;
