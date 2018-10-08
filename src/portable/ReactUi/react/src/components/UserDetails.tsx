@@ -80,7 +80,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                 }
             }
         } else {
-            this.state = {...initialState}
+            this.state = {...initialState, role: this.roleListLoc[2]}
         }
         this.original = { ...this.state };
     }
