@@ -48,7 +48,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
             const{ project } = this.props;
             const projectName = (project.name !== undefined)?project.name:"";
             if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
-                this.selectProject({id: project.id, name:this.state.titleText})
+                this.selectProject({id: project.id, name:this.state.titleText, lang: project.lang, guid: (project.guid? project.guid: "")})
             }
         }
     }
@@ -62,7 +62,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         const{ project } = this.props;
         const projectName = (project.name !== undefined)?project.name:"";
         if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
-            this.selectProject({id: project.id, name:this.state.titleText})
+            this.selectProject({id: project.id, name:this.state.titleText, lang: project.lang, guid: (project.guid? project.guid: "")})
         }
     }
 
