@@ -1,8 +1,8 @@
 interface IParatextProject {
     id: string;
     name?: string;
-    guid?: string;
-    lang?: string;
+    guid: string;
+    lang: string;
     langName?: string;
     font?: string;
     features?: string;
