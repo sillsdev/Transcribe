@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as actions2 from '../actions/paratextProjectActions';
 import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -34,10 +35,22 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     constructor(props: IProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     public handleChange(event: any) {
         this.setState({ titleText: event.target.value });
+    }
+
+    public handleKeyDown(event: any){
+        if(event.keyCode === 13){
+            this.setState({showTextBox : false});
+            const{ project } = this.props;
+            const projectName = (project.name !== undefined)?project.name:"";
+            if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
+                this.selectProject({id: project.id, name:this.state.titleText})
+            }
+        }
     }
 
     public onClick = () => {
@@ -46,6 +59,11 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
 
     public onBlur = () => {
         this.setState({showTextBox : false});
+        const{ project } = this.props;
+        const projectName = (project.name !== undefined)?project.name:"";
+        if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
+            this.selectProject({id: project.id, name:this.state.titleText})
+        }
     }
 
     public componentWillMount() {
@@ -61,7 +79,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         let titleWrapper;
         if (this.state.showTextBox) {
             titleWrapper = (<input value={this.state.titleText} onBlur={this.onBlur} className="inputTitle" 
-            onChange={this.handleChange} autoFocus={true} />);
+            onChange={this.handleChange} autoFocus={true} onKeyDown={this.handleKeyDown} />);
         } else {
             titleWrapper = (<div className="title" onClick={this.onClick}>
             <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
@@ -103,6 +121,10 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     private pair() {
         alert("pair")
     }
+
+    private selectProject(project: IParatextProject){
+        this.props.selectParatextProject(project);
+    }
 }
 
 interface IStateProps {
@@ -125,12 +147,14 @@ const mapStateToProps = (state: IState): IStateProps => ({
 
 interface IDispatchProps {
     fetchTasks: typeof actions.fetchTasks;
+    selectParatextProject: typeof actions2.selectParatextProject;
     selectProject: typeof actions.selectProject;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchTasks: actions.fetchTasks,
+        selectParatextProject: actions2.selectParatextProject,
         selectProject: actions.selectProject,
     }, dispatch),
 });
