@@ -15,6 +15,11 @@ const initialState = {
 }
 
 interface IProps extends IStateProps, IDispatchProps {
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
 }
 
 class AvatarEdit extends React.Component<IProps, typeof initialState> {
@@ -28,20 +33,25 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { selectedUser, strings, users } = this.props;
-        const user = users.filter(u => u.username.id === selectedUser)[0];
-
+        const { selectedUser, selectedPopUser, strings, users } = this.props;
+        let user = users.filter(u => u.username.id === selectedUser)[0];
+        let backTo = "/settings";
+        if(this.props.history.location.pathname.includes("PopupUser"))
+        {
+            user = users.filter(u => u.username.id === selectedPopUser)[0];
+            backTo = "/ProjectSettings/User";
+        }
         return (
             <div className="AvatarEdit">
-                <BackLink target="/settings" />
+                <BackLink target={backTo} />
 
                 <Avatar
                     width={390}
                     height={295}
                     label={strings.chooseAvatar}
-                    onCrop={this.onCrop} 
-                    src={user !== undefined? user.username.avatarUri:""}
-                    />
+                    onCrop={this.onCrop}
+                    src={user !== undefined ? user.username.avatarUri : ""}
+                />
                 <div className="preview">
                     <img src={this.state.preview} alt="Preview" />
                     <NextAction target={this.onSave} text={strings.save} type="primary" />
@@ -51,35 +61,41 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
     }
 
     private onCrop(preview: any) {
-        this.setState({preview})
+        this.setState({ preview })
     }
 
     private onSave() {
-        const { selectedUser, updateAvatar } = this.props;
-        updateAvatar(selectedUser, this.state);
+        const { selectedUser, selectedPopUser, updateAvatar } = this.props;
+        let currUser = selectedUser;
+        if(this.props.history.location.pathname.includes("PopupUser")){
+            currUser = selectedPopUser;
+        }
+        updateAvatar(currUser, this.state);
     }
 };
 
 interface IStateProps {
     selectedUser: string;
+    selectedPopUser: string;
     strings: IUserSettingsStrings;
     users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    selectedPopUser: state.users.selectedPopupUser,
     selectedUser: state.users.selectedUser,
-    strings: userStrings(state, {layout: "userSettings"}),
+    strings: userStrings(state, { layout: "userSettings" }),
     users: state.users.users,
 });
 
 interface IDispatchProps {
     updateAvatar: typeof actions.updateAvatar,
-  };
+};
 
-  const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         updateAvatar: actions.updateAvatar,
-        }, dispatch),
-  });
+    }, dispatch),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AvatarEdit);

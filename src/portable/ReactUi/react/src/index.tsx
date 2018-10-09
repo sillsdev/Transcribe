@@ -26,7 +26,8 @@ ReactDOM.render(
         <Route path="/project" component={SelectProject} />
         <Route path="/main" component={MainLayout} />
         <Route path="/settings" component={UserSettings}/>
-        <Route path="/avatar" component={AvatarEdit} />
+        <Route path="/avatar/User" component={AvatarEdit} />
+        <Route path="/avatar/PopupUser" component={AvatarEdit} />
         <Route path="/uilang" component={UiLang} />
         <Route path="/SearchParatextProjects" component={SearchParatextProjects} />
         <Route path="/NewOrBrowseParatextProjects" component={NewOrBrowseParatextProjects} />

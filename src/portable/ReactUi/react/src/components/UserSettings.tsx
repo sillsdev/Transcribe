@@ -88,7 +88,7 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <Link className="pencil" to="/avatar">{"\u2710"}</Link>
+                                <Link className="pencil" to="/avatar/User">{"\u2710"}</Link>
                                 <Avatar
                                     id={user.id}
                                     size="64"

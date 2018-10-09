@@ -12,7 +12,6 @@ import userStrings from '../selectors/localize'
 import currentProject from '../selectors/project';
 import AvatarLink from './controls/AvatarLink';
 import NextAction from './controls/NextAction';
-import PencilAction from './controls/PencilAction';
 import { ProjectAvatar } from './controls/ProjectAvatar';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
@@ -122,7 +121,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                             <div className="AvatarColumn">
                                 <div className="AvatarRow">
                                     <Avatar className="OnHover" name={this.state.name} src={this.state.avatarUrl} size={120} round={true} />
-                                    <PencilAction target={this.editUserAvatar} />
+                                    <Link className="pencil" to="/avatar/PopupUser">{"\u2710"}</Link>
                                     <br /> <br />
                                 </div>
                                 <div className="AvatarCaption">{this.state.name}</div>
@@ -149,9 +148,6 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
 
     public handleChange(event: any) {
         this.setState({ selectedValue: event.target.value });
-    }
-    private editUserAvatar() {
-        alert("Edit User Avatar");
     }
 
     private saveValue(updates: string[], tag: string, val: string | null) {
