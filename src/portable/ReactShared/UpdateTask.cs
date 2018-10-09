@@ -65,10 +65,13 @@ namespace ReactShared
 				taskNameNode = tasksDoc.CreateElement("name");
 				taskNode.AppendChild(taskNameNode);
 			}
-			taskNameNode.InnerText = heading;
+			if (!string.IsNullOrEmpty(heading))
+				taskNameNode.InnerText = heading;
 			Util.UpdateAttr(taskNode, "assignedto", assignedTo);
 			Util.UpdateAttr(taskNode, "length", timeDuration);
-			Util.UpdateAttr(taskNode, "state", "Transcribe");
+			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
+			if (state == null || string.IsNullOrEmpty(state.InnerText))
+				Util.UpdateAttr(taskNode, "state", "Transcribe");
 			
 			using (var xw = XmlWriter.Create(Util.XmlFullName("tasks"), new XmlWriterSettings {Indent = true}))
 			{
