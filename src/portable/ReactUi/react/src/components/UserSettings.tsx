@@ -33,6 +33,12 @@ class UserSettings extends React.Component<IProps, any> {
     private fastRef: React.RefObject<TextboxUx>;
     private fontSizeDef: string[];
     private fontSizeLoc: string[];
+    // Default User HotKeys
+    private defaultPlayPauseCode: string;
+    private defaultRewindCode: string;
+    private defaultFastForwardCode: string;
+    private defaultSlowDownCode: string;
+    private defaultSpeedUpCode: string;
 
     constructor(props: IProps) {
         super(props)
@@ -47,6 +53,13 @@ class UserSettings extends React.Component<IProps, any> {
         this.fastRef = React.createRef();
     }
 
+    public componentWillMount()
+    {
+        const { restoreDefaultUserHotKeys } = this.props;
+        // Fetch the Default User HotKeys
+        restoreDefaultUserHotKeys();
+    }
+
     public render() {
         const { users, selectedProject, selectedUser, strings } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
@@ -54,11 +67,11 @@ class UserSettings extends React.Component<IProps, any> {
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
 
-        const playPauseKey = this.keyCode(user, "play-pause", "ESC");
-        const backKey = this.keyCode(user, "back", "F1");
-        const forwardKey = this.keyCode(user, "forward", "F2");
-        const slowerKey = this.keyCode(user, "slower", "F3");
-        const fasterKey = this.keyCode(user, "faster", "F4");
+        const playPauseKey = this.keyCode(user, "play-pause");
+        const backKey = this.keyCode(user, "back");
+        const forwardKey = this.keyCode(user, "forward");
+        const slowerKey = this.keyCode(user, "slower");
+        const fasterKey = this.keyCode(user, "faster");
 
         const userLanguageCode = user && user.uilang? user.uilang.slice(0,2): "en";
         const languageChoice = [UserLanguages.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].slice(3)].concat(
@@ -218,12 +231,20 @@ class UserSettings extends React.Component<IProps, any> {
         )
     }
 
-    private keyCode(user: IUser, tag: string, defCode: string){
+    private keyCodeWithDefault(user: IUser, tag: string, defCode: string){
         if (user === undefined || user.hotkey === undefined) {
             return "";
         }
         const hotKey = user.hotkey.filter(h => h.id === tag)[0];
         return hotKey !== undefined? hotKey.text: defCode;
+    }
+
+    private keyCode(user: IUser, tag: string){
+        if (user === undefined || user.hotkey === undefined) {
+            return "";
+        }
+        const hotKey = user.hotkey.filter(h => h.id === tag)[0];
+        return hotKey.text;
     }
 
     private saveValue(updates: string[], tag: string, val: string | null) {
@@ -393,46 +414,49 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private reset(context: UserSettings) {
-       const { users, selectedUser } = this.props;
-       const user = users.filter(u => u.username.id === selectedUser)[0];
+        const { users, selectedUser, userHotKeys } = this.props;
+        const user = users.filter(u => u.username.id === selectedUser)[0];
 
-       const defaultPlayPauseCode = 'Esc';
-       const defaultRewindCode = 'F1';
-       const defaultFastForwardCode = 'F2';
-       const defaultSlowDownCode = 'F3';
-       const defaultSpeedUpCode = 'F4';
+        // Get the Default User HotKeys
+        this.defaultPlayPauseCode = userHotKeys.filter(h => h.id === "play-pause")[0].text;
+        this.defaultRewindCode = userHotKeys.filter(h => h.id === "back")[0].text;
+        this.defaultFastForwardCode = userHotKeys.filter(h => h.id === "forward")[0].text;
+        this.defaultSlowDownCode = userHotKeys.filter(h => h.id === "slower")[0].text;
+        this.defaultSpeedUpCode = userHotKeys.filter(h => h.id === "faster")[0].text;
 
-       if(context.playpauseRef.current !== null){
-           context.playpauseRef.current.state.message = this.keyCode(user, 'playpauseRef', defaultPlayPauseCode);
-           this.setState({inputValue: this.keyCode(user, 'playpauseRef', defaultPlayPauseCode)})
-       }
-
-       if(context.backRef.current !== null){
-           context.backRef.current.state.message = this.keyCode(user, 'backRef', defaultRewindCode);
-           this.setState({inputValue: this.keyCode(user, 'backRef', defaultRewindCode)})
-       }
-
-       if(context.aheadRef.current !== null){
-           context.aheadRef.current.state.message = this.keyCode(user, 'aheadRef', defaultFastForwardCode);
-           this.setState({inputValue: this.keyCode(user, 'aheadRef', defaultFastForwardCode)})
-       }
-
-       if(context.slowRef.current !== null){
-           context.slowRef.current.state.message = this.keyCode(user, 'slowRef', defaultSlowDownCode);
-           this.setState({inputValue: this.keyCode(user, 'slowRef', defaultSlowDownCode)})
-       }
-
-       if(context.fastRef.current !== null){
-           context.fastRef.current.state.message = this.keyCode(user, 'fastRef', defaultSpeedUpCode);
-           this.setState({inputValue: this.keyCode(user, 'fastRef', defaultSpeedUpCode)})
+        // Set the Default User HotKeys in the corresponding Textboxes
+        if(context.playpauseRef.current !== null){
+            context.playpauseRef.current.state.message = this.keyCodeWithDefault(user, 'playpauseRef', this.defaultPlayPauseCode);
+            this.setState({inputValue: this.keyCodeWithDefault(user, 'playpauseRef', this.defaultPlayPauseCode)})
         }
-    }
+
+        if(context.backRef.current !== null){
+            context.backRef.current.state.message = this.keyCodeWithDefault(user, 'backRef', this.defaultRewindCode);
+            this.setState({inputValue: this.keyCodeWithDefault(user, 'backRef', this.defaultRewindCode)})
+        }
+
+        if(context.aheadRef.current !== null){
+            context.aheadRef.current.state.message = this.keyCodeWithDefault(user, 'aheadRef', this.defaultFastForwardCode);
+            this.setState({inputValue: this.keyCodeWithDefault(user, 'aheadRef', this.defaultFastForwardCode)})
+        }
+
+        if(context.slowRef.current !== null){
+            context.slowRef.current.state.message = this.keyCodeWithDefault(user, 'slowRef', this.defaultSlowDownCode);
+            this.setState({inputValue: this.keyCodeWithDefault(user, 'slowRef', this.defaultSlowDownCode)})
+        }
+
+        if(context.fastRef.current !== null){
+            context.fastRef.current.state.message = this.keyCodeWithDefault(user, 'fastRef',this.defaultSpeedUpCode);
+            this.setState({inputValue: this.keyCodeWithDefault(user, 'fastRef', this.defaultSpeedUpCode)})
+         }
+     }
 }
 
 interface IStateProps {
     selectedUser: string;
     selectedProject: string;
     strings: IUserSettingsStrings;
+    userHotKeys: IUserKeyVal[];
     users: IUser[];
 };
 
@@ -440,17 +464,20 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "userSettings"}),
+    userHotKeys: state.users.userHotKeys,
     users: state.users.users,
 });
 
 interface IDispatchProps {
     fetchUsers: typeof actions.fetchUsers;
+    restoreDefaultUserHotKeys: typeof actions.restoreDefaultUserHotKeys;
     updateUser: typeof actions.updateUser;
   };
   
   const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchUsers: actions.fetchUsers,
+        restoreDefaultUserHotKeys: actions.restoreDefaultUserHotKeys,
         updateUser: actions.updateUser,
         }, dispatch),
   });

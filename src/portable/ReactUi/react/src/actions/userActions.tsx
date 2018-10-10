@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { DELETE_USER, FETCH_USERS, SELECT_POPUP_USER, SELECT_USER, UPDATE_AVATAR, UPDATE_USER_PENDING } from './types';
+import { DELETE_USER, FETCH_USERS, RESTORE_DEFAULT_USER_HOTKEYS, SELECT_POPUP_USER, SELECT_USER, UPDATE_AVATAR, UPDATE_USER_PENDING } from './types';
 
 
 export const fetchUsers = () => (dispatch: any) => {
@@ -52,4 +52,14 @@ export const deleteUser = (user: string) => (dispatch: any) => {
 
 export const saveUserSetting = (user: string, setting: string, value: string) => (dispatch: any) => {
     Axios.put('/api/UpdateUser?user=' + user + "&setting=" + setting + "&value=" + value)
+}
+
+export const restoreDefaultUserHotKeys = () => (dispatch: any) => {
+    Axios.get('/api/GetDefaultUserHotKeys').
+    then(userHotKeys => {
+        dispatch({
+            payload: userHotKeys,
+            type: RESTORE_DEFAULT_USER_HOTKEYS
+        });
+    });
 }

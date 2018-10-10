@@ -7,6 +7,7 @@ export interface IState {
         users: IUser[];
         selectedUser: string;
         selectedPopupUser: string;
+        userHotKeys: IUserKeyVal[];
     };
     tasks: {
         loaded: boolean;
