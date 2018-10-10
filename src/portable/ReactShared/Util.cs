@@ -79,6 +79,17 @@ namespace ReactShared
 			}
 		}
 
+		public static XmlElement NewChild(XmlElement node, string name, string val = null)
+		{
+			if (node == null || node.OwnerDocument == null)
+				return null;
+			var elem = node.OwnerDocument.CreateElement(name);
+			node.AppendChild(elem);
+			if (val != null)
+				elem.InnerText = val;
+			return elem;
+		}
+
 		public static void AsArray(XmlNodeList nodes)
 		{
 			if (nodes.Count != 1)
@@ -106,17 +117,17 @@ namespace ReactShared
 			return userNode;
 		}
 
-		public static XmlNode GetUserProjectNode(XmlNode userNode, string project, XmlDocument usersDoc, string user)
+		public static XmlElement GetUserProjectNode(XmlNode userNode, string project, XmlDocument usersDoc, string user)
 		{
-			var userProjectNode = userNode.SelectSingleNode($"project[@id = '{project}']");
-			if (userProjectNode == null)
-			{
-				userProjectNode = usersDoc.CreateElement("project");
-				NewAttr(userProjectNode, "id", project);
-				var roleNodes = userNode.SelectNodes("role");
-				Debug.Assert(roleNodes?.Count > 0, $"user {user} missing role");
-				userNode.InsertAfter(userProjectNode, roleNodes[roleNodes.Count - 1]);
-			}
+			var userProjectNode = userNode.SelectSingleNode($"project[@id = '{project}']") as XmlElement;
+			if (userProjectNode != null)
+				return userProjectNode;
+
+			userProjectNode = usersDoc.CreateElement("project");
+			NewAttr(userProjectNode, "id", project);
+			var roleNodes = userNode.SelectNodes("role");
+			Debug.Assert(roleNodes?.Count > 0, $"user {user} missing role");
+			userNode.InsertAfter(userProjectNode, roleNodes[roleNodes.Count - 1]);
 
 			return userProjectNode;
 		}

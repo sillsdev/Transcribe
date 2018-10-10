@@ -28,7 +28,7 @@ namespace ReactShared
 
 			//Debug.Print($"{task}:{project}:{audioFile}:{reference}:{heading}:{assignedTo}:{timeDuration}");
 			var tasksDoc = Util.LoadXmlData("tasks");
-			var projectNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']");
+			var projectNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']") as XmlElement;
 			if (projectNode == null)
 				return;
 			if (string.IsNullOrEmpty(taskId))
@@ -54,17 +54,13 @@ namespace ReactShared
 			var taskNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']/task[@id='{taskId}']") as XmlElement;
 			if (taskNode == null)
 			{
-				taskNode = tasksDoc.CreateElement("task");
+				taskNode = Util.NewChild(projectNode, "task");
 				Util.NewAttr(taskNode, "id", taskId);
 				projectNode.AppendChild(taskNode);
 			}
 
-			var taskNameNode = taskNode.SelectSingleNode("name") as XmlElement;
-			if (taskNameNode == null)
-			{
-				taskNameNode = tasksDoc.CreateElement("name");
-				taskNode.AppendChild(taskNameNode);
-			}
+			var taskNameNode = taskNode.SelectSingleNode("name") as XmlElement ?? 
+			                   Util.NewChild(taskNode, "name");
 			if (!string.IsNullOrEmpty(heading))
 				taskNameNode.InnerText = heading;
 			Util.UpdateAttr(taskNode, "assignedto", assignedTo);

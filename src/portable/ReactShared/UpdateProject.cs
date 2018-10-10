@@ -25,13 +25,8 @@ namespace ReactShared
 				$"UpdateProject id={id}, name={name}, guid={guid}, lang={lang}, langName={langName}, font={font}, size={size}, features={features}, direction={dir}, synch={sync}, claim={claim}, type={type}";
 			Debug.Print(message);
 			var tasksDoc = Util.LoadXmlData("tasks");
-			var taskNode = tasksDoc.SelectSingleNode($"//project[@id = '{id}']");
-			if (taskNode == null)
-			{
-				taskNode = tasksDoc.CreateElement("project");
-				Debug.Assert(tasksDoc.DocumentElement != null, "tasksDoc.DocumentElement != null");
-				tasksDoc.DocumentElement.AppendChild(taskNode);
-			}
+			var taskNode = tasksDoc.SelectSingleNode($"//project[@id = '{id}']") ??
+			               Util.NewChild(tasksDoc.DocumentElement,"project");
 			Util.NewAttr(taskNode, "id", id);
 			Util.NewAttr(taskNode, "name", name);
 			Util.NewAttr(taskNode, "guid", guid);
