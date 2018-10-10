@@ -162,4 +162,16 @@
   <File Path="System.Xml.XPath.XDocument.dll" ComponentGuid="8E09EFC9-6B12-48A3-A0F4-A84C77300E2E" />
   <File Path="TECkit_Compiler_x86.dll" ComponentGuid="767612EA-6AE7-4C7E-BBA8-B416A18A0059" />
   <File Path="TECkit_x86.dll" ComponentGuid="156E83C5-4899-4CC4-964E-87FB0E013D7D" />
+  <File Path="lib\win-x64\icudt59.dll" ComponentGuid="9B6E50CB-777C-46F1-9672-D116855B4973" />
+  <File Path="lib\win-x64\icuin59.dll" ComponentGuid="1329E17C-60C1-4459-B3C3-FE1395AF47F1" />
+  <File Path="lib\win-x64\icuio59.dll" ComponentGuid="597B44C5-B406-4978-BA4B-FA5F22E6308B" />
+  <File Path="lib\win-x64\icutest59.dll" ComponentGuid="4CB6216E-D570-4314-9EFF-9CD9C516F7F3" />
+  <File Path="lib\win-x64\icutu59.dll" ComponentGuid="10A157B6-4FBE-40BB-A00F-317C497F2B60" />
+  <File Path="lib\win-x64\icuuc59.dll" ComponentGuid="20D3989C-8FF9-47A5-B72C-4305D5250170" />
+  <File Path="lib\win-x86\icudt59.dll" ComponentGuid="A65D1368-91A6-49C9-918A-D56346598C11" />
+  <File Path="lib\win-x86\icuin59.dll" ComponentGuid="0D59192A-20CD-4AF1-8E4C-F65B8C49E89E" />
+  <File Path="lib\win-x86\icuio59.dll" ComponentGuid="790F0482-34ED-4333-98A5-B96258B8B3A6" />
+  <File Path="lib\win-x86\icutest59.dll" ComponentGuid="16BF7B3D-91AF-416D-B4A2-43CDBD190400" />
+  <File Path="lib\win-x86\icutu59.dll" ComponentGuid="A9FFDE59-356C-4796-BEBB-9EE6B9148EC4" />
+  <File Path="lib\win-x86\icuuc59.dll" ComponentGuid="6A923098-4FD2-438F-A4C6-69F505426F7A" />
 </FileLibrary>
