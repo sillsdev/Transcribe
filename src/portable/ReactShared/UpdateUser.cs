@@ -2,6 +2,11 @@
 using System.Diagnostics;
 using System.Web;
 using System.Xml;
+using Newtonsoft.Json;
+using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using Newtonsoft.Json.Linq;
 
 namespace ReactShared
 {
@@ -36,23 +41,49 @@ namespace ReactShared
 					(!string.IsNullOrEmpty(name)? name.Replace(" ","").ToLower():
 					$@"u{usersDoc.SelectNodes("//user").Count + 1}");
 				Util.NewAttr(userName, "id", userId);
+				var userPassword = usersDoc.CreateElement("password");
+				userName.AppendChild(userPassword);
+				var userAvatarUri = usersDoc.CreateElement("avatarUri");
+				userName.AppendChild(userAvatarUri);
+				XmlNode roleNode = null;
+				if (string.IsNullOrEmpty(role))
+				{
+					role = "Transcriber";
+				}
+				roleNode = usersDoc.CreateElement("role");
+				roleNode.InnerText = role;
+				userNode.AppendChild(roleNode);
+
 				if (!string.IsNullOrEmpty(project))
 				{
-					var projectNode = usersDoc.CreateElement("project");
-					userNode.AppendChild(projectNode);
-					Util.NewAttr(projectNode, "id", project);
+					AddFontInfo("fontfamily", "SIL Charis", userNode, project, usersDoc, user);
+					AddFontInfo("fontsize", "large", userNode, project, usersDoc, user);
 				}
-				var keyDefaults = new Dictionary<string, string> {{"play-pause", "ESC"}, {"back", "F2"}, {"forward", "F3"}, {"slower", "F4"}, {"faster", "F5"}};
-				foreach (var keyMap in keyDefaults)
+
+				var defaultUserHotKeys = new GetDefaultUserHotKeys();
+				var apiFolder = Util.ApiFolder();
+				var fileText = File.ReadAllText(Path.Combine(apiFolder, "GetDefaultUserHotKeys"));
+				var oJson = JsonConvert.DeserializeObject(fileText);
+				for (int i = 0; i < ((Newtonsoft.Json.Linq.JContainer) oJson).Count; i++)
 				{
-					var arg = parsedQuery[keyMap.Key.Replace("-","")];
+					var theHotKey = ((Newtonsoft.Json.Linq.JContainer) oJson)[i].ToString().Replace("\r","").Replace("\n","");
+					theHotKey = theHotKey.Replace("{", "").Replace("}", "");
+					string[] theHotKeyArray = theHotKey.Split(',');
+					string[] theHotKeyArrayId = theHotKeyArray[0].Split(':');
+					var hotKeyName = theHotKeyArrayId[1].Replace("\"", "");
+					string[] theHotKeyArrayValue = theHotKeyArray[1].Split(':');
+					var hotKeyValue = theHotKeyArrayValue[1].Replace("\"", "");
 					var hotkey = usersDoc.CreateElement("hotkey");
-					Util.NewAttr(hotkey, "id", keyMap.Key);
-					hotkey.InnerText = !string.IsNullOrEmpty(arg) ? arg : keyMap.Value;
+					Util.NewAttr(hotkey, "id", hotKeyName);
+					hotkey.InnerText = hotKeyValue;
 					userNode.AppendChild(hotkey);
 				}
-				if (string.IsNullOrEmpty(role))
-					role = "Transcriber";
+
+				AddUilang("en-US", userNode, usersDoc);
+				AddTimer("countdown", userNode, usersDoc);
+				AddSpeed("75", userNode, usersDoc);
+				AddProgress("bar", userNode, usersDoc);
+
 				usersDoc.DocumentElement.AppendChild(userNode);
 			}
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
@@ -177,5 +208,43 @@ namespace ReactShared
 			node.InnerText = val;
 		}
 
+		private static void AddTimer(string timer, XmlNode userNode, XmlDocument usersDoc)
+		{
+			if (timer == null)
+				return;
+			if (!(userNode.SelectSingleNode("timer") is XmlElement timerNode))
+			{
+				timerNode = usersDoc.CreateElement("timer");
+				userNode.InsertAfter(timerNode, Util.FindPreceding(userNode, new List<string> { "uilang", "hotkey", "project", "role" }));
+			}
+
+			timerNode.InnerText = timer;
+		}
+
+		private static void AddSpeed(string speed, XmlNode userNode, XmlDocument usersDoc)
+		{
+			if (speed == null)
+				return;
+			if (!(userNode.SelectSingleNode("speed") is XmlElement speedNode))
+			{
+				speedNode = usersDoc.CreateElement("speed");
+				userNode.InsertAfter(speedNode, Util.FindPreceding(userNode, new List<string> { "timer", "uilang", "hotkey", "project", "role" }));
+			}
+
+			speedNode.InnerText = speed;
+		}
+
+		private static void AddProgress(string progress, XmlNode userNode, XmlDocument usersDoc)
+		{
+			if (progress == null)
+				return;
+			if (!(userNode.SelectSingleNode("progress") is XmlElement progressNode))
+			{
+				progressNode = usersDoc.CreateElement("progress");
+				userNode.InsertAfter(progressNode, Util.FindPreceding(userNode, new List<string> { "speed", "timer", "uilang", "hotkey", "project", "role" }));
+			}
+
+			progressNode.InnerText = progress;
+		}
 	}
 }
