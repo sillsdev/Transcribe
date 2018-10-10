@@ -16,7 +16,7 @@ namespace ReactShared
 			var task = Util.ToXmlTaskId(parsedQuery["task"]);
 			var user = parsedQuery["user"];
 			var tasksDoc = Util.LoadXmlData("tasks");
-			var taskNode = tasksDoc.SelectSingleNode($@"//task[@id=""{task}""]");
+			var taskNode = tasksDoc.SelectSingleNode($@"//task[@id=""{task}""]") as XmlElement;
 			if (taskNode == null)
 				return true;
 			switch (action)
@@ -54,12 +54,11 @@ namespace ReactShared
 			var historyNodes = taskNode.SelectNodes(".//history");
 			Debug.Assert(historyNodes != null, nameof(historyNodes) + " != null");
 
-			var historyNode = tasksDoc.CreateElement("history");
+			var historyNode = Util.NewChild(taskNode, "history");
 			Util.NewAttr(historyNode, "id", historyNodes.Count.ToString());
 			Util.NewAttr(historyNode, "datetime", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"));
 			Util.NewAttr(historyNode, "action", action);
 			Util.NewAttr(historyNode, "userid", user);
-			taskNode.AppendChild(historyNode);
 			using (var xw = XmlWriter.Create(Util.XmlFullName("tasks"), new XmlWriterSettings { Indent = true }))
 			{
 				tasksDoc.Save(xw);

@@ -37,11 +37,8 @@ namespace ReactShared
 		{
 			if (avatarUri == null)
 				return;
-			if (!(usernameNode.SelectSingleNode("avatarUri") is XmlElement avatarNode))
-			{
-				avatarNode = usersDoc.CreateElement("avatarUri");
-				usernameNode.AppendChild(avatarNode);
-			}
+			if (!(usernameNode.SelectSingleNode("avatarUri") is XmlNode avatarNode))
+				avatarNode = Util.NewChild(usernameNode, "avatarUri");
 			avatarNode.InnerText = avatarUri;
 		}
 

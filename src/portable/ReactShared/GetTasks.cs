@@ -24,7 +24,7 @@ namespace ReactShared
 			var projectNodes = tasksDoc.SelectNodes(projectXpath);
 			Debug.Assert(projectNodes != null, nameof(projectNodes) + " != null");
 			var taskList = new List<string>();
-			foreach (XmlNode node in projectNodes)
+			foreach (XmlElement node in projectNodes)
 			{
 				var filterNodeList = new List<XmlNode>();
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
@@ -39,12 +39,8 @@ namespace ReactShared
 					}
 				}
 				if (filterNodeList.Count == 0)
-					if (user != null && user != "admin")
-						continue;
-					else
 					{
-						var emptyTaskNode = tasksDoc.CreateElement("task");
-						node.AppendChild(emptyTaskNode);
+						var emptyTaskNode = Util.NewChild(node, "task");
 						Util.AsArray(new List<XmlNode> {emptyTaskNode});
 					}
 				Util.AsArray(filterNodeList);
@@ -170,12 +166,7 @@ namespace ReactShared
 				Util.NewAttr(transcriptionDoc.DocumentElement, "position", position);
 			var transcription = eafDoc.SelectSingleNode("//*[local-name()='ANNOTATION_VALUE']")?.InnerText;
 			if (!string.IsNullOrEmpty(transcription))
-			{
-				var transcriptionNode = transcriptionDoc.CreateElement("transcription");
-				transcriptionNode.InnerText = transcription;
-				Debug.Assert(transcriptionDoc.DocumentElement != null, "transcriptionDoc.DocumentElement != null");
-				transcriptionDoc.DocumentElement.AppendChild(transcriptionNode);
-			}
+				Util.NewChild(transcriptionDoc.DocumentElement,"transcription", transcription);
 
 			var transcriptionJson =
 				JsonConvert.SerializeXmlNode(transcriptionDoc.DocumentElement).Replace("\"@", "\"").Substring(8);

@@ -13,6 +13,12 @@ namespace ReactShared
 		{
 			var apiFolder = Util.ApiFolder();
 			var usersDoc = Util.LoadXmlData("users");
+			var admin = usersDoc.SelectSingleNode("//user[./role='administrator']");
+			if (admin == null)
+			{
+				new UpdateUser("user=admin&role=administrator");
+				usersDoc = Util.LoadXmlData("users");
+			}
 
 			CopyAvatars(usersDoc, apiFolder);
 

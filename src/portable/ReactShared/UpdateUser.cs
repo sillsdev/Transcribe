@@ -4,9 +4,6 @@ using System.Web;
 using System.Xml;
 using Newtonsoft.Json;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Newtonsoft.Json.Linq;
 
 namespace ReactShared
 {
@@ -16,6 +13,7 @@ namespace ReactShared
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
+			var password = parsedQuery["password"];
 			var role = parsedQuery["role"];
 			var project = parsedQuery["project"];
 			var name = parsedQuery["name"];
@@ -31,28 +29,23 @@ namespace ReactShared
 			var value = parsedQuery["value"];
 			Debug.Print($"{user}:{project}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
 			var usersDoc = Util.LoadXmlData("users");
-			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
+			var admin = usersDoc.SelectSingleNode("//user[./role='administrator']");
+			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']") as XmlElement;
 			if (userNode == null)
 			{
-				userNode = usersDoc.CreateElement("user");
-				var userName = usersDoc.CreateElement("username");
-				userNode.AppendChild(userName);
+				userNode = Util.NewChild(usersDoc.DocumentElement, "user");
+				var userName = Util.NewChild(userNode, "username");
 				var userId = !string.IsNullOrEmpty(user)? user:
 					(!string.IsNullOrEmpty(name)? name.Replace(" ","").ToLower():
 					$@"u{usersDoc.SelectNodes("//user").Count + 1}");
 				Util.NewAttr(userName, "id", userId);
-				var userPassword = usersDoc.CreateElement("password");
-				userName.AppendChild(userPassword);
-				var userAvatarUri = usersDoc.CreateElement("avatarUri");
-				userName.AppendChild(userAvatarUri);
-				XmlNode roleNode = null;
+				Util.NewChild(userName, "password", password);
+				Util.NewChild(userName, "avatarUri");
 				if (string.IsNullOrEmpty(role))
 				{
 					role = "Transcriber";
 				}
-				roleNode = usersDoc.CreateElement("role");
-				roleNode.InnerText = role;
-				userNode.AppendChild(roleNode);
+				Util.NewChild(userNode, "role", role);
 
 				if (!string.IsNullOrEmpty(project))
 				{
@@ -60,31 +53,29 @@ namespace ReactShared
 					AddFontInfo("fontsize", "large", userNode, project, usersDoc, user);
 				}
 
-				var defaultUserHotKeys = new GetDefaultUserHotKeys();
+				using (new GetDefaultUserHotKeys())
+				{
+					// This method creates the GetDefaultsUserHotKeys JSON response in the api folder
+				}
 				var apiFolder = Util.ApiFolder();
 				var fileText = File.ReadAllText(Path.Combine(apiFolder, "GetDefaultUserHotKeys"));
-				var oJson = JsonConvert.DeserializeObject(fileText);
-				for (int i = 0; i < ((Newtonsoft.Json.Linq.JContainer) oJson).Count; i++)
+				var jsonFileText =
+					$@"{{""hotkey"":{fileText.Replace(@"""id""", @"""@id""").Replace(@"""text""", @"""#text""")}}}";
+				var hotkeyNodes = JsonConvert.DeserializeXmlNode(jsonFileText, "user").SelectNodes("//hotkey");
+				Debug.Assert(hotkeyNodes != null, nameof(hotkeyNodes) + " != null");
+				foreach (XmlNode hotkeyNode in hotkeyNodes)
 				{
-					var theHotKey = ((Newtonsoft.Json.Linq.JContainer) oJson)[i].ToString().Replace("\r","").Replace("\n","");
-					theHotKey = theHotKey.Replace("{", "").Replace("}", "");
-					string[] theHotKeyArray = theHotKey.Split(',');
-					string[] theHotKeyArrayId = theHotKeyArray[0].Split(':');
-					var hotKeyName = theHotKeyArrayId[1].Replace("\"", "");
-					string[] theHotKeyArrayValue = theHotKeyArray[1].Split(':');
-					var hotKeyValue = theHotKeyArrayValue[1].Replace("\"", "");
-					var hotkey = usersDoc.CreateElement("hotkey");
-					Util.NewAttr(hotkey, "id", hotKeyName);
-					hotkey.InnerText = hotKeyValue;
-					userNode.AppendChild(hotkey);
+					var newHotKey = Util.NewChild(userNode, "hotkey", hotkeyNode.InnerText.ToUpper());
+					Debug.Assert(hotkeyNode.Attributes != null, "hotkeyNode.Attributes != null");
+					Util.NewAttr(newHotKey, "id", hotkeyNode.Attributes["id"].InnerText);
 				}
 
-				AddUilang("en-US", userNode, usersDoc);
+				var defLang = admin?.SelectSingleNode("./uilang");
+				if (defLang != null)
+					AddUilang(defLang.InnerText, userNode, usersDoc);
 				AddTimer("countdown", userNode, usersDoc);
 				AddSpeed("75", userNode, usersDoc);
 				AddProgress("bar", userNode, usersDoc);
-
-				usersDoc.DocumentElement.AppendChild(userNode);
 			}
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
@@ -112,10 +103,7 @@ namespace ReactShared
 			if (name == null)
 				return;
 			if (!(usernameNode.SelectSingleNode("fullname") is XmlElement fullNameNode))
-			{
-				fullNameNode = usersDoc.CreateElement("fullname");
-				usernameNode.AppendChild(fullNameNode);
-			}
+				fullNameNode = Util.NewChild(usernameNode, "fullname");
 
 			fullNameNode.InnerText = name;
 		}
@@ -135,8 +123,7 @@ namespace ReactShared
 			string roleReviewer = "reviewer";
 			string roleTranscriber = "transcriber";
 			List<string> roleArray = new List<string>();
-			string newRole = roleTranscriber;
-			if (role.ToLower() == "admin")
+			if (role.ToLower() == "admin" || role.ToLower() == "administrator")
 			{
 				roleArray.Add(roleAdmin);
 				roleArray.Add(roleReviewer);
@@ -183,10 +170,7 @@ namespace ReactShared
 				return;
 			var userProjectNode = Util.GetUserProjectNode(userNode, project, usersDoc, user);
 			if (!(userProjectNode.SelectSingleNode(nodeName) is XmlElement node))
-			{
-				node = usersDoc.CreateElement(nodeName);
-				userProjectNode.AppendChild(node);
-			}
+				node = Util.NewChild(userProjectNode, nodeName);
 
 			node.InnerText = data;
 		}

@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
-using Newtonsoft.Json;
 
 namespace ReactShared
 {
-	public class GetDefaultUserHotKeys
+	public class GetDefaultUserHotKeys : IDisposable
 	{
 
 		public GetDefaultUserHotKeys()
 		{
 			var apiFolder = Util.ApiFolder();
-			var hotKeysList = new List<string>();
-			hotKeysList.Add("{\"id\": \"play-pause\", \"text\": \"esc\"}");
-			hotKeysList.Add("{\"id\": \"back\", \"text\": \"f2\"}");
-			hotKeysList.Add("{\"id\": \"forward\", \"text\": \"f3\"}");
-			hotKeysList.Add("{\"id\": \"slower\", \"text\": \"f4\"}");
-			hotKeysList.Add("{\"id\": \"faster\", \"text\": \"f5\"}");
+			var hotKeysList = new List<string>
+			{
+				@"{""id"": ""play-pause"", ""text"": ""esc""}",
+				@"{""id"": ""back"", ""text"": ""f2""}",
+				@"{""id"": ""forward"", ""text"": ""f3""}",
+				@"{""id"": ""slower"", ""text"": ""f4""}",
+				@"{""id"": ""faster"", ""text"": ""f5""}"
+			};
 
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetDefaultUserHotkeys")))
 			{
 				sw.Write($"[{string.Join(",", hotKeysList)}]");
 			}
+		}
+
+		public void Dispose() // The api folder and its contents are removed when the program closes
+		{
 		}
 	}
 }

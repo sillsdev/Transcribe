@@ -43,7 +43,6 @@ class SelectProject extends React.Component<IProps, object> {
           wrapper = (<Redirect to="/uilang"/>)
           break;
         case 1:
-          selectProject(projects[0].id);
           wrapper = (<Redirect to={dest}/>)
         default:
           break;
