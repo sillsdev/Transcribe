@@ -4,6 +4,7 @@ const initialState = {
     deleted: false,
     loaded: false,
     selectedUser: "",
+    userHotKeys: Array<IUserKeyVal>(),
     users: Array<IUser>(),
 }
 
