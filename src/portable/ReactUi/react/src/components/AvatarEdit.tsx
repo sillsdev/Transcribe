@@ -33,12 +33,12 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { selectedUser, selectedPopUser, strings, users } = this.props;
+        const { selectedUser, popupUser, strings, users } = this.props;
         let user = users.filter(u => u.username.id === selectedUser)[0];
         let backTo = "/settings";
         if(this.props.history.location.pathname.includes("PopupUser"))
         {
-            user = users.filter(u => u.username.id === selectedPopUser)[0];
+            user = users.filter(u => u.username.id === popupUser)[0];
             backTo = "/ProjectSettings/User";
         }
         return (
@@ -65,24 +65,39 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
     }
 
     private onSave() {
-        const { selectedUser, selectedPopUser, updateAvatar } = this.props;
+        const { selectedUser, selectedProject, selectPopupUser, popupUser, updateAvatar, users } = this.props;
         let currUser = selectedUser;
         if(this.props.history.location.pathname.includes("PopupUser")){
-            currUser = selectedPopUser;
+            currUser = popupUser;
+            if(currUser.length === 0 && users.length > 0){
+                const newUserId = "u" + (users.length + 1).toString();
+                selectPopupUser(newUserId)
+                currUser = newUserId;
+            }
+            else
+            {
+                currUser = popupUser;
+            }
+            updateAvatar(currUser, selectedProject, this.state);
         }
-        updateAvatar(currUser, this.state);
+        else
+        {
+            updateAvatar(currUser, selectedProject, this.state);
+        }
     }
 };
 
 interface IStateProps {
     selectedUser: string;
-    selectedPopUser: string;
+    selectedProject: string;
+    popupUser: string;
     strings: IUserSettingsStrings;
     users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
-    selectedPopUser: state.users.selectedPopupUser,
+    popupUser: state.users.selectedPopupUser,
+    selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, { layout: "userSettings" }),
     users: state.users.users,
@@ -90,10 +105,12 @@ const mapStateToProps = (state: IState): IStateProps => ({
 
 interface IDispatchProps {
     updateAvatar: typeof actions.updateAvatar,
+    selectPopupUser: typeof actions.selectPopupUser,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
+        selectPopupUser: actions.selectPopupUser,
         updateAvatar: actions.updateAvatar,
     }, dispatch),
 });

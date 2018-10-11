@@ -38,9 +38,9 @@ export const updateUser = (user: string, project: string, query: string) => (dis
         .then(dispatch(fetchUsers()))
 }
 
-export const updateAvatar = (user: string, data: object) => (dispatch: any) => {
+export const updateAvatar = (user: string, project: string,  data: object) => (dispatch: any) => {
     dispatch({type: UPDATE_AVATAR});
-    Axios.put('/api/UpdateAvatar?user=' + user, data)
+    Axios.put('/api/UpdateAvatar?user=' + user + '&project=' + project, data)
         .then(dispatch(fetchUsers()))
 }
 

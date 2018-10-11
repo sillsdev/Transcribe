@@ -21,14 +21,14 @@ class SelectProject extends React.Component<IProps, object> {
   }
 
   public render() {
-    const { loaded, projects, selectProject, strings, } = this.props
+    const { loaded, projects, selectProject } = this.props
 
     const dest = "/main";
 
     const avatars = projects.map((p:IProject) => 
       <ListGroupItem key={p.id}>
         <AvatarLink id={p.id}
-          name={strings[p.id.toLowerCase()]}
+          name={p.id}
           target={dest}
           uri={p.type !== undefined? ProjectAvatar[p.type]: ""}
           select={selectProject} />

@@ -23,7 +23,11 @@ namespace ReactShared
 			var usersDoc = Util.LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
 			if (userNode == null)
-				return;
+			{
+				new UpdateUser(query);
+				usersDoc = Util.LoadXmlData("users");
+				userNode = usersDoc.SelectSingleNode($"//user[username/@id = '" + user + "']");
+			}
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
 			AddAvatarUri("images/" + imageFileName, usernameNode, usersDoc);

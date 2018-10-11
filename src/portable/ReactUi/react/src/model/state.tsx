@@ -6,6 +6,7 @@ export interface IState {
         deleted: boolean;
         users: IUser[];
         selectedUser: string;
+        selectPopupUser: string;
         selectedPopupUser: string;
         userHotKeys: IUserKeyVal[];
     };

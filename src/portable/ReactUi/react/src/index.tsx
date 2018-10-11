@@ -35,6 +35,7 @@ ReactDOM.render(
         <Route path="/ProjectSettings/Task" component={TaskDetails} />
         <Route path="/ProjectSettings/NewTask" component={TaskDetails} />
         <Route path="/ProjectSettings/User" component={UserDetails} />
+        <Route path="/ProjectSettings/NewUser" component={UserDetails} />
       </div>
     </Router>
   </Provider>,

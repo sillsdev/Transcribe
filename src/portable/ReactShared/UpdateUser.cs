@@ -35,9 +35,7 @@ namespace ReactShared
 			{
 				userNode = Util.NewChild(usersDoc.DocumentElement, "user");
 				var userName = Util.NewChild(userNode, "username");
-				var userId = !string.IsNullOrEmpty(user)? user:
-					(!string.IsNullOrEmpty(name)? name.Replace(" ","").ToLower():
-					$@"u{usersDoc.SelectNodes("//user").Count + 1}");
+				var userId = !string.IsNullOrEmpty(user)? user: user.Replace(" ", "").ToLower();
 				Util.NewAttr(userName, "id", userId);
 				Util.NewChild(userName, "password", password);
 				Util.NewChild(userName, "avatarUri");
@@ -106,6 +104,11 @@ namespace ReactShared
 				fullNameNode = Util.NewChild(usernameNode, "fullname");
 
 			fullNameNode.InnerText = name;
+
+			if (usernameNode.Attributes["id"].InnerText.Length == 0)
+			{
+				usernameNode.Attributes["id"].InnerText = name.Replace(" ", "").ToLower();
+			}
 		}
 
 		private static void AddUserRole(string role, XmlNodeList userRoleNodeList, XmlElement usernameNode, XmlDocument usersDoc)
