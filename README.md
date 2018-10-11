@@ -15,13 +15,12 @@ This project uses a react redux ui which is displayed in a GeckoFx browser contr
 1. `git clone https://github.com/sillsdev/Transcribe.git`
 1. `cd src/portable/ReactUi/react`
 1. `npm install`
-1. `rm -rf src/portable/ReactUi/react/public/api` (if present)
-1. `rm -rf src/portable/ReactUi/react/public/localization` (if present)
+1. `rmdir /s/q src/portable/ReactUi/react/public/api` (if present)
+1. `rmdir /s/q src/portable/ReactUi/react/public/localization` (if present)
 1. `cmd /c build.bat`
 1. `launch Transcribe.Windows.sln` (in Visual Studio 2017)
 1. Configuration works as Debug and x86. Release works too. GeckoFx may require x86.
 1. Visual studio will restore the NuGet packages.
-1. Right click on `SimpleServer` in the solution explorer and rebuild it.
 1. Right click on `Transcribe.Windows` in the solution explorer and rebuild it.
 1. `copy packages\Geckofx45.45.0.34\content\Firefox output\Debug\` (or output\Release) if necessary.
 1. Make sure `Transcribe.Windows` is set as the startup project and click `Start` on the tool bar.
