@@ -17,7 +17,7 @@ This project uses a react redux ui which is displayed in a GeckoFx browser contr
 1. `npm install`
 1. `rm -rf src/portable/ReactUi/react/public/api` (if present)
 1. `rm -rf src/portable/ReactUi/react/public/localization` (if present)
-1. `bash build.sh`
+1. `cmd /c build.bat`
 1. `launch Transcribe.Windows.sln` (in Visual Studio 2017)
 1. Configuration works as Debug and x86. Release works too. GeckoFx may require x86.
 1. Visual studio will restore the NuGet packages.
