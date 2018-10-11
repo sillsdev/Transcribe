@@ -30,6 +30,9 @@ namespace Transcribe.Windows
 					case "GetParatextProjects":
 						ForParatext.GetParatextProjects();
 						break;
+					case "GetDefaultUserHotKeys":
+						new GetDefaultUserHotKeys();
+						break;
 				}
 			}
 			else if (method == "PUT")
