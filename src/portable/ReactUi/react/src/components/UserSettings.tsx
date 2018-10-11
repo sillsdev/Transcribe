@@ -26,19 +26,19 @@ class UserSettings extends React.Component<IProps, any> {
     private languageRef: React.RefObject<DropdownUx>;
     private fontRef: React.RefObject<TextboxUx>;
     private fontSizeRef: React.RefObject<DropdownUx>;
-    private playpauseRef: React.RefObject<TextboxUx>;
+    private playPauseRef: React.RefObject<TextboxUx>;
     private backRef: React.RefObject<TextboxUx>;
-    private aheadRef: React.RefObject<TextboxUx>;
-    private slowRef: React.RefObject<TextboxUx>;
-    private fastRef: React.RefObject<TextboxUx>;
+    private forwardRef: React.RefObject<TextboxUx>;
+    private slowerRef: React.RefObject<TextboxUx>;
+    private fasterRef: React.RefObject<TextboxUx>;
     private fontSizeDef: string[];
     private fontSizeLoc: string[];
     // Default User HotKeys
-    private defaultPlayPauseCode: string;
-    private defaultRewindCode: string;
-    private defaultFastForwardCode: string;
-    private defaultSlowDownCode: string;
-    private defaultSpeedUpCode: string;
+    private defaultPlayPauseKey: string;
+    private defaultBackKey: string;
+    private defaultForwardKey: string;
+    private defaultSlowerKey : string;
+    private defaultFasterKey: string;
 
     constructor(props: IProps) {
         super(props)
@@ -46,11 +46,11 @@ class UserSettings extends React.Component<IProps, any> {
         this.languageRef = React.createRef();
         this.fontRef = React.createRef();
         this.fontSizeRef = React.createRef();
-        this.playpauseRef = React.createRef();
+        this.playPauseRef = React.createRef();
         this.backRef = React.createRef();
-        this.aheadRef = React.createRef();
-        this.slowRef = React.createRef();
-        this.fastRef = React.createRef();
+        this.forwardRef = React.createRef();
+        this.slowerRef = React.createRef();
+        this.fasterRef = React.createRef();
     }
 
     public componentWillMount()
@@ -67,11 +67,11 @@ class UserSettings extends React.Component<IProps, any> {
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
 
-        const playPauseKey = this.keyCode(user, "play-pause");
-        const backKey = this.keyCode(user, "back");
-        const forwardKey = this.keyCode(user, "forward");
-        const slowerKey = this.keyCode(user, "slower");
-        const fasterKey = this.keyCode(user, "faster");
+        const playPauseKey = this.keyCode(user, "play-pause","");
+        const backKey = this.keyCode(user, "back","");
+        const forwardKey = this.keyCode(user, "forward","");
+        const slowerKey = this.keyCode(user, "slower","");
+        const fasterKey = this.keyCode(user, "faster","");
 
         const userLanguageCode = user && user.uilang? user.uilang.slice(0,2): "en";
         const languageChoice = [UserLanguages.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].slice(3)].concat(
@@ -168,7 +168,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.playPause} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx id="PlayPause" ref={this.playpauseRef} isReadOnly={false}  inputValue={playPauseKey} toolTipText="" />
+                                <TextboxUx id="PlayPauseKey" ref={this.playPauseRef} isReadOnly={false}  inputValue={playPauseKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -184,7 +184,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.fastForward} />
                             </Col>
                             <Col xs={10} md={10}>
-                                <TextboxUx id="AheadKey" ref={this.aheadRef} isReadOnly={false} inputValue={forwardKey} toolTipText="" />
+                                <TextboxUx id="ForwardKey" ref={this.forwardRef} isReadOnly={false} inputValue={forwardKey} toolTipText="" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -193,8 +193,8 @@ class UserSettings extends React.Component<IProps, any> {
                             </Col>
                             <Col xs={10} md={10}>
                                 <TextboxUx
-                                    id="SlowKey"
-                                    ref={this.slowRef}
+                                    id="SlowerKey"
+                                    ref={this.slowerRef}
                                     isReadOnly={false}
                                     inputValue={slowerKey}
                                     toolTipText="" />
@@ -206,8 +206,8 @@ class UserSettings extends React.Component<IProps, any> {
                             </Col>
                             <Col xs={10} md={10}>
                                 <TextboxUx
-                                    id="FastKey"
-                                    ref={this.fastRef}
+                                    id="FasterKey"
+                                    ref={this.fasterRef}
                                     isReadOnly={false}
                                     inputValue={fasterKey}
                                     toolTipText="" />
@@ -231,20 +231,12 @@ class UserSettings extends React.Component<IProps, any> {
         )
     }
 
-    private keyCodeWithDefault(user: IUser, tag: string, defCode: string){
+    private keyCode(user: IUser, tag: string, defCode: string){
         if (user === undefined || user.hotkey === undefined) {
             return "";
         }
         const hotKey = user.hotkey.filter(h => h.id === tag)[0];
         return hotKey !== undefined? hotKey.text: defCode;
-    }
-
-    private keyCode(user: IUser, tag: string){
-        if (user === undefined || user.hotkey === undefined) {
-            return "";
-        }
-        const hotKey = user.hotkey.filter(h => h.id === tag)[0];
-        return hotKey.text;
     }
 
     private saveValue(updates: string[], tag: string, val: string | null) {
@@ -310,22 +302,23 @@ class UserSettings extends React.Component<IProps, any> {
                 this.saveValue(updates, "fontsize", projFontSize)
             }
         }
-        const playpause = context.playpauseRef.current && context.playpauseRef.current.state.message;
-        if (playpause !== null && playpause.length === 0) {
-            if(context.playpauseRef.current !== null){
-                context.playpauseRef.current.state.toolTipText = "Please fill in the Play/Pause.";
+        // Play/Pause
+        const playPause = context.playPauseRef.current && context.playPauseRef.current.state.message;
+        if (playPause !== null && playPause.length === 0) {
+            if(context.playPauseRef.current !== null){
+                context.playPauseRef.current.state.toolTipText = "Please fill in the Play/Pause.";
                 this.setState({toolTipText: "Please fill in the Play/Pause.."});
                 isValid = false;
             }
         }
-        else if (playpause !== null && playpause.length > 0) {
-            if(context.playpauseRef.current !== null){
-                context.playpauseRef.current.state.toolTipText = "";
+        else if (playPause !== null && playPause.length > 0) {
+            if(context.playPauseRef.current !== null){
+                context.playPauseRef.current.state.toolTipText = "";
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
-            if (user.hotkey && user.hotkey.filter(k => k.id === "play-pause")[0].text !== playpause) {
-                this.saveValue(updates, "playpause", playpause)
+            if (user.hotkey && user.hotkey.filter(k => k.id === "play-pause")[0].text !== playPause) {
+                this.saveValue(updates, "playpause", playPause)
             }
         }
         // Back
@@ -348,17 +341,17 @@ class UserSettings extends React.Component<IProps, any> {
             }
         }
         // Forward
-        const forward = context.aheadRef.current && context.aheadRef.current.state.message;
+        const forward = context.forwardRef.current && context.forwardRef.current.state.message;
         if (forward !== null && forward.length === 0) {
-            if(context.aheadRef.current !== null){
-                context.aheadRef.current.state.toolTipText = "Please fill in the Fast Forward.";
+            if(context.forwardRef.current !== null){
+                context.forwardRef.current.state.toolTipText = "Please fill in the Fast Forward.";
                 this.setState({toolTipText: "Please fill in the Fast Forward."});
                 isValid = false;
             }
         }
         else if (forward !== null && forward.length > 0) {
-            if(context.aheadRef.current !== null){
-                context.aheadRef.current.state.toolTipText = "";
+            if(context.forwardRef.current !== null){
+                context.forwardRef.current.state.toolTipText = "";
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
@@ -367,17 +360,17 @@ class UserSettings extends React.Component<IProps, any> {
             }
         }
         // Slower
-        const slower = context.slowRef.current && context.slowRef.current.state.message;
+        const slower = context.slowerRef.current && context.slowerRef.current.state.message;
         if (slower !== null && slower.length === 0) {
-            if(context.slowRef.current !== null){
-                context.slowRef.current.state.toolTipText = "Please fill in the Slow Down.";
+            if(context.slowerRef.current !== null){
+                context.slowerRef.current.state.toolTipText = "Please fill in the Slow Down.";
                 this.setState({toolTipText: "Please fill in the Slow Down."});
                 isValid = false;
             }
         }
         else if (slower !== null && slower.length > 0) {
-            if(context.slowRef.current !== null){
-                context.slowRef.current.state.toolTipText = "";
+            if(context.slowerRef.current !== null){
+                context.slowerRef.current.state.toolTipText = "";
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
@@ -386,17 +379,17 @@ class UserSettings extends React.Component<IProps, any> {
             }
         }
         // Faster
-        const faster = context.fastRef.current && context.fastRef.current.state.message;
+        const faster = context.fasterRef.current && context.fasterRef.current.state.message;
         if (faster !== null && faster.length === 0) {
-            if(context.fastRef.current !== null){
-                context.fastRef.current.state.toolTipText = "Please fill in the Speed Up.";
+            if(context.fasterRef.current !== null){
+                context.fasterRef.current.state.toolTipText = "Please fill in the Speed Up.";
                 this.setState({toolTipText: "Please fill in the Speed Up."});
                 isValid = false;
             }
         }
         else if (faster !== null && faster.length > 0) {
-            if(context.fastRef.current !== null){
-                context.fastRef.current.state.toolTipText = "";
+            if(context.fasterRef.current !== null){
+                context.fasterRef.current.state.toolTipText = "";
                 this.setState({toolTipText: ""});
                 isValid = true;
             }
@@ -418,36 +411,36 @@ class UserSettings extends React.Component<IProps, any> {
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         // Get the Default User HotKeys
-        this.defaultPlayPauseCode = userHotKeys.filter(h => h.id === "play-pause")[0].text;
-        this.defaultRewindCode = userHotKeys.filter(h => h.id === "back")[0].text;
-        this.defaultFastForwardCode = userHotKeys.filter(h => h.id === "forward")[0].text;
-        this.defaultSlowDownCode = userHotKeys.filter(h => h.id === "slower")[0].text;
-        this.defaultSpeedUpCode = userHotKeys.filter(h => h.id === "faster")[0].text;
+        this.defaultPlayPauseKey = userHotKeys.filter(h => h.id === "play-pause")[0].text;
+        this.defaultBackKey = userHotKeys.filter(h => h.id === "back")[0].text;
+        this.defaultForwardKey = userHotKeys.filter(h => h.id === "forward")[0].text;
+        this.defaultSlowerKey = userHotKeys.filter(h => h.id === "slower")[0].text;
+        this.defaultFasterKey = userHotKeys.filter(h => h.id === "faster")[0].text;
 
         // Set the Default User HotKeys in the corresponding Textboxes
-        if(context.playpauseRef.current !== null){
-            context.playpauseRef.current.state.message = this.keyCodeWithDefault(user, 'playpauseRef', this.defaultPlayPauseCode);
-            this.setState({inputValue: this.keyCodeWithDefault(user, 'playpauseRef', this.defaultPlayPauseCode)})
+        if(context.playPauseRef.current !== null){
+            context.playPauseRef.current.state.message = this.keyCode(user, "", this.defaultPlayPauseKey);
+            this.setState({inputValue: this.keyCode(user, "", this.defaultPlayPauseKey)})
         }
 
         if(context.backRef.current !== null){
-            context.backRef.current.state.message = this.keyCodeWithDefault(user, 'backRef', this.defaultRewindCode);
-            this.setState({inputValue: this.keyCodeWithDefault(user, 'backRef', this.defaultRewindCode)})
+            context.backRef.current.state.message = this.keyCode(user, "", this.defaultBackKey);
+            this.setState({inputValue: this.keyCode(user, "", this.defaultBackKey)})
         }
 
-        if(context.aheadRef.current !== null){
-            context.aheadRef.current.state.message = this.keyCodeWithDefault(user, 'aheadRef', this.defaultFastForwardCode);
-            this.setState({inputValue: this.keyCodeWithDefault(user, 'aheadRef', this.defaultFastForwardCode)})
+        if(context.forwardRef.current !== null){
+            context.forwardRef.current.state.message = this.keyCode(user, "", this.defaultForwardKey);
+            this.setState({inputValue: this.keyCode(user, "", this.defaultForwardKey)})
         }
 
-        if(context.slowRef.current !== null){
-            context.slowRef.current.state.message = this.keyCodeWithDefault(user, 'slowRef', this.defaultSlowDownCode);
-            this.setState({inputValue: this.keyCodeWithDefault(user, 'slowRef', this.defaultSlowDownCode)})
+        if(context.slowerRef.current !== null){
+            context.slowerRef.current.state.message = this.keyCode(user, "", this.defaultSlowerKey);
+            this.setState({inputValue: this.keyCode(user, "", this.defaultSlowerKey)})
         }
 
-        if(context.fastRef.current !== null){
-            context.fastRef.current.state.message = this.keyCodeWithDefault(user, 'fastRef',this.defaultSpeedUpCode);
-            this.setState({inputValue: this.keyCodeWithDefault(user, 'fastRef', this.defaultSpeedUpCode)})
+        if(context.fasterRef.current !== null){
+            context.fasterRef.current.state.message = this.keyCode(user, "",this.defaultFasterKey);
+            this.setState({inputValue: this.keyCode(user, "", this.defaultFasterKey)})
          }
      }
 }
