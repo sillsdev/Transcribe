@@ -90,7 +90,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
         if (deleted) {
             return <Redirect to="/ProjectSettings" />
         }
-        this.userId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupUser;
+        this.userId = this.props.history.location.pathname.indexOf("NewUser") > 0 ? "" : popupUser;
         const deleteUser = () => { this.delete(this) }
         const user: IUser = users.filter((u: IUser) => u.username.id === this.userId)[0];
         const projectAvatar = user && user.project ? (
