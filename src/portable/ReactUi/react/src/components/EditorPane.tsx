@@ -24,8 +24,9 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         super(props);
         this.state = initialState
         this.change = this.change.bind(this);
-        this.keyUp = this.keyUp.bind(this);
+        this.keyDown = this.keyDown.bind(this);
         this.textArea = React.createRef();
+        this.blur = this.blur.bind(this);
     }
 
     public componentDidUpdate(){
@@ -63,8 +64,9 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
                     value={this.state.text}
                     style={{fontFamily: font, fontSize: size}} 
                     onChange={this.change} 
-                    onKeyUp={this.keyUp}
+                    onKeyDown={this.keyDown}
                     onFocus={this.movePositionAtEnd}
+                    onBlur={this.blur}
                 />
             </div>
         )
@@ -95,7 +97,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         });
     }
 
-    private keyUp(event: any) {
+    private keyDown(event: any) {
         const { direction, setSaved, setInitialTranscription, lang, requestPosition, saved, selectedTask, totalSeconds, writeTranscription } = this.props;
         if (event.keyCode === 32) {
             requestPosition();
@@ -104,6 +106,12 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             setSaved(false);
         }
         setInitialTranscription(false);
+    }
+
+    private blur(event: any) {
+        const { direction, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
+        requestPosition();
+        writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
     }
 
     private movePositionAtEnd(e: any) {
