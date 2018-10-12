@@ -1,8 +1,23 @@
 import * as React from 'react';
+import * as actions from '../actions/audioActions';
+import * as actions2 from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import './GreetingPanel.sass';
 
-class GreetingPanel extends React.Component<IStateProps, any> {
+interface IProps extends IStateProps, IDispatchProps {
+}
+
+class GreetingPanel extends React.Component<IProps, any> {
+    constructor(props: IProps){
+        super(props)
+        const { projectState } = this.props;
+        const { completeReview, heading, selectedTask, selectedUser } = this.props;
+
+        if (projectState !== "Transcribe") {
+            completeReview(selectedTask, selectedUser, heading, true);
+        }
+    }
+
     public render() {
         const { strings } = this.props;
 
@@ -18,7 +33,16 @@ class GreetingPanel extends React.Component<IStateProps, any> {
 };
 
 interface IStateProps {
+    heading: string;
+    projectState: string | undefined;
+    selectedTask: string;
+    selectedUser: string;
     strings: ITranscriberStrings;
+}
+
+interface IDispatchProps {
+    completeReview: typeof actions2.completeReview;
+    setSubmitted: typeof actions.setSubmitted;
 }
 
 export default GreetingPanel;
