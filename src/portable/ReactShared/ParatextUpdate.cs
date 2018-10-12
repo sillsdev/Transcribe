@@ -59,25 +59,29 @@ namespace ReactShared
 				{
 					if (i == firstIndex)
 					{
-						string previousVerse = list[i - 1].ToString();
 						if (heading != string.Empty)
 						{
-							if (!previousVerse.Contains("\\s1 "))
-							{
-								sb.Append("\\s1 " + heading + "\r\n\\p \\v" + list[i]);
-							}
-							else
-							{
-								sb.Append("\\v" + list[i]);
-							}
+							sb.Append("\\s1 " + heading + "\r\n\\p \\v" + list[i]);
 						}
 						else
 						{
-							sb.Append("\\p \\v" + list[i]);
+							sb.Append("\\v" + list[i]);
 						}
 					}
 					else
 					{
+						if (i == (firstIndex - 1))
+						{
+							string previousVerse = list[i].ToString();
+							if (heading != string.Empty)
+							{
+								int sectionPosition = previousVerse.IndexOf("\\s");
+								if (sectionPosition > 0)
+								{
+									list[i] = previousVerse.Replace(previousVerse.Substring(sectionPosition, previousVerse.Length - sectionPosition), "");
+								}
+							}
+						}
 						sb.Append("\\v" + list[i]);
 					}
 				}
