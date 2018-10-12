@@ -37,7 +37,7 @@ namespace Transcribe.Windows
 				var folder = Util.FileFolder(taskId);
 				string eafFilePath = Path.Combine(folder, Path.GetFileNameWithoutExtension(taskId) + ".eaf");
 
-				var transcriptionArray = GetTranscriptionTextFromEAF(eafFilePath);
+				var transcriptionArray = GetTranscriptionTextFromEaf(eafFilePath);
 				if (transcriptionArray[0].Trim().ToUpper().StartsWith("File Error:"))
 					return false;
 				ParatextData.Initialize();

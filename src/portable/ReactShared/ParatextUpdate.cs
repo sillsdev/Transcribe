@@ -13,28 +13,27 @@ namespace ReactShared
 		{
 			var sb = new StringBuilder();
 			var firstIndex = 0;
-			var list = chapterContent.Split(new string[] { "\\v" }, StringSplitOptions.None).ToList();
+			var list = chapterContent.Split(new[] { "\\v" }, StringSplitOptions.None).ToList();
 
 			if (!chapterContent.Contains(@"\c " + Convert.ToInt32(currentTask.ChapterNumber)))
 			{
 				list.Insert(1, @"\c " + Convert.ToInt32(currentTask.ChapterNumber));
 			}
 
-			var startContains = list.FirstOrDefault(f => f.StartsWith(" " + currentTask.VerseStart.ToString() + " ")
-														 || f.StartsWith(" " + currentTask.VerseStart.ToString() + "-")
-														 || f.StartsWith(
-															 " " + currentTask.VerseStart.ToString() + "\r\n"));
+			var startContains = list.FirstOrDefault(f => f.TrimStart().StartsWith(currentTask.VerseStart.ToString() + " ")
+														 || f.TrimStart().StartsWith(currentTask.VerseStart.ToString() + "-")
+														 || f.TrimStart().StartsWith(currentTask.VerseStart.ToString() + "\r\n"));
 			if (startContains == null)
 			{
 				firstIndex = InsertVerseAsNew(currentTask, null, ref list);
 			}
-			else if (startContains.Trim().IndexOf('-') > 0 && startContains.Trim().IndexOf('-') <= 3)
+			else if (startContains.Trim().IndexOf('-') > 0 && startContains.Trim().IndexOf('-') <= 4)
 			{
-				firstIndex = InsertVerseWithPericope(startContains, currentTask, firstIndex, ref list);
+				firstIndex = InsertVerseWithRange(startContains, currentTask, firstIndex, ref list);
 			}
 			else
 			{
-				firstIndex = InsertVerseWithoutPericope(currentTask, ref list);
+				firstIndex = InsertVerseWithoutRange(currentTask, ref list);
 			}
 
 			var verseFormat = " " + currentTask.VerseStart + "-" + currentTask.VerseEnd;
@@ -59,30 +58,25 @@ namespace ReactShared
 				{
 					if (i == firstIndex)
 					{
-						if (heading != string.Empty)
-						{
-							sb.Append("\\s1 " + heading + "\r\n\\p \\v" + list[i]);
-						}
-						else
-						{
-							sb.Append("\\v" + list[i]);
-						}
+						sb.Append(heading != string.Empty
+							? $@"\s1 {heading}{Environment.NewLine}\p \v{list[i]}"
+							: $@"\v{list[i]}");
 					}
 					else
 					{
-						if (i == (firstIndex - 1))
+						if (i == firstIndex - 1)
 						{
-							string previousVerse = list[i].ToString();
+							var previousVerse = list[i];
 							if (heading != string.Empty)
 							{
-								int sectionPosition = previousVerse.IndexOf("\\s");
+								var sectionPosition = previousVerse.IndexOf("\\s", StringComparison.InvariantCulture);
 								if (sectionPosition > 0)
 								{
 									list[i] = previousVerse.Replace(previousVerse.Substring(sectionPosition, previousVerse.Length - sectionPosition), "");
 								}
 							}
 						}
-						sb.Append("\\v" + list[i]);
+						sb.Append($@"\v{list[i]}");
 					}
 				}
 			}
@@ -93,13 +87,13 @@ namespace ReactShared
 		/// <summary>
 		/// It handles the verse numbers without hyphen(-)
 		/// </summary>
-		/// <param name="currTask">Current Task Id</param>
+		/// <param name="currentTask">Current Task Id</param>
 		/// <param name="list">List of Verses from SFM File of the Current Chapter</param>
 		/// <returns>Index of the new Verse Number</returns>
-		private static int InsertVerseWithoutPericope(Task currTask, ref List<string> list)
+		private static int InsertVerseWithoutRange(Task currentTask, ref List<string> list)
 		{
-			var firstIndex = GetIndexFromList(ref list, currTask.VerseStart.ToString());
-			var secondIndex = GetIndexFromList(ref list, currTask.VerseEnd.ToString());
+			var firstIndex = GetIndexFromList(ref list, currentTask.VerseStart.ToString());
+			var secondIndex = GetIndexFromList(ref list, currentTask.VerseEnd.ToString());
 			list.RemoveRange(firstIndex, (secondIndex - firstIndex) + 1);
 			return firstIndex;
 		}
@@ -108,38 +102,38 @@ namespace ReactShared
 		/// It handles the verse numbers with hyphen(-)
 		/// </summary>
 		/// <param name="startContains">Starting Verse Content</param>
-		/// <param name="currTask">Current Task Id</param>
+		/// <param name="currentTask">Current Task Id</param>
 		/// <param name="firstIndex">Index of the Starting Verse</param>
 		/// <param name="list">List of Verses from SFM File of the Current Chapter</param>
 		/// <returns>Index of the new Verse Number</returns>
-		private static int InsertVerseWithPericope(string startContains, Task currTask, int firstIndex,
+		private static int InsertVerseWithRange(string startContains, Task currentTask, int firstIndex,
 			ref List<string> list)
 		{
-			string[] pericope = startContains.Trim().Split(' ');
+			string[] verseParts = startContains.Trim().Split(' ');
 
-			if (pericope[0] == (currTask.VerseStart + "-" + currTask.VerseEnd))
+			if (verseParts[0] == (currentTask.VerseStart + "-" + currentTask.VerseEnd))
 			{
-				firstIndex = GetIndexFromList(ref list, pericope[0]);
+				firstIndex = GetIndexFromList(ref list, verseParts[0]);
 				list.RemoveAt(firstIndex);
 			}
 			else
 			{
-				string[] pericopeItems = pericope[0].Split('-');
-				string firstPart = pericopeItems[0];
-				if (Convert.ToInt32(firstPart) >= currTask.VerseStart)
+				string[] rangeItems = verseParts[0].Split('-');
+				string firstPart = rangeItems[0];
+				if (Convert.ToInt32(firstPart) >= currentTask.VerseStart)
 				{
-					if (int.Parse(pericopeItems[1]) > currTask.VerseEnd)
+					if (int.Parse(rangeItems[1]) > currentTask.VerseEnd)
 					{
-						firstIndex = GetIndexFromList(ref list, pericope[0]);
+						firstIndex = GetIndexFromList(ref list, verseParts[0]);
 					}
 					else
 					{
-						firstIndex = GetIndexFromList(ref list, pericope[0]) + 1;
+						firstIndex = GetIndexFromList(ref list, verseParts[0]) + 1;
 					}
 				}
-				else if (Convert.ToInt32(firstPart) < Convert.ToInt32(currTask.VerseStart))
+				else if (Convert.ToInt32(firstPart) < Convert.ToInt32(currentTask.VerseStart))
 				{
-					firstIndex = GetIndexFromList(ref list, pericope[0]) - 1;
+					firstIndex = GetIndexFromList(ref list, verseParts[0]) - 1;
 				}
 			}
 
@@ -149,14 +143,14 @@ namespace ReactShared
 		/// <summary>
 		/// It handles verse numbers that does not exist already in the SFM File
 		/// </summary>
-		/// <param name="currTask">Current Task Id</param>
+		/// <param name="currentTask">Current Task Id</param>
 		/// <param name="startContains">Starting Verse Content</param>
 		/// <param name="list">List of Verses from SFM File of the Current Chapter</param>
 		/// <returns>Index of the new Verse Number</returns>
-		private static int InsertVerseAsNew(Task currTask, string startContains, ref List<string> list)
+		private static int InsertVerseAsNew(Task currentTask, string startContains, ref List<string> list)
 		{
 			int firstIndex;
-			for (int i = currTask.VerseStart - 1; i > 0; i--)
+			for (int i = currentTask.VerseStart - 1; i > 0; i--)
 			{
 				startContains = list.FirstOrDefault(f => f.Trim().StartsWith(i.ToString()));
 				if (startContains != null)
@@ -165,8 +159,8 @@ namespace ReactShared
 
 			if (startContains != null)
 			{
-				string[] pericope = startContains.Trim().Split(' ');
-				firstIndex = GetIndexFromList(ref list, pericope[0]) + 1;
+				string[] verseParts = startContains.Trim().Split(' ');
+				firstIndex = GetIndexFromList(ref list, verseParts[0]) + 1;
 			}
 			else
 			{
@@ -195,7 +189,7 @@ namespace ReactShared
 		/// </summary>
 		/// <param name="eafFilePath">EAF File Name with Full Path</param>
 		/// <returns>String Array with Transcription Data and Error in case of failure</returns>
-		protected static string[] GetTranscriptionTextFromEAF(string eafFilePath)
+		protected static string[] GetTranscriptionTextFromEaf(string eafFilePath)
 		{
 			string[] theTranscriptionText = { "", "" };
 			if (!File.Exists(eafFilePath))
