@@ -40,7 +40,7 @@ namespace ReactShared
 				}
 				else if (!string.IsNullOrEmpty(audioFile))
 				{
-					taskId = $"{project}-{audioFile}";
+					taskId = $"{project}-{Path.GetFileNameWithoutExtension(audioFile).Replace(" ", "")}";
 				}
 				else
 				{
