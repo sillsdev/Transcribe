@@ -70,6 +70,9 @@ namespace Transcribe.Windows
 					case "DeleteTask":
 						new DeleteTask(e.Uri.Query);
 						break;
+					case "CopyAudio":
+						new CopyAudio(e.Uri.Query, e.RequestBody);
+						break;
 				}
 			}
 		}

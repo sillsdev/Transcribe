@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Avatar from 'react-avatar';
+import ReactPlayer from 'react-player';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import * as actions3 from '../actions/audioActions';
 import * as actions from '../actions/taskActions';
 import * as actions2 from '../actions/userActions';
 import Duration from '../components/controls/Duration';
@@ -27,14 +29,18 @@ interface IProps extends IStateProps, IDispatchProps {
 
 const initialState = {
     assignedTo: "",
+    copyAudioFile: false,
     fileName: "",
     fullPath: "",
     heading: "",
+    playing: false,
     reference: "",
+    totalSeconds: 0,
 }
 
 class TaskDetails extends React.Component<IProps, typeof initialState> {
-    public state = {...initialState};
+    public state = { ...initialState };
+    public player: any;
     private original: typeof initialState;
     private taskId: string;
     private task: ITask;
@@ -46,6 +52,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateFileName = this.updateFileName.bind(this);
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
+        this.CopyAudioFileForDuration = this.CopyAudioFileForDuration.bind(this);
         this.fileRef = React.createRef();
 
         const { popupTask } = this.props;
@@ -60,10 +67,31 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                 this.state.assignedTo = this.task.assignedto;
             }
         } else {
-            this.task = {id:"", state:"Transcribe"}
-            this.state = {...initialState}
+            this.task = { id: "", state: "Transcribe" }
+            this.state = { ...initialState }
         }
-        this.original = {...this.state};
+        this.original = { ...this.state };
+    }
+
+    public onProgress = (ctrl: any) => {
+        this.setState({
+            playing: false,
+            totalSeconds: ctrl.loadedSeconds,
+        })
+    }
+
+    public ref = (player: any) => {
+        this.player = player
+    }
+
+    public CopyAudioFileForDuration() {
+        if (this.state.fileName !== this.original.fileName) {
+            const { copyAudio, selectedProject } = this.props;
+            let data: object = {}
+            data = { data: this.fileRef.current && this.fileRef.current.state.data }
+            copyAudio(this.state.fileName.split('.').slice(0, -1).join('.'), selectedProject, this.state.fileName, data);
+            this.original.fileName = this.state.fileName;
+        }
     }
 
     public render() {
@@ -77,6 +105,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
         const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
+        this.CopyAudioFileForDuration();
         return (
             <div className="TaskDetails">
                 <div className="closeRow">
@@ -109,6 +138,16 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                                 <Avatar name={this.displayName(assignedTo)} src={this.avatar(assignedTo)} size={64} round={true} />
                                 <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
                             </div>
+                            <div className="dummyPlayer">
+                                <ReactPlayer
+                                    id="Player"
+                                    ref={this.ref}
+                                    url={'/api/audio/dummy/' + this.state.fileName}
+                                    controls={true}
+                                    muted={true}
+                                    playing={this.state.playing}
+                                    onProgress={this.onProgress} />
+                            </div>
                         </div>
                         <div className="resultsRight">
                             <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
@@ -123,7 +162,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private updateFileName(file: string) {
-        this.setState({...this.state, fileName: file})
+        this.setState({
+            fileName: file,
+            playing: true,
+        })
     }
 
     private updateHeading(header: string) {
@@ -143,7 +185,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private duration(): number {
-        return this.task && this.task.length? this.task.length: 0
+        return this.task && this.task.length ? this.task.length : Math.round(this.state.totalSeconds)
     }
 
     private taskUser(userId: string): IUser {
@@ -192,6 +234,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             this.saveValue(updates, "assignedTo", this.state.assignedTo)
         }
 
+        if (this.state.totalSeconds !== this.original.totalSeconds) {
+            this.saveValue(updates, "timeDuration", Math.round(this.state.totalSeconds).toString())
+        }
+
         if (updates.length > 0) {
             const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
@@ -226,9 +272,11 @@ interface IDispatchProps {
     fetchUsers: typeof actions2.fetchUsers;
     selectTask: typeof actions.selectTask;
     updateTask: typeof actions.updateTask;
- };
- const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
-     ...bindActionCreators({
+    copyAudio: typeof actions3.copyAudio;
+};
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+        copyAudio: actions3.copyAudio,
         deleteTask: actions.deleteTask,
         fetchUsers: actions2.fetchUsers,
         selectTask: actions.selectTask,

@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE,
+import { COPY_AUDIO, INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE,
     REPORT_POSITION, REQUEST_POSITION, SAVE_STATUS, SAVE_TOTAL_SECONDS, SUBMIT_STATUS } from './types';
 
 
@@ -61,4 +61,9 @@ export function setSaved(saved: boolean): any{
         payload: saved,
         type: SAVE_STATUS
     }
+}
+
+export const copyAudio = (task: string, project: string, audioFile: string, data: object) => (dispatch: any) => {
+    dispatch({type: COPY_AUDIO});
+    Axios.put('/api/CopyAudio?task=' + task + '&project=' + project+ '&audioFile=' + audioFile, data)
 }
