@@ -9,7 +9,7 @@ namespace ReactShared
 {
 	public class ParatextUpdate
 	{
-		protected static StringBuilder GenerateParatextData(Task currentTask, string chapterContent, string transcription, string heading)
+		protected static StringBuilder GenerateParatextData(Task currentTask, string chapterContent, string transcription, string heading = "")
 		{
 			var sb = new StringBuilder();
 			var firstIndex = 0;
@@ -47,7 +47,7 @@ namespace ReactShared
 				{
 					if (i == 0 && !list[i].EndsWith("\r\n") || i > 0)
 					{
-						sb.Append(list[i] + Environment.NewLine);
+						sb.Append(list[i].Trim() + Environment.NewLine);
 					}
 					else
 					{

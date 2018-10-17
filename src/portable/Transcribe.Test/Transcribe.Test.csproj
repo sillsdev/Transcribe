@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common.cs" />
+    <Compile Include="TextFileAssert.cs" />
     <Compile Include="UpdateProjectTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ParatextUpdateTests.cs" />

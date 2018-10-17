@@ -51,7 +51,7 @@ namespace Transcribe.Test
 			string transcription = "This is sample case with verse number";
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath, expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
 
 		//// Case 2
@@ -75,7 +75,7 @@ namespace Transcribe.Test
 			string transcription = "the test data";
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath, expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
 
 		//// Case 3
@@ -98,7 +98,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberReplaceContentOnSameNumber.sfm");
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath,	expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath,	expectedFilePath);
 		}
 
 		//// Case 4
@@ -124,7 +124,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenNearRangeExists.sfm");
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath, expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
 
 		//// Case 5
@@ -148,7 +148,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenChapterNotFound.sfm");
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath, expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
 
 		//// Case 6
@@ -172,7 +172,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenEndVerseDiffers.sfm");
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath, expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
 
 		//// Case 7
@@ -200,7 +200,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenAllVersesAreEmpty.sfm");
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath, expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
 
 		//// Case 8
@@ -227,7 +227,7 @@ namespace Transcribe.Test
 			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenNoChapterAndVerse.sfm");
 			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription);
 			File.WriteAllText(outputFilePath, sb.ToString());
-			FileAssert.AreEqual(outputFilePath, expectedFilePath);
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
 	}
 }

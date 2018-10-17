@@ -17,7 +17,7 @@ namespace Transcribe.Windows
 			var method = e.Channel.RequestMethod;
 			if (method == "GET")
 			{
-				if (e.Uri.Segments[1] != "api/")
+				if (e.Uri.Segments.Length < 2 || e.Uri.Segments[1] != "api/")
 					return;
 				switch (e.Uri.Segments[2])
 				{
@@ -37,7 +37,7 @@ namespace Transcribe.Windows
 			}
 			else if (method == "PUT")
 			{
-				if (e.Uri.Segments[1] != "api/")
+				if (e.Uri.Segments.Length < 2 || e.Uri.Segments[1] != "api/")
 					return;
 				switch (e.Uri.Segments[2])
 				{
