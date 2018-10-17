@@ -10,6 +10,7 @@ export const assignTask = (taskid: string, userid: string) => (dispatch: any) =>
     Axios.put('/api/TaskEvent?action=Assigned&task=' + taskid + '&user=' + userid)
         .then(dispatch(fetchTasks(userid)))
         .then(dispatch(setSubmitted(false)))
+        .then(dispatch(selectTask(userid, taskid)))
 }
 
 export const unAssignTask = (taskid: string, userid: string) => (dispatch: any) => {
@@ -79,14 +80,14 @@ export function selectProject(id: string): any{
     }
 }
 
-export const  selectTask = (user: string, id: string) => (dispatch:any) => {
+export const selectTask = (user: string, id: string) => (dispatch:any) => {
     dispatch({
         payload: id,
         type: SELECT_TASK
     })
     dispatch(fetchTranscription(id));
-    dispatch(saveUserSetting(user, "lastTask", id))
-    dispatch(setSubmitted(false))
+    dispatch(saveUserSetting(user, "lastTask", id));
+    dispatch(setSubmitted(false));
 }
 
 export const  selectPopupTask = (id: string) => (dispatch:any) => {
