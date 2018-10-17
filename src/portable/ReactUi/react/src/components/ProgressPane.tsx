@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player';
 import { connect } from 'react-redux';
 import * as actions from '../actions/audioActions';
 import { IState } from '../model/state';
+import projectTasks from '../selectors/projectTasks';
 import TimeMarker from './controls/TimeMarker';
 import './ProgressPane.sass';
 
@@ -53,10 +54,15 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { initialPosition, jump, requestReport, selectedTask, selectedUser, users } = this.props;
+        const { initialPosition, jump, requestReport, selectedTask, selectedUser, users, tasks } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
+        const task = tasks.filter(t => t.id === selectedTask)[0];
+        if( task.length !== undefined && totalSeconds !== task.length)
+        {
+            this.setState({ totalSeconds: task.length })
+        }
         let position = audioPlayedSeconds;
         if (this.player !== undefined && jump !== 0){
             position += jump;
@@ -113,6 +119,7 @@ interface IStateProps {
     selectedUser: string;
     jump: number;
     users: IUser[];
+    tasks: ITask[];
 };
 
 interface IDispatchProps {
@@ -121,6 +128,7 @@ interface IDispatchProps {
     playSpeedRateChange: typeof actions.playSpeedRateChange;
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
+
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -131,7 +139,8 @@ const mapStateToProps = (state: IState): IStateProps => ({
     requestReport: state.audio.requestReport,
     selectedTask:  state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
-    users: state.users.users
+    tasks: projectTasks(state),
+    users: state.users.users,
 });
 
 export default connect(mapStateToProps)(ProgressPane);
