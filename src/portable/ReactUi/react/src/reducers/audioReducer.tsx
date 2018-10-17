@@ -1,9 +1,7 @@
-import {
-    COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING,
+import { COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING,
     FETCH_TASKS, FETCH_TRANSCRIPTION, INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS,
     PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_STATUS, SAVE_TOTAL_SECONDS, SELECT_TASK,
-    SUBMIT_STATUS, WRITE_FULFILLED
-} from '../actions/types';
+    SUBMIT_STATUS, WRITE_FULFILLED } from '../actions/types';
 
 const initialState = {
     initialPosition: 0,
@@ -99,6 +97,7 @@ export default function (state = initialState, action: any) {
                 ...state,
                 saved: action.payload,
             }
+
         default:
             return state;
     }
