@@ -3,6 +3,11 @@ Transcription of minority audio for review by Paratext
 
 This project uses a react redux ui which is displayed in a GeckoFx browser control (on Windows).
 
+## Installing build dependencies
+1. Use the Visual Studio installer to install the first and last workload options (C# with .net Frameworks and dotnet core) and on the individual items you can install Git for Windows and the Vistual Studio git extensions
+1. Install the VsCode Microsoft editor for use with editing the react redux interface (from the src\portable\ReactUI\react folder. You may also like to add extensions for edition sass files.
+1. Install node.js for managing dependencies on Javascript
+
 ## Installing and running the user interface from a web browser (no server)
 1. `git clone https://github.com/sillsdev/Transcribe.git`
 1. `cd src/portable/ReactUi/react`
