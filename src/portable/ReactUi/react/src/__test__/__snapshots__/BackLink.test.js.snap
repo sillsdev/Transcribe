@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: Backlink --- Snapshot +++capturing Snapshot of BackLink 1`] = `
+<div
+  className="BackLink"
+  id="BackLink"
+>
+  <a
+    href="/root"
+    onClick={[Function]}
+  >
+    ❮
+  </a>
+</div>
+`;

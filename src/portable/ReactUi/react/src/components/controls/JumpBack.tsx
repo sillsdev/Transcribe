@@ -17,15 +17,16 @@ class JumpBack extends React.Component<IProps, object> {
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         // Get the back hotkey specified for the user
-        if (user.hotkey !== undefined){
+        if (user && user.hotkey) {
             this.back = user.hotkey.filter(h => h.id === "back")[0].text;
         }
     }
     public render() {
+        const { jump, jumpChange } = this.props
         return (
             <div>
                 <ReactToolTip />
-                <div id="JumpBack" className="JumpBack" data-tip={this.back} onClick={this.props.jumpChange.bind(this, -2)}>
+                <div id="JumpBack" className="JumpBack" data-tip={this.back} onClick={jumpChange.bind(this, jump? jump:-2)}>
                     {"\u00AB"}
                 </div>
             </div>

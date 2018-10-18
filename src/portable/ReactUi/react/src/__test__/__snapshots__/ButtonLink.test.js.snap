@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: Buttonlink --- Snapshot +++capturing Snapshot of ButtonLink 1`] = `
+<a
+  className="ButtonLink"
+  href="/root"
+  onClick={[Function]}
+>
+  <button
+    className="primary"
+  >
+    My Button
+  </button>
+</a>
+`;

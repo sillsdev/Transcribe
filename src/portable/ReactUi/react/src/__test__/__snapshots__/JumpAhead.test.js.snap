@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: JumpAhead --- Snapshot +++capturing Snapshot of JumpAhead 1`] = `
+<div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+    id={undefined}
+  />
+  <div
+    className="JumpAhead"
+    data-tip="F3"
+    id="JumpAhead"
+    onClick={[Function]}
+  >
+    »
+  </div>
+</div>
+`;

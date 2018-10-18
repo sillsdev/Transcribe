@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: Duration --- Snapshot +++capturing Snapshot of Duration 1`] = `
+<time
+  dateTime="P100S"
+>
+  1:40
+</time>
+`;

@@ -8,10 +8,6 @@ interface IProps {
 };
 
 class FilterAction extends React.Component<IProps, object> {
-    // public linkClick() {
-    //     // tslint:disable-next-line:no-console
-    //     console.log("Save button clicked!!");
-    // }
     public render() {
         const { target, text } = this.props;
         return (
