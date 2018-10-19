@@ -20,15 +20,15 @@ class ToggleSwitch extends React.Component<IProps, typeof initialState> {
 
     constructor(props: IProps) {
         super(props);
-        if (this.props.switched !== undefined){
-            this.state = {switched: this.props.switched};
-        }
     }
 
     public render() {
         const { enabled, type, text } = this.props
         const style = "ToggleSwitch " + type
         const lableStyle = (enabled !== undefined && !enabled)? "SwitchLabel SwitchLabelDisabled": "SwitchLabel SwitchLabelOn";
+        if (this.props.switched !== undefined){
+            this.state = {switched: this.props.switched};
+        }
         return (
             <div className={style}>
                 <Switch
