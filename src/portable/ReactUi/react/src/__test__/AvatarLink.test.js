@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { BrowserRouter as Router} from 'react-router-dom';
+import { MemoryRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer'
 import sinon from 'sinon';
 import AvatarLink from '../components/controls/AvatarLink';
@@ -49,6 +49,6 @@ describe('>>>Control: AvatarLink', () => {
     });
 
     it('+++ set size of avatar', () => {
-        expect(wrapper.find('Link').get(0).props.children[0].props['size']).toEqual('64')
+        expect(wrapper.find('Link').get(0).props.children[0].props.size).toEqual('64')
     });
 });

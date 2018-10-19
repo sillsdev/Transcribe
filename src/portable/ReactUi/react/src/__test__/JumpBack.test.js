@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer'
 import * as actions from '../actions/audioActions';
 import JumpBack from '../components/controls/JumpBack';
+import { JSDOM } from 'jsdom'
 
 configure({ adapter: new Adapter() })
 
@@ -17,7 +18,8 @@ describe('>>>Control: JumpBack --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of JumpBack', () => {
-        const renderedValue =  renderer.create(<JumpBack {...minProps}/>).toJSON()
+        const { document } = (new JSDOM(<JumpBack {...minProps}/>)).window
+        const renderedValue =  renderer.create(document.querySelector('div')).toJSON()
         expect(renderedValue).toMatchSnapshot();
     });
 });

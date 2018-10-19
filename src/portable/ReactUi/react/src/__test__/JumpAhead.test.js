@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer'
 import * as actions from '../actions/audioActions';
 import JumpAhead from '../components/controls/JumpAhead';
+import { JSDOM } from 'jsdom'
 
 configure({ adapter: new Adapter() })
 
@@ -17,7 +18,8 @@ describe('>>>Control: JumpAhead --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of JumpAhead', () => {
-        const renderedValue =  renderer.create(<JumpAhead {...minProps}/>).toJSON()
+        const { document } = (new JSDOM(<JumpAhead {...minProps}/>)).window
+        const renderedValue =  renderer.create(document.querySelector('div')).toJSON()
         expect(renderedValue).toMatchSnapshot();
     });
 });
