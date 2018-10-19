@@ -19,4 +19,4 @@ xcopy /s/y ..\..\ReactUi\react\build\* build
 cd ..
 dotnet build
 cd ..\ReactUi\react
-call npm run jest
+cmd /c npm run jest
