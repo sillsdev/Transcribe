@@ -10,9 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildStep", "src\BuildStep\BuildStep.csproj", "{4EA87B64-E994-4BD2-8CE7-C55754CDB89D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transcribe.Windows", "src\portable\Transcribe.Windows\Transcribe.Windows.csproj", "{259C1AE4-7715-4C7A-8ED1-2F0C71E90B0D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{4CDD53C9-8CE2-4998-B57B-6652A6D3138D} = {4CDD53C9-8CE2-4998-B57B-6652A6D3138D}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transcribe.Linux", "src\portable\Transcribe.Linux\Transcribe.Linux.csproj", "{7D8F806F-B974-4F28-9C78-D40CD023F9A3}"
 	ProjectSection(ProjectDependencies) = postProject
