@@ -67,7 +67,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         }
     }
 
-    public componentWillMount() {
+    public componentWillReceiveProps(){
         const{ project, strings } = this.props;
         const title = project != null && project.name != null? project.name: strings.projectName;
         this.setState({titleText : title});
@@ -85,10 +85,12 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
             titleWrapper = (<div className="title" onClick={this.onNameClick}>
             <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
         }
+
         const claim = project && project.claim? project.claim: false;
         const pair = project && project.guid && project.guid !== ""? true: false;
         const pairText = pair? strings.pairedWithParatextProject: strings.clickToPair;
         const sync = project && project.sync? project.sync: false;
+
         return (
             <div id="ProjectSettings" className={"ProjectSettings" + modal}>
                 <div className="rows">
