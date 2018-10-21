@@ -2,10 +2,10 @@ import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 import * as actions from '../actions/audioActions';
 import JumpAhead from '../components/controls/JumpAhead';
-import { JSDOM } from 'jsdom'
+import { JSDOM } from 'jsdom';
 
 configure({ adapter: new Adapter() })
 

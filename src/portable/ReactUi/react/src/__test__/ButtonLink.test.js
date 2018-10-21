@@ -3,7 +3,7 @@ import expect from 'expect';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter as Router} from 'react-router-dom';
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import ButtonLink from '../components/controls/ButtonLink';
 

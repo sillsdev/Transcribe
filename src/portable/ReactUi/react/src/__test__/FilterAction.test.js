@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 import FilterAction from '../components/controls/FilterAction';
 
 configure({ adapter: new Adapter() })

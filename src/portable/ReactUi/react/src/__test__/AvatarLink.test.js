@@ -3,9 +3,10 @@ import expect from 'expect';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter as Router} from 'react-router-dom';
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import AvatarLink from '../components/controls/AvatarLink';
+import { JSDOM } from 'jsdom';
 
 configure({ adapter: new Adapter() })
 
@@ -19,7 +20,8 @@ describe('>>>Control: Avatarlink --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of AvatarLink', () => {
-        const renderedValue =  renderer.create(<Router><AvatarLink {...minProps}/></Router>).toJSON()
+        const { document } = (new JSDOM(<Router><AvatarLink {...minProps}/></Router>)).window
+        const renderedValue =  renderer.create(document.querySelector('div')).toJSON()
         expect(renderedValue).toMatchSnapshot();
     });
 });
