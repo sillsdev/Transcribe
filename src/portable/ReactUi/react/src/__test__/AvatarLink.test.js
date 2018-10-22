@@ -6,12 +6,11 @@ import { MemoryRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import AvatarLink from '../components/controls/AvatarLink';
-import { JSDOM } from 'jsdom';
+
 
 configure({ adapter: new Adapter() })
 
 // Snapshot for AvatarLink
-localStorage = []   //Avoid missing local storage error when rendering snapshot
 describe('>>>Control: Avatarlink --- Snapshot',()=>{
     const minProps = {
         id: "my id",
@@ -21,7 +20,6 @@ describe('>>>Control: Avatarlink --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of AvatarLink', () => {
-        // const { document } = (new JSDOM(<Router><AvatarLink {...minProps}/></Router>)).window
         const renderedValue =  renderer.create(<Router><AvatarLink {...minProps}/></Router>).toJSON()
         expect(renderedValue).toMatchSnapshot();
     });

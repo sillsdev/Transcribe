@@ -19,4 +19,5 @@ xcopy /s/y ..\..\ReactUi\react\build\* build
 cd ..
 dotnet build
 cd ..\ReactUi\react
-cmd /c npm run jest
+call npm run jest -- --env=jsdom --json --outputFile=.\TestResult.json
+find "numFailedTests"":0," <./TestResult.json >nul
