@@ -11,6 +11,7 @@ import { JSDOM } from 'jsdom';
 configure({ adapter: new Adapter() })
 
 // Snapshot for AvatarLink
+localStorage = []   //Avoid missing local storage error when rendering snapshot
 describe('>>>Control: Avatarlink --- Snapshot',()=>{
     const minProps = {
         id: "my id",
