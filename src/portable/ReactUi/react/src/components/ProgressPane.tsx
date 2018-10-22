@@ -59,7 +59,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const task = tasks.filter(t => t.id === selectedTask)[0];
-        if( task.length !== undefined && totalSeconds !== task.length)
+        if(task && task.length !== undefined && totalSeconds !== task.length)
         {
             this.setState({ totalSeconds: task.length })
         }

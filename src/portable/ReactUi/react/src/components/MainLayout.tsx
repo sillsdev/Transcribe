@@ -34,7 +34,7 @@ class MainLayout extends React.Component<IProps, any> {
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         // Get the hotkeys specified for the user
-        if (user.hotkey !== undefined){
+        if (user && user.hotkey !== undefined){
             this.playPause = user.hotkey.filter(h => h.id === "play-pause")[0].text.toLowerCase();
             this.back = user.hotkey.filter(h => h.id === "back")[0].text.toLowerCase();
             this.forward = user.hotkey.filter(h => h.id === "forward")[0].text.toLowerCase();
@@ -45,7 +45,7 @@ class MainLayout extends React.Component<IProps, any> {
 
     public render() {
         const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, saved, submit,
-            assignedReview, assignedTranscribe, availableReview,  availableTranscribe} = this.props;
+            assignedReview, assignedTranscribe, availableReview,  availableTranscribe, project} = this.props;
 
         const keyMap = {
             backKey: this.back,
@@ -84,9 +84,12 @@ class MainLayout extends React.Component<IProps, any> {
 
         let editorScreen = <GreetingPanel   {...this.props} />
 
-        if(assignedReview.length + assignedTranscribe.length + availableReview.length + availableTranscribe.length > 0)
+        const claim = project && project.claim? project.claim: false;
+        if (assignedReview.length + assignedTranscribe.length > 0 ||
+            (claim && availableReview.length + availableTranscribe.length  > 0))
         {
-            editorScreen = (submit && saved) ? <SucessPanel  {...this.props} /> : <AudioPanel {...this.props} />;
+            const sync = project && project.sync? project.sync: false;
+            editorScreen = (submit && saved) ? <SucessPanel  {...this.props} sync={sync} /> : <AudioPanel {...this.props} />;
         }
 
         return (
@@ -108,22 +111,22 @@ class MainLayout extends React.Component<IProps, any> {
 };
 
 interface IStateProps {
-    playing: boolean;
-    playSpeedRate: number;
-    projectState: string | undefined;
-    selectedTask: string;
-    selectedUser: string;
-    saved: boolean;
-    submit: boolean;
-    jump: number;
-    heading: string;
-    strings: ITranscriberStrings;
-    users: IUser[];
     assignedReview: ITask[];
     assignedTranscribe: ITask[];
     availableReview: ITask[];
     availableTranscribe: ITask[];
-    sync: boolean | undefined;
+    heading: string;
+    jump: number;
+    playSpeedRate: number;
+    playing: boolean;
+    project: IProject;
+    projectState: string | undefined;
+    saved: boolean;
+    selectedTask: string;
+    selectedUser: string;
+    strings: ITranscriberStrings;
+    submit: boolean;
+    users: IUser[];
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -135,13 +138,13 @@ const mapStateToProps = (state: IState): IStateProps => ({
     jump: state.audio.jump,
     playSpeedRate: state.audio.playSpeedRate,
     playing: state.audio.playing,
+    project: currentProject(state),
     projectState: projectState(state),
     saved: state.audio.saved,
     selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, { layout: "transcriber" }),
     submit: state.audio.submit,
-    sync: currentProject(state).sync,
     users: state.users.users,
 });
 
