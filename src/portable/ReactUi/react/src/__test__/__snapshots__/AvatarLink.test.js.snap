@@ -1,3 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`>>>Control: Avatarlink --- Snapshot +++capturing Snapshot of AvatarLink 1`] = `null`;
+exports[`>>>Control: Avatarlink --- Snapshot +++capturing Snapshot of AvatarLink 1`] = `
+<div
+  className="AvatarLink"
+  id="my id"
+>
+  <a
+    href="/root"
+    onClick={[Function]}
+  >
+    <div
+      className="OnHover sb-avatar"
+      onClick={undefined}
+      style={
+        Object {
+          "borderRadius": "100%",
+          "display": "inline-block",
+          "fontFamily": "Helvetica, Arial, sans-serif",
+          "height": "64px",
+          "verticalAlign": "middle",
+          "width": "64px",
+        }
+      }
+    >
+      <div
+        className="OnHover sb-avatar__text"
+        style={
+          Object {
+            "background": undefined,
+            "borderRadius": "100%",
+            "color": "#FFF",
+            "height": "64px",
+            "lineHeight": "initial",
+            "textAlign": "center",
+            "textTransform": "uppercase",
+            "width": "64px",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "table",
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "display": "table-cell",
+                "verticalAlign": "middle",
+              }
+            }
+          >
+            <span />
+          </span>
+        </div>
+      </div>
+    </div>
+    <br />
+     
+    <br />
+    <div
+      className="caption"
+    >
+      my name
+    </div>
+  </a>
+</div>
+`;

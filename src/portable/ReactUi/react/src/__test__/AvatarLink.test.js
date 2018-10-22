@@ -20,8 +20,8 @@ describe('>>>Control: Avatarlink --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of AvatarLink', () => {
-        const { document } = (new JSDOM(<Router><AvatarLink {...minProps}/></Router>)).window
-        const renderedValue =  renderer.create(document.querySelector('div')).toJSON()
+        // const { document } = (new JSDOM(<Router><AvatarLink {...minProps}/></Router>)).window
+        const renderedValue =  renderer.create(<Router><AvatarLink {...minProps}/></Router>).toJSON()
         expect(renderedValue).toMatchSnapshot();
     });
 });
