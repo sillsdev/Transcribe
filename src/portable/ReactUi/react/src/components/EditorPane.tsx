@@ -60,6 +60,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             <div className="EditorPane">
                 <textarea
                     id="Editor"
+                    dir={direction?direction:"ltr"}
                     ref={(textArea) => this.textArea = textArea}
                     value={this.state.text}
                     style={{fontFamily: font, fontSize: size}} 
