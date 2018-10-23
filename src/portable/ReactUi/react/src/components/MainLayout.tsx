@@ -60,8 +60,8 @@ class MainLayout extends React.Component<IProps, any> {
                 jumpChange(-2);
             },
             fasterKey: (event: any) => {
-                let speedUp = playSpeedRate + 0.1;
-                if(playSpeedRate >= 2.0)
+                let speedUp = parseFloat(playSpeedRate.toString()) + 0.1;
+                if(parseFloat(playSpeedRate.toString()) >= 2.0)
                 {
                     speedUp = 2.0
                 }
@@ -74,8 +74,8 @@ class MainLayout extends React.Component<IProps, any> {
                 playStatus(!playing);
             },
             slowerKey: (event: any) => {
-                let speedDown = playSpeedRate - 0.1;
-                if (playSpeedRate <= 0.5) {
+                let speedDown =  parseFloat(playSpeedRate.toString()) - 0.1;
+                if (parseFloat(playSpeedRate.toString()) <= 0.5) {
                     speedDown = 0.5
                 }
                 playSpeedRateChange(speedDown);
