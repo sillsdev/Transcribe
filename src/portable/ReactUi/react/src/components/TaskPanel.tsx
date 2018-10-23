@@ -5,6 +5,7 @@ import * as actions from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import taskList from '../selectors';
+import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import userValue from '../selectors/user';
 import RevertAction from './controls/RevertAction';
@@ -18,7 +19,7 @@ class TaskPanel extends React.Component<IProps, object> {
       public render() {
         const { assignedReview, assignedTranscribe, availableReview, availableTranscribe } = this.props;
         const { lastTask, loaded, pending, selectedUser, selectedTask } = this.props;
-        const { assignTask, selectTask, strings, unassignTask } = this.props
+        const { assignTask, direction, selectTask, strings, unassignTask } = this.props
 
         const selectReview = assignedReview.filter(t => t.id === lastTask);
         const selectTranscribe = assignedTranscribe.filter(t => t.id === lastTask)
@@ -31,12 +32,13 @@ class TaskPanel extends React.Component<IProps, object> {
         else if (this.props.selectedTask.trim() === '' && this.props.assignedTranscribe.length > 0) {
             selectTask(selectedUser, assignedTranscribe[0].id);
         }
+        const headStyle = direction? "ListHead " + direction: "ListHead";
         const assignedHead = (assignedReview.length + assignedTranscribe.length > 0)?
             (<h3 className="SectionHead">{strings.assigned}</h3>): <div/>;
         const assignedReviewHead = assignedReview.length > 0?
-            (<h4 className="ListHead">{strings.review.toUpperCase()}</h4>): <div/>;
+            (<h4 className={headStyle}>{strings.review.toUpperCase()}</h4>): <div/>;
         const assignedTranscribeHead = assignedTranscribe.length > 0?
-            (<h4 className="ListHead">{strings.transcribe.toUpperCase()}</h4>): <div/>;
+            (<h4 className={headStyle}>{strings.transcribe.toUpperCase()}</h4>): <div/>;
         const assignedReviewList = assignedReview.map((t: ITask) => (
             <div className="AssignedRow">
                 <RevertAction
@@ -72,9 +74,9 @@ class TaskPanel extends React.Component<IProps, object> {
         const availableHead = (availableReview.length + availableTranscribe.length > 0)?
             (<h3 className="SectionHead">{strings.available}</h3>): <div/>;
         const availableReviewHead = availableReview.length > 0?
-            (<h4 className="ListHead">{strings.review.toUpperCase()}</h4>): <div/>;
+            (<h4 className={headStyle}>{strings.review.toUpperCase()}</h4>): <div/>;
         const availableTranscribeHead = availableTranscribe.length > 0?
-            (<h4 className="ListHead">{strings.transcribe.toUpperCase()}</h4>): <div/>;
+            (<h4 className={headStyle}>{strings.transcribe.toUpperCase()}</h4>): <div/>;
         const availableReviewList = availableReview.map((t: ITask) => (
             <div className="AvailableRow">
                 <div className="placeHolder">{"\u00A0"}</div>
@@ -126,6 +128,7 @@ interface IStateProps {
     assignedTranscribe: ITask[];
     availableReview: ITask[];
     availableTranscribe: ITask[];
+    direction: string;
     lastTask: string | undefined;
     loaded: boolean;
     pending: boolean;
@@ -139,6 +142,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     assignedTranscribe: taskList(state).assignedTranscribe,
     availableReview: taskList(state).availableReview,
     availableTranscribe: taskList(state).availableTranscribe,
+    direction: uiDirection(state),
     lastTask: userValue(state),
     loaded: state.tasks.loaded,
     pending: state.tasks.pending,

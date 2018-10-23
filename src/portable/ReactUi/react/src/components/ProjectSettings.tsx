@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
-import userStrings from '../selectors/localize'
+import uiDirection from '../selectors/direction';
+import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
@@ -74,8 +75,9 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const{ project, strings } = this.props
-        const modal = this.props.history.location.pathname.length > 17? " Modal": ""
+        const{ direction, project, strings } = this.props
+        let settingsStyle = this.props.history.location.pathname.length > 17? " Modal": ""
+        settingsStyle = direction? settingsStyle + " " + direction: settingsStyle;
 
         let titleWrapper;
         if (this.state.showTextBox) {
@@ -92,7 +94,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         const sync = project && project.sync? project.sync: false;
 
         return (
-            <div id="ProjectSettings" className={"ProjectSettings" + modal}>
+            <div id="ProjectSettings" className={"ProjectSettings" + settingsStyle}>
                 <div className="rows">
                     <div className="properties">
                         <div className="header">
@@ -103,7 +105,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                             {titleWrapper}
                             <PencilAction target={this.editProjectName} />
                         </div>
-                        <div className="paringRow">
+                        <div className="pairingRow">
                             <LinkAction text={pairText} target={this.pair} />
                         </div>
                         <div className="switches">
@@ -139,6 +141,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
 }
 
 interface IStateProps {
+    direction: string;
     project: IProject;
     selectedProject: string;
     selectedUser: string;
@@ -148,6 +151,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    direction: uiDirection(state),
     loaded: state.tasks.loaded,
     project: currentProject(state),
     projects: state.tasks.projects,

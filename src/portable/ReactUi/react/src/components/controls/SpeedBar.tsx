@@ -21,7 +21,7 @@ class SpeedBar extends React.Component<IProps, any> {
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         // Get the slower and faster hotkeys specified for the user
-        if (user.hotkey !== undefined){
+        if (user && user.hotkey !== undefined){
             this.slower = user.hotkey.filter(h => h.id === "slower")[0].text;
             this.faster = user.hotkey.filter(h => h.id === "faster")[0].text;
         }

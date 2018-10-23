@@ -48,7 +48,7 @@
 			align-self: flex-end
 			margin-right: 8px
 			flex: 0 0 auto
-	.paringRow
+	.pairingRow
 		padding-left: 32px
 		display: flex
 		flex-direction: row
@@ -80,3 +80,23 @@
 		border: none
 		background-color: $inputBG
 		width: 100%
+	&.rtl
+		direction: rtl
+		.left
+			padding-left: 0px
+			padding-right: 32px
+		.pairingRow
+			padding-left: 0px
+			padding-right: 32px
+		.header
+			.BackLink
+				padding-right: 0px
+				padding-left: 24px
+		.switches>*
+			padding: 0 32px 16px 0
+		.switches>*>*
+			margin-right: 0
+			margin-left: 8px
+		.switches>*>.switch.on .switch-toggle
+			left: 0
+			right: 16px

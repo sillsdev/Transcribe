@@ -8,6 +8,7 @@ import SucessPanel from '../components/SucessPanel';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import taskList from '../selectors';
+import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import projectState from '../selectors/projectState';
@@ -45,7 +46,7 @@ class MainLayout extends React.Component<IProps, any> {
 
     public render() {
         const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, saved, submit,
-            assignedReview, assignedTranscribe, availableReview,  availableTranscribe, project} = this.props;
+            assignedReview, assignedTranscribe, availableReview,  availableTranscribe, direction, project} = this.props;
 
         const keyMap = {
             backKey: this.back,
@@ -94,7 +95,7 @@ class MainLayout extends React.Component<IProps, any> {
 
         return (
             <HotKeys keyMap={keyMap} handlers={handlers}>
-                <div className="MainLayout" tabIndex={1}>
+                <div className={"MainLayout " + (direction? direction: "")} tabIndex={1}>
                     <div className="NavCol">
                         <NavPanel {...this.props} />
                     </div>
@@ -115,6 +116,7 @@ interface IStateProps {
     assignedTranscribe: ITask[];
     availableReview: ITask[];
     availableTranscribe: ITask[];
+    direction: string;
     heading: string;
     jump: number;
     playSpeedRate: number;
@@ -134,6 +136,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     assignedTranscribe: taskList(state).assignedTranscribe,
     availableReview: taskList(state).availableReview,
     availableTranscribe: taskList(state).availableTranscribe,
+    direction: uiDirection(state),
     heading: taskValues(state).heading,
     jump: state.audio.jump,
     playSpeedRate: state.audio.playSpeedRate,
