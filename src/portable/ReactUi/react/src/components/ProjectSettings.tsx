@@ -109,11 +109,11 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                             <PencilAction target={this.editProjectName} />
                         </div>
                         <div className="pairingRow">
-                            <LinkAction text={pairText} target={this.pair} />
+                            <LinkAction text={pairText} target={this.pair.bind(this, pair)} />
                         </div>
                         <div className="switches">
                             <ToggleSwitch switched={claim} text={strings.allowClaimUnassignedTasks} onChange={this.onClaim}/>
-                            <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair} />
+                            <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair.bind(this, pair)} />
                             <ToggleSwitch switched={sync} text={strings.autoSyncParatext} enabled={pair} onChange={this.onSync} />
                         </div>
                     </div>
@@ -130,8 +130,12 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         this.setState({showTextBox : true});
     }
 
-    private pair() {
-        alert("pair")
+    private pair(paired: boolean) {
+        if (paired){
+            alert("After initial project setup, it's not possible to unpair your project from Paratext in this version of Transcriber.")
+        } else {
+            alert("After initial project setup, It's not possible to pair your project from Paratext in this version of Transcriber.")
+        }
     }
 
     private onClaim = (val: boolean) => {

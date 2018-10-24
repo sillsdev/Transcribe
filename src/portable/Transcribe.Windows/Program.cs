@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Threading;
 using Gecko;
 using ReactShared;
+using SIL.Extensions;
 using SIL.Reporting;
 using Transcribe.Properties;
 
@@ -26,7 +27,7 @@ namespace Transcribe.Windows
 			Application.SetCompatibleTextRenderingDefault(false);
 			Xpcom.Initialize("Firefox");
 			Util.DataFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
-			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion));
+			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion, DateTime.Now.ToISO8601TimeFormatWithUTCString().Replace(":", "-")));
 			Logger.WriteEvent("Launch {0} {1}", Application.ProductName, Application.ProductVersion);
 			var randomName = Path.GetTempFileName();
 			if (File.Exists(randomName))
