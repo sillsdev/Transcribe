@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { log } from '../actions/logAction';
 import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
@@ -22,6 +23,8 @@ class NavPanel extends React.Component<IProps, object> {
         const project = tasks.filter(t => t.id === selectedProject)[0];
         let backLinkWrapper = <BackLink target="/" />;
         let projectClick = "/main";
+
+        log("NavPanel")
         if(admin !== undefined && admin !== null)
         {
             projectClick = "/ProjectSettings";

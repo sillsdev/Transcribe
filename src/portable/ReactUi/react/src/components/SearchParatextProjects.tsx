@@ -3,6 +3,7 @@ import Ionicon from 'react-ionicons';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -26,6 +27,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
     public render() {
         const { selectedParatextProject, strings } = this.props;
 
+        log("SearchParatextProjects")
         let wrapper;
         if(!this.props.loaded)
         {

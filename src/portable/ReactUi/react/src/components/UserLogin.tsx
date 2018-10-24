@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/localizationActions';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
@@ -23,6 +24,13 @@ class UserLogin extends React.Component<IProps, object> {
   public render() {
     const { loaded, selectUser, users } = this.props
 
+    log("UserLogin&loaded=" + loaded + "&nUsers=" + (users? users.length: 0));
+    if (loaded) {
+      if (users.length === 1) {
+        return <Redirect to="/project"/>
+      }
+    }
+
     const avatars = users.map((user:IUser) => 
       <ListGroupItem key={user.id}>
         <AvatarLink
@@ -33,19 +41,11 @@ class UserLogin extends React.Component<IProps, object> {
           select={selectUser} />
       </ListGroupItem>);
 
-    let wrapper = (<ListGroup>
-          {avatars}
-      </ListGroup>)
-
-    if (loaded) {
-      if (users.length === 1) {
-        wrapper = (<Redirect to="/project"/>)
-      }
-    }
-
     return (
       <div id="UserLogin" className="UserLogin">
-        {wrapper}
+        <ListGroup>
+          {avatars}
+        </ListGroup>
       </div>
     );
   }

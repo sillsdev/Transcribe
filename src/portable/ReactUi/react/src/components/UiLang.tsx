@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { UserLanguages } from '../model/UserLanguages';
@@ -19,6 +20,7 @@ class UiLang extends React.Component<IProps, object> {
         const oslang = (currentUser != null && currentUser.oslang != null) ? currentUser.oslang: "";
         const hasOsLang = UserLanguages.languages.filter((lang: string) => lang.split(':')[0] === oslang);
 
+        log("UiLanguage")
         const languageList = UserLanguages.languages.map((lang: any) => 
             (<li className={"list-item" + (lang.split(':')[0] === oslang ? " selected": "")}
                 onClick={this.selectLanguage.bind(this, lang.split(':')[0])}>

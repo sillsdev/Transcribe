@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as actions from '../actions/audioActions';
+import { log } from '../actions/logAction';
 import { ITranscriberStrings } from '../model/localize';
 import './AudioPanel.sass';
 import ControlPane from './ControlPane';
@@ -11,6 +12,7 @@ interface IProps extends IStateProps, IDispatchProps {
 
 class AudioPanel extends React.Component<IProps, object> {
     public render() {
+        log("AudioPanel")
         return (<div className="AudioPanel">
                     <div className="ProgressRow">
                         <ProgressPane {...this.props} />

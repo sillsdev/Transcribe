@@ -2,6 +2,7 @@ import * as React from 'react';
 import ReactPlayer from 'react-player';
 import { connect } from 'react-redux';
 import * as actions from '../actions/audioActions';
+import { log } from '../actions/logAction';
 import { IState } from '../model/state';
 import projectTasks from '../selectors/projectTasks';
 import TimeMarker from './controls/TimeMarker';
@@ -59,6 +60,8 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const task = tasks.filter(t => t.id === selectedTask)[0];
+
+        log("ProgressPane")
         if(task && task.length !== undefined && totalSeconds !== task.length)
         {
             this.setState({ totalSeconds: task.length })

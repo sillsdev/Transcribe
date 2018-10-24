@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as actions from '../actions/audioActions';
+import { log } from '../actions/logAction';
 import * as actions2 from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import NextAction from './controls/NextAction';
@@ -24,6 +25,7 @@ class SuccessPanel extends React.Component<IProps, any> {
     public render() {
         const { strings } = this.props;
 
+        log("SuccessPanel")
         return (<div className="SucessPanel">
             <div className="Message">
                 <h1>{strings.congratulations}</h1>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/audioActions';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import { IState } from '../model/state';
 import language from '../selectors/language';
@@ -50,6 +51,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
         const size = project != null? project.fontsize: "12pt"; // Tests null or undefined
 
+        log("EditorPane")
         if (transcription != null && this.state.text !== transcription  && initialTranscription) {
             this.setState({text: transcription})
         }

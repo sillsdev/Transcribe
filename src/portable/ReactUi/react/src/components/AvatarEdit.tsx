@@ -2,6 +2,7 @@ import * as React from 'react';
 import Avatar from 'react-avatar-edit';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -36,6 +37,8 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
         const { selectedUser, popupUser, strings, users } = this.props;
         let user = users.filter(u => u.username.id === selectedUser)[0];
         let backTo = "/settings";
+
+        log("AvatarEdit")
         if(this.props.history.location.pathname.includes("PopupUser"))
         {
             user = users.filter(u => u.username.id === popupUser)[0];

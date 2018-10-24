@@ -19,6 +19,7 @@ namespace Transcribe.Windows
 			{
 				if (e.Uri.Segments.Length < 2 || e.Uri.Segments[1] != "api/")
 					return;
+				Logger.WriteEvent($"Get {e.Uri.Segments[2]} {e.Uri.Query}");
 				switch (e.Uri.Segments[2])
 				{
 					case "GetUsers":
@@ -39,6 +40,7 @@ namespace Transcribe.Windows
 			{
 				if (e.Uri.Segments.Length < 2 || e.Uri.Segments[1] != "api/")
 					return;
+				Logger.WriteEvent($"Put {e.Uri.Segments[2]} {e.Uri.Query}");
 				switch (e.Uri.Segments[2])
 				{
 					case "TaskEvent":

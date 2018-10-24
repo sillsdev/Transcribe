@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { log } from '../actions/logAction';
 import { IState } from '../model/state';
 
 const selectedTask = (state: IState) => state.tasks.selectedTask;
@@ -11,7 +12,8 @@ const tasks = createSelector( selectAllProjects, selectedProject, (allProjects, 
 });
 
 const taskValues = createSelector( tasks, selectedTask, (projectTasks, taskId) => {
-    const task = projectTasks.filter(t => t.id === taskId)[0];
+    const task = projectTasks && projectTasks.filter(t => t.id === taskId)[0];
+    log("TaskValues=" + (task?task.name:""))
     return ({
         heading: task && task.name? task.name: "",
     })

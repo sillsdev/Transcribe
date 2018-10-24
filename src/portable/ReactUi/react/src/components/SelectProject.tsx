@@ -3,6 +3,7 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -28,8 +29,10 @@ class SelectProject extends React.Component<IProps, object> {
     const user = users && users.filter(u =>  u.username.id === selectedUser)[0]
     const admin = user && user.role && user.role.filter(r => r === 'administrator')[0]
 
+    log("SelectProject&loaded=" + loaded + "&admin=" + admin + "&nProjects=" + (projects? projects.length: 0) )
+
     if (loaded){
-      if (admin && projects.length === 0) {
+      if (admin && (projects? projects.length: 0) === 0) {
         return <Redirect to="/uilang"/>
       } else if (projects.length === 1) {
         return <Redirect to={dest}/>

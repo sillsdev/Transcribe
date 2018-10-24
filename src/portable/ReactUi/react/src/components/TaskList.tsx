@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/localizationActions';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -38,6 +39,7 @@ class TaskList extends React.Component<IProps, object> {
     public render() {
         const { selectPopupTask, strings, tasks } = this.props
 
+        log("TaskList")
         let taskList = Array<JSX.Element>()
         const leftLimit = Math.floor( (tasks.length + 1) / 2 )
         for (let i=0; i < leftLimit; i++) {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as actions from '../actions/audioActions';
+import { log } from '../actions/logAction';
 import { ITranscriberStrings } from '../model/localize';
 import './ControlPane.sass';
 import JumpAhead from './controls/JumpAhead';
@@ -19,6 +20,8 @@ class ControlPane extends React.Component<IProps, any> {
         {
             submitWrapper = <NextAction target={this.submit} text={this.props.strings.submit} type="safe"/>;
         }
+
+        log("ControlePane")
 
         return (
             <div className="ControlPane"> 

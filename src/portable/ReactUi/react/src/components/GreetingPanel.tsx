@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { log } from '../actions/logAction';
 import { ITranscriberStrings } from '../model/localize';
 import './GreetingPanel.sass';
 
@@ -6,6 +7,7 @@ class GreetingPanel extends React.Component<IStateProps, any> {
     public render() {
         const { strings } = this.props;
 
+        log("GreetingPanel")
         return (<div className="GreetingPanel">
             <div className="Message">
                 <img src={"/assets/Smile.svg"} alt="Wow!!" width="50%" height="50%"/>

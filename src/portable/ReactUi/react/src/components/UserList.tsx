@@ -3,6 +3,7 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions2 from '../actions/localizationActions';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -29,6 +30,8 @@ class UserList extends React.Component<any, object> {
         let otherUsers = [];
         let projectUsers;
         let userExists = false;
+
+        log("UserList&selected=" + selectedUser + "&nOthers=" + otherUsers.length)
         if (selectedUser !== ""){
             otherUsers = users.filter((user: IUser) => user.username.id !== selectedUser);
         }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import * as actions2 from '../actions/userActions';
 import { IProjectSettingsStrings } from '../model/localize';
@@ -87,6 +88,8 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
     public render() {
         const { deleted, strings, project, popupUser, users } = this.props;
         const save = () => this.save(this);
+
+        log("UserDetails")
         if (deleted) {
             return <Redirect to="/ProjectSettings" />
         }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -76,6 +77,8 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
 
     public render() {
         const{ direction, project, strings } = this.props
+
+        log("ProjectSettings")
         let settingsStyle = this.props.history.location.pathname.length > 17? " Modal": ""
         settingsStyle = direction? settingsStyle + " " + direction: settingsStyle;
 

@@ -3,6 +3,7 @@ import { HotKeys } from 'react-hotkeys';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
+import { log } from '../actions/logAction';
 import * as actions2 from '../actions/taskActions';
 import SucessPanel from '../components/SucessPanel';
 import { ITranscriberStrings } from '../model/localize';
@@ -48,6 +49,7 @@ class MainLayout extends React.Component<IProps, any> {
         const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, saved, submit,
             assignedReview, assignedTranscribe, availableReview,  availableTranscribe, direction, project} = this.props;
 
+        log("MainLayout")
         const keyMap = {
             backKey: this.back,
             fasterKey: this.faster,

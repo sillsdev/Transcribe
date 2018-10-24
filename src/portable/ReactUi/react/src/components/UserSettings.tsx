@@ -4,6 +4,7 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -66,6 +67,8 @@ class UserSettings extends React.Component<IProps, any> {
 
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
+
+        log("UserSettings")
 
         const playPauseKey = this.keyCode(user, "play-pause","");
         const backKey = this.keyCode(user, "back","");

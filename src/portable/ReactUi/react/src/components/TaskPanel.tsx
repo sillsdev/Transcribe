@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
@@ -21,6 +22,7 @@ class TaskPanel extends React.Component<IProps, object> {
         const { lastTask, loaded, pending, selectedUser, selectedTask } = this.props;
         const { assignTask, direction, selectTask, strings, unassignTask } = this.props
 
+        log("TaskPanel")
         const selectReview = assignedReview.filter(t => t.id === lastTask);
         const selectTranscribe = assignedTranscribe.filter(t => t.id === lastTask)
         if (this.props.selectedTask.trim() === '' && lastTask != null && selectReview.length + selectTranscribe.length > 0){
