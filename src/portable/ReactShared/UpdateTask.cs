@@ -33,6 +33,8 @@ namespace ReactShared
 				return;
 			if (string.IsNullOrEmpty(taskId))
 			{
+				if (reference == null)
+					reference = "";
 				var refMatch = ReferencePattern.Match(reference);
 				if (refMatch.Success)
 				{
@@ -40,7 +42,8 @@ namespace ReactShared
 				}
 				else if (!string.IsNullOrEmpty(audioFile))
 				{
-					taskId = $"{project}-{Path.GetFileNameWithoutExtension(audioFile).Replace(" ", "")}";
+					audioFile = audioFile.Replace(" ", "").Replace("-", "");
+					taskId = $"{project}-{Path.GetFileNameWithoutExtension(audioFile)}";
 				}
 				else
 				{

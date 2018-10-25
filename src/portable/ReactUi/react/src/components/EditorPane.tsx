@@ -23,7 +23,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
 
     public constructor(props: IProps) {
         super(props);
-        this.state = initialState
+        this.state = {...initialState}
         this.change = this.change.bind(this);
         this.keyDown = this.keyDown.bind(this);
         this.textArea = React.createRef();

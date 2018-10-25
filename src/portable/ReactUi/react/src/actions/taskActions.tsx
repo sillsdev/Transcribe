@@ -98,14 +98,17 @@ export const  selectPopupTask = (id: string) => (dispatch:any) => {
 }
 
 export const fetchTranscription = (taskid: string) => (dispatch: any) => {
-    const part = taskid.split('.');
-    Axios.get('/api/audio/' + part[0] + '.transcription').
-    then(transcription => {
-        dispatch({
-            payload: transcription,
-            type: FETCH_TRANSCRIPTION
+    const part = taskid && taskid.split('.');
+    if (part) {
+        alert("fetching " + part[0] + ".transcription")
+        Axios.get('/api/audio/' + part[0] + '.transcription').
+        then(transcription => {
+            dispatch({
+                payload: transcription,
+                type: FETCH_TRANSCRIPTION
+            });
         });
-    });
+    }
 }
 
 export const updateTask = (task: string, project: string, query: string, data: object) => (dispatch: any) => {

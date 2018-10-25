@@ -175,13 +175,17 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         const updates = Array<string>();
         let data: object = {}
 
+        if (this.state.reference !== this.original.reference) {
+            this.saveValue(updates, "reference", this.state.reference);
+        }
+
+        if (this.state.reference === "" && this.original.reference === "") {
+            this.setState({...this.state, fileName: this.state.fileName.replace(" ","").replace("-","")})
+        }
+
         if (this.state.fileName !== this.original.fileName) {
             this.saveValue(updates, "audioFile", this.state.fileName);
             data = {data: this.fileRef.current && this.fileRef.current.state.data}
-        }
-
-        if (this.state.reference !== this.original.reference) {
-            this.saveValue(updates, "reference", this.state.reference);
         }
 
         if (this.state.heading !== this.original.heading) {
