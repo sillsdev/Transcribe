@@ -104,7 +104,8 @@ class TaskList extends React.Component<IProps, object> {
     }
 
     private sortByType(){
-        alert("Sort By Type")
+        alert("Sort By Type is not implemented in this version")
+        log("sort by type")
     }
 }
 

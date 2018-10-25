@@ -100,7 +100,8 @@ class UserList extends React.Component<any, object> {
     }
 
     private sortByPrivileges() {
-        alert("Filter by Priviledges")
+        alert("Filter by Priviledges is not implemented in this version")
+        log("Filter by Priviledges")
     }
 }
 

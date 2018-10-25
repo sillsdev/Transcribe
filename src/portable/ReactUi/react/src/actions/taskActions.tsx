@@ -100,7 +100,6 @@ export const  selectPopupTask = (id: string) => (dispatch:any) => {
 export const fetchTranscription = (taskid: string) => (dispatch: any) => {
     const part = taskid && taskid.split('.');
     if (part) {
-        alert("fetching " + part[0] + ".transcription")
         Axios.get('/api/audio/' + part[0] + '.transcription').
         then(transcription => {
             dispatch({

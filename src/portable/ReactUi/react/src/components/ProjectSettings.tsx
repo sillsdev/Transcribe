@@ -133,8 +133,10 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     private pair(paired: boolean) {
         if (paired){
             alert("After initial project setup, it's not possible to unpair your project from Paratext in this version of Transcriber.")
+            log("unpair")
         } else {
             alert("After initial project setup, It's not possible to pair your project from Paratext in this version of Transcriber.")
+            log("pair")
         }
     }
 
