@@ -53,7 +53,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         if (transcription != null && this.state.text !== transcription  && initialTranscription) {
             this.setState({text: transcription})
         }
-        if (submit && !saved) {
+        if ((selectedTask !== undefined && selectedTask.length > 0) && submit && !saved) {
             writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
         }
         return (
@@ -79,7 +79,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
             this.setState({
                 seconds: 0
             });
-            if (!saved) {
+            if ((selectedTask !== undefined && selectedTask.length > 0) && !saved) {
                 writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
             }
         }
@@ -100,7 +100,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
 
     private keyDown(event: any) {
         const { direction, setSaved, setInitialTranscription, lang, requestPosition, saved, selectedTask, totalSeconds, writeTranscription } = this.props;
-        if (event.keyCode === 32) {
+        if ((selectedTask !== undefined && selectedTask.length > 0) && event.keyCode === 32) {
             requestPosition();
             writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
         } else if (saved) {
@@ -111,8 +111,11 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
 
     private blur(event: any) {
         const { direction, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
-        requestPosition();
-        writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
+        if((selectedTask !== undefined && selectedTask.length > 0))
+        {
+            requestPosition();
+            writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
+        }
     }
 
     private movePositionAtEnd(e: any) {
