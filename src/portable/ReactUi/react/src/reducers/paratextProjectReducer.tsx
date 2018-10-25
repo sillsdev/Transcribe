@@ -30,6 +30,11 @@ export default function (state = initialState, action: any) {
 function paratextProjects(state: IParatextProject[] = Array<IParatextProject>(), action: any) {
     switch (action.type) {
         case SELECT_PARATEXT_PROJECT:
+            if(state.length === 0)
+            {
+                return Array<IParatextProject>();
+            }
+
             return state.map((paratextProject: IParatextProject) =>{
                 return {
                     ...paratextProject,
