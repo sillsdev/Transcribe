@@ -13,8 +13,6 @@ export default function (state = initialState, action: any) {
                 ...state,
                 loaded: true,
                 paratextProjects: action.payload.data,
-                selectedParatextProject: action.payload.data.length === 1? action.payload.data[0].name: state.selectedParatextProject,
-                     
             };
             case SELECT_PARATEXT_PROJECT:
             return {
