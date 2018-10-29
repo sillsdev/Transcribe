@@ -4,6 +4,7 @@ import * as actions from '../../actions/audioActions';
 import './PlayPause.sass';
 
 interface IProps extends IStateProps{
+    direction: string;
     playing: boolean;
     playStatus: typeof actions.playStatus;
 };
@@ -22,9 +23,9 @@ class PlayPause extends React.Component<IProps, object> {
         }
     }
     public render() {
-        const { playing, playStatus } = this.props;
+        const { direction, playing, playStatus } = this.props;
         const playCharacter = playing? <div className='pause'>{"\u23F8"}</div> : 
-            <div className='play'>{"\u25B6"}</div>;
+            <div className={direction && direction === "rtl"? "play rtl": "play"}>{direction && direction === "rtl"?"\u25C0": "\u25B6"}</div>;
         return (
             <div>
                 <ReactToolTip />
