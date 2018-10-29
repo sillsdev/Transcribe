@@ -28,12 +28,6 @@ class TaskPanel extends React.Component<IProps, object> {
         if (this.props.selectedTask.trim() === '' && lastTask != null && selectReview.length + selectTranscribe.length > 0){
             selectTask(selectedUser, lastTask)
         }
-        else if (this.props.selectedTask.trim() === '' && this.props.assignedReview.length > 0) {
-            selectTask(selectedUser, assignedReview[0].id);
-        }
-        else if (this.props.selectedTask.trim() === '' && this.props.assignedTranscribe.length > 0) {
-            selectTask(selectedUser, assignedTranscribe[0].id);
-        }
         const headStyle = direction? "ListHead " + direction: "ListHead";
         const assignedHead = (assignedReview.length + assignedTranscribe.length > 0)?
             (<h3 className="SectionHead">{strings.assigned}</h3>): <div/>;
