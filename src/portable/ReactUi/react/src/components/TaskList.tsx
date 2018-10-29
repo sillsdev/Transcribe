@@ -6,6 +6,7 @@ import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
+import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import allTasks from '../selectors/projectTasks';
 import ButtonLink from './controls/ButtonLink'
@@ -37,7 +38,7 @@ class TaskList extends React.Component<IProps, object> {
         }
     }
     public render() {
-        const { selectPopupTask, strings, tasks } = this.props
+        const { direction, selectPopupTask, strings, tasks } = this.props
 
         log("TaskList")
         let taskList = Array<JSX.Element>()
@@ -45,11 +46,11 @@ class TaskList extends React.Component<IProps, object> {
         for (let i=0; i < leftLimit; i++) {
             let col2 = <div/>
             if (i * 2 + 1 < tasks.length) {
-                col2 = this.taskJsx(tasks[i * 2 + 1],selectPopupTask)
+                col2 = this.taskJsx(tasks[i * 2 + 1], direction,selectPopupTask)
             }
             taskList = taskList.concat(
                 <div className="itemRow" key={i}>
-                    {this.taskJsx(tasks[i * 2], selectPopupTask)}
+                    {this.taskJsx(tasks[i * 2], direction, selectPopupTask)}
                     {col2}
                 </div>
             )
@@ -90,11 +91,12 @@ class TaskList extends React.Component<IProps, object> {
         )
     }
 
-    private taskJsx(t:ITask, selectPopupTask: typeof actions.selectPopupTask): JSX.Element {
+    private taskJsx(t:ITask, direction:string, selectPopupTask: typeof actions.selectPopupTask): JSX.Element {
         return (
             <div className="item" key={t.id}>
             <TaskItem
                 id={t.id}
+                direction={direction}
                 name={t.name?t.name:""}
                 length={t.length != null? t.length: 0}
                 select= {selectPopupTask.bind(t.id)}
@@ -110,6 +112,7 @@ class TaskList extends React.Component<IProps, object> {
 }
 
 interface IStateProps {
+    direction: string;
     loaded: boolean;
     localizationLoaded: boolean;
     users: IUser[];
@@ -122,6 +125,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    direction: uiDirection(state),
     loaded: state.users.loaded,
     localizationLoaded: state.strings.loaded,
     popupTask: state.tasks.selectedPopupTask,

@@ -1,26 +1,43 @@
 import * as React from 'react'
+import './Duration.sass';
 
-function Duration ({seconds} : {seconds: number}) {
-  return (
-    <time dateTime={`P${Math.round(seconds)}S`}>
-      {format(seconds)}
-    </time>
-  )
-}
+interface IProps {
+    direction?: string;
+    id?: string;
+    seconds: number;
+};
 
-function format (seconds: number) {
-  const date = new Date(seconds * 1000)
-  const hh = date.getUTCHours()
-  const mm = date.getUTCMinutes()
-  const ss = pad(date.getUTCSeconds())
-  if (hh) {
-    return `${hh}:${pad(mm)}:${ss}`
+class Duration extends React.Component<IProps, object> {
+  public render() {
+    const { direction, id, seconds } = this.props;
+
+    return (
+      <time id={id} dateTime={`P${Math.round(seconds)}S`}>
+        {this.format(seconds, direction)}
+      </time>
+    )
   }
-  return `${mm}:${ss}`
-}
 
-function pad (text: number) {
-  return ('0' + text).slice(-2)
+  private format (seconds: number, direction: string | undefined) {
+    const date = new Date(seconds * 1000)
+    const hh = date.getUTCHours()
+    const mm = date.getUTCMinutes()
+    const ss = this.pad(date.getUTCSeconds())
+    if (direction && direction === "rtl") {
+      if (hh) {
+        return `${ss}:${this.pad(mm)}:${hh}`
+      }
+      return `${ss}:${mm}`
+    }
+    if (hh) {
+      return `${hh}:${this.pad(mm)}:${ss}`
+    }
+    return `${mm}:${ss}`
+  }
+
+  private pad (text: number) {
+    return ('0' + text).slice(-2)
+  }
 }
 
 export default Duration

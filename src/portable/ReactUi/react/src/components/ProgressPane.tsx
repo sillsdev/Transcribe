@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/audioActions';
 import { log } from '../actions/logAction';
 import { IState } from '../model/state';
+import uiDirection from '../selectors/direction';
 import projectTasks from '../selectors/projectTasks';
 import TimeMarker from './controls/TimeMarker';
 import './ProgressPane.sass';
@@ -55,7 +56,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { initialPosition, jump, requestReport, selectedTask, selectedUser, users, tasks } = this.props;
+        const { direction, initialPosition, jump, requestReport, selectedTask, selectedUser, users, tasks } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
@@ -92,6 +93,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                 </div>
                 <div className="timeMarker">
                     <TimeMarker
+                        direction={direction}
                         playedSeconds={audioPlayedSeconds}
                         totalSeconds={totalSeconds}
                         timer={user && user.timer? user.timer: "countup"} />
@@ -114,6 +116,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 };
 
 interface IStateProps {
+    direction: string;
     initialPosition: number;
     playing: boolean;
     playSpeedRate: number;
@@ -135,6 +138,7 @@ interface IDispatchProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    direction: uiDirection(state),
     initialPosition: state.audio.initialPosition,
     jump:  state.audio.jump,
     playSpeedRate:  state.audio.playSpeedRate,

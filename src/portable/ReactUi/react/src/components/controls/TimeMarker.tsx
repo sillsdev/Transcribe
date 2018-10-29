@@ -3,19 +3,29 @@ import Duration from './Duration';
 import './TimeMarker.sass';
 
 interface IProps{
-    playedSeconds: number,
-    totalSeconds:number,
-    timer: string
+    direction?: string;
+    playedSeconds: number;
+    totalSeconds:number;
+    timer: string;
 }
 
 class TimeMarker extends React.Component<IProps, any> {
     public render() {
-        const { totalSeconds, playedSeconds, timer } = this.props;
+        const { direction, totalSeconds, playedSeconds, timer } = this.props;
         const changingSeconds = (totalSeconds >= playedSeconds)? (totalSeconds - playedSeconds): 0;
         const displaySeconds = timer === "countdown"? changingSeconds : playedSeconds
+
+        if (direction && direction === "rtl") {
+            return (
+                <div id="Time" className="TimeMarker">
+                    <Duration id="total" seconds={totalSeconds} direction={direction} />/<Duration id="pos" seconds={displaySeconds} direction={direction} />
+                </div>
+            )
+        }
+
         return (
             <div id="Time" className="TimeMarker">
-                <Duration seconds={displaySeconds} />/<Duration seconds={totalSeconds} />
+                <Duration id="pos" seconds={displaySeconds} />/<Duration id="total" seconds={totalSeconds} />
             </div>
         )
     }
