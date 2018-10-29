@@ -47,6 +47,7 @@ class ControlPane extends React.Component<IProps, any> {
 interface IStateProps {
     assignedReview: ITask[];
     assignedTranscribe: ITask[];
+    direction: string;
     playing: boolean;
     playSpeedRate: number;
     strings: ITranscriberStrings;

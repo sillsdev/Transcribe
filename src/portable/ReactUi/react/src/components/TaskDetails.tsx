@@ -8,7 +8,8 @@ import * as actions2 from '../actions/userActions';
 import Duration from '../components/controls/Duration';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
-import userStrings from '../selectors/localize'
+import uiDirection from '../selectors/direction';
+import userStrings from '../selectors/localize';
 import projectTasks from '../selectors/projectTasks';
 import NextAction from './controls/NextAction';
 import './TaskDetails.sass';
@@ -68,7 +69,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
     public render() {
         const { fileName, reference, heading, assignedTo } = this.state
-        const { deleted, strings, users } = this.props;
+        const { direction, deleted, strings, users } = this.props;
 
         if (deleted) {
             return (<Redirect to="/ProjectSettings" />)
@@ -78,7 +79,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         return (
-            <div className="TaskDetails">
+            <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="closeRow">
                     <Link onClick={save} to="/ProjectSettings" >
                         <img src="/assets/close-x.svg" alt="X" />
@@ -100,7 +101,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                                 <div className="firstLine">
                                     <span className="displayReference">{reference}</span>
                                     <span className={"totalTime" + (fileName !== ""? "": " hide")}>
-                                        <Duration seconds={this.duration()} />
+                                        <Duration seconds={this.duration()} direction={direction} />
                                     </span>
                                 </div>
                                 <div className="textName">{heading}</div>
@@ -207,6 +208,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
 interface IStateProps {
     deleted: boolean;
+    direction: string;
     popupTask: string;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
@@ -217,6 +219,7 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     deleted: state.tasks.deleted,
+    direction: uiDirection(state),
     popupTask: state.tasks.selectedPopupTask,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedProject: state.tasks.selectedProject,

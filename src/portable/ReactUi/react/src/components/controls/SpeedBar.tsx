@@ -33,12 +33,14 @@ class SpeedBar extends React.Component<IProps, any> {
     }
 
     public render() {
-        const { playSpeedRate } = this.props;
-
+        const { direction, playSpeedRate } = this.props;
+        const dirTip = (direction && direction === "rtl")?
+            this.faster + " ⬌ " + this.slower :
+            this.slower + " ⬌ " + this.faster
         return (
         <div>
             <ReactToolTip />
-            <div className="SpeedBar" data-tip={this.slower + " ⬌ " + this.faster}>
+            <div className="SpeedBar" data-tip={dirTip}>
                 <i className="slider-origin" />
                 <input
                     id="speed"
@@ -56,6 +58,7 @@ class SpeedBar extends React.Component<IProps, any> {
 };
 
 interface IStateProps {
+    direction?: string;
     playSpeedRate: number;
     selectedUser: string;
     users: IUser[];

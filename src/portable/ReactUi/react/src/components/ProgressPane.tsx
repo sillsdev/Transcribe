@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/audioActions';
 import { log } from '../actions/logAction';
 import { IState } from '../model/state';
+import uiDirection from '../selectors/direction';
 import projectTasks from '../selectors/projectTasks';
 import TimeMarker from './controls/TimeMarker';
 import './ProgressPane.sass';
@@ -18,8 +19,14 @@ const initialState = {
 }
 
 class ProgressPane extends React.Component<IProps, typeof initialState> {
-    public readonly state = initialState;
+    public readonly state = { ...initialState };
     public player: any;
+    private progressRef: React.RefObject<HTMLProgressElement>;
+
+    public constructor(props: IProps) {
+        super(props);
+        this.progressRef = React.createRef();
+    }
 
     public onProgress = (ctrl: any) => {
         if (!this.state.seeking){
@@ -44,10 +51,17 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public onSeekMouseUp = (e:React.MouseEvent) => {
+        const { direction } = this.props;
         this.setState({ ...this.state, seeking:false })
-        this.player.seekTo((e.clientX - 543) / e.currentTarget.clientWidth)
-       // tslint:disable-next-line:no-console
-       console.log("up at:" + e.clientX);
+        const clientWidth = this.progressRef && this.progressRef.current && this.progressRef.current.clientWidth? this.progressRef.current.clientWidth: 673;
+        const offsetLeft = this.progressRef && this.progressRef.current && this.progressRef.current.offsetLeft? this.progressRef.current.offsetLeft: 147;
+        if (direction && direction === "rtl") {
+            this.player.seekTo((clientWidth - (e.clientX - offsetLeft)) / clientWidth)
+        } else {
+            this.player.seekTo((e.clientX - offsetLeft) / clientWidth)
+        }
+        // tslint:disable-next-line:no-console
+        // console.log(this.progressRef.current);
     }
 
     public ref = (player: any) => {
@@ -55,7 +69,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { initialPosition, jump, requestReport, selectedTask, selectedUser, users, tasks } = this.props;
+        const { direction, initialPosition, jump, requestReport, selectedTask, selectedUser, users, tasks } = this.props;
         const { audioPlayedSeconds, totalSeconds } = this.state;
         const audioFile = '/api/audio/' + selectedTask
         const user = users.filter(u => u.username.id === selectedUser)[0];
@@ -83,6 +97,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             <div className="ProgressPane">
                 <div className="progress">
                     <progress
+                        ref={this.progressRef}
                         id="ProgressBar"
                         className="progressBar"
                         max={totalSeconds}
@@ -92,6 +107,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                 </div>
                 <div className="timeMarker">
                     <TimeMarker
+                        direction={direction}
                         playedSeconds={audioPlayedSeconds}
                         totalSeconds={totalSeconds}
                         timer={user && user.timer? user.timer: "countup"} />
@@ -114,6 +130,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
 };
 
 interface IStateProps {
+    direction: string;
     initialPosition: number;
     playing: boolean;
     playSpeedRate: number;
@@ -135,6 +152,7 @@ interface IDispatchProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    direction: uiDirection(state),
     initialPosition: state.audio.initialPosition,
     jump:  state.audio.jump,
     playSpeedRate:  state.audio.playSpeedRate,

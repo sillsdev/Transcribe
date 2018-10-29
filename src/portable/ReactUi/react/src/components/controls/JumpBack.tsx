@@ -6,6 +6,8 @@ import './JumpBack.sass';
 interface IProps extends IStateProps{
     jump?: number;
     jumpChange: typeof actions.jumpChange;
+    selectedUser: string;
+    users: IUser[];
 };
 
 class JumpBack extends React.Component<IProps, object> {
