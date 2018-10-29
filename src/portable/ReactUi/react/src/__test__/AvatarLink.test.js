@@ -7,7 +7,6 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import AvatarLink from '../components/controls/AvatarLink';
 
-
 configure({ adapter: new Adapter() })
 
 // Snapshot for AvatarLink

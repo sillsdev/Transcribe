@@ -19,8 +19,14 @@ const initialState = {
 }
 
 class ProgressPane extends React.Component<IProps, typeof initialState> {
-    public readonly state = initialState;
+    public readonly state = { ...initialState };
     public player: any;
+    private progressRef: React.RefObject<HTMLProgressElement>;
+
+    public constructor(props: IProps) {
+        super(props);
+        this.progressRef = React.createRef();
+    }
 
     public onProgress = (ctrl: any) => {
         if (!this.state.seeking){
@@ -45,10 +51,17 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     public onSeekMouseUp = (e:React.MouseEvent) => {
+        const { direction } = this.props;
         this.setState({ ...this.state, seeking:false })
-        this.player.seekTo((e.clientX - 543) / e.currentTarget.clientWidth)
-       // tslint:disable-next-line:no-console
-       console.log("up at:" + e.clientX);
+        const clientWidth = this.progressRef && this.progressRef.current && this.progressRef.current.clientWidth? this.progressRef.current.clientWidth: 673;
+        const offsetLeft = this.progressRef && this.progressRef.current && this.progressRef.current.offsetLeft? this.progressRef.current.offsetLeft: 147;
+        if (direction && direction === "rtl") {
+            this.player.seekTo((clientWidth - (e.clientX - offsetLeft)) / clientWidth)
+        } else {
+            this.player.seekTo((e.clientX - offsetLeft) / clientWidth)
+        }
+        // tslint:disable-next-line:no-console
+        // console.log(this.progressRef.current);
     }
 
     public ref = (player: any) => {
@@ -84,6 +97,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             <div className="ProgressPane">
                 <div className="progress">
                     <progress
+                        ref={this.progressRef}
                         id="ProgressBar"
                         className="progressBar"
                         max={totalSeconds}

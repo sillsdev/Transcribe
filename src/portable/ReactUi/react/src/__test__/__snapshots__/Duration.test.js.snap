@@ -3,6 +3,7 @@
 exports[`>>>Control: Duration --- Snapshot +++capturing Snapshot of Duration 1`] = `
 <time
   dateTime="P100S"
+  id={undefined}
 >
   1:40
 </time>

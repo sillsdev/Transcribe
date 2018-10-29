@@ -6,6 +6,8 @@ import './JumpAhead.sass';
 interface IProps extends IStateProps{
     jump?: number;
     jumpChange: typeof actions.jumpChange;
+    selectedUser: string;
+    users: IUser[];
 };
 
 class JumpAhead extends React.Component<IProps, object> {
