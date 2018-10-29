@@ -3,7 +3,7 @@ import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, DELETE_TASK,
     FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK,  UNASSIGN_TASK_PENDING,
     UPDATE_PROJECT, UPDATE_TASK, WRITE_FULFILLED, WRITE_PENDING } from './types';
-import { saveUserSetting } from './userActions';
+import { fetchUsers, saveUserSetting } from './userActions';
 
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
     dispatch({type: ASSIGN_TASK_PENDING});
@@ -16,7 +16,10 @@ export const assignTask = (taskid: string, userid: string) => (dispatch: any) =>
 export const unAssignTask = (taskid: string, userid: string) => (dispatch: any) => {
     dispatch({type: UNASSIGN_TASK_PENDING});
     Axios.put('/api/TaskEvent?action=Unassigned&task=' + taskid + '&user=' + userid)
+        .then(dispatch(saveUserSetting(userid, "lastTask", "")))
         .then(dispatch(fetchTasks(userid)))
+        .then(dispatch(selectTask(userid, "")))
+        .then(dispatch(fetchUsers()))
 }
 
 export const completeTranscription = (taskid: string, userid: string) => (dispatch: any) => {

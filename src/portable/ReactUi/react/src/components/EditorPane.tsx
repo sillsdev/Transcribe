@@ -50,7 +50,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
         const project = user && user.project && user.project.filter(p => p.id === selectedProject)[0];
         const font = project != null? project.fontfamily: "SIL Charis"; // Tests null or undefined
         const size = project != null? project.fontsize: "12pt"; // Tests null or undefined
-
+        const readOnlyStatus = (selectedTask !== undefined && selectedTask.length > 0)? false : true;
         log("EditorPane")
         if (transcription != null && this.state.text !== transcription  && initialTranscription) {
             this.setState({text: transcription})
@@ -70,6 +70,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
                     onKeyDown={this.keyDown}
                     onFocus={this.movePositionAtEnd}
                     onBlur={this.blur}
+                    readOnly={readOnlyStatus}
                 />
             </div>
         )
