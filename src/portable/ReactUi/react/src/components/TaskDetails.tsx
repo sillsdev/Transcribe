@@ -79,7 +79,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         return (
-            <div className="TaskDetails">
+            <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="closeRow">
                     <Link onClick={save} to="/ProjectSettings" >
                         <img src="/assets/close-x.svg" alt="X" />

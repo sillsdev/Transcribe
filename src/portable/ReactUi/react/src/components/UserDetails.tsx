@@ -9,7 +9,8 @@ import * as actions from '../actions/taskActions';
 import * as actions2 from '../actions/userActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
-import userStrings from '../selectors/localize'
+import uiDirection from '../selectors/direction';
+import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import AvatarLink from './controls/AvatarLink';
 import NextAction from './controls/NextAction';
@@ -86,7 +87,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { deleted, strings, project, popupUser, users } = this.props;
+        const { deleted, direction, strings, project, popupUser, users } = this.props;
         const save = () => this.save(this);
 
         log("UserDetails")
@@ -104,7 +105,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                 uri={ProjectAvatar[project.type !== undefined ? project.type : "Bible"]} />) : "";
 
         return (
-            <div className="UserDetails">
+            <div className={"UserDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="closeRow">
                     <Link onClick={save} to="/ProjectSettings" >
                         <img src="/assets/close-x.svg" alt="X" />
@@ -193,6 +194,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
 
 interface IStateProps {
     deleted: boolean;
+    direction: string;
     project: IProject;
     popupUser: string;
     strings: IProjectSettingsStrings;
@@ -203,6 +205,7 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     deleted: state.users.deleted,
+    direction: uiDirection(state),
     popupUser: state.users.selectedPopupUser,
     project: currentProject(state),
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
