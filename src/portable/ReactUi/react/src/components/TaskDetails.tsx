@@ -31,6 +31,7 @@ const initialState = {
     fileName: "",
     fullPath: "",
     heading: "",
+    message: "",
     reference: "",
 }
 
@@ -48,6 +49,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
         this.fileRef = React.createRef();
+        this.validateReference = this.validateReference.bind(this);
 
         const { popupTask } = this.props;
         this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
@@ -75,7 +77,6 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             return (<Redirect to="/ProjectSettings" />)
         }
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
-
         const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         return (
@@ -113,7 +114,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                         </div>
                         <div className="resultsRight">
                             <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
-                            <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} /></div>
+                            <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} onBlur={this.validateReference} message={this.state.message}/></div>
                             <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
                             <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} /></div>
                         </div>
@@ -121,6 +122,12 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                 </div>
             </div>
         )
+    }
+
+    private validateReference(ref: string) {
+        const { strings } = this.props;
+        const refExpr = /^\w{1,3}\s{1}\d{1,3}(\.|:){1}\d{1,3}(-|=)\d{1,3}$/;
+        this.setState({message: refExpr.test(ref)? "" : strings.referenceFormat});
     }
 
     private updateFileName(file: string) {
