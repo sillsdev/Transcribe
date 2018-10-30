@@ -86,4 +86,5 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "reviewer": string;
     "transcriber": string;
     "pairWithParatext": string;
+    "referenceFormat": string;
 };

@@ -473,7 +473,13 @@
 		<unit id="projectSettings.pairWithParatext">
 			<segment>
 				<source>Pair with Paratext</source>
-				<target></target>
+				<target>Par com Paratexto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ReferenceFormat">
+			<segment>
+				<source>Reference format: LUK 1:1-4 or LUK 1.1=4</source>
+				<target>Formato de referência: LUK 1: 1-4 ou LUK 1.1 = 4</target>
 			</segment>
 		</unit>
 	</file>
