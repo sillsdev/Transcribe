@@ -71,8 +71,8 @@ namespace ReactShared
 				var defLang = admin?.SelectSingleNode("./uilang");
 				if (defLang != null)
 					AddUilang(defLang.InnerText, userNode, usersDoc);
-				AddTimer("countdown", userNode, usersDoc);
-				AddSpeed("75", userNode, usersDoc);
+				AddTimer("countup", userNode, usersDoc);
+				AddSpeed("100", userNode, usersDoc);
 				AddProgress("bar", userNode, usersDoc);
 			}
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
