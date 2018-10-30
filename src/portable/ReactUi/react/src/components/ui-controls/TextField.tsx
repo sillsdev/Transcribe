@@ -8,6 +8,7 @@ interface IProps {
     message?: string,
     isReadOnly?: boolean,
     onChange?: (value: string) => any;
+    onBlur?: (value: string) => any;
 }
 
 class TextInputFieldUx extends React.Component<IProps, any> {
@@ -19,6 +20,14 @@ class TextInputFieldUx extends React.Component<IProps, any> {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleClear = this.handleClear.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
+    }
+
+    public handleBlur(event: any) {
+        this.setState({current: event.target.value });
+        if (this.props.onBlur != null) {
+            this.props.onBlur(event.target.value)
+        }
     }
 
     public handleChange(event: any) {
@@ -53,7 +62,8 @@ class TextInputFieldUx extends React.Component<IProps, any> {
                             type="text"
                             value={current}
                             placeholder={caption}
-                            onChange={this.handleChange}/>
+                            onChange={this.handleChange}
+                            onBlur={this.handleBlur}/>
                     </div>
                     <div className={clearStyle} onClick={this.handleClear}>
                         <img src="/assets/Clear.svg" alt="X" />

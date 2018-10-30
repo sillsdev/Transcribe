@@ -30,6 +30,7 @@ const initialState = {
 			"projectName": "Project Name",
 			"projectSettings": "Project Settings",
 			"reference": "Reference",
+			"referenceFormat": "Reference format: LUK 1:1-4 or LUK 1.1=4",
 			"reviewer": "Reviewer",
 			"selectProject": "Select a Paratext Project",
 			"sortByPrivileges": "Sort by privileges",
