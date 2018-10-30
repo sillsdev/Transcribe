@@ -20,20 +20,27 @@ namespace Transcribe.Windows
 				if (e.Uri.Segments.Length < 2 || e.Uri.Segments[1] != "api/")
 					return;
 				Logger.WriteEvent($"Get {e.Uri.Segments[2]} {e.Uri.Query}");
-				switch (e.Uri.Segments[2])
+				try
 				{
-					case "GetUsers":
-						new GetUsers();
-						break;
-					case "GetTasks":
-						new GetTasks(e.Uri.Query);
-						break;
-					case "GetParatextProjects":
-						ForParatext.GetParatextProjects();
-						break;
-					case "GetDefaultUserHotKeys":
-						new GetDefaultUserHotKeys();
-						break;
+					switch (e.Uri.Segments[2])
+					{
+						case "GetUsers":
+							new GetUsers();
+							break;
+						case "GetTasks":
+							new GetTasks(e.Uri.Query);
+							break;
+						case "GetParatextProjects":
+							ForParatext.GetParatextProjects();
+							break;
+						case "GetDefaultUserHotKeys":
+							new GetDefaultUserHotKeys();
+							break;
+					}
+				}
+				catch (Exception err)
+				{
+					Logger.WriteEvent($"{err.Message} in {e.Uri.Segments[2]}");
 				}
 			}
 			else if (method == "PUT")
@@ -41,37 +48,45 @@ namespace Transcribe.Windows
 				if (e.Uri.Segments.Length < 2 || e.Uri.Segments[1] != "api/")
 					return;
 				Logger.WriteEvent($"Put {e.Uri.Segments[2]} {e.Uri.Query}");
-				switch (e.Uri.Segments[2])
+				try
 				{
-					case "TaskEvent":
-						var taskEvent = new TaskEvent();
-						if (taskEvent.Exec(e.Uri.Query, ForParatext.Upload))
-							e.Cancel = true;
-						break;
-					case "UpdateUser":
-						new UpdateUser(e.Uri.Query);
-						break;
-					case "UpdateAvatar":
-						new UpdateAvatar(e.Uri.Query, e.RequestBody, SaveImage);
-						break;
-					case "UpdateProject":
-						new UpdateProject(e.Uri.Query);
-						break;
-					case "ReportPosition":
-						new ReportPosition(e.Uri.Query);
-						break;
-					case "WriteTranscription":
-						new WriteTranscription(e.Uri.Query, e.RequestBody);
-						break;
-					case "DeleteUser":
-						new DeleteUser(e.Uri.Query);
-						break;
-					case "UpdateTask":
-						new UpdateTask(e.Uri.Query, e.RequestBody);
-						break;
-					case "DeleteTask":
-						new DeleteTask(e.Uri.Query);
-						break;
+
+					switch (e.Uri.Segments[2])
+					{
+						case "TaskEvent":
+							var taskEvent = new TaskEvent();
+							if (taskEvent.Exec(e.Uri.Query, ForParatext.Upload))
+								e.Cancel = true;
+							break;
+						case "UpdateUser":
+							new UpdateUser(e.Uri.Query);
+							break;
+						case "UpdateAvatar":
+							new UpdateAvatar(e.Uri.Query, e.RequestBody, SaveImage);
+							break;
+						case "UpdateProject":
+							new UpdateProject(e.Uri.Query);
+							break;
+						case "ReportPosition":
+							new ReportPosition(e.Uri.Query);
+							break;
+						case "WriteTranscription":
+							new WriteTranscription(e.Uri.Query, e.RequestBody);
+							break;
+						case "DeleteUser":
+							new DeleteUser(e.Uri.Query);
+							break;
+						case "UpdateTask":
+							new UpdateTask(e.Uri.Query, e.RequestBody);
+							break;
+						case "DeleteTask":
+							new DeleteTask(e.Uri.Query);
+							break;
+					}
+				}
+				catch (Exception err)
+				{
+					Logger.WriteEvent($"{err.Message} in {e.Uri.Segments[2]}");
 				}
 			}
 		}

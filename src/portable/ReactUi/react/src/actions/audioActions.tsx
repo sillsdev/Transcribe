@@ -1,7 +1,7 @@
 import Axios from 'axios';
+import { log } from '../actions/logAction';
 import { INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE,
     REPORT_POSITION, REQUEST_POSITION, SAVE_STATUS, SAVE_TOTAL_SECONDS, SUBMIT_STATUS } from './types';
-
 
 export function playStatus(playing: boolean): any{
     return {
@@ -33,7 +33,10 @@ export function saveTotalSeconds(seconds: number): any {
 
 export const reportPosition = (taskid: string, seconds: number) => (dispatch: any) => {
     dispatch({payload: seconds, type: REPORT_POSITION});
-    Axios.put('/api/ReportPosition?task=' + taskid + '&position=' + seconds.toString());
+    Axios.put('/api/ReportPosition?task=' + taskid + '&position=' + seconds.toString())
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + REPORT_POSITION + ", task=" + taskid + ", seconds=" + seconds))
+        })
 }
 
 export function requestPosition(): any {
