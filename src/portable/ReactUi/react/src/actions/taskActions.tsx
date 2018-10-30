@@ -1,4 +1,5 @@
 import Axios from 'axios';
+import { log } from '../actions/logAction';
 import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, DELETE_TASK,
     FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK,  UNASSIGN_TASK_PENDING,
@@ -11,6 +12,9 @@ export const assignTask = (taskid: string, userid: string) => (dispatch: any) =>
         .then(dispatch(fetchTasks(userid)))
         .then(dispatch(setSubmitted(false)))
         .then(dispatch(selectTask(userid, taskid)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + ASSIGN_TASK_PENDING +  ", id=" + taskid + ", user=" + userid))
+        });
 }
 
 export const unAssignTask = (taskid: string, userid: string) => (dispatch: any) => {
@@ -20,29 +24,44 @@ export const unAssignTask = (taskid: string, userid: string) => (dispatch: any) 
         .then(dispatch(fetchTasks(userid)))
         .then(dispatch(selectTask(userid, "")))
         .then(dispatch(fetchUsers()))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + UNASSIGN_TASK_PENDING +  ", id=" + taskid + ", user=" + userid))
+        });
 }
 
 export const completeTranscription = (taskid: string, userid: string) => (dispatch: any) => {
     dispatch({type: COMPLETE_TRANSCRIPTION_PENDING});
     Axios.put('/api/TaskEvent?action=TranscribeEnd&task=' + taskid + '&user=' + userid)
         .then(dispatch(fetchTasks(userid)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + COMPLETE_TRANSCRIPTION_PENDING +  ", id=" + taskid + ", user=" + userid))
+        });
 }
 
 export const completeReview = (taskid: string, userid: string, heading: string, sync: boolean | undefined) => (dispatch: any) => {
     dispatch({type: COMPLETE_REVIEW_PENDING});
     Axios.put('/api/TaskEvent?action=ReviewEnd&task=' + taskid + '&user=' + userid)
         .then(dispatch(sync? uploadTranscription(taskid, userid, heading): fetchTasks(userid)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + COMPLETE_REVIEW_PENDING +  ", id=" + taskid + ", user=" + userid))
+        });
 }
 
 export const uploadTranscription = (taskid: string, userid: string, heading: string) => (dispatch: any) => {
     Axios.put('/api/TaskEvent?action=Upload&task=' + taskid + '&user=' + userid + '&heading=' + heading)
         .then(dispatch(fetchTasks(userid)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " upload transcription, id=" + taskid + ", user=" + userid))
+        });
 }
 
 export const writeTranscription = (taskid: string, length: number, lang: string, dir: string, data: any) => (dispatch: any) => {
     dispatch({type: WRITE_PENDING});
     Axios.put('/api/WriteTranscription?task=' + taskid + "&length=" + length.toString() + "&lang=" + lang + "&dir=" + dir, data)
         .then(dispatch({type: WRITE_FULFILLED}))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + WRITE_PENDING +  ", id=" + taskid))
+        });
 }
 
 export const fetchTasks = (username: string) => (dispatch: any) => {
@@ -53,6 +72,9 @@ export const fetchTasks = (username: string) => (dispatch: any) => {
                 type: FETCH_TASKS
             });
         })
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " fetch tasks, user=" + username))
+        });
 }
 
 export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
@@ -67,6 +89,9 @@ export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
                 type: SELECT_PROJECT
             })
         })
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " fetch tasks of project, id=" + projectname))
+        });
     }
 
 export const deleteTask = (taskid: string) => (dispatch: any) => {
@@ -74,6 +99,9 @@ export const deleteTask = (taskid: string) => (dispatch: any) => {
     dispatch({type: DELETE_TASK});
     Axios.put('/api/DeleteTask?action=Unassigned&task=' + taskid )
         .then(dispatch(fetchTasksOfProject(project)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + DELETE_TASK +  ", id=" + taskid))
+        });
 }
 
 export function selectProject(id: string): any{
@@ -103,12 +131,15 @@ export const  selectPopupTask = (id: string) => (dispatch:any) => {
 export const fetchTranscription = (taskid: string) => (dispatch: any) => {
     const part = taskid && taskid.split('.');
     if (part) {
-        Axios.get('/api/audio/' + part[0] + '.transcription').
-        then(transcription => {
+        Axios.get('/api/audio/' + part[0] + '.transcription')
+        .then(transcription => {
             dispatch({
                 payload: transcription,
                 type: FETCH_TRANSCRIPTION
             });
+        })
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + FETCH_TRANSCRIPTION +  ", id=" + taskid))
         });
     }
 }
@@ -117,6 +148,9 @@ export const updateTask = (task: string, project: string, query: string, data: o
     dispatch({type: UPDATE_TASK});
     Axios.put('/api/UpdateTask?task=' + task + '&project=' + project + query, data)
         .then(dispatch(fetchTasksOfProject(project)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + UPDATE_TASK +  ", id=" + task))
+        });
 }
 
 export const updateProject = (project: IProject) => (dispatch: any) => {
@@ -124,6 +158,9 @@ export const updateProject = (project: IProject) => (dispatch: any) => {
         payload: project.id,
         type: UPDATE_PROJECT
     })
-    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&sync=' + project.sync + '&claim=' + project.claim + '&type=' + project.type ).
-        then (dispatch(fetchTasksOfProject(project.id)));
+    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&sync=' + project.sync + '&claim=' + project.claim + '&type=' + project.type )
+        .then (dispatch(fetchTasksOfProject(project.id)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + UPDATE_PROJECT +  ", id=" + project.id))
+        });
 }
