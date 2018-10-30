@@ -17,7 +17,6 @@ namespace ReactShared
 			var task = parsedQuery["task"];
 			var taskMatch = Util.TaskIdPattern.Match(task);
 			var taskId = taskMatch.Success ? taskMatch.Groups[1].Value : task;
-
 			var project = parsedQuery["project"];
 			var audioFile = parsedQuery["audioFile"];
 			var reference = parsedQuery["reference"];
@@ -52,7 +51,12 @@ namespace ReactShared
 				}
 			}
 
-			CreateAudioFile(taskId, audioFile, audioData);
+			string audioFilePath = CreateAudioFile(taskId, audioFile, audioData);
+
+			if (timeDuration == null && audioFilePath.Trim().Length > 0)
+			{
+				timeDuration = Util.GetAudioDuration(audioFilePath).TotalSeconds.ToString();
+			}
 
 			var taskNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']/task[@id='{taskId}']") as XmlElement;
 			if (taskNode == null)
@@ -78,7 +82,7 @@ namespace ReactShared
 			}
 		}
 
-		private void CreateAudioFile(string taskId, string fileName, string audioData)
+		private string CreateAudioFile(string taskId, string fileName, string audioData)
 		{
 			var folder = Util.FileFolder(taskId);
 			var dirInfo = new DirectoryInfo(folder);
@@ -100,7 +104,7 @@ namespace ReactShared
 
 			var audioParts = audioData.Split(',').ToList();
 			if (audioParts.Count <= 1)
-				return;
+				return string.Empty;
 			var dummyData = audioParts[1].Trim().Replace(" ", "+");
 			if (dummyData.Length % 4 > 0)
 				dummyData = dummyData.PadRight(dummyData.Length + 4 - dummyData.Length % 4, '=');
@@ -119,6 +123,7 @@ namespace ReactShared
 					} while (count > 0);
 				}
 			}
+			return fullPath;
 		}
 	}
 }

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml;
+using Microsoft.WindowsAPICodePack.Shell.PropertySystem;
 using Newtonsoft.Json;
 
 namespace ReactShared
@@ -59,7 +60,7 @@ namespace ReactShared
 
 		public static void NewAttr(XmlNode node, string name, string val)
 		{
-			if (val == null || val == "undefined")
+			if (node == null || val == null || val == "undefined")
 				return;
 			Debug.Assert(node.OwnerDocument != null, "node.OwnerDocument != null");
 			var idAttr = node.OwnerDocument.CreateAttribute(name);
@@ -176,6 +177,16 @@ namespace ReactShared
 			catch
 			{
 				// if not empty, ignore delete directory
+			}
+		}
+
+		public static TimeSpan GetAudioDuration(string filePath)
+		{
+			using (var shell = Microsoft.WindowsAPICodePack.Shell.ShellObject.FromParsingName(filePath))
+			{
+				IShellProperty prop = shell.Properties.System.Media.Duration;
+				var t = (ulong)prop.ValueAsObject;
+				return TimeSpan.FromTicks((long)t);
 			}
 		}
 
