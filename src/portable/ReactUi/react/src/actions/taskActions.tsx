@@ -17,14 +17,16 @@ export const unAssignTask = (taskid: string, userid: string) => (dispatch: any) 
     dispatch({type: UNASSIGN_TASK_PENDING});
     Axios.put('/api/TaskEvent?action=Unassigned&task=' + taskid + '&user=' + userid)
         .then(dispatch(saveUserSetting(userid, "lastTask", "")))
-        .then(dispatch(fetchTasks(userid)))
         .then(dispatch(selectTask(userid, "")))
         .then(dispatch(fetchUsers()))
+        .then(dispatch(fetchTasks(userid)))
 }
 
 export const completeTranscription = (taskid: string, userid: string) => (dispatch: any) => {
     dispatch({type: COMPLETE_TRANSCRIPTION_PENDING});
     Axios.put('/api/TaskEvent?action=TranscribeEnd&task=' + taskid + '&user=' + userid)
+        .then(dispatch(selectTask(userid, "")))
+        .then(dispatch(fetchUsers()))
         .then(dispatch(fetchTasks(userid)))
 }
 
@@ -36,6 +38,8 @@ export const completeReview = (taskid: string, userid: string, heading: string, 
 
 export const uploadTranscription = (taskid: string, userid: string, heading: string) => (dispatch: any) => {
     Axios.put('/api/TaskEvent?action=Upload&task=' + taskid + '&user=' + userid + '&heading=' + heading)
+        .then(dispatch(selectTask(userid, "")))
+        .then(dispatch(fetchUsers()))
         .then(dispatch(fetchTasks(userid)))
 }
 
