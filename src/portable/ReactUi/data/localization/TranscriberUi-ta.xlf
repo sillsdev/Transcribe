@@ -476,7 +476,7 @@
 				<target>Paratext உடன் இணைத்தல்</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.ReferenceFormat">
+		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1=4</source>
 				<target>குறிப்பு வடிவமைப்பு: LUK 1:1-4 அல்லது LUK 1.1=4</target>
