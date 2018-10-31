@@ -86,9 +86,11 @@ namespace ReactShared
 						var projectType = node.SelectSingleNode("./parent::*/@type")?.InnerText;
 						if (!string.IsNullOrEmpty(projectType) && projectType == "test")
 						{
-							filterNodeList.Add(node);
+							if (isUserRole(userNode, node.Attributes["state"].Value))
+								filterNodeList.Add(node);
 						}
 					}
+
 					break;
 				case "supervised":
 					foreach (XmlNode node in taskNodes)
@@ -96,9 +98,11 @@ namespace ReactShared
 						var assignedTo = node.SelectSingleNode("./@assignedto")?.InnerText;
 						if (assignedTo == userName)
 						{
-							filterNodeList.Add(node);
+							if (isUserRole(userNode, node.Attributes["state"].Value))
+								filterNodeList.Add(node);
 						}
 					}
+
 					break;
 				default:
 					foreach (XmlNode node in taskNodes)
@@ -106,11 +110,22 @@ namespace ReactShared
 						var assignedTo = node.SelectSingleNode("./@assignedto")?.InnerText;
 						if (string.IsNullOrEmpty(assignedTo) || assignedTo == userName)
 						{
-							filterNodeList.Add(node);
+							if (isUserRole(userNode, node.Attributes["state"].Value))
+								filterNodeList.Add(node);
 						}
 					}
+
 					break;
 			}
+		}
+
+		private bool isUserRole(XmlNode userNode, string state)
+		{
+			return
+				(state.ToLower() == "transcribe" &&
+				 userNode.SelectSingleNode("./role/text()[.='transcriber']") != null) ||
+				(state.ToLower() == "review" &&
+				 userNode.SelectSingleNode("./role/text()[.='reviewer']") != null);
 		}
 
 		private string CopyAudioFile(string taskid)
