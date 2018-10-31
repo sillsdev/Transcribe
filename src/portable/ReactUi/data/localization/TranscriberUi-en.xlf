@@ -476,7 +476,7 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.ReferenceFormat">
+		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1=4</source>
 				<target></target>
