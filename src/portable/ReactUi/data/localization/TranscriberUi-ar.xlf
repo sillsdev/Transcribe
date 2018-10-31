@@ -479,7 +479,7 @@
 		<unit id="projectSettings.ReferenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1=4</source>
-				<target>التنسيق المرجعي: LUK 1: 1-4 أو LUK 1.1 = 4</target>
+				<target>التنسيق المرجعي: LUK 1:1-4 أو LUK 1.1=4</target>
 			</segment>
 		</unit>
 	</file>
