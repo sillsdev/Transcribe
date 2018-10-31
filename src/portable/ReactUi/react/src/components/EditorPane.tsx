@@ -71,6 +71,7 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
                     onFocus={this.movePositionAtEnd}
                     onBlur={this.blur}
                     readOnly={readOnlyStatus}
+                    onMouseLeave={this.blur}
                 />
             </div>
         )
