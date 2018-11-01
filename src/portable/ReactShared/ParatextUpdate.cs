@@ -45,10 +45,6 @@ namespace ReactShared
 				if (list[i].Trim().Length == 0) continue;
 				if (i == 0 || list[i].Contains(@"\c " + Convert.ToInt32(currentTask.ChapterNumber)))
 				{
-					if (i == 0)
-					{
-						list[i] = RemovePreviousSection(list[i], heading != string.Empty);
-					}
 					if (i == 0 && !list[i].EndsWith("\r\n") || i > 0)
 					{
 						sb.Append(list[i].Trim() + Environment.NewLine);
@@ -57,7 +53,6 @@ namespace ReactShared
 					{
 						sb.Append(list[i]);
 					}
-
 				}
 				else
 				{
@@ -71,7 +66,15 @@ namespace ReactShared
 					{
 						if (i == firstIndex - 1)
 						{
-							list[i] = RemovePreviousSection(list[i], heading != string.Empty);
+							var previousVerse = list[i];
+							if (heading != string.Empty)
+							{
+								var sectionPosition = previousVerse.IndexOf("\\s", StringComparison.InvariantCulture);
+								if (sectionPosition > 0)
+								{
+									list[i] = previousVerse.Replace(previousVerse.Substring(sectionPosition, previousVerse.Length - sectionPosition), "");
+								}
+							}
 						}
 						sb.Append($@"\v{list[i]}");
 					}
@@ -79,19 +82,6 @@ namespace ReactShared
 			}
 
 			return sb;
-		}
-
-		private static string RemovePreviousSection(string verseContent, bool isHeadingIncluded)
-		{
-			if (isHeadingIncluded)
-			{
-				var sectionPosition = verseContent.IndexOf("\\s", StringComparison.InvariantCulture);
-				if (sectionPosition > 0)
-				{
-					return verseContent.Replace(verseContent.Substring(sectionPosition, verseContent.Length - sectionPosition), "");
-				}
-			}
-			return verseContent;
 		}
 
 		/// <summary>
