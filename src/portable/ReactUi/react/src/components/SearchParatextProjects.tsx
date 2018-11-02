@@ -63,7 +63,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
                             {projects}
                         </ul>
                         <div className="ButtonLink">
-                            <NextAction text={strings.next} target={selectEmptyProject} type="outline-light" />
+                            <NextAction text={strings.skip} target={selectEmptyProject} type="outline-light" />
                         </div>
                     </div>)
             }
