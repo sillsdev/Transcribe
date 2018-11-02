@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using Gecko;
 using ReactShared;
 using SIL.Reporting;
@@ -82,6 +83,9 @@ namespace Transcribe.Windows
 						case "DeleteTask":
 							new DeleteTask(e.Uri.Query);
 							break;
+						case "CopyToClipboard":
+							new CopyToClipboard(e.Uri.Query, ToClipboard);
+							break;
 					}
 				}
 				catch (Exception err)
@@ -89,6 +93,12 @@ namespace Transcribe.Windows
 					Logger.WriteEvent($"{err.Message} in {e.Uri.Segments[2]}");
 				}
 			}
+		}
+
+		private void ToClipboard(string data)
+		{
+			if (!string.IsNullOrEmpty(data))
+				Clipboard.SetText(data);
 		}
 
 		private void SaveImage(string data, string filepath)

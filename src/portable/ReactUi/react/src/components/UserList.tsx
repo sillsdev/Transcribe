@@ -71,11 +71,11 @@ class UserList extends React.Component<any, object> {
             userWrapper = "";
         }
 
-        const sortByPrivilegesMethod = () => this.sortByPrivileges();
+        const sortByRolesMethod = () => this.sortByRoles();
 
         const filterWrapper = (!userExists) ? "": (
             <div className="SortFilterStyle">
-                <FilterAction target={sortByPrivilegesMethod} text={strings.sortByPrivileges} />
+                <FilterAction target={sortByRolesMethod} text={strings.sortByRoles} />
             </div>);
 
         const buttonWrapper = (
@@ -99,9 +99,9 @@ class UserList extends React.Component<any, object> {
         )
     }
 
-    private sortByPrivileges() {
-        alert("Filter by Priviledges is not implemented in this version")
-        log("Filter by Priviledges")
+    private sortByRoles() {
+        alert("Filter by Roles is not implemented in this version")
+        log("Filter by Roles")
     }
 }
 

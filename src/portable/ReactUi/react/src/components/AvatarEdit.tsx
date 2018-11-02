@@ -47,17 +47,18 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
         return (
             <div className="AvatarEdit">
                 <BackLink target={backTo} />
-
-                <Avatar
-                    width={390}
-                    height={295}
-                    label={strings.chooseAvatar}
-                    onCrop={this.onCrop}
-                    src={user !== undefined ? user.username.avatarUri : ""}
-                />
-                <div className="preview">
-                    <img src={this.state.preview} alt="Preview" />
-                    <NextAction target={this.onSave} text={strings.save} type="primary" />
+                <div className="content" >
+                    <Avatar
+                        width={390}
+                        height={295}
+                        label={strings.chooseAvatar}
+                        onCrop={this.onCrop}
+                        src={user !== undefined ? user.username.avatarUri : ""}
+                    />
+                    <div className="preview">
+                        <img src={this.state.preview} alt="Preview" />
+                        <NextAction target={this.onSave} text={strings.save} type="primary" />
+                    </div>
                 </div>
             </div>
         )

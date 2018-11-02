@@ -1,9 +1,11 @@
 import Axios from 'axios';
 import { log } from '../actions/logAction';
 import { setSubmitted } from './audioActions';
-import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING, DELETE_TASK,
-    FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK,  UNASSIGN_TASK_PENDING,
-    UPDATE_PROJECT, UPDATE_TASK, WRITE_FULFILLED, WRITE_PENDING } from './types';
+import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
+    COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
+    FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT,
+    SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_TASK, 
+    WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { fetchUsers, saveUserSetting } from './userActions';
 
 export const assignTask = (taskid: string, userid: string) => (dispatch: any) => {
@@ -168,3 +170,15 @@ export const updateProject = (project: IProject) => (dispatch: any) => {
             dispatch(log(JSON.stringify(reason) + " " + UPDATE_PROJECT +  ", id=" + project.id))
         });
 }
+
+export const copyToClipboard = (taskid: string) => (dispatch: any) => {
+    dispatch({
+        payload: taskid,
+        type: COPY_TO_CLIPBOARD
+    })
+    Axios.put('/api/CopyToClipboard?task=' + taskid)
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + COPY_TO_CLIPBOARD +  ", id=" + taskid))
+        });
+}
+

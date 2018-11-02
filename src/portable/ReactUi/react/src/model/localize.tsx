@@ -69,7 +69,7 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "addUser": string;
     "addTask": string;
     "addMany": string;
-    "sortByPrivileges": string;
+    "sortByRoles": string;
     "sortByType": string;
     "projectName": string;
     "clickToPair": string;
@@ -80,11 +80,13 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "reference": string;
     "heading": string;
     "assignedTo": string;
-    "privileges": string;
+    "roles": string;
     "otherProjects": string;
     "admin": string;
     "reviewer": string;
     "transcriber": string;
     "pairWithParatext": string;
     "referenceFormat": string;
+    "skip": string;
+    "copyToClipboard": string;
 };
