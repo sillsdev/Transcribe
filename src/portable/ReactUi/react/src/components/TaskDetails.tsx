@@ -10,7 +10,9 @@ import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
+import currentProject from '../selectors/project';
 import projectTasks from '../selectors/projectTasks';
+import BackLink from './controls/BackLink';
 import NextAction from './controls/NextAction';
 import './TaskDetails.sass';
 import FileField from './ui-controls/FileField';
@@ -32,6 +34,7 @@ const initialState = {
     fullPath: "",
     heading: "",
     message: "",
+    pair: false,
     reference: "",
 }
 
@@ -77,8 +80,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             return (<Redirect to="/ProjectSettings" />)
         }
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
-        const deleteTask = () => this.deleteTask();
+        // const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
+        const copyToClipboard = () => this.copyToClipboard();
         return (
             <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="closeRow">
@@ -87,12 +91,13 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                     </Link>
                 </div>
                 <div className="titleRow">
+                    <BackLink action={save} target="/ProjectSettings" />
                     <div className="title">
                         <LabelCaptionUx name={strings.taskDetails} type="H2" />
                     </div>
-                    <div className={"deleteButton" + (this.taskId !== ""? "": " hide")}>
+                    {/* <div className={"deleteButton" + (this.taskId !== ""? "": " hide")}>
                         <NextAction text={strings.delete} target={deleteTask} type="danger" />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="details">
                     <div className="results">
@@ -111,6 +116,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                                 <Avatar name={this.displayName(assignedTo)} src={this.avatar(assignedTo)} size={64} round={true} />
                                 <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
                             </div>
+                            <div className="CopyRow">
+                                <NextAction text={strings.copyToClipboard} target={copyToClipboard} type="safe" />
+                            </div>
                         </div>
                         <div className="resultsRight">
                             <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
@@ -125,9 +133,12 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private validateReference(ref: string) {
-        const { strings } = this.props;
-        const refExpr = /^\w{1,3}\s{1}\d{1,3}(\.|:){1}\d{1,3}(-|=)\d{1,3}$/;
-        this.setState({message: refExpr.test(ref)? "" : strings.referenceFormat});
+        const { project, strings } = this.props;
+        const pair = project && project.guid && project.guid !== ""? true: false
+        if (pair) {
+            const refExpr = /^\w{1,3}\s{1}\d{1,3}(\.|:){1}\d{1,3}(-|,)\d{1,3}$/;
+            this.setState({message: refExpr.test(ref)? "" : strings.referenceFormat});
+        }
     }
 
     private updateFileName(file: string) {
@@ -172,9 +183,14 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         updates.push(tag + '=' + encodeURIComponent(val != null? val: ""))
     }
 
-    private deleteTask() {
+    /* private deleteTask() {
         const { deleteTask, popupTask } = this.props;
         return deleteTask(popupTask);
+    } */
+
+    private copyToClipboard() {
+        const { copyToClipboard, popupTask } = this.props;
+        copyToClipboard(popupTask);
     }
 
     private save(ctx: TaskDetails) {
@@ -217,6 +233,7 @@ interface IStateProps {
     deleted: boolean;
     direction: string;
     popupTask: string;
+    project: IProject;
     strings: IProjectSettingsStrings;
     tasks: ITask[];
     users: IUser[];
@@ -228,6 +245,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     deleted: state.tasks.deleted,
     direction: uiDirection(state),
     popupTask: state.tasks.selectedPopupTask,
+    project: currentProject(state),
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedProject: state.tasks.selectedProject,
     strings: userStrings(state, { layout: "projectSettings" }),
@@ -236,6 +254,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 interface IDispatchProps {
+    copyToClipboard: typeof actions.copyToClipboard;
     deleteTask: typeof actions.deleteTask;
     fetchUsers: typeof actions2.fetchUsers;
     selectTask: typeof actions.selectTask;
@@ -243,6 +262,7 @@ interface IDispatchProps {
  };
  const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
      ...bindActionCreators({
+        copyToClipboard: actions.copyToClipboard,
         deleteTask: actions.deleteTask,
         fetchUsers: actions2.fetchUsers,
         selectTask: actions.selectTask,

@@ -39,7 +39,8 @@ class ControlPane extends React.Component<IProps, any> {
     }
 
     private submit = () => {
-        const { setSubmitted } = this.props;
+        const { reportPosition, selectedTask, setSubmitted } = this.props;
+        reportPosition(selectedTask, 0);
         setSubmitted(true)
     }
 };
@@ -51,6 +52,7 @@ interface IStateProps {
     playing: boolean;
     playSpeedRate: number;
     strings: ITranscriberStrings;
+    selectedTask: string;
     selectedUser: string;
     users: IUser[];
 };
@@ -59,6 +61,7 @@ interface IDispatchProps {
     playStatus: typeof actions.playStatus,
     playSpeedRateChange: typeof actions.playSpeedRateChange;
     jumpChange: typeof actions.jumpChange;
+    reportPosition: typeof actions.reportPosition;
     setSubmitted: typeof actions.setSubmitted;
 };
 

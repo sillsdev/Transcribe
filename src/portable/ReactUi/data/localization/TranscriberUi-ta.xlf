@@ -286,7 +286,7 @@
 		</unit>
 		<unit id="projectSettings.chooseALanguage">
 			<segment>
-				<source>Choose a language</source>
+				<source>Choose a user interface language</source>
 				<target>ஒரு மொழியைத் தேர்வு செய்க</target>
 			</segment>
 		</unit>
@@ -374,9 +374,9 @@
 				<target>பல சேர்</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.sortByPrivileges">
+		<unit id="projectSettings.sortByRoles">
 			<segment>
-				<source>Sort by privileges</source>
+				<source>Sort by roles</source>
 				<target>சலுகைகள் மூலம் வரிசைப்படுத்தவும்</target>
 			</segment>
 		</unit>
@@ -440,9 +440,9 @@
 				<target>ஒதுக்கப்பட்டது</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.privileges">
+		<unit id="projectSettings.roles">
 			<segment>
-				<source>Privileges</source>
+				<source>Roles</source>
 				<target>சிறப்புரிமைகள்</target>
 			</segment>
 		</unit>
@@ -478,8 +478,20 @@
 		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
-				<source>Reference format: LUK 1:1-4 or LUK 1.1=4</source>
-				<target>குறிப்பு வடிவமைப்பு: LUK 1:1-4 அல்லது LUK 1.1=4</target>
+				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
+				<target>குறிப்பு வடிவமைப்பு: LUK 1:1-4 அல்லது LUK 1.1,4</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.skip">
+			<segment>
+				<source>Skip</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.copyToClipboard">
+			<segment>
+				<source>Copy to Clipboard</source>
+				<target></target>
 			</segment>
 		</unit>
 	</file>

@@ -9,7 +9,6 @@ import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import BackLink from './controls/BackLink';
-import LinkAction from './controls/LinkAction';
 import PencilAction from './controls/PencilAction';
 import ToggleSwitch from './controls/ToggleSwitch';
 import './ProjectSettings.sass';
@@ -93,7 +92,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
 
         const claim = project && project.claim? project.claim: false;
         const pair = project && project.guid && project.guid !== ""? true: false;
-        const pairText = pair? strings.pairedWithParatextProject: strings.clickToPair;
+        /* const pairText = pair? strings.pairedWithParatextProject: strings.clickToPair; */
         const sync = project && project.sync? project.sync: false;
 
         return (
@@ -108,12 +107,12 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                             {titleWrapper}
                             <PencilAction target={this.editProjectName} />
                         </div>
-                        <div className="pairingRow">
+                        {/* <div className="pairingRow">
                             <LinkAction text={pairText} target={this.pair.bind(this, pair)} />
-                        </div>
+                        </div> */}
                         <div className="switches">
                             <ToggleSwitch switched={claim} text={strings.allowClaimUnassignedTasks} onChange={this.onClaim}/>
-                            <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair.bind(this, pair)} />
+                            {/* <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair.bind(this, pair)} /> */}
                             <ToggleSwitch switched={sync} text={strings.autoSyncParatext} enabled={pair} onChange={this.onSync} />
                         </div>
                     </div>
@@ -130,7 +129,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         this.setState({showTextBox : true});
     }
 
-    private pair(paired: boolean) {
+    /* private pair(paired: boolean) {
         if (paired){
             alert("After initial project setup, it's not possible to unpair your project from Paratext in this version of Transcriber.")
             log("unpair")
@@ -138,7 +137,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
             alert("After initial project setup, It's not possible to pair your project from Paratext in this version of Transcriber.")
             log("pair")
         }
-    }
+    } */
 
     private onClaim = (val: boolean) => {
         this.props.updateProject({...this.props.project, claim: val})

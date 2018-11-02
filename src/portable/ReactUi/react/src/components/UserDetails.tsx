@@ -13,7 +13,8 @@ import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import AvatarLink from './controls/AvatarLink';
-import NextAction from './controls/NextAction';
+import BackLink from './controls/BackLink';
+// import NextAction from './controls/NextAction';
 import { ProjectAvatar } from './controls/ProjectAvatar';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
@@ -33,8 +34,8 @@ const initialState = {
     avatarUrl: "",
     name: "",
     otherProjects: [],
-    privileges: "",
     role: "Transcriber",
+    roles: "",
     selectedValue: "",
 }
 
@@ -48,7 +49,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
     constructor(props: IProps) {
         super(props)
         this.updateUserName = this.updateUserName.bind(this);
-        this.updatePrivileges = this.updatePrivileges.bind(this);
+        this.updateRoles = this.updateRoles.bind(this);
 
         const { popupUser, users, strings } = this.props;
         this.roleListDef = ['Admin', 'Reviewer', 'Transcriber', 'Reviewer + Transcriber'];
@@ -95,7 +96,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
             return <Redirect to="/ProjectSettings" />
         }
         this.userId = this.props.history.location.pathname.indexOf("NewUser") > 0 ? "" : popupUser;
-        const deleteUser = () => { this.delete(this) }
+        // const deleteUser = () => { this.delete(this) }
         const user: IUser = users.filter((u: IUser) => u.username.id === this.userId)[0];
         const projectAvatar = user && user.project ? (
             <AvatarLink id={project.id}
@@ -107,17 +108,18 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
         return (
             <div className={"UserDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="closeRow">
-                    <Link onClick={save} to="/ProjectSettings" >
+                     <Link onClick={save} to="/ProjectSettings" >
                         <img src="/assets/close-x.svg" alt="X" />
                     </Link>
                 </div>
                 <div className="titleRow">
+                    <BackLink  action={save} target="/ProjectSettings" />
                     <div className="title">
                         <LabelCaptionUx name={strings.userDetails} type="H2" />
                     </div>
-                    <div className={"deleteButton" + (this.userId && this.userId !== "" ? "" : " hide")}>
+                    {/* <div className={"deleteButton" + (this.userId && this.userId !== "" ? "" : " hide")}>
                         <NextAction text={strings.delete} target={deleteUser} type="danger" />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="details">
                     <div className="results">
@@ -134,9 +136,9 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                         <div className="resultsRight">
                             <div className="resultsRightBox">
                                 <div><TextField id="id1" caption={"Name"} inputValue={this.state.name} onChange={this.updateUserName} /></div>
-                                <div className="privilegesBox">
-                                    <LabelUx name={strings.privileges} />
-                                    <RadioListField options={this.roleListLoc} selected={this.state.role} onChange={this.updatePrivileges} />
+                                <div className="rolesBox">
+                                    <LabelUx name={strings.roles} />
+                                    <RadioListField options={this.roleListLoc} selected={this.state.role} onChange={this.updateRoles} />
                                 </div>
                                 <div className="OtherProjectsBox">
                                     <LabelUx name={strings.otherProjects} />
@@ -162,14 +164,14 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
         this.setState({ ...this.state, name: newName })
     }
 
-    private updatePrivileges(newprivileges: string) {
-        this.setState({ ...this.state, privileges: newprivileges })
+    private updateRoles(newroles: string) {
+        this.setState({ ...this.state, roles: newroles })
     }
 
-    private delete(ctx: UserDetails) {
+    /* private delete(ctx: UserDetails) {
         const { deleteUser } = this.props;
         deleteUser(this.userId);
-    }
+    } */
 
     private save(ctx: UserDetails) {
         const { selectedProject, updateUser } = this.props;
@@ -180,8 +182,8 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
             this.saveValue(updates, "name", this.state.name);
         }
 
-        if (this.state.privileges !== this.original.privileges) {
-            const userRole = this.roleListDef[this.roleListLoc.indexOf(this.state.privileges)];
+        if (this.state.roles !== this.original.roles) {
+            const userRole = this.roleListDef[this.roleListLoc.indexOf(this.state.roles)];
             this.saveValue(updates, "role", userRole);
         }
 

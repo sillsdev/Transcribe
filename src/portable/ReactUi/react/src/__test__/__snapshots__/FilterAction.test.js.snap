@@ -4,19 +4,5 @@ exports[`>>>Control: FilterAction --- Snapshot +++capturing Snapshot of FilterAc
 <div
   className="FilterAction"
   id="FilterAction"
->
-  <button
-    className="btn btn-sm btn-link"
-    disabled={false}
-    onClick={[Function]}
-    type="button"
-  >
-    My Filter
-     
-    <img
-      alt="Filter"
-      src="/assets/Filter.svg"
-    />
-  </button>
-</div>
+/>
 `;
