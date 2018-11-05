@@ -5,6 +5,7 @@ import { IState } from '../model/state';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 import { ProjectAvatar } from './controls/ProjectAvatar';
+import User from './controls/User';
 import './NavPanel.sass';
 
 interface IProps {
@@ -34,8 +35,9 @@ class NavPanel extends React.Component<IProps, object> {
             }
         }
         const userAvatar = user? (
-            <AvatarLink id={user.username.id}
+            <User id={user.username.id}
                 name={user.displayName}
+                role={user.role}
                 target="/settings"
                 uri={user.username.avatarUri? user.username.avatarUri: ""} />):"";
         const projectAvatar = project? (

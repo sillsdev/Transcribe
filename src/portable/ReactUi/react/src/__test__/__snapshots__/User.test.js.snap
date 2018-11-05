@@ -62,7 +62,7 @@ exports[`>>>Control: User --- Snapshot +++capturing Snapshot of User 1`] = `
       </div>
     </div>
     <br />
-
+     
     <br />
     <div
       className="caption"
