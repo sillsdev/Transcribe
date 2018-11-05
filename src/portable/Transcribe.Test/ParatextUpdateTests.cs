@@ -229,5 +229,113 @@ namespace Transcribe.Test
 			File.WriteAllText(outputFilePath, sb.ToString());
 			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
 		}
+
+		//// Case 9
+		//==================Paratext==================
+		//\id LUK - Transcriber Test Project
+		//\toc1 The Gospel According to Luke
+		//toc2 Luke
+		//toc3 LUK
+		//===================Transcribe===============
+		//\s1 Introduction
+		//\v 1-4 This is sample case with verse number with heading
+		//====================Result==================
+		//\id LUK - Transcriber Test Project
+		//\toc1 The Gospel According to Luke
+		//toc2 Luke
+		//toc3 LUK
+		//\c 1
+		//\s1 Introduction
+		//\p \v 1-4 This is sample case with verse number with heading
+		[Test]
+		public void VerseNumberInsertContentWhenNoChapterAndVerseAndHeading()
+		{
+			Task currentTask = new Task();
+			currentTask.ChapterNumber = 1;
+			currentTask.VerseStart = 1;
+			currentTask.VerseEnd = 4;
+			string chapterContent = File.ReadAllText(Path.Combine(_inputPath, "ParatextDataWithoutChapterAndVerse.sfm"));
+			string transcription = "This is sample case with verse number with heading";
+			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenNoChapterAndVerseAndHeading.sfm");
+			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenNoChapterAndVerseAndHeading.sfm");
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription, "Introduction");
+			File.WriteAllText(outputFilePath, sb.ToString());
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
+		}
+
+		//// Case 10
+		//==================Paratext==================
+		//\id LUK - Transcriber Test Project
+		//\toc1 The Gospel According to Luke
+		//toc2 Luke
+		//toc3 LUK
+		//\c 1
+		//\s1 Introduction
+		//\p \v 1-4 This is sample case with verse number with heading
+		//===================Transcribe===============
+		//\s1 New Introduction
+		//\v 1-4 This is another sample case with verse number with heading
+		//====================Result==================
+		//\id LUK - Transcriber Test Project
+		//\toc1 The Gospel According to Luke
+		//toc2 Luke
+		//toc3 LUK
+		//\c 1
+		//\s1 New Introduction
+		//\p \v 1-4 This is another sample case with verse number with heading
+		[Test]
+		public void VerseNumberInsertContentWhenExistingChapterAndVerseAndHeading()
+		{
+			Task currentTask = new Task();
+			currentTask.ChapterNumber = 1;
+			currentTask.VerseStart = 1;
+			currentTask.VerseEnd = 4;
+			string chapterContent = File.ReadAllText(Path.Combine(_inputPath, "VerseNumberInsertContentWhenExistingChapterAndVerseAndHeading.sfm"));
+			string transcription = "This is another sample case with verse number with heading";
+			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenExistingChapterAndVerseAndHeading.sfm");
+			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenExistingChapterAndVerseAndHeading.sfm");
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription, "New Introduction");
+			File.WriteAllText(outputFilePath, sb.ToString());
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
+		}
+
+		//// Case 11
+		//==================Paratext==================
+		//\id LUK - Transcriber Test Project
+		//\toc1 The Gospel According to Luke
+		//toc2 Luke
+		//toc3 LUK
+		//\c 1
+		//\s1 Introduction
+		//\v 1-4 This is sample case with verse number  with heading
+		//===================Transcribe===============
+		//\s1 My Section
+		//\v 5-25 This is sample case of second set of verse number  with heading
+		//====================Result==================
+		//\id LUK - Transcriber Test Project
+		//\toc1 The Gospel According to Luke
+		//toc2 Luke
+		//toc3 LUK
+		//\c 1
+		//\s1 Introduction
+		//\p \v 1-4 This is sample case with verse number
+		//\s1 My Section
+		//\p \v 5-25 This is sample case of second set of verse number with heading
+
+		[Test]
+		public void VerseNumberInsertContentWhenChapterAndFirstVerseAndHeading()
+		{
+			Task currentTask = new Task();
+			currentTask.ChapterNumber = 1;
+			currentTask.VerseStart = 5;
+			currentTask.VerseEnd = 25;
+			string chapterContent = File.ReadAllText(Path.Combine(_inputPath, "VerseNumberInsertContentWhenExistingChapterAndVerseAndHeading.sfm"));
+			string transcription = "This is sample case of second set of verse number with heading";
+			string outputFilePath = Path.Combine(_outputPath, "VerseNumberInsertContentWhenChapterAndFirstVerseAndHeading.sfm");
+			string expectedFilePath = Path.Combine(_expectedPath, "VerseNumberInsertContentWhenChapterAndFirstVerseAndHeading.sfm");
+			StringBuilder sb = GenerateParatextData(currentTask, chapterContent, transcription, "My Section");
+			File.WriteAllText(outputFilePath, sb.ToString());
+			TextFileAssert.AreEqual(outputFilePath, expectedFilePath);
+		}
 	}
 }
