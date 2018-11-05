@@ -113,8 +113,8 @@ class EditorPane extends React.Component<IProps, typeof initialState> {
     }
 
     private blur(event: any) {
-        const { direction, lang, requestPosition, selectedTask, totalSeconds, writeTranscription } = this.props;
-        if((selectedTask !== undefined && selectedTask.length > 0))
+        const { direction, lang, requestPosition, saved, selectedTask, totalSeconds, writeTranscription } = this.props;
+        if((selectedTask !== undefined && selectedTask.length > 0) && !saved)
         {
             requestPosition();
             writeTranscription(selectedTask, totalSeconds, lang, direction?direction:"ltr", this.state)
