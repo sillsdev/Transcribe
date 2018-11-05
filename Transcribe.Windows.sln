@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transcribe.Test", "src\port
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateSharedResources", "src\UpdateSharedResources\UpdateSharedResources.csproj", "{67A674DA-4A70-42D9-A3DB-E9049DEEFC77}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DownloadInfo", "src\DownloadInfo\DownloadInfo.csproj", "{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +94,14 @@ Global
 		{67A674DA-4A70-42D9-A3DB-E9049DEEFC77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67A674DA-4A70-42D9-A3DB-E9049DEEFC77}.Release|x86.ActiveCfg = Release|Any CPU
 		{67A674DA-4A70-42D9-A3DB-E9049DEEFC77}.Release|x86.Build.0 = Release|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Debug|x86.Build.0 = Debug|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Release|x86.ActiveCfg = Release|Any CPU
+		{0D3EF950-45D8-4D01-93F7-B2DCC0390C09}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
