@@ -1,497 +1,497 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="xliff.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<xliff srcLang="en" trgLang="fr" version="1.0" xml:lang="en" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+<xliff srcLang="en" trgLang="sw" version="1.0" xml:lang="en" xmlns="urn:oasis:names:tc:xliff:document:2.0">
 	<file id="Transcriber" original="TranscriberUi-en.xliff">
 		<unit id="transcribe.bible">
 			<segment>
 				<source>Bible</source>
-				<target>Bible</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.storybook">
 			<segment>
 				<source>Storybook</source>
-				<target>Contes</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.test">
 			<segment>
 				<source>Test</source>
-				<target>Essai</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.other">
 			<segment>
 				<source>Other</source>
-				<target>Autre</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.assigned">
 			<segment>
 				<source>Assigned</source>
-				<target>Allouer</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.available">
 			<segment>
 				<source>Available</source>
-				<target>Disponible</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.review">
 			<segment>
 				<source>Review</source>
-				<target>Controler</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribe">
 			<segment>
 				<source>Transcribe</source>
-				<target>Transcrire</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.accept">
 			<segment>
 				<source>Accept</source>
-				<target>Accepter</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.submit">
 			<segment>
 				<source>Submit</source>
-				<target>Soumettre</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.unassign">
 			<segment>
 				<source>Unassign</source>
-				<target>Désallouer</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.congratulations">
 			<segment>
 				<source>Congratulations</source>
-				<target>Toutes nos félicitations</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.upload">
 			<segment>
 				<source>Upload</source>
-				<target>Télécharger</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.continue">
 			<segment>
 				<source>Continue</source>
-				<target>Suite</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.haveaniceday">
 			<segment>
 				<source>Have a nice day</source>
-				<target>Bonne journée</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.inboxzero">
 			<segment>
 				<source>inbox zero</source>
-				<target>boîte de réception zéro</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.youhavereached">
 			<segment>
 				<source>You've reached</source>
-				<target>Vous avez atteint</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
-				<target>Utilisateur</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.name">
 			<segment>
 				<source>Name</source>
-				<target>Nom et Prénom</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.font">
 			<segment>
 				<source>Font</source>
-				<target>Police de caractère</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
-				<target>Langue</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.medium">
 			<segment>
 				<source>Medium</source>
-				<target>Moyen</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.small">
 			<segment>
 				<source>Small</source>
-				<target>Petit</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.large">
 			<segment>
 				<source>Large</source>
-				<target>Grand</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.english">
 			<segment>
 				<source>English</source>
-				<target>Anglais</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.keyboardShortcuts">
 			<segment>
-				<source>KEYBOARD SHORTCUTS</source>
-				<target>TOUCHES de RACCOURCIS</target>
+				<source>Keyboard Shortcuts</source>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.playPause">
 			<segment>
 				<source>Play / Pause</source>
-				<target>Jouer / Pause</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.rewind">
 			<segment>
 				<source>Rewind</source>
-				<target>Rembobiner</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.fastForward">
 			<segment>
 				<source>Fast Forward</source>
-				<target>Avance rapide</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.slowDown">
 			<segment>
 				<source>Slow Down</source>
-				<target>Ralentissez</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.speedUp">
 			<segment>
 				<source>Speed Up</source>
-				<target>Accélérer</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.reset">
 			<segment>
-				<source>RESET TO DEFAULTS</source>
-				<target>Réinitialiser aux défauts</target>
+				<source>Reset to Defaults</source>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.save">
 			<segment>
 				<source>Save</source>
-				<target>Enregistrer</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.password">
 			<segment>
 				<source>Password</source>
-				<target>Mot de passe</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.role">
 			<segment>
 				<source>Role</source>
-				<target>Rôle</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.transcriber">
 			<segment>
 				<source>Transcriber</source>
-				<target>Transcripteur</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.reviewer">
 			<segment>
 				<source>Reviewer</source>
-				<target>Critique</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.reviewComments">
 			<segment>
-				<source>REVIEW COMMENTS</source>
-				<target>Commentaires</target>
+				<source>Review Comments</source>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.chooseAvatar">
 			<segment>
 				<source>Choose an image file</source>
-				<target>Sélectionner un fichier d'image</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.nameErrorMessage">
 			<segment>
 				<source>Please fill in the Name</source>
-				<target>Veuillez remplir le nom</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.fontErrorMessage">
 			<segment>
 				<source>Please fill in the Font</source>
-				<target>Veuillez remplir la police</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.playPauseErrorMessage">
 			<segment>
 				<source>Please fill in the Play/Pause</source>
-				<target>S'il vous plaît remplir le Jouer / Pause</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.rewindErrorMessage">
 			<segment>
 				<source>Please fill in the Rewind</source>
-				<target>S'il vous plaît remplir le rembobinage</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.fastForwardErrorMessage">
 			<segment>
 				<source>Please fill in the Fast Forward</source>
-				<target>S'il vous plaît remplir le rapide</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.slowDownErrorMessage">
 			<segment>
 				<source>Please fill in the Slow Down</source>
-				<target>S'il vous plaît remplir le ralentissementம்</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="userSettings.speedUpErrorMessage">
 			<segment>
 				<source>Please fill in the Speed Up</source>
-				<target>S'il vous plaît remplir le Accélérer</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
-				<target>Suite</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.chooseALanguage">
 			<segment>
 				<source>Choose a user interface language</source>
-				<target>Choisisser une langue</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.lookForProjects">
 			<segment>
 				<source>Looking for Paratext projects on this computer...</source>
-				<target>Chercher les projects Paratext à l'orginateur ...</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.selectProject">
 			<segment>
 				<source>Select a Paratext Project</source>
-				<target>Selectionner un project Paratext</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.browseForProject">
 			<segment>
 				<source>Browse for a project</source>
-				<target>Rechercher un project Paratext</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.createEmptyProject">
 			<segment>
 				<source>Create empty project</source>
-				<target>Créer un project vide</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.noProjectsFound">
 			<segment>
 				<source>We didn’t find any Paratext projects on your computer.</source>
-				<target>On n'a pas trouver aucun project Paratext à l'ordinateur</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.pairedWithParatextProject">
 			<segment>
 				<source>Paired with Paratext project</source>
-				<target>Jumelé avec le projet Paratext</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.projectSettings">
 			<segment>
 				<source>Project Settings</source>
-				<target>Paramètres du projet</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.autoSyncParatext">
 			<segment>
 				<source>Auto-sync with Paratext</source>
-				<target>Synchronisation automatique avec Paratext</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.allowClaimUnassignedTasks">
 			<segment>
 				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Autoriser les transcripteurs à réclamer des tâches non assignées</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
 			<segment>
 				<source>People</source>
-				<target>Gens</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.tasks">
 			<segment>
 				<source>Tasks</source>
-				<target>Les tâches</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addUser">
 			<segment>
 				<source>Add User</source>
-				<target>Ajouter un utilisateur</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addTask">
 			<segment>
 				<source>Add Task</source>
-				<target>Ajouter une tâche</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addMany">
 			<segment>
 				<source>Add Many</source>
-				<target>Ajouter plusieurs</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
 			<segment>
 				<source>Sort by roles</source>
-				<target>Trier par privilèges</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByType">
 			<segment>
 				<source>Sort by type</source>
-				<target>Trier par type</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.projectName">
 			<segment>
 				<source>Project Name</source>
-				<target>Nom du project</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.clickToPair">
 			<segment>
 				<source>Click to pair with Paratext</source>
-				<target>Cliquer à jumelé avec Paratext</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.taskDetails">
 			<segment>
 				<source>Task Details</source>
-				<target>Détails de la tâche</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.userDetails">
 			<segment>
 				<source>User Details</source>
-				<target>Détails de l'utilisateur</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.delete">
 			<segment>
 				<source>Delete</source>
-				<target>Effacer</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.audioFile">
 			<segment>
 				<source>Audio File</source>
-				<target>Firchier audio</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reference">
 			<segment>
 				<source>Reference</source>
-				<target>Référence</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.heading">
 			<segment>
 				<source>Heading</source>
-				<target>Sous titre</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.assignedTo">
 			<segment>
 				<source>Assigned To</source>
-				<target>Allouer à</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.roles">
 			<segment>
 				<source>Roles</source>
-				<target>Droits</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
-				<target>Autres projects</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.admin">
 			<segment>
 				<source>Admin</source>
-				<target>Admin</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reviewer">
 			<segment>
 				<source>Reviewer</source>
-				<target>Critique</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.transcriber">
 			<segment>
 				<source>Transcriber</source>
-				<target>Transcripteur</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.pairWithParatext">
 			<segment>
-				<source>Lier à Paratext</source>
-				<target>Paire avec Paratext</target>
+				<source>Pair with Paratext</source>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
-				<target>Format de référence: LUK 1:1-4 ou LUK 1.1,4</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.skip">
 			<segment>
 				<source>Skip</source>
-				<target>Sauter</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target>copier dans le presse-papier électronique</target>
+				<target></target>
 			</segment>
 		</unit>
 	</file>
