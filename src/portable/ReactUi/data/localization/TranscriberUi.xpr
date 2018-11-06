@@ -10,37 +10,7 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>TranscriberUi-sw.xlf</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>TranscriberUi-fr</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>TranscriberUi-ru.xlf</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>TranscriberUi-fr</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XSL</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>TranscriberUi-pt.xlf</String>
+                                    <String>TranscriberUi-id.xlf</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -85,21 +55,6 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>CombineStrings.xsl</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>CombineStrings</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>XML</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
                                     <String>TranscriberUi-es.xlf</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -131,6 +86,66 @@
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>TranscriberUi-ar.xlf</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>TranscriberUi-fr</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>CombineStrings.xsl</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>CombineStrings</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XML</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>TranscriberUi-sw.xlf</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>TranscriberUi-fr</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>TranscriberUi-ru.xlf</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>TranscriberUi-fr</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>XSL</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>TranscriberUi-pt.xlf</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -373,6 +388,7 @@
         <file name="TranscriberUi-es.xlf"/>
         <file name="TranscriberUi-fr.xlf"/>
         <file name="TranscriberUi-ha.xlf"/>
+        <file name="TranscriberUi-id.xlf"/>
         <file name="TranscriberUi-pt.xlf"/>
         <file name="TranscriberUi-ru.xlf"/>
         <file name="TranscriberUi-sw.xlf"/>
