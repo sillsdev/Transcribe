@@ -77,7 +77,7 @@ class UserSettings extends React.Component<IProps, any> {
         const fasterKey = this.keyCode(user, "faster","");
 
         const userLanguageCode = user && user.uilang? user.uilang.slice(0,2): "en";
-        const languageChoice = [UserLanguages.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].slice(3)].concat(
+        const languageChoice = [UserLanguages.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].split(':')[1]].concat(
             UserLanguages.languages.filter(i => i.slice(0,2) !== userLanguageCode).map(i => i.split(':')[1])
         )
 
@@ -275,7 +275,7 @@ class UserSettings extends React.Component<IProps, any> {
         }
         // Ui-Lang
         const language = context.languageRef.current && context.languageRef.current.selected;
-        const languageCode = UserLanguages.languages.filter(l => l.slice(3) === language)[0].slice(0,2)
+        const languageCode = UserLanguages.languages.filter(l => l.split(':')[1] === language)[0].slice(0,2)
         if (user.uilang && user.uilang.slice(0,2) !== languageCode) {
             this.saveValue(updates, "uilang", languageCode)
         }
