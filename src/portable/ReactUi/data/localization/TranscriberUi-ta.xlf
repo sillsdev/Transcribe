@@ -233,7 +233,7 @@
 		<unit id="userSettings.chooseAvatar">
 			<segment>
 				<source>Choose an image file</source>
-				<target></target>
+				<target>படக் கோப்பை தேர்வு செய்யவும்</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.nameErrorMessage">
@@ -485,13 +485,13 @@
 		<unit id="projectSettings.skip">
 			<segment>
 				<source>Skip</source>
-				<target></target>
+				<target>செல்க</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target></target>
+				<target>கிளிப்போர்டுக்கு நகலெடுக்கவும்</target>
 			</segment>
 		</unit>
 	</file>

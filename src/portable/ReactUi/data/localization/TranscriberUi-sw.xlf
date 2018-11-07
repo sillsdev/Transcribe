@@ -5,271 +5,271 @@
 		<unit id="transcribe.bible">
 			<segment>
 				<source>Bible</source>
-				<target></target>
+				<target>Biblia</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.storybook">
 			<segment>
 				<source>Storybook</source>
-				<target></target>
+				<target>Kitabu cha hadithi</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.test">
 			<segment>
 				<source>Test</source>
-				<target></target>
+				<target>Zoezi</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.other">
 			<segment>
 				<source>Other</source>
-				<target></target>
+				<target>Ingine</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.assigned">
 			<segment>
 				<source>Assigned</source>
-				<target></target>
+				<target>Imepeanwa</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.available">
 			<segment>
 				<source>Available</source>
-				<target></target>
+				<target>Ipo</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.review">
 			<segment>
 				<source>Review</source>
-				<target></target>
+				<target>Hakiki</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribe">
 			<segment>
 				<source>Transcribe</source>
-				<target></target>
+				<target>Andika</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.accept">
 			<segment>
 				<source>Accept</source>
-				<target></target>
+				<target>Kubali</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.submit">
 			<segment>
 				<source>Submit</source>
-				<target></target>
+				<target>Wasilisha</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.unassign">
 			<segment>
 				<source>Unassign</source>
-				<target></target>
+				<target>Irudishe</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.congratulations">
 			<segment>
 				<source>Congratulations</source>
-				<target></target>
+				<target>Hongera</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.upload">
 			<segment>
 				<source>Upload</source>
-				<target></target>
+				<target>Weka kwa mtandao</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.continue">
 			<segment>
 				<source>Continue</source>
-				<target></target>
+				<target>Endelea</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.haveaniceday">
 			<segment>
 				<source>Have a nice day</source>
-				<target></target>
+				<target>Kuwa na siku njema</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.inboxzero">
 			<segment>
 				<source>inbox zero</source>
-				<target></target>
+				<target>Hakuna ujumbe wowote</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.youhavereached">
 			<segment>
 				<source>You've reached</source>
-				<target></target>
+				<target>Umefika</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
-				<target></target>
+				<target>Mtumiaji</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.name">
 			<segment>
 				<source>Name</source>
-				<target></target>
+				<target>Jina</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.font">
 			<segment>
 				<source>Font</source>
-				<target></target>
+				<target>Aina ya Mwandiko</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
-				<target></target>
+				<target>Lugha</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.medium">
 			<segment>
 				<source>Medium</source>
-				<target></target>
+				<target>Kati</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.small">
 			<segment>
 				<source>Small</source>
-				<target></target>
+				<target>Ndogo</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.large">
 			<segment>
 				<source>Large</source>
-				<target></target>
+				<target>Kubwa</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.english">
 			<segment>
 				<source>English</source>
-				<target></target>
+				<target>Kiingereza</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.keyboardShortcuts">
 			<segment>
 				<source>Keyboard Shortcuts</source>
-				<target></target>
+				<target>Njia za Mkato za Kuchapa</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.playPause">
 			<segment>
 				<source>Play / Pause</source>
-				<target></target>
+				<target>Cheza / Zima</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.rewind">
 			<segment>
 				<source>Rewind</source>
-				<target></target>
+				<target>Rudisha nyuma</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.fastForward">
 			<segment>
 				<source>Fast Forward</source>
-				<target></target>
+				<target>Peleka Mbele</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.slowDown">
 			<segment>
 				<source>Slow Down</source>
-				<target></target>
+				<target>Punguza Kasi</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.speedUp">
 			<segment>
 				<source>Speed Up</source>
-				<target></target>
+				<target>Ongeza Kasi</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.reset">
 			<segment>
 				<source>Reset to Defaults</source>
-				<target></target>
+				<target>Rudisha Inapoanzia</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.save">
 			<segment>
 				<source>Save</source>
-				<target></target>
+				<target>Hifadhi</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.password">
 			<segment>
 				<source>Password</source>
-				<target></target>
+				<target>Herufi za siri</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.role">
 			<segment>
 				<source>Role</source>
-				<target></target>
+				<target>Kazi</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.transcriber">
 			<segment>
 				<source>Transcriber</source>
-				<target></target>
+				<target>Mwandishi</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.reviewer">
 			<segment>
 				<source>Reviewer</source>
-				<target></target>
+				<target>Mhakiki</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.reviewComments">
 			<segment>
 				<source>Review Comments</source>
-				<target></target>
+				<target>Hakiki Maoni</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.chooseAvatar">
 			<segment>
 				<source>Choose an image file</source>
-				<target></target>
+				<target>Chagua faili ya picha</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.nameErrorMessage">
 			<segment>
 				<source>Please fill in the Name</source>
-				<target></target>
+				<target>Tafadhali jaza Jina</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.fontErrorMessage">
 			<segment>
 				<source>Please fill in the Font</source>
-				<target></target>
+				<target>Tafadhali jaza Mwandiko</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.playPauseErrorMessage">
 			<segment>
-				<source>Please fill in the Play/Pause</source>
-				<target></target>
+				<source>Please fill in the Play / Pause</source>
+				<target>Tafadhali jaza Cheza / Zima</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.rewindErrorMessage">
 			<segment>
 				<source>Please fill in the Rewind</source>
-				<target></target>
+				<target>Tafadhali jaza Rudisha Nyuma</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.fastForwardErrorMessage">
 			<segment>
 				<source>Please fill in the Fast Forward</source>
-				<target></target>
+				<target>Tafadhali jaza Peleka Kasi</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.slowDownErrorMessage">
 			<segment>
 				<source>Please fill in the Slow Down</source>
-				<target></target>
+				<target>Tafadhali jaza Punguza Kasi</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.speedUpErrorMessage">
@@ -281,217 +281,217 @@
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
-				<target></target>
+				<target>Inayofuata</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.chooseALanguage">
 			<segment>
 				<source>Choose a user interface language</source>
-				<target></target>
+				<target>Chagua lugha itakayotumika</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.lookForProjects">
 			<segment>
 				<source>Looking for Paratext projects on this computer...</source>
-				<target></target>
+				<target>Natafuta Paratext kwa kompyuta hii …</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.selectProject">
 			<segment>
 				<source>Select a Paratext Project</source>
-				<target></target>
+				<target>Chagua Mradi mojawapo wa Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.browseForProject">
 			<segment>
 				<source>Browse for a project</source>
-				<target></target>
+				<target>Kagua mradi mojawapo</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.createEmptyProject">
 			<segment>
 				<source>Create empty project</source>
-				<target></target>
+				<target>Unda mradi mpya</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.noProjectsFound">
 			<segment>
 				<source>We didn’t find any Paratext projects on your computer.</source>
-				<target></target>
+				<target>Hatukupata mradi wowote wa Paratext katika kompyuta yako.</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.pairedWithParatextProject">
 			<segment>
 				<source>Paired with Paratext project</source>
-				<target></target>
+				<target>Imewekwa pamoja na mradi wa Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.projectSettings">
 			<segment>
 				<source>Project Settings</source>
-				<target></target>
+				<target>Mpangilio wa Miradi</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.autoSyncParatext">
 			<segment>
 				<source>Auto-sync with Paratext</source>
-				<target></target>
+				<target>Inaendana pamoja na Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.allowClaimUnassignedTasks">
 			<segment>
 				<source>Allow transcribers to claim unassigned tasks</source>
-				<target></target>
+				<target>Waruhusu waandishi wachukue kazi ambazo hazijapeanwa </target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
 			<segment>
 				<source>People</source>
-				<target></target>
+				<target>Watu</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.tasks">
 			<segment>
 				<source>Tasks</source>
-				<target></target>
+				<target>Kazi</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addUser">
 			<segment>
 				<source>Add User</source>
-				<target></target>
+				<target>Ongeza Mtumiaji</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addTask">
 			<segment>
 				<source>Add Task</source>
-				<target></target>
+				<target>Ongeza Kazi</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addMany">
 			<segment>
 				<source>Add Many</source>
-				<target></target>
+				<target>Ongeza Wengi</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
 			<segment>
 				<source>Sort by roles</source>
-				<target></target>
+				<target>Panga kwa wajibu</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByType">
 			<segment>
 				<source>Sort by type</source>
-				<target></target>
+				<target>Panga kwa aina</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.projectName">
 			<segment>
 				<source>Project Name</source>
-				<target></target>
+				<target>Jina la Mradi</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.clickToPair">
 			<segment>
 				<source>Click to pair with Paratext</source>
-				<target></target>
+				<target>Bonyeza ili kuiambatanisha na Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.taskDetails">
 			<segment>
 				<source>Task Details</source>
-				<target></target>
+				<target>Kazi Utakayofanya</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.userDetails">
 			<segment>
 				<source>User Details</source>
-				<target></target>
+				<target>Mambo Kuhusu Mtumiaji</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.delete">
 			<segment>
 				<source>Delete</source>
-				<target></target>
+				<target>Futa</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.audioFile">
 			<segment>
 				<source>Audio File</source>
-				<target></target>
+				<target>Faili ya Kusikiza</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reference">
 			<segment>
 				<source>Reference</source>
-				<target></target>
+				<target>Marejeo</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.heading">
 			<segment>
 				<source>Heading</source>
-				<target></target>
+				<target>Kichwa</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.assignedTo">
 			<segment>
 				<source>Assigned To</source>
-				<target></target>
+				<target>Aliyepewa ni</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.roles">
 			<segment>
 				<source>Roles</source>
-				<target></target>
+				<target>Wajibu</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.otherProjects">
 			<segment>
 				<source>Other Projects</source>
-				<target></target>
+				<target>Miradi Mingine</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.admin">
 			<segment>
 				<source>Admin</source>
-				<target></target>
+				<target>Mwelekezi</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reviewer">
 			<segment>
 				<source>Reviewer</source>
-				<target></target>
+				<target>Mhakiki</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.transcriber">
 			<segment>
 				<source>Transcriber</source>
-				<target></target>
+				<target>Mwandishi</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.pairWithParatext">
 			<segment>
 				<source>Pair with Paratext</source>
-				<target></target>
+				<target>Ambatanisha na Paratext</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
-				<target></target>
+				<target>Utaratibu wa Marejeo: Luka 1:1-4 au Luka 1.1,4</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.skip">
 			<segment>
 				<source>Skip</source>
-				<target></target>
+				<target>Ruka</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target></target>
+				<target>Nakili na Kuweka mahali</target>
 			</segment>
 		</unit>
 	</file>

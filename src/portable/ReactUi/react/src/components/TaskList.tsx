@@ -71,7 +71,7 @@ class TaskList extends React.Component<IProps, object> {
         const noSelectedTask = () => this.props.selectPopupTask("")
         const buttonWrapper = (
             <div className="Buttons">
-                <NextAction text={strings.addMany} target={ManyTask} type="text-light" />
+                {/* <NextAction text={strings.addMany} target={ManyTask} type="text-light" /> */}
                 <ButtonLink
                     text={strings.addTask}
                     target={"/ProjectSettings/NewTask"}

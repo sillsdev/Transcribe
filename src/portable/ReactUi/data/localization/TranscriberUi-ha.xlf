@@ -233,7 +233,7 @@
 		<unit id="userSettings.chooseAvatar">
 			<segment>
 				<source>Choose an image file</source>
-				<target></target>
+				<target>Zaɓi fayil ɗin hoto</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.nameErrorMessage">
@@ -485,13 +485,13 @@
 		<unit id="projectSettings.skip">
 			<segment>
 				<source>Skip</source>
-				<target></target>
+				<target>Tsaida</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target></target>
+				<target>Kwafi zuwa kwandon jirgi</target>
 			</segment>
 		</unit>
 	</file>

@@ -233,7 +233,7 @@
 		<unit id="userSettings.chooseAvatar">
 			<segment>
 				<source>Choose an image file</source>
-				<target></target>
+				<target>Выберите файл изображения</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.nameErrorMessage">
@@ -485,13 +485,13 @@
 		<unit id="projectSettings.skip">
 			<segment>
 				<source>Skip</source>
-				<target></target>
+				<target>Пропускать</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target></target>
+				<target>Скопировать в буфер обмена</target>
 			</segment>
 		</unit>
 	</file>
