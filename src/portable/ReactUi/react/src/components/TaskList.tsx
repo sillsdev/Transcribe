@@ -11,7 +11,7 @@ import userStrings from '../selectors/localize';
 import allTasks from '../selectors/projectTasks';
 import ButtonLink from './controls/ButtonLink'
 import FilterAction from './controls/FilterAction';
-import NextAction from './controls/NextAction'
+// import NextAction from './controls/NextAction'
 import TaskItem from './controls/TaskItem';
 import './TaskList.sass';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx'
@@ -67,7 +67,7 @@ class TaskList extends React.Component<IProps, object> {
                 <FilterAction target={sortByType} text={strings.sortByType} />
             </div>);
 
-        const ManyTask = () => { alert("Add Many Tasks") }
+        // const ManyTask = () => { alert("Add Many Tasks") }
         const noSelectedTask = () => this.props.selectPopupTask("")
         const buttonWrapper = (
             <div className="Buttons">

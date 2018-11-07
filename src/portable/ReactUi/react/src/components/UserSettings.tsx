@@ -78,7 +78,7 @@ class UserSettings extends React.Component<IProps, any> {
 
         const userLanguageCode = user && user.uilang? user.uilang.slice(0,2): "en";
         const languageChoice = [UserLanguages.languages.filter(i => i.slice(0,2) === userLanguageCode)[0].slice(3)].concat(
-            UserLanguages.languages.filter(i => i.slice(0,2) !== userLanguageCode).map(i => i.slice(3))
+            UserLanguages.languages.filter(i => i.slice(0,2) !== userLanguageCode).map(i => i.split(':')[1])
         )
 
         this.fontSizeDef = ['medium', 'xx-small', 'x-small', 'small', 'large', 'x-large', 'xx-large'];
