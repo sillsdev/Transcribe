@@ -365,7 +365,7 @@
 		<unit id="projectSettings.addTask">
 			<segment>
 				<source>Add Task</source>
-				<target>Add Task</target>
+				<target>Añadir Tareas</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addMany">
