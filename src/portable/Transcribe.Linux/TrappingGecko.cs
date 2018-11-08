@@ -20,7 +20,8 @@ namespace Transcribe.Windows
 			{
 				if (e.Uri.Segments.Length < 2 || e.Uri.Segments[1] != "api/")
 					return;
-				Logger.WriteEvent($"Get {e.Uri.Segments[2]} {e.Uri.Query}");
+				var arg3 = e.Uri.Segments.Length > 3 ? e.Uri.Segments[3] : string.Empty;
+				Logger.WriteEvent($"Get {e.Uri.Segments[2]} {e.Uri.Query} {arg3}");
 				try
 				{
 					switch (e.Uri.Segments[2])
