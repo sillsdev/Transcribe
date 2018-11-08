@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Web;
 using System.Xml;
-using Newtonsoft.Json;
 
 namespace ReactShared
 {
@@ -11,13 +10,10 @@ namespace ReactShared
 	{
 		public WriteTranscription(string query, byte[] requestBody)
 		{
-			var writeToEafDone = false;
-			var apiFolder = Util.ApiFolder();
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var taskid = parsedQuery["task"];
 			var length = parsedQuery["length"];
 			var lang = parsedQuery["lang"];
-			var dir = parsedQuery["dir"];
 			var transcription = Util.GetRequestElement(requestBody, "text");
 			var xml = GetResource.XmlTemplate("transcription.eaf");
 			UpdateXml(xml, "@DATE", DateTime.UtcNow.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
@@ -37,31 +33,7 @@ namespace ReactShared
 			var outName = Path.Combine(folder, Path.GetFileNameWithoutExtension(name) + ".eaf");
 			using (var xw = XmlWriter.Create(outName, new XmlWriterSettings { Indent = true }))
 			{
-				try
-				{
-					xml.Save(xw);
-					writeToEafDone = true;
-				}
-				catch
-				{
-					writeToEafDone = false;
-				}
-			}
-
-			if (writeToEafDone)
-			{
-				var transcriptionDoc = new XmlDocument();
-				transcriptionDoc.LoadXml("<root/>");
-				Util.NewAttr(transcriptionDoc.DocumentElement, "position", duration);
-				Util.NewChild(transcriptionDoc.DocumentElement, "transcription", transcription);
-
-				var transcriptionJson =
-					JsonConvert.SerializeXmlNode(transcriptionDoc.DocumentElement).Replace("\"@", "\"").Substring(8);
-				using (var sw =
-					new StreamWriter(Path.Combine(apiFolder, "audio", Path.GetFileNameWithoutExtension(name) + ".transcription")))
-				{
-					sw.Write(transcriptionJson.Substring(0, transcriptionJson.Length - 1));
-				}
+				xml.Save(xw);
 			}
 		}
 

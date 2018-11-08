@@ -122,6 +122,7 @@ export const selectTask = (user: string, id: string) => (dispatch:any) => {
         payload: id,
         type: SELECT_TASK
     })
+    dispatch(fetchTasks(user))
     dispatch(fetchTranscription(id));
     dispatch(saveUserSetting(user, "lastTask", id));
     dispatch(setSubmitted(false));
