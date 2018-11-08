@@ -59,6 +59,7 @@ export default function (state = initialState, action: any) {
             return {
                 ...state,
                 initialPosition: action.payload.data.position,
+                saved: true,
                 transcription: action.payload.data.transcription,
             }
         case INITIAL_TRANSCRIPTION:
