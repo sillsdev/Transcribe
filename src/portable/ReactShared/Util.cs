@@ -4,8 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Xml;
-using MediaToolkit;
-using MediaToolkit.Model;
 using Newtonsoft.Json;
 
 namespace ReactShared
@@ -180,17 +178,5 @@ namespace ReactShared
 				// if not empty, ignore delete directory
 			}
 		}
-
-		public static string GetAudioDuration(string audioFilePath)
-		{
-			var inputFile = new MediaFile {Filename = audioFilePath};
-			using (var engine = new Engine())
-			{
-				engine.GetMetadata(inputFile);
-			}
-
-			return inputFile.Metadata.Duration.TotalSeconds.ToString();
-		}
-
 	}
 }

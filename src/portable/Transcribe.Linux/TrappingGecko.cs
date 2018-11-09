@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Gecko;
+using MediaToolkit;
+using MediaToolkit.Model;
 using ReactShared;
 using SIL.Reporting;
 
@@ -78,7 +81,7 @@ namespace Transcribe.Windows
 							new DeleteUser(e.Uri.Query);
 							break;
 						case "UpdateTask":
-							new UpdateTask(e.Uri.Query, e.RequestBody);
+							new UpdateTask(e.Uri.Query, e.RequestBody, GetAudioDuration);
 							break;
 						case "DeleteTask":
 							new DeleteTask(e.Uri.Query);
@@ -129,6 +132,17 @@ namespace Transcribe.Windows
 			}
 
 			return image;
+		}
+
+		public static string GetAudioDuration(string audioFilePath)
+		{
+			var inputFile = new MediaFile { Filename = audioFilePath };
+			using (var engine = new Engine())
+			{
+				engine.GetMetadata(inputFile);
+			}
+
+			return inputFile.Metadata.Duration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
 		}
 
 	}

@@ -9,9 +9,10 @@ namespace ReactShared
 {
 	public class UpdateTask
 	{
+		public delegate string GetAudioDuration(string audioFilePath);
 		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3}):([0-9]{1,3})-([0-9]{1,3})$", RegexOptions.Compiled);
 
-		public UpdateTask(string query, byte[] requestBody)
+		public UpdateTask(string query, byte[] requestBody, GetAudioDuration getAudioDuration)
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var task = parsedQuery["task"];
@@ -56,7 +57,7 @@ namespace ReactShared
 
 			if (timeDuration == null && audioFilePath.Trim().Length > 0)
 			{
-				timeDuration = Util.GetAudioDuration(audioFilePath);
+				timeDuration = getAudioDuration(audioFilePath);
 			}
 
 			var taskNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']/task[@id='{taskId}']") as XmlElement;
