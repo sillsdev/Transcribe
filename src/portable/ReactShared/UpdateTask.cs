@@ -9,7 +9,7 @@ namespace ReactShared
 {
 	public class UpdateTask
 	{
-		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3}):([0-9]{1,3})-([0-9]{1,3})$", RegexOptions.Compiled);
+		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3})(:|\.)([0-9]{1,3})(-|,)([0-9]{1,3})$", RegexOptions.Compiled);
 
 		public UpdateTask(string query, byte[] requestBody)
 		{
@@ -38,7 +38,7 @@ namespace ReactShared
 				var refMatch = ReferencePattern.Match(reference);
 				if (refMatch.Success)
 				{
-					taskId = $"{project}-{refMatch.Groups[1].Value}-{int.Parse(refMatch.Groups[2].Value):D3}-{int.Parse(refMatch.Groups[3].Value):D3}{int.Parse(refMatch.Groups[4].Value):D3}";
+					taskId = $"{project}-{refMatch.Groups[1].Value}-{int.Parse(refMatch.Groups[2].Value):D3}-{int.Parse(refMatch.Groups[4].Value):D3}{int.Parse(refMatch.Groups[6].Value):D3}";
 				}
 				else if (!string.IsNullOrEmpty(audioFile))
 				{
