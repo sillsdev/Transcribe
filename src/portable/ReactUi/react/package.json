@@ -29,6 +29,7 @@
     "react-avatar": "^3.0.2",
     "react-avatar-edit": "^0.6.0",
     "react-bootstrap": "^0.32.1",
+    "react-contextmenu": "^2.10.0",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
     "react-fontawesome": "^1.6.1",

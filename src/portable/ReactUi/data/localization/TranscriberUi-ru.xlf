@@ -530,5 +530,17 @@
 				<target>Скопировать в буфер обмена</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Сделать новый проект</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Изменить изображение проекта</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

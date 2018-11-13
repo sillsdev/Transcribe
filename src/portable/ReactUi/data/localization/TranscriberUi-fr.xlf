@@ -530,5 +530,17 @@
 				<target>copier dans le presse-papier électronique</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Faire un nouveau projet</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Changer l'image du projet</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

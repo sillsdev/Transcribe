@@ -530,5 +530,17 @@
 				<target>Copiar para área de transferência</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Faça um novo projeto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Alterar imagem do projeto</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

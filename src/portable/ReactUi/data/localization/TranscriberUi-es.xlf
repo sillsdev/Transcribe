@@ -530,5 +530,17 @@
 				<target>Copiar al Portapapeles</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Hacer nuevo proyecto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Cambiar la imagen del proyecto</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

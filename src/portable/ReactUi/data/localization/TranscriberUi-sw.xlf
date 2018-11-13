@@ -530,5 +530,17 @@
 				<target>Nakili na Kuweka mahali</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Fanya mradi mpya</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Badilisha picha ya mradi</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

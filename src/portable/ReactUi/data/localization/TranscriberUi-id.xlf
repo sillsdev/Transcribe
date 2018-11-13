@@ -530,5 +530,17 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

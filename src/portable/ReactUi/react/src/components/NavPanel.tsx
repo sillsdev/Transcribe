@@ -27,6 +27,8 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         super(props);
         this.state = {...initialState}
         this.onLogOutClick = this.onLogOutClick.bind(this);
+        this.onNewProject = this.onNewProject.bind(this);
+        this.onChangeImage = this.onChangeImage.bind(this);
     }
 
     public onToDoClick()
@@ -58,6 +60,14 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         this.setState({...this.state, backToHome: true})
     }
 
+    public onNewProject() {
+        alert("New Project");
+    }
+
+    public onChangeImage() {
+        alert("Change Image");
+    }
+
     public render() {
         const { tasks, selectedProject, users, selectedUser, strings } = this.props;
         const { backToHome } = this.state;
@@ -84,10 +94,12 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         const projectAvatar = project? (
             <Project id={project.id}
                 name={project.id}
-                size="48"
                 target={projectClick}
                 uri={project.uri !== undefined? project.uri:""}
-                isAdmin = {(admin !== undefined && admin !== null)?true : false} />):"";
+                isAdmin = {(admin !== undefined && admin !== null)?true : false}
+                newProject={this.onNewProject}
+                changeImage={this.onChangeImage} />):"";
+
         return (
             <div id="NavPanel" className="NavPanel">
                 {projectAvatar}
@@ -103,7 +115,6 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
                 <div className="LogoutStyle">
                     <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" onClick={this.onLogOutClick} />
                 </div>
-                {/* <div>{"\xA0"}</div> */}
                 {userAvatar}
             </div>
         )
