@@ -104,6 +104,42 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="transcribe.todo">
+			<segment>
+				<source>To Do</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.all">
+			<segment>
+				<source>All</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
