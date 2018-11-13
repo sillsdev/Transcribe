@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
+import { bindActionCreators } from 'redux';
 import { log } from '../actions/logAction';
+import * as actions from '../actions/paratextProjectActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
@@ -9,15 +12,22 @@ import User from './controls/User';
 import './NavPanel.sass';
 import IconButtonField from './ui-controls/IconButtonField';
 
-interface IProps {
-    selectedProject: string;
-    selectedUser: string;
-    strings: ITranscriberStrings;
-    tasks: IProject[];
-    users: IUser[];
+interface IProps extends IStateProps, IDispatchProps{
+
 };
 
-class NavPanel extends React.Component<IProps, object> {
+const initialState = {
+    backToHome: false
+}
+
+class NavPanel extends React.Component<IProps, typeof initialState> {
+    public state: typeof initialState;
+
+    public constructor(props: IProps) {
+        super(props);
+        this.state = {...initialState}
+        this.onLogOutClick = this.onLogOutClick.bind(this);
+    }
 
     public onToDoClick()
     {
@@ -44,13 +54,13 @@ class NavPanel extends React.Component<IProps, object> {
         alert("Synced Clicked!");
     }
 
-    public onLogOutClick()
-    {
-        alert("Log Out Clicked!");
+    public onLogOutClick() {
+        this.setState({...this.state, backToHome: true})
     }
 
     public render() {
         const { tasks, selectedProject, users, selectedUser, strings } = this.props;
+        const { backToHome } = this.state;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
         const project = tasks.filter(t => t.id === selectedProject)[0];
@@ -59,6 +69,11 @@ class NavPanel extends React.Component<IProps, object> {
         log("NavPanel")
         if (admin !== undefined && admin !== null) {
             projectClick = "/ProjectSettings";
+		}
+        if (backToHome) {
+            return (
+                <Redirect to="/" push={true} />
+            );
         }
         const userAvatar = user ? (
             <User id={user.username.id}
@@ -95,7 +110,15 @@ class NavPanel extends React.Component<IProps, object> {
     }
 };
 
-const mapStateToProps = (state: IState): IProps => ({
+interface IStateProps {
+    selectedProject: string;
+    selectedUser: string;
+    strings: ITranscriberStrings;
+    tasks: IProject[];
+    users: IUser[];
+};
+
+const mapStateToProps = (state: IState): IStateProps => ({
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "transcriber"}),
@@ -103,4 +126,15 @@ const mapStateToProps = (state: IState): IProps => ({
     users: state.users.users,
 });
 
-export default connect(mapStateToProps)(NavPanel);
+interface IDispatchProps {
+
+    selectParatextProject: typeof actions.selectParatextProject;
+};
+
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+        selectParatextProject: actions.selectParatextProject,
+    }, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavPanel);
