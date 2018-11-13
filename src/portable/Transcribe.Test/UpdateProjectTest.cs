@@ -33,7 +33,7 @@ namespace Transcribe.Test
 			Util.DataFolder = _outputPath;
 			File.Copy(Path.Combine(_inputPath, "tasksInit.xml"), Path.Combine(_outputPath, "tasks.xml"), true);
 			new UpdateProject(
-				"project=TTP&name=Transcriber%20Test%20Project&guid=56b5e92a343485542880fd5eda0f0082984b01dc&lang=en&langName=English&font=&size=10&features=&dir=ltr&type=Bible");
+				"project=TTP&name=Transcriber%20Test%20Project&guid=56b5e92a343485542880fd5eda0f0082984b01dc&lang=en&langName=English&font=&size=10&features=&dir=ltr&type=Bible&uri=/assets/bibleAvatar.png");
 			XmlAssert.AreEqual(Path.Combine(_expectedPath, "UpdateProjectTtpTasks.xml"), Path.Combine(_outputPath, "tasks.xml"), "UpdateProject TTP");
 		}
 	}
