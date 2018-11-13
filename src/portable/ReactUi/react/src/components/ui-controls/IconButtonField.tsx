@@ -28,8 +28,8 @@ class IconButtonField extends React.Component<IProps, any> {
         const iconButtonStyle = (bgColor !== undefined && bgColor.length > 0) ? "IconButtonField DefaultBgColor" : "IconButtonField"
         return (
             <div id={id} className={iconButtonStyle} onClick={this.handleClick}>
-                <img src={"/assets/" + imageUrl} className="CaptionImage" alt={caption.charAt(0).toUpperCase()} />
-                <label className="Caption">{caption.toUpperCase()}</label>
+                <img src={"/assets/" + imageUrl} className="CaptionImage" alt={caption && caption.charAt(0).toUpperCase()} />
+                <label className="Caption">{caption && caption.toUpperCase()}</label>
             </div>
         )
     }
