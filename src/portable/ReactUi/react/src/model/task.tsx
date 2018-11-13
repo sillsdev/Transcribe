@@ -31,6 +31,7 @@ interface IProject {
     sync?: boolean;
     claim?: boolean;
     type?: string;
+    uri?: string;
     task: ITask[];
 };
 

@@ -1,0 +1,93 @@
+@import "../../_variables.sass"
+
+.Project
+	width: 206px
+	height: 204px
+	text-align: center
+	top: 0px
+	left: 0px
+	display: flex
+    justify-content: center
+    align-items: center
+    overflow: hidden
+	.main
+		width: 100%
+		-moz-border-width: 2px
+		border-width: 2px
+		border: solid transparent
+	.main .adminDiv
+		display: none
+	.main:hover
+		-moz-border-width: 2px
+		border-width: 2px
+		-moz-border-top-colors: $cyan2
+		-moz-border-bottom-colors: $cyan2
+		-moz-border-right-colors: $cyan2
+		-moz-border-left-colors: $cyan2
+		border: solid $cyan2
+		box-sizing: border-box
+		-moz-box-sizing: border-box
+		background-color: $taskBG
+	.main:hover .adminDiv
+		display: block
+	.main:hover .projectImage
+		opacity: 0.5
+	.mainNotAdmin
+		width: 100%
+		-moz-border-width: 2px
+		border-width: 2px
+		border: solid transparent
+		cursor: default
+	.caption
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		color: $litUpText
+		font-family: $sans
+		font-size: 34px
+		line-height: 40px
+		align: centre
+		letter-spacing: 0.25px
+		width: 192px
+		height: 96px
+		left: 8px
+		top: 8px
+		vertical-align: center
+	.projectImage
+		position: relative
+		top: 0
+		left: 0
+		flex-shrink: 0
+		min-width: 100%
+		min-height: 100%
+	.adminIcon
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		top: 77.13px
+		left: 69px
+		width: 70px
+		height: 70px
+	.adminCaption
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		color: $litUpText
+		font-family: $sans
+		font-size: 14px
+		line-height: 16px
+		align: centre
+		letter-spacing: 0.75px
+		width: 49px
+		height: 17px
+		left: 80px
+		top: 147px
+		vertical-align: center
+
+	a:active
+		outline: none

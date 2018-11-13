@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Web;
 using System.Xml;
 
@@ -21,8 +22,14 @@ namespace ReactShared
 			var sync = parsedQuery["sync"];
 			var claim = parsedQuery["claim"];
 			var type = parsedQuery["type"];
+			var uri = parsedQuery["uri"];
+			if (uri.Trim().ToLower() == "undefined")
+			{
+				var apiFolder = Util.ApiFolder();
+				uri = "/assets/bibleAvatar.png";
+			}
 			var message =
-				$"UpdateProject id={id}, name={name}, guid={guid}, lang={lang}, langName={langName}, font={font}, size={size}, features={features}, direction={dir}, synch={sync}, claim={claim}, type={type}";
+				$"UpdateProject id={id}, name={name}, guid={guid}, lang={lang}, langName={langName}, font={font}, size={size}, features={features}, direction={dir}, synch={sync}, claim={claim}, type={type}, uri={uri}";
 			Debug.Print(message);
 			var tasksDoc = Util.LoadXmlData("tasks");
 			var taskNode = tasksDoc.SelectSingleNode($"//project[@id = '{id}']") ??
@@ -39,6 +46,7 @@ namespace ReactShared
 			Util.NewAttr(taskNode, "sync", sync);
 			Util.NewAttr(taskNode, "claim", claim);
 			Util.NewAttr(taskNode, "type", type);
+			Util.NewAttr(taskNode,"uri", uri);
 			using (var xw = XmlWriter.Create(Util.XmlFullName("tasks"), new XmlWriterSettings { Indent = true }))
 			{
 				tasksDoc.Save(xw);

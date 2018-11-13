@@ -165,7 +165,7 @@ export const updateProject = (project: IProject) => (dispatch: any) => {
         payload: project.id,
         type: UPDATE_PROJECT
     })
-    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&sync=' + project.sync + '&claim=' + project.claim + '&type=' + project.type )
+    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&sync=' + project.sync + '&claim=' + project.claim + '&type=' + project.type + '&uri=' + project.uri )
         .then (dispatch(fetchTasksOfProject(project.id)))
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + UPDATE_PROJECT +  ", id=" + project.id))

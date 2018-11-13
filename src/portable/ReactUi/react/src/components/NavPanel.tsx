@@ -4,9 +4,7 @@ import { log } from '../actions/logAction';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
-import AvatarLink from './controls/AvatarLink';
-import BackLink from './controls/BackLink';
-import { ProjectAvatar } from './controls/ProjectAvatar';
+import Project from './controls/Project';
 import User from './controls/User';
 import './NavPanel.sass';
 import IconButtonField from './ui-controls/IconButtonField';
@@ -56,31 +54,27 @@ class NavPanel extends React.Component<IProps, object> {
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
         const project = tasks.filter(t => t.id === selectedProject)[0];
-        let backLinkWrapper = <BackLink target="/" />;
         let projectClick = "/main";
 
         log("NavPanel")
         if (admin !== undefined && admin !== null) {
             projectClick = "/ProjectSettings";
-            if (tasks.length === 1 && users.length === 1) {
-                backLinkWrapper = <div />;
-            }
         }
         const userAvatar = user ? (
             <User id={user.username.id}
                 name={user.displayName}
-                role={user.role}
                 target="/settings"
-                uri={user.username.avatarUri ? user.username.avatarUri : ""} />) : "";
-        const projectAvatar = project ? (
-            <AvatarLink id={project.id}
+                uri={user.username.avatarUri? user.username.avatarUri: ""}
+                role={user.role} />): "";
+        const projectAvatar = project? (
+            <Project id={project.id}
                 name={project.id}
                 size="48"
                 target={projectClick}
-                uri={ProjectAvatar[project.type !== undefined ? project.type : "Bible"]} />) : "";
+                uri={project.uri !== undefined? project.uri:""}
+                isAdmin = {(admin !== undefined && admin !== null)?true : false} />):"";
         return (
             <div id="NavPanel" className="NavPanel">
-                {backLinkWrapper}
                 {projectAvatar}
                 <div className="TodoStyle">
                     <IconButtonField id="icon1" caption={strings.todo} imageUrl="TodoIcon.svg" bgColor="true" onClick={this.onToDoClick} />
