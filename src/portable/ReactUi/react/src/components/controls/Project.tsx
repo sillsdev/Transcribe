@@ -47,8 +47,8 @@ class Project extends React.Component<IProps, object> {
             adminWrapper = (<div />);
             linkClassName = "mainNotAdmin";
         }
-        alert(uri)
-        const imgWrapper = (uri != null && uri !== "")? <img src={uri} className="projectImage" />: ""
+        const imgWrapper = (uri != null && uri !== "")? 
+            <img src={uri} className="projectImage" />: ""
         return(
             <div id={id} className="Project">
                 <Link to={target} onClick={select && select.bind(this, id)} className={linkClassName}>
