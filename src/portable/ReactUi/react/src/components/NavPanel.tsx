@@ -106,12 +106,12 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
                 <div className="TodoStyle">
                     <IconButtonField id="icon1" caption={strings.todo} imageUrl="TodoIcon.svg" bgColor="true" onClick={this.onToDoClick} />
                 </div>
-                <div className="OptionsStyle">
+{/*                 <div className="OptionsStyle">
                     <IconButtonField id="icon2" caption={strings.all} imageUrl="AllIcon.svg" onClick={this.onAllClick} />
                     <IconButtonField id="icon3" caption={strings.transcribed} imageUrl="TranscribedIcon.svg" onClick={this.onTranscribedClick} />
                     <IconButtonField id="icon4" caption={strings.reviewed} imageUrl="ReviewedIcon.svg" onClick={this.onReviewedClick} />
                     <IconButtonField id="icon5" caption={strings.synced} imageUrl="SyncedIcon.svg" onClick={this.onSyncedClick} />
-                </div>
+                </div> */}
                 <div className="LogoutStyle">
                     <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" onClick={this.onLogOutClick} />
                 </div>
