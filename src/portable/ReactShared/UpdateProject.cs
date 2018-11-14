@@ -26,7 +26,7 @@ namespace ReactShared
 			if (uri.Trim().ToLower() == "undefined")
 			{
 				var apiFolder = Util.ApiFolder();
-				uri = "/assets/bibleAvatar.png";
+				uri = "/assets/openBible.png";
 			}
 			var message =
 				$"UpdateProject id={id}, name={name}, guid={guid}, lang={lang}, langName={langName}, font={font}, size={size}, features={features}, direction={dir}, synch={sync}, claim={claim}, type={type}, uri={uri}";
