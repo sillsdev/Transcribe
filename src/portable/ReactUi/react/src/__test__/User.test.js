@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import sinon from 'sinon';
-import User from '../components/controls/User';
+import {User} from '../components/controls/User';
 
 configure({ adapter: new Adapter() })
 
@@ -15,6 +15,11 @@ describe('>>>Control: User --- Snapshot',()=>{
         id: "my id",
         name: "my name",
         role: ["my role1","my role2", "my role3"],
+        strings: {
+            admin: "Admin",
+            reviewer: "Reviewer",
+            transcriber: "Transcriber"
+        },
         target: "/root",
         uri: "images/myImage.png"
     };
@@ -31,6 +36,11 @@ describe('>>>Control: User', () => {
         id: "my id",
         name: "my name",
         role: ["my role1","my role2", "my role3"],
+        strings: {
+            admin: "Admin",
+            reviewer: "Reviewer",
+            transcriber: "Transcriber"
+        },
         target: "/root",
         uri: "images/myImage.png",
     };

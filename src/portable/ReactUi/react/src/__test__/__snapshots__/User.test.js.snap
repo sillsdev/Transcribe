@@ -73,7 +73,7 @@ exports[`>>>Control: User --- Snapshot +++capturing Snapshot of User 1`] = `
       className="role"
     >
       working as 
-      my role1 + my role2 + my role3
+      Transcriber
     </div>
   </div>
 </a>
