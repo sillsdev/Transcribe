@@ -311,7 +311,19 @@
 		<unit id="userSettings.speedUpErrorMessage">
 			<segment>
 				<source>Please fill in the Speed Up</source>
-				<target></target>
+				<target>Tafadhali kujaza kasi ya juu</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>Image Mpya</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Zoom</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.next">

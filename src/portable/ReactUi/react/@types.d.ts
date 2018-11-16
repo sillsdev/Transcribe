@@ -4,3 +4,5 @@ declare module 'react-tooltip';
 declare module 'react-ionicons';
 declare module 'react-toggle-switch';
 declare module 'react-contextmenu';
+declare module 'react-avatar-editor';
+declare module 'react-dropzone';
