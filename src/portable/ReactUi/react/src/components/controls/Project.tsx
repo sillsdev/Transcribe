@@ -53,7 +53,7 @@ class Project extends React.Component<IProps, object> {
             <div id={id} className="Project">
                 <Link to={target} onClick={select && select.bind(this, id)} className={linkClassName}>
                     {imgWrapper}
-                    <div className="caption">{id}</div>
+                    <div className="captionDiv"><span className="caption">{id}</span></div>
                     {adminWrapper}
                 </Link>
             </div>
