@@ -6,6 +6,7 @@ interface IProps {
     caption: string,
     imageUrl: string,
     bgColor?: string,
+    hidden?: boolean,
     onClick?: (context: any) => any;
 }
 
@@ -24,8 +25,9 @@ class IconButtonField extends React.Component<IProps, any> {
     }
 
     public render() {
-        const { bgColor, caption, id, imageUrl } = this.props;
-        const iconButtonStyle = (bgColor !== undefined && bgColor.length > 0) ? "IconButtonField DefaultBgColor" : "IconButtonField"
+        const { bgColor, caption, hidden, id, imageUrl } = this.props;
+        let iconButtonStyle = (bgColor !== undefined && bgColor.length > 0) ? "IconButtonField DefaultBgColor" : "IconButtonField"
+        iconButtonStyle = (hidden)? iconButtonStyle + " Hidden" : iconButtonStyle
         return (
             <div id={id} className={iconButtonStyle} onClick={this.handleClick}>
                 <img src={"/assets/" + imageUrl} className="CaptionImage" alt={caption && caption.charAt(0).toUpperCase()} />
