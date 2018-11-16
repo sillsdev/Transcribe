@@ -314,6 +314,18 @@
 				<target>Don Allah cika cikawar</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>New Image</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Zoom</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>

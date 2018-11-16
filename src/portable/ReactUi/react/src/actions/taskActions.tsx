@@ -4,7 +4,7 @@ import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
     COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
     FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT,
-    SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_TASK, 
+    SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR, UPDATE_TASK,
     WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { fetchUsers, saveUserSetting } from './userActions';
 
@@ -180,6 +180,16 @@ export const copyToClipboard = (taskid: string) => (dispatch: any) => {
     Axios.put('/api/CopyToClipboard?task=' + taskid)
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + COPY_TO_CLIPBOARD +  ", id=" + taskid))
+        });
+}
+
+
+export const updateProjectAvatar = (user: string, project: string,  data: object) => (dispatch: any) => {
+    dispatch({type: UPDATE_PROJECT_AVATAR});
+    Axios.put('/api/UpdateProjectAvatar?project=' + project, data)
+        .then(dispatch(fetchTasks(user)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + UPDATE_PROJECT_AVATAR + ", user=" + user + ", project=" + project))
         });
 }
 

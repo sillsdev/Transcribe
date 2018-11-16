@@ -66,6 +66,9 @@ namespace Transcribe.Windows
 						case "UpdateAvatar":
 							new UpdateAvatar(e.Uri.Query, e.RequestBody, SaveImage);
 							break;
+						case "UpdateProjectAvatar":
+							new UpdateProjectAvatar(e.Uri.Query, e.RequestBody, SaveImage);
+							break;
 						case "UpdateProject":
 							new UpdateProject(e.Uri.Query);
 							break;

@@ -1,16 +1,29 @@
-.AvatarEdit 
+@import "../_variables.sass"
+
+.AvatarEdit
 	display: flex
-	flex-direction: column
+	flex-direction: row
 	.content
 		display: flex
 		flex-direction: row
-		padding: 40px
-	.preview 
 		margin: 80px
-		flex: 0 0 auto
-		flex-direction: column
-		align-items: center
-	
+		flex: 1 0 auto
+		.leftContent
+			flex-direction: column
+		.rightContent
+			padding-left: 5%
+			justify-content: space-around
+			flex-direction: column
+			div
+				margin: 25px
 	img 
 		width: 64px
 		height: 64px
+
+input
+	color: $base1
+	font-family: $sans
+	font-style: normal
+	font-size: 12px
+	line-height: 16px
+	letter-spacing: 15%

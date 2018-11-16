@@ -314,6 +314,18 @@
 				<target>தயவு செய்து வேகமாக்குவதை நிரப்பவும்</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>புதிய படம்</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>பெரிதாக்கு</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
