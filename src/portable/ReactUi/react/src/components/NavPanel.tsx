@@ -77,10 +77,13 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
         const project = tasks.filter(t => t.id === selectedProject)[0];
         let projectClick = "/main";
-
+        let isAdminAsFirstUser = false;
         log("NavPanel")
         if (admin !== undefined && admin !== null) {
             projectClick = "/ProjectSettings";
+            if(tasks.length === 1 && users.length === 1){
+                isAdminAsFirstUser = true
+            }
 		}
         if (backToHome) {
             return ( <Redirect to="/" push={true} /> );
@@ -116,7 +119,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
                     <IconButtonField id="icon5" caption={strings.synced} imageUrl="SyncedIcon.svg" onClick={this.onSyncedClick} />
                 </div> */}
                 <div className="LogoutStyle">
-                    <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" reverse={direction !== undefined && direction === "rtl"} onClick={this.onLogOutClick} />
+                    <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" reverse={direction !== undefined && direction === "rtl"} hidden={isAdminAsFirstUser} onClick={this.onLogOutClick} />
                 </div>
                 {userAvatar}
             </div>
