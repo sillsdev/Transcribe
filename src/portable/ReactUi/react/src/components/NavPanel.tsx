@@ -6,6 +6,7 @@ import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
+import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import Project from './controls/Project';
 import User from './controls/User';
@@ -70,7 +71,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
     }
 
     public render() {
-        const { tasks, selectedProject, users, selectedUser, strings } = this.props;
+        const { direction, tasks, selectedProject, users, selectedUser, strings } = this.props;
         const { backToHome, showProjectEdit } = this.state;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
@@ -115,7 +116,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
                     <IconButtonField id="icon5" caption={strings.synced} imageUrl="SyncedIcon.svg" onClick={this.onSyncedClick} />
                 </div> */}
                 <div className="LogoutStyle">
-                    <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" onClick={this.onLogOutClick} />
+                    <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" reverse={direction !== undefined && direction === "rtl"} onClick={this.onLogOutClick} />
                 </div>
                 {userAvatar}
             </div>
@@ -124,6 +125,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 };
 
 interface IStateProps {
+    direction: string;
     selectedProject: string;
     selectedUser: string;
     strings: ITranscriberStrings;
@@ -132,6 +134,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    direction: uiDirection(state),
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "transcriber"}),

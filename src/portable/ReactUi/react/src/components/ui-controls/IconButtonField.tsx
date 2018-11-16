@@ -6,6 +6,7 @@ interface IProps {
     caption: string,
     imageUrl: string,
     bgColor?: string,
+    reverse?: boolean,
     onClick?: (context: any) => any;
 }
 
@@ -24,11 +25,12 @@ class IconButtonField extends React.Component<IProps, any> {
     }
 
     public render() {
-        const { bgColor, caption, id, imageUrl } = this.props;
+        const { bgColor, caption, id, imageUrl, reverse } = this.props;
         const iconButtonStyle = (bgColor !== undefined && bgColor.length > 0) ? "IconButtonField DefaultBgColor" : "IconButtonField"
+        const imageStyle = (reverse)? "CaptionImage Reverse":"CaptionImage"
         return (
             <div id={id} className={iconButtonStyle} onClick={this.handleClick}>
-                <img src={"/assets/" + imageUrl} className="CaptionImage" alt={caption && caption.charAt(0).toUpperCase()} />
+                <img src={"/assets/" + imageUrl} className={imageStyle} alt={caption && caption.charAt(0).toUpperCase()} />
                 <label className="Caption">{caption && caption.toUpperCase()}</label>
             </div>
         )
