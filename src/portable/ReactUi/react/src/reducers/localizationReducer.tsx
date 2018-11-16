@@ -86,6 +86,7 @@ const initialState = {
 			"medium": "Medium",
 			"name": "Name",
 			"nameErrorMessage": "Please fill in the Name",
+			"newImage": "New Image",
 			"password": "Password",
 			"playPause": "Play / Pause",
 			"playPauseErrorMessage": "Please fill in the Play/Pause",
@@ -103,6 +104,7 @@ const initialState = {
 			"speedUpErrorMessage": "Please fill in the Speed Up",
 			"transcriber": "Transcriber",
 			"user": "User",
+			"zoom": "Zoom"
 		}
 	}),
 };

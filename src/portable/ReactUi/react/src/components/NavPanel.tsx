@@ -18,7 +18,8 @@ interface IProps extends IStateProps, IDispatchProps{
 };
 
 const initialState = {
-    backToHome: false
+    backToHome: false,
+    showProjectEdit: false,
 }
 
 class NavPanel extends React.Component<IProps, typeof initialState> {
@@ -66,12 +67,12 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
     }
 
     public onChangeImage() {
-        alert("Change Image");
+        this.setState({...this.state, showProjectEdit: true})
     }
 
     public render() {
         const { direction, tasks, selectedProject, users, selectedUser, strings } = this.props;
-        const { backToHome } = this.state;
+        const { backToHome, showProjectEdit } = this.state;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
         const project = tasks.filter(t => t.id === selectedProject)[0];
@@ -82,9 +83,10 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
             projectClick = "/ProjectSettings";
 		}
         if (backToHome) {
-            return (
-                <Redirect to="/" push={true} />
-            );
+            return ( <Redirect to="/" push={true} /> );
+        }
+        if(showProjectEdit){
+            return ( <Redirect to="/avatar/Project" push={true} /> );
         }
         const userAvatar = user ? (
             <User id={user.username.id}

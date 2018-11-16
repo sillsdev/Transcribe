@@ -56,6 +56,8 @@ export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "fastForwardErrorMessage": string;
     "slowDownErrorMessage": string;
     "speedUpErrorMessage": string;
+    "newImage": string;
+    "zoom": string;
 };
 
 export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethods {
