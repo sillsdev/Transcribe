@@ -554,5 +554,11 @@
 				<target>تغيير صورة المشروع</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>معاينة</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

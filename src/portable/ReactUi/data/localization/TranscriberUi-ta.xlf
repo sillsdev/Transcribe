@@ -554,5 +554,11 @@
 				<target>திட்டத்தின் படத்தை மாற்றவும்</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>முன்னோட்ட</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

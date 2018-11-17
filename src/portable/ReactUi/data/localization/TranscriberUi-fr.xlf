@@ -554,5 +554,11 @@
 				<target>Changer l'image du projet</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Aperçu</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

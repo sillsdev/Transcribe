@@ -554,5 +554,11 @@
 				<target>Canza siffar aikin</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Bayani</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

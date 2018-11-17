@@ -1,24 +1,20 @@
 @import "../../_variables.sass"
 
 .IconButtonField
-    width: 98%
     margin-top: 14px
     margin-bottom: 14px
-    left: 10%
     height: 48px
     display: flex
     justify-content: center
     align-items: center
     cursor: pointer
     border: 1px solid transparent
-    margin: auto
     .Caption
         display: flex
+        flex-direction: column
         justify-content: center
-        align-items: center
         width: 128px
         height: 48px
-        left: calc(50% - 128px/2 + 32px)
         font-family: $sans
         font-style: normal
         font-weight: 500
@@ -27,11 +23,8 @@
         letter-spacing: 0.75px
         text-transform: uppercase
         color: $base2
-        display: flex
-        justify-content: left
-        margin: auto
     .CaptionImage
-        margin: auto
+        margin: auto 16px
     .Reverse
         transform: scale(-1)
 

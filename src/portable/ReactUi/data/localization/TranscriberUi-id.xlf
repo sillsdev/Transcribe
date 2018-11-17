@@ -554,5 +554,11 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

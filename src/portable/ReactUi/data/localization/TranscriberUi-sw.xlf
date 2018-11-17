@@ -554,5 +554,11 @@
 				<target>Badilisha picha ya mradi</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Angalia</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

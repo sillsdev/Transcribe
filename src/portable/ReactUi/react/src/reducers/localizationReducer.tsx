@@ -29,6 +29,7 @@ const initialState = {
 			"pairWithParatext": "Pair with Paratext",
 			"pairedWithParatextProject": "Paired with Paratext project",
 			"people": "People",
+			"preview": "Preview",
 			"projectName": "Project Name",
 			"projectSettings": "Project Settings",
 			"reference": "Reference",

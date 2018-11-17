@@ -99,4 +99,5 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "copyToClipboard": string;
     "makeProject": string;
     "changeImage": string;
+    "preview": string;
 };
