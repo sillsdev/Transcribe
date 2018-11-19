@@ -6,6 +6,7 @@ interface IProps {
     caption: string,
     inputValue?: string,
     message?: string,
+    autofocus?: boolean
     isReadOnly?: boolean,
     onChange?: (value: string) => any;
     onBlur?: (value: string) => any;
@@ -43,9 +44,15 @@ class TextInputFieldUx extends React.Component<IProps, any> {
         }
     }
 
+    public  movePositionAtEnd(e: any) {
+        const tempValue = e.target.value
+        e.target.value = ''
+        e.target.value = tempValue
+    }
+
     public render() {
         const { current } = this.state;
-        const { caption, id, isReadOnly, message } = this.props;
+        const { autofocus, caption, id, isReadOnly, message } = this.props;
         const errorMessage = current !== "" && message? message: "";
         const messageStyle = (errorMessage.length > 0)? "Message CaptionRed BorderTopRed": "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0)? "Caption CaptionRed": "Caption CaptionGreen";
@@ -63,6 +70,8 @@ class TextInputFieldUx extends React.Component<IProps, any> {
                             value={current}
                             placeholder={caption}
                             onChange={this.handleChange}
+                            autoFocus={autofocus}
+                            onFocus={this.movePositionAtEnd}
                             onBlur={this.handleBlur}/>
                     </div>
                     <div className={clearStyle} onClick={this.handleClear}>
