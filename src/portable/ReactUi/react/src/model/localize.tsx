@@ -105,4 +105,6 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "transcribed": string;
     "reviewed": string;
     "synced": string;
+    "discardChanges": string;
+    "deleteTask": string;
 };

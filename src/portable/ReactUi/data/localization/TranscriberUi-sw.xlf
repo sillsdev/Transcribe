@@ -590,5 +590,17 @@
 				<target>Ilikubaliana</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>Kuondoa mabadiliko</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>Futa Kazi</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

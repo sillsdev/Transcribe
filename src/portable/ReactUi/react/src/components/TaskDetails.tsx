@@ -128,7 +128,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                         <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
                         <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} onBlur={this.validateReference} message={this.state.message}/></div>
                         <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
-                        <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} /></div>
+                        <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} direction={direction} /></div>
                     </div>
                     <div className="preview">
                         <LabelCaptionUx name={strings.preview} type="small" />
@@ -145,8 +145,8 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                         <div><RangeSliderField id="Slider1" marks={marks} caption={strings.milestones} onChange={this.updateTaskState} selected={taskState} /></div>
                     </div>
                     <div className="action">
-                        <IconButtonField id="discard" caption="Discard changes" imageUrl="CancelIcon.svg" onClick={this.discard}/>
-                        <IconButtonField id={"deleteTask" + (newTask? "Hide": "")} caption="Delete task" imageUrl="RejectIcon.svg" onClick={this.deleteTask}/>
+                        <IconButtonField id="discard" caption={strings.discardChanges} imageUrl="CancelIcon.svg" onClick={this.discard}/>
+                        <IconButtonField id={"deleteTask" + (newTask? "Hide": "")} caption={strings.deleteTask} imageUrl="RejectIcon.svg" onClick={this.deleteTask}/>
                     </div>
                 </div>
             </div>

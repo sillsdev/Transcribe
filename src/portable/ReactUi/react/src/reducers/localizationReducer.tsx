@@ -20,6 +20,8 @@ const initialState = {
 			"copyToClipboard": "Copy to Clipboard",
 			"createEmptyProject": "Create empty project",
 			"delete": "Delete",
+			"deleteTask": "Delete Task",
+			"discardChanges": "Discard changes",
 			"heading": "Heading",
 			"lookForProjects": "Looking for Paratext projects on this computer...",
 			"makeProject": "Make new project",

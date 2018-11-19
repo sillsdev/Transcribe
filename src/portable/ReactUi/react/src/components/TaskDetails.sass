@@ -10,6 +10,15 @@
     display: flex
     flex-direction: row
     justify-content: flex-end
+    &.rtl
+        direction: rtl
+        .panel
+            padding-right: 0
+            &>*
+                padding-left: 0
+                padding-right: 64px
+            &>.titleRow
+                padding-right: 0px
     .panel
         width: 576px
         height: 100%
@@ -24,8 +33,7 @@
         &>.titleRow
             padding-left: 0
             padding-bottom: 32px
-    &.rtl
-        direction: rtl
+        padding-left: 0
     .titleRow
         display: flex
         flex-direction: row
