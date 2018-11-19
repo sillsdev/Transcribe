@@ -134,7 +134,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                         </div>
                         <div className="resultsRight">
                             <div className="resultsRightBox">
-                                <div><TextField id="id1" caption={"Name"} inputValue={this.state.name} onChange={this.updateUserName} /></div>
+                                <div><TextField id="id1" autofocus={true} caption={"Name"} inputValue={this.state.name} onChange={this.updateUserName} /></div>
                                 <div className="rolesBox">
                                     <LabelUx name={strings.roles} />
                                     <RadioListField options={this.roleListLoc} selected={this.state.role} onChange={this.updateRoles} />
