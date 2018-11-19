@@ -560,5 +560,35 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

@@ -560,5 +560,35 @@
 				<target>предварительный просмотр</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Основные этапы</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Начните</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Трансляции</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Отзыв</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>синхронизированные</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

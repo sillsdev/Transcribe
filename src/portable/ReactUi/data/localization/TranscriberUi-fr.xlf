@@ -560,5 +560,35 @@
 				<target>Aperçu</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Les jalons</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Début</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Transcrit</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Commenté</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Synchronisé</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

@@ -6,3 +6,4 @@ declare module 'react-toggle-switch';
 declare module 'react-contextmenu';
 declare module 'react-avatar-editor';
 declare module 'react-dropzone';
+declare module 'rc-slider';

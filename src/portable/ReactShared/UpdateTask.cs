@@ -24,6 +24,7 @@ namespace ReactShared
 			var heading = parsedQuery["heading"];
 			var assignedTo = parsedQuery["assignedTo"];
 			var timeDuration = parsedQuery["timeDuration"];
+			var taskState = parsedQuery["state"];
 			var audioData = Util.GetRequestElement(requestBody, "data");
 
 			//Debug.Print($"{task}:{project}:{audioFile}:{reference}:{heading}:{assignedTo}:{timeDuration}");
@@ -71,11 +72,33 @@ namespace ReactShared
 			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
 			if (state == null || string.IsNullOrEmpty(state.InnerText))
 				Util.UpdateAttr(taskNode, "state", "Transcribe");
+			if(!string.IsNullOrEmpty(taskState))
+			{
+				Util.UpdateAttr(taskNode, "state", GetTaskStateInString(taskState));
+			}
 			
 			using (var xw = XmlWriter.Create(Util.XmlFullName("tasks"), new XmlWriterSettings {Indent = true}))
 			{
 				tasksDoc.Save(xw);
 			}
+		}
+
+		public string GetTaskStateInString(string index)
+		{
+			string state = "Transcribe";
+			if (index == "1")
+			{
+				state = "Review";
+			}
+			else if (index == "2")
+			{
+				state = "Upload";
+			}
+			else if (index == "3")
+			{
+				state = "Complete";
+			}
+			return state;
 		}
 
 		private void CreateAudioFile(string taskId, string fileName, string audioData)

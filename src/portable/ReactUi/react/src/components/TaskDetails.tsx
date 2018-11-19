@@ -18,6 +18,7 @@ import './TaskDetails.sass';
 import FileField from './ui-controls/FileField';
 import IconButtonField from './ui-controls/IconButtonField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
+import RangeSliderField from './ui-controls/RangeSliderField';
 import SelectField from './ui-controls/SelectField';
 import TextField from './ui-controls/TextField';
 
@@ -38,6 +39,7 @@ const initialState = {
     message: "",
     pair: false,
     reference: "",
+    taskState: 0,
 }
 
 class TaskDetails extends React.Component<IProps, typeof initialState> {
@@ -57,6 +59,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.fileRef = React.createRef();
         this.validateReference = this.validateReference.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
+        this.updateTaskState = this.updateTaskState.bind(this);
 
         const { popupTask } = this.props;
         this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
@@ -66,6 +69,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             const idParts = this.taskId.split('-');
             this.state.reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "");
             this.state.heading = this.task.name?this.task.name:"";
+            this.state.taskState = this.task.state ? this.GetTaskStateIndex(this.task.state) : 0;
             if (this.task.assignedto != null) {
                 this.state.assignedTo = this.task.assignedto;
             }
@@ -76,8 +80,25 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.original = {...this.state};
     }
 
+    public GetTaskStateIndex(currentState: string) {
+        const { direction } = this.props;
+        const totalTaskStateIndex = 3; // From 0 - 3
+        if (currentState.toLowerCase() === "review") {
+            return (direction && direction === "rtl"? totalTaskStateIndex - 1 : 1);
+        }
+        if (currentState.toLowerCase() === "upload") {
+            return (direction && direction === "rtl"? totalTaskStateIndex - 2 : 2);
+        }
+        if (currentState.toLowerCase() === "complete") {
+            return (direction && direction === "rtl"? totalTaskStateIndex - 3 : 3);
+        }
+        else {
+            return (direction && direction === "rtl"? totalTaskStateIndex - 0 : 0);
+        }
+    }
+
     public render() {
-        const { discard, fileName, reference, heading, assignedTo } = this.state
+        const { discard, fileName, reference, heading, assignedTo, taskState } = this.state
         const { direction, deleted, strings, users } = this.props;
 
         if (deleted || discard) {
@@ -87,6 +108,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         // const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         const copyToClipboard = () => this.copyToClipboard();
+        const marks = (direction && direction === "rtl"?
+        {3:{label: strings.start,style:{color:'#F5CC4C',}},2:{label: strings.transcribed,style:{color:'#C7DE31',}},1:{label:strings.reviewed,style:{color:'#C7DE31',}},0:{label: strings.synced,style:{color:'#C7DE31',}},}
+        :
+        {0:{label: strings.start,style:{color:'#F5CC4C',}},1:{label: strings.transcribed,style:{color:'#C7DE31',}},2:{label:strings.reviewed,style:{color:'#C7DE31',}},3:{label: strings.synced,style:{color:'#C7DE31',}},})
         return (
             <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="panel">
@@ -115,6 +140,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             <Avatar name={this.displayName(assignedTo)} src={this.avatar(assignedTo)} size={64} round={true} />
                             <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
                         </div>
+                    </div>
+                    <div className="slider">
+                        <div><RangeSliderField id="Slider1" marks={marks} caption={strings.milestones} onChange={this.updateTaskState} selected={taskState} /></div>
                     </div>
                     <div className="action">
                         <IconButtonField id="discard" caption="Discard changes" imageUrl="CancelIcon.svg" onClick={this.discard}/>
@@ -154,6 +182,12 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.setState({...this.state, assignedTo: userId})
     }
 
+    private updateTaskState(selectedState: number) {
+        const { direction } = this.props;
+        const totalTaskStateIndex = 3; // From 0 - 3
+        this.setState({ ...this.state, taskState: (direction && direction === "rtl"? totalTaskStateIndex - selectedState : selectedState) })
+    }
+
     private myTask(taskId: string): ITask {
         return this.props.tasks.filter(t => t.id === taskId)[0];
     }
@@ -191,7 +225,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private save(ctx: TaskDetails) {
-        const { selectedProject, updateTask } = this.props;
+        const { direction, selectedProject, updateTask } = this.props;
 
         const updates = Array<string>();
         let data: object = {}
@@ -215,6 +249,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
         if (this.state.assignedTo !== this.original.assignedTo) {
             this.saveValue(updates, "assignedTo", this.state.assignedTo)
+        }
+
+        if (this.state.taskState !==  (direction && direction === "rtl"? 3 - this.original.taskState : this.original.taskState)) {
+            this.saveValue(updates, "state", this.state.taskState.toString())
         }
 
         if (updates.length > 0) {

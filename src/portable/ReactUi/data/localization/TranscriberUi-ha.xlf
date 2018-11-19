@@ -560,5 +560,35 @@
 				<target>Bayani</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Milestones</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Fara</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>An fassara</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Bincike</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Synced</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>
