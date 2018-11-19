@@ -100,4 +100,9 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "makeProject": string;
     "changeImage": string;
     "preview": string;
+    "milestones": string;
+    "start": string;
+    "transcribed": string;
+    "reviewed": string;
+    "synced": string;
 };

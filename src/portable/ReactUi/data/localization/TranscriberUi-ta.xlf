@@ -119,13 +119,13 @@
 		<unit id="transcribe.transcribed">
 			<segment>
 				<source>Transcribed</source>
-				<target>படியெடுக்கப்படுவதோடு</target>
+				<target>எழுத்துவடிவமாக்கப்பட்டது</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.reviewed">
 			<segment>
 				<source>Reviewed</source>
-				<target>மதிப்பிட்டது</target>
+				<target>சரிபார்க்கப்பட்டது</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.synced">
@@ -558,6 +558,36 @@
 			<segment>
 				<source>Preview</source>
 				<target>முன்னோட்ட</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>மைல்கற்கள்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>தொடக்கம்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>எழுத்துவடிவமாக்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>சரிபார்க்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>ஒத்திசைக்கப்பட்டது</target>
 			</segment>
 		</unit>
 	</file>
