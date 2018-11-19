@@ -1,4 +1,4 @@
-import { FETCH_PARATEXT_PROJECTS, SELECT_PARATEXT_PROJECT } from '../actions/types';
+import { CLEAR_SELECTED_PARATEXT_PROJECT, FETCH_PARATEXT_PROJECTS, SELECT_PARATEXT_PROJECT } from '../actions/types';
 
 const initialState = {
     loaded: false,    
@@ -18,6 +18,11 @@ export default function (state = initialState, action: any) {
             return {
                 ...state,                
                 paratextProjects: paratextProjects(state.paratextProjects, action),
+                selectedParatextProject: action.payload,
+            }
+            case CLEAR_SELECTED_PARATEXT_PROJECT:
+            return {
+                ...state,
                 selectedParatextProject: action.payload,
             }
             default:

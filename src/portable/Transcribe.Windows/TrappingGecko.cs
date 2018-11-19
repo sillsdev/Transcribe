@@ -38,6 +38,9 @@ namespace Transcribe.Windows
 						case "GetDefaultUserHotKeys":
 							new GetDefaultUserHotKeys();
 							break;
+						case "GetZttProjectsCount":
+							new GetZttProjectsCount();
+							break;
 					}
 				}
 				catch (Exception err)

@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { log } from '../actions/logAction';
 import { fetchTasksOfProject } from './taskActions';
-import { FETCH_PARATEXT_PROJECTS, SELECT_PARATEXT_PROJECT } from './types';
+import { CLEAR_SELECTED_PARATEXT_PROJECT, FETCH_PARATEXT_PROJECTS, SELECT_PARATEXT_PROJECT } from './types';
 
 export const fetchParatextProjects = () => (dispatch: any) => {
     Axios.get('/api/GetParatextProjects')
@@ -26,4 +26,11 @@ export const selectParatextProject = (project: IParatextProject) => (dispatch: a
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + SELECT_PARATEXT_PROJECT +  ", id=" + project.id))
         });
+}
+
+export function clearSelectedParatextProject(): any{
+    return {
+        payload: "",
+        type: CLEAR_SELECTED_PARATEXT_PROJECT
+    }
 }
