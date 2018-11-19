@@ -39,13 +39,15 @@
     select
         flex: 1 0 auto
         border: none
-        background: url("/assets/Dropdown.svg") 96% / 5% no-repeat transparent
+        background: url("/assets/Dropdown.svg") right / 5% no-repeat transparent
         -webkit-appearance: none
         -moz-appearance: none
         font-family: $sans
         line-height: 28px
         font-size: 16px
         letter-spacing: 0.444444px
+        &.rtl
+            background: url("/assets/Dropdown.svg") left / 5% no-repeat transparent
 
         option
             margin: 40px

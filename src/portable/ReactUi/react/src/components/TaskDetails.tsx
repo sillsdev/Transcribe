@@ -62,7 +62,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateTaskState = this.updateTaskState.bind(this);
 
         const { popupTask } = this.props;
-        this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
+        this.taskId =  this.props.history.location.pathname.indexOf("NewTask") > 0? "" : popupTask;
         if (this.taskId && this.taskId !== "") {
             this.task = this.myTask(this.taskId);
             this.state.fileName = this.task.id
@@ -104,14 +104,14 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         if (deleted || discard) {
             return (<Redirect to="/ProjectSettings" />)
         }
+        const newTask = this.props.history.location.pathname.indexOf("NewTask") > 0;
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
         // const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         const copyToClipboard = () => this.copyToClipboard();
-        const marks = (direction && direction === "rtl"?
-        {3:{label: strings.start,style:{color:'#F5CC4C',}},2:{label: strings.transcribed,style:{color:'#C7DE31',}},1:{label:strings.reviewed,style:{color:'#C7DE31',}},0:{label: strings.synced,style:{color:'#C7DE31',}},}
-        :
-        {0:{label: strings.start,style:{color:'#F5CC4C',}},1:{label: strings.transcribed,style:{color:'#C7DE31',}},2:{label:strings.reviewed,style:{color:'#C7DE31',}},3:{label: strings.synced,style:{color:'#C7DE31',}},})
+        const marks = (direction && direction === "rtl"
+            ? {3:{label: strings.start,style:{color:'#F5CC4C',}},2:{label: strings.transcribed,style:{color:'#C7DE31',}},1:{label:strings.reviewed,style:{color:'#C7DE31',}},0:{label: strings.synced,style:{color:'#C7DE31',}},}
+            : {0:{label: strings.start,style:{color:'#F5CC4C',}},1:{label: strings.transcribed,style:{color:'#C7DE31',}},2:{label:strings.reviewed,style:{color:'#C7DE31',}},3:{label: strings.synced,style:{color:'#C7DE31',}},})
         return (
             <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="panel">
@@ -120,7 +120,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                         <div className="title">
                             <LabelCaptionUx name={strings.taskDetails} type="H2" />
                         </div>
-                        <div className="copyAction">
+                        <div className={"copyAction" + (newTask? " hide": "")}>
                             <NextAction text={strings.copyToClipboard} target={copyToClipboard} type="safe" />
                         </div>
                     </div>
@@ -132,7 +132,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                     </div>
                     <div className="preview">
                         <LabelCaptionUx name={strings.preview} type="small" />
-                        <div className={"waveformRow" + (fileName !== "" || heading !== "" || reference !== ""? "": " hide")}>
+                        <div className={"waveformRow" + (fileName !== "" || heading !== "" || reference !== ""? "": " hide") + (fileName !== ""? "": " hideWave")}>
                             <TaskItem id="TaskItem" length={this.duration()} name={heading} reference={reference} selected={true} />
                             <div className={"selectBar" + (fileName !== ""? "": " hide")}>{"\u00A0"}</div>
                         </div>
@@ -141,12 +141,12 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
                         </div>
                     </div>
-                    <div className="slider">
+                    <div className={"slider" + (newTask? " hide": "")}>
                         <div><RangeSliderField id="Slider1" marks={marks} caption={strings.milestones} onChange={this.updateTaskState} selected={taskState} /></div>
                     </div>
                     <div className="action">
                         <IconButtonField id="discard" caption="Discard changes" imageUrl="CancelIcon.svg" onClick={this.discard}/>
-                        <IconButtonField caption="Delete task" imageUrl="RejectIcon.svg" onClick={this.deleteTask}/>
+                        <IconButtonField id={"deleteTask" + (newTask? "Hide": "")} caption="Delete task" imageUrl="RejectIcon.svg" onClick={this.deleteTask}/>
                     </div>
                 </div>
             </div>

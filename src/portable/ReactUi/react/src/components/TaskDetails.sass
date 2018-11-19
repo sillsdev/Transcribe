@@ -36,6 +36,8 @@
         .title
             align-self: flex-start
             flex: 1 0 auto
+        .copyAction.hide
+            display: none
         .copyAction
             display: flex
             flex-direction: column
@@ -45,7 +47,11 @@
         width: 448px
         .dataColumn
             max-width: 392px
+    .data>*>.SelectField .dataColumn
+            max-width: 448px
 
+    .slider.hide
+        display: none
     .slider
         width: 448px
         flex: 1 0 auto
@@ -65,11 +71,13 @@
     .waveformRow
         display: flex
         flex-direction: row
-        &>.TaskItem
+        >.TaskItem
             width: 448px
             height: 98px
             border-bottom: 1px solid $yellowLight
             background-size: 448px 96px
+        &.hideWave > .TaskItem
+            background: none
 
     .selectBar.hide
         display: none
@@ -78,7 +86,6 @@
         height: 98px
         margin-left: 16px
         background-color: $yellowLight
-        color: $yellowLight
 
     .AvatarRow.hide
         display: none
@@ -111,6 +118,8 @@
         margin: 0
     #discard label
         width: 144px
+    #deleteTaskHide
+        display: none
 
     TextInputFieldUx .TextInputFieldUx
         padding-bottom: 40px

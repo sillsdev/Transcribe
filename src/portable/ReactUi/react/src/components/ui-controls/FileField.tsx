@@ -41,6 +41,9 @@ class FileField extends React.Component<IProps, any> {
         if (!this.props.isReadOnly) {
             this.setState({current: "" })
         }
+        if (this.props.onChange != null) {
+            this.props.onChange("")
+        }
     }
 
     public render() {
