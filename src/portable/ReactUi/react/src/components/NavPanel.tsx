@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
+import * as actions2 from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
 import uiDirection from '../selectors/direction';
@@ -19,6 +20,7 @@ interface IProps extends IStateProps, IDispatchProps{
 
 const initialState = {
     backToHome: false,
+    goTosearchParatextProjects: false,
     showProjectEdit: false,
 }
 
@@ -63,7 +65,10 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
     }
 
     public onNewProject() {
-        alert("New Project");
+        const { clearSelectedParatextProject, fetchZttProjectsCount } = this.props;
+        clearSelectedParatextProject();
+        fetchZttProjectsCount();
+        this.setState({...this.state, goTosearchParatextProjects: true});
     }
 
     public onChangeImage() {
@@ -72,7 +77,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 
     public render() {
         const { direction, tasks, selectedProject, users, selectedUser, strings } = this.props;
-        const { backToHome, showProjectEdit } = this.state;
+        const { backToHome, goTosearchParatextProjects, showProjectEdit } = this.state;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
         const project = tasks.filter(t => t.id === selectedProject)[0];
@@ -90,6 +95,9 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         }
         if(showProjectEdit){
             return ( <Redirect to="/avatar/Project" push={true} /> );
+        }
+        if(goTosearchParatextProjects) {
+            return ( <Redirect to="/SearchParatextProjects" push={true} /> );
         }
         const userAvatar = user ? (
             <User id={user.username.id}
@@ -146,12 +154,15 @@ const mapStateToProps = (state: IState): IStateProps => ({
 });
 
 interface IDispatchProps {
-
+    clearSelectedParatextProject: typeof actions.clearSelectedParatextProject;
+    fetchZttProjectsCount: typeof actions2.fetchZttProjectsCount;
     selectParatextProject: typeof actions.selectParatextProject;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
+        clearSelectedParatextProject: actions.clearSelectedParatextProject,
+        fetchZttProjectsCount: actions2.fetchZttProjectsCount,
         selectParatextProject: actions.selectParatextProject,
     }, dispatch),
 });

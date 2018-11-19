@@ -3,7 +3,7 @@ import { log } from '../actions/logAction';
 import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
     COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
-    FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT,
+    FETCH_TASKS, FETCH_TRANSCRIPTION, FETCH_ZTT_PROJECTS_COUNT, SELECT_POPUP_TASK, SELECT_PROJECT,
     SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR, UPDATE_TASK,
     WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { fetchUsers, saveUserSetting } from './userActions';
@@ -99,6 +99,20 @@ export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
             dispatch(log(JSON.stringify(reason) + " fetch tasks of project, id=" + projectname))
         });
     }
+
+export const fetchZttProjectsCount = () => (dispatch: any) => {
+    Axios.get('/api/GetZttProjectsCount')
+        .then(zttProjectsCount => {
+            dispatch({
+                payload: zttProjectsCount,
+                type: FETCH_ZTT_PROJECTS_COUNT
+            });
+        })
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " fetch Ztt Projects Count"))
+        });
+}
+
 
 export const deleteTask = (taskid: string) => (dispatch: any) => {
     const project = taskid.split('-')[0];
