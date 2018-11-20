@@ -2,6 +2,7 @@
 
 .NavPanel 
 	width: 208px
+	height: 100%
 	display: flex
 	flex-direction: column
 	align-items: center
@@ -14,12 +15,21 @@
 		text-decoration: none
 
 	.TodoStyle
-		width: 99%
-		padding-bottom: 48px
+		display: flex
+		flex: 0 1 auto
+		.IconButtonField
+			margin-top: 24px
+			margin-bottom: 0px
 
 	.OptionsStyle
-		width: 99%
+		display: flex
+		flex: 1 0 auto
 
 	.LogoutStyle
-		width: 99%
-		padding: 48px 0
+		display: flex
+		flex: 0 1 auto
+		.IconButtonField
+			margin-top: 0
+			margin-bottom: 24px
+	.User
+		padding: 0
