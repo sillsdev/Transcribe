@@ -45,8 +45,7 @@ export default function (state = initialState, action: any) {
         }
         case FETCH_ZTT_PROJECTS_COUNT:
             return {
-                ...state,                
-                projects: state.projects.map((p: IProject) => project(p, action)),
+                ...state,
                 zttProjectsCount: action.payload.data,
         }
         case DELETE_TASK:
