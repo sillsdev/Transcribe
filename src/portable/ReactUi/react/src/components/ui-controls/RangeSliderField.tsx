@@ -33,7 +33,11 @@ class RangeSliderField extends React.Component<IProps, any> {
     public render() {
         const { caption, marks } = this.props;
         const { current } = this.state;
-        return (            
+        const yellowColor = "#F5CC4C";
+        if(current !== null) {
+            marks[current].style.color = yellowColor
+        }
+        return (
             <div className="RangeSliderField">
                 <div className="SliderCaption"><label className="Caption">{caption}</label></div>
                 <div className="SliderStyle"> <Slider min={0} max={3} marks={marks} step={null} onChange={this.handleChange} defaultValue={current} /></div>

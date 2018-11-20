@@ -81,20 +81,14 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     public GetTaskStateIndex(currentState: string) {
-        const { direction } = this.props;
-        const totalTaskStateIndex = 3; // From 0 - 3
-        if (currentState.toLowerCase() === "review") {
-            return (direction && direction === "rtl"? totalTaskStateIndex - 1 : 1);
+        const marks = this.GetRangeSliderMarks();
+         // 4 marks in range-slider {0 - 3}
+        for(let i=0; i<= 3; i++) {
+            if(marks[i].text === currentState) {
+                return i;
+            }
         }
-        if (currentState.toLowerCase() === "upload") {
-            return (direction && direction === "rtl"? totalTaskStateIndex - 2 : 2);
-        }
-        if (currentState.toLowerCase() === "complete") {
-            return (direction && direction === "rtl"? totalTaskStateIndex - 3 : 3);
-        }
-        else {
-            return (direction && direction === "rtl"? totalTaskStateIndex - 0 : 0);
-        }
+        return 0;
     }
 
     public render() {
@@ -106,12 +100,8 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         }
         const newTask = this.props.history.location.pathname.indexOf("NewTask") > 0;
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
-        // const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         const copyToClipboard = () => this.copyToClipboard();
-        const marks = (direction && direction === "rtl"
-            ? {3:{label: strings.start,style:{color:'#F5CC4C',}},2:{label: strings.transcribed,style:{color:'#C7DE31',}},1:{label:strings.reviewed,style:{color:'#C7DE31',}},0:{label: strings.synced,style:{color:'#C7DE31',}},}
-            : {0:{label: strings.start,style:{color:'#F5CC4C',}},1:{label: strings.transcribed,style:{color:'#C7DE31',}},2:{label:strings.reviewed,style:{color:'#C7DE31',}},3:{label: strings.synced,style:{color:'#C7DE31',}},})
         return (
             <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="panel">
@@ -142,7 +132,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                         </div>
                     </div>
                     <div className={"slider" + (newTask? " hide": "")}>
-                        <div><RangeSliderField id="Slider1" marks={marks} caption={strings.milestones} onChange={this.updateTaskState} selected={taskState} /></div>
+                        <div><RangeSliderField id="Slider1" marks={this.GetRangeSliderMarks()} caption={strings.milestones} onChange={this.updateTaskState} selected={taskState} /></div>
                     </div>
                     <div className="action">
                         <IconButtonField id="discard" caption={strings.discardChanges} imageUrl="CancelIcon.svg" onClick={this.discard}/>
@@ -151,6 +141,17 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                 </div>
             </div>
         )
+    }
+
+    public GetRangeSliderMarks()
+    {
+        const { direction, strings } = this.props;
+        const greenColor = "#C7DE31"
+        const firstIndex = direction && direction === "rtl"? {label:strings.synced,style:{color:greenColor},text:"Complete"}: {label:strings.start,style:{color:greenColor},text:"Transcribe"};
+        const secondIndex = direction && direction === "rtl"? {label:strings.reviewed,style:{color:greenColor},text:"Upload"}: {label:strings.transcribed,style:{color:greenColor},text:"Review"};
+        const thirdIndex = direction && direction === "rtl"? {label:strings.transcribed,style:{color:greenColor},text:"Review"}: {label:strings.reviewed,style:{color:greenColor},text:"Upload"};
+        const fourthIndex = direction && direction === "rtl"? {label:strings.start,style:{color:greenColor},text:"Transcribe"}: {label:strings.synced,style:{color:greenColor},text:"Complete"};
+        return {0: firstIndex,1: secondIndex,2: thirdIndex,3: fourthIndex};
     }
 
     private validateReference(ref: string) {
@@ -183,9 +184,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private updateTaskState(selectedState: number) {
-        const { direction } = this.props;
-        const totalTaskStateIndex = 3; // From 0 - 3
-        this.setState({ ...this.state, taskState: (direction && direction === "rtl"? totalTaskStateIndex - selectedState : selectedState) })
+        this.setState({ ...this.state, taskState: selectedState })
     }
 
     private myTask(taskId: string): ITask {
@@ -225,7 +224,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private save(ctx: TaskDetails) {
-        const { direction, selectedProject, updateTask } = this.props;
+        const { selectedProject, updateTask } = this.props;
 
         const updates = Array<string>();
         let data: object = {}
@@ -251,8 +250,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             this.saveValue(updates, "assignedTo", this.state.assignedTo)
         }
 
-        if (this.state.taskState !==  (direction && direction === "rtl"? 3 - this.original.taskState : this.original.taskState)) {
-            this.saveValue(updates, "state", this.state.taskState.toString())
+        if (this.state.taskState !==  this.original.taskState) {
+            const marks = this.GetRangeSliderMarks();
+            this.saveValue(updates, "state", marks[this.state.taskState].text)
         }
 
         if (updates.length > 0) {
