@@ -74,31 +74,13 @@ namespace ReactShared
 				Util.UpdateAttr(taskNode, "state", "Transcribe");
 			if(!string.IsNullOrEmpty(taskState))
 			{
-				Util.UpdateAttr(taskNode, "state", GetTaskStateInString(taskState));
+				Util.UpdateAttr(taskNode, "state", taskState);
 			}
 			
 			using (var xw = XmlWriter.Create(Util.XmlFullName("tasks"), new XmlWriterSettings {Indent = true}))
 			{
 				tasksDoc.Save(xw);
 			}
-		}
-
-		public string GetTaskStateInString(string index)
-		{
-			string state = "Transcribe";
-			if (index == "1")
-			{
-				state = "Review";
-			}
-			else if (index == "2")
-			{
-				state = "Upload";
-			}
-			else if (index == "3")
-			{
-				state = "Complete";
-			}
-			return state;
 		}
 
 		private void CreateAudioFile(string taskId, string fileName, string audioData)
