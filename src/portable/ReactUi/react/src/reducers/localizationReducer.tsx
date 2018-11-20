@@ -82,6 +82,7 @@ const initialState = {
     }),
     "userSettings": new LocalizedStrings({
 		"en": {
+			"browse": "Browse",
 			"chooseAvatar": "Choose an image file",
 			"english": "English",
 			"fastForward": "Fast Forward",

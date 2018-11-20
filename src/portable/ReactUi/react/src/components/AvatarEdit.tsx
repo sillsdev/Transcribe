@@ -8,6 +8,7 @@ import * as actions2 from '../actions/taskActions';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
+import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import './AvatarEdit.sass';
@@ -87,7 +88,7 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
         this.setState({ scale })
     }
 
-    public componentWillMount(){
+    public componentWillMount() {
         const historyPath = this.props.history.location.pathname;
         const { tasks, selectedUser, selectedProject, users, popupUser } = this.props;
         let user = users.filter(u => u.username.id === selectedUser)[0];
@@ -120,7 +121,8 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
 
     public render() {
         const historyPath = this.props.history.location.pathname;
-        const { strings } = this.props;
+        const { strings, direction } = this.props;
+        const browseCaption = (direction && direction === "rtl")?  "..." + strings.browse: strings.browse + "...";
         let backTo = "/settings";
         log("AvatarEdit")
         if (historyPath.includes("PopupUser")) {
@@ -156,12 +158,13 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
                         </Dropzone>
                     </div>
                     <div className="rightContent">
-                        <div>
-                            <LabelCaptionUx name={strings.newImage + " :"} />
+                        <div className="uploadContent">
+                            <LabelCaptionUx name={strings.newImage + " : "} />
+                            <button className="btn">{browseCaption}</button>
                             <input name="newImage" type="file" onChange={this.handleNewImage} />
                         </div>
-                        <div>
-                            <LabelCaptionUx name={strings.zoom+ " :"} />
+                        <div className="zoomContent">
+                            <LabelCaptionUx name={strings.zoom + " :"} />
                             <input
                                 name="scale"
                                 type="range"
@@ -172,7 +175,7 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
                                 defaultValue="1"
                             />
                         </div>
-                        <div>
+                        <div className="saveContent">
                             <NextAction target={this.onSave} text={strings.save} type="primary" />
                         </div>
                     </div>
@@ -208,6 +211,7 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
 };
 
 interface IStateProps {
+    direction: string;
     tasks: IProject[];
     selectedUser: string;
     selectedProject: string;
@@ -218,6 +222,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    direction: uiDirection(state),
     popupUser: state.users.selectedPopupUser,
     project: currentProject(state),
     selectedProject: state.tasks.selectedProject,
