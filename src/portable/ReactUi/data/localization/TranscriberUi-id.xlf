@@ -326,6 +326,12 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>

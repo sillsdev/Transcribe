@@ -326,6 +326,12 @@
 				<target>Увеличить</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>Просматривать</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
