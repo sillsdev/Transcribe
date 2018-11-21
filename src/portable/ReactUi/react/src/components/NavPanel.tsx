@@ -37,7 +37,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 
     public onToDoClick()
     {
-        alert("TO DO Clicked!");
+        log("To Do Clicked");
     }
 
     public onAllClick()
