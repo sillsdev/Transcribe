@@ -179,5 +179,48 @@ namespace ReactShared
 			}
 		}
 
+		public static void AddUserRole(string role, XmlNodeList userRoleNodeList, XmlElement usernameNode, XmlDocument usersDoc)
+		{
+			if (role == null)
+				return;
+
+			//Remove the old roles
+			for (int i = userRoleNodeList.Count - 1; i >= 0; i--)
+			{
+				userRoleNodeList[i].ParentNode.RemoveChild(userRoleNodeList[i]);
+			}
+
+			string roleAdmin = "administrator";
+			string roleReviewer = "reviewer";
+			string roleTranscriber = "transcriber";
+			List<string> roleArray = new List<string>();
+			if (role.ToLower() == "admin" || role.ToLower() == "administrator")
+			{
+				roleArray.Add(roleAdmin);
+				roleArray.Add(roleReviewer);
+				roleArray.Add(roleTranscriber);
+			}
+			else if (role.ToLower() == roleReviewer)
+			{
+				roleArray.Add(roleReviewer);
+			}
+			else if (role.ToLower() == roleTranscriber)
+			{
+				roleArray.Add(roleTranscriber);
+			}
+			else if (role.ToLower() == roleReviewer + " + " + roleTranscriber)
+			{
+				roleArray.Add(roleReviewer);
+				roleArray.Add(roleTranscriber);
+			}
+
+			foreach (string userRole in roleArray)
+			{
+				XmlElement roleNode = usersDoc.CreateElement("role");
+				roleNode.InnerText = userRole;
+				usernameNode.ParentNode.InsertAfter(roleNode, usernameNode);
+			}
+		}
+
 	}
 }

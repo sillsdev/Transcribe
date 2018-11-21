@@ -47,9 +47,9 @@ export const updateUser = (user: string, project: string, query: string) => (dis
         });
 }
 
-export const updateAvatar = (user: string, project: string,  data: object) => (dispatch: any) => {
+export const updateAvatar = (user: string, role: string, project: string,  data: object) => (dispatch: any) => {
     dispatch({type: UPDATE_AVATAR});
-    Axios.put('/api/UpdateAvatar?user=' + user + '&project=' + project, data)
+    Axios.put('/api/UpdateAvatar?user=' + user + '&role=' + role + '&project=' + project, data)
         .then(dispatch(fetchUsers()))
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + UPDATE_AVATAR + ", user=" + user))

@@ -33,6 +33,7 @@ interface IProps extends IStateProps, IDispatchProps {
     history: {
         location: {
             pathname: string;
+            state: any;
         }
     }
 }
@@ -97,12 +98,12 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
             if (historyPath.includes("PopupUser")) {
                 user = users.filter(u => u.username.id === popupUser)[0];
             }
+            if (this.state.borderRadius !== 100) {
+                this.setState({ borderRadius: 100 });
+            }
             if (user !== undefined && user.username.avatarUri !== undefined) {
                 if (this.state.image !== user.username.avatarUri) {
                     this.setState({ image: user.username.avatarUri });
-                }
-                if (this.state.borderRadius !== 100) {
-                    this.setState({ borderRadius: 100 });
                 }
             }
         }
@@ -125,6 +126,7 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
         const browseCaption = (direction && direction === "rtl")?  "..." + strings.browse: strings.browse + "...";
         let backTo = "/settings";
         log("AvatarEdit")
+
         if (historyPath.includes("PopupUser")) {
             backTo = "/ProjectSettings/User";
         }
@@ -189,22 +191,27 @@ class AvatarEdit extends React.Component<IProps, typeof initialState> {
         const { selectedUser, selectedProject, selectPopupUser, popupUser, updateAvatar, updateProjectAvatar, users } = this.props;
         let currUser = selectedUser;
         if (historyPath.includes("PopupUser")) {
+            const paramValues = this.props.history.location.state;
+            const role = paramValues.role;
             currUser = popupUser;
             if (currUser.length === 0 && users.length > 0) {
-                const newUserId = "u" + (users.length + 1).toString();
+                let newUserId = "u" + (users.length + 1).toString();
+                if (paramValues.name.length > 0) {
+                    newUserId = paramValues.name;
+                }
                 selectPopupUser(newUserId)
                 currUser = newUserId;
             }
             else {
                 currUser = popupUser;
             }
-            updateAvatar(currUser, selectedProject, this.state);
+            updateAvatar(currUser, role, selectedProject, this.state);
         }
         else if (historyPath.includes("Project")) {
             updateProjectAvatar(selectedUser, selectedProject, this.state);
         }
         else {
-            updateAvatar(currUser, selectedProject, this.state);
+            updateAvatar(currUser, '', selectedProject, this.state);
         }
     }
 

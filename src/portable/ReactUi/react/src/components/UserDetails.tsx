@@ -126,7 +126,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                             <div className="AvatarColumn">
                                 <div className="AvatarRow">
                                     <Avatar className="OnHover" name={this.state.name} src={this.state.avatarUrl} size={120} round={true} />
-                                    <Link className="pencil" to="/avatar/PopupUser">{"\u2710"}</Link>
+                                    <Link className="pencil" to={{ pathname: "/avatar/PopupUser", state: { name: this.state.name, role: this.state.roles} }}>{"\u2710"}</Link>
                                     <br /> <br />
                                 </div>
                                 <div className="AvatarCaption">{this.state.name}</div>

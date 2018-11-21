@@ -13,6 +13,7 @@ namespace ReactShared
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
+			var role = parsedQuery["role"];
 			var avatarBase64 = Util.GetRequestElement(requestBody, "img");
 			Debug.Print($"{user}:{avatarBase64}");
 			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
@@ -22,13 +23,22 @@ namespace ReactShared
 			saveImage(avatarBase64, Path.Combine(sourceFolder, imageFileName));
 			var usersDoc = Util.LoadXmlData("users");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']");
+			XmlElement usernameNode;
 			if (userNode == null)
 			{
 				new UpdateUser(query);
 				usersDoc = Util.LoadXmlData("users");
 				userNode = usersDoc.SelectSingleNode($"//user[username/@id = '" + user + "']");
 			}
-			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
+			else if (role.Length > 0)
+			{
+				usernameNode = userNode.SelectSingleNode("username") as XmlElement;
+				Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
+				var userRoleNode = userNode.SelectNodes("role") as XmlNodeList;
+				Debug.Assert(userRoleNode != null, nameof(userRoleNode) + " != null");
+				Util.AddUserRole(role, userRoleNode, usernameNode, usersDoc);
+			}
+			usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
 			AddAvatarUri("images/" + imageFileName, usernameNode, usersDoc);
 			using (var xw = XmlWriter.Create(Util.XmlFullName("users"), new XmlWriterSettings { Indent = true }))
