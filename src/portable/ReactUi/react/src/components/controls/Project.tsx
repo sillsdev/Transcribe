@@ -20,7 +20,7 @@ interface IProps extends IStateProps{
 
 class Project extends React.Component<IProps, object> {
     public render() {
-        const { changeImage, id, isAdmin, newProject, select, strings, target, uri } = this.props;
+        const { changeImage, id, isAdmin, name, newProject, select, strings, target, uri } = this.props;
         let linkClassName;
         let adminWrapper;
         if(isAdmin){
@@ -53,7 +53,7 @@ class Project extends React.Component<IProps, object> {
             <div id={id} className="Project">
                 <Link to={target} onClick={select && select.bind(this, id)} className={linkClassName}>
                     {imgWrapper}
-                    <div className="captionDiv"><span className="caption">{id}</span></div>
+                    <div className="captionDiv"><span className="caption">{name}</span></div>
                     {adminWrapper}
                 </Link>
             </div>

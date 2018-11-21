@@ -107,7 +107,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
                 role={user.role} />): "";
         const projectAvatar = project? (
             <Project id={project.id}
-                name={project.id}
+                name={(project.guid === undefined || project.guid === "" || (project.sync !== undefined && !project.sync)) && project.name? project.name: project.id}
                 target={projectClick}
                 uri={project.uri !== undefined? project.uri:""}
                 isAdmin = {(admin !== undefined && admin !== null)?true : false}
