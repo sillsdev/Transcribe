@@ -224,10 +224,21 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private save(ctx: TaskDetails) {
-        const { selectedProject, updateTask } = this.props;
+        const { project, selectedProject, updateTask } = this.props;
 
         const updates = Array<string>();
         let data: object = {}
+
+        // Check only for tasks of paratext projects and when Task ID is empty ie., for a new task
+        const pair = project && project.guid && project.guid !== ""? true: false
+        if (pair && this.taskId === ""){
+            let taskExists = false;
+            taskExists = this.checkForTaskExistence()
+            if(taskExists){
+                alert("The reference entered " + this.state.reference + " already exists. Hence task not saved.");
+                return;
+            }
+        }
 
         if (this.state.reference !== this.original.reference) {
             this.saveValue(updates, "reference", this.state.reference);
@@ -261,6 +272,32 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             console.log("/api/UpdateTask?task=" + this.taskId, '&project=' + selectedProject + query);
             updateTask(this.taskId, selectedProject, query, data);
         }
+    }
+
+    private checkForTaskExistence():boolean{
+        const { tasks} = this.props;
+        const taskIdsArray = Array<string>();
+        let idParts;
+        let reference="";
+        let isExists = false;
+        if(tasks.length > 0){
+            tasks.map((t: ITask) => (
+                idParts = t.id.split("-"),
+                reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): ""),
+                taskIdsArray.push(reference)
+            ));
+
+            const existingValue = taskIdsArray.find((str) => (str === this.state.reference ||
+                str.replace("-",",") === this.state.reference ||
+                str.replace(":",".") === this.state.reference ||
+                str.replace(":",".").replace("-",",") === this.state.reference))
+
+            if(existingValue !== undefined)
+            {
+                isExists = true;
+            }
+        }
+        return isExists;
     }
 }
 
