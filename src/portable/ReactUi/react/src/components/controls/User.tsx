@@ -34,7 +34,7 @@ export class User extends React.Component<IProps, object> {
                         <Avatar name={name} src={uri} size={size} round={true}/>
                         <br /> <br />
                         <div className="caption">{name}</div>
-                        <div className="role">working as {workingAs}</div>
+                        <div className="role">{workingAs}</div>
                     </div>
                 </Link>
         )
