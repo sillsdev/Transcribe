@@ -4,6 +4,7 @@ import './SelectField.sass';
 interface IProps {
     id?: string;
     caption: string;
+    direction?: string;
     options: string[];
     selected?: string;
     message?: string;
@@ -38,7 +39,7 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
 
     public render() {
         const { current } = this.state;
-        const { caption, id, message, options } = this.props;
+        const { caption, direction, id, message, options } = this.props;
         const errorMessage = (current && current !== "" && message != null)? message: "";
         const messageStyle = (errorMessage.length > 0) ? "Message CaptionRed BorderTopRed" : "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0) ? "Caption CaptionRed" : "Caption CaptionGreen";
@@ -59,7 +60,7 @@ class TextSelectFieldUx extends React.Component<IProps, any> {
                 <div className="bodyRow">
                     <div className="dataColumn">
                         <label  className={captionStyle}>{captionText}</label>
-                        <select className={"Body " + dataStyle}
+                        <select className={"Body " + dataStyle + (direction && direction === "rtl"? " rtl": "")}
                             onChange={this.handleChange}
                             defaultValue={current}>
                                 {elementList}

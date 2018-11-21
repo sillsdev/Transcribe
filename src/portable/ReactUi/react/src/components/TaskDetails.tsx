@@ -1,11 +1,10 @@
 import * as React from 'react';
 import Avatar from 'react-avatar';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import * as actions2 from '../actions/userActions';
-import Duration from '../components/controls/Duration';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import uiDirection from '../selectors/direction';
@@ -14,9 +13,12 @@ import currentProject from '../selectors/project';
 import projectTasks from '../selectors/projectTasks';
 import BackLink from './controls/BackLink';
 import NextAction from './controls/NextAction';
+import TaskItem from './controls/TaskItem';
 import './TaskDetails.sass';
 import FileField from './ui-controls/FileField';
+import IconButtonField from './ui-controls/IconButtonField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
+import RangeSliderField from './ui-controls/RangeSliderField';
 import SelectField from './ui-controls/SelectField';
 import TextField from './ui-controls/TextField';
 
@@ -30,12 +32,14 @@ interface IProps extends IStateProps, IDispatchProps {
 
 const initialState = {
     assignedTo: "",
+    discard: false,
     fileName: "",
     fullPath: "",
     heading: "",
     message: "",
     pair: false,
     reference: "",
+    taskState: 0,
 }
 
 class TaskDetails extends React.Component<IProps, typeof initialState> {
@@ -47,21 +51,25 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
     constructor(props: IProps) {
         super(props)
+        this.discard = this.discard.bind(this);
         this.updateAssignedTo = this.updateAssignedTo.bind(this);
         this.updateFileName = this.updateFileName.bind(this);
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
         this.fileRef = React.createRef();
         this.validateReference = this.validateReference.bind(this);
+        this.deleteTask = this.deleteTask.bind(this);
+        this.updateTaskState = this.updateTaskState.bind(this);
 
         const { popupTask } = this.props;
-        this.taskId = this.props.history.location.pathname.indexOf("NewTask") > 0 ? "" : popupTask;
+        this.taskId =  this.props.history.location.pathname.indexOf("NewTask") > 0? "" : popupTask;
         if (this.taskId && this.taskId !== "") {
             this.task = this.myTask(this.taskId);
             this.state.fileName = this.task.id
             const idParts = this.taskId.split('-');
             this.state.reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "");
             this.state.heading = this.task.name?this.task.name:"";
+            this.state.taskState = this.task.state ? this.GetTaskStateIndex(this.task.state) : 0;
             if (this.task.assignedto != null) {
                 this.state.assignedTo = this.task.assignedto;
             }
@@ -72,64 +80,78 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.original = {...this.state};
     }
 
+    public GetTaskStateIndex(currentState: string) {
+        const marks = this.GetRangeSliderMarks();
+         // 4 marks in range-slider {0 - 3}
+        for(let i=0; i<= 3; i++) {
+            if(marks[i].text === currentState) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
     public render() {
-        const { fileName, reference, heading, assignedTo } = this.state
+        const { discard, fileName, reference, heading, assignedTo, taskState } = this.state
         const { direction, deleted, strings, users } = this.props;
 
-        if (deleted) {
+        if (deleted || discard) {
             return (<Redirect to="/ProjectSettings" />)
         }
+        const newTask = this.props.history.location.pathname.indexOf("NewTask") > 0;
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
-        // const deleteTask = () => this.deleteTask();
         const save = () => this.save(this);
         const copyToClipboard = () => this.copyToClipboard();
         return (
             <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
-                <div className="closeRow">
-                    <Link onClick={save} to="/ProjectSettings" >
-                        <img src="/assets/close-x.svg" alt="X" />
-                    </Link>
-                </div>
-                <div className="titleRow">
-                    <BackLink action={save} target="/ProjectSettings" />
-                    <div className="title">
-                        <LabelCaptionUx name={strings.taskDetails} type="H2" />
+                <div className="panel">
+                    <div className="titleRow">
+                        <BackLink action={save} target="/ProjectSettings" />
+                        <div className="title">
+                            <LabelCaptionUx name={strings.taskDetails} type="H2" />
+                        </div>
+                        <div className={"copyAction" + (newTask? " hide": "")}>
+                            <NextAction text={strings.copyToClipboard} target={copyToClipboard} type="safe" />
+                        </div>
                     </div>
-                    {/* <div className={"deleteButton" + (this.taskId !== ""? "": " hide")}>
-                        <NextAction text={strings.delete} target={deleteTask} type="danger" />
-                    </div> */}
-                </div>
-                <div className="details">
-                    <div className="results">
-                        <div className="resultsLeft">
-                            <img src="/assets/waveform.png" className={fileName !== ""? "": "hide"} />
-                            <div className="taskItemContent">
-                                <div className="firstLine">
-                                    <span className="displayReference">{reference}</span>
-                                    <span className={"totalTime" + (fileName !== ""? "": " hide")}>
-                                        <Duration seconds={this.duration()} direction={direction} />
-                                    </span>
-                                </div>
-                                <div className="textName">{heading}</div>
-                            </div>
-                            <div className={"AvatarRow" + (assignedTo !== ""? "": " hide")}>
-                                <Avatar name={this.displayName(assignedTo)} src={this.avatar(assignedTo)} size={64} round={true} />
-                                <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
-                            </div>
-                            <div className="CopyRow">
-                                <NextAction text={strings.copyToClipboard} target={copyToClipboard} type="safe" />
-                            </div>
+                    <div className="data">
+                        <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
+                        <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} onBlur={this.validateReference} message={this.state.message}/></div>
+                        <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
+                        <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} direction={direction} /></div>
+                    </div>
+                    <div className="preview">
+                        <LabelCaptionUx name={strings.preview} type="small" />
+                        <div className={"waveformRow" + (fileName !== "" || heading !== "" || reference !== ""? "": " hide") + (fileName !== ""? "": " hideWave")}>
+                            <TaskItem id="TaskItem" length={this.duration()} name={heading} reference={reference} selected={true} />
+                            <div className={"selectBar" + (fileName !== ""? "": " hide")}>{"\u00A0"}</div>
                         </div>
-                        <div className="resultsRight">
-                            <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
-                            <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} onBlur={this.validateReference} message={this.state.message}/></div>
-                            <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
-                            <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} /></div>
+                        <div className={"AvatarRow" + (assignedTo !== ""? "": " hide")}>
+                            <Avatar name={this.displayName(assignedTo)} src={this.avatar(assignedTo)} size={64} round={true} />
+                            <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
                         </div>
+                    </div>
+                    <div className={"slider" + (newTask? " hide": "")}>
+                        <div><RangeSliderField id="Slider1" marks={this.GetRangeSliderMarks()} caption={strings.milestones} onChange={this.updateTaskState} selected={taskState} /></div>
+                    </div>
+                    <div className="action">
+                        <IconButtonField id="discard" caption={strings.discardChanges} imageUrl="CancelIcon.svg" onClick={this.discard}/>
+                        <IconButtonField id={"deleteTask" + (newTask? "Hide": "")} caption={strings.deleteTask} imageUrl="RejectIcon.svg" onClick={this.deleteTask}/>
                     </div>
                 </div>
             </div>
         )
+    }
+
+    public GetRangeSliderMarks()
+    {
+        const { direction, strings } = this.props;
+        const greenColor = "#C7DE31"
+        const firstIndex = direction && direction === "rtl"? {label:strings.synced,style:{color:greenColor},text:"Complete"}: {label:strings.start,style:{color:greenColor},text:"Transcribe"};
+        const secondIndex = direction && direction === "rtl"? {label:strings.reviewed,style:{color:greenColor},text:"Upload"}: {label:strings.transcribed,style:{color:greenColor},text:"Review"};
+        const thirdIndex = direction && direction === "rtl"? {label:strings.transcribed,style:{color:greenColor},text:"Review"}: {label:strings.reviewed,style:{color:greenColor},text:"Upload"};
+        const fourthIndex = direction && direction === "rtl"? {label:strings.start,style:{color:greenColor},text:"Transcribe"}: {label:strings.synced,style:{color:greenColor},text:"Complete"};
+        return {0: firstIndex,1: secondIndex,2: thirdIndex,3: fourthIndex};
     }
 
     private validateReference(ref: string) {
@@ -139,6 +161,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             const refExpr = /^\w{1,3}\s{1}\d{1,3}(\.|:){1}\d{1,3}(-|,)\d{1,3}$/;
             this.setState({message: refExpr.test(ref)? "" : strings.referenceFormat});
         }
+    }
+
+    private discard(){
+        this.setState({...this.state, discard:true})
     }
 
     private updateFileName(file: string) {
@@ -155,6 +181,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
     private updateAssignedTo(userId: string) {
         this.setState({...this.state, assignedTo: userId})
+    }
+
+    private updateTaskState(selectedState: number) {
+        this.setState({ ...this.state, taskState: selectedState })
     }
 
     private myTask(taskId: string): ITask {
@@ -183,10 +213,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         updates.push(tag + '=' + encodeURIComponent(val != null? val: ""))
     }
 
-    /* private deleteTask() {
+    private deleteTask() {
         const { deleteTask, popupTask } = this.props;
         return deleteTask(popupTask);
-    } */
+    }
 
     private copyToClipboard() {
         const { copyToClipboard, popupTask } = this.props;
@@ -218,6 +248,11 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
         if (this.state.assignedTo !== this.original.assignedTo) {
             this.saveValue(updates, "assignedTo", this.state.assignedTo)
+        }
+
+        if (this.state.taskState !==  this.original.taskState) {
+            const marks = this.GetRangeSliderMarks();
+            this.saveValue(updates, "state", marks[this.state.taskState].text)
         }
 
         if (updates.length > 0) {

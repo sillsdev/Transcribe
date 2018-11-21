@@ -104,6 +104,42 @@
 				<target>Umefika</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.todo">
+			<segment>
+				<source>To Do</source>
+				<target>Kufanya</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.all">
+			<segment>
+				<source>All</source>
+				<target>Wote</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Imeandikwa</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Ilipitiwa</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Ilikubaliana</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>Ingia nje</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -275,7 +311,25 @@
 		<unit id="userSettings.speedUpErrorMessage">
 			<segment>
 				<source>Please fill in the Speed Up</source>
-				<target></target>
+				<target>Tafadhali kujaza kasi ya juu</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>Image Mpya</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Zoom</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>Vinjari</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.next">
@@ -492,6 +546,66 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>Nakili na Kuweka mahali</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Fanya mradi mpya</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Badilisha picha ya mradi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Angalia</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Maajabu</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Anza</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Imeandikwa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Ilipitiwa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Ilikubaliana</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>Kuondoa mabadiliko</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>Futa Kazi</target>
 			</segment>
 		</unit>
 	</file>

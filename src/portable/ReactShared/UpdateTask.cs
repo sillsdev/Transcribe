@@ -9,7 +9,7 @@ namespace ReactShared
 {
 	public class UpdateTask
 	{
-		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3}):([0-9]{1,3})-([0-9]{1,3})$", RegexOptions.Compiled);
+		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3})(:|\.)([0-9]{1,3})(-|,)([0-9]{1,3})$", RegexOptions.Compiled);
 
 		public UpdateTask(string query, byte[] requestBody)
 		{
@@ -24,6 +24,7 @@ namespace ReactShared
 			var heading = parsedQuery["heading"];
 			var assignedTo = parsedQuery["assignedTo"];
 			var timeDuration = parsedQuery["timeDuration"];
+			var taskState = parsedQuery["state"];
 			var audioData = Util.GetRequestElement(requestBody, "data");
 
 			//Debug.Print($"{task}:{project}:{audioFile}:{reference}:{heading}:{assignedTo}:{timeDuration}");
@@ -38,7 +39,7 @@ namespace ReactShared
 				var refMatch = ReferencePattern.Match(reference);
 				if (refMatch.Success)
 				{
-					taskId = $"{project}-{refMatch.Groups[1].Value}-{int.Parse(refMatch.Groups[2].Value):D3}-{int.Parse(refMatch.Groups[3].Value):D3}{int.Parse(refMatch.Groups[4].Value):D3}";
+					taskId = $"{project}-{refMatch.Groups[1].Value}-{int.Parse(refMatch.Groups[2].Value):D3}-{int.Parse(refMatch.Groups[4].Value):D3}{int.Parse(refMatch.Groups[6].Value):D3}";
 				}
 				else if (!string.IsNullOrEmpty(audioFile))
 				{
@@ -71,6 +72,10 @@ namespace ReactShared
 			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
 			if (state == null || string.IsNullOrEmpty(state.InnerText))
 				Util.UpdateAttr(taskNode, "state", "Transcribe");
+			if(!string.IsNullOrEmpty(taskState))
+			{
+				Util.UpdateAttr(taskNode, "state", taskState);
+			}
 			
 			using (var xw = XmlWriter.Create(Util.XmlFullName("tasks"), new XmlWriterSettings {Indent = true}))
 			{

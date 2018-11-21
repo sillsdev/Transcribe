@@ -1,0 +1,43 @@
+@import "../../_variables.sass"
+
+.IconButtonField
+    margin-top: 14px
+    margin-bottom: 14px
+    height: 48px
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    border: 1px solid transparent
+    .Caption
+        display: flex
+        flex-direction: column
+        justify-content: center
+        width: 128px
+        height: 48px
+        font-family: $sans
+        font-style: normal
+        font-weight: 500
+        line-height: normal
+        font-size: 14px
+        letter-spacing: 0.75px
+        text-transform: uppercase
+        color: $base2
+    .CaptionImage
+        margin: auto 16px
+    .Reverse
+        transform: scale(-1)
+
+.DefaultBgColor
+    background: $cyan3
+    
+.IconButtonField:hover
+    background: $cyan3
+    border: 1px solid $cyan2
+
+.Hidden
+    visibility: hidden
+ 
+
+
+    

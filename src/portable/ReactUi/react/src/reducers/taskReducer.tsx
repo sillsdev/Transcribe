@@ -1,4 +1,4 @@
-import { ASSIGN_TASK_PENDING, DELETE_TASK, FETCH_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
+import { ASSIGN_TASK_PENDING, DELETE_TASK, FETCH_TASKS, FETCH_ZTT_PROJECTS_COUNT, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
 
 const initialState = {
     deleted: false,
@@ -8,6 +8,7 @@ const initialState = {
     selectedPopupTask: "",
     selectedProject: "",
     selectedTask: "",
+    zttProjectsCount: "",
 }
 
 export default function (state = initialState, action: any) {
@@ -41,6 +42,11 @@ export default function (state = initialState, action: any) {
                 deleted: false,
                 projects: state.projects.map((p: IProject) => project(p, action)),
                 selectedPopupTask: action.payload,
+        }
+        case FETCH_ZTT_PROJECTS_COUNT:
+            return {
+                ...state,
+                zttProjectsCount: action.payload.data,
         }
         case DELETE_TASK:
             return {

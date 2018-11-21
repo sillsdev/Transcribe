@@ -88,6 +88,11 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
+	  <xs:attribute name="uri" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>URI to project picture</xs:documentation>
+        </xs:annotation>
+	  </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="task">

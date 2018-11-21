@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: User --- Snapshot +++capturing Snapshot of User 1`] = `
+<a
+  className="User"
+  href="/root"
+  id="my id"
+  onClick={[Function]}
+>
+  <div
+    className="main"
+  >
+    <div
+      className=" sb-avatar"
+      onClick={undefined}
+      style={
+        Object {
+          "borderRadius": "100%",
+          "display": "inline-block",
+          "fontFamily": "Helvetica, Arial, sans-serif",
+          "height": "64px",
+          "verticalAlign": "middle",
+          "width": "64px",
+        }
+      }
+    >
+      <div
+        className=" sb-avatar__text"
+        style={
+          Object {
+            "background": undefined,
+            "borderRadius": "100%",
+            "color": "#FFF",
+            "height": "64px",
+            "lineHeight": "initial",
+            "textAlign": "center",
+            "textTransform": "uppercase",
+            "width": "64px",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "display": "table",
+              "height": "100%",
+              "width": "100%",
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "display": "table-cell",
+                "verticalAlign": "middle",
+              }
+            }
+          >
+            <span />
+          </span>
+        </div>
+      </div>
+    </div>
+    <br />
+     
+    <br />
+    <div
+      className="caption"
+    >
+      my name
+    </div>
+    <div
+      className="role"
+    >
+      Transcriber
+    </div>
+  </div>
+</a>
+`;

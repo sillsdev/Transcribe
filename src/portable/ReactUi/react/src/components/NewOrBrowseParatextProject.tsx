@@ -17,18 +17,24 @@ import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 interface IProps extends IStateProps, IDispatchProps {
 };
 
-
 class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
     
+    public selectEmptyProject = () => {
+        const {zttProjectsCount} = this.props;
+        if(zttProjectsCount.toString() === "0"){
+            this.selectProject({id:"ztt", guid:"", lang:"und"})
+        }
+        else{
+            this.selectProject({id:"ztt" + zttProjectsCount, guid:"", lang:"und"})
+        }
+    }
+
     public render() {
         const { selectedParatextProject, strings } = this.props;
 
         log("NewProject&curParatextProj=" + selectedParatextProject);
         if (selectedParatextProject !== "") {
             return <Redirect to='/ProjectSettings' />
-        }
-        const selectEmptyProject = () => {
-            this.selectProject({id:"ztt", guid:"", lang:"und"})
         }
         return (
             <div className="NewOrBrowseParatextProjects">
@@ -52,7 +58,7 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                         </Col>
                         <Col xs={6} md={6}>
                         <span className="NextAction">
-                                <NextAction text={strings.createEmptyProject.toUpperCase()} target={selectEmptyProject} type="primary" />
+                                <NextAction text={strings.createEmptyProject.toUpperCase()} target={this.selectEmptyProject} type="primary" />
                             </span>
                         </Col>                     
                     </Row>
@@ -71,6 +77,7 @@ interface IStateProps {
     paratextProjects: IParatextProject[];
     strings: IProjectSettingsStrings;
     selectedParatextProject: string;
+    zttProjectsCount: string;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -78,6 +85,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     paratextProjects: state.paratextProjects.paratextProjects,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     strings: userStrings(state, { layout: "projectSettings" }),
+    zttProjectsCount: state.tasks.zttProjectsCount,
 });
 
 interface IDispatchProps {

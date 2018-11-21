@@ -46,8 +46,8 @@ namespace Transcribe.Windows
 			using (var reactProcess = new Process {StartInfo = startInfo})
 			{
 				reactProcess.Start();
-				var f = new Form { Size = new Size(1250, 722), MinimumSize = new Size(1055, 270)};
-				f.Icon = Resources.transcriber7;
+				var f = new Form { Size = new Size(1250, 722), MinimumSize = new Size(1055, 610)};
+				f.Icon = Resources.transcriber9;
 				_browser = new TrappingGecko { Dock = DockStyle.Fill, UseHttpActivityObserver = true};
 				f.Text = $"{Application.ProductName}  {Application.ProductVersion}";
 				f.Controls.Add(_browser);

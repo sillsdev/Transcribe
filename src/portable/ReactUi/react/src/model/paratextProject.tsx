@@ -9,4 +9,5 @@ interface IParatextProject {
     size?: string;
     direction?: string;
     type?: string;
+    uri?: string;
   };

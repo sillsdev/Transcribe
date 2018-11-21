@@ -76,19 +76,17 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         const task = tasks.filter(t => t.id === selectedTask)[0];
 
         log("ProgressPane")
-        if(task && task.length !== undefined && totalSeconds !== task.length)
+        if(task && task.length && (totalSeconds !== task.length))
         {
             this.setState({ totalSeconds: task.length })
         }
-        let position = audioPlayedSeconds;
+        const position = audioPlayedSeconds;
         if (this.player !== undefined && jump !== 0){
-            position += jump;
-            this.player.seekTo(position);
+            this.player.seekTo(this.adjustPosition(position, jump));
             this.props.jumpChange(0);
         }
-        if (this.player !== undefined && position === 0 && initialPosition != null && initialPosition.toString() !== "0") {
-            position += initialPosition
-            this.player.seekTo(position)
+        if (this.player && position === 0 && initialPosition > 1 && initialPosition <= totalSeconds) {
+            this.player.seekTo(this.adjustPosition(position, initialPosition));
         }
         if (requestReport) {
             this.props.reportPosition(selectedTask, audioPlayedSeconds);
@@ -126,6 +124,18 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                 </div>
             </div>
         )
+    }
+
+    private adjustPosition(position: number, jump: number) {
+        const { totalSeconds } = this.state;
+        position += jump;
+        if (totalSeconds && (position > totalSeconds)) {
+            position = totalSeconds;
+        }
+        if (position <= 1) {
+            position = 0;
+        }
+        return position;
     }
 };
 

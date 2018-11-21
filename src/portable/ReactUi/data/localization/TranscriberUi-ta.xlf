@@ -104,6 +104,42 @@
 				<target>நீங்கள் அடைந்துவிட்டீர்கள்</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.todo">
+			<segment>
+				<source>To Do</source>
+				<target>செய்ய</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.all">
+			<segment>
+				<source>All</source>
+				<target>அனைத்து</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>எழுத்துவடிவமாக்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>சரிபார்க்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>ஒத்திசைக்கப்பட்டன</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>வெளியேறு</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -276,6 +312,24 @@
 			<segment>
 				<source>Please fill in the Speed Up</source>
 				<target>தயவு செய்து வேகமாக்குவதை நிரப்பவும்</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>புதிய படம்</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>பெரிதாக்கு</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>உலாவு</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.next">
@@ -492,6 +546,66 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>கிளிப்போர்டுக்கு நகலெடுக்கவும்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>புதிய திட்டத்தை உருவாக்கவும்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>திட்டத்தின் படத்தை மாற்றவும்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>முன்னோட்ட</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>மைல்கற்கள்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>தொடக்கம்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>எழுத்துவடிவமாக்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>சரிபார்க்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>ஒத்திசைக்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>மாற்றங்களை கைவிடலாம்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>பணி நீக்கு</target>
 			</segment>
 		</unit>
 	</file>

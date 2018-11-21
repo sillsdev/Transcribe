@@ -13,7 +13,7 @@ namespace ReactShared
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
-			var avatarBase64 = Util.GetRequestElement(requestBody, "preview");
+			var avatarBase64 = Util.GetRequestElement(requestBody, "img");
 			Debug.Print($"{user}:{avatarBase64}");
 			var imageFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
 			var sourceFolder = Path.Combine(Util.DataFolder, "images");

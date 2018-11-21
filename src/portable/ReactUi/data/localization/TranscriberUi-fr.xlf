@@ -104,6 +104,42 @@
 				<target>Vous avez atteint</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.todo">
+			<segment>
+				<source>To Do</source>
+				<target>Faire</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.all">
+			<segment>
+				<source>All</source>
+				<target>Tout</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Transcrit</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Commenté</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Synchronisé</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>Connectez-Out</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -276,6 +312,24 @@
 			<segment>
 				<source>Please fill in the Speed Up</source>
 				<target>S'il vous plaît remplir le Accélérer</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>Nouvelle image</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Zoom</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>Feuilleter</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.next">
@@ -492,6 +546,66 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>copier dans le presse-papier électronique</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Faire un nouveau projet</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Changer l'image du projet</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Aperçu</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Les jalons</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Début</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Transcrit</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Commenté</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Synchronisé</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>Annuler les modifications</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>Effacer la tâche</target>
 			</segment>
 		</unit>
 	</file>

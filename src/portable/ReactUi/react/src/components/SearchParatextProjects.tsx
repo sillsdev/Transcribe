@@ -22,7 +22,17 @@ class SearchParatextProjects extends React.Component<IProps, object> {
     public componentDidMount() {
         const { fetchParatextProjects } = this.props;
         fetchParatextProjects();
-    }    
+    }
+
+    public selectEmptyProject = () => {
+        const {zttProjectsCount} = this.props;
+        if(zttProjectsCount.toString() === "0"){
+            this.selectProject({id:"ztt", guid:"", lang:"und"})
+        }
+        else{
+            this.selectProject({id:"ztt" + zttProjectsCount, guid:"", lang:"und"})
+        }
+    }
 
     public render() {
         const { selectedParatextProject, strings } = this.props;
@@ -55,7 +65,6 @@ class SearchParatextProjects extends React.Component<IProps, object> {
                         <div className="name">{paratextProject.name != null? paratextProject.name: paratextProject.id}</div>
                         <div className="code">{paratextProject.langName != null? paratextProject.langName: paratextProject.lang}</div>
                     </li>);
-                const selectEmptyProject = () => this.selectProject({id:"ztt", guid:"", lang:"und"});
                 wrapper = (
                     <div className="list">
                         <div id="ParatextProject" className="label">{strings.selectProject}</div>
@@ -63,7 +72,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
                             {projects}
                         </ul>
                         <div className="ButtonLink">
-                            <NextAction text={strings.skip} target={selectEmptyProject} type="outline-light" />
+                            <NextAction text={strings.skip} target={this.selectEmptyProject} type="outline-light" />
                         </div>
                     </div>)
             }
@@ -87,6 +96,7 @@ interface IStateProps {
     paratextProjects: IParatextProject[];
     selectedParatextProject: string;
     strings: IProjectSettingsStrings;
+    zttProjectsCount: string;
   };
 
   const mapStateToProps = (state: IState): IStateProps => ({
@@ -94,10 +104,10 @@ interface IStateProps {
     paratextProjects: state.paratextProjects.paratextProjects,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     strings: userStrings(state, { layout: "projectSettings" }),
+    zttProjectsCount: state.tasks.zttProjectsCount,
   });
 
   interface IDispatchProps {
-    
     fetchParatextProjects: typeof actions.fetchParatextProjects,
     selectParatextProject: typeof actions.selectParatextProject;
   };

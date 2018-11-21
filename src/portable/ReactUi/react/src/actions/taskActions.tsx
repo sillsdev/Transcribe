@@ -3,8 +3,8 @@ import { log } from '../actions/logAction';
 import { setSubmitted } from './audioActions';
 import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
     COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
-    FETCH_TASKS, FETCH_TRANSCRIPTION, SELECT_POPUP_TASK, SELECT_PROJECT,
-    SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_TASK, 
+    FETCH_TASKS, FETCH_TRANSCRIPTION, FETCH_ZTT_PROJECTS_COUNT, SELECT_POPUP_TASK, SELECT_PROJECT,
+    SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR, UPDATE_TASK,
     WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { fetchUsers, saveUserSetting } from './userActions';
 
@@ -100,6 +100,20 @@ export const fetchTasksOfProject = (projectname: string) => (dispatch: any) => {
         });
     }
 
+export const fetchZttProjectsCount = () => (dispatch: any) => {
+    Axios.get('/api/GetZttProjectsCount')
+        .then(zttProjectsCount => {
+            dispatch({
+                payload: zttProjectsCount,
+                type: FETCH_ZTT_PROJECTS_COUNT
+            });
+        })
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " fetch Ztt Projects Count"))
+        });
+}
+
+
 export const deleteTask = (taskid: string) => (dispatch: any) => {
     const project = taskid.split('-')[0];
     dispatch({type: DELETE_TASK});
@@ -122,6 +136,7 @@ export const selectTask = (user: string, id: string) => (dispatch:any) => {
         payload: id,
         type: SELECT_TASK
     })
+    dispatch(fetchTasks(user))
     dispatch(fetchTranscription(id));
     dispatch(saveUserSetting(user, "lastTask", id));
     dispatch(setSubmitted(false));
@@ -164,7 +179,7 @@ export const updateProject = (project: IProject) => (dispatch: any) => {
         payload: project.id,
         type: UPDATE_PROJECT
     })
-    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&sync=' + project.sync + '&claim=' + project.claim + '&type=' + project.type )
+    Axios.put('/api/UpdateProject?project=' + project.id + '&name=' + project.name + '&guid=' + project.guid + '&lang=' + project.lang + '&langName=' + project.langName + '&font=' + project.font + '&size=' + project.size + '&features=' + project.features + '&dir=' + project.direction + '&sync=' + project.sync + '&claim=' + project.claim + '&type=' + project.type + '&uri=' + project.uri )
         .then (dispatch(fetchTasksOfProject(project.id)))
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + UPDATE_PROJECT +  ", id=" + project.id))
@@ -179,6 +194,16 @@ export const copyToClipboard = (taskid: string) => (dispatch: any) => {
     Axios.put('/api/CopyToClipboard?task=' + taskid)
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + COPY_TO_CLIPBOARD +  ", id=" + taskid))
+        });
+}
+
+
+export const updateProjectAvatar = (user: string, project: string,  data: object) => (dispatch: any) => {
+    dispatch({type: UPDATE_PROJECT_AVATAR});
+    Axios.put('/api/UpdateProjectAvatar?project=' + project, data)
+        .then(dispatch(fetchTasks(user)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + UPDATE_PROJECT_AVATAR + ", user=" + user + ", project=" + project))
         });
 }
 

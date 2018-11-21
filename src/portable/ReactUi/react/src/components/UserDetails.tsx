@@ -15,7 +15,6 @@ import currentProject from '../selectors/project';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
 // import NextAction from './controls/NextAction';
-import { ProjectAvatar } from './controls/ProjectAvatar';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
 import RadioListField from './ui-controls/RadioListField';
@@ -103,7 +102,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                 name={project.id}
                 size="48"
                 target="/main"
-                uri={ProjectAvatar[project.type !== undefined ? project.type : "Bible"]} />) : "";
+                uri={project.uri !== undefined ? project.uri : ""} />) : "";
 
         return (
             <div className={"UserDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
@@ -135,7 +134,7 @@ class UserDetails extends React.Component<IProps, typeof initialState> {
                         </div>
                         <div className="resultsRight">
                             <div className="resultsRightBox">
-                                <div><TextField id="id1" caption={"Name"} inputValue={this.state.name} onChange={this.updateUserName} /></div>
+                                <div><TextField id="id1" autofocus={true} caption={"Name"} inputValue={this.state.name} onChange={this.updateUserName} /></div>
                                 <div className="rolesBox">
                                     <LabelUx name={strings.roles} />
                                     <RadioListField options={this.roleListLoc} selected={this.state.role} onChange={this.updateRoles} />

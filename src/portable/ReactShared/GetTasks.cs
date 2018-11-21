@@ -24,6 +24,7 @@ namespace ReactShared
 			var projectNodes = tasksDoc.SelectNodes(projectXpath);
 			Debug.Assert(projectNodes != null, nameof(projectNodes) + " != null");
 			var taskList = new List<string>();
+			CopyAvatars(tasksDoc, apiFolder);
 			foreach (XmlElement node in projectNodes)
 			{
 				var filterNodeList = new List<XmlNode>();
@@ -66,10 +67,31 @@ namespace ReactShared
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"false\"","false").Replace("\"true\"","true").Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
-
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetTasks")))
 			{
 				sw.Write($"[{string.Join(",", taskList)}]".Replace("{}", ""));
+			}
+		}
+
+		private static void CopyAvatars(XmlNode tasksDoc, string apiFolder)
+		{
+			var projectNodes = tasksDoc.SelectNodes("//*[local-name()='project']");
+			Debug.Assert(projectNodes != null, nameof(projectNodes) + " != null");
+			foreach (XmlNode avatarNode in projectNodes)
+			{
+				var sourceFolder = Util.DataFolder;
+				var avatarRelName = avatarNode.Attributes["uri"].Value;
+				var sourceFullName = Path.Combine(sourceFolder, avatarRelName);
+				if (!File.Exists(sourceFullName))
+					continue;
+				avatarNode.Attributes["uri"].Value = "/api/" + avatarRelName;
+				var avatarFolder = Path.GetDirectoryName(avatarRelName);
+				var targetFolder = string.IsNullOrEmpty(avatarFolder) ? apiFolder : Path.Combine(apiFolder, avatarFolder);
+				if (!Directory.Exists(targetFolder))
+					Directory.CreateDirectory(targetFolder);
+				var apiImageFullName = Path.Combine(apiFolder, avatarRelName);
+				if (File.Exists(apiImageFullName)) continue;
+				File.Copy(sourceFullName, apiImageFullName);
 			}
 		}
 

@@ -1,9 +1,35 @@
 @import "../_variables.sass"
 
 .NavPanel 
-	width: 140px
+	width: 208px
+	height: 100%
 	display: flex
 	flex-direction: column
 	align-items: center
+	flex-direction:row
+	display: flex
+	text-overflow: ellipsis
+	overflow: hidden
+	overflow-y: auto
 	a 
 		text-decoration: none
+
+	.TodoStyle
+		display: flex
+		flex: 0 1 auto
+		.IconButtonField
+			margin-top: 24px
+			margin-bottom: 0px
+
+	.OptionsStyle
+		display: flex
+		flex: 1 0 auto
+
+	.LogoutStyle
+		display: flex
+		flex: 0 1 auto
+		.IconButtonField
+			margin-top: 0
+			margin-bottom: 24px
+	.User
+		padding: 0

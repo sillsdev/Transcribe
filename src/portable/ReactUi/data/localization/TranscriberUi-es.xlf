@@ -104,6 +104,42 @@
 				<target>Se ha comunicado con</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.todo">
+			<segment>
+				<source>To Do</source>
+				<target>Que hacer</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.all">
+			<segment>
+				<source>All</source>
+				<target>Todos</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Transcrito</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Revisados</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Sincronizado</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>Cerrar sesión</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -278,6 +314,24 @@
 				<target>Por favor, introduzca la opción Acelerar</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>Nueva imagen</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Enfocar</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>Vistazo</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -365,7 +419,7 @@
 		<unit id="projectSettings.addTask">
 			<segment>
 				<source>Add Task</source>
-				<target>Add Task</target>
+				<target>Añadir Tareas</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.addMany">
@@ -492,6 +546,66 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>Copiar al Portapapeles</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Hacer nuevo proyecto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Cambiar la imagen del proyecto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Avance</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Hitos</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>comienzo</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Transcrito</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Revisados</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Sincronizado</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>Descartar los cambios</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>Eliminar tarea</target>
 			</segment>
 		</unit>
 	</file>

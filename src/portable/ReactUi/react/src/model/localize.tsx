@@ -18,6 +18,12 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "youhavereached": string;
     "inboxzero": string;
     "haveaniceday": string;
+    "todo": string;
+    "all": string;
+    "transcribed": string;
+    "reviewed": string;
+    "synced": string;
+    "logout": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
@@ -50,6 +56,9 @@ export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "fastForwardErrorMessage": string;
     "slowDownErrorMessage": string;
     "speedUpErrorMessage": string;
+    "newImage": string;
+    "zoom": string;
+    "browse": string;
 };
 
 export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethods {
@@ -89,4 +98,14 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "referenceFormat": string;
     "skip": string;
     "copyToClipboard": string;
+    "makeProject": string;
+    "changeImage": string;
+    "preview": string;
+    "milestones": string;
+    "start": string;
+    "transcribed": string;
+    "reviewed": string;
+    "synced": string;
+    "discardChanges": string;
+    "deleteTask": string;
 };
