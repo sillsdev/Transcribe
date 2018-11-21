@@ -18,7 +18,25 @@ interface IProps extends IStateProps{
     changeImage?: () => any;
 }
 
-class Project extends React.Component<IProps, object> {
+const initialState = {
+    projectTop: 0
+}
+
+class Project extends React.Component<IProps, typeof initialState> {
+    public state = {...initialState};
+    private projectRef: React.RefObject<HTMLDivElement>;
+
+    public constructor(props: IProps){
+        super(props);
+        this.projectRef = React.createRef();
+    }
+
+    public componentDidMount() {
+        // tslint:disable-next-line:no-console
+        console.log(this.projectRef)
+        this.setState({projectTop: this.projectRef && this.projectRef.current && this.projectRef.current.offsetTop? this.projectRef.current.offsetTop: 0})
+    }
+
     public render() {
         const { changeImage, id, isAdmin, name, newProject, select, strings, target, uri } = this.props;
         let linkClassName;
@@ -50,10 +68,10 @@ class Project extends React.Component<IProps, object> {
         const imgWrapper = (uri != null && uri !== "")? 
             <img src={uri} className="projectImage" />: ""
         return(
-            <div id={id} className="Project">
+            <div id={id} className="Project" ref={this.projectRef}>
                 <Link to={target} onClick={select && select.bind(this, id)} className={linkClassName}>
                     {imgWrapper}
-                    <div className="captionDiv"><span className="caption">{name}</span></div>
+                    <div className="captionDiv" style={{top: this.state.projectTop}}><span className="caption">{name}</span></div>
                     {adminWrapper}
                 </Link>
             </div>
