@@ -53,7 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>transcriber7.ico</ApplicationIcon>
+    <ApplicationIcon>transcriber9.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DotNetZip, Version=1.11.0.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
@@ -159,8 +159,8 @@
     <Content Include="Firefox\sandboxbroker.dll" />
     <Content Include="Firefox\softokn3.dll" />
     <Content Include="Firefox\xul.dll" />
-    <None Include="icu4c.readme.txt" />
     <Content Include="transcriber7.ico" />
+    <Content Include="transcriber9.ico" />
     <Content Include="x86\CC32.dll" />
     <Content Include="x86\libgcc_s_sjlj-1.dll" />
     <Content Include="x86\libstdc++-6.dll" />
