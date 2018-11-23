@@ -20,7 +20,12 @@ import TextboxUx from './ui-controls/TextboxUx';
 import './UserSettings.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
-}
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
+};
 
 class UserSettings extends React.Component<IProps, any> {
     private nameRef: React.RefObject<TextboxUx>;
@@ -69,6 +74,7 @@ class UserSettings extends React.Component<IProps, any> {
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
 
         log("UserSettings")
+        const settingsStyle = this.props.history.location.pathname.length > 17? " Modal": ""
 
         const playPauseKey = this.keyCode(user, "play-pause","");
         const backKey = this.keyCode(user, "back","");
@@ -90,7 +96,7 @@ class UserSettings extends React.Component<IProps, any> {
         const resetMethod = () => this.reset(this)
 
         return (
-            <div id="UserSettings" className="UserSettings">
+            <div id="UserSettings" className={"UserSettings" + settingsStyle}>
                 <div className="GridStyle">
                     <Grid>
                         <Row className="show-grid">
@@ -104,7 +110,7 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <Link className="pencil" to="/avatar/User">{"\u2710"}</Link>
+                                <Link className="pencil" to="/settings/avatar/User">{"\u2710"}</Link>
                                 <Avatar
                                     id={user.id}
                                     size="64"

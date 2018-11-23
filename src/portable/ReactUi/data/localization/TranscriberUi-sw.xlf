@@ -608,5 +608,11 @@
 				<target>Futa Kazi</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Futa Mtumiaji</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

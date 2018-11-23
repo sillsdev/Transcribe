@@ -21,6 +21,7 @@ const initialState = {
 			"createEmptyProject": "Create empty project",
 			"delete": "Delete",
 			"deleteTask": "Delete Task",
+			"deleteUser": "Delete User",
 			"discardChanges": "Discard changes",
 			"heading": "Heading",
 			"lookForProjects": "Looking for Paratext projects on this computer...",

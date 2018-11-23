@@ -608,5 +608,11 @@
 				<target>Effacer la tâche</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Supprimer l'utilisateur</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

@@ -608,5 +608,11 @@
 				<target>Удалить задачу</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Удалить пользователя</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

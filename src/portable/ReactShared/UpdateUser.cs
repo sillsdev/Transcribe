@@ -15,7 +15,26 @@ namespace ReactShared
 			var user = parsedQuery["user"];
 			var password = parsedQuery["password"];
 			var role = parsedQuery["role"];
+			var avatarUri = parsedQuery["avatarUri"];
 			var project = parsedQuery["project"];
+			if (!string.IsNullOrEmpty(avatarUri) && user == Path.GetFileNameWithoutExtension(avatarUri))
+			{
+				var oldFileName = Path.GetFileName(avatarUri);
+				var newFileName = user + Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + ".png";
+				var dataSourceFolder = Path.Combine(Util.DataFolder, "images");
+				var apiSourceFolder = Path.Combine(Util.ApiFolder(), "images");
+				var sourceInfo = new DirectoryInfo(dataSourceFolder);
+				sourceInfo.Create();
+				var oldFileWithSourcePath =  Path.Combine(dataSourceFolder, oldFileName);
+				var newFileWithSourcePath = Path.Combine(dataSourceFolder, newFileName);
+				var newFileWithTempPath = Path.Combine(apiSourceFolder, newFileName);
+				if (File.Exists(oldFileWithSourcePath))
+				{
+					File.Move(oldFileWithSourcePath, newFileWithSourcePath);
+					File.Copy(newFileWithSourcePath, newFileWithTempPath);
+					avatarUri = avatarUri.Replace(oldFileName, newFileName).Replace("/api/","");
+				}
+			}
 			var name = parsedQuery["name"];
 			var uilang = parsedQuery["uilang"];
 			var font = parsedQuery["font"];
@@ -81,6 +100,9 @@ namespace ReactShared
 			var userRoleNode = userNode.SelectNodes("role") as XmlNodeList;
 			Debug.Assert(userRoleNode != null, nameof(userRoleNode) + " != null");
 			AddUserRole(role, userRoleNode, usernameNode, usersDoc);
+			var useAvatarNode = usernameNode.SelectSingleNode("avatarUri") as XmlElement;
+			Debug.Assert(useAvatarNode != null, nameof(useAvatarNode) + " != null");
+			AddAvatarUri(avatarUri, useAvatarNode);
 			AddUilang(uilang, userNode, usersDoc);
 			AddFontInfo("fontfamily", font, userNode, project, usersDoc, user);
 			AddFontInfo("fontsize", fontsize, userNode, project, usersDoc, user);
@@ -94,6 +116,13 @@ namespace ReactShared
 			{
 				usersDoc.Save(xw);
 			}
+		}
+
+		private static void AddAvatarUri(string avatarUri, XmlElement useAvatarNode)
+		{
+			if (avatarUri == null)
+				return;
+			useAvatarNode.InnerText = avatarUri;
 		}
 
 		private static void AddUserName(string name, XmlElement usernameNode, XmlDocument usersDoc)
