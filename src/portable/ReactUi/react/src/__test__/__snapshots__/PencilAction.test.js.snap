@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: PencilAction --- Snapshot +++capturing Snapshot of PencilAction 1`] = `
+<div
+  className="PencilAction"
+  id="PencilAction"
+  onClick={[Function]}
+>
+  <img
+    src="/assets/pencil.svg"
+  />
+</div>
+`;
