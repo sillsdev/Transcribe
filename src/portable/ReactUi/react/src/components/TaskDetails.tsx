@@ -102,11 +102,19 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         const userDisplayNames = users.map((u: IUser) => u.username.id + ":" + u.displayName);
         const save = () => this.save(this);
         const copyToClipboard = () => this.copyToClipboard();
+        let backLinkWrapper;
+        if(this.state.message === "" && this.state.reference !== ""){
+            backLinkWrapper = (<BackLink action={save} target="/ProjectSettings" />);
+        }
+        else{
+            backLinkWrapper = (<BackLink action={save} target="/ProjectSettings" disable={true} />)
+        }
+
         return (
             <div className={"TaskDetails " + (direction && direction === "rtl"? "rtl": "ltr")}>
                 <div className="panel">
                     <div className="titleRow">
-                        <BackLink action={save} target="/ProjectSettings" />
+                        {backLinkWrapper}
                         <div className="title">
                             <LabelCaptionUx name={strings.taskDetails} type="H2" />
                         </div>
@@ -156,10 +164,20 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
 
     private validateReference(ref: string) {
         const { project, strings } = this.props;
-        const pair = project && project.guid && project.guid !== ""? true: false
+        let errorMessage = "";
+        const pair = project && project.guid && project.guid !== "" ? true : false
         if (pair) {
             const refExpr = /^\w{1,3}\s{1}\d{1,3}(\.|:){1}\d{1,3}(-|,)\d{1,3}$/;
-            this.setState({message: refExpr.test(ref)? "" : strings.referenceFormat});
+            errorMessage = refExpr.test(ref) ? "" : strings.referenceFormat;
+            this.setState({ message: errorMessage });
+            if (errorMessage === "" && this.taskId === "") {
+                let taskExists = false;
+                taskExists = this.checkForTaskExistence();
+                this.setState({ message: taskExists ? strings.referenceDuplicate:"" });
+            }
+        }
+        else{
+            this.setState({ message: "" });
         }
     }
 
@@ -261,6 +279,31 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             console.log("/api/UpdateTask?task=" + this.taskId, '&project=' + selectedProject + query);
             updateTask(this.taskId, selectedProject, query, data);
         }
+    }
+
+    private checkForTaskExistence(): boolean {
+        const { tasks } = this.props;
+        const taskIdsArray = Array<string>();
+        let idParts;
+        let reference = "";
+        let isExists = false;
+        if (tasks.length > 0) {
+            tasks.map((t: ITask) => (
+                idParts = t.id.split("-"),
+                reference = ((idParts.length === 4) ? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0, 3)) + "-" + Number(idParts[3].slice(3, 6)) : ""),
+                taskIdsArray.push(reference)
+            ));
+
+            const existingValue = taskIdsArray.find((str) => (str === this.state.reference ||
+                str.replace("-", ",") === this.state.reference ||
+                str.replace(":", ".") === this.state.reference ||
+                str.replace(":", ".").replace("-", ",") === this.state.reference))
+
+            if (existingValue !== undefined) {
+                isExists = true;
+            }
+        }
+        return isExists;
     }
 }
 
