@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetails 1`] = `
+<div
+  className="UserDetails ltr"
+>
+  <div
+    className="panel"
+  >
+    <div
+      className="titleRow"
+    >
+      <div
+        className="BackLink"
+        id="BackLink"
+      >
+        <a
+          href="/ProjectSettings"
+          onClick={[Function]}
+        >
+          ❮
+        </a>
+      </div>
+      <div
+        className="title"
+      >
+        <span
+          className="LabelCaptionUx H3 LabelCaptionUx H3-default"
+        >
+          User Details
+        </span>
+      </div>
+    </div>
+    <div
+      className="data"
+    >
+      <div>
+        <div
+          className="TextField"
+          id="id1"
+        >
+          <div
+            className="bodyRow"
+          >
+            <div
+              className="dataColumn"
+            >
+              <label
+                className="Caption CaptionGreen"
+              >
+                Name
+              </label>
+              <input
+                autoFocus={true}
+                className="DataColor"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Name"
+                readOnly={undefined}
+                type="text"
+                value="Erik"
+              />
+            </div>
+            <div
+              className="clearButton"
+              onClick={[Function]}
+            >
+              <img
+                alt="X"
+                src="/assets/Clear.svg"
+              />
+            </div>
+          </div>
+          <div
+            className="Message BorderTopGreen"
+          >
+            <label>
+              
+            </label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          className="ImageField"
+          id="id2"
+        >
+          <div
+            className="bodyRow"
+          >
+            <div
+              className="dataColumn"
+            >
+              <label
+                className="Caption CaptionGreen"
+              >
+                
+              </label>
+              <label
+                className="fileInput CaptionGrey"
+                data-content="Image File"
+                htmlFor="Upload"
+              />
+            </div>
+            <div
+              className="Hide"
+              onClick={[Function]}
+            >
+              <img
+                alt="X"
+                src="/assets/Clear.svg"
+              />
+              <a
+                className="pencil"
+                href="/ProjectSettings/User/avatar/PopupUser"
+                onClick={[Function]}
+              >
+                ✐
+              </a>
+            </div>
+          </div>
+          <div
+            className="Message BorderTopGreen"
+          >
+            <label>
+              
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="preview"
+    >
+      <span
+        className="LabelCaptionUx small LabelCaptionUx small-default"
+      >
+        Preview
+      </span>
+      <div
+        className="AvatarRow"
+      >
+        <div
+          className="OnHover sb-avatar"
+          onClick={undefined}
+          style={
+            Object {
+              "borderRadius": "100%",
+              "display": "inline-block",
+              "fontFamily": "Helvetica, Arial, sans-serif",
+              "height": "64px",
+              "verticalAlign": "middle",
+              "width": "64px",
+            }
+          }
+        >
+          <div
+            className="OnHover sb-avatar__text"
+            style={
+              Object {
+                "background": undefined,
+                "borderRadius": "100%",
+                "color": "#FFF",
+                "height": "64px",
+                "lineHeight": "initial",
+                "textAlign": "center",
+                "textTransform": "uppercase",
+                "width": "64px",
+              }
+            }
+          >
+            <div
+              style={
+                Object {
+                  "display": "table",
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <span
+                style={
+                  Object {
+                    "display": "table-cell",
+                    "verticalAlign": "middle",
+                  }
+                }
+              >
+                <span />
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="AvatarDetails"
+        >
+          <div
+            className="AvatarCaption"
+          >
+            Erik
+          </div>
+          <div>
+            <span
+              className="LabelUx LabelUx-default"
+            >
+              Transcriber
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="details"
+    >
+      <div
+        className="results"
+      >
+        <div
+          className="resultsRight"
+        >
+          <div
+            className="resultsRightBox"
+          >
+            <div
+              className="rolesBox"
+            >
+              <span
+                className="LabelUx LabelUx-default"
+              >
+                Privilege Tier
+              </span>
+              <div
+                className="RadioListField"
+              >
+                <div
+                  className="bodyRow"
+                >
+                  <div
+                    className="dataColumn"
+                  >
+                    <form>
+                      <fieldset
+                        className="radioFieldSet"
+                        id="radioGroup"
+                      >
+                        <div>
+                          <input
+                            checked={false}
+                            className="DataColor"
+                            name="radioGroup"
+                            onChange={[Function]}
+                            type="radio"
+                            value="Admin"
+                          />
+                          <label
+                            className="labelRadioCaption"
+                          >
+                            Admin
+                             
+                          </label>
+                        </div>
+                        <div>
+                          <input
+                            checked={false}
+                            className="DataColor"
+                            name="radioGroup"
+                            onChange={[Function]}
+                            type="radio"
+                            value="Reviewer"
+                          />
+                          <label
+                            className="labelRadioCaption"
+                          >
+                            Reviewer
+                             
+                          </label>
+                        </div>
+                        <div>
+                          <input
+                            checked={true}
+                            className="DataColor"
+                            name="radioGroup"
+                            onChange={[Function]}
+                            type="radio"
+                            value="Transcriber"
+                          />
+                          <label
+                            className="labelRadioCaption"
+                          >
+                            Transcriber
+                             
+                          </label>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="OtherProjectsBox"
+            >
+              <span
+                className="LabelUx LabelUx-default"
+              >
+                Other Projects
+              </span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="action"
+    >
+      <div
+        className="IconButtonField"
+        id="discard"
+        onClick={[Function]}
+      >
+        <img
+          alt="D"
+          className="CaptionImage"
+          src="/assets/CancelIcon.svg"
+        />
+        <label
+          className="Caption"
+        >
+          DISCARD CHANGES
+        </label>
+      </div>
+      <div
+        className="IconButtonField"
+        id="deleteUser"
+        onClick={[Function]}
+      >
+        <img
+          alt="D"
+          className="CaptionImage"
+          src="/assets/RejectIcon.svg"
+        />
+        <label
+          className="Caption"
+        >
+          DELETE USER
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -32,8 +32,6 @@ class Project extends React.Component<IProps, typeof initialState> {
     }
 
     public componentDidMount() {
-        // tslint:disable-next-line:no-console
-        console.log(this.projectRef)
         this.setState({projectTop: this.projectRef && this.projectRef.current && this.projectRef.current.offsetTop? this.projectRef.current.offsetTop: 0})
     }
 

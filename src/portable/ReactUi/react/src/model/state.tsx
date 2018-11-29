@@ -44,4 +44,5 @@ export interface IState {
         paratextProjects: IParatextProject[];
         selectedParatextProject: string;
     };
+    avatar: IAvatarState
 }

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: LabelCaptionUx --- Snapshot +++capturing Snapshot of LabelCaptionUx 1`] = `
+<span
+  className="LabelCaptionUx safe LabelCaptionUx safe-default"
+>
+  Caption
+</span>
+`;

@@ -332,6 +332,24 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -605,6 +623,12 @@
 		<unit id="projectSettings.deleteTask">
 			<segment>
 				<source>Delete Task</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
 				<target></target>
 			</segment>
 		</unit>

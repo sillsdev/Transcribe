@@ -21,6 +21,11 @@ import NavPanel from './NavPanel';
 import TaskPanel from './TaskPanel';
 
 interface IProps extends IStateProps, IDispatchProps {
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
 };
 
 class MainLayout extends React.Component<IProps, any> {
@@ -95,9 +100,12 @@ class MainLayout extends React.Component<IProps, any> {
             editorScreen = (submit && saved) ? <SucessPanel  {...this.props} sync={sync} /> : <AudioPanel {...this.props} />;
         }
 
+        let settingsStyle = this.props.history.location.pathname.length > 5? " Modal": ""
+        settingsStyle = direction? settingsStyle + " " + direction: settingsStyle;
+
         return (
             <HotKeys keyMap={keyMap} handlers={handlers}>
-                <div className={"MainLayout " + (direction? direction: "")} tabIndex={1}>
+                <div  className={"MainLayout" + settingsStyle} tabIndex={1}>
                     <div className="NavCol">
                         <NavPanel {...this.props} />
                     </div>

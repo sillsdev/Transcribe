@@ -1,6 +1,6 @@
 {
-  "name": "siltranscriber",
-  "version": "0.3.4",
+  "name": "transcriber",
+  "version": "0.3.6",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
