@@ -2,7 +2,7 @@
 
 exports[`>>>Control: AvatarEdit --- Snapshot +++capturing Snapshot of AvatarEdit 1`] = `
 <div
-  className="AvatarEdit"
+  className="AvatarEdit ltr"
 >
   <div
     className="panel"
@@ -25,17 +25,15 @@ exports[`>>>Control: AvatarEdit --- Snapshot +++capturing Snapshot of AvatarEdit
         className="title"
       >
         <span
-          className="LabelCaptionUx H2 LabelCaptionUx H2-default"
-        >
-          Edit Avatar
-        </span>
+          className="LabelCaptionUx H3 LabelCaptionUx H3-default hidden"
+        />
       </div>
     </div>
     <div
       className="data"
     >
       <div>
-        
+        Dropzone + Avatar
       </div>
     </div>
     <div

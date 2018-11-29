@@ -54,7 +54,7 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
     if (discard) {
       return (<Redirect to={backTo} />)
     }
-    const wrapper = (this.props.snapShotTest) ? "": (
+    const wrapper = (this.props.snapShotTest) ? "Dropzone + Avatar": (
       <Dropzone
         onDrop={this.handleDrop}
         disableClick={true}
