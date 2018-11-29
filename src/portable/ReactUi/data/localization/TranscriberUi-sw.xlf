@@ -332,6 +332,24 @@
 				<target>Vinjari</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Uwezo wa Haki</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Picha ya Picha</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Badilisha picha</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -606,6 +624,12 @@
 			<segment>
 				<source>Delete Task</source>
 				<target>Futa Kazi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Futa Mtumiaji</target>
 			</segment>
 		</unit>
 	</file>

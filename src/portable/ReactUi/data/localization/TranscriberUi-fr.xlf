@@ -332,6 +332,24 @@
 				<target>Feuilleter</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Niveau de privilège</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Fichier d'image</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Éditer l'image</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -606,6 +624,12 @@
 			<segment>
 				<source>Delete Task</source>
 				<target>Effacer la tâche</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Supprimer l'utilisateur</target>
 			</segment>
 		</unit>
 	</file>

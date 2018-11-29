@@ -332,6 +332,24 @@
 				<target>Browse</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Tier Privilege</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Fayil din Hotuna</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Shirya Hoto</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -606,6 +624,12 @@
 			<segment>
 				<source>Delete Task</source>
 				<target>Share Task</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Share Mai amfani</target>
 			</segment>
 		</unit>
 	</file>

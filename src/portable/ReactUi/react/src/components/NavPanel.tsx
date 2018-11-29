@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
+import * as actions3 from '../actions/avatarActions';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
 import * as actions2 from '../actions/taskActions';
@@ -73,10 +74,10 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 
     public onChangeImage() {
         this.setState({...this.state, showProjectEdit: true})
-    }
+}
 
     public render() {
-        const { direction, tasks, selectedProject, users, selectedUser, strings } = this.props;
+        const { direction, tasks, selectedProject, users, saveAvatar, selectedUser, setProjectAvatar, setSaveToProject, strings } = this.props;
         const { backToHome, goTosearchParatextProjects, showProjectEdit } = this.state;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
@@ -94,7 +95,12 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
             return ( <Redirect to="/" push={true} /> );
         }
         if(showProjectEdit){
-            return ( <Redirect to="/avatar/Project" push={true} /> );
+            this.setState({showProjectEdit: false});
+            setProjectAvatar();
+            const uri = (project.uri)? project.uri: "";
+            saveAvatar({data: uri, uri});
+            setSaveToProject(selectedProject);
+            return ( <Redirect to="/main/avatar/Project" push={true} /> );
         }
         if(goTosearchParatextProjects) {
             return ( <Redirect to="/SearchParatextProjects" push={true} /> );
@@ -157,14 +163,20 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     clearSelectedParatextProject: typeof actions.clearSelectedParatextProject;
     fetchZttProjectsCount: typeof actions2.fetchZttProjectsCount;
+    saveAvatar: typeof actions3.saveAvatar;
     selectParatextProject: typeof actions.selectParatextProject;
+    setProjectAvatar: typeof actions3.setProjectAvatar;
+    setSaveToProject: typeof actions3.setSaveToProject;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         clearSelectedParatextProject: actions.clearSelectedParatextProject,
         fetchZttProjectsCount: actions2.fetchZttProjectsCount,
+        saveAvatar: actions3.saveAvatar,
         selectParatextProject: actions.selectParatextProject,
+        setProjectAvatar: actions3.setProjectAvatar,
+        setSaveToProject: actions3.setSaveToProject,
     }, dispatch),
 });
 

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: IconButtonField --- Snapshot +++capturing Snapshot of IconButtonField 1`] = `
+<div
+  className="IconButtonField"
+  id={undefined}
+  onClick={[Function]}
+>
+  <img
+    alt="C"
+    className="CaptionImage"
+    src="/assets/cancel.svg"
+  />
+  <label
+    className="Caption"
+  >
+    CAPTION
+  </label>
+</div>
+`;

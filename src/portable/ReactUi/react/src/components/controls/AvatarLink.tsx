@@ -10,15 +10,16 @@ interface IProps {
     size?: string;
     target: string;
     uri: string;
+    avatarShape?: boolean
 };
 
 class AvatarLink extends React.Component<IProps, object> {
     public render() {
-        const { id, name, select=(() => undefined), size="64", target, uri } = this.props;
+        const { avatarShape, id, name, select=(() => undefined), size="64", target, uri } = this.props;
         return (
             <div id={id} className="AvatarLink">
                 <Link to={target} onClick={select.bind(this, id)}>
-                    <Avatar className="OnHover"  name={name} src={uri} size={size} round={true}/>
+                    <Avatar className="OnHover"  name={name} src={uri} size={size} round={(avatarShape !== undefined && !avatarShape)? avatarShape: true}/>
                     <br /> <br />
                     <div className="caption">{name}</div>
                 </Link>

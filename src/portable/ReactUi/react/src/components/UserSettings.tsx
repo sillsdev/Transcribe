@@ -4,6 +4,7 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import * as actions2 from 'src/actions/avatarActions';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
@@ -20,7 +21,12 @@ import TextboxUx from './ui-controls/TextboxUx';
 import './UserSettings.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
-}
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
+};
 
 class UserSettings extends React.Component<IProps, any> {
     private nameRef: React.RefObject<TextboxUx>;
@@ -52,6 +58,11 @@ class UserSettings extends React.Component<IProps, any> {
         this.forwardRef = React.createRef();
         this.slowerRef = React.createRef();
         this.fasterRef = React.createRef();
+        const { users, saveAvatar, selectedUser, setUserAvatar } = this.props;
+        const user = users.filter(u => u.username.id === selectedUser)[0];
+        const uri = (user && user.username && user.username.avatarUri)? user.username.avatarUri: ""
+        saveAvatar({ data: uri, uri});
+        setUserAvatar();
     }
 
     public componentWillMount()
@@ -62,13 +73,14 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     public render() {
-        const { users, selectedProject, selectedUser, strings } = this.props;
+        const { avatar, users, selectedProject, selectedUser, strings } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
 
         log("UserSettings")
+        const settingsStyle = this.props.history.location.pathname.length > 17? " Modal": ""
 
         const playPauseKey = this.keyCode(user, "play-pause","");
         const backKey = this.keyCode(user, "back","");
@@ -90,7 +102,7 @@ class UserSettings extends React.Component<IProps, any> {
         const resetMethod = () => this.reset(this)
 
         return (
-            <div id="UserSettings" className="UserSettings">
+            <div id="UserSettings" className={"UserSettings" + settingsStyle}>
                 <div className="GridStyle">
                     <Grid>
                         <Row className="show-grid">
@@ -104,12 +116,12 @@ class UserSettings extends React.Component<IProps, any> {
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <Link className="pencil" to="/avatar/User">{"\u2710"}</Link>
+                                <Link className="pencil" to="/settings/avatar/User">{"\u2710"}</Link>
                                 <Avatar
                                     id={user.id}
                                     size="64"
                                     round={true}
-                                    src={user !== undefined? user.username.avatarUri:""} />
+                                    src={avatar} />
 
                             </Col>
                         </Row>
@@ -247,7 +259,7 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private save(context: UserSettings) {
-        const { selectedProject, selectedUser, users, updateUser } = this.props;
+        const { avatar, selectedProject, selectedUser, users, updateAvatar, updateUser } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
@@ -407,6 +419,12 @@ class UserSettings extends React.Component<IProps, any> {
             console.log("/api/UpdateUser?user=" + selectedUser, "&project=" + selectedProject + query);
             updateUser(selectedUser, selectedProject, query)
         }
+        // avatar
+        if (user && user.username && user.username.avatarUri && user.username.avatarUri !== avatar) {
+            // tslint:disable-next-line:no-console
+            console.log("/api/UpdateAvatar?user=" + selectedUser, "&project=" + selectedProject);
+            updateAvatar(selectedUser, selectedProject, {img: avatar})
+        }
     }
 
     private reset(context: UserSettings) {
@@ -449,6 +467,7 @@ class UserSettings extends React.Component<IProps, any> {
 }
 
 interface IStateProps {
+    avatar: string;
     selectedUser: string;
     selectedProject: string;
     strings: IUserSettingsStrings;
@@ -457,6 +476,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    avatar: state.avatar.data,
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "userSettings"}),
@@ -467,6 +487,9 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     fetchUsers: typeof actions.fetchUsers;
     restoreDefaultUserHotKeys: typeof actions.restoreDefaultUserHotKeys;
+    saveAvatar: typeof actions2.saveAvatar;
+    setUserAvatar: typeof actions2.setUserAvatar;
+    updateAvatar: typeof actions.updateAvatar;
     updateUser: typeof actions.updateUser;
   };
   
@@ -474,6 +497,9 @@ interface IDispatchProps {
     ...bindActionCreators({
         fetchUsers: actions.fetchUsers,
         restoreDefaultUserHotKeys: actions.restoreDefaultUserHotKeys,
+        saveAvatar: actions2.saveAvatar,
+        setUserAvatar: actions2.setUserAvatar,
+        updateAvatar: actions.updateAvatar,
         updateUser: actions.updateUser,
         }, dispatch),
   });

@@ -332,6 +332,24 @@
 				<target>Просматривать</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Привилегированный уровень</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Файл изображения</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Редактировать Аватар</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -606,6 +624,12 @@
 			<segment>
 				<source>Delete Task</source>
 				<target>Удалить задачу</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Удалить пользователя</target>
 			</segment>
 		</unit>
 	</file>

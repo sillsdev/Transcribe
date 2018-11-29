@@ -25,10 +25,9 @@ ReactDOM.render(
         <Route exact={true} path="/" component={UserLogin}/>
         <Route path="/project" component={SelectProject} />
         <Route path="/main" component={MainLayout} />
+        <Route path="/main/avatar/Project" component={AvatarEdit} />
         <Route path="/settings" component={UserSettings}/>
-        <Route path="/avatar/User" component={AvatarEdit} />
-        <Route path="/avatar/PopupUser" component={AvatarEdit} />
-        <Route path="/avatar/Project" component={AvatarEdit} />
+        <Route path="/settings/avatar/User" component={AvatarEdit} />
         <Route path="/uilang" component={UiLang} />
         <Route path="/SearchParatextProjects" component={SearchParatextProjects} />
         <Route path="/NewOrBrowseParatextProjects" component={NewOrBrowseParatextProjects} />
@@ -37,6 +36,8 @@ ReactDOM.render(
         <Route path="/ProjectSettings/NewTask" component={TaskDetails} />
         <Route path="/ProjectSettings/User" component={UserDetails} />
         <Route path="/ProjectSettings/NewUser" component={UserDetails} />
+        <Route path="/ProjectSettings/User/avatar/PopupUser" component={AvatarEdit} />
+        <Route path="/ProjectSettings/NewUser/avatar/PopupUser" component={AvatarEdit} />
       </div>
     </Router>
   </Provider>,
