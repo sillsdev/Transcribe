@@ -43,7 +43,7 @@ describe('>>>Control: UserDetails --- Snapshot',()=>{
         strings2: {
             "imageFile": "Image File",
             "name": "Name",
-            "privilegeTier": "Privilege Tier",
+            "role": "Role",
         },
         users: [],
     };
@@ -87,7 +87,7 @@ describe('>>>Control: UserDetails', () => {
         strings2: {
             "imageFile": "Image File",
             "name": "Name",
-            "privilegeTier": "Privilege Tier",
+            "role": "Role",
         },
         users: [],
     };

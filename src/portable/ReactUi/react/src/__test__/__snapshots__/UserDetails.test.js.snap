@@ -228,7 +228,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
               <span
                 className="LabelUx LabelUx-default"
               >
-                Privilege Tier
+                Role
               </span>
               <div
                 className="RadioListField"

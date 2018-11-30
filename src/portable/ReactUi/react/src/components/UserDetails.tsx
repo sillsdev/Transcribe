@@ -154,7 +154,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                                 <div className="resultsRightBox">
 
                                     <div className="rolesBox">
-                                        <LabelUx name={strings2.privilegeTier} />
+                                        <LabelUx name={strings2.role} />
                                         <RadioListField options={this.roleListLoc} selected={this.state.role} onChange={this.updateRoles} />
                                     </div>
                                     <div className="OtherProjectsBox">
