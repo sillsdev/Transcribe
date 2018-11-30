@@ -548,6 +548,12 @@
 				<target>Paratext உடன் இணைத்தல்</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>உள்ளிட்ட குறிப்பு ஏற்கனவே உள்ளது</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
