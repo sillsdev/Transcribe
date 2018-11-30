@@ -36,46 +36,6 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         this.onChangeImage = this.onChangeImage.bind(this);
     }
 
-    public onToDoClick()
-    {
-        log("To Do Clicked");
-    }
-
-    public onAllClick()
-    {
-        alert("All Clicked!");
-    }
-
-    public onTranscribedClick()
-    {
-        alert("Transcribed Clicked!");
-    }
-
-    public onReviewedClick()
-    {
-        alert("Reviewed Clicked!");
-    }
-
-    public onSyncedClick()
-    {
-        alert("Synced Clicked!");
-    }
-
-    public onLogOutClick() {
-        this.setState({...this.state, backToHome: true})
-    }
-
-    public onNewProject() {
-        const { clearSelectedParatextProject, fetchZttProjectsCount } = this.props;
-        clearSelectedParatextProject();
-        fetchZttProjectsCount();
-        this.setState({...this.state, goTosearchParatextProjects: true});
-    }
-
-    public onChangeImage() {
-        this.setState({...this.state, showProjectEdit: true})
-}
-
     public render() {
         const { direction, tasks, selectedProject, users, saveAvatar, selectedUser, setProjectAvatar, setSaveToProject, strings } = this.props;
         const { backToHome, goTosearchParatextProjects, showProjectEdit } = this.state;
@@ -140,6 +100,47 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
             </div>
         )
     }
+
+    private onToDoClick()
+    {
+        log("To Do Clicked");
+    }
+
+/*     private onAllClick()
+    {
+        alert("All Clicked!");
+    }
+
+    private onTranscribedClick()
+    {
+        alert("Transcribed Clicked!");
+    }
+
+    private onReviewedClick()
+    {
+        alert("Reviewed Clicked!");
+    }
+
+    private onSyncedClick()
+    {
+        alert("Synced Clicked!");
+    } */
+
+    private onLogOutClick() {
+        this.props.initTasks();
+        this.setState({...this.state, backToHome: true})
+    }
+
+    private onNewProject() {
+        const { clearSelectedParatextProject, fetchZttProjectsCount } = this.props;
+        clearSelectedParatextProject();
+        fetchZttProjectsCount();
+        this.setState({...this.state, goTosearchParatextProjects: true});
+    }
+
+    private onChangeImage() {
+        this.setState({...this.state, showProjectEdit: true})
+    }
 };
 
 interface IStateProps {
@@ -163,6 +164,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     clearSelectedParatextProject: typeof actions.clearSelectedParatextProject;
     fetchZttProjectsCount: typeof actions2.fetchZttProjectsCount;
+    initTasks: typeof actions2.initTasks;
     saveAvatar: typeof actions3.saveAvatar;
     selectParatextProject: typeof actions.selectParatextProject;
     setProjectAvatar: typeof actions3.setProjectAvatar;
@@ -173,6 +175,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         clearSelectedParatextProject: actions.clearSelectedParatextProject,
         fetchZttProjectsCount: actions2.fetchZttProjectsCount,
+        initTasks: actions2.initTasks,
         saveAvatar: actions3.saveAvatar,
         selectParatextProject: actions.selectParatextProject,
         setProjectAvatar: actions3.setProjectAvatar,
