@@ -1,4 +1,4 @@
-import { ASSIGN_TASK_PENDING, DELETE_TASK, FETCH_TASKS, FETCH_ZTT_PROJECTS_COUNT, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
+import { ASSIGN_TASK_PENDING, DELETE_TASK, FETCH_TASKS, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
 
 const initialState = {
     deleted: false,
@@ -65,6 +65,10 @@ export default function (state = initialState, action: any) {
                 ...state,
                 projects: state.projects.map((p: IProject) => project(p, action)),
                 selectedTask: action.payload,
+            }
+        case INIT_TASKS:
+            return {
+                ...initialState
             }
         default:
             return state;

@@ -223,7 +223,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
             this.saveValue(updates, "avatarUri", this.state.avatarUrl);
         }
 
-        const img = (this.state.avatarUrl === "" && this.props.avatar.indexOf("smile") < 0)?
+        const img = (this.state.avatarUrl === "" && this.props.avatar && this.props.avatar.indexOf("smile") < 0)?
             this.props.avatar: ""
 
         if (updates.length > 0 || img !== "") {
