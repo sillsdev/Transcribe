@@ -60,10 +60,7 @@ namespace Transcribe.Windows
 								e.Cancel = true;
 							break;
 						case "UpdateUser":
-							new UpdateUser(e.Uri.Query);
-							break;
-						case "UpdateAvatar":
-							new UpdateAvatar(e.Uri.Query, e.RequestBody, SaveImage);
+							new UpdateUser(e.Uri.Query, e.RequestBody, SaveImage);
 							break;
 						case "UpdateProject":
 							new UpdateProject(e.Uri.Query);

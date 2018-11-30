@@ -92,8 +92,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                 }
             }
             else {
-                this.state = { ...initialState, role: this.roleListLoc[2] }
-                this.state.name = this.userId;
+                this.state = { ...initialState, role: this.roleListLoc[2], name: this.userId }
             }
             
         } else {
@@ -188,9 +187,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private updateUserName(newName: string) {
-        const { selectPopupUser } = this.props;
         this.setState({ ...this.state, name: newName })
-        selectPopupUser(newName);
     }
 
     private updateImageFile(newImage: string) {
@@ -226,15 +223,14 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
             this.saveValue(updates, "avatarUri", this.state.avatarUrl);
         }
 
-        if (this.state.avatarUrl === "" && this.props.avatar.indexOf("smile") < 0) {
-            this.props.updateAvatar(this.userId, selectedProject, {img: this.props.avatar})
-        }
+        const img = (this.state.avatarUrl === "" && this.props.avatar.indexOf("smile") < 0)?
+            this.props.avatar: ""
 
-        if (updates.length > 0) {
+        if (updates.length > 0 || img !== "") {
             const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
             console.log("/api/updateUser?user=" + this.userId, '&project=' + selectedProject + query);
-            updateUser(this.userId, selectedProject, query);
+            updateUser(this.userId, selectedProject, query, {img});
         }
     }
 }
@@ -269,7 +265,6 @@ interface IDispatchProps {
     fetchUsers: typeof actions2.fetchUsers;
     selectPopupUser: typeof actions2.selectPopupUser,
     selectTask: typeof actions.selectTask;
-    updateAvatar: typeof actions2.updateAvatar,
     updateUser: typeof actions2.updateUser;
     deleteUser: typeof actions2.deleteUser;
     saveAvatar: typeof actions3.saveAvatar;
@@ -283,7 +278,6 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         selectPopupUser: actions2.selectPopupUser,
         selectTask: actions.selectTask,
         setUserAvatar: actions3.setUserAvatar,
-        updateAvatar: actions2.updateAvatar,
         updateUser: actions2.updateUser,
     }, dispatch),
 });

@@ -119,6 +119,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <Link className="pencil" to="/settings/avatar/User">{"\u2710"}</Link>
                                 <Avatar
                                     id={user.id}
+                                    name={user !== undefined ? user.displayName : ""}
                                     size="64"
                                     round={true}
                                     src={avatar} />
@@ -259,7 +260,7 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private save(context: UserSettings) {
-        const { avatar, selectedProject, selectedUser, users, updateAvatar, updateUser } = this.props;
+        const { avatar, selectedProject, selectedUser, users, updateUser } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
@@ -413,17 +414,14 @@ class UserSettings extends React.Component<IProps, any> {
             }
         }
 
-        if (isValid === true && updates.length > 0) {
+        const img = ((user && user.username && user.username.avatarUri && user.username.avatarUri) !== avatar)?
+            avatar: "";
+
+        if (isValid === true && (updates.length > 0 || img !== "")) {
             const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
             console.log("/api/UpdateUser?user=" + selectedUser, "&project=" + selectedProject + query);
-            updateUser(selectedUser, selectedProject, query)
-        }
-        // avatar
-        if (user && user.username && user.username.avatarUri && user.username.avatarUri !== avatar) {
-            // tslint:disable-next-line:no-console
-            console.log("/api/UpdateAvatar?user=" + selectedUser, "&project=" + selectedProject);
-            updateAvatar(selectedUser, selectedProject, {img: avatar})
+            updateUser(selectedUser, selectedProject, query, {img})
         }
     }
 
@@ -489,7 +487,6 @@ interface IDispatchProps {
     restoreDefaultUserHotKeys: typeof actions.restoreDefaultUserHotKeys;
     saveAvatar: typeof actions2.saveAvatar;
     setUserAvatar: typeof actions2.setUserAvatar;
-    updateAvatar: typeof actions.updateAvatar;
     updateUser: typeof actions.updateUser;
   };
   
@@ -499,7 +496,6 @@ interface IDispatchProps {
         restoreDefaultUserHotKeys: actions.restoreDefaultUserHotKeys,
         saveAvatar: actions2.saveAvatar,
         setUserAvatar: actions2.setUserAvatar,
-        updateAvatar: actions.updateAvatar,
         updateUser: actions.updateUser,
         }, dispatch),
   });

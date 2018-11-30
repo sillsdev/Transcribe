@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import * as React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';

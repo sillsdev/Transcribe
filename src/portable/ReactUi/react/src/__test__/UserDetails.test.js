@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
@@ -7,7 +8,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import {UserDetails} from '../components/UserDetails';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 // Snapshot for UserDetails
 describe('>>>Control: UserDetails --- Snapshot',()=>{
@@ -20,12 +21,12 @@ describe('>>>Control: UserDetails --- Snapshot',()=>{
                 pathname: "/ProjectSettings/User"
             }
         },
+        popupUser: "Erik",
         project: {
             id: "ztt",
             lang: "fr",
             task: []
         },
-        popupUser: "Erik",
         selectedParatextProject: "",
         selectedProject: "ztt",
         setUserAvatar: () => {return},
@@ -48,7 +49,7 @@ describe('>>>Control: UserDetails --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of UserDetails', () => {
-        const renderedValue =  renderer.create(<Router><UserDetails {...minProps} snapShotTest={true}/></Router>).toJSON()
+        const renderedValue =  renderer.create(<Router><UserDetails {...minProps} snapShotTest={true}/></Router>).toJSON();
         expect(renderedValue).toMatchSnapshot();
     });
 });
@@ -64,12 +65,12 @@ describe('>>>Control: UserDetails', () => {
                 pathname: "/ProjectSettings/User"
             }
         },
+        popupUser: "Erik",
         project: {
             id: "ztt",
             lang: "fr",
             task: []
         },
-        popupUser: "Erik",
         selectedParatextProject: "",
         selectedProject: "ztt",
         setUserAvatar: () => {return},

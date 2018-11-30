@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
@@ -7,7 +8,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import {ImageField} from '../components/ui-controls/ImageField';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 // Snapshot for ImageField
 describe('>>>Control: ImageField --- Snapshot',()=>{
@@ -22,7 +23,7 @@ describe('>>>Control: ImageField --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of ImageField', () => {
-        const renderedValue =  renderer.create(<Router><ImageField {...minProps}/></Router>).toJSON()
+        const renderedValue =  renderer.create(<Router><ImageField {...minProps}/></Router>).toJSON();
         expect(renderedValue).toMatchSnapshot();
     });
 });
@@ -36,7 +37,7 @@ describe('>>>Control: ImageField', () => {
 
     beforeEach(() => {
         wrapper = shallow(<ImageField {...minProps} />);
-    })
+    });
 
     it('+++ renders without exploding', () => {
         expect(wrapper.length).toEqual(1);

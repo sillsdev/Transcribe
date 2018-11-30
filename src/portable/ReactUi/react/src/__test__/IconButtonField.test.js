@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
@@ -6,7 +7,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import {IconButtonField} from '../components/ui-controls/IconButtonField';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 // Snapshot for IconButtonField
 describe('>>>Control: IconButtonField --- Snapshot',()=>{
@@ -16,7 +17,7 @@ describe('>>>Control: IconButtonField --- Snapshot',()=>{
     };
 
     it('+++capturing Snapshot of IconButtonField', () => {
-        const renderedValue =  renderer.create(<IconButtonField {...minProps}/>).toJSON()
+        const renderedValue =  renderer.create(<IconButtonField {...minProps}/>).toJSON();
         expect(renderedValue).toMatchSnapshot();
     });
 });
@@ -30,7 +31,7 @@ describe('>>>Control: IconButtonField', () => {
 
     beforeEach(() => {
         wrapper = shallow(<IconButtonField {...minProps} />);
-    })
+    });
 
     it('+++ renders without exploding', () => {
         expect(wrapper.length).toEqual(1);
@@ -38,7 +39,7 @@ describe('>>>Control: IconButtonField', () => {
 
     it('+++ sets link action', () => {
         const onButtonClick = sinon.spy();
-        const linkWrapper = shallow(<IconButtonField {...minProps} id="myButton" onClick={onButtonClick}/>)
+        const linkWrapper = shallow(<IconButtonField {...minProps} id="myButton" onClick={onButtonClick}/>);
         linkWrapper.find('#myButton').simulate('click');
         expect(onButtonClick.calledOnce).toEqual(true);
     });

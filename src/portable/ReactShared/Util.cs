@@ -146,6 +146,8 @@ namespace ReactShared
 		public static string GetRequestElement(byte[] data, string tag)
 		{
 			var text = string.Empty;
+			if (data == null)
+				return text;
 			using (var ms = new MemoryStream(data))
 			{
 				using (var str = new StreamReader(ms))

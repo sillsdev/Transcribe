@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
@@ -7,7 +8,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import AvatarLink from '../components/controls/AvatarLink';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 // Snapshot for AvatarLink
 describe('>>>Control: Avatarlink --- Snapshot',()=>{

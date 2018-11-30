@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
@@ -6,7 +7,7 @@ import { MemoryRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import BackLink from '../components/controls/BackLink';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 // Snapshot for BackLink
 describe('>>>Control: Backlink --- Snapshot',()=>{
