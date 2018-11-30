@@ -98,6 +98,7 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "reviewer": string;
     "transcriber": string;
     "pairWithParatext": string;
+    "referenceDuplicate": string;
     "referenceFormat": string;
     "skip": string;
     "copyToClipboard": string;
