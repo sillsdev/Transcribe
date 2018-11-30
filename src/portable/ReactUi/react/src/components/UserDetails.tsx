@@ -69,7 +69,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                 this.state.name = user.displayName
                 if (user.username.avatarUri !== undefined) {
                     this.props.saveAvatar({data: user.username.avatarUri, uri: user.username.avatarUri});
-                    this.state.imageFile = user.username.avatarUri.replace("/api/images/", "");
+                    this.state.imageFile = user.username.avatarUri && user.username.avatarUri.replace("/api/images/", "");
                 }
                 const roleCount = user.role.length
                 if (roleCount === 3) {
@@ -117,7 +117,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
         const user: IUser = users.filter((u: IUser) => u.username.id === this.userId)[0];
         const projectAvatar = user && user.project ? (
             <AvatarLink id={project.id}
-                name={project.id}
+                name={(project.guid === undefined || project.guid === "" || (project.sync !== undefined && !project.sync)) && project.name? project.name: project.id}
                 size="48"
                 target="/main"
                 avatarShape={false}

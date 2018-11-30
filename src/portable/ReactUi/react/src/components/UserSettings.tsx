@@ -95,7 +95,7 @@ class UserSettings extends React.Component<IProps, any> {
 
         this.fontSizeDef = ['medium', 'xx-small', 'x-small', 'small', 'large', 'x-large', 'xx-large'];
         this.fontSizeLoc = [strings.medium, 'xx-' + strings.small, 'x-' + strings.small, strings.small, strings.large, 'x-' + strings.large, 'xx-' + strings.large];
-        const projFontSize = this.fontSizeLoc[this.fontSizeDef.indexOf(project.fontsize? project.fontsize: "large")]
+        const projFontSize = this.fontSizeLoc[this.fontSizeDef.indexOf((project && project.fontsize)? project.fontsize: "large")]
         const fontSizeChoice = [projFontSize].concat(this.fontSizeLoc.filter(v => v !== projFontSize));
 
         const saveMethod = () => this.save(this)
@@ -166,7 +166,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.font} />
                             </Col>
                             <Col xs={3} md={3}>
-                                <TextboxUx id="Font" ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily? project.fontfamily: "SIL Charis"}
+                                <TextboxUx id="Font" ref={this.fontRef} isReadOnly={false} inputValue={(project && project.fontfamily)? project.fontfamily: "SIL Charis"}
                                     toolTipText="" />
                             </Col>
                             <Col xs={7} md={7}>
