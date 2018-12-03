@@ -569,7 +569,7 @@
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target>கிளிப்போர்டுக்கு நகலெடுக்கவும்</target>
+				<target>படியெடுத்தல் நகல்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.makeProject">
@@ -599,25 +599,25 @@
 		<unit id="projectSettings.start">
 			<segment>
 				<source>Start</source>
-				<target>தொடக்கம்</target>
+				<target>தொடங்கும்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.transcribed">
 			<segment>
 				<source>Transcribed</source>
-				<target>எழுத்துவடிவமாக்கப்பட்டது</target>
+				<target>தட்டச்சு</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reviewed">
 			<segment>
 				<source>Reviewed</source>
-				<target>சரிபார்க்கப்பட்டது</target>
+				<target>ஒப்புதல்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.synced">
 			<segment>
 				<source>Synced</source>
-				<target>ஒத்திசைக்கப்பட்டது</target>
+				<target>பதிவேற்றிய</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.discardChanges">
