@@ -67,11 +67,10 @@ class TaskList extends React.Component<IProps, object> {
                 <FilterAction target={sortByType} text={strings.sortByType} />
             </div>);
 
-        // const ManyTask = () => { alert("Add Many Tasks") }
         const noSelectedTask = () => this.props.selectPopupTask("")
         const buttonWrapper = (
             <div className="Buttons">
-                {/* <NextAction text={strings.addMany} target={ManyTask} type="text-light" /> */}
+                <ButtonLink text={strings.addMany} target={"/ProjectSettings/AddManyTasks"} type="text-light"/>
                 <ButtonLink
                     text={strings.addTask}
                     target={"/ProjectSettings/NewTask"}

@@ -8,10 +8,31 @@
 		public int ChapterNumber { get; set; }
 		public int VerseStart { get; set; }
 		public int VerseEnd { get; set; }
+		public string Heading { get; set; }
 
 		public string VerseFormat
 		{
 			get => (@"\v " + VerseStart + "-" + VerseEnd);
+		}
+
+		public string AudioFileName
+		{
+			get => this.Project.Trim() + "-" + this.BookName.Substring(0, 3) + "-" +
+			       this.ChapterNumber.ToString().PadLeft(3, '0') + "-" + this.VerseStart.ToString().PadLeft(3, '0') +
+			       this.VerseEnd.ToString().PadLeft(3, '0');
+		}
+
+		public string AudioFileNameWithoutProjectName
+		{
+			get => this.BookName.Substring(0, 3) + "-" +
+			       this.ChapterNumber.ToString().PadLeft(3, '0') + "-" + this.VerseStart.ToString().PadLeft(3, '0') +
+			       this.VerseEnd.ToString().PadLeft(3, '0');
+		}
+
+		public string Reference
+		{
+			get => this.BookName.Substring(0, 3) + " " + this.ChapterNumber.ToString().PadLeft(3, '0') + ":" + 
+			       this.VerseStart.ToString().PadLeft(3, '0') + "-" + this.VerseEnd.ToString().PadLeft(3, '0');
 		}
 
 		public Task()

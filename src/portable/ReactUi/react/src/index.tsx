@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import AddManyTasks from './components/AddManyTasks';
 import AvatarEdit from './components/AvatarEdit';
 import MainLayout from './components/MainLayout';
 import NewOrBrowseParatextProjects from './components/NewOrBrowseParatextProject';
@@ -38,6 +39,7 @@ ReactDOM.render(
         <Route path="/ProjectSettings/NewUser" component={UserDetails} />
         <Route path="/ProjectSettings/User/avatar/PopupUser" component={AvatarEdit} />
         <Route path="/ProjectSettings/NewUser/avatar/PopupUser" component={AvatarEdit} />
+        <Route path="/ProjectSettings/AddManyTasks" component={AddManyTasks} />
       </div>
     </Router>
   </Provider>,
