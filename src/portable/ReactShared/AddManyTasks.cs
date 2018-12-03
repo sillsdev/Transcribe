@@ -11,7 +11,7 @@ namespace ReactShared
 {
 	public class AddManyTasks
 	{
-		private static readonly Regex RegexBreaks = new Regex("[0-9]{1,3}:[0-9]{1,3}-{0,1}[0-9]{0,3}", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+		private static readonly Regex RegexBreaks = new Regex("([0-9]{1,3}):([0-9]{1,3})[abc]*-?([0-9]{0,3})[abc]*", RegexOptions.IgnoreCase | RegexOptions.Singleline);
 		private static readonly Regex RegexReference = new Regex("[A-Za-z0-9]{3}-[0-9]{3}-[0-9]{6}", RegexOptions.IgnoreCase | RegexOptions.Singleline);
 
 		public delegate string SelectAudioFilesFolder();
@@ -27,7 +27,7 @@ namespace ReactShared
 			StringBuilder summary = new StringBuilder();
 			var allExcelFiles = Directory.GetFiles(audioFolder, "*.xlsx", SearchOption.AllDirectories)
 				.Where(str => !str.Contains(@"\~$")).ToArray();
-			if (allExcelFiles.Length == 1)
+			if (allExcelFiles.Length > 0)
 			{
 				var excelFile = allExcelFiles[0];
 				using (var stream = File.Open(excelFile, FileMode.Open, FileAccess.Read))
@@ -45,11 +45,9 @@ namespace ReactShared
 
 						// The result of each spreadsheet is in result.Tables
 						var sheet1Table = result.Tables[0];
-						string[] status = new string[] {"", ""};
 						foreach (DataRow row in sheet1Table.Rows)
 						{
-							status = new string[] { "", "" };
-							status = CreateTaskFromRow(user, project, audioFolder, row);
+							var status = CreateTaskFromRow(user, project, audioFolder, row);
 							summary.AppendLine(status[0] + ". " + status[1] + ".");
 						}
 					}
@@ -61,11 +59,9 @@ namespace ReactShared
 				var allAudioFiles = Directory.EnumerateFiles(audioFolder, "*.*", SearchOption.AllDirectories)
 					.Where(s => s.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase) ||
 					            s.EndsWith(".wav", StringComparison.OrdinalIgnoreCase));
-				string[] status = new string[] {"", ""};
 				foreach (string aFile in allAudioFiles)
 				{
-					status = new string[] { "", "" };
-					status = CreateTaskFromFile(user, project, audioFolder, aFile);
+					var status = CreateTaskFromFile(user, project, aFile);
 					if (status[0] != string.Empty || status[1] != string.Empty)
 					{
 						summary.AppendLine(status[0] + ". " + status[1] + ".");
@@ -99,23 +95,10 @@ namespace ReactShared
 					return status;
 				}
 				var breaks = row["Breaks"].ToString();
-				if(!IsBreaksValid(breaks, ref status))
+				if (!IsBreaksValid(breaks, ref theTask, ref status))
 				{
 					return status;
 				}
-				var referenceParts = breaks.Split(':');
-				theTask.ChapterNumber = Convert.ToInt16(referenceParts[0]);
-				if (referenceParts[1].Trim().Contains("-"))
-				{
-					theTask.VerseStart = Convert.ToInt16(referenceParts[1].Split('-')[0]);
-					theTask.VerseEnd = Convert.ToInt16(referenceParts[1].Split('-')[1]);
-				}
-				else
-				{
-					theTask.VerseStart = Convert.ToInt16(referenceParts[1]);
-					theTask.VerseEnd = Convert.ToInt16(referenceParts[1]);
-				}
-
 				theTask.Heading = row["Description"].ToString().Trim();
 				var queryString = "user=" + user + "&project=" + project + "&task=" + "&reference=" + theTask.Reference +
 					                "&heading=" +
@@ -127,20 +110,20 @@ namespace ReactShared
 				{
 					status[1] = "Corresponding .mp3 Audio File " + Path.GetFileName(mp3AudioFileName) +
 						        " Exists in the Selected Folder";
-					new UpdateTask(queryString, null, true, mp3AudioFileName);
+					new UpdateTask(queryString, null, mp3AudioFileName);
 					status[0] = "Task with reference " + theTask.Reference + " created successfully";
 				}
 				else if (File.Exists(wavAudioFileName))
 				{
 					status[1] = "Corresponding .wav Audio File " + Path.GetFileName(wavAudioFileName) +
 						        " Exists in the Selected Folder";
-					new UpdateTask(queryString, null, true, wavAudioFileName);
+					new UpdateTask(queryString, null, wavAudioFileName);
 					status[0] = "Task with reference " + theTask.Reference + " created successfully";
 				}
 				else
 				{
 					status[1] = "No Corresponding Audio File Exists";
-					new UpdateTask(queryString, null, true, "");
+					new UpdateTask(queryString, null, "");
 					status[0] = "Task with reference " + theTask.Reference + " created successfully";
 				}
 			}
@@ -158,13 +141,11 @@ namespace ReactShared
 		/// </summary>
 		/// <param name="user"></param>
 		/// <param name="project"></param>
-		/// <param name="audioFolder"></param>
 		/// <param name="audioFile"></param>
 		/// <returns>status details</returns>
-		private string[] CreateTaskFromFile(string user, string project, string audioFolder, string audioFile)
+		private string[] CreateTaskFromFile(string user, string project, string audioFile)
 		{
-			string[] status = new string[] {"", ""};
-			Task theTask = new Task();
+			var status = new [] {"", ""};
 			try
 			{
 				var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(audioFile);
@@ -182,8 +163,8 @@ namespace ReactShared
 					var queryString = "user=" + user + "&project=" + project + "&task=" + project + "-" + fileNameWithoutExtension + "&reference=" +
 					                  reference + "&heading=";
 					status[1] = "Audio File " + Path.GetFileName(audioFile) + " Exists in the Selected Folder";
-					new UpdateTask(queryString, null, true, audioFile);
-					status[0] = "Task with reference " + reference + " created successfully"; ;
+					new UpdateTask(queryString, null, audioFile);
+					status[0] = "Task with reference " + reference + " created successfully";
 				}
 			}
 			catch (Exception ex)
@@ -216,20 +197,24 @@ namespace ReactShared
 		/// <summary>
 		/// Checks if the breaks value in excel row is valid
 		/// </summary>
-		/// <param name="breaks"></param>
-		/// <param name="status"></param>
+		/// <param name="breaks">reference text being parsed</param>
+		/// <param name="theTask">Contains reference information if successful</param>
+		/// <param name="status">Contains error if unsuccessful</param>
 		/// <returns>true if valid breaks value</returns>
-		private bool IsBreaksValid(string breaks, ref string[] status)
+		private bool IsBreaksValid(string breaks, ref Task theTask, ref string[] status)
 		{
-			bool isValid = true;
-			Match m = RegexBreaks.Match(breaks);
+			var m = RegexBreaks.Match(breaks);
 			if (!m.Success)
 			{
 				status[1] = "Breaks Column value " + breaks + " in the Excel File Row is Invalid";
 				status[0] = "Error: Task not created successfully";
-				isValid = false;
+				return false;
 			}
-			return isValid;
+			theTask.ChapterNumber = Convert.ToInt16(m.Groups[1].Value);
+			theTask.VerseStart = Convert.ToInt16(m.Groups[2].Value);
+			var endRef = m.Groups[3].Value;
+			theTask.VerseEnd = !string.IsNullOrEmpty(endRef) ? Convert.ToInt16(endRef) : theTask.VerseStart;
+			return true;
 		}
 	}
 }

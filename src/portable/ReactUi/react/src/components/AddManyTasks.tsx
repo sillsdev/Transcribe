@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import * as actions from '../actions/taskActions';
 import { IUserSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';

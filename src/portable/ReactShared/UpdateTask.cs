@@ -11,7 +11,7 @@ namespace ReactShared
 	{
 		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3})(:|\.)([0-9]{1,3})(-|,)([0-9]{1,3})$", RegexOptions.Compiled);
 
-		public UpdateTask(string query, byte[] requestBody, bool calledFromAddManyTasks = false, string audioFileNameWithPath="")
+		public UpdateTask(string query, byte[] requestBody, string audioFileNameWithPath=null)
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var task = parsedQuery["task"];
@@ -25,7 +25,7 @@ namespace ReactShared
 			var assignedTo = parsedQuery["assignedTo"];
 			var timeDuration = parsedQuery["timeDuration"];
 			var taskState = parsedQuery["state"];
-			string audioData = calledFromAddManyTasks? audioFileNameWithPath : Util.GetRequestElement(requestBody, "data");
+			string audioData = audioFileNameWithPath ?? Util.GetRequestElement(requestBody, "data");
 
 			//Debug.Print($"{task}:{project}:{audioFile}:{reference}:{heading}:{assignedTo}:{timeDuration}");
 			var tasksDoc = Util.LoadXmlData("tasks");
@@ -53,13 +53,13 @@ namespace ReactShared
 				}
 			}
 
-			if (!calledFromAddManyTasks)
+			if (audioFileNameWithPath == null)
 			{
 				CreateAudioFile(taskId, audioFile, audioData);
 			}
 			else
 			{
-				if(audioData != String.Empty)
+				if(audioData != string.Empty)
 					CopyAudioFile(taskId, audioFile, audioData);
 			}
 
