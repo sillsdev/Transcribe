@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { log } from '../actions/logAction';
 import { setSubmitted } from './audioActions';
-import { ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
+import { ADD_MANY_TASKS, ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
     COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
     FETCH_TASKS, FETCH_TRANSCRIPTION, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT,
     SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR, UPDATE_TASK,
@@ -211,4 +211,12 @@ export function initTasks(){
     return {
         type: INIT_TASKS
     }
+}
+export const addManyTasks = (user: string, project: string) => (dispatch: any) => {
+    dispatch({type: ADD_MANY_TASKS});
+    Axios.put('/api/AddManyTasks?user=' + user + '&project=' + project)
+        .then(dispatch(fetchTasksOfProject(project)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + ADD_MANY_TASKS + ", project=" + project))
+        });
 }
