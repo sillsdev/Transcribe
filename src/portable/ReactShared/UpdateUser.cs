@@ -112,7 +112,7 @@ namespace ReactShared
 
 		private static void AddNewAvatar(SaveImage saveImage, string avatarBase64, string userId, XmlElement userName)
 		{
-			if (!string.IsNullOrEmpty(avatarBase64))
+			if (!string.IsNullOrEmpty(avatarBase64) && avatarBase64.Contains(","))	// file names have no commas but base64 data has comma separated fields.
 			{
 				var sourceFolder = Path.Combine(Util.DataFolder, "images");
 				var sourceInfo = new DirectoryInfo(sourceFolder);
