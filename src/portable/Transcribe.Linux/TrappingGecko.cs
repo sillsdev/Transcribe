@@ -83,6 +83,9 @@ namespace Transcribe.Windows
 						case "CopyToClipboard":
 							new CopyToClipboard(e.Uri.Query, ToClipboard);
 							break;
+						case "AddManyTasks":
+							new AddManyTasks(e.Uri.Query, SelectAudioFilesFolder);
+							break;
 					}
 				}
 				catch (Exception err)
@@ -102,6 +105,24 @@ namespace Transcribe.Windows
 		{
 			var newAvatarImage = LoadImage(data);
 			newAvatarImage.Save(filepath);
+		}
+
+		private string SelectAudioFilesFolder()
+		{
+			FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+			folderDlg.Description = "Select the Folder with the Audio File";
+
+			string folderName = "";
+
+			// Show the Dialog.
+			// If the user clicked OK in the dialog and
+			// a folder was selected, set the folder name
+			if (folderDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			{
+				folderName = folderDlg.SelectedPath;
+			}
+
+			return folderName;
 		}
 
 		private Image LoadImage(string avatarUriString)

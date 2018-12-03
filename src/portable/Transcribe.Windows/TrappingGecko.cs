@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Gecko;
-using Gecko.Interop;
 using ReactShared;
 using SIL.Reporting;
 
