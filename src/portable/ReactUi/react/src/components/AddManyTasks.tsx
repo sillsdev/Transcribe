@@ -9,7 +9,6 @@ import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import './AddManyTasks.sass';
 import BackLink from './controls/BackLink';
-import LinkAction from './controls/LinkAction';
 import NextAction from './controls/NextAction';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -40,12 +39,12 @@ class AddManyTasks extends React.Component<IProps, object> {
                         <NextAction text={strings.browse.toUpperCase()} target={this.AddManyTasks} type="primary" />
                     </div>
                     <div className="helpText">
-                        <div className="textLine">
-                            {strings2.learnToCreate}
-                            <LinkAction text={strings2.batchUpload} target={this.batchUploadSpreadsheetHelp} />
-                            {strings2.orToRename}
-                            <LinkAction text={strings2.ourNamingConvention} target={this.ourNamingConventionHelp} />
-                        </div>
+                        <span>{strings2.learnToCreate}{"\u2002"}
+                            <a className="linkText" onClick={this.batchUploadSpreadsheetHelp}>
+                            {strings2.batchUpload}</a>{"\u2002"}
+                            {strings2.orToRename}{"\u2002"}
+                            <a className="linkText" onClick={this.ourNamingConventionHelp}>
+                            {strings2.ourNamingConvention}</a>.</span>
                     </div>
                 </div>
             </div>
