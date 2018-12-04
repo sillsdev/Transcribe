@@ -4,7 +4,7 @@ import { setSubmitted } from './audioActions';
 import { ADD_MANY_TASKS, ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
     COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
     FETCH_TASKS, FETCH_TRANSCRIPTION, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT,
-    SELECT_TASK,  UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR, UPDATE_TASK,
+    SELECT_TASK, SHOW_HELP, UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR, UPDATE_TASK,
     WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { fetchUsers, saveUserSetting } from './userActions';
 
@@ -218,5 +218,13 @@ export const addManyTasks = (user: string, project: string) => (dispatch: any) =
         .then(dispatch(fetchTasksOfProject(project)))
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + ADD_MANY_TASKS + ", project=" + project))
+        });
+}
+
+export const showHelp = (topic: string) => (dispatch: any) => {
+    dispatch({type: SHOW_HELP});
+    Axios.put('/api/ShowHelp?topic=' + topic)
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + SHOW_HELP + ", topic=" + topic))
         });
 }
