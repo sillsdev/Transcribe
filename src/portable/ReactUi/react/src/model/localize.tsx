@@ -81,6 +81,10 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "addUser": string;
     "addTask": string;
     "addMany": string;
+    "learnToCreate": string;
+    "batchUpload": string;
+    "orToRename": string;
+    "ourNamingConvention": string;
     "sortByRoles": string;
     "sortByType": string;
     "projectName": string;

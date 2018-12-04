@@ -16,7 +16,6 @@
             padding-right: 0
             &>*
                 padding-left: 0
-                padding-right: 64px
             &>.titleRow
                 padding-right: 0px
     .panel
@@ -49,31 +48,24 @@
         align-self: center
 
     .helpText
+        width: 510px
         color: $base1
         font-family: $sans
         font-size: 16px
         line-height: 28px
         letter-spacing: 0.44px
-        justify-content: center
         display: flex
-        flex-direction: column
-        width: 510px
+        flex-direction: row
+        flex-wrap: wrap
+        margin-left: 32px
+        margin-right: 32px
 
-    .firstLine
+    .textLine
         color: $base1
         font-family: $sans
-        justify-content: center
         display: flex
-        width: 510px
         align-items: baseline
-
-    .secondLine
-        color: $base1
-        font-family: $sans
-        justify-content: center
-        display: flex
-        width: 510px
-        align-items: baseline
+        flex-wrap: wrap
 
     .LinkAction
         width: 220px
