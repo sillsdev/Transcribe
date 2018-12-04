@@ -237,4 +237,7 @@
   <Import Project="..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets" Condition="Exists('..\..\..\packages\ParatextData.8.1.6\build\ParatextData.targets')" />
   <Import Project="..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets" Condition="Exists('..\..\..\packages\SIL.Lib.5.0.5\build\SIL.Lib.targets')" />
   <Import Project="..\..\..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets" Condition="Exists('..\..\..\packages\Icu4c.Win.Full.Lib.59.1.15\build\Icu4c.Win.Full.Lib.targets')" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy /y ..\..\lib\*.chm $(TargetDir)</PreBuildEvent>
+  </PropertyGroup>
 </Project>

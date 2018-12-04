@@ -59,7 +59,7 @@ class AddManyTasks extends React.Component<IProps, object> {
     }
 
     private ourNamingConventionHelp = () => {
-        this.props.showHelp("Add tasks")
+        this.props.showHelp("File structure")
     }
 
 }

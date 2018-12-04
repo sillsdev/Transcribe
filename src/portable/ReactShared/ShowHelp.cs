@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Web;
+﻿using System.Web;
 
 namespace ReactShared
 {
@@ -14,7 +11,7 @@ namespace ReactShared
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var topic = parsedQuery["topic"];
 			// The filepath needs to be changed in the line below
-			var chmFileName = "D:\\Transcriber_Helps.chm";
+			var chmFileName = "Transcriber_Helps.chm";
 			showHelp(topic, chmFileName);
 		}
 	}
