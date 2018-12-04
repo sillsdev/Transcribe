@@ -446,6 +446,30 @@
 				<target>Добавить много</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.learnToCreate">
+			<segment>
+				<source>Learn to create a</source>
+				<target>Научитесь создавать</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>электронная таблица загрузки</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.orToRename">
+			<segment>
+				<source>or to rename your audio file with</source>
+				<target>или переименовать аудиофайл с помощью</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>наше соглашение об именах</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.sortByRoles">
 			<segment>
 				<source>Sort by roles</source>

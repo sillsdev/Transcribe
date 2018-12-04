@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import { IUserSettingsStrings } from '../model/localize';
+import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
@@ -27,7 +28,8 @@ class AddManyTasks extends React.Component<IProps, object> {
     }
 
     public render() {
-        const { direction, strings } = this.props;
+        const { direction, strings, strings2 } = this.props;
+
         return (
             <div className={"AddManyTasks " + (direction && direction === "rtl" ? "rtl" : "ltr")}>
                 <div className="panel">
@@ -38,18 +40,11 @@ class AddManyTasks extends React.Component<IProps, object> {
                         <NextAction text={strings.browse.toUpperCase()} target={this.AddManyTasks} type="primary" />
                     </div>
                     <div className="helpText">
-                        <div className="firstLine">
-                            Learn to create a
-                    <span className="LinkAction">
-                                <LinkAction text="batch upload spreadsheet" target={this.batchUploadSpreadsheetHelp} />
-                            </span>
-                            or to
-                    </div>
-                        <div className="secondLine">
-                            rename your audio file with
-                        <span className="LinkAction">
-                                <LinkAction text="our naming convention." target={this.ourNamingConventionHelp} />
-                            </span>
+                        <div className="textLine">
+                            {strings2.learnToCreate}
+                            <LinkAction text={strings2.batchUpload} target={this.batchUploadSpreadsheetHelp} />
+                            {strings2.orToRename}
+                            <LinkAction text={strings2.ourNamingConvention} target={this.ourNamingConventionHelp} />
                         </div>
                     </div>
                 </div>
@@ -60,11 +55,11 @@ class AddManyTasks extends React.Component<IProps, object> {
 
 
     private batchUploadSpreadsheetHelp = () => {
-        alert("Batch Upload Spreadsheet Help")
+        this.props.showHelp("Spreadsheet convention")
     }
 
     private ourNamingConventionHelp = () => {
-        alert("Our Naming Convention Help")
+        this.props.showHelp("Add tasks")
     }
 
 }
@@ -73,6 +68,7 @@ interface IStateProps {
     selectedProject: string;
     selectedUser: string;
     strings: IUserSettingsStrings;
+    strings2: IProjectSettingsStrings;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -80,16 +76,19 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, { layout: "userSettings" }),
+    strings2: userStrings(state, {layout: "projectSettings"}),
 });
 interface IDispatchProps {
     addManyTasks: typeof actions.addManyTasks,
     fetchTasksOfProject: typeof actions.fetchTasksOfProject,
+    showHelp: typeof actions.showHelp,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         addManyTasks: actions.addManyTasks,
         fetchTasksOfProject: actions.fetchTasksOfProject,
+        showHelp: actions.showHelp,
     }, dispatch),
 });
 
