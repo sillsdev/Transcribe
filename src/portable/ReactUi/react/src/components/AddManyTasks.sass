@@ -16,7 +16,6 @@
             padding-right: 0
             &>*
                 padding-left: 0
-                padding-right: 64px
             &>.titleRow
                 padding-right: 0px
     .panel
@@ -54,26 +53,13 @@
         font-size: 16px
         line-height: 28px
         letter-spacing: 0.44px
-        justify-content: center
-        display: flex
-        flex-direction: column
-        width: 510px
+        padding: 24px 56px
+        text-align: center
 
-    .firstLine
-        color: $base1
-        font-family: $sans
-        justify-content: center
-        display: flex
-        width: 510px
-        align-items: baseline
-
-    .secondLine
-        color: $base1
-        font-family: $sans
-        justify-content: center
-        display: flex
-        width: 510px
-        align-items: baseline
+    .linkText
+        color: $blueLink
+        &:hover
+            cursor: pointer
 
     .LinkAction
         width: 220px

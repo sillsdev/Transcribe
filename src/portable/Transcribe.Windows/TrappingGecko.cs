@@ -93,6 +93,9 @@ namespace Transcribe.Windows
 						case "AddManyTasks":
 							new AddManyTasks(e.Uri.Query, SelectAudioFilesFolder);
 							break;
+						case "ShowHelp":
+							new ShowHelp(e.Uri.Query, ShowHelpTopic);
+							break;
 					}
 				}
 				catch (Exception err)
@@ -155,5 +158,16 @@ namespace Transcribe.Windows
 
 			return image;
 		}
+
+		private void ShowHelpTopic(string topic, string helpFileName)
+		{
+			HelpProvider helpProv = new HelpProvider();
+			helpProv.HelpNamespace = helpFileName;
+			TextBox tb = new TextBox();
+			helpProv.SetHelpNavigator(tb, HelpNavigator.KeywordIndex);
+			helpProv.SetHelpKeyword(tb, topic);
+			Help.ShowHelp(tb, helpProv.HelpNamespace,helpProv.GetHelpNavigator(tb), helpProv.GetHelpKeyword(tb));
+		}
+
 	}
 }

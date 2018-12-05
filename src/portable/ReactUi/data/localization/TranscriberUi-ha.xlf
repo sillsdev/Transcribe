@@ -446,6 +446,24 @@
 				<target>Ƙara Mutane da yawa</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>Koyi don ƙirƙirar {0} ko don sake suna fayil dinka tare da {1}.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>shigar da fayilolin da aka samo</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>zaman taronmu</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.sortByRoles">
 			<segment>
 				<source>Sort by roles</source>

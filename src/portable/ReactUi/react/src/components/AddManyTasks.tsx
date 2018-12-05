@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import reactStringReplace from 'react-string-replace';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import { IUserSettingsStrings } from '../model/localize';
+import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import './AddManyTasks.sass';
 import BackLink from './controls/BackLink';
-import LinkAction from './controls/LinkAction';
 import NextAction from './controls/NextAction';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -27,7 +28,11 @@ class AddManyTasks extends React.Component<IProps, object> {
     }
 
     public render() {
-        const { direction, strings } = this.props;
+        const { direction, strings, strings2 } = this.props;
+
+        const links = [ this.batchUploadSpreadsheetHelp, this.ourNamingConventionHelp ];
+        const hotText = [ strings2.batchUpload, strings2.ourNamingConvention ];
+
         return (
             <div className={"AddManyTasks " + (direction && direction === "rtl" ? "rtl" : "ltr")}>
                 <div className="panel">
@@ -38,33 +43,23 @@ class AddManyTasks extends React.Component<IProps, object> {
                         <NextAction text={strings.browse.toUpperCase()} target={this.AddManyTasks} type="primary" />
                     </div>
                     <div className="helpText">
-                        <div className="firstLine">
-                            Learn to create a
-                    <span className="LinkAction">
-                                <LinkAction text="batch upload spreadsheet" target={this.batchUploadSpreadsheetHelp} />
-                            </span>
-                            or to
-                    </div>
-                        <div className="secondLine">
-                            rename your audio file with
-                        <span className="LinkAction">
-                                <LinkAction text="our naming convention." target={this.ourNamingConventionHelp} />
-                            </span>
-                        </div>
+                        <span>
+                            {reactStringReplace(strings2.learnToAddMany, /\{(\d+)\}/g, (match: string) => (
+                                <a className="linkText" onClick={links[match]}>{hotText[match]}</a>
+                            ))}
+                        </span>
                     </div>
                 </div>
             </div>
         );
     }
 
-
-
     private batchUploadSpreadsheetHelp = () => {
-        alert("Batch Upload Spreadsheet Help")
+        this.props.showHelp("Spreadsheet convention")
     }
 
     private ourNamingConventionHelp = () => {
-        alert("Our Naming Convention Help")
+        this.props.showHelp("File structure")
     }
 
 }
@@ -73,6 +68,7 @@ interface IStateProps {
     selectedProject: string;
     selectedUser: string;
     strings: IUserSettingsStrings;
+    strings2: IProjectSettingsStrings;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -80,16 +76,19 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, { layout: "userSettings" }),
+    strings2: userStrings(state, {layout: "projectSettings"}),
 });
 interface IDispatchProps {
     addManyTasks: typeof actions.addManyTasks,
     fetchTasksOfProject: typeof actions.fetchTasksOfProject,
+    showHelp: typeof actions.showHelp,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         addManyTasks: actions.addManyTasks,
         fetchTasksOfProject: actions.fetchTasksOfProject,
+        showHelp: actions.showHelp,
     }, dispatch),
 });
 

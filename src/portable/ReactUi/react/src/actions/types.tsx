@@ -39,3 +39,4 @@ export const SET_AVATAR_RADIUS = 'SET_AVATAR_RADIUS';
 export const SET_SAVE_TO_PROJECT = 'SET_SAVE_TO_PROJECT';
 export const INIT_TASKS = 'INIT_TASKS';
 export const ADD_MANY_TASKS = "ADD_MANY_TASKS";
+export const SHOW_HELP = "SHOW HELP";

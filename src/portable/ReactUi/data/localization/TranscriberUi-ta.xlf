@@ -446,6 +446,24 @@
 				<target>பல சேர்</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>{0} உருவாக்க அல்லது உங்கள் ஆடியோ கோப்பை {1} உடன் மறுபெயரிட கற்றுக்கொள்ளுங்கள்.</target>				
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>தொகுப்பு பதிவேற்ற விரிதாள்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>எங்கள் பெயரிடும் வழக்கம்</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.sortByRoles">
 			<segment>
 				<source>Sort by roles</source>
