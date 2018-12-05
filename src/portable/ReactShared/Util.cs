@@ -67,9 +67,9 @@ namespace ReactShared
 			node.Attributes.Append(idAttr);
 		}
 
-		public static void UpdateAttr(XmlElement node, string name, string val)
+		public static void UpdateAttr(XmlElement node, string name, string val, bool allowEmpty = false)
 		{
-			if (string.IsNullOrEmpty(val) || val == "undefined")
+			if (!allowEmpty && string.IsNullOrEmpty(val) || val == "undefined")
 				return;
 			if (node.HasAttribute(name))
 				node.Attributes[name].InnerText = val;
