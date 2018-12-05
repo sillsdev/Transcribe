@@ -65,7 +65,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.taskId =  this.props.history.location.pathname.indexOf("NewTask") > 0? "" : popupTask;
         if (this.taskId && this.taskId !== "") {
             this.task = this.myTask(this.taskId);
-            this.state.fileName = this.task.id
+            if(this.task.id.toUpperCase().endsWith(".MP3") || this.task.id.toUpperCase().endsWith(".WAV")){
+                this.state.fileName = this.task.id;
+            }
             const idParts = this.taskId.split('-');
             this.state.reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "");
             this.state.heading = this.task.name?this.task.name:"";
