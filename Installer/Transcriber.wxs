@@ -35,6 +35,10 @@
             <Shortcut Id="ShortcutLicense" Name="License" Target="[!license.rtf]" Hotkey="0" IconIndex="0" Show="normal" />
             <RegistryValue Root="HKCU" Key="Software\SIL\Transcriber" Name="License" Type="string" Value="[!license.rtf]" />
           </Component>
+          <Component Id="AddHelpShortcut" Guid="B0171D11-8BC9-4A4E-8CC2-384A3FC4B377">
+            <Shortcut Id="ShortcutHelp" Name="Help" Target="[!transcriber_helps.chm]" Hotkey="0" IconIndex="0" Show="normal" />
+            <RegistryValue Root="HKCU" Key="Software\SIL\Transcriber" Name="Help" Type="string" Value="[!transcriber_helps.chm]" />
+          </Component>
         </Directory>
       </Directory>
       <Directory Id="DesktopFolder" Name="Desktop" />
