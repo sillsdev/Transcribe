@@ -446,9 +446,9 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.learnToCreate">
+		<unit id="projectSettings.learnToAddMany">
 			<segment>
-				<source>Learn to create a</source>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
 				<target></target>
 			</segment>
 		</unit>

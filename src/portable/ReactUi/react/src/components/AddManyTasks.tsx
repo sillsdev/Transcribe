@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import reactStringReplace from 'react-string-replace';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import { IUserSettingsStrings } from '../model/localize';
@@ -29,6 +30,9 @@ class AddManyTasks extends React.Component<IProps, object> {
     public render() {
         const { direction, strings, strings2 } = this.props;
 
+        const links = [ this.batchUploadSpreadsheetHelp, this.ourNamingConventionHelp ];
+        const hotText = [ strings2.batchUpload, strings2.ourNamingConvention ];
+
         return (
             <div className={"AddManyTasks " + (direction && direction === "rtl" ? "rtl" : "ltr")}>
                 <div className="panel">
@@ -39,19 +43,16 @@ class AddManyTasks extends React.Component<IProps, object> {
                         <NextAction text={strings.browse.toUpperCase()} target={this.AddManyTasks} type="primary" />
                     </div>
                     <div className="helpText">
-                        <span>{strings2.learnToCreate}{"\u2002"}
-                            <a className="linkText" onClick={this.batchUploadSpreadsheetHelp}>
-                            {strings2.batchUpload}</a>{"\u2002"}
-                            {strings2.orToRename}{"\u2002"}
-                            <a className="linkText" onClick={this.ourNamingConventionHelp}>
-                            {strings2.ourNamingConvention}</a>.</span>
+                        <span>
+                            {reactStringReplace(strings2.learnToAddMany, /\{(\d+)\}/g, (match: string) => (
+                                <a className="linkText" onClick={links[match]}>{hotText[match]}</a>
+                            ))}
+                        </span>
                     </div>
                 </div>
             </div>
         );
     }
-
-
 
     private batchUploadSpreadsheetHelp = () => {
         this.props.showHelp("Spreadsheet convention")

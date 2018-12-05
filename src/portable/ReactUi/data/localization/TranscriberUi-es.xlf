@@ -446,22 +446,16 @@
 				<target>Agregar muchos</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.learnToCreate">
+		<unit id="projectSettings.learnToAddMany">
 			<segment>
-				<source>Learn to create a</source>
-				<target>Aprende a crear un</target>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>Aprenda a crear un {0} o a cambiar el nombre de su archivo de audio con {1}.</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.batchUpload">
 			<segment>
 				<source>batch upload spreadsheet</source>
 				<target>hoja de cálculo de carga por lotes</target>
-			</segment>
-		</unit>
-		<unit id="projectSettings.orToRename">
-			<segment>
-				<source>or to rename your audio file with</source>
-				<target>o para cambiar el nombre de su archivo de audio con</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.ourNamingConvention">
