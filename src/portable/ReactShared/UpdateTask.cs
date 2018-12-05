@@ -75,7 +75,7 @@ namespace ReactShared
 			                   Util.NewChild(taskNode, "name");
 			if (!string.IsNullOrEmpty(heading))
 				taskNameNode.InnerText = heading;
-			Util.UpdateAttr(taskNode, "assignedto", assignedTo);
+			Util.UpdateAttr(taskNode, "assignedto", assignedTo, true);
 			Util.UpdateAttr(taskNode, "length", timeDuration);
 			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
 			if (state == null || string.IsNullOrEmpty(state.InnerText))
