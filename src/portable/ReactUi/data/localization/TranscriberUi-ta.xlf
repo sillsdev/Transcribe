@@ -158,7 +158,7 @@
 				<target>எழுத்துரு</target>
 			</segment>
 		</unit>
-		<unit id="userSettings.Language">
+		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
 				<target>மொழி</target>
