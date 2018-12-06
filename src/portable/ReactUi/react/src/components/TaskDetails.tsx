@@ -292,14 +292,14 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         if (tasks.length > 0) {
             tasks.map((t: ITask) => (
                 idParts = t.id.split("-"),
-                reference = ((idParts.length === 4) ? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0, 3)) + "-" + Number(idParts[3].slice(3, 6)) : ""),
+                reference = ((idParts.length === 4) ? idParts[1].toUpperCase() + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0, 3)) + "-" + Number(idParts[3].slice(3, 6)) : ""),
                 taskIdsArray.push(reference)
             ));
 
-            const existingValue = taskIdsArray.find((str) => (str === this.state.reference ||
-                str.replace("-", ",") === this.state.reference ||
-                str.replace(":", ".") === this.state.reference ||
-                str.replace(":", ".").replace("-", ",") === this.state.reference))
+            const existingValue = taskIdsArray.find((str) => (str === this.state.reference.toUpperCase() ||
+                str.replace("-", ",") === this.state.reference.toUpperCase() ||
+                str.replace(":", ".") === this.state.reference.toUpperCase()||
+                str.replace(":", ".").replace("-", ",") === this.state.reference.toUpperCase()))
 
             if (existingValue !== undefined) {
                 isExists = true;
