@@ -593,13 +593,13 @@
 		<unit id="projectSettings.makeProject">
 			<segment>
 				<source>Make new project</source>
-				<target>புதிய திட்டத்தை உருவாக்கவும்</target>
+				<target>புதிய திட்டம் உருவாக்க </target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.changeImage">
 			<segment>
 				<source>Change project image</source>
-				<target>திட்டத்தின் படத்தை மாற்றவும்</target>
+				<target>திட்டத்தின் படத்தை மாற்ற</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.preview">
