@@ -37,7 +37,7 @@ describe('>>>Control: IconButtonField', () => {
         expect(wrapper.length).toEqual(1);
     });
 
-    it('+++ sets link action', () => {
+    it('+++ activates icon button link action', () => {
         const onButtonClick = sinon.spy();
         const linkWrapper = shallow(<IconButtonField {...minProps} id="myButton" onClick={onButtonClick}/>);
         linkWrapper.find('#myButton').simulate('click');

@@ -32,19 +32,19 @@ describe('>>>Control: BackLink', () => {
         expect(wrapper.length).toEqual(1);
     });
 
-    it('+++ sets back action', () => {
+    it('+++ activates back link action', () => {
         const onButtonClick = sinon.spy();
         const linkWrapper = shallow(<BackLink {...minProps} action={onButtonClick}/>)
         linkWrapper.find('Link').simulate('click');
         expect(onButtonClick.calledOnce).toEqual(true);
     });
 
-    it('+++ enabled', () => {
+    it('+++ has link when enabled', () => {
         const linkWrapper = shallow(<BackLink {...minProps} disable={false}/>)
         expect(linkWrapper.find('Link').length).toEqual(1)
     });
 
-    it('+++ disabled', () => {
+    it('+++ has no link when disabled', () => {
         const linkWrapper = shallow(<BackLink {...minProps} disable={true}/>)
         expect(linkWrapper.find('Link').length).toEqual(0)
     });

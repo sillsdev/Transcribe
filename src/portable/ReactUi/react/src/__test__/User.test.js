@@ -54,7 +54,7 @@ describe('>>>Control: User', () => {
         expect(wrapper.length).toEqual(1);
     });
 
-    it('+++ sets link action', () => {
+    it('+++ activates select link action', () => {
         const onButtonClick = sinon.spy();
         const linkWrapper = shallow(<User {...minProps} select={onButtonClick}/>)
         linkWrapper.find('Link').simulate('click');

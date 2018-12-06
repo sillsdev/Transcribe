@@ -40,7 +40,7 @@ describe('>>>Control: ButtonLink', () => {
         expect(wrapper.length).toEqual(1);
     });
 
-    it('+++ sets link action', () => {
+    it('+++ activates button link action', () => {
         const onButtonClick = sinon.spy();
         const linkWrapper = shallow(<ButtonLink {...minProps} select={onButtonClick}/>)
         linkWrapper.find('Link').simulate('click');

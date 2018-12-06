@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import reactStringReplace from 'react-string-replace';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/taskActions';
 import { IUserSettingsStrings } from '../model/localize';
@@ -15,7 +14,7 @@ import NextAction from './controls/NextAction';
 interface IProps extends IStateProps, IDispatchProps {
 };
 
-class AddManyTasks extends React.Component<IProps, object> {
+export class AddManyTasks extends React.Component<IProps, object> {
 
     public AddManyTasks = () => {
         const { addManyTasks, selectedUser, selectedProject } = this.props;
@@ -29,6 +28,7 @@ class AddManyTasks extends React.Component<IProps, object> {
 
     public render() {
         const { direction, strings, strings2 } = this.props;
+        const reactStringReplace = require('react-string-replace');
 
         const links = [ this.batchUploadSpreadsheetHelp, this.ourNamingConventionHelp ];
         const hotText = [ strings2.batchUpload, strings2.ourNamingConvention ];
@@ -45,7 +45,7 @@ class AddManyTasks extends React.Component<IProps, object> {
                     <div className="helpText">
                         <span>
                             {reactStringReplace(strings2.learnToAddMany, /\{(\d+)\}/g, (match: string) => (
-                                <a className="linkText" onClick={links[match]}>{hotText[match]}</a>
+                                <a key={"a" + match} className="linkText" onClick={links[match]}>{hotText[match]}</a>
                             ))}
                         </span>
                     </div>
