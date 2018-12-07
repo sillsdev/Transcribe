@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?define Product="SIL Transcriber"?>
 <?define UpgradeCode="5B73C2DB-296F-416A-9C5B-9989D826EAE8"?>
-<?define BUILD_NUMBER="0.3.4"?>
+<?define BUILD_NUMBER="0.3.7"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <Product Id="*" Name="$(var.Product) $(var.BUILD_NUMBER)" Language="1033" Version="$(var.BUILD_NUMBER)" Manufacturer="SIL International" UpgradeCode="$(var.UpgradeCode)">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
@@ -34,6 +34,10 @@
           <Component Id="AddLicenseShortcut" Guid="AEAF5267-DC44-4608-8A4E-8F50126DFFDE">
             <Shortcut Id="ShortcutLicense" Name="License" Target="[!license.rtf]" Hotkey="0" IconIndex="0" Show="normal" />
             <RegistryValue Root="HKCU" Key="Software\SIL\Transcriber" Name="License" Type="string" Value="[!license.rtf]" />
+          </Component>
+          <Component Id="AddHelpShortcut" Guid="B0171D11-8BC9-4A4E-8CC2-384A3FC4B377">
+            <Shortcut Id="ShortcutHelp" Name="Help" Target="[!transcriber_helps.chm]" Hotkey="0" IconIndex="0" Show="normal" />
+            <RegistryValue Root="HKCU" Key="Software\SIL\Transcriber" Name="Help" Type="string" Value="[!transcriber_helps.chm]" />
           </Component>
         </Directory>
       </Directory>

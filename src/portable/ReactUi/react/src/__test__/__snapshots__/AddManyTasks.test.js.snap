@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: AddManyTasks --- Snapshot +++capturing Snapshot of AddManyTasks 1`] = `
+<div
+  className="AddManyTasks ltr"
+>
+  <div
+    className="panel"
+  >
+    <div
+      className="titleRow"
+    >
+      <div
+        className="BackLink"
+        id="BackLink"
+      >
+        <a
+          href="/ProjectSettings"
+          onClick={[Function]}
+        >
+          ❮
+        </a>
+      </div>
+    </div>
+    <div
+      className="browseDiv"
+    >
+      <div
+        className="NextAction"
+        id="NextAction"
+      >
+        <button
+          className="primary"
+          onClick={[Function]}
+        >
+          BROWSE
+        </button>
+      </div>
+    </div>
+    <div
+      className="helpText"
+    >
+      <span>
+        Learn to create a 
+        <a
+          className="linkText"
+          onClick={[Function]}
+        >
+          batch upload spreadsheet
+        </a>
+         or to rename your audio file with 
+        <a
+          className="linkText"
+          onClick={[Function]}
+        >
+          our naming convention
+        </a>
+        .
+      </span>
+    </div>
+  </div>
+</div>
+`;

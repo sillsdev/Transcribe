@@ -28,9 +28,11 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "chooseAvatar": string;
+    "editAvatar": string;
     "english": string;
     "fastForward": string;
     "font": string;
+    "imageFile": string
     "keyboardShortcuts": string;
     "language": string;
     "large": string;
@@ -38,6 +40,7 @@ export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "name": string;
     "password": string;
     "playPause": string;
+    "privilegeTier": string;
     "reset": string;
     "reviewComments": string;
     "reviewer": string;
@@ -78,6 +81,9 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "addUser": string;
     "addTask": string;
     "addMany": string;
+    "learnToAddMany": string;
+    "batchUpload": string;
+    "ourNamingConvention": string;
     "sortByRoles": string;
     "sortByType": string;
     "projectName": string;
@@ -95,6 +101,7 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "reviewer": string;
     "transcriber": string;
     "pairWithParatext": string;
+    "referenceDuplicate": string;
     "referenceFormat": string;
     "skip": string;
     "copyToClipboard": string;
@@ -108,4 +115,5 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "synced": string;
     "discardChanges": string;
     "deleteTask": string;
+    "deleteUser": string;
 };

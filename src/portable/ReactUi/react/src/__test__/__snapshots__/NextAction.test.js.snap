@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: NextAction --- Snapshot +++capturing Snapshot of NextAction 1`] = `
+<div
+  className="NextAction"
+  id="NextAction"
+>
+  <button
+    className="safe"
+    onClick={[Function]}
+  >
+    My Filter
+  </button>
+</div>
+`;

@@ -146,7 +146,7 @@ namespace ReactShared
 			return
 				(state.ToLower() == "transcribe" &&
 				 userNode.SelectSingleNode("./role/text()[.='transcriber']") != null) ||
-				(state.ToLower() == "review" &&
+				((state.ToLower() == "transcribe" || state.ToLower() == "review") &&
 				 userNode.SelectSingleNode("./role/text()[.='reviewer']") != null);
 		}
 

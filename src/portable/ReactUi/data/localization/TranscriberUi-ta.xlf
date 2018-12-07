@@ -158,7 +158,7 @@
 				<target>எழுத்துரு</target>
 			</segment>
 		</unit>
-		<unit id="userSettings.Language">
+		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
 				<target>மொழி</target>
@@ -332,6 +332,24 @@
 				<target>உலாவு</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>பிரெயிலெக் அடுக்கு</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>படக் கோப்பு</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>படத்தை திருத்தவும்</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -426,6 +444,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>பல சேர்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>{0} உருவாக்க அல்லது உங்கள் ஆடியோ கோப்பை {1} உடன் மறுபெயரிட கற்றுக்கொள்ளுங்கள்.</target>				
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>தொகுப்பு பதிவேற்ற விரிதாள்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>எங்கள் பெயரிடும் வழக்கம்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -530,6 +566,12 @@
 				<target>Paratext உடன் இணைத்தல்</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>உள்ளிட்ட குறிப்பு ஏற்கனவே உள்ளது</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -545,19 +587,19 @@
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target>கிளிப்போர்டுக்கு நகலெடுக்கவும்</target>
+				<target>படியெடுத்தல் நகல்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.makeProject">
 			<segment>
 				<source>Make new project</source>
-				<target>புதிய திட்டத்தை உருவாக்கவும்</target>
+				<target>புதிய திட்டம் உருவாக்க </target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.changeImage">
 			<segment>
 				<source>Change project image</source>
-				<target>திட்டத்தின் படத்தை மாற்றவும்</target>
+				<target>திட்டத்தின் படத்தை மாற்ற</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.preview">
@@ -575,25 +617,25 @@
 		<unit id="projectSettings.start">
 			<segment>
 				<source>Start</source>
-				<target>தொடக்கம்</target>
+				<target>தொடங்கும்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.transcribed">
 			<segment>
 				<source>Transcribed</source>
-				<target>எழுத்துவடிவமாக்கப்பட்டது</target>
+				<target>தட்டச்சு</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.reviewed">
 			<segment>
 				<source>Reviewed</source>
-				<target>சரிபார்க்கப்பட்டது</target>
+				<target>ஒப்புதல்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.synced">
 			<segment>
 				<source>Synced</source>
-				<target>ஒத்திசைக்கப்பட்டது</target>
+				<target>பதிவேற்றிய</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.discardChanges">
@@ -606,6 +648,12 @@
 			<segment>
 				<source>Delete Task</source>
 				<target>பணி நீக்கு</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>பயனரை நீக்கு</target>
 			</segment>
 		</unit>
 	</file>

@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
@@ -7,7 +8,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import ButtonLink from '../components/controls/ButtonLink';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 // Snapshot for ButtonLink
 describe('>>>Control: Buttonlink --- Snapshot',()=>{
@@ -39,7 +40,7 @@ describe('>>>Control: ButtonLink', () => {
         expect(wrapper.length).toEqual(1);
     });
 
-    it('+++ sets link action', () => {
+    it('+++ activates button link action', () => {
         const onButtonClick = sinon.spy();
         const linkWrapper = shallow(<ButtonLink {...minProps} select={onButtonClick}/>)
         linkWrapper.find('Link').simulate('click');

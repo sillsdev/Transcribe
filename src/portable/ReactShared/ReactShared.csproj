@@ -63,6 +63,8 @@
     <EmbeddedResource Include="react\build\static\js\main.16508915.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ExcelDataReader" Version="3.4.2" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.4.2" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 </Project>

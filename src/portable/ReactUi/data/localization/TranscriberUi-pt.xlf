@@ -158,7 +158,7 @@
 				<target>Tipo de letra</target>
 			</segment>
 		</unit>
-		<unit id="userSettings.Language">
+		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
 				<target>Idioma</target>
@@ -332,6 +332,24 @@
 				<target>Squeaky toy</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Nível de Privilégio</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Arquivo de imagem</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Editar imagem</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -426,6 +444,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>Adicionar muitos</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>Aprenda a criar um {0} ou renomeie seu arquivo de áudio com {1}.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>planilha de upload em lote</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>nossa convenção de nomenclatura</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -530,6 +566,12 @@
 				<target>Par com Paratexto</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>A referência inserida já existe</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -606,6 +648,12 @@
 			<segment>
 				<source>Delete Task</source>
 				<target>Excluir tarefa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Deletar usuário</target>
 			</segment>
 		</unit>
 	</file>

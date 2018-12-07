@@ -332,6 +332,24 @@
 				<target>تصفح</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>امتياز الطبقة</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>ملف الصورة</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>تحرير الصورة الرمزية</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -426,6 +444,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>أضف الكثير</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>تعلّم كيفية إنشاء {0} أو لإعادة تسمية ملفك الصوتي باستخدام {1}.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>دفعة تحميل جدول البيانات</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>اصطلاح التسمية لدينا</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -530,6 +566,12 @@
 				<target>إقران مع Paratext</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>المرجع الذي تم إدخاله موجود بالفعل</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -606,6 +648,12 @@
 			<segment>
 				<source>Delete Task</source>
 				<target>حذف المهمة</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>مسح المستخدم</target>
 			</segment>
 		</unit>
 	</file>

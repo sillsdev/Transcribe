@@ -11,7 +11,7 @@ namespace ReactShared
 	{
 		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3})(:|\.)([0-9]{1,3})(-|,)([0-9]{1,3})$", RegexOptions.Compiled);
 
-		public UpdateTask(string query, byte[] requestBody)
+		public UpdateTask(string query, byte[] requestBody, string audioFileNameWithPath=null)
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var task = parsedQuery["task"];
@@ -25,7 +25,7 @@ namespace ReactShared
 			var assignedTo = parsedQuery["assignedTo"];
 			var timeDuration = parsedQuery["timeDuration"];
 			var taskState = parsedQuery["state"];
-			var audioData = Util.GetRequestElement(requestBody, "data");
+			string audioData = audioFileNameWithPath ?? Util.GetRequestElement(requestBody, "data");
 
 			//Debug.Print($"{task}:{project}:{audioFile}:{reference}:{heading}:{assignedTo}:{timeDuration}");
 			var tasksDoc = Util.LoadXmlData("tasks");
@@ -53,7 +53,15 @@ namespace ReactShared
 				}
 			}
 
-			CreateAudioFile(taskId, audioFile, audioData);
+			if (audioFileNameWithPath == null)
+			{
+				CreateAudioFile(taskId, audioFile, audioData);
+			}
+			else
+			{
+				if(audioData != string.Empty)
+					CopyAudioFile(taskId, audioFile, audioData);
+			}
 
 			var taskNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']/task[@id='{taskId}']") as XmlElement;
 			if (taskNode == null)
@@ -67,7 +75,7 @@ namespace ReactShared
 			                   Util.NewChild(taskNode, "name");
 			if (!string.IsNullOrEmpty(heading))
 				taskNameNode.InnerText = heading;
-			Util.UpdateAttr(taskNode, "assignedto", assignedTo);
+			Util.UpdateAttr(taskNode, "assignedto", assignedTo, true);
 			Util.UpdateAttr(taskNode, "length", timeDuration);
 			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
 			if (state == null || string.IsNullOrEmpty(state.InnerText))
@@ -124,6 +132,34 @@ namespace ReactShared
 					} while (count > 0);
 				}
 			}
+		}
+
+		/// <summary>
+		/// Audio File passed is directly copied to the SIL Transcriber Folder
+		/// </summary>
+		/// <param name="taskId"></param>
+		/// <param name="fileName"></param>
+		/// <param name="audioData"></param>
+		private void CopyAudioFile(string taskId, string fileName, string audioData)
+		{
+			var folder = Util.FileFolder(taskId);
+			var dirInfo = new DirectoryInfo(folder);
+			dirInfo.Create();
+
+			var match = Util.TaskIdPattern.Match(taskId);
+			if (match.Success)
+				taskId = match.Groups[1].Value;
+			var files = dirInfo.GetFiles(taskId + "*.*");
+			var seq = files.Length;
+			string fullPath;
+			while (true)
+			{
+				seq += 1;
+				fullPath = Path.Combine(folder, $"{taskId}v{seq:D2}{Path.GetExtension(audioData)}");
+				if (!File.Exists(fullPath))
+					break;
+			}
+			File.Copy(audioData, fullPath, true);
 		}
 	}
 }
