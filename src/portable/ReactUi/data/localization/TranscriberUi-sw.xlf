@@ -656,5 +656,29 @@
 				<target>Futa Mtumiaji</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.firstUserDetails">
+			<segment>
+				<source>First User Details</source>
+				<target>Maelezo ya Mtumiaji wa Kwanza</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.passphrase">
+			<segment>
+				<source>Passphrase</source>
+				<target>Passphrase</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine1">
+			<segment>
+				<source>The first user you add must have admin role.</source>
+				<target>Mtumiaji wa kwanza unayeongeza lazima awe na jukumu la admin.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine2">
+			<segment>
+				<source>Usually, this will be you.</source>
+				<target>Kwa kawaida, hii itakuwa wewe.</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

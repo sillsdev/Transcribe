@@ -656,5 +656,29 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.firstUserDetails">
+			<segment>
+				<source>First User Details</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.passphrase">
+			<segment>
+				<source>Passphrase</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine1">
+			<segment>
+				<source>The first user you add must have admin role.</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine2">
+			<segment>
+				<source>Usually, this will be you.</source>
+				<target></target>
+			</segment>
+		</unit>
 	</file>
 </xliff>
