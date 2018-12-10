@@ -1,3 +1,30 @@
+siltranscriber (0.3.7.307)  experimental; urgency=high
+
+   * General:TT-241 Handling hard to see project id
+   * General:TT-226 Put focus/insertion point in Name box when User Details pane opens
+   * General:TT-204 Assignment of task persists until you relaunch the program
+   * General:TT-202 Change project image logic
+   * General:TT-201 Create new project logic
+   * General:TT-200 pop up project action menu control
+   * General:TT-176 Admin user can create a new project
+   * PtPlugin:TT-256 Transcriber needs a restart to show the added task in Tasks pane.
+   * PtPlugin:TT-242 What should identify the project?
+   * Project:TT-259 Project is not maintaining the same name in Project setting and User Details screens
+   * Project:TT-251 Logout from a project pane was not showing list of available projects
+   * Task:TT-234 Milestone slider control
+   * Task:TT-263 Milestones status texts overlapped  in Tamil UI  and it's not clearly visible 
+   * Task:TT-245 Text overlapping problem in Task Details - Milestones pane.
+   * User:TT-228 User Name lost (becomes U2, U3, etc) if avatar pic is added in User Details pane
+   * User:TT-235 User details new layout
+   * User:TT-264 User Name changing functionality is not working
+   * UI:TT-198 User control with role
+   * UI:TT-262 Copy to Clipboard button texts is not wrapping inside this button in Tamil UI 
+   * UI:TT-232 Update Task details to new design
+   * UI:TT-210 Play bar and Start Timer is not working properly.
+   * UI:TT-199 Project control with project image
+
+ -- Greg Trihus <greg_trihus@sil.org>  Fri, 7 Dec 2018 10:22:00 -0600
+
 siltranscriber (0.3.3.124)  experimental; urgency=high
 
   * Add ProjectSettings
