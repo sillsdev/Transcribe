@@ -100,8 +100,11 @@ namespace ReactShared
 			var match = Util.TaskIdPattern.Match(taskId);
 			if (match.Success)
 				taskId = match.Groups[1].Value;
-			var files = dirInfo.GetFiles(taskId + "*" + Path.GetExtension(fileName));
-			var seq = files.Length;
+			var files = dirInfo.GetFiles(taskId + "*.*")
+				.Where(s => s.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase) ||
+				            s.Name.EndsWith(".wav", StringComparison.OrdinalIgnoreCase));
+
+			var seq = files.Count();
 			string fullPath;
 			while (true)
 			{
