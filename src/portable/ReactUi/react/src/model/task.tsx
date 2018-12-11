@@ -16,6 +16,7 @@ interface ITask {
     name?: string;
     transcribing?: boolean;
     history?: IHistory[];
+    reference?: string;
 };
 
 interface IProject {

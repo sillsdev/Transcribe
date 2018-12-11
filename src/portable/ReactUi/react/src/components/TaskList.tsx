@@ -99,7 +99,8 @@ class TaskList extends React.Component<IProps, object> {
                 name={t.name?t.name:""}
                 length={t.length != null? t.length: 0}
                 select= {selectPopupTask.bind(t.id)}
-                target="/ProjectSettings/Task"/>
+                target="/ProjectSettings/Task"
+                reference={t.reference}/>
         </div>
         )
     }

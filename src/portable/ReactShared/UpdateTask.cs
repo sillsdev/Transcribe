@@ -32,6 +32,10 @@ namespace ReactShared
 			var projectNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']") as XmlElement;
 			if (projectNode == null)
 				return;
+
+			var	projectGuid = projectNode.Attributes["guid"].InnerText;
+			var	isAdhocProject = (string.IsNullOrEmpty(projectGuid.Trim())) ? true : false;
+
 			if (string.IsNullOrEmpty(taskId))
 			{
 				if (reference == null)
@@ -75,6 +79,13 @@ namespace ReactShared
 			                   Util.NewChild(taskNode, "name");
 			if (!string.IsNullOrEmpty(heading))
 				taskNameNode.InnerText = heading;
+			if (isAdhocProject)
+			{
+				var taskReferenceNode = taskNode.SelectSingleNode("reference") as XmlElement ??
+				                        Util.NewChild(taskNode, "reference");
+				if (!string.IsNullOrEmpty(reference))
+					taskReferenceNode.InnerText = reference;
+			}
 			Util.UpdateAttr(taskNode, "assignedto", assignedTo, true);
 			Util.UpdateAttr(taskNode, "length", timeDuration);
 			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
