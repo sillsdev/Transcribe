@@ -410,10 +410,10 @@
 				<target>Paratext உடன் தன்னியக்க ஒத்திசைவு</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>அனுப்பப்படாத பணிகளைக் கோர Transcribers ஐ அனுமதிக்கவும்</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>பயனர்கள் ஒதுக்கப்படாத பணிகளைக் கோர அனுமதி</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">

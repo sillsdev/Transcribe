@@ -41,6 +41,11 @@
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
 		
+         <trans-unit id="transcribe.accept">
+            <source>Accept</source>
+            <target/>
+         </trans-unit>
+
          <trans-unit id="transcribe.submit">
             <source>Submit</source>
             <target/>
@@ -455,8 +460,8 @@
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
          </trans-unit>
 		
-         <trans-unit id="projectSettings.allowClaimUnassignedTasks">
-            <source>Allow transcribers to claim unassigned tasks</source>
+         <trans-unit id="projectSettings.allowUsersToClaimUnassignedTasks">
+            <source>Allow users to claim unassigned tasks</source>
             <target/>
          	<context-group>
          		<context context-type="sourcefile">ProjectSettings.tsx</context>
