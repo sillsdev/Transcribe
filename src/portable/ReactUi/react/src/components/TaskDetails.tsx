@@ -61,15 +61,24 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.deleteTask = this.deleteTask.bind(this);
         this.updateTaskState = this.updateTaskState.bind(this);
 
-        const { popupTask } = this.props;
+        const { popupTask, project } = this.props;
         this.taskId =  this.props.history.location.pathname.indexOf("NewTask") > 0? "" : popupTask;
         if (this.taskId && this.taskId !== "") {
             this.task = this.myTask(this.taskId);
             if(this.task.id.toUpperCase().endsWith(".MP3") || this.task.id.toUpperCase().endsWith(".WAV")){
                 this.state.fileName = this.task.id;
             }
-            const idParts = this.taskId.split('-');
-            this.state.reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "");
+            const pair = project && project.guid && project.guid !== "" ? true : false
+            if(!pair){
+                if(this.task.reference && this.task.reference !== ""){
+                    this.state.reference = this.task.reference;
+                }
+            }
+            else{
+                const idParts = this.taskId.split('-');
+                this.state.reference = ((idParts.length === 4)? idParts[1] + " " + Number(idParts[2]) + ":" + Number(idParts[3].slice(0,3)) + "-" + Number(idParts[3].slice(3,6)): "");
+            }
+
             this.state.heading = this.task.name?this.task.name:"";
             this.state.taskState = this.task.state ? this.GetTaskStateIndex(this.task.state) : 0;
             if (this.task.assignedto != null) {
