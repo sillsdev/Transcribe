@@ -410,10 +410,10 @@
 				<target>تزامن تلقائي مع Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>اسمح لمرسلي النصوص التتابعية بالمطالبة بالمهام غير المعينة</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>السماح للمستخدمين بمطالبة المهام غير المحددة</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">

@@ -410,10 +410,10 @@
 				<target>Daidaitawar atomatik tare da Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Izinin masu rubutun layi don saya ayyukan da ba a sanya su ba</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Bada masu amfani don da'awar ɗawainiya marasa aikin</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">

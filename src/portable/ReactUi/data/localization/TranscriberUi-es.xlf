@@ -410,10 +410,10 @@
 				<target>Sincronización automática con Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Permitir a los transcriptores reclamar tareas no asignadas</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Permitir a los usuarios reclamar tareas no asignadas</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">

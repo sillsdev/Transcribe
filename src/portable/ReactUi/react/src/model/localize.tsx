@@ -75,7 +75,7 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "pairedWithParatextProject": string;
     "projectSettings": string;
     "autoSyncParatext": string;
-    "allowClaimUnassignedTasks": string;
+    "allowUsersToClaimUnassignedTasks": string;
     "people": string;
     "tasks": string;
     "addUser": string;

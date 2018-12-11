@@ -9,7 +9,7 @@ const initialState = {
 			"addTask": "Add Task",
 			"addUser": "Add User",
 			"admin": "Admin",
-			"allowClaimUnassignedTasks": "Allow transcribers to claim unassigned tasks",
+			"allowUsersToClaimUnassignedTasks": "Allow users to claim unassigned tasks",
 			"assignedTo": "Assigned To",
 			"audioFile": "Audio File",
 			"autoSyncParatext": "Auto-sync with Paratext",

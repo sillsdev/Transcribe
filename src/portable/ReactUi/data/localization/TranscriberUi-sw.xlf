@@ -410,10 +410,10 @@
 				<target>Inaendana pamoja na Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Waruhusu waandishi wachukue kazi ambazo hazijapeanwa </target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Ruhusu watumiaji kudai kazi zisizosabiwa</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
