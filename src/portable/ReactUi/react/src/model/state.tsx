@@ -24,6 +24,7 @@ export interface IState {
         initialPosition: number;
         initialTranscription: boolean;
         jump: number;
+        playedSeconds: number;
         playSpeedRate: number;
         playing: boolean;
         reportedPosition: number;

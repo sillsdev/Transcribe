@@ -40,3 +40,4 @@ export const SET_SAVE_TO_PROJECT = 'SET_SAVE_TO_PROJECT';
 export const INIT_TASKS = 'INIT_TASKS';
 export const ADD_MANY_TASKS = "ADD_MANY_TASKS";
 export const SHOW_HELP = "SHOW HELP";
+export const SET_PLAYED_SECONDS = "SET_PLAYED_SECONDS"

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
+import * as actions4 from '../actions/audioActions';
 import * as actions3 from '../actions/avatarActions';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
@@ -127,6 +128,10 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
     } */
 
     private onLogOutClick() {
+        const {playedSeconds, reportPosition, selectedTask} = this.props;
+        if((selectedTask !== undefined && selectedTask.length > 0)) {
+            reportPosition(selectedTask, playedSeconds)
+        }
         this.props.initTasks();
         this.setState({...this.state, backToHome: true})
     }
@@ -145,7 +150,9 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 
 interface IStateProps {
     direction: string;
+    playedSeconds: number;
     selectedProject: string;
+    selectedTask: string;
     selectedUser: string;
     strings: ITranscriberStrings;
     tasks: IProject[];
@@ -154,7 +161,9 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     direction: uiDirection(state),
+    playedSeconds: state.audio.playedSeconds,
     selectedProject: state.tasks.selectedProject,
+    selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "transcriber"}),
     tasks: state.tasks.projects,
@@ -165,6 +174,7 @@ interface IDispatchProps {
     clearSelectedParatextProject: typeof actions.clearSelectedParatextProject;
     fetchZttProjectsCount: typeof actions2.fetchZttProjectsCount;
     initTasks: typeof actions2.initTasks;
+    reportPosition: typeof actions4.reportPosition;
     saveAvatar: typeof actions3.saveAvatar;
     selectParatextProject: typeof actions.selectParatextProject;
     setProjectAvatar: typeof actions3.setProjectAvatar;
@@ -176,6 +186,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         clearSelectedParatextProject: actions.clearSelectedParatextProject,
         fetchZttProjectsCount: actions2.fetchZttProjectsCount,
         initTasks: actions2.initTasks,
+        reportPosition: actions4.reportPosition,
         saveAvatar: actions3.saveAvatar,
         selectParatextProject: actions.selectParatextProject,
         setProjectAvatar: actions3.setProjectAvatar,

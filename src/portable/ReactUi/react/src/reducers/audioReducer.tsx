@@ -1,13 +1,14 @@
 import { COMPLETE_REVIEW_PENDING, COMPLETE_TRANSCRIPTION_PENDING,
     FETCH_TASKS, FETCH_TRANSCRIPTION, INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS,
     PLAYSPEEDRATE_CHANGE, REPORT_POSITION, REQUEST_POSITION, SAVE_STATUS, SAVE_TOTAL_SECONDS, SELECT_TASK,
-    SUBMIT_STATUS, WRITE_FULFILLED } from '../actions/types';
+    SET_PLAYED_SECONDS, SUBMIT_STATUS, WRITE_FULFILLED } from '../actions/types';
 
 const initialState = {
     initialPosition: 0,
     initialTranscription: true,
     jump: 0,
     playSpeedRate: 1,
+    playedSeconds: 0,
     playing: false,
     reportedPosition: 0,
     requestReport: false,
@@ -72,6 +73,11 @@ export default function (state = initialState, action: any) {
                 ...state,
                 initialTranscription: true,
                 transcription: "",
+            }
+        case SET_PLAYED_SECONDS:
+            return {
+                ...state,
+                playedSeconds: action.payload
             }
         case SUBMIT_STATUS:
             return {
