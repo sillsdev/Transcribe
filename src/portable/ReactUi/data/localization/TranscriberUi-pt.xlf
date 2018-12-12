@@ -410,10 +410,10 @@
 				<target>Sincronização automática com o Paratexto</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Permitir que as transcrições reivindiquem tarefas não atribuídas</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Permitir que os usuários reivindiquem tarefas não atribuídas</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
@@ -654,6 +654,30 @@
 			<segment>
 				<source>Delete User</source>
 				<target>Deletar usuário</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserDetails">
+			<segment>
+				<source>First User Details</source>
+				<target>Detalhes do primeiro usuário</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.passphrase">
+			<segment>
+				<source>Passphrase</source>
+				<target>Passphrase</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine1">
+			<segment>
+				<source>The first user you add must have admin role.</source>
+				<target>O primeiro usuário que você adicionar deve ter função de administrador.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine2">
+			<segment>
+				<source>Usually, this will be you.</source>
+				<target>Normalmente, este será você.</target>
 			</segment>
 		</unit>
 	</file>

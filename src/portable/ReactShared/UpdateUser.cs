@@ -91,6 +91,7 @@ namespace ReactShared
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
 			AddUserName(name, usernameNode, usersDoc);
+			AddPassword(password, usernameNode, usersDoc);
 			AddNewAvatar(saveImage, avatarBase64, userId, usernameNode);
 			var userRoleNode = userNode.SelectNodes("role") as XmlNodeList;
 			Debug.Assert(userRoleNode != null, nameof(userRoleNode) + " != null");
@@ -147,6 +148,17 @@ namespace ReactShared
 				usernameNode.Attributes["id"].InnerText = name.Replace(" ", "").ToLower();
 			}
 		}
+
+		private static void AddPassword(string password, XmlElement usernameNode, XmlDocument usersDoc)
+		{
+			if (password == null)
+				return;
+			if (!(usernameNode.SelectSingleNode("password") is XmlElement passwordNode))
+				passwordNode = Util.NewChild(usernameNode, "password");
+
+			passwordNode.InnerText = password;
+		}
+
 
 		private static void AddUserRole(string role, XmlNodeList userRoleNodeList, XmlElement usernameNode, XmlDocument usersDoc)
 		{

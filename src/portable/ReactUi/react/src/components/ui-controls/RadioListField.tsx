@@ -1,10 +1,16 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { IProjectSettingsStrings } from '../../model/localize';
+import { IState } from '../../model/state';
+import userStrings from '../../selectors/localize';
+import PasswordField from './PasswordField';
 import './RadioListField.sass';
 
-interface IProps {
+interface IProps extends IStateProps {
     id?: string;
     options: string[];
     selected?: string;
+    adminPassword?: string;
     message?: string;
     onChange?: (value: string) => any;
 }
@@ -26,16 +32,25 @@ class RadioListField extends React.Component<IProps, any> {
         }
     }
 
+    public handlePasswordChange(event: any) {
+        if(event.target === undefined){ return;}
+      this.setState({ ...this.state, password: event.target.value });
+      if (this.props.onChange != null) {
+        this.props.onChange(event.target.value);
+      }
+    }
+
     public render() {
-        const { options } = this.props
+        const { adminPassword, options, strings } = this.props
         const { current } = this.state
+        const password  = (adminPassword !== undefined)? adminPassword: "";
+        localStorage.setItem("AdminPassword", password);
         let currentValue = current;
         if (current !== undefined) {
             currentValue = current.toLowerCase();
         }
         const elementList = options.map((item: string) =>
             <div key={item}>
-
                 <input
                     className="DataColor"
                     type="radio"
@@ -44,6 +59,17 @@ class RadioListField extends React.Component<IProps, any> {
                     checked={currentValue === item.toLowerCase()}
                     onChange={this.handleChange} />
                 <label className="labelRadioCaption">{item} </label>
+                {(currentValue === "admin" && currentValue === item.toLowerCase()) ? (
+                    <div className={"showPasswordField"}>
+                        <PasswordField
+                            caption={strings.passphrase}
+                            id="password"
+                            inputValue={password}
+                        />
+                    </div>
+                ) : (
+                        ""
+                    )}
             </div>
         );
 
@@ -63,4 +89,12 @@ class RadioListField extends React.Component<IProps, any> {
     }
 }
 
-export default RadioListField;
+interface IStateProps {
+    strings: IProjectSettingsStrings;
+};
+
+const mapStateToProps = (state: IState): IStateProps => ({
+    strings: userStrings(state, { layout: "projectSettings" }),
+});
+
+export default connect(mapStateToProps)(RadioListField);

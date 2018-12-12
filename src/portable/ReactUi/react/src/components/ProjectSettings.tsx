@@ -111,7 +111,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                             <LinkAction text={pairText} target={this.pair.bind(this, pair)} />
                         </div> */}
                         <div className="switches">
-                            <ToggleSwitch switched={claim} text={strings.allowClaimUnassignedTasks} onChange={this.onClaim}/>
+                            <ToggleSwitch switched={claim} text={strings.allowUsersToClaimUnassignedTasks} onChange={this.onClaim}/>
                             {/* <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair.bind(this, pair)} /> */}
                             <ToggleSwitch switched={sync} text={strings.autoSyncParatext} enabled={pair} onChange={this.onSync} />
                         </div>

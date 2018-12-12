@@ -410,10 +410,10 @@
 				<target>Автоматическая синхронизация с Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Разрешить подписчикам требовать невысокие задачи</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Разрешить пользователям запрашивать неназначенные задачи</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
@@ -654,6 +654,30 @@
 			<segment>
 				<source>Delete User</source>
 				<target>Удалить пользователя</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserDetails">
+			<segment>
+				<source>First User Details</source>
+				<target>Информация для первого пользователя</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.passphrase">
+			<segment>
+				<source>Passphrase</source>
+				<target>Passphrase</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine1">
+			<segment>
+				<source>The first user you add must have admin role.</source>
+				<target>Первый добавленный вами пользователь должен иметь роль администратора.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine2">
+			<segment>
+				<source>Usually, this will be you.</source>
+				<target>Обычно это ты.</target>
 			</segment>
 		</unit>
 	</file>
