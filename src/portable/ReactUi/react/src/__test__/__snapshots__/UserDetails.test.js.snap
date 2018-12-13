@@ -91,6 +91,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
           >
             <div
               className="dataColumn"
+              onClick={[Function]}
             >
               <label
                 className="Caption CaptionGreen"

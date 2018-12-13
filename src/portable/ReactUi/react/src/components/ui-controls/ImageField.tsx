@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './ImageField.sass';
 
 interface IProps {
@@ -15,19 +15,25 @@ interface IProps {
 
 export class ImageField extends React.Component<IProps, any> {
     public state = {
+        clicked: false,
         current: this.props.inputValue,
-        data: "",
-        file: "",
     }
 
     constructor(props: IProps) {
         super(props);
         this.handleClear = this.handleClear.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     public render() {
-        const { current } = this.state;
+        const { clicked, current } = this.state;
         const { caption, fromPath, id, isReadOnly, message } = this.props;
+        if (clicked) {
+            this.setState({clicked: false})
+            return (
+                <Redirect to={fromPath + "/avatar/PopupUser"} />
+            )
+        }
         const errorMessage = current !== "" && message ? message : "";
         const messageStyle = (errorMessage.length > 0) ? "Message CaptionRed BorderTopRed" : "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0) ? "Caption CaptionRed" : "Caption CaptionGreen";
@@ -37,7 +43,7 @@ export class ImageField extends React.Component<IProps, any> {
         return (
             <div id={id} className="ImageField">
                 <div className="bodyRow">
-                    <div className="dataColumn">
+                    <div className="dataColumn" onClick={this.handleClick}>
                         <label
                             className={captionStyle}>
                             {current && current !== "" ? caption : ""
@@ -68,6 +74,10 @@ export class ImageField extends React.Component<IProps, any> {
         if (this.props.onChange != null) {
             this.props.onChange("")
         }
+    }
+
+    private handleClick(event: any) {
+        this.setState({clicked: true});
     }
 }
 
