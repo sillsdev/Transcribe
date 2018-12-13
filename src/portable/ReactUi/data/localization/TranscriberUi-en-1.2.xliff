@@ -9,7 +9,7 @@
             <source>Assigned</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -18,7 +18,7 @@
             <source>Available</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -27,7 +27,7 @@
             <source>Review</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -36,7 +36,7 @@
             <source>Transcribe</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -101,7 +101,7 @@
             <source>To Do</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -110,7 +110,7 @@
             <source>All</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -119,7 +119,7 @@
             <source>Transcribed</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -128,7 +128,7 @@
             <source>Reviewed</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -137,7 +137,7 @@
             <source>Synced</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
@@ -146,7 +146,7 @@
             <source>Log Out</source>
             <target/>
          	<context-group>
-         		<context context-type="sourcefile">TaskPanel</context>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
          	</context-group>
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
