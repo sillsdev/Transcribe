@@ -44,6 +44,7 @@
          <trans-unit id="transcribe.accept">
             <source>Accept</source>
             <target/>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
 
          <trans-unit id="transcribe.submit">
