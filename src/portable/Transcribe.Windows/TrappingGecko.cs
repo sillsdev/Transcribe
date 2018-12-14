@@ -96,6 +96,9 @@ namespace Transcribe.Windows
 						case "ShowHelp":
 							new ShowHelp(e.Uri.Query, ShowHelpTopic);
 							break;
+						case "GetMeta":
+							new GetMeta(e.Uri.Query, e.RequestBody);
+							break;
 					}
 				}
 				catch (Exception err)

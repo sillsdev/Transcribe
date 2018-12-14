@@ -38,6 +38,9 @@ namespace Transcribe.Windows
 						case "GetDefaultUserHotKeys":
 							new GetDefaultUserHotKeys();
 							break;
+						case "GetZttProjectsCount":
+							new GetZttProjectsCount();
+							break;
 					}
 				}
 				catch (Exception err)
@@ -62,6 +65,9 @@ namespace Transcribe.Windows
 						case "UpdateUser":
 							new UpdateUser(e.Uri.Query, e.RequestBody, SaveImage);
 							break;
+						case "UpdateProjectAvatar":
+							new UpdateProjectAvatar(e.Uri.Query, e.RequestBody, SaveImage);
+							break;
 						case "UpdateProject":
 							new UpdateProject(e.Uri.Query);
 							break;
@@ -85,6 +91,12 @@ namespace Transcribe.Windows
 							break;
 						case "AddManyTasks":
 							new AddManyTasks(e.Uri.Query, SelectAudioFilesFolder);
+							break;
+						case "ShowHelp":
+							new ShowHelp(e.Uri.Query, ShowHelpTopic);
+							break;
+						case "GetMeta":
+							new GetMeta(e.Uri.Query, e.RequestBody);
 							break;
 					}
 				}
@@ -149,5 +161,14 @@ namespace Transcribe.Windows
 			return image;
 		}
 
+		private void ShowHelpTopic(string topic, string helpFileName)
+		{
+			HelpProvider helpProv = new HelpProvider();
+			helpProv.HelpNamespace = helpFileName;
+			TextBox tb = new TextBox();
+			helpProv.SetHelpNavigator(tb, HelpNavigator.KeywordIndex);
+			helpProv.SetHelpKeyword(tb, topic);
+			Help.ShowHelp(tb, helpProv.HelpNamespace, helpProv.GetHelpNavigator(tb), helpProv.GetHelpKeyword(tb));
+		}
 	}
 }

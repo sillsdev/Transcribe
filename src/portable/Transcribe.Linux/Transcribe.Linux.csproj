@@ -166,7 +166,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="transcriber7.ico" />
     <Content Include="x86\CC32.dll" />
     <Content Include="x86\libgcc_s_sjlj-1.dll" />
     <Content Include="x86\libstdc++-6.dll" />

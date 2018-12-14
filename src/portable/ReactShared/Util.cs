@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml;
 using Newtonsoft.Json;
@@ -181,5 +182,29 @@ namespace ReactShared
 			}
 		}
 
+		public static void SaveByteData(string audioData, string fullPath)
+		{
+			var audioParts = audioData.Split(',').ToList();
+			if (audioParts.Count <= 1)
+				return;
+			var dummyData = audioParts[1].Trim().Replace(" ", "+");
+			if (dummyData.Length % 4 > 0)
+				dummyData = dummyData.PadRight(dummyData.Length + 4 - dummyData.Length % 4, '=');
+			var bytes = Convert.FromBase64String(dummyData);
+
+			using (var ms = new MemoryStream(bytes))
+			{
+				var buffer = new byte[1000];
+				using (var os = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
+				{
+					int count;
+					do
+					{
+						count = ms.Read(buffer, 0, 1000);
+						os.Write(buffer, 0, count);
+					} while (count > 0);
+				}
+			}
+		}
 	}
 }

@@ -3,6 +3,7 @@ import Avatar from 'react-avatar';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import * as actions3 from '../actions/audioActions';
 import * as actions from '../actions/taskActions';
 import * as actions2 from '../actions/userActions';
 import { IProjectSettingsStrings } from '../model/localize';
@@ -130,32 +131,69 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             <LabelCaptionUx name={strings.taskDetails} type="H2" />
                         </div>
                         <div className={"copyAction" + (newTask? " hide": "")}>
-                            <NextAction text={strings.copyToClipboard} target={copyToClipboard} type="safe" />
+                            <NextAction
+                                text={strings.copyToClipboard}
+                                target={copyToClipboard}
+                                type="safe" />
                         </div>
                     </div>
                     <div className="data">
-                        <div><FileField id="id1" caption={strings.audioFile} inputValue={fileName} onChange={this.updateFileName} ref={this.fileRef} /></div>
-                        <div><TextField id="id2" caption={strings.reference} inputValue={reference} onChange={this.updateReference} onBlur={this.validateReference} message={this.state.message}/></div>
-                        <div><TextField id="id3" caption={strings.heading} inputValue={heading} onChange={this.updateHeading}/></div>
-                        <div><SelectField id="id4" caption={strings.assignedTo} selected={assignedTo} options={userDisplayNames} onChange={this.updateAssignedTo} direction={direction} /></div>
+                        <div><FileField id="id1"
+                            caption={strings.audioFile}
+                            inputValue={fileName}
+                            onChange={this.updateFileName}
+                            ref={this.fileRef} /></div>
+                        <div><TextField id="id2"
+                            caption={strings.reference}
+                            inputValue={reference}
+                            onChange={this.updateReference}
+                            onBlur={this.validateReference}
+                            message={this.state.message}/></div>
+                        <div><TextField id="id3"
+                            caption={strings.heading}
+                            inputValue={heading}
+                            onChange={this.updateHeading}/></div>
+                        <div><SelectField id="id4"
+                            caption={strings.assignedTo}
+                            selected={assignedTo}
+                            options={userDisplayNames}
+                            onChange={this.updateAssignedTo}
+                            direction={direction} /></div>
                     </div>
                     <div className="preview">
                         <LabelCaptionUx name={strings.preview} type="small" />
                         <div className={"waveformRow" + (fileName !== "" || heading !== "" || reference !== ""? "": " hide") + (fileName !== ""? "": " hideWave")}>
-                            <TaskItem id="TaskItem" length={this.duration()} name={heading} reference={reference} selected={true} />
+                            <TaskItem id="TaskItem"
+                                length={this.duration()} name={heading}
+                                reference={reference}
+                                selected={true} />
                             <div className={"selectBar" + (fileName !== ""? "": " hide")}>{"\u00A0"}</div>
                         </div>
                         <div className={"AvatarRow" + (assignedTo !== ""? "": " hide")}>
-                            <Avatar name={this.displayName(assignedTo)} src={this.avatar(assignedTo)} size={64} round={true} />
+                            <Avatar
+                                name={this.displayName(assignedTo)}
+                                src={this.avatar(assignedTo)}
+                                size={64}
+                                round={true} />
                             <div className="AvatarCaption">{this.displayName(assignedTo)}</div>
                         </div>
                     </div>
                     <div className={"slider" + (newTask? " hide": "")}>
-                        <div><RangeSliderField id="Slider1" marks={this.GetRangeSliderMarks()} caption={strings.milestones} onChange={this.updateTaskState} selected={taskState} /></div>
+                        <div><RangeSliderField id="Slider1"
+                            marks={this.GetRangeSliderMarks()}
+                            caption={strings.milestones}
+                            onChange={this.updateTaskState}
+                            selected={taskState} /></div>
                     </div>
                     <div className="action">
-                        <IconButtonField id="discard" caption={strings.discardChanges} imageUrl="CancelIcon.svg" onClick={this.discard}/>
-                        <IconButtonField id={"deleteTask" + (newTask? "Hide": "")} caption={strings.deleteTask} imageUrl="RejectIcon.svg" onClick={this.deleteTask}/>
+                        <IconButtonField id="discard"
+                            caption={strings.discardChanges}
+                            imageUrl="CancelIcon.svg"
+                            onClick={this.discard}/>
+                        <IconButtonField id={"deleteTask" + (newTask? "Hide": "")}
+                            caption={strings.deleteTask}
+                            imageUrl="RejectIcon.svg"
+                            onClick={this.deleteTask}/>
                     </div>
                 </div>
             </div>
@@ -196,8 +234,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.setState({...this.state, discard:true})
     }
 
-    private updateFileName(file: string) {
+    private updateFileName(file: string, data: string) {
         this.setState({...this.state, fileName: file})
+        this.props.fetchMeta(file, {data});
     }
 
     private updateHeading(header: string) {
@@ -221,7 +260,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private duration(): number {
-        return this.task && this.task.length? this.task.length: 0
+        return this.props.size
     }
 
     private taskUser(userId: string): IUser {
@@ -269,6 +308,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         if (this.state.fileName !== this.original.fileName) {
             this.saveValue(updates, "audioFile", this.state.fileName);
             data = {data: this.fileRef.current && this.fileRef.current.state.data}
+            this.saveValue(updates, "timeDuration", this.props.size.toString())
         }
 
         if (this.state.heading !== this.original.heading) {
@@ -328,6 +368,7 @@ interface IStateProps {
     users: IUser[];
     selectedParatextProject: string;
     selectedProject: string;
+    size: number;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -337,6 +378,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     project: currentProject(state),
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     selectedProject: state.tasks.selectedProject,
+    size: state.meta.size,
     strings: userStrings(state, { layout: "projectSettings" }),
     tasks: projectTasks(state),
     users: state.users.users,
@@ -345,6 +387,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     copyToClipboard: typeof actions.copyToClipboard;
     deleteTask: typeof actions.deleteTask;
+    fetchMeta: typeof actions3.fetchMeta;
     fetchUsers: typeof actions2.fetchUsers;
     selectTask: typeof actions.selectTask;
     updateTask: typeof actions.updateTask;
@@ -353,6 +396,7 @@ interface IDispatchProps {
      ...bindActionCreators({
         copyToClipboard: actions.copyToClipboard,
         deleteTask: actions.deleteTask,
+        fetchMeta: actions3.fetchMeta,
         fetchUsers: actions2.fetchUsers,
         selectTask: actions.selectTask,
         updateTask: actions.updateTask,
