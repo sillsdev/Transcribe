@@ -103,7 +103,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
         this.original = { ...this.state };
     }
     public render() {
-        const { avatar, deleted, direction, strings, strings2, project, popupUser, setUserAvatar, users } = this.props;
+        const { avatar, avatarUri, deleted, direction, strings, strings2, project, popupUser, setUserAvatar, users } = this.props;
         const { discard, name } = this.state;
         const save = () => this.save(this);
         log("UserDetails")
@@ -135,13 +135,25 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                         </div>
                     </div>
                     <div className="data">
-                        <div><TextField id="id1" autofocus={true} caption={strings2.name} inputValue={this.state.name} onChange={this.updateUserName} /></div>
-                        <div><ImageField id="id2" caption={strings2.imageFile} inputValue={this.state.imageFile} fromPath={historyPath} onChange={this.updateImageFile} ref={this.imageRef} /></div>
+                        <div><TextField id="id1"
+                            autofocus={true}
+                            caption={strings2.name}
+                            inputValue={this.state.name}
+                            onChange={this.updateUserName} /></div>
+                        <div><ImageField id="id2"
+                            caption={strings2.imageFile}
+                            inputValue={avatar === avatarUri? this.state.imageFile: avatarUri}
+                            fromPath={historyPath} onChange={this.updateImageFile}
+                            ref={this.imageRef} /></div>
                     </div>
                     <div className="preview">
                         <LabelCaptionUx name={strings.preview} type="small" />
                         <div className={"AvatarRow" + (name !== "" ? "" : " hide")}>
-                            <Avatar className="OnHover" name={name} key={name + "Avatar"} src={avatar} size={64} round={true} />
+                            <Avatar className="OnHover"
+                                name={name} key={name + "Avatar"}
+                                src={avatar}
+                                size={64}
+                                round={true} />
                             <div className="AvatarDetails">
                                 <div className="AvatarCaption">{name}</div>
                                 <div><LabelUx name={this.state.role} /></div>
@@ -155,7 +167,10 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
 
                                     <div className="rolesBox">
                                         <LabelUx name={strings2.role} />
-                                        <RadioListField options={this.roleListLoc} selected={this.state.role} onChange={this.updateRoles} />
+                                        <RadioListField
+                                            options={this.roleListLoc}
+                                            selected={this.state.role}
+                                            onChange={this.updateRoles} />
                                     </div>
                                     <div className="OtherProjectsBox">
                                         <LabelUx name={strings.otherProjects} />
@@ -166,8 +181,14 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                         </div>
                     </div>
                     <div className="action">
-                        <IconButtonField id="discard" caption={strings.discardChanges} imageUrl="CancelIcon.svg" onClick={this.discard} />
-                        <IconButtonField id={"deleteUser" + (newUser ? "Hide" : "")} caption={strings.deleteUser} imageUrl="RejectIcon.svg" onClick={this.deleteUser} />
+                        <IconButtonField id="discard"
+                            caption={strings.discardChanges}
+                            imageUrl="CancelIcon.svg"
+                            onClick={this.discard} />
+                        <IconButtonField id={"deleteUser" + (newUser ? "Hide" : "")}
+                            caption={strings.deleteUser}
+                            imageUrl="RejectIcon.svg"
+                            onClick={this.deleteUser} />
                     </div>
                 </div>
             </div>
@@ -191,9 +212,9 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private updateImageFile(newImage: string) {
-        this.setState({ ...this.state, imageFile: newImage })
+        this.setState({ imageFile: newImage })
         if(newImage.length === 0) {
-            this.setState({ ...this.state, avatarUrl: "" })
+            this.setState({ avatarUrl: "" })
         }
     }
 
@@ -237,6 +258,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
 
 interface IStateProps {
     avatar: string;
+    avatarUri: string;
     deleted: boolean;
     direction: string;
     project: IProject;
@@ -250,6 +272,7 @@ interface IStateProps {
 
 const mapStateToProps = (state: IState): IStateProps => ({
     avatar: state.avatar.data,
+    avatarUri: state.avatar.uri,
     deleted: state.users.deleted,
     direction: uiDirection(state),
     popupUser: state.users.selectedPopupUser,

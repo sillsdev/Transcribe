@@ -18,6 +18,7 @@ import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 interface IAvatarEdit extends IAvatarState {
   discard: boolean;
   fromPath: string;
+  imageData: any;
   scale: number;
 }
 
@@ -37,7 +38,12 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
 
   public constructor(props: IProps) {
     super(props);
-    this.state = { ...this.props.avatar, discard: false, fromPath: "User", scale: 1 };
+    this.state = { ...this.props.avatar,
+      discard: false,
+      fromPath: "User",
+      imageData: this.props.avatar.data,
+      scale: 1
+    };
     this.handleSave = this.handleSave.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handleNewImage = this.handleNewImage.bind(this);
@@ -48,7 +54,7 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
   public render() {
     const historyPath = this.props.history.location.pathname;
     const { size = 175, strings, strings2, direction } = this.props;
-    const { borderRadius, discard, scale, uri } = this.state;
+    const { borderRadius, discard, imageData, scale } = this.state;
     const backTo = historyPath.slice(0, historyPath.indexOf("/avatar"))
     const save = () => this.save(this);
     if (discard) {
@@ -68,7 +74,7 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
           height={size}
           rotate={0}
           borderRadius={size / (100 / borderRadius)}
-          image={uri}
+          image={imageData}
           className="editor-canvas"
           onImageChange={this.handleSave}
           onImageReady={this.handleSave}
@@ -140,11 +146,11 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
   };
 
   private handleDrop = (acceptedFiles: any) => {
-    this.setState({ uri: acceptedFiles[0] });
+    this.setState({ imageData: acceptedFiles[0], uri: acceptedFiles[0].name });
   };
 
   private handleNewImage = (e: any) => {
-    this.setState({ uri: e.target.files[0] });
+    this.setState({ imageData: e.target.files[0], uri: e.target.files[0].name });
   };
 
   private handleScale = (e: React.ChangeEvent<HTMLInputElement>) => {

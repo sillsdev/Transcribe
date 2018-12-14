@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { log } from '../../actions/logAction';
 import './ImageField.sass';
 
 interface IProps {
@@ -16,7 +17,6 @@ interface IProps {
 export class ImageField extends React.Component<IProps, any> {
     public state = {
         clicked: false,
-        current: this.props.inputValue,
     }
 
     constructor(props: IProps) {
@@ -26,7 +26,7 @@ export class ImageField extends React.Component<IProps, any> {
     }
 
     public render() {
-        const { clicked, current } = this.state;
+        const { clicked } = this.state;
         const { caption, fromPath, id, isReadOnly, message } = this.props;
         if (clicked) {
             this.setState({clicked: false})
@@ -34,6 +34,8 @@ export class ImageField extends React.Component<IProps, any> {
                 <Redirect to={fromPath + "/avatar/PopupUser"} />
             )
         }
+        log("ImageField: " + this.props.inputValue)
+        const current = this.props.inputValue? this.props.inputValue: ""
         const errorMessage = current !== "" && message ? message : "";
         const messageStyle = (errorMessage.length > 0) ? "Message CaptionRed BorderTopRed" : "Message BorderTopGreen";
         const captionStyle = (errorMessage.length > 0) ? "Caption CaptionRed" : "Caption CaptionGreen";
