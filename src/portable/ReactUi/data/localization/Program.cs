@@ -16,9 +16,9 @@ namespace localization
         {
 			// See: https://github.com/dotnet/corefx/issues/31390
 			AppContext.SetSwitch("Switch.System.Xml.AllowDefaultResolver", true);
+	        var settings = new XsltSettings { EnableDocumentFunction = true };
 	        MakeStrings.Load(XmlReader.Create(Assembly.GetExecutingAssembly()
-		        .GetManifestResourceStream("localization.MakeStrings-12.xsl")));
-			var settings = new XsltSettings { EnableDocumentFunction = true };
+		        .GetManifestResourceStream("localization.MakeStrings-12.xsl")), settings, null);
 			CombineStrings.Load(XmlReader.Create(Assembly.GetExecutingAssembly()
 		        .GetManifestResourceStream("localization.CombineStrings-12.xsl")), settings, null);
 	        var folderIn = "../../..";
@@ -50,9 +50,19 @@ namespace localization
 		    foreach (var fileInfo in new DirectoryInfo(folderIn).GetFiles("*-1.2.xliff"))
 		    {
 			    var name = Path.GetFileNameWithoutExtension(fileInfo.Name) + dir;
-			    using (var sw = new StreamWriter(Path.Combine(folderOut, name + ".xml"), false, new UTF8Encoding(true)))
+			    var xsltArgs = new XsltArgumentList();
+			    if (dir.Length >= 2)
 			    {
-				    MakeStrings.Transform(fileInfo.FullName, null, sw);
+				    var info = new FileInfo(Path.Combine(folderOut, "TranscriberUi" + dir.Substring(0, 3) + ".xlf"));
+					xsltArgs.AddParam("v2File", "", new Uri(info.FullName).AbsoluteUri);
+			    }
+			    else
+			    {
+				    xsltArgs.AddParam("v2File", "", new Uri(Path.Combine(fileInfo.FullName)).AbsoluteUri);
+			    }
+				using (var sw = new StreamWriter(Path.Combine(folderOut, name + ".xml"), false, new UTF8Encoding(true)))
+			    {
+				    MakeStrings.Transform(fileInfo.FullName, xsltArgs, sw);
 			    }
 		    }
 	    }
