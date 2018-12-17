@@ -668,16 +668,10 @@
 				<target>Frase de contraseña</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.firstUserMessageLine1">
+		<unit id="projectSettings.firstUserMessage">
 			<segment>
-				<source>The first user you add must have admin role.</source>
-				<target>El primer usuario que agregue debe tener un rol de administrador.</target>
-			</segment>
-		</unit>
-		<unit id="projectSettings.firstUserMessageLine2">
-			<segment>
-				<source>Usually, this will be you.</source>
-				<target>Por lo general, este serás tú.</target>
+				<source>The first user you add must have admin role. Usually, this will be you.</source>
+				<target>El primer usuario que agregue debe tener un rol de administrador. Por lo general, este serás tú.</target>
 			</segment>
 		</unit>
 	</file>

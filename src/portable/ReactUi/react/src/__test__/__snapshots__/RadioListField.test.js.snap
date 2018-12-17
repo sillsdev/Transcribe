@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: RadioListField --- Snapshot +++capturing Snapshot of RadioListField 1`] = `
+<div
+  className="RadioListField"
+>
+  <div
+    className="bodyRow"
+  >
+    <div
+      className="dataColumn"
+    >
+      <form>
+        <fieldset
+          className="radioFieldSet"
+          id="radioGroup"
+        >
+          <div>
+            <input
+              checked={false}
+              className="DataColor"
+              name="radioGroup"
+              onChange={[Function]}
+              type="radio"
+              value="admin"
+            />
+            <label
+              className="labelRadioCaption"
+            >
+              admin
+               
+            </label>
+            
+          </div>
+          <div>
+            <input
+              checked={false}
+              className="DataColor"
+              name="radioGroup"
+              onChange={[Function]}
+              type="radio"
+              value="reviewer"
+            />
+            <label
+              className="labelRadioCaption"
+            >
+              reviewer
+               
+            </label>
+            
+          </div>
+          <div>
+            <input
+              checked={false}
+              className="DataColor"
+              name="radioGroup"
+              onChange={[Function]}
+              type="radio"
+              value="transcriber"
+            />
+            <label
+              className="labelRadioCaption"
+            >
+              transcriber
+               
+            </label>
+            
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+`;

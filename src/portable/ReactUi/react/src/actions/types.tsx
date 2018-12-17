@@ -42,3 +42,4 @@ export const ADD_MANY_TASKS = "ADD_MANY_TASKS";
 export const SHOW_HELP = "SHOW HELP";
 export const SET_PLAYED_SECONDS = "SET_PLAYED_SECONDS";
 export const FETCH_META = "FETCH_META";
+export const SET_ADMIN_PASSWORD = 'SET_ADMIN_PASSWORD';

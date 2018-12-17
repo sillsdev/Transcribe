@@ -9,9 +9,10 @@ interface IProps {
     show?: boolean,
     isReadOnly?: boolean,
     onChange?: (value: string) => any;
+    setAdminPassword?: (password: string) => any;
 }
 
-class PasswordField extends React.Component<IProps, any> {
+export class PasswordField extends React.Component<IProps, any> {
     public state = {
         current: this.props.inputValue,
     }
@@ -30,14 +31,18 @@ class PasswordField extends React.Component<IProps, any> {
 
     public handleChange(event: any) {
         this.setState({current: event.target.value });
-        localStorage.setItem("AdminPassword", event.target.value);
+        if (this.props.setAdminPassword !== undefined){
+            this.props.setAdminPassword(event.target.value);
+        }
     }
 
     public handleClear(event: any) {
         if (!this.props.isReadOnly) {
             this.setState({current: "" })
+            if (this.props.setAdminPassword !== undefined){
+                this.props.setAdminPassword("");
+            }
         }
-        localStorage.setItem("AdminPassword", "");
     }
 
     public render() {

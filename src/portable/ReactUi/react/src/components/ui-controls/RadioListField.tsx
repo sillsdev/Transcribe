@@ -13,16 +13,21 @@ interface IProps extends IStateProps {
     adminPassword?: string;
     message?: string;
     onChange?: (value: string) => any;
+    setAdminPassword?: (password: string) => any;
 }
 
-class RadioListField extends React.Component<IProps, any> {
-    public state = {
-        current: this.props.selected,
-    }
+const initialState = {
+    current: "",
+    password: ""
+};
+
+export class RadioListField extends React.Component<IProps, typeof initialState> {
+    public state = {...initialState}
 
     constructor(props: IProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.state.current = this.props.selected? this.props.selected: "";
     }
 
     public handleChange(event: any) {
@@ -33,7 +38,9 @@ class RadioListField extends React.Component<IProps, any> {
     }
 
     public handlePasswordChange(event: any) {
-        if(event.target === undefined){ return;}
+        if(event.target === undefined){
+            return;
+        }
       this.setState({ ...this.state, password: event.target.value });
       if (this.props.onChange != null) {
         this.props.onChange(event.target.value);
@@ -64,11 +71,10 @@ class RadioListField extends React.Component<IProps, any> {
                             caption={strings.passphrase}
                             id="password"
                             inputValue={password}
+                            setAdminPassword={this.props.setAdminPassword}
                         />
                     </div>
-                ) : (
-                        ""
-                    )}
+                ) : ""}
             </div>
         );
 
@@ -93,7 +99,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
-    strings: userStrings(state, { layout: "projectSettings" }),
+    strings: userStrings(state, {layout: "projectSettings"}),
 });
 
 export default connect(mapStateToProps)(RadioListField);

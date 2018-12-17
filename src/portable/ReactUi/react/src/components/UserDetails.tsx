@@ -58,7 +58,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
         this.updateRoles = this.updateRoles.bind(this);
         this.discard = this.discard.bind(this);
         this.deleteUser = this.deleteUser.bind(this);
-        const { popupUser, users, strings } = this.props;
+        const {password, popupUser, users, strings } = this.props;
         this.roleListDef = ['Admin', 'Reviewer', 'Transcriber'];
         this.roleListLoc = [strings.admin, strings.reviewer, strings.transcriber];
         this.userId = this.props.history.location.pathname.indexOf("NewUser") > 0 ? "" : popupUser;
@@ -68,7 +68,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
             if(user !== undefined)
             {
                 this.state.name = user.displayName
-                this.state.password = (user.username.password !== undefined)? user.username.password: "";
+                this.state.password = password
                 if (user.username.avatarUri !== undefined) {
                     this.props.saveAvatar({data: user.username.avatarUri, uri: user.username.avatarUri});
                     this.state.imageFile = user.username.avatarUri && user.username.avatarUri.replace("/api/images/", "");
@@ -105,8 +105,8 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
         this.original = { ...this.state };
     }
     public render() {
-        const { avatar, avatarUri, deleted, direction, strings, strings2, project, popupUser, setUserAvatar, users } = this.props;
-        const { discard, name, password } = this.state;
+        const { avatar, avatarUri, deleted, direction, password, strings, strings2, project, popupUser, setUserAvatar, users } = this.props;
+        const { discard, name } = this.state;
         const save = () => this.save(this);
         log("UserDetails")
         if (deleted || discard) {
@@ -130,10 +130,10 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
         const firstUserMessage = users.length === 1 ? (
           <div className="firstUserMessage">
             <label className="LabelCaptionUx">
-              {strings.firstUserMessageLine1} <br /> {strings.firstUserMessageLine2}
+              {strings.firstUserMessage}
             </label>
           </div>) : ("");
-        const userDetailsCaption = users.length === 1 ? strings.firstuserDetails: strings.userDetails;
+        const userDetailsCaption = users.length === 1 ? strings.firstUserDetails: strings.userDetails;
         return (
             <div className={"UserDetails" + settingsStyle}>
                 <div className="panel">
@@ -181,7 +181,8 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                                             options={this.roleListLoc}
                                             selected={this.state.role}
                                             adminPassword={password}
-                                            onChange={this.updateRoles} />
+                                            onChange={this.updateRoles}
+                                            setAdminPassword={this.props.setAdminPassword} />
                                     </div>
                                     <div className="OtherProjectsBox">
                                         <LabelUx name={strings.otherProjects} />
@@ -239,7 +240,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private save(ctx: UserDetails) {
-        const { selectedProject, updateUser } = this.props;
+        const {password, selectedProject, updateUser } = this.props;
 
         const updates = Array<string>();
         if (this.state.name !== this.original.name) {
@@ -255,10 +256,10 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
             this.saveValue(updates, "avatarUri", this.state.avatarUrl);
         }
 
-        if(this.state.password !== localStorage.getItem("AdminPassword"))
+        if(password !== this.original.password)
         {
-            this.saveValue(updates, "password", store.password);
-            store.password = "";
+            this.saveValue(updates, "password", password);
+            this.props.setAdminPassword("");
         }
 
         const img = (this.state.avatarUrl === "" && this.props.avatar && this.props.avatar.indexOf("smile") < 0)?
@@ -278,6 +279,7 @@ interface IStateProps {
     avatarUri: string;
     deleted: boolean;
     direction: string;
+    password: string;
     project: IProject;
     popupUser: string;
     strings: IProjectSettingsStrings;
@@ -288,10 +290,12 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    
     avatar: state.avatar.data,
     avatarUri: state.avatar.uri,
     deleted: state.users.deleted,
     direction: uiDirection(state),
+    password: state.users.adminPassword,
     popupUser: state.users.selectedPopupUser,
     project: currentProject(state),
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
@@ -308,6 +312,7 @@ interface IDispatchProps {
     updateUser: typeof actions2.updateUser;
     deleteUser: typeof actions2.deleteUser;
     saveAvatar: typeof actions3.saveAvatar;
+    setAdminPassword: typeof actions2.setAdminPassword;
     setUserAvatar: typeof actions3.setUserAvatar;
 };
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
@@ -317,6 +322,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         saveAvatar: actions3.saveAvatar,
         selectPopupUser: actions2.selectPopupUser,
         selectTask: actions.selectTask,
+        setAdminPassword: actions2.setAdminPassword,
         setUserAvatar: actions3.setUserAvatar,
         updateUser: actions2.updateUser,
     }, dispatch),

@@ -668,16 +668,10 @@
 				<target>கடவுச்சொற்றொடர்</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.firstUserMessageLine1">
+		<unit id="projectSettings.firstUserMessage">
 			<segment>
-				<source>The first user you add must have admin role.</source>
-				<target>நீங்கள் சேர்க்கும் முதல் பயனர் நிர்வாக பாத்திரத்தில் இருக்க வேண்டும்.</target>
-			</segment>
-		</unit>
-		<unit id="projectSettings.firstUserMessageLine2">
-			<segment>
-				<source>Usually, this will be you.</source>
-				<target>பொதுவாக, இது நீங்களாக இருப்பீர்கள்.</target>
+				<source>The first user you add must have admin role. Usually, this will be you.</source>
+				<target>நீங்கள் சேர்க்கும் முதல் பயனர் நிர்வாக பாத்திரத்தில் இருக்க வேண்டும். பொதுவாக, இது நீங்களாக இருப்பீர்கள்.</target>
 			</segment>
 		</unit>
 	</file>

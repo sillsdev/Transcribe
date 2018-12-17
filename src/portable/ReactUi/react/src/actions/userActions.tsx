@@ -1,6 +1,8 @@
 import Axios from 'axios';
 import { log } from '../actions/logAction';
-import { DELETE_USER, FETCH_USERS, RESTORE_DEFAULT_USER_HOTKEYS, SELECT_POPUP_USER, SELECT_USER, UPDATE_USER_PENDING } from './types';
+import { DELETE_USER, FETCH_USERS, RESTORE_DEFAULT_USER_HOTKEYS,
+    SELECT_POPUP_USER, SELECT_USER, SET_ADMIN_PASSWORD,
+    UPDATE_USER_PENDING } from './types';
 
 export const fetchUsers = () => (dispatch: any) => {
     Axios.get('/api/GetUsers')
@@ -26,6 +28,13 @@ export function selectPopupUser(id: string): any{
     return {
         payload: id,
         type: SELECT_POPUP_USER
+    }
+}
+
+export function setAdminPassword(password: string): any{
+    return {
+        payload: password,
+        type: SET_ADMIN_PASSWORD
     }
 }
 

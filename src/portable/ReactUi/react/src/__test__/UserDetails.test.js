@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { MemoryRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import sinon from 'sinon';
-import {UserDetails} from '../components/UserDetails';
+import { UserDetails } from '../components/UserDetails';
 
 configure({ adapter: new Adapter() });
 
@@ -34,6 +34,8 @@ describe('>>>Control: UserDetails --- Snapshot',()=>{
             "admin": "Admin",
             "deleteUser": "Delete User",
             "discardChanges": "Discard Changes",
+            "firstUserDetails": "First User Details",
+            "firstUserMessage": "Welcome first user",
             "otherProjects": "Other Projects",
             "preview": "Preview",
             "reviewer": "Reviewer",
@@ -78,6 +80,8 @@ describe('>>>Control: UserDetails', () => {
             "admin": "Admin",
             "deleteUser": "Delete User",
             "discardChanges": "Discard Changes",
+            "firstUserDetails": "First User Details",
+            "firstUserMessage": "Welcome first user",
             "otherProjects": "Other Projects",
             "preview": "Preview",
             "reviewer": "Reviewer",

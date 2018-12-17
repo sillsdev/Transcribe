@@ -668,16 +668,10 @@
 				<target>Passphrase</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.firstUserMessageLine1">
+		<unit id="projectSettings.firstUserMessage">
 			<segment>
-				<source>The first user you add must have admin role.</source>
-				<target>Первый добавленный вами пользователь должен иметь роль администратора.</target>
-			</segment>
-		</unit>
-		<unit id="projectSettings.firstUserMessageLine2">
-			<segment>
-				<source>Usually, this will be you.</source>
-				<target>Обычно это ты.</target>
+				<source>The first user you add must have admin role. Usually, this will be you.</source>
+				<target>Первый добавленный вами пользователь должен иметь роль администратора. Обычно это ты.</target>
 			</segment>
 		</unit>
 	</file>

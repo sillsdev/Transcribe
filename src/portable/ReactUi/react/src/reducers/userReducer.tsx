@@ -1,6 +1,8 @@
-import { DELETE_USER, FETCH_USERS, RESTORE_DEFAULT_USER_HOTKEYS, SELECT_POPUP_USER, SELECT_USER } from '../actions/types';
+import { DELETE_USER, FETCH_USERS, RESTORE_DEFAULT_USER_HOTKEYS,
+    SELECT_POPUP_USER, SELECT_USER, SET_ADMIN_PASSWORD } from '../actions/types';
 
 const initialState = {
+    adminPassword: "",
     deleted: false,
     loaded: false,
     selectedUser: "",
@@ -40,6 +42,11 @@ export default function (state = initialState, action: any) {
             return {
                 ...state,
                 userHotKeys: action.payload.data
+            }
+        case SET_ADMIN_PASSWORD:
+            return {
+                ...state,
+                adminPassword: action.payload
             }
         default:
             return state;

@@ -11,11 +11,6 @@ import AvatarLink from './controls/AvatarLink';
 import './UserLogin.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
-  history: {
-      location: {
-          pathname: string;
-      }
-  }
 };
 
 class UserLogin extends React.Component<IProps, object> {
@@ -40,15 +35,12 @@ class UserLogin extends React.Component<IProps, object> {
         <AvatarLink
           id={user.username.id}
           name={user.displayName}
-          target={user.role.length === 3 ? "/passwordEdit" : "/project"}
+          target={"/project"}
           uri={user.username.avatarUri? user.username.avatarUri: ""}
           select={selectUser} />
       </ListGroupItem>);
-    const historyPath = this.props.history.location.pathname;
-    const userPos = historyPath.indexOf("passwordEdit") + 12;
-    const settingsStyle = this.props.history.location.pathname.length > userPos? " Modal": ""
     return (
-      <div id="UserLogin" className={"UserLogin" + settingsStyle}>
+      <div id="UserLogin" className={"UserLogin"}>
         <ListGroup>
           {avatars}
         </ListGroup>

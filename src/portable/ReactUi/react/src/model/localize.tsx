@@ -116,8 +116,7 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "discardChanges": string;
     "deleteTask": string;
     "deleteUser": string;
-    "firstuserDetails": string;
+    "firstUserDetails": string;
     "passphrase": string;
-    "firstUserMessageLine1": string;
-    "firstUserMessageLine2": string;
+    "firstUserMessage": string;
 };

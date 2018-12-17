@@ -829,6 +829,33 @@
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
          </trans-unit>
 	
+         <trans-unit id="projectSettings.firstUserDetails">
+            <source>First User Details</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+			<note>https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1452</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.passphrase">
+            <source>Passphrase</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+			<note>https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1452</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.firstUserMessage">
+            <source>The first user you add must have admin role. Usually, this will be you.</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+			<note>https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1452</note>
+         </trans-unit>
+		
       </body>
    </file>
 

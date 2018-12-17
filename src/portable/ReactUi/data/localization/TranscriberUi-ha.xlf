@@ -668,16 +668,10 @@
 				<target>Fasfora</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.firstUserMessageLine1">
+		<unit id="projectSettings.firstUserMessage">
 			<segment>
-				<source>The first user you add must have admin role.</source>
-				<target>Mai amfani na farko da ka ƙara dole ne ya yi aiki.</target>
-			</segment>
-		</unit>
-		<unit id="projectSettings.firstUserMessageLine2">
-			<segment>
-				<source>Usually, this will be you.</source>
-				<target>Yawanci, wannan zai zama ku.</target>
+				<source>The first user you add must have admin role. Usually, this will be you.</source>
+				<target>Mai amfani na farko da ka ƙara dole ne ya yi aiki. Yawanci, wannan zai zama ku.</target>
 			</segment>
 		</unit>
 	</file>

@@ -668,15 +668,9 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.firstUserMessageLine1">
+		<unit id="projectSettings.firstUserMessage">
 			<segment>
-				<source>The first user you add must have admin role.</source>
-				<target></target>
-			</segment>
-		</unit>
-		<unit id="projectSettings.firstUserMessageLine2">
-			<segment>
-				<source>Usually, this will be you.</source>
+				<source>The first user you add must have admin role. Usually, this will be you.</source>
 				<target></target>
 			</segment>
 		</unit>
