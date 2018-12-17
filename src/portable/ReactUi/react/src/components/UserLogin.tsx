@@ -11,6 +11,11 @@ import AvatarLink from './controls/AvatarLink';
 import './UserLogin.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
+  history: {
+      location: {
+          pathname: string;
+      }
+  }
 };
 
 class UserLogin extends React.Component<IProps, object> {
@@ -30,19 +35,20 @@ class UserLogin extends React.Component<IProps, object> {
         return <Redirect to="/project"/>
       }
     }
-
     const avatars = users.map((user:IUser) => 
       <ListGroupItem key={user.id}>
         <AvatarLink
           id={user.username.id}
           name={user.displayName}
-          target="/project"
+          target={user.role.length === 3 ? "/passwordEdit" : "/project"}
           uri={user.username.avatarUri? user.username.avatarUri: ""}
           select={selectUser} />
       </ListGroupItem>);
-
+    const historyPath = this.props.history.location.pathname;
+    const userPos = historyPath.indexOf("passwordEdit") + 12;
+    const settingsStyle = this.props.history.location.pathname.length > userPos? " Modal": ""
     return (
-      <div id="UserLogin" className="UserLogin">
+      <div id="UserLogin" className={"UserLogin" + settingsStyle}>
         <ListGroup>
           {avatars}
         </ListGroup>

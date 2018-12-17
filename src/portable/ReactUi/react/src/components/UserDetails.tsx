@@ -257,8 +257,8 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
 
         if(this.state.password !== localStorage.getItem("AdminPassword"))
         {
-            this.saveValue(updates, "password", localStorage.getItem("AdminPassword"));
-            localStorage.setItem("AdminPassword", "");
+            this.saveValue(updates, "password", store.password);
+            store.password = "";
         }
 
         const img = (this.state.avatarUrl === "" && this.props.avatar && this.props.avatar.indexOf("smile") < 0)?

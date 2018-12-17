@@ -9,6 +9,7 @@ export interface IState {
         selectPopupUser: string;
         selectedPopupUser: string;
         userHotKeys: IUserKeyVal[];
+        adminPassword: string;
     };
     tasks: {
         loaded: boolean;

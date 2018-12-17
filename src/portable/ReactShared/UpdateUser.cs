@@ -111,6 +111,15 @@ namespace ReactShared
 			}
 		}
 
+		private static void AddPassword(string password, XmlElement usernameNode, XmlDocument usersDoc)
+		{
+			if (password == null)
+				return;
+			if (!(usernameNode.SelectSingleNode("password") is XmlElement passwordNode))
+				passwordNode = Util.NewChild(usernameNode, "password");
+			passwordNode.InnerText = password;
+		}
+
 		private static void AddNewAvatar(SaveImage saveImage, string avatarBase64, string userId, XmlElement userName)
 		{
 			if (!string.IsNullOrEmpty(avatarBase64) && avatarBase64.Contains(","))	// file names have no commas but base64 data has comma separated fields.

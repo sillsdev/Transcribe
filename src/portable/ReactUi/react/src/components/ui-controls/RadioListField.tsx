@@ -44,7 +44,6 @@ class RadioListField extends React.Component<IProps, any> {
         const { adminPassword, options, strings } = this.props
         const { current } = this.state
         const password  = (adminPassword !== undefined)? adminPassword: "";
-        localStorage.setItem("AdminPassword", password);
         let currentValue = current;
         if (current !== undefined) {
             currentValue = current.toLowerCase();
