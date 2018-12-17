@@ -656,5 +656,29 @@
 				<target>Borrar usuario</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.firstUserDetails">
+			<segment>
+				<source>First User Details</source>
+				<target>Detalles del primer usuario</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.passphrase">
+			<segment>
+				<source>Passphrase</source>
+				<target>Frase de contraseña</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine1">
+			<segment>
+				<source>The first user you add must have admin role.</source>
+				<target>El primer usuario que agregue debe tener un rol de administrador.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine2">
+			<segment>
+				<source>Usually, this will be you.</source>
+				<target>Por lo general, este serás tú.</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

@@ -656,5 +656,29 @@
 				<target>مسح المستخدم</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.firstUserDetails">
+			<segment>
+				<source>First User Details</source>
+				<target>تفاصيل المستخدم الأولى</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.passphrase">
+			<segment>
+				<source>Passphrase</source>
+				<target>عبارة المرور</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine1">
+			<segment>
+				<source>The first user you add must have admin role.</source>
+				<target>يجب أن يكون لدى المستخدم الأول الذي تضيفه دور المسؤول.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine2">
+			<segment>
+				<source>Usually, this will be you.</source>
+				<target>عادة ، هذا سيكون لك.</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

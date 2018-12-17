@@ -656,5 +656,29 @@
 				<target>Share Mai amfani</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.firstUserDetails">
+			<segment>
+				<source>First User Details</source>
+				<target>Na farko Bayanin Mai amfani</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.passphrase">
+			<segment>
+				<source>Passphrase</source>
+				<target>Fasfora</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine1">
+			<segment>
+				<source>The first user you add must have admin role.</source>
+				<target>Mai amfani na farko da ka ƙara dole ne ya yi aiki.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.firstUserMessageLine2">
+			<segment>
+				<source>Usually, this will be you.</source>
+				<target>Yawanci, wannan zai zama ku.</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

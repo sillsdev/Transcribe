@@ -36,6 +36,7 @@ const initialState = {
     imageFile: "",
     name: "",
     otherProjects: [],
+    password: "",
     role: "Transcriber",
     roles: "",
     selectedValue: "",
@@ -67,6 +68,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
             if(user !== undefined)
             {
                 this.state.name = user.displayName
+                this.state.password = (user.username.password !== undefined)? user.username.password: "";
                 if (user.username.avatarUri !== undefined) {
                     this.props.saveAvatar({data: user.username.avatarUri, uri: user.username.avatarUri});
                     this.state.imageFile = user.username.avatarUri && user.username.avatarUri.replace("/api/images/", "");
@@ -104,7 +106,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
     }
     public render() {
         const { avatar, avatarUri, deleted, direction, strings, strings2, project, popupUser, setUserAvatar, users } = this.props;
-        const { discard, name } = this.state;
+        const { discard, name, password } = this.state;
         const save = () => this.save(this);
         log("UserDetails")
         if (deleted || discard) {
@@ -125,15 +127,23 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
         const userPos = historyPath.indexOf("User") + 4;
         let settingsStyle = this.props.history.location.pathname.length > userPos? " Modal": ""
         settingsStyle = direction? settingsStyle + " " + direction: settingsStyle;
+        const firstUserMessage = users.length === 1 ? (
+          <div className="firstUserMessage">
+            <label className="LabelCaptionUx">
+              {strings.firstUserMessageLine1} <br /> {strings.firstUserMessageLine2}
+            </label>
+          </div>) : ("");
+        const userDetailsCaption = users.length === 1 ? strings.firstuserDetails: strings.userDetails;
         return (
             <div className={"UserDetails" + settingsStyle}>
                 <div className="panel">
                     <div className="titleRow">
                         <BackLink action={save} target="/ProjectSettings" />
                         <div className="title">
-                            <LabelCaptionUx name={strings.userDetails} type="H3" />
+                            <LabelCaptionUx name={userDetailsCaption} type="H3" />
                         </div>
                     </div>
+                    {firstUserMessage}
                     <div className="data">
                         <div><TextField id="id1"
                             autofocus={true}
@@ -170,6 +180,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                                         <RadioListField
                                             options={this.roleListLoc}
                                             selected={this.state.role}
+                                            adminPassword={password}
                                             onChange={this.updateRoles} />
                                     </div>
                                     <div className="OtherProjectsBox">
@@ -242,6 +253,12 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
 
         if (this.state.avatarUrl !== this.original.avatarUrl || this.original.avatarUrl.length > 0) {
             this.saveValue(updates, "avatarUri", this.state.avatarUrl);
+        }
+
+        if(this.state.password !== localStorage.getItem("AdminPassword"))
+        {
+            this.saveValue(updates, "password", localStorage.getItem("AdminPassword"));
+            localStorage.setItem("AdminPassword", "");
         }
 
         const img = (this.state.avatarUrl === "" && this.props.avatar && this.props.avatar.indexOf("smile") < 0)?
