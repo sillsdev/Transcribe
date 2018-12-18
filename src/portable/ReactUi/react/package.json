@@ -79,7 +79,7 @@
     "@types/react": "^16.4.2",
     "@types/react-dom": "^16.0.6",
     "@types/react-fontawesome": "^1.6.3",
-    "@types/react-redux": "^6.0.3",
+    "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.2.7",
     "@types/react-tooltip": "^3.3.5",
     "@types/reselect": "^2.2.0",
