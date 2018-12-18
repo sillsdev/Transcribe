@@ -21,7 +21,8 @@ namespace localization
 		        .GetManifestResourceStream("localization.MakeStrings-12.xsl")), settings, null);
 			CombineStrings.Load(XmlReader.Create(Assembly.GetExecutingAssembly()
 		        .GetManifestResourceStream("localization.CombineStrings-12.xsl")), settings, null);
-	        var folderIn = "../../..";
+			Console.WriteLine($"Current Directory: {Environment.CurrentDirectory}");
+	        var folderIn = Path.GetFileName(Environment.CurrentDirectory) == "localization"? ".": "../../..";
 	        var relativeDir = "";
 	        MakeOneStringsFIle(folderIn, relativeDir, folderIn);
 	        var folders = new DirectoryInfo(folderIn).GetDirectories();

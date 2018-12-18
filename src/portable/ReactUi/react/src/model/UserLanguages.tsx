@@ -4,7 +4,7 @@ export const UserLanguages = {
     'es:Español',
     'fr:Français',
     'ha:Hausa',
-    // 'id:bahasa Indonesia',
+    'id:bahasa Indonesia',
     'pt:Português',
     'ru:Pусский',
     'sw:Kiswahili',
