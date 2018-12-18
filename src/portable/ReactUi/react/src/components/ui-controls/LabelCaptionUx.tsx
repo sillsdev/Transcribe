@@ -11,7 +11,7 @@ export class LabelCaptionUx extends React.Component<IProps, any> {
         const { type } = this.props;
         const style = "LabelCaptionUx " + ((type !== undefined)? type: "");
         return (
-            <Label bsClass={style}>{this.props.name}</Label>
+            <Label className={style}>{this.props.name}</Label>
         )
     }
 };

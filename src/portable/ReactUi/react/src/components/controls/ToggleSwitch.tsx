@@ -35,7 +35,7 @@ class ToggleSwitch extends React.Component<IProps, typeof initialState> {
                     onClick={this.toggleSwitch}
                     on={this.state.switched && (enabled === undefined || enabled)}
                     enabled={enabled === undefined || enabled} />
-                <Label bsClass={lableStyle}>{text}</Label>
+                <Label className={lableStyle}>{text}</Label>
             </div>
         )
     }

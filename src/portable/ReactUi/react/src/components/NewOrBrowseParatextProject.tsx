@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
-import Ionicon from 'react-ionicons'
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -46,7 +46,7 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                     </Row>
                     <Row className="name-row">
                         <Col xs={12} md={12}>
-                        <Ionicon icon="ios-checkmark-circle-outline" fontSize="100px" color="#C9C9C9"/>
+                        <IoIosCheckmarkCircleOutline fontSize="100px" color="#C9C9C9"/>
                         </Col>
                     </Row>
                     <br />

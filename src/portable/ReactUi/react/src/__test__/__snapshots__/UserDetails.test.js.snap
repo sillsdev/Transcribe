@@ -25,7 +25,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
         className="title"
       >
         <span
-          className="LabelCaptionUx H3 LabelCaptionUx H3-default"
+          className="LabelCaptionUx H3 label label-default"
         >
           User Details
         </span>
@@ -135,7 +135,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
       className="preview"
     >
       <span
-        className="LabelCaptionUx small LabelCaptionUx small-default"
+        className="LabelCaptionUx small label label-default"
       >
         Preview
       </span>
@@ -176,6 +176,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
                 Object {
                   "display": "table",
                   "height": "100%",
+                  "tableLayout": "fixed",
                   "width": "100%",
                 }
               }
@@ -184,7 +185,9 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
                 style={
                   Object {
                     "display": "table-cell",
+                    "fontSize": "100%",
                     "verticalAlign": "middle",
+                    "whiteSpace": "nowrap",
                   }
                 }
               >
@@ -203,7 +206,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
           </div>
           <div>
             <span
-              className="LabelUx LabelUx-default"
+              className="LabelUx label label-default"
             >
               Transcriber
             </span>
@@ -227,7 +230,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
               className="rolesBox"
             >
               <span
-                className="LabelUx LabelUx-default"
+                className="LabelUx label label-default"
               >
                 Role
               </span>
@@ -303,7 +306,7 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
               className="OtherProjectsBox"
             >
               <span
-                className="LabelUx LabelUx-default"
+                className="LabelUx label label-default"
               >
                 Other Projects
               </span>

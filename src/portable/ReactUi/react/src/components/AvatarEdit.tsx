@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Avatar from 'react-avatar-editor';
-import Dropzone from 'react-dropzone';
+import AvatarEditor from 'react-avatar-editor';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
@@ -34,7 +33,7 @@ interface IProps extends IStateProps, IDispatchProps {
 
 export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
   public state: IAvatarEdit;
-  public editor: typeof Avatar;
+  public editor: React.RefObject<AvatarEditor>;
 
   public constructor(props: IProps) {
     super(props);
@@ -49,6 +48,7 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
     this.handleNewImage = this.handleNewImage.bind(this);
     this.handleScale = this.handleScale.bind(this);
     this.discard = this.discard.bind(this);
+    this.editor = React.createRef();
   }
 
   public render() {
@@ -61,26 +61,18 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
       return (<Redirect to={backTo} />)
     }
     const wrapper = (this.props.snapShotTest) ? "Dropzone + Avatar": (
-      <Dropzone
-        onDrop={this.handleDrop}
-        disableClick={true}
-        multiple={false}
-        style={{ width: size, height: size }}
-      >
-        <Avatar
-          ref={this.setEditorRef}
+        <AvatarEditor
+          ref={this.editor}
           scale={scale}
           width={size}
           height={size}
           rotate={0}
           borderRadius={size / (100 / borderRadius)}
           image={imageData}
-          className="editor-canvas"
           onImageChange={this.handleSave}
           onImageReady={this.handleSave}
           color={[128, 128, 128, 0.6]}
         />
-      </Dropzone>
     );
 
     const settingsStyle = direction? " " + direction: "";
@@ -134,15 +126,11 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
     );
   }
 
-  private setEditorRef = (editor: typeof Avatar) => {
-    if (editor) {
-      this.editor = editor;
-    }
-  };
-
   private handleSave = () => {
-    const img = this.editor.getImageScaledToCanvas().toDataURL();
-    this.setState({ data: img })
+    if (this.editor && this.editor.current){
+      const img = this.editor.current.getImageScaledToCanvas().toDataURL();
+      this.setState({ data: img })
+    }
   };
 
   private handleDrop = (acceptedFiles: any) => {

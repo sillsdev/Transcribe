@@ -9,7 +9,7 @@ interface IProps {
 class LabelUx extends React.Component<IProps, any> {
     public render() {
         return (
-            <Label bsClass="LabelUx">{this.props.name}</Label>
+            <Label className="LabelUx">{this.props.name}</Label>
         )
     }
 };
