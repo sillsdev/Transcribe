@@ -1,3 +1,22 @@
+siltranscriber (0.3.8.331)  experimental; urgency=high
+
+   * General:TT-290 Add Sample Project to installer
+   * General:TT-283 Multi-line project name edit
+   * General:TT-261 Misleading label on "claim unassigned tasks" control
+   * General:TT-267 Adding a new audio file skips a number if transcription exists
+   * Project:TT-249 label on menu overlapped in Tamil UI
+   * Project:TT-257 The Project names are not fitting on control.
+   * Project:TT-260 Trying to change second project image changes first project
+   * Task:TT-186 Duration length time not set
+   * Task:TT-252 Not able to save customized Reference
+   * Task:TT-215 Able to create task with the same reference more than once
+   * User:TT-286 Change image name when user image edited
+   * UI:TT-206 Available task list various combinations displaying.
+   * UI:TT-284 Allow click anywhere in image file field
+   * Settings:TT-212 Name texts overlapping problem if we have above 4 users
+
+ -- Greg Trihus <greg_trihus@sil.org>  Fri, 7 Dec 2018 10:22:00 -0600
+
 siltranscriber (0.3.7.307)  experimental; urgency=high
 
    * General:TT-241 Handling hard to see project id
