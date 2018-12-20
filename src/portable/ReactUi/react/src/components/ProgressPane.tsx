@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ReactPlayer from 'react-player';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
 import { log } from '../actions/logAction';
 import { IState } from '../model/state';
@@ -38,6 +39,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                 seeking: false,
                 totalSeconds: ctrl.loadedSeconds,
             })
+            this.props.setPlayedSeconds(this.state.audioPlayedSeconds);
         }
     }
 
@@ -158,7 +160,7 @@ interface IDispatchProps {
     playSpeedRateChange: typeof actions.playSpeedRateChange;
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
-
+    setPlayedSeconds: typeof actions.setPlayedSeconds;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -174,4 +176,15 @@ const mapStateToProps = (state: IState): IStateProps => ({
     users: state.users.users,
 });
 
-export default connect(mapStateToProps)(ProgressPane);
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+    jumpChange: actions.jumpChange,
+    playSpeedRateChange: actions.playSpeedRateChange,
+    playStatus: actions.playStatus,
+    reportPosition: actions.reportPosition,
+    saveTotalSeconds: actions.saveTotalSeconds,
+    setPlayedSeconds: actions.setPlayedSeconds,
+}, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProgressPane);

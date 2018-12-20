@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Avatar from 'react-avatar-editor';
-import Dropzone from 'react-dropzone';
+import AvatarEditor from 'react-avatar-editor';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
@@ -18,6 +17,7 @@ import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 interface IAvatarEdit extends IAvatarState {
   discard: boolean;
   fromPath: string;
+  imageData: any;
   scale: number;
 }
 
@@ -33,48 +33,46 @@ interface IProps extends IStateProps, IDispatchProps {
 
 export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
   public state: IAvatarEdit;
-  public editor: typeof Avatar;
+  public editor: React.RefObject<AvatarEditor>;
 
   public constructor(props: IProps) {
     super(props);
-    this.state = { ...this.props.avatar, discard: false, fromPath: "User", scale: 1 };
+    this.state = { ...this.props.avatar,
+      discard: false,
+      fromPath: "User",
+      imageData: this.props.avatar.data,
+      scale: 1
+    };
     this.handleSave = this.handleSave.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.handleNewImage = this.handleNewImage.bind(this);
     this.handleScale = this.handleScale.bind(this);
     this.discard = this.discard.bind(this);
+    this.editor = React.createRef();
   }
 
   public render() {
     const historyPath = this.props.history.location.pathname;
     const { size = 175, strings, strings2, direction } = this.props;
-    const { borderRadius, discard, scale, uri } = this.state;
+    const { borderRadius, discard, imageData, scale } = this.state;
     const backTo = historyPath.slice(0, historyPath.indexOf("/avatar"))
     const save = () => this.save(this);
     if (discard) {
       return (<Redirect to={backTo} />)
     }
     const wrapper = (this.props.snapShotTest) ? "Dropzone + Avatar": (
-      <Dropzone
-        onDrop={this.handleDrop}
-        disableClick={true}
-        multiple={false}
-        style={{ width: size, height: size }}
-      >
-        <Avatar
-          ref={this.setEditorRef}
+        <AvatarEditor
+          ref={this.editor}
           scale={scale}
           width={size}
           height={size}
           rotate={0}
           borderRadius={size / (100 / borderRadius)}
-          image={uri}
-          className="editor-canvas"
+          image={imageData}
           onImageChange={this.handleSave}
           onImageReady={this.handleSave}
           color={[128, 128, 128, 0.6]}
         />
-      </Dropzone>
     );
 
     const settingsStyle = direction? " " + direction: "";
@@ -128,23 +126,19 @@ export class AvatarEdit extends React.Component<IProps, IAvatarEdit> {
     );
   }
 
-  private setEditorRef = (editor: typeof Avatar) => {
-    if (editor) {
-      this.editor = editor;
+  private handleSave = () => {
+    if (this.editor && this.editor.current){
+      const img = this.editor.current.getImageScaledToCanvas().toDataURL();
+      this.setState({ data: img })
     }
   };
 
-  private handleSave = () => {
-    const img = this.editor.getImageScaledToCanvas().toDataURL();
-    this.setState({ data: img })
-  };
-
   private handleDrop = (acceptedFiles: any) => {
-    this.setState({ uri: acceptedFiles[0] });
+    this.setState({ imageData: acceptedFiles[0], uri: acceptedFiles[0].name });
   };
 
   private handleNewImage = (e: any) => {
-    this.setState({ uri: e.target.files[0] });
+    this.setState({ imageData: e.target.files[0], uri: e.target.files[0].name });
   };
 
   private handleScale = (e: React.ChangeEvent<HTMLInputElement>) => {

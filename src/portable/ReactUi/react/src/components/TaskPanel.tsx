@@ -48,7 +48,8 @@ class TaskPanel extends React.Component<IProps, object> {
                     name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
-                    select={selectTask.bind(this,selectedUser, t.id)}/>
+                    select={selectTask.bind(this,selectedUser, t.id)}
+                    reference={t.reference}/>
                 <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
             </div>
         ));
@@ -65,7 +66,8 @@ class TaskPanel extends React.Component<IProps, object> {
                     name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
-                    select={selectTask.bind(this,selectedUser, t.id)}/>
+                    select={selectTask.bind(this,selectedUser, t.id)}
+                    reference={t.reference}/>
                 <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
             </div>
         ));
@@ -84,7 +86,8 @@ class TaskPanel extends React.Component<IProps, object> {
                     name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
-                    select={assignTask.bind(this,t.id, selectedUser)}/>
+                    select={assignTask.bind(this,t.id, selectedUser)}
+                    reference={t.reference}/>
                 <div className="placeHolder">{"\u00A0"}</div>
             </div>
         ));
@@ -97,7 +100,8 @@ class TaskPanel extends React.Component<IProps, object> {
                     name={t.name?t.name:""}
                     length={t.length != null? t.length: 0}
                     selected={t.id === selectedTask}
-                    select={assignTask.bind(this,t.id, selectedUser)}/>
+                    select={assignTask.bind(this,t.id, selectedUser)}
+                    reference={t.reference}/>
                 <div className="placeHolder">{"\u00A0"}</div>
             </div>
         ));

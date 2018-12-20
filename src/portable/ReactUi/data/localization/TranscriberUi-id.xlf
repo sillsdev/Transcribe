@@ -410,9 +410,9 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
+				<source>Allow users to claim unassigned tasks</source>
 				<target></target>
 			</segment>
 		</unit>

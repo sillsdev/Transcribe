@@ -25,7 +25,7 @@ exports[`>>>Control: AvatarEdit --- Snapshot +++capturing Snapshot of AvatarEdit
         className="title"
       >
         <span
-          className="LabelCaptionUx H3 LabelCaptionUx H3-default hidden"
+          className="LabelCaptionUx H3 label label-default hidden"
         />
       </div>
     </div>
@@ -43,7 +43,7 @@ exports[`>>>Control: AvatarEdit --- Snapshot +++capturing Snapshot of AvatarEdit
         className="uploadContent"
       >
         <span
-          className="LabelCaptionUx LabelCaptionUx-default"
+          className="LabelCaptionUx  label label-default"
         >
           New Image File : 
         </span>
@@ -62,7 +62,7 @@ exports[`>>>Control: AvatarEdit --- Snapshot +++capturing Snapshot of AvatarEdit
         className="zoomContent"
       >
         <span
-          className="LabelCaptionUx LabelCaptionUx-default"
+          className="LabelCaptionUx  label label-default"
         >
           Scale :
         </span>

@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 import './LinkAction.sass';
 
 interface IProps {
-    target:  (context: React.Component) => any;
+    target:  (event: React.MouseEvent<Button>) => any;
     text: string;
 };
 

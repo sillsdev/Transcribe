@@ -10,6 +10,7 @@ exports[`>>>Control: ImageField --- Snapshot +++capturing Snapshot of ImageField
   >
     <div
       className="dataColumn"
+      onClick={[Function]}
     >
       <label
         className="Caption CaptionRed"

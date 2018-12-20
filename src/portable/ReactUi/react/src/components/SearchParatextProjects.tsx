@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Ionicon from 'react-ionicons';
+import { IoIosRefresh } from 'react-icons/io';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -45,7 +45,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
                 <div className="list">
                     <LabelCaptionUx name={strings.lookingForProjects} />
                     <span className="loadIconStyle">
-                        <Ionicon icon="ios-refresh" fontSize="60px" color="#347eff" rotate={true} />
+                        <IoIosRefresh fontSize="60px" color="#347eff" />
                     </span>
                     <div className="ButtonLink">
                         <ButtonLink text={strings.next.toUpperCase()} target="/NewOrBrowseParatextProjects" type="outline-light" />

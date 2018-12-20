@@ -30,3 +30,5 @@ src/portable/*/lib
 src/portable/*/x86
 src/portable/ReactUi/react/public/api
 src/portable/ReactUi/react/public/localization
+src/portable/ReactUi/data/localization/obj
+src/portable/ReactUi/data/localization/bin

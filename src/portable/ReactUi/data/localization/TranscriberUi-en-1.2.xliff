@@ -1,0 +1,835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-strict.xsd"
+ xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	
+   <file original="TranscriberUi-en.xliff" source-language="en" target-language="en" datatype="plaintext">
+      <body>
+         <trans-unit id="transcribe.assigned">
+            <source>Assigned</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.available">
+            <source>Available</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.review">
+            <source>Review</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.transcribe">
+            <source>Transcribe</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.accept">
+            <source>Accept</source>
+            <target/>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+
+         <trans-unit id="transcribe.submit">
+            <source>Submit</source>
+            <target/>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.unassign" menu="taskItem">
+            <source>Unassign</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.congratulations">
+            <source>Congratulations</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">GreetinePanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1905%3A7</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.haveaniceday">
+            <source>Have a nice day</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">GreetinePanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1905%3A7</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.inboxzero">
+            <source>inbox zero</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">GreetinePanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1905%3A7</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.youhavereached">
+            <source>You've reached</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">GreetinePanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1905%3A7</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.todo">
+            <source>To Do</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.all">
+            <source>All</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.transcribed">
+            <source>Transcribed</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.reviewed">
+            <source>Reviewed</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.synced">
+            <source>Synced</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="transcribe.logout">
+            <source>Log Out</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskPanel.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.user">
+            <source>User</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.name">
+            <source>Name</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.font">
+            <source>Font</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.language">
+            <source>Language</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.medium">
+            <source>Medium</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.small">
+            <source>Small</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.large">
+            <source>Large</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.english">
+            <source>English</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.keyboardShortcuts">
+            <source>Keyboard Shortcuts</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.playPause">
+            <source>Play / Pause</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.rewind">
+            <source>Rewind</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.fastForward">
+            <source>Fast Forward</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.slowDown">
+            <source>Slow Down</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.speedUp">
+            <source>Speed Up</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.reset">
+            <source>Reset to Defaults</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.save">
+            <source>Save</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.password">
+            <source>Password</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.role">
+            <source>Role</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.transcriber">
+            <source>Transcriber</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.reviewer">
+            <source>Reviewer</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.reviewComments">
+            <source>Review Comments</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=447%3A545</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.newImage">
+            <source>New Image</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">AvatarEdit.tsx</context>
+         	</context-group>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.zoom">
+            <source>Zoom</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">AvatarEdit.tsx</context>
+         	</context-group>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.browse">
+            <source>Browse</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">AvatarEdit.tsx</context>
+         	</context-group>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.imageFile">
+            <source>Image File</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="userSettings.editAvatar">
+            <source>Edit Avatar</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">AvatarEdit.tsx</context>
+         	</context-group>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.next">
+            <source>Next</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UiLang.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=2981%3A0</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.chooseALanguage">
+            <source>Choose a user interface language</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UiLang.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=2981%3A0</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.selectProject">
+            <source>Select a Paratext Project</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">SearchParatextProjects.tsx</context>
+         	</context-group>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.browseForProject">
+            <source>Browse for a project</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">NewOrBrowseParatextProject.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=2669%3A622</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.createEmptyProject">
+            <source>Create empty project</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">NewOrBrowseParatextProject.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=2669%3A622</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.noProjectsFound">
+            <source>We didn’t find any Paratext projects on your computer.</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">NewOrBrowseParatextProject.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=2669%3A622</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.pairedWithParatextProject">
+            <source>Paired with Paratext project</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.projectSettings">
+            <source>Project Settings</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.autoSyncParatext">
+            <source>Auto-sync with Paratext</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.allowUsersToClaimUnassignedTasks">
+            <source>Allow users to claim unassigned tasks</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.people">
+            <source>People</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.tasks">
+            <source>Tasks</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.addUser">
+            <source>Add User</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.addTask">
+            <source>Add Task</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.addMany">
+            <source>Add Many</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.learnToAddMany">
+            <source>Learn to create a {0} or to rename your audio file with {1}.</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">AddManyTasks.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A1066</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.batchUpload">
+            <source>batch upload spreadsheet</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">AddManyTasks.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A1066</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.ourNamingConvention">
+            <source>our naming convention</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">AddManyTasks.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A1066</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.sortByRoles">
+            <source>Sort by roles</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.sortByType">
+            <source>Sort by type</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.projectName">
+            <source>Project Name</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.clickToPair">
+            <source>Click to pair with Paratext</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.taskDetails">
+            <source>Task Details</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.userDetails">
+            <source>User Details</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.delete">
+            <source>Delete</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.audioFile">
+            <source>Audio File</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.reference">
+            <source>Reference</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.heading">
+            <source>Heading</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.assignedTo">
+            <source>Assigned To</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.roles">
+            <source>Roles</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.otherProjects">
+            <source>Other Projects</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.admin">
+            <source>Admin</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.reviewer">
+            <source>Reviewer</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.transcriber">
+            <source>Transcriber</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.pairWithParatext">
+            <source>Pair with Paratext</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">ProjectSettings.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3384%3A3</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.referenceDuplicate">
+            <source>The Reference entered already exists</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.referenceFormat">
+            <source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.skip">
+            <source>Skip</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">SearchParatextProjects.tsx</context>
+         	</context-group>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.copyToClipboard">
+            <source>Copy to Clipboard</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.makeProject" menu="project">
+            <source>Make new project</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">Project.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4106</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.changeImage">
+            <source>Change project image</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">Project.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4106</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.preview">
+            <source>Preview</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.milestones">
+            <source>Milestones</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.start">
+            <source>Start</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.transcribed">
+            <source>Transcribed</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.reviewed">
+            <source>Reviewed</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.synced">
+            <source>Synced</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.discardChanges">
+            <source>Discard changes</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.deleteTask">
+            <source>Delete Task</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">TaskDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4938</note>
+         </trans-unit>
+		
+         <trans-unit id="projectSettings.deleteUser">
+            <source>Delete User</source>
+            <target/>
+         	<context-group>
+         		<context context-type="sourcefile">UserDetails.tsx</context>
+         	</context-group>
+         	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
+         </trans-unit>
+	
+      </body>
+   </file>
+
+</xliff>

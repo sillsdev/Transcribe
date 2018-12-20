@@ -2,7 +2,7 @@
 
 exports[`>>>Control: LabelCaptionUx --- Snapshot +++capturing Snapshot of LabelCaptionUx 1`] = `
 <span
-  className="LabelCaptionUx safe LabelCaptionUx safe-default"
+  className="LabelCaptionUx safe label label-default"
 >
   Caption
 </span>

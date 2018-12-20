@@ -24,6 +24,7 @@ export interface IState {
         initialPosition: number;
         initialTranscription: boolean;
         jump: number;
+        playedSeconds: number;
         playSpeedRate: number;
         playing: boolean;
         reportedPosition: number;
@@ -44,5 +45,9 @@ export interface IState {
         paratextProjects: IParatextProject[];
         selectedParatextProject: string;
     };
-    avatar: IAvatarState
+    avatar: IAvatarState;
+    meta: {
+        size: number;
+        waveform: string;
+    };
 }

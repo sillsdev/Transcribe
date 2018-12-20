@@ -32,6 +32,10 @@ namespace ReactShared
 			var projectNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']") as XmlElement;
 			if (projectNode == null)
 				return;
+
+			var	projectGuid = projectNode.Attributes["guid"].InnerText;
+			var	isAdhocProject = (string.IsNullOrEmpty(projectGuid.Trim())) ? true : false;
+
 			if (string.IsNullOrEmpty(taskId))
 			{
 				if (reference == null)
@@ -75,6 +79,13 @@ namespace ReactShared
 			                   Util.NewChild(taskNode, "name");
 			if (!string.IsNullOrEmpty(heading))
 				taskNameNode.InnerText = heading;
+			if (isAdhocProject)
+			{
+				var taskReferenceNode = taskNode.SelectSingleNode("reference") as XmlElement ??
+				                        Util.NewChild(taskNode, "reference");
+				if (!string.IsNullOrEmpty(reference))
+					taskReferenceNode.InnerText = reference;
+			}
 			Util.UpdateAttr(taskNode, "assignedto", assignedTo, true);
 			Util.UpdateAttr(taskNode, "length", timeDuration);
 			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
@@ -100,8 +111,11 @@ namespace ReactShared
 			var match = Util.TaskIdPattern.Match(taskId);
 			if (match.Success)
 				taskId = match.Groups[1].Value;
-			var files = dirInfo.GetFiles(taskId + "*.*");
-			var seq = files.Length;
+			var files = dirInfo.GetFiles(taskId + "*.*")
+				.Where(s => s.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase) ||
+				            s.Name.EndsWith(".wav", StringComparison.OrdinalIgnoreCase));
+
+			var seq = files.Count();
 			string fullPath;
 			while (true)
 			{
@@ -111,27 +125,7 @@ namespace ReactShared
 					break;
 			}
 
-			var audioParts = audioData.Split(',').ToList();
-			if (audioParts.Count <= 1)
-				return;
-			var dummyData = audioParts[1].Trim().Replace(" ", "+");
-			if (dummyData.Length % 4 > 0)
-				dummyData = dummyData.PadRight(dummyData.Length + 4 - dummyData.Length % 4, '=');
-			var bytes = Convert.FromBase64String(dummyData);
-
-			using (var ms = new MemoryStream(bytes))
-			{
-				var buffer = new byte[1000];
-				using (var os = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
-				{
-					int count;
-					do
-					{
-						count = ms.Read(buffer, 0, 1000);
-						os.Write(buffer, 0, count);
-					} while (count > 0);
-				}
-			}
+			Util.SaveByteData(audioData, fullPath);
 		}
 
 		/// <summary>

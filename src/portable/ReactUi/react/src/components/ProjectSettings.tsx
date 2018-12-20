@@ -62,7 +62,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     public onNameLooseFocus = () => {
         this.setState({showTextBox : false});
         const{ project } = this.props;
-        const projectName = (project.name !== undefined)?project.name:"";
+        const projectName = (project && project.name !== undefined)?project.name:"";
         if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
             this.props.updateProject({...project, name:this.state.titleText})
         }
@@ -83,8 +83,8 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
 
         let titleWrapper;
         if (this.state.showTextBox) {
-            titleWrapper = (<input value={this.state.titleText} onBlur={this.onNameLooseFocus} className="inputTitle" 
-            onChange={this.onNameChange} autoFocus={true} onKeyDown={this.onNameKeyDown} />);
+            titleWrapper = (<div className="inputTitle"><textarea value={this.state.titleText} onBlur={this.onNameLooseFocus} className="inputTitle" 
+            onChange={this.onNameChange} autoFocus={true} onKeyDown={this.onNameKeyDown} /></div>);
         } else {
             titleWrapper = (<div className="title" onClick={this.onNameClick}>
             <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
@@ -111,7 +111,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                             <LinkAction text={pairText} target={this.pair.bind(this, pair)} />
                         </div> */}
                         <div className="switches">
-                            <ToggleSwitch switched={claim} text={strings.allowClaimUnassignedTasks} onChange={this.onClaim}/>
+                            <ToggleSwitch switched={claim} text={strings.allowUsersToClaimUnassignedTasks} onChange={this.onClaim}/>
                             {/* <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair.bind(this, pair)} /> */}
                             <ToggleSwitch switched={sync} text={strings.autoSyncParatext} enabled={pair} onChange={this.onSync} />
                         </div>

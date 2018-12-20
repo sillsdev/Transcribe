@@ -24,7 +24,7 @@ namespace ReactShared
 			var projectNode = tasksDoc.SelectSingleNode($"//tasks[project/@id = '{project}']");
 			if (projectNode != null)
 			{
-				var taskNode = projectNode.SelectSingleNode("project") as XmlElement;
+				var taskNode = projectNode.SelectSingleNode($"//project[@id = '{project}']") as XmlElement;
 				Debug.Assert(taskNode != null, nameof(taskNode) + " != null");
 				Util.UpdateAttr(taskNode, "uri", @"images/" + imageFileName);
 			}
