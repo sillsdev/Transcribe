@@ -49,8 +49,8 @@
     <Icon Id="transcribe.windows.exe" SourceFile="..\output\Release\Transcribe.Windows.exe" />
     <Property Id="ARPPRODUCTICON" Value="transcribe.windows.exe" />
     <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
-    <!-- WixVariable Id="WixUIDialogBmp" Value="bannrbmp.bmp" />
-    <WixVariable Id="WixUIBannerBmp" Value="dlgbmp.bmp" / -->
+    <WixVariable Id="WixUIDialogBmp" Value="bannrbmp.bmp" />
+    <WixVariable Id="WixUIBannerBmp" Value="dlgbmp.bmp" />
     <Property Id="WIXUI_INSTALLDIR" Value="APPLICATIONFOLDER" />
     <UIRef Id="WixUI_InstallDir" />
     <InstallExecuteSequence>
