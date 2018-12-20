@@ -3,21 +3,20 @@
 .Project
 	width: 206px
 	height: 204px
-	text-align: center
-	top: 0px
-	left: 0px
-	display: flex
-    justify-content: center
-    align-items: center
-    overflow: hidden
+	text-align: initial
+	flex: 0 0 auto
 	.main
-		width: 100%
+		width: inherit
+		height: inherit
+		position: absolute
 		-moz-border-width: 2px
 		border-width: 2px
 		border: solid transparent
 		background-color: rgba($taskBG,0.5)
 	.main .adminDiv
 		display: none
+		width: inherit
+		height: inherit
 	.main:hover
 		-moz-border-width: 2px
 		border-width: 2px
@@ -32,65 +31,54 @@
 	.main:hover .adminDiv
 		display: block
 	.mainNotAdmin
-		width: 100%
 		-moz-border-width: 2px
 		border-width: 2px
 		border: solid transparent
 		cursor: default
 		background-color: rgba($taskBG,0.5)
-	.captionDiv
-		display: flex
-		align-items: center
-		justify-content: center
-		text-align: center
-		height: 76px
-		vertical-align: center
+		width: inherit
+		height: inherit
 		position: absolute
-		top: 0
-		width: 204px
-	.caption
-		display: inline
-		align-items: center
+	.captionDiv
+		position: absolute
+		width: inherit
+		height: inherit
+		display: flex
+		flex-direction: row
 		justify-content: center
-		text-align: center
+	.caption
 		color: $litUpText
 		font-family: $sans
 		font-size: 34px
 		line-height: 40px
 		letter-spacing: 0.25px
 		overflow: hidden
-		text-overflow: ellipsis
+		text-overflow: clip
 		white-space: nowrap
-		width: 150px
+		padding: 20px 0
 	.projectImage
-		position: relative
-		top: 0
-		left: 0
-		flex-shrink: 0
-		width: 204px
-		height: 204px
 		opacity: 0.5
+		width: inherit
+		height: inherit
+		position: absolute
 	.adminIcon
 		position: absolute
 		display: flex
 		align-items: center
 		justify-content: center
 		top: 77.13px
-		width: 204px
+		width: inherit
 		height: 70px
 		margin: auto
 	.adminCaption
 		position: absolute
-		display: flex
-		align-items: center
-		justify-content: center
 		text-align: center
 		color: $litUpText
 		font-family: $sans
 		font-size: 14px
 		line-height: 16px
 		letter-spacing: 0.75px
-		width: 204px
+		width: inherit
 		height: 17px
 		top: 147px
 	.ContextMenu
@@ -98,7 +86,7 @@
 		display: flex
 		color: $litUpText
 		line-height: 16px
-		width: 194px
+		width: 180px
 		height: 16px
 		top: 8px
 		justify-content: flex-end
