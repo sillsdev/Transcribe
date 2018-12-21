@@ -19,9 +19,19 @@ import LabelCaptionUx from './ui-controls/LabelCaptionUx'
 interface IProps extends IStateProps, IDispatchProps {
 };
 
-class TaskList extends React.Component<IProps, object> {
+const initialState = {
+    gridHeight: 0,
+    winHeight: 0,
+}
+
+class TaskList extends React.Component<IProps, typeof initialState> {
+    public state = {...initialState};
+    public gridRef: React.RefObject<HTMLDivElement>;
+
     public constructor(props: IProps) {
         super(props);
+        this.updateDimensions = this.updateDimensions.bind(this);
+        this.gridRef = React.createRef();
         // tslint:disable-next-line:no-console
         console.log(this.props.users)
     }
@@ -36,7 +46,23 @@ class TaskList extends React.Component<IProps, object> {
         if (!localizationLoaded) {
             fetchLocalization();
         }
+        window.addEventListener("resize", this.updateDimensions);
+        const gridLocation = this.gridRef && this.gridRef.current && this.gridRef.current.offsetTop
+            ? this.gridRef.current.offsetTop
+            : 0;
+        this.setState({gridHeight: this.state.winHeight - gridLocation - 100})
+        // tslint:disable-next-line:no-console
+        console.log(this.state.winHeight)
     }
+
+    public componentWillMount() {
+        this.updateDimensions();
+    }
+
+    public componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions);
+    }
+
     public render() {
         const { direction, selectPopupTask, strings, tasks } = this.props
 
@@ -56,7 +82,7 @@ class TaskList extends React.Component<IProps, object> {
             )
         }
         const taskWrapper = (
-            <div className="grid">
+            <div className="grid" ref={this.gridRef} style={{maxHeight: this.state.gridHeight}}>
                 {taskList}
             </div>);
 
@@ -103,6 +129,12 @@ class TaskList extends React.Component<IProps, object> {
                 reference={t.reference}/>
         </div>
         )
+    }
+
+    private updateDimensions() {
+        this.setState({winHeight: window.innerHeight})
+        // tslint:disable-next-line:no-console
+        console.log(window)
     }
 
     private sortByType(){
