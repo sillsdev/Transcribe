@@ -21,7 +21,6 @@ interface IProps extends IStateProps, IDispatchProps {
 
 const initialState = {
     gridHeight: 0,
-    winHeight: 0,
 }
 
 class TaskList extends React.Component<IProps, typeof initialState> {
@@ -30,10 +29,9 @@ class TaskList extends React.Component<IProps, typeof initialState> {
 
     public constructor(props: IProps) {
         super(props);
-        this.updateDimensions = this.updateDimensions.bind(this);
         this.gridRef = React.createRef();
         // tslint:disable-next-line:no-console
-        console.log(this.props.users)
+        // console.log(this.props.users)
     }
 
     public componentDidMount() {
@@ -46,21 +44,10 @@ class TaskList extends React.Component<IProps, typeof initialState> {
         if (!localizationLoaded) {
             fetchLocalization();
         }
-        window.addEventListener("resize", this.updateDimensions);
         const gridLocation = this.gridRef && this.gridRef.current && this.gridRef.current.offsetTop
             ? this.gridRef.current.offsetTop
             : 0;
-        this.setState({gridHeight: this.state.winHeight - gridLocation - 100})
-        // tslint:disable-next-line:no-console
-        console.log(this.state.winHeight)
-    }
-
-    public componentWillMount() {
-        this.updateDimensions();
-    }
-
-    public componentWillUnmount() {
-        window.removeEventListener("resize", this.updateDimensions);
+        this.setState({gridHeight: window.innerHeight - gridLocation - 84})
     }
 
     public render() {
@@ -129,12 +116,6 @@ class TaskList extends React.Component<IProps, typeof initialState> {
                 reference={t.reference}/>
         </div>
         )
-    }
-
-    private updateDimensions() {
-        this.setState({winHeight: window.innerHeight})
-        // tslint:disable-next-line:no-console
-        console.log(window)
     }
 
     private sortByType(){
