@@ -17,14 +17,23 @@ namespace ReactShared
 
 		public delegate string SelectAudioFilesFolder();
 
-		public AddManyTasks(string query, SelectAudioFilesFolder selectAudioFolder)
+		public AddManyTasks(string query, SelectAudioFilesFolder selectAudioFolder, string audioFolderPath="")
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
 			var project = parsedQuery["project"];
 
-			// Opens up the FolderBrowserDialog to select a folder
-			var audioFolder = selectAudioFolder();
+			var audioFolder = "";
+			if (!string.IsNullOrEmpty(audioFolderPath))
+			{
+				audioFolder = audioFolderPath;
+			}
+			else
+			{
+				// Opens up the FolderBrowserDialog to select a folder
+				audioFolder = selectAudioFolder();
+			}
+
 			StringBuilder summary = new StringBuilder();
 			var allExcelFiles = Directory.GetFiles(audioFolder, "*.xlsx", SearchOption.AllDirectories)
 				.Where(str => !str.Contains(@"\~$")).ToArray();
@@ -74,7 +83,10 @@ namespace ReactShared
 				tw.Write(summary);
 			}
 
-			Process.Start(Path.Combine(audioFolder, "Summary.txt"));
+			if (string.IsNullOrEmpty(audioFolderPath))
+			{
+				Process.Start(Path.Combine(audioFolder, "Summary.txt"));
+			}
 		}
 
 		/// <summary>
