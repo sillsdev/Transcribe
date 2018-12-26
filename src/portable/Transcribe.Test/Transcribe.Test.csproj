@@ -121,6 +121,7 @@
   <ItemGroup>
     <Compile Include="AddManyTasksTest.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="GetDefaultUserHotKeysTest.cs" />
     <Compile Include="TextFileAssert.cs" />
     <Compile Include="UpdateProjectTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
