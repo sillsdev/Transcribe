@@ -3,8 +3,8 @@ import { log } from '../actions/logAction';
 import { setSubmitted } from './audioActions';
 import { ADD_MANY_TASKS, ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
     COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
-    FETCH_TASKS, FETCH_TRANSCRIPTION, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT,
-    SELECT_TASK, SHOW_HELP, UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR, UPDATE_TASK,
+    FETCH_FILTERED_TASK, FETCH_TASKS, FETCH_TRANSCRIPTION, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK,
+    SELECT_PROJECT, SELECT_TASK, SET_SELECTED_OPTION, SET_TODO_HIGHLIGHT, SHOW_HELP, UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR,  UPDATE_TASK,
     WRITE_FULFILLED, WRITE_PENDING } from './types';
 import { fetchUsers, saveUserSetting } from './userActions';
 
@@ -227,4 +227,32 @@ export const showHelp = (topic: string) => (dispatch: any) => {
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " " + SHOW_HELP + ", topic=" + topic))
         });
+}
+
+export function setSelectedOption(selectedOption: string): any {
+    return {
+        payload: selectedOption,
+        type: SET_SELECTED_OPTION
+    }
+}
+
+export const fetchFilteredTasks = (username: string, project: string, option: string) => (dispatch: any) => {
+    Axios.get('/api/GetTasks?user=' + username + '&project=' + project + '&option=' + option)
+        .then(tasks => {
+            dispatch({
+                payload: tasks,
+                type: FETCH_FILTERED_TASK
+            });
+        })
+        .then(dispatch(setSelectedOption(option)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + FETCH_FILTERED_TASK + ", user=" + username + ", project=" + project + ", option=" + option))
+        });
+}
+
+export function setToDoHightlight(setTodoHighlight: boolean): any {
+    return {
+        payload: setTodoHighlight,
+        type: SET_TODO_HIGHLIGHT
+    }
 }

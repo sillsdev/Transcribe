@@ -104,16 +104,22 @@
 				<target>நீங்கள் அடைந்துவிட்டீர்கள்</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>செய்ய</target>
+				<source>My Tasks</source>
+				<target>எனது பணிகள்</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>அனைத்து</target>
+				<source>All Tasks</source>
+				<target>அனைத்து பணிகள்</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>நடப்பு வேலை</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">

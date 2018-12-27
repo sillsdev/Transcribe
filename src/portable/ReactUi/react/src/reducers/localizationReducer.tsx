@@ -60,7 +60,7 @@ const initialState = {
     "transcriber": new LocalizedStrings({
 		"en": {
 			"accept": "Accept",
-			"all": "All",
+			"alltasks": "All Tasks",
 			"assigned": "Assigned",
 			"available": "Available",
 			"bible": "Bible",
@@ -68,7 +68,9 @@ const initialState = {
 			"continue": "Continue",
 			"haveaniceday": "Have a nice day",
 			"inboxzero": "inbox zero",
+			"inprogress": "In Progress",
 			"logout": "Log Out",
+			"mytasks": "My Tasks",
 			"other": "Other",
 			"review": "Review",
 			"reviewed": "Reviewed",
@@ -76,7 +78,6 @@ const initialState = {
 			"submit": "Submit",
 			"synced": "Synced",
 			"test": "Test",
-			"todo": "To Do",
 			"transcribe": "Transcribe",
 			"transcribed": "Transcribed",
 			"unassign": "Unassign",

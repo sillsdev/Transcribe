@@ -19,6 +19,8 @@ export interface IState {
         selectedTask: string;
         selectedPopupTask: string;
         zttProjectsCount: string;
+        selectedOption: string;
+        todoHighlight: boolean;
     };
     audio: {
         initialPosition: number;

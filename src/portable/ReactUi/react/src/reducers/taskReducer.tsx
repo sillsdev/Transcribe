@@ -1,10 +1,11 @@
-import { ASSIGN_TASK_PENDING, DELETE_TASK, FETCH_TASKS, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, UNASSIGN_TASK_PENDING } from '../actions/types';
+import { ASSIGN_TASK_PENDING, DELETE_TASK, FETCH_FILTERED_TASK, FETCH_TASKS, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK, SELECT_PROJECT, SELECT_TASK, SET_SELECTED_OPTION, SET_TODO_HIGHLIGHT, UNASSIGN_TASK_PENDING } from '../actions/types';
 
 const initialState = {
     deleted: false,
     loaded: false,
     pending: false,
     projects: Array<IProject>(),
+    selectedOption: "mytasks",
     selectedPopupTask: "",
     selectedProject: "",
     selectedTask: "",
@@ -70,6 +71,25 @@ export default function (state = initialState, action: any) {
             return {
                 ...initialState
             }
+        case SET_SELECTED_OPTION:
+            return {
+                ...state,
+                selectedOption: action.payload,
+            }
+        case FETCH_FILTERED_TASK:
+            return {
+                ...state,
+                loaded: true,
+                pending: false,
+                projects: action.payload.data,
+                selectedProject: action.payload.data.length === 1?
+                    action.payload.data[0].id: state.selectedProject
+            };
+        case SET_TODO_HIGHLIGHT:
+            return {
+                ...state,
+                todoHighlight: action.payload
+            };
         default:
             return state;
     }

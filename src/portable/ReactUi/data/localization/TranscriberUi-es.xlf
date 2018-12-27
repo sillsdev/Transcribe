@@ -104,16 +104,22 @@
 				<target>Se ha comunicado con</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>Que hacer</target>
+				<source>My Tasks</source>
+				<target>Mis tareas</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>Todos</target>
+				<source>All Tasks</source>
+				<target>Todas las tareas</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>En progreso</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">

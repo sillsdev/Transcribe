@@ -104,16 +104,22 @@
 				<target>Kun isa</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>Don Do</target>
+				<source>My Tasks</source>
+				<target>Ɗawainiyata</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>Duk</target>
+				<source>All Tasks</source>
+				<target>Duk Ɗawainiya</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>Ana kai</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">

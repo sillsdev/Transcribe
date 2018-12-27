@@ -104,16 +104,22 @@
 				<target>لقد وصلت</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>جميع</target>
+				<source>My Tasks</source>
+				<target>مهامي</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>الكل</target>
+				<source>All Tasks</source>
+				<target>كل المهام</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>في تقدم</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">

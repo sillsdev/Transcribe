@@ -104,16 +104,22 @@
 				<target>Вы достигли</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>Сделать</target>
+				<source>My Tasks</source>
+				<target>Мои задачи</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>Все</target>
+				<source>All Tasks</source>
+				<target>Все задачи</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>В ходе выполнения</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">

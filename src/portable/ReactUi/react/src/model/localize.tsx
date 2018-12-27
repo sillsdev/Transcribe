@@ -18,12 +18,13 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "youhavereached": string;
     "inboxzero": string;
     "haveaniceday": string;
-    "todo": string;
-    "all": string;
+    "mytasks": string;
+    "alltasks": string;
     "transcribed": string;
     "reviewed": string;
     "synced": string;
     "logout": string;
+    "inprogress": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
