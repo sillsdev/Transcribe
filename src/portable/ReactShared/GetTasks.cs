@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Web;
 using System.Xml;
 using Newtonsoft.Json;
@@ -65,12 +67,48 @@ namespace ReactShared
 					node.RemoveChild(t);
 
 				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"false\"","false").Replace("\"true\"","true").Replace("\"@", "\"").Substring(11);
-				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
+				// Calling GetSortedTasksJson to Sort the tasks based on Reference
+				var projectJsonString = GetSortedTasksJson(jsonContent.Substring(0, jsonContent.Length - 1));
+				taskList.Add(projectJsonString);
 			}
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetTasks")))
 			{
 				sw.Write($"[{string.Join(",", taskList)}]".Replace("{}", ""));
 			}
+		}
+
+		/// <summary>
+		/// Sorting the tasks based on the reference
+		/// </summary>
+		/// <param name="inputJsonString"></param>
+		/// <returns>json string with tasks sorted</returns>
+		private static string GetSortedTasksJson(string inputJsonString)
+		{
+			// Deserialize jsonContent to the object of class Project
+			Project theProject = JsonConvert.DeserializeObject<Project>(inputJsonString);
+			if (theProject.task.Count == 1 && theProject.task[0].id == "")
+			{
+				// no tasks
+			}
+			else
+			{
+				foreach (TaskJson t in theProject.task)
+				{
+					var theIdParts = t.id.Split('-');
+					// Getting the book number based on the BookName
+					var theBookNumber = Convert.ToInt16(Util.BookNamesDict[theIdParts[1]]);
+					// newId is assigned value - with BookNumber instead of BookName
+					t.newId = theBookNumber.ToString() + theIdParts[2] + theIdParts[3].Substring(0, 3) + theIdParts[3].Substring(3, 3);
+				}
+
+				// Order by the newId field
+				var sortedTasks = theProject.task.OrderBy(t => Convert.ToUInt64(t.newId)).ToList();
+				// Set the project's task as the sortedTasks
+				theProject.task = sortedTasks;
+			}
+
+			// Serialize the Project object into Json string and return it
+			return JsonConvert.SerializeObject(theProject);
 		}
 
 		private static void CopyAvatars(XmlNode tasksDoc, string apiFolder)
