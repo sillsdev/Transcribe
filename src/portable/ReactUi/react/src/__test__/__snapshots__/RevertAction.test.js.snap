@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: RevertAction --- Snapshot +++capturing Snapshot of RevertAction 1`] = `
+<div
+  className="RevertAction"
+  onClick={[Function]}
+>
+  <div
+    className="btn-primary"
+    data-tip="Unassign"
+  >
+    ⫶
+  </div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+    id={undefined}
+  />
+</div>
+`;
