@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: TaskItem --- Snapshot +++capturing Snapshot of TaskItem 1`] = `
+<div
+  className="TaskItem"
+>
+  <div
+    onClick={null}
+  >
+    <div
+      className="unselected"
+      id="TaskItem"
+    >
+      <div
+        className="taskItemContent"
+      >
+        <div
+          className="firstLine"
+        >
+          <span
+            className="displayReference"
+          >
+            
+          </span>
+          <span
+            className="totalTime"
+          >
+            <time
+              dateTime="P100S"
+              id={undefined}
+            >
+              1:40
+            </time>
+          </span>
+        </div>
+        <div
+          className="textName"
+        >
+          LUK-001-001006
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
