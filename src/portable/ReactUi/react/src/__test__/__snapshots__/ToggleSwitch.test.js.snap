@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: ToggleSwitch --- Snapshot +++capturing Snapshot of ToggleSwitch 1`] = `
+<div
+  className="ToggleSwitch undefined"
+>
+  <div
+    className="switch   "
+    onClick={[Function]}
+  >
+    <div
+      className="switch-toggle"
+    />
+  </div>
+  <span
+    className="SwitchLabel SwitchLabelOn label label-default"
+  >
+    ToggleSwitch1
+  </span>
+</div>
+`;
