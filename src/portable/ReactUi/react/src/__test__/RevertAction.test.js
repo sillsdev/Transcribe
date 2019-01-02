@@ -13,11 +13,11 @@ configure({ adapter: new Adapter() })
 describe('>>>Control: RevertAction --- Snapshot',()=>{
     const minProps = {
         id: "RevertAction",
-        target: (context) => {return false;},
         selected: true,
         strings: {
             "unassign": "Unassign",
         },
+        target: (context) => {return false;},
     };
 
     it('+++capturing Snapshot of RevertAction', () => {
@@ -29,12 +29,12 @@ describe('>>>Control: RevertAction --- Snapshot',()=>{
 describe('>>>Control: RevertAction', () => {
     let wrapper;
     const minProps = {
-        target: (context) => {return false;},
         id: "RevertAction",
         selected: true,
         strings: {
             "browse": "Browse",
         },
+        target: (context) => {return false;},
     };
 
     beforeEach(()=>{

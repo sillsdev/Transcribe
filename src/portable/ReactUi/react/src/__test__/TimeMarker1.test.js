@@ -13,8 +13,8 @@ configure({ adapter: new Adapter() })
 describe('>>>Control: TimeMarker --- Snapshot',()=>{
     const minProps = {
         playedSeconds: 10,
-        totalSeconds: 30,
         timer: "countup",
+        totalSeconds: 30,
     };
 
     it('+++capturing Snapshot of TimeMarker', () => {
@@ -26,9 +26,9 @@ describe('>>>Control: TimeMarker --- Snapshot',()=>{
 describe('>>>Control: TimeMarker', () => {
     let wrapper;
     const minProps = {
-        target: (context) => {return false;},
-        text: "My Filter",
-        type: "safe",
+        playedSeconds: 10,
+        timer: "countup",
+        totalSeconds: 30,
     };
 
     beforeEach(()=>{

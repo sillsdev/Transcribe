@@ -40,7 +40,7 @@ namespace Transcribe.Test
 			string query="user=TestUser1&project=TestProject";
 			AddManyTasks.SelectAudioFilesFolder selectAudioFolder = null;
 			new AddManyTasks(query, selectAudioFolder, Path.Combine(_inputPath, "ExcelFileExists") );
-			FileAssert.AreEqual(Path.Combine(_inputPath, "ExcelFileExists", "Summary.txt"), Path.Combine(_expectedPath, "ExcelFileExists", "Summary.txt"));
+			TextFileAssert.AreEqual(Path.Combine(_inputPath, "ExcelFileExists", "Summary.txt"), Path.Combine(_expectedPath, "ExcelFileExists", "Summary.txt"));
 		}
 
 		/// <summary>
@@ -52,7 +52,7 @@ namespace Transcribe.Test
 			string query = "user=TestUser1&project=aai";
 			AddManyTasks.SelectAudioFilesFolder selectAudioFolder = null;
 			new AddManyTasks(query, selectAudioFolder, Path.Combine(_inputPath, "ExcelFileNotExists"));
-			FileAssert.AreEqual(Path.Combine(_inputPath, "ExcelFileNotExists", "Summary.txt"), Path.Combine(_expectedPath, "ExcelFileNotExists", "Summary.txt"));
+			TextFileAssert.AreEqual(Path.Combine(_inputPath, "ExcelFileNotExists", "Summary.txt"), Path.Combine(_expectedPath, "ExcelFileNotExists", "Summary.txt"));
 		}
 
 		/// <summary>

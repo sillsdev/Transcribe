@@ -12,9 +12,9 @@ configure({ adapter: new Adapter() })
 // Snapshot for ToggleSwitch
 describe('>>>Control: ToggleSwitch --- Snapshot',()=>{
     const minProps = {
-        text: "ToggleSwitch1",
-        switched: true,
         enabled: true,
+        switched: true,
+        text: "ToggleSwitch1",
     };
 
     it('+++capturing Snapshot of ToggleSwitch', () => {
@@ -26,9 +26,9 @@ describe('>>>Control: ToggleSwitch --- Snapshot',()=>{
 describe('>>>Control: ToggleSwitch', () => {
     let wrapper;
     const minProps = {
-        text: "ToggleSwitch1",
-        switched: false,
         enabled: true,
+        switched: true,
+        text: "ToggleSwitch1",
     };
 
     beforeEach(()=>{

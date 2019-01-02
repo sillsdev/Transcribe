@@ -13,8 +13,8 @@ configure({ adapter: new Adapter() })
 describe('>>>Control: PlayPause --- Snapshot',()=>{
     const minProps = {
         direction: 'ltr',
-        playing: false,
         playStatus: actions.playStatus,
+        playing: false,
         selectedUser: 'admin',
         users: [{username:{id:"admin"},hotkey:[{id:"play-pause", text:"Esc"}]}],
     };
@@ -29,8 +29,8 @@ describe('>>>Control: PlayPause', () => {
     let wrapper;
     const minProps = {
         direction: 'ltr',
-        playing: false,
         playStatus: actions.playStatus,
+        playing: false,
         selectedUser: 'admin',
         users: [{username:{id:"admin"},hotkey:[{id:"play-pause", text:"Esc"}]}],
     };
