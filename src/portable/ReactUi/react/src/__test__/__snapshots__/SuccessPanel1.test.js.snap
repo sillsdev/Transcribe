@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: SucessPanel1 --- Snapshot +++capturing Snapshot of SucessPanel1 1`] = `
+<div
+  className="SucessPanel"
+>
+  <div
+    className="Message"
+  >
+    <h1>
+      congratulations
+    </h1>
+    <div
+      className="Check"
+    >
+      <h1>
+        ✔
+      </h1>
+    </div>
+  </div>
+  <div
+    className="ActionRow"
+  >
+    <div
+      className="Spacer"
+    >
+       
+    </div>
+    <div
+      className="NextAction"
+      id="NextAction"
+    >
+      <button
+        className="safe"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
