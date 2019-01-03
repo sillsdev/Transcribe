@@ -39,6 +39,7 @@ const initialState = {
     heading: "",
     message: "",
     pair: false,
+    previewHeight: 0,
     reference: "",
     taskState: 0,
 }
@@ -49,6 +50,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     private taskId: string;
     private task: ITask;
     private fileRef: React.RefObject<FileField>;
+    private previewRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: IProps) {
         super(props)
@@ -58,6 +60,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
         this.fileRef = React.createRef();
+        this.previewRef = React.createRef();
         this.validateReference = this.validateReference.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
         this.updateTaskState = this.updateTaskState.bind(this);
@@ -101,6 +104,14 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
             }
         }
         return 0;
+    }
+
+    public componentDidMount () {
+        const newTask = this.props.history.location.pathname.indexOf("NewTask") > 0;
+        const previewLocation = this.previewRef && this.previewRef.current && this.previewRef.current.offsetTop
+            ? this.previewRef.current.offsetTop
+            : 0;
+        this.setState({previewHeight: window.innerHeight - previewLocation - (!newTask? 180: 52)})
     }
 
     public render() {
@@ -160,7 +171,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             onChange={this.updateAssignedTo}
                             direction={direction} /></div>
                     </div>
-                    <div className="preview">
+                    <div className="preview" ref={this.previewRef} style={{maxHeight: this.state.previewHeight}}>
                         <LabelCaptionUx name={strings.preview} type="small" />
                         <div className={"waveformRow" + (fileName !== "" || heading !== "" || reference !== ""? "": " hide") + (fileName !== ""? "": " hideWave")}>
                             <TaskItem id="TaskItem"
