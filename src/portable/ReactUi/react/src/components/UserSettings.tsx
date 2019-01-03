@@ -110,7 +110,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <BackLink target="/main" />
                             </Col>
                             <Col xs={10} md={10}>
-                                <LabelCaptionUx name={strings.user.toUpperCase()} />
+                                <LabelCaptionUx name={strings.user.toUpperCase()} type="H4" />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -118,7 +118,7 @@ class UserSettings extends React.Component<IProps, any> {
                             <Col xs={10} md={10}>
                                 <Link className="pencil" to="/settings/avatar/User">{"\u2710"}</Link>
                                 <Avatar
-                                    id={user.id}
+                                    id={user !== undefined? user.id: "NoUser"}
                                     name={user !== undefined ? user.displayName : ""}
                                     size="64"
                                     round={true}
@@ -231,12 +231,9 @@ class UserSettings extends React.Component<IProps, any> {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
-                            <Col xs={10} md={10}>
+                            <Col xs={4} md={4}>
                                 <LinkAction target={resetMethod} text={strings.reset.toUpperCase()}/>
                             </Col>
-                        </Row>
-                        <Row className="show-grid">
-                            <Col xs={10} md={10}>&nbsp;</Col>
                             <Col xs={2} md={2} className="saveAction">
                                 <NextAction target={saveMethod} text={strings.save} type="primary"/>
                             </Col>
