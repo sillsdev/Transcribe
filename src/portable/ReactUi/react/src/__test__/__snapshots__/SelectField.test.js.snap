@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1 1`] = `
+<div
+  className="SelectField"
+  id="SelectField"
+>
+  <div
+    className="bodyRow"
+  >
+    <div
+      className="dataColumn"
+    >
+      <label
+        className="Caption CaptionRed"
+      >
+        Caption
+      </label>
+      <select
+        className="Body DataColor"
+        defaultValue={1}
+        onChange={[Function]}
+      >
+        <option
+          value="Caption"
+        >
+          Caption
+        </option>
+        <option
+          value="OptionA"
+        >
+          OptionA
+        </option>
+        <option
+          value="OptionB"
+        >
+          OptionB
+        </option>
+        <option
+          value="OptionC"
+        >
+          OptionC
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="Message CaptionRed BorderTopRed"
+  >
+    <label>
+      Error Message
+    </label>
+  </div>
+</div>
+`;
