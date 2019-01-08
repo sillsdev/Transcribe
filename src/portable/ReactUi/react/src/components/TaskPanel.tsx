@@ -9,6 +9,7 @@ import taskList from '../selectors';
 import uiDirection from '../selectors/direction';
 import userStrings from '../selectors/localize';
 import userValue from '../selectors/user';
+import EmptyTaskItem from './controls/EmptyTaskItem';
 import RevertAction from './controls/RevertAction';
 import TaskItem from './controls/TaskItem';
 import './TaskPanel.sass';
@@ -20,23 +21,25 @@ class TaskPanel extends React.Component<IProps, object> {
       public render() {
         const { assignedReview, assignedTranscribe, availableReview, availableTranscribe } = this.props;
         const { inProgressTasks, transcribedTasks, reviewedTasks, syncedTasks, selectedOption, allTasks, syncedOtherTasks, reviewedOtherTasks, transcribedOtherTasks } = this.props;
-        const { lastTask, loaded, pending, selectedUser, selectedTask } = this.props;
+        const { lastTask, loaded, pending, selectedUser, selectedTask, users } = this.props;
         const { assignTask, direction, selectTask, strings, unassignTask } = this.props
 
         log("TaskPanel")
         const selectReview = assignedReview.filter(t => t.id === lastTask);
         const selectTranscribe = assignedTranscribe.filter(t => t.id === lastTask)
+        const user = users.filter(u => u.username.id === selectedUser)[0];
+        const userRole = user.role.filter(r => r === "reviewer" || r === "administrator")[0];
         if (this.props.selectedTask.trim() === '' && lastTask != null && selectReview.length + selectTranscribe.length > 0){
             selectTask(selectedUser, lastTask)
         }
         const headStyle = direction? "ListHead " + direction: "ListHead";
-        const assignedHead = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length + assignedTranscribe.length > 0)?
+        const assignedHead = (selectedOption.toLowerCase() === "mytasks" && assignedTranscribe.length + assignedReview.length > 0)?
         (<h3 className="SectionHead">{strings.assigned}</h3>): <div/>;
-        const assignedReviewHead = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length) > 0?
+        const assignedReviewHead = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length > 0 && userRole !== undefined)?
         (<h4 className={headStyle}>{strings.review.toUpperCase()}</h4>): <div/>;
-        const assignedTranscribeHead = (selectedOption.toLowerCase() === "mytasks" && assignedTranscribe.length) > 0?
+        const assignedTranscribeHead = (selectedOption.toLowerCase() === "mytasks" && assignedTranscribe.length > 0)?
         (<h4 className={headStyle}>{strings.transcribe.toUpperCase()}</h4>): <div/>;
-        const assignedReviewList = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length > 0)? assignedReview.map((t: ITask) => (
+        const assignedReviewList = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length > 0 && userRole !== undefined)? assignedReview.map((t: ITask) => (
         <div className="AssignedRow">
             <RevertAction
                 id={"Revert" + t.id}
@@ -70,13 +73,13 @@ class TaskPanel extends React.Component<IProps, object> {
             <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
         </div>
         )):<div/>;
-        const availableHead = (selectedOption.toLowerCase() === "mytasks" && availableTranscribe.length + availableTranscribe.length > 0)?
+        const availableHead = (selectedOption.toLowerCase() === "mytasks" && ((userRole !== undefined)? availableTranscribe.length + availableReview.length > 0: availableTranscribe.length > 0))?
         (<h3 className="SectionHead">{strings.available}</h3>): <div/>;
-        const availableReviewHead = (selectedOption.toLowerCase() === "mytasks" && availableReview.length > 0)?
+        const availableReviewHead = (selectedOption.toLowerCase() === "mytasks" && (availableReview.length > 0 && userRole !== undefined))?
         (<h4 className={headStyle}>{strings.review.toUpperCase()}</h4>): <div/>;
-        const availableTranscribeHead = (selectedOption.toLowerCase() === "mytasks" && availableTranscribe.length > 0)?
+        const availableTranscribeHead = (selectedOption.toLowerCase() === "mytasks" && (availableTranscribe.length > 0))?
         (<h4 className={headStyle}>{strings.transcribe.toUpperCase()}</h4>): <div/>;
-        const availableReviewList = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length > 0)? availableReview.map((t: ITask) => (
+        const availableReviewList = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length > 0  && userRole !== undefined)? availableReview.map((t: ITask) => (
         <div className="AvailableRow">
             <div className="placeHolder">{"\u00A0"}</div>
             <TaskItem
@@ -104,6 +107,8 @@ class TaskPanel extends React.Component<IProps, object> {
         )):<div/>;
         const inprogressHead = (selectedOption.toLowerCase() === "inprogress" && inProgressTasks.length > 0)?
             (<h3 className="SectionHead">{strings.inprogress}</h3>): <div/>;
+        const inprogressEmptyTask = (selectedOption.toLowerCase() === "inprogress" && inProgressTasks.length === 0)?
+        (<EmptyTaskItem id={"inprogressEmptyTask"} text={strings.inProgressEmptyMessage}/>): <div/>;
         const inprogressTaskList = (selectedOption.toLowerCase() === "inprogress" && inProgressTasks.length > 0)? inProgressTasks.map((t: ITask) => (
             <div className="AvailableRow">
                 <div className="placeHolder">{"\u00A0"}</div>
@@ -119,6 +124,8 @@ class TaskPanel extends React.Component<IProps, object> {
         )):<div/>;
         const transcribedHead = (selectedOption.toLowerCase() === "transcribed" && (transcribedTasks.length + transcribedOtherTasks.length) > 0)?
             (<h3 className="SectionHead">{strings.transcribed}</h3>): <div/>;
+        const transcribedEmptyTask = (selectedOption.toLowerCase() === "transcribed" && (transcribedTasks.length + transcribedOtherTasks.length) === 0)?
+            (<EmptyTaskItem id={"transcribedEmptyTask"} text={strings.transcribedEmptyMessage}/>): <div/>;
         const transcribedTaskList = (selectedOption.toLowerCase() === "transcribed" && transcribedTasks.length > 0)? transcribedTasks.map((t: ITask) => (
             <div className="AvailableRow">
                 <div className="placeHolder">{"\u00A0"}</div>
@@ -147,6 +154,8 @@ class TaskPanel extends React.Component<IProps, object> {
         )):<div/>;
         const reviewedHead = (selectedOption.toLowerCase() === "reviewed" && (reviewedTasks.length + reviewedOtherTasks.length) > 0)?
         (<h3 className="SectionHead">{strings.reviewed}</h3>): <div/>;
+        const reviewedEmptyTask = (selectedOption.toLowerCase() === "reviewed" && (reviewedTasks.length + reviewedOtherTasks.length) === 0)?
+            (<EmptyTaskItem id={"reviewedEmptyTask"} text={strings.reviewedEmptyMessage}/>): <div/>;
         const reviewedTaskList = (selectedOption.toLowerCase() === "reviewed" && reviewedTasks.length > 0)? reviewedTasks.map((t: ITask) => (
         <div className="AvailableRow">
             <div className="placeHolder">{"\u00A0"}</div>
@@ -175,6 +184,8 @@ class TaskPanel extends React.Component<IProps, object> {
         )):<div/>;
         const syncedHead = (selectedOption.toLowerCase() === "synced" && (syncedTasks.length + syncedOtherTasks.length) > 0)?
         (<h3 className="SectionHead">{strings.synced}</h3>): <div/>;
+        const syncedEmptyTask = (selectedOption.toLowerCase() === "synced" && (syncedTasks.length + syncedOtherTasks.length) === 0)?
+            (<EmptyTaskItem id={"syncedEmptyTask"} text={strings.syncedEmptyMessage}/>): <div/>;
         const syncedTaskList = (selectedOption.toLowerCase() === "synced" && syncedTasks.length > 0)? syncedTasks.map((t: ITask) => (
         <div className="AvailableRow">
             <div className="placeHolder">{"\u00A0"}</div>
@@ -203,6 +214,8 @@ class TaskPanel extends React.Component<IProps, object> {
             )):<div/>;
         const allTasksHead = (selectedOption.toLowerCase() === "alltasks" && allTasks.length > 0)?
         (<h3 className="SectionHead">{strings.alltasks}</h3>): <div/>;
+        const allTasksEmptyTask = (selectedOption.toLowerCase() === "alltasks" && allTasks.length === 0)?
+        (<EmptyTaskItem id={"allTasksEmptyTask"} text={strings.alltasksEmptyMessage}/>): <div/>;
         const allTaskList = (selectedOption.toLowerCase() === "alltasks" && allTasks.length > 0)? allTasks.map((t: ITask) => (
         <div className="AvailableRow">
             <div className="placeHolder">{"\u00A0"}</div>
@@ -216,8 +229,12 @@ class TaskPanel extends React.Component<IProps, object> {
             <div className="placeHolder">{"\u00A0"}</div>
         </div>
         )):<div/>;
+        const myTasksEmptyTask = (selectedOption.toLowerCase() === "mytasks" &&
+        availableTranscribe.length + availableReview.length + assignedTranscribe.length + assignedReview.length === 0)?
+        (<EmptyTaskItem id={"allTasksEmptyTask"} text={strings.alltasksEmptyMessage}/>): <div/>;
         const wrapper: JSX.Element = !pending && loaded? (
             <div>
+                {myTasksEmptyTask}
                 {assignedHead}
                 {assignedReviewHead}
                 {assignedReviewList}
@@ -229,17 +246,22 @@ class TaskPanel extends React.Component<IProps, object> {
                 {availableTranscribeHead}
                 {availableTranscribeList}
                 {inprogressHead}
+                {inprogressEmptyTask}
                 {inprogressTaskList}
                 {transcribedHead}
+                {transcribedEmptyTask}
                 {transcribedTaskList}
                 {transcribedOtherTaskList}
                 {reviewedHead}
+                {reviewedEmptyTask}
                 {reviewedTaskList}
                 {reviewedOtherTaskList}
                 {syncedHead}
+                {syncedEmptyTask}
                 {syncedTaskList}
                 {syncedOtherTaskList}
                 {allTasksHead}
+                {allTasksEmptyTask}
                 {allTaskList}
             </div>
         ): <div/>;
@@ -272,6 +294,7 @@ interface IStateProps {
     reviewedOtherTasks: ITask[];
     syncedTasks: ITask[];
     syncedOtherTasks: ITask[];
+    users: IUser[];
 }
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -295,6 +318,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     syncedTasks: taskList(state).syncedTasks,
     transcribedOtherTasks: taskList(state).transcribedOtherTasks,
     transcribedTasks: taskList(state).transcribedTasks,
+    users: state.users.users,
   });
   
   interface IDispatchProps {

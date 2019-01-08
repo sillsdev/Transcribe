@@ -146,6 +146,40 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inProgressEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks inprogress to you.</source>
+				<target></target>
+			</segment>
+		</unit><unit id="transcribe.transcribedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks transcribed to you.</source>
+				<target></target>
+			</segment>
+		</unit><unit id="transcribe.reviewedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks reviewed to you.</source>
+				<target></target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.syncedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks synced to you.</source>
+				<target></target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.alltasksEmptyMessage">
+			<segment>
+				<source>There aren't any tasks available.</source>
+				<target></target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>

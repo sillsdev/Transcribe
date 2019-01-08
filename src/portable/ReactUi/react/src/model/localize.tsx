@@ -25,6 +25,13 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "synced": string;
     "logout": string;
     "inprogress": string;
+    "none": string;
+    "mytasksEmptyMessage": string;
+    "inProgressEmptyMessage": string;
+    "transcribedEmptyMessage": string;
+    "reviewedEmptyMessage": string;
+    "syncedEmptyMessage": string;
+    "alltasksEmptyMessage": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {

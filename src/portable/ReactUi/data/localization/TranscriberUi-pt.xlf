@@ -146,6 +146,50 @@
 				<target>Sair</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Nenhum</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.assignedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks assigned to you.</source>
+				<target>Você não tem nenhuma tarefa atribuída a você.</target>
+			</segment>
+		</unit><unit id="transcribe.availableEmptyMessage">
+			<segment>
+				<source>There aren't any tasks available.</source>
+				<target>Não há tarefas disponíveis.</target>
+			</segment>
+		</unit><unit id="transcribe.inProgressEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks inprogress to you.</source>
+				<target>Você não tem nenhuma tarefa em andamento para você.</target>
+			</segment>
+		</unit><unit id="transcribe.transcribedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks transcribed to you.</source>
+				<target>Você não tem tarefas transcritas para você.</target>
+			</segment>
+		</unit><unit id="transcribe.reviewedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks reviewed to you.</source>
+				<target>Você não tem tarefas revisadas para você.</target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.syncedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks synced to you.</source>
+				<target>Você não tem nenhuma tarefa sincronizada com você.</target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.alltasksEmptyMessage">
+			<segment>
+				<source>There aren't any tasks available.</source>
+				<target>Não há tarefas disponíveis.</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>

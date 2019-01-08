@@ -146,6 +146,40 @@
 				<target>An fita</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Babu</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inProgressEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks inprogress to you.</source>
+				<target>Ba ku da wasu ayyuka da ba ku yi nasara ba.</target>
+			</segment>
+		</unit><unit id="transcribe.transcribedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks transcribed to you.</source>
+				<target>Ba ku da wani aiki da aka rubuta a gare ku.</target>
+			</segment>
+		</unit><unit id="transcribe.reviewedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks reviewed to you.</source>
+				<target>Ba ku da wani ɗawainiya da aka sake dubawa gare ku.</target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.syncedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks synced to you.</source>
+				<target>Ba ku da wani aikin da aka daidaita tare da ku.</target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.alltasksEmptyMessage">
+			<segment>
+				<source>There aren't any tasks available.</source>
+				<target>Babu wasu ayyuka akwai.</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>

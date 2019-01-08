@@ -146,6 +146,40 @@
 				<target>வெளியேறு</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>ஏதுமில்லை</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inProgressEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks inprogress to you.</source>
+				<target>உங்களுக்கான நடப்பு பணி எதுவுமில்லை.</target>
+			</segment>
+		</unit><unit id="transcribe.transcribedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks transcribed to you.</source>
+				<target>உங்களுக்கான எழுத்துவடிவமாக்கப்பட்ட பணி எதுவுமில்லை.</target>
+			</segment>
+		</unit><unit id="transcribe.reviewedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks reviewed to you.</source>
+				<target>உங்களுக்கான சரிபார்க்கப்பட்ட பணி எதுவுமில்லை.</target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.syncedEmptyMessage">
+			<segment>
+				<source>You don’t have any tasks synced to you.</source>
+				<target>உங்களுக்கான ஒத்திசைக்கப்பட்ட பணி எதுவுமில்லை.</target>
+			</segment>
+		</unit>
+		</unit><unit id="transcribe.alltasksEmptyMessage">
+			<segment>
+				<source>There aren't any tasks available.</source>
+				<target>பணிகள் ஏதுமில்லை.</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>

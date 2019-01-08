@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: TaskItem --- Snapshot +++capturing Snapshot of TaskItem 1`] = `
+<div
+  className="EmptyTaskItem"
+  id="EmptyTaskItem"
+>
+  <div
+    className="ImageStyle"
+  >
+    <img
+      src="/assets/EmptyTaskIcon.svg"
+    />
+  </div>
+  <div
+    className="CaptionStyle"
+  >
+    <label
+      className="labelNone"
+    >
+      None
+    </label>
+    <label
+      className="labelText"
+    >
+      Text Message
+    </label>
+  </div>
+</div>
+`;
