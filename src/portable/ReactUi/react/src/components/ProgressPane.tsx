@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
 import { log } from '../actions/logAction';
+import * as actions1 from '../actions/taskActions';
 import { IState } from '../model/state';
 import uiDirection from '../selectors/direction';
 import projectTasks from '../selectors/projectTasks';
 import TimeMarker from './controls/TimeMarker';
 import './ProgressPane.sass';
+import AnchorHelp from './ui-controls/AnchorHelp';
 
 interface IProps extends IStateProps, IDispatchProps {
 };
@@ -112,6 +114,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                         totalSeconds={totalSeconds}
                         timer={user && user.timer? user.timer: "countup"} />
                 </div>
+                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowAudioPanelHelp} color="yellow" />
                 <div className="RealPlayer">
                     <ReactPlayer
                         id="Player"
@@ -126,6 +129,10 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                 </div>
             </div>
         )
+    }
+
+    private ShowAudioPanelHelp = () => {
+        this.props.showHelp("User Interface overview")
     }
 
     private adjustPosition(position: number, jump: number) {
@@ -161,6 +168,7 @@ interface IDispatchProps {
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
     setPlayedSeconds: typeof actions.setPlayedSeconds;
+    showHelp: typeof actions1.showHelp,
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -184,6 +192,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     reportPosition: actions.reportPosition,
     saveTotalSeconds: actions.saveTotalSeconds,
     setPlayedSeconds: actions.setPlayedSeconds,
+    showHelp: actions1.showHelp,
 }, dispatch),
 });
 

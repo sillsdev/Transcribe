@@ -16,6 +16,7 @@ import BackLink from './controls/BackLink';
 import NextAction from './controls/NextAction';
 import TaskItem from './controls/TaskItem';
 import './TaskDetails.sass';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import FileField from './ui-controls/FileField';
 import IconButtonField from './ui-controls/IconButtonField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
@@ -141,6 +142,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                         <div className="title">
                             <LabelCaptionUx name={strings.taskDetails} type="H2" />
                         </div>
+                        <div className="anchorHelp">
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowTaskDetailsHelp} />
+                        </div>
                         <div className={"copyAction" + (newTask? " hide": "")}>
                             <NextAction
                                 text={strings.copyToClipboard}
@@ -220,6 +224,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         const thirdIndex = direction && direction === "rtl"? {label:strings.transcribed,style:{color:greenColor},text:"Review"}: {label:strings.reviewed,style:{color:greenColor},text:"Upload"};
         const fourthIndex = direction && direction === "rtl"? {label:strings.start,style:{color:greenColor},text:"Transcribe"}: {label:strings.synced,style:{color:greenColor},text:"Complete"};
         return {0: firstIndex,1: secondIndex,2: thirdIndex,3: fourthIndex};
+    }
+
+    private ShowTaskDetailsHelp = () => {
+        this.props.showHelp("Edit task details")
     }
 
     private validateReference(ref: string) {
@@ -402,6 +410,7 @@ interface IDispatchProps {
     fetchUsers: typeof actions2.fetchUsers;
     selectTask: typeof actions.selectTask;
     updateTask: typeof actions.updateTask;
+    showHelp: typeof actions.showHelp,
  };
  const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
      ...bindActionCreators({
@@ -410,6 +419,7 @@ interface IDispatchProps {
         fetchMeta: actions3.fetchMeta,
         fetchUsers: actions2.fetchUsers,
         selectTask: actions.selectTask,
+        showHelp: actions.showHelp,
         updateTask: actions.updateTask,
      }, dispatch),
  });

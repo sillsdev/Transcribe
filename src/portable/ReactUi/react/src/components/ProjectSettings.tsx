@@ -13,6 +13,7 @@ import PencilAction from './controls/PencilAction';
 import ToggleSwitch from './controls/ToggleSwitch';
 import './ProjectSettings.sass';
 import TaskList from './TaskList';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import UserList from './UserList';
 
@@ -100,8 +101,14 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                 <div className="rows">
                     <div className="properties">
                         <div className="header">
+                            <div className="headerLeft">
                             <BackLink target="/main" />
                             <LabelCaptionUx name={strings.projectSettings} type="H3" />
+                            </div>
+                            <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowProjSettingsHelp} />
+                            {/* <div className="anchorHelp">
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowProjSettingsHelp} />
+                            </div> */}
                         </div>
                         <div className="left">
                             {titleWrapper}
@@ -123,6 +130,10 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                 </div>
             </div >
         )
+    }
+
+    private ShowProjSettingsHelp = () => {
+        this.props.showHelp("Set up a project")
     }
 
     private editProjectName = () => {
@@ -172,12 +183,14 @@ interface IDispatchProps {
     fetchTasks: typeof actions.fetchTasks;
     updateProject: typeof actions.updateProject;
     selectProject: typeof actions.selectProject;
+    showHelp: typeof actions.showHelp,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchTasks: actions.fetchTasks,
         selectProject: actions.selectProject,
+        showHelp: actions.showHelp,
         updateProject: actions.updateProject,
     }, dispatch),
 });

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: TaskItem --- Snapshot +++capturing Snapshot of TaskItem 1`] = `
+<div
+  className="AnchorHelp"
+  id="AnchorHelp"
+>
+  <span>
+    <a
+      className="linkText"
+      onClick={[Function]}
+    >
+      <img
+        alt="?"
+        src="/assets/QuestionGrey.svg"
+      />
+    </a>
+  </span>
+</div>
+`;

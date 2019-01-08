@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions2 from 'src/actions/avatarActions';
+import * as actions3 from 'src/actions/taskActions';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
@@ -14,6 +15,7 @@ import userStrings from '../selectors/localize';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
 import NextAction from './controls/NextAction';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import DropdownUx from './ui-controls/DropdownUx';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
@@ -105,6 +107,11 @@ class UserSettings extends React.Component<IProps, any> {
             <div id="UserSettings" className={"UserSettings" + settingsStyle}>
                 <div className="GridStyle">
                     <Grid>
+                        <Row className="show-grid AnchorStyle">
+                            <Col xs={12} md={12}>
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowUserSettingsHelp} />
+                            </Col>
+                        </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
                                 <BackLink target="/main" />
@@ -242,6 +249,10 @@ class UserSettings extends React.Component<IProps, any> {
                 </div>
             </div>
         )
+    }
+
+    private ShowUserSettingsHelp = () => {
+        this.props.showHelp("Change user settings")
     }
 
     private keyCode(user: IUser, tag: string, defCode: string){
@@ -484,6 +495,7 @@ interface IDispatchProps {
     restoreDefaultUserHotKeys: typeof actions.restoreDefaultUserHotKeys;
     saveAvatar: typeof actions2.saveAvatar;
     setUserAvatar: typeof actions2.setUserAvatar;
+    showHelp: typeof actions3.showHelp,
     updateUser: typeof actions.updateUser;
   };
   
@@ -493,6 +505,7 @@ interface IDispatchProps {
         restoreDefaultUserHotKeys: actions.restoreDefaultUserHotKeys,
         saveAvatar: actions2.saveAvatar,
         setUserAvatar: actions2.setUserAvatar,
+        showHelp: actions3.showHelp,
         updateUser: actions.updateUser,
         }, dispatch),
   });

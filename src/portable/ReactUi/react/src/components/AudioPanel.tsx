@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as actions from '../actions/audioActions';
 import { log } from '../actions/logAction';
+import * as actions1 from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import './AudioPanel.sass';
 import ControlPane from './ControlPane';
@@ -48,6 +49,7 @@ interface IDispatchProps {
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
     setSubmitted: typeof actions.setSubmitted;
+    showHelp: typeof actions1.showHelp,
 };
 
 export default AudioPanel;

@@ -30,6 +30,26 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
           User Details
         </span>
       </div>
+      <div
+        className="anchorHelp"
+      >
+        <div
+          className="AnchorHelp"
+          id="ProjSettingsHelp"
+        >
+          <span>
+            <a
+              className="linkText"
+              onClick={[Function]}
+            >
+              <img
+                alt="?"
+                src="/assets/QuestionGrey.svg"
+              />
+            </a>
+          </span>
+        </div>
+      </div>
     </div>
     <div
       className="data"

@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { log } from '../actions/logAction';
+import * as actions1 from '../actions/taskActions';
 import * as actions from '../actions/userActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { UserLanguages } from '../model/UserLanguages';
 import userStrings from '../selectors/localize';
 import NextAction from './controls/NextAction'
+import AnchorHelp from './ui-controls/AnchorHelp';
 import './UiLang.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -44,7 +46,6 @@ class UiLang extends React.Component<IProps, object> {
                     <ul>
                         {languageList}
                     </ul>
-
                     {next}
                 </div>)
             }
@@ -52,9 +53,16 @@ class UiLang extends React.Component<IProps, object> {
 
         return (
             <div className="UiLang">
+                <div className="anchorHelp">
+                    <AnchorHelp id="UiLangHelp" onClick={this.ShowUiLangHelp} />
+                </div>
                 {wrapper}
             </div>
-            )
+        )
+    }
+
+    private ShowUiLangHelp = () => {
+        this.props.showHelp("Make a new project")
     }
 
     private selectLanguage(lang: string) {
@@ -81,11 +89,13 @@ const mapStateToProps = (state: any): IStateProps => ({
 
 interface IDispatchProps {
     selectLanguage: typeof actions.selectLanguage;
+    showHelp: typeof actions1.showHelp,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         selectLanguage: actions.selectLanguage,
+        showHelp: actions1.showHelp,
     }, dispatch),
 });
 

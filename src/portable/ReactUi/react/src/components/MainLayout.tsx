@@ -212,6 +212,7 @@ interface IDispatchProps {
     assignTask: typeof actions2.assignTask;
     unassignTask: typeof actions2.unAssignTask;
     setToDoHighlight: typeof actions2.setToDoHightlight;
+    showHelp: typeof actions2.showHelp,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
@@ -226,6 +227,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         saveTotalSeconds: actions.saveTotalSeconds,
         setSubmitted: actions.setSubmitted,
         setToDoHighlight: actions2.setToDoHightlight,
+        showHelp: actions2.showHelp,
         unassignTask: actions2.unAssignTask,
     }, dispatch),
 });

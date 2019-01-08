@@ -14,6 +14,7 @@ import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import IconButtonField from './ui-controls/IconButtonField';
 import ImageField from './ui-controls/ImageField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
@@ -143,6 +144,9 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                         <div className="title">
                             <LabelCaptionUx name={strings.userDetails} type="H3" />
                         </div>
+                        <div className="anchorHelp">
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowUserDetailsHelp} />
+                        </div>
                     </div>
                     <div className="data">
                         <div><TextField id="id1"
@@ -209,6 +213,10 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
 
     public handleChange(event: any) {
         this.setState({ selectedValue: event.target.value });
+    }
+
+    private ShowUserDetailsHelp = () => {
+        this.props.showHelp("Edit user details")
     }
 
     private discard() {
@@ -304,6 +312,7 @@ interface IDispatchProps {
     deleteUser: typeof actions2.deleteUser;
     saveAvatar: typeof actions3.saveAvatar;
     setUserAvatar: typeof actions3.setUserAvatar;
+    showHelp: typeof actions.showHelp,
 };
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
@@ -313,6 +322,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         selectPopupUser: actions2.selectPopupUser,
         selectTask: actions.selectTask,
         setUserAvatar: actions3.setUserAvatar,
+        showHelp: actions.showHelp,
         updateUser: actions2.updateUser,
     }, dispatch),
 });
