@@ -106,9 +106,6 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                             <LabelCaptionUx name={strings.projectSettings} type="H3" />
                             </div>
                             <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowProjSettingsHelp} />
-                            {/* <div className="anchorHelp">
-                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowProjSettingsHelp} />
-                            </div> */}
                         </div>
                         <div className="left">
                             {titleWrapper}
@@ -133,7 +130,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     }
 
     private ShowProjSettingsHelp = () => {
-        this.props.showHelp("Set up a project")
+        this.props.showHelp("Procedures/Admin_procedures/Set_up_a_project.htm")
     }
 
     private editProjectName = () => {

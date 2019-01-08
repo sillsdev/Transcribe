@@ -55,11 +55,11 @@ export class AddManyTasks extends React.Component<IProps, object> {
     }
 
     private batchUploadSpreadsheetHelp = () => {
-        this.props.showHelp("Spreadsheet convention")
+        this.props.showHelp("Concepts/Spreadsheet_convention.htm")
     }
 
     private ourNamingConventionHelp = () => {
-        this.props.showHelp("Folders and Files")
+        this.props.showHelp("Concepts/Folder_and_Files.htm")
     }
 
 }

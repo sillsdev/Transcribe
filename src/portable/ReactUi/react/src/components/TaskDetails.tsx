@@ -227,7 +227,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private ShowTaskDetailsHelp = () => {
-        this.props.showHelp("Edit task details")
+        this.props.showHelp("Procedures/Admin_procedures/Edit_task_details.htm")
     }
 
     private validateReference(ref: string) {

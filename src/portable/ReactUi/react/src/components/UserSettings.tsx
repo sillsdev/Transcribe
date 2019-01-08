@@ -252,7 +252,7 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private ShowUserSettingsHelp = () => {
-        this.props.showHelp("Change user settings")
+        this.props.showHelp("Procedures/General_procedures/Change_user_settings.htm")
     }
 
     private keyCode(user: IUser, tag: string, defCode: string){

@@ -114,7 +114,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                         totalSeconds={totalSeconds}
                         timer={user && user.timer? user.timer: "countup"} />
                 </div>
-                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowAudioPanelHelp} color="yellow" />
+                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowAudioPanelHelp} />
                 <div className="RealPlayer">
                     <ReactPlayer
                         id="Player"
@@ -132,7 +132,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
     }
 
     private ShowAudioPanelHelp = () => {
-        this.props.showHelp("User Interface overview")
+        this.props.showHelp("User_Interface/User_Interface_overview.htm")
     }
 
     private adjustPosition(position: number, jump: number) {

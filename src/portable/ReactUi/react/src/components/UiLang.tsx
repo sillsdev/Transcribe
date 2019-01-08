@@ -62,7 +62,7 @@ class UiLang extends React.Component<IProps, object> {
     }
 
     private ShowUiLangHelp = () => {
-        this.props.showHelp("Make a new project")
+        this.props.showHelp("Procedures/Admin_procedures/Make_a_new_project.htm")
     }
 
     private selectLanguage(lang: string) {

@@ -216,7 +216,7 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
     }
 
     private ShowUserDetailsHelp = () => {
-        this.props.showHelp("Edit user details")
+        this.props.showHelp("Procedures/Admin_procedures/Edit_user_details.htm")
     }
 
     private discard() {

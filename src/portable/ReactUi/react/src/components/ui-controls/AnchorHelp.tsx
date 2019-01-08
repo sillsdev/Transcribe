@@ -13,7 +13,6 @@ class AnchorHelp extends React.Component<IProps, object> {
     }
 
     public handleClick(event: any) {
-        this.setState({ ...this.state, current: event.target.value })
         if (this.props.onClick != null) {
             this.props.onClick(event.target.value)
         }
