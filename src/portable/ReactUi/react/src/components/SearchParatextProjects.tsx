@@ -96,7 +96,7 @@ class SearchParatextProjects extends React.Component<IProps, object> {
     }
 
     private ShowHelp = () => {
-        this.props.showHelp("Procedures/Admin_procedures/Make_a_new_project.htm")
+        this.props.showHelp("User_Interface/Select_a_Paratext_Project_window.htm")
     }
 }
 
