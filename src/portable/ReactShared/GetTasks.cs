@@ -31,7 +31,7 @@ namespace ReactShared
 				var filterNodeList = new List<XmlNode>();
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
 				var claim = node.SelectSingleNode("./@claim") as XmlAttribute;
-				if (!string.IsNullOrEmpty(user) && filterOption != @"alltasks")
+				if (!string.IsNullOrEmpty(user) && (filterOption != null && filterOption != @"alltasks"))
 				{
 					TaskSkillFilter(taskNodes, ref filterNodeList, userNode, user, claim);
 					TaskHistoryFilter(taskNodes, ref filterNodeList, userNode, user, filterOption);
