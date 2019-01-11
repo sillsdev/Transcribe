@@ -146,6 +146,12 @@
 				<target>வெளியேறு</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>ஏதுமில்லை</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>

@@ -119,7 +119,7 @@
 		<unit id="transcribe.inprogress">
 			<segment>
 				<source>In Progress</source>
-				<target>அனைத்து</target>
+				<target></target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">
@@ -143,6 +143,12 @@
 		<unit id="transcribe.logout">
 			<segment>
 				<source>Log Out</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
 				<target></target>
 			</segment>
 		</unit>

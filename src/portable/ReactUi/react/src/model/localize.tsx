@@ -25,6 +25,7 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "synced": string;
     "logout": string;
     "inprogress": string;
+    "none": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
