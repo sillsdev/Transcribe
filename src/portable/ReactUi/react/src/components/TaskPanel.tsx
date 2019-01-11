@@ -26,7 +26,7 @@ class TaskPanel extends React.Component<IProps, object> {
 
         log("TaskPanel")
         const user = users.filter(u => u.username.id === selectedUser)[0];
-        const userRole = user.role.filter(r => r === "reviewer" || r === "administrator")[0];
+        const userRole = user && user.role.filter(r => r === "reviewer" || r === "administrator")[0];
         const selectReview = assignedReview.filter(t => t.id === lastTask);
         const selectTranscribe = assignedTranscribe.filter(t => t.id === lastTask)
         if (this.props.selectedTask.trim() === '' && lastTask != null && selectReview.length + selectTranscribe.length > 0 && this.ValidateSelectedOption){
