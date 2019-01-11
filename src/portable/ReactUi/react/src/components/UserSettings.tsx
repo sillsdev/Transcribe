@@ -107,17 +107,15 @@ class UserSettings extends React.Component<IProps, any> {
             <div id="UserSettings" className={"UserSettings" + settingsStyle}>
                 <div className="GridStyle">
                     <Grid>
-                        <Row className="show-grid AnchorStyle">
-                            <Col xs={12} md={12}>
-                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowUserSettingsHelp} />
-                            </Col>
-                        </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
                                 <BackLink target="/main" />
                             </Col>
-                            <Col xs={10} md={10}>
+                            <Col xs={9} md={9}>
                                 <LabelCaptionUx name={strings.user.toUpperCase()} type="H4" />
+                            </Col>
+                            <Col xs={1} md={1}>
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowUserSettingsHelp} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
