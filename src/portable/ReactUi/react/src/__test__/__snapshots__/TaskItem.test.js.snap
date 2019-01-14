@@ -42,7 +42,7 @@ exports[`>>>Control: TaskItem --- Snapshot +++capturing Snapshot of TaskItem 1`]
             LUK-001-001006
           </div>
           <div
-            className="AvatarRow"
+            className="AvatarRow hide"
           >
             <div
               className="OnHover sb-avatar"

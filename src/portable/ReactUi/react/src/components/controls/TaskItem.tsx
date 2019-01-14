@@ -39,7 +39,7 @@ class TaskItem extends React.Component<IProps, object> {
                     </div>
                     <div className="TextLine">
                         <div className="textName">{displayName}</div>
-                        <div className={"AvatarRow" + (name !== "" ? "" : " hide")}>
+                        <div className={"AvatarRow" + (avatar && avatar !== "" ? "" : " hide")}>
                             <Avatar className="OnHover"
                                 name={name} key={name + "Avatar"}
                                 src={avatar}

@@ -111,11 +111,19 @@ class TaskList extends React.Component<IProps, typeof initialState> {
                 direction={direction}
                 name={t.name?t.name:""}
                 length={t.length != null? t.length: 0}
+                avatar={this.GetUserAvatar(t.assignedto)}
+                taskChips={(t.assignedto != null || t.state !== 'Transcribe')? [t.state.toLocaleLowerCase()]: []}
                 select= {selectPopupTask.bind(t.id)}
                 target="/ProjectSettings/Task"
                 reference={t.reference}/>
         </div>
         )
+    }
+
+    private GetUserAvatar(assignedTo: string = ""){
+        const { users } = this.props;
+        const user = users.filter(u => u.username.id === assignedTo)[0];
+        return user && user.username.avatarUri;
     }
 
     private sortByType(){
