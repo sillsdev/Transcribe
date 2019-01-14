@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: TaskChips --- Snapshot +++capturing Snapshot of TaskChips 1`] = `
+<div
+  className="TaskChips"
+>
+  <div
+    className="ChipsBorder"
+  >
+    <div
+      className="ChipsLabel"
+    >
+      <label>
+        Reviewed
+      </label>
+    </div>
+  </div>
+  <div
+    className="ChipsBorder"
+  >
+    <div
+      className="ChipsLabel"
+    >
+      <label>
+        All Tasks
+      </label>
+    </div>
+  </div>
+</div>
+`;

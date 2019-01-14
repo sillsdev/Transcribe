@@ -34,9 +34,101 @@ exports[`>>>Control: TaskItem --- Snapshot +++capturing Snapshot of TaskItem 1`]
           </span>
         </div>
         <div
-          className="textName"
+          className="TextLine"
         >
-          LUK-001-001006
+          <div
+            className="textName"
+          >
+            LUK-001-001006
+          </div>
+          <div
+            className="AvatarRow"
+          >
+            <div
+              className="OnHover sb-avatar"
+              onClick={undefined}
+              style={
+                Object {
+                  "borderRadius": "100%",
+                  "display": "inline-block",
+                  "fontFamily": "Helvetica, Arial, sans-serif",
+                  "height": "24px",
+                  "verticalAlign": "middle",
+                  "width": "24px",
+                }
+              }
+            >
+              <div
+                className="OnHover sb-avatar__text"
+                style={
+                  Object {
+                    "background": undefined,
+                    "borderRadius": "100%",
+                    "color": "#FFF",
+                    "height": "24px",
+                    "lineHeight": "initial",
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
+                    "width": "24px",
+                  }
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "display": "table",
+                      "height": "100%",
+                      "tableLayout": "fixed",
+                      "width": "100%",
+                    }
+                  }
+                >
+                  <span
+                    style={
+                      Object {
+                        "display": "table-cell",
+                        "fontSize": "100%",
+                        "verticalAlign": "middle",
+                        "whiteSpace": "nowrap",
+                      }
+                    }
+                  >
+                    <span />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="ChipsItem"
+        >
+          <div
+            className="TaskChips"
+          >
+            <div
+              className="ChipsBorder"
+            >
+              <div
+                className="ChipsLabel"
+              >
+                <label>
+                  In Progress
+                </label>
+              </div>
+            </div>
+            <div
+              className="ChipsBorder"
+            >
+              <div
+                className="ChipsLabel"
+              >
+                <label>
+                  My Tasks
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

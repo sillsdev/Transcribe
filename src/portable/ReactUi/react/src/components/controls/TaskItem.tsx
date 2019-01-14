@@ -1,6 +1,8 @@
 import * as React from 'react';
+import Avatar from 'react-avatar';
 import { Link } from 'react-router-dom';
 import Duration from './Duration';
+import TaskChips from './TaskChips';
 import './TaskItem.sass';
 
 interface IProps {
@@ -12,11 +14,13 @@ interface IProps {
     select?: (id: string) => any;
     selected?: boolean;
     target?: string;
+    avatar?: string;
+    taskChips?: string[];
 };
 
 class TaskItem extends React.Component<IProps, object> {
     public render() {
-        const { direction, id, length, name, reference, select, target } = this.props;
+        const { avatar, direction, id, length, name, reference, select, target, taskChips } = this.props;
         const displayName = (name != null &&  name.trim() !== ''? name.trim(): "");
         let displayId = reference
         if (reference == null || reference === "") {
@@ -33,7 +37,19 @@ class TaskItem extends React.Component<IProps, object> {
                         <span className="displayReference">{displayId}</span>
                         <span className="totalTime"><Duration seconds ={length} direction={direction} /></span>
                     </div>
-                    <div className="textName">{displayName}</div>
+                    <div className="TextLine">
+                        <div className="textName">{displayName}</div>
+                        <div className={"AvatarRow" + (name !== "" ? "" : " hide")}>
+                            <Avatar className="OnHover"
+                                name={name} key={name + "Avatar"}
+                                src={avatar}
+                                size={24}
+                                round={true} />
+                        </div>
+                    </div>
+                    <div className="ChipsItem">
+                        <TaskChips text={taskChips !== undefined? taskChips: []}/>
+                    </div>
                 </div>
             </div>
         );
