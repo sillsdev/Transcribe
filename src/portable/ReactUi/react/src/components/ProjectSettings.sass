@@ -45,8 +45,12 @@
 		flex-direction: row
 		.title
 			display: flex
-			flex-direction: column
+			flex-direction: row
 			width: -moz-fit-content
+			.PencilAction
+				display: flex
+				flex-direction: row
+				align-self: center
 		.LabelCaptionUx.H1
 			line-height: 88px
 		&>*
@@ -87,6 +91,10 @@
 		background-color: $inputBG
 		width: 100%
 		word-break: break-word
+		.PencilAction
+			display: flex
+			flex-direction: row
+			align-self: center
 	&.rtl
 		direction: rtl
 		.left

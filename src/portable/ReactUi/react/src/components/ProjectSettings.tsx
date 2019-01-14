@@ -85,10 +85,10 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
         let titleWrapper;
         if (this.state.showTextBox) {
             titleWrapper = (<div className="inputTitle"><textarea value={this.state.titleText} onBlur={this.onNameLooseFocus} className="inputTitle" 
-            onChange={this.onNameChange} autoFocus={true} onKeyDown={this.onNameKeyDown} /></div>);
+            onChange={this.onNameChange} autoFocus={true} onKeyDown={this.onNameKeyDown} /><PencilAction target={this.editProjectName} /></div>);
         } else {
             titleWrapper = (<div className="title" onClick={this.onNameClick}>
-            <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
+            <LabelCaptionUx name={this.state.titleText} type="H1" /><PencilAction target={this.editProjectName} /></div>);
         }
 
         const claim = project && project.claim? project.claim: false;
@@ -109,7 +109,6 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                         </div>
                         <div className="left">
                             {titleWrapper}
-                            <PencilAction target={this.editProjectName} />
                         </div>
                         {/* <div className="pairingRow">
                             <LinkAction text={pairText} target={this.pair.bind(this, pair)} />
