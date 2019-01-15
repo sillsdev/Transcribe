@@ -38,6 +38,8 @@ namespace ReactShared
 					break;
 				case "ReviewStart": break;
 				case "ReviewEnd":
+					if (UnassignTask(taskNode, user))
+						return true;
 					if (CompleteReview(taskNode))
 						return true;
 					break;
