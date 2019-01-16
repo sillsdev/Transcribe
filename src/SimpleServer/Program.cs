@@ -69,7 +69,8 @@ namespace SimpleServer
 				{
 					context.Response.StatusCode = 400;
 				}
-				else if (context.Request.HttpMethod.ToLower() == "get" && File.Exists(folder + page))
+				// GetMeta puts a wave file and expects a response so don't add context.Request.HttpMethod.ToLower() == "get" && 
+				else if (File.Exists(folder + page))
 				{
 					page = folder + page;
 					Trace.WriteLine($"File found {page}");
