@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -15,6 +16,15 @@ namespace SimpleServer
 			var folder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			if (args.Length >= 2)
 				folder = args[1];
+
+			var progFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
+			var traceFullName = Path.Combine(progFolder, "SimpleServer", DateTime.Now.ToString("s").Replace(":","-") + ".txt");
+			var traceFolderInfo = new DirectoryInfo(Path.GetDirectoryName(traceFullName));
+			traceFolderInfo.Create();
+			var traceFile = File.Create(traceFullName);
+			var listener = new TextWriterTraceListener(traceFile);
+			Trace.Listeners.Add(listener);
+			Trace.AutoFlush = true;
 
 			var server = new HttpListener();
 
@@ -43,6 +53,7 @@ namespace SimpleServer
 
 			var charTest = new Regex(@"^[-/.a-z0-9A-Z]+$");
 
+			Trace.WriteLine($"Listening to {portAddr}");
 			while (true)
 			{
 				var context = server.GetContext();
@@ -52,34 +63,49 @@ namespace SimpleServer
 
 				if (string.IsNullOrEmpty(page) || page == "/")
 					page = "/index.html";
+				Trace.WriteLine($"Recieved request {context.Request.HttpMethod} {page}");
 
 				if (!charTest.Match(page).Success || page.StartsWith(".") || page.Contains("/."))
 				{
 					context.Response.StatusCode = 400;
 				}
-				else if (File.Exists(folder + page))
+				else if (context.Request.HttpMethod.ToLower() == "get" && File.Exists(folder + page))
 				{
 					page = folder + page;
-
-					Console.WriteLine($@"Request page: {page}");
+					Trace.WriteLine($"File found {page}");
 
 					var st = response.OutputStream;
-
-					using (var reader = new FileStream(page, FileMode.Open, FileAccess.Read))
+					try
 					{
-						response.ContentLength64 = reader.Length;
-						const int blockSize = 10024;
-						var buffer = new byte[blockSize];
-						for (var c = reader.Length; c > 0;)
+						if (Path.DirectorySeparatorChar != '/')
+							page = page.Replace("/", Path.DirectorySeparatorChar.ToString());
+						Trace.WriteLine($"Opening {page}");
+						using (var reader = new FileStream(page, FileMode.Open, FileAccess.Read))
 						{
-							var bytesRead = reader.Read(buffer, 0, blockSize);
-							st.Write(buffer, 0, bytesRead);
-							c -= bytesRead;
+							Trace.WriteLine($"File open for reading");
+							response.ContentLength64 = reader.Length;
+							Trace.WriteLine($"Length = {reader.Length}");
+							const int blockSize = 10024;
+							var buffer = new byte[blockSize];
+							for (var c = reader.Length; c > 0;)
+							{
+								var bytesRead = reader.Read(buffer, 0, blockSize);
+								Trace.WriteLine($"Bytes read {bytesRead}");
+								st.Write(buffer, 0, bytesRead);
+								c -= bytesRead;
+							}
+							reader.Close();
 						}
+					}
+					catch (Exception e)
+					{
+						Trace.WriteLine(e);
+						throw;
 					}
 				}
 
 				context.Response.Close();
+				Trace.WriteLine($"Response sent");
 			}
 		}
 
