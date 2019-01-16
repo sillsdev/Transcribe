@@ -668,5 +668,17 @@
 				<target>مسح المستخدم</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>حذف مشروع</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>اختر مشروعًا مختلفًا</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

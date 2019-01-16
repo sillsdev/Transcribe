@@ -2,7 +2,7 @@ import Axios from 'axios';
 import { log } from '../actions/logAction';
 import { setSubmitted } from './audioActions';
 import { ADD_MANY_TASKS, ASSIGN_TASK_PENDING, COMPLETE_REVIEW_PENDING,
-    COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_TASK,
+    COMPLETE_TRANSCRIPTION_PENDING, COPY_TO_CLIPBOARD, DELETE_PROJECT, DELETE_TASK,
     FETCH_FILTERED_TASK, FETCH_TASKS, FETCH_TRANSCRIPTION, FETCH_ZTT_PROJECTS_COUNT, INIT_TASKS, SELECT_POPUP_TASK,
     SELECT_PROJECT, SELECT_TASK, SET_SELECTED_OPTION, SET_TODO_HIGHLIGHT, SHOW_HELP, UNASSIGN_TASK_PENDING, UPDATE_PROJECT, UPDATE_PROJECT_AVATAR,  UPDATE_TASK,
     WRITE_FULFILLED, WRITE_PENDING } from './types';
@@ -255,4 +255,16 @@ export function setToDoHightlight(setTodoHighlight: boolean): any {
         payload: setTodoHighlight,
         type: SET_TODO_HIGHLIGHT
     }
+}
+
+export const deleteProject = (project: string, user: string) => (dispatch: any) => {
+    dispatch({
+        payload: project,
+        type: DELETE_PROJECT
+    })
+    Axios.put('/api/DeleteProject?project=' + project)
+        .then (dispatch(fetchTasks(user)))
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + DELETE_PROJECT +  ", id=" + project))
+        });
 }

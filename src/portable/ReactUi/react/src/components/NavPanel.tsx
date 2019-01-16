@@ -23,6 +23,7 @@ interface IProps extends IStateProps, IDispatchProps{
 const initialState = {
     backToHome: false,
     goTosearchParatextProjects: false,
+    selectProject: false,
     showProjectEdit: false,
 }
 
@@ -37,6 +38,8 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         this.onLogOutClick = this.onLogOutClick.bind(this);
         this.onNewProject = this.onNewProject.bind(this);
         this.onChangeImage = this.onChangeImage.bind(this);
+        this.onChooseProject = this.onChooseProject.bind(this);
+        this.onDeleteProject = this.onDeleteProject.bind(this);
         this.onAllTasksClick = this.onAllTasksClick.bind(this);
         this.onInProgressClick = this.onInProgressClick.bind(this);
         this.onTranscribedClick = this.onTranscribedClick.bind(this);
@@ -50,7 +53,7 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 
     public render() {
         const { direction, tasks, selectedProject, users, saveAvatar, selectedUser, setProjectAvatar, setSaveToProject, strings, selectedOption } = this.props;
-        const { backToHome, goTosearchParatextProjects, showProjectEdit } = this.state;
+        const { backToHome, goTosearchParatextProjects, selectProject, showProjectEdit } = this.state;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
         const project = tasks.filter(t => t.id === selectedProject)[0];
@@ -67,6 +70,9 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 		}
         if (backToHome) {
             return ( <Redirect to="/" push={true} /> );
+        }
+        if (selectProject) {
+            return ( <Redirect to="/project" push={true} /> );
         }
         if(showProjectEdit){
             this.setState({showProjectEdit: false});
@@ -92,7 +98,9 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
                 uri={project.uri !== undefined? project.uri:""}
                 isAdmin = {(admin !== undefined && admin !== null)?true : false}
                 newProject={this.onNewProject}
-                changeImage={this.onChangeImage} />):"";
+                changeImage={this.onChangeImage}
+                chooseProject={this.onChooseProject}
+                deleteProject={this.onDeleteProject} />):"";
         const sync = project && project.sync? project.sync: false;
         return (
             <div id="NavPanel" className="NavPanel">
@@ -192,6 +200,21 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         this.setState({...this.state, goTosearchParatextProjects: true});
     }
 
+    private onDeleteProject() {
+        const { clearSelectedParatextProject, deleteProject, fetchZttProjectsCount, selectedProject, selectedUser } = this.props;
+        deleteProject(selectedProject, selectedUser);
+        clearSelectedParatextProject();
+        fetchZttProjectsCount();
+        this.setState({...this.state, selectProject: true});
+    }
+
+    private onChooseProject() {
+        const { clearSelectedParatextProject, fetchZttProjectsCount } = this.props;
+        clearSelectedParatextProject();
+        fetchZttProjectsCount();
+        this.setState({...this.state, selectProject: true});
+    }
+
     private onChangeImage() {
         this.setState({...this.state, showProjectEdit: true})
     }
@@ -225,6 +248,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
 
 interface IDispatchProps {
     clearSelectedParatextProject: typeof actions.clearSelectedParatextProject;
+    deleteProject: typeof actions2.deleteProject;
     fetchZttProjectsCount: typeof actions2.fetchZttProjectsCount;
     initTasks: typeof actions2.initTasks;
     reportPosition: typeof actions4.reportPosition;
@@ -240,6 +264,7 @@ interface IDispatchProps {
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         clearSelectedParatextProject: actions.clearSelectedParatextProject,
+        deleteProject: actions2.deleteProject,
         fetchFilteredTasks: actions2.fetchFilteredTasks,
         fetchZttProjectsCount: actions2.fetchZttProjectsCount,
         initTasks: actions2.initTasks,

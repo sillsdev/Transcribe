@@ -118,4 +118,6 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "discardChanges": string;
     "deleteTask": string;
     "deleteUser": string;
+    "deleteProject": string;
+    "chooseDifferentProject": string;
 };

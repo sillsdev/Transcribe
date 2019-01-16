@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Threading;
 using Gecko;
 using ReactShared;
-using SIL.Extensions;
 using SIL.Reporting;
 
 namespace Transcribe.Windows
@@ -26,7 +25,7 @@ namespace Transcribe.Windows
 			Application.SetCompatibleTextRenderingDefault(false);
 			Xpcom.Initialize("Firefox");
 			Util.DataFolder = Path.Combine(Util.DataFolder, Application.CompanyName, Application.ProductName);
-			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion, DateTime.Now.ToISO8601TimeFormatWithUTCString().Replace(":", "-")), true);
+			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion, DateTime.Now.ToString("s").Replace(":", "-")), true);
 			Logger.WriteEvent("Launch {0} {1}", Application.ProductName, Application.ProductVersion);
 			AddAnySample();
 			var randomName = Path.GetTempFileName();
@@ -70,7 +69,7 @@ namespace Transcribe.Windows
 		private static void AddAnySample()
 		{
 			var folderInfo = new DirectoryInfo(Util.DataFolder);
-			if (folderInfo.Exists && folderInfo.GetFiles("tasks.xml").Length > 0)
+			if (folderInfo.Exists)
 				return; // Data exists
 			var appFolder = Assembly.GetExecutingAssembly().Location;
 			appFolder = Path.GetDirectoryName(appFolder);

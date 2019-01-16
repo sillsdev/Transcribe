@@ -668,5 +668,17 @@
 				<target>Удалить пользователя</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Удалить проект</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Выберите другой проект</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

@@ -16,11 +16,13 @@ interface IProps extends IStateProps{
     uri: string;
     newProject?: () => any;
     changeImage?: () => any;
+    chooseProject?: () => any;
+    deleteProject?: () => any;
 }
 
 class Project extends React.Component<IProps, any> {
     public render() {
-        const { changeImage, id, isAdmin, name, newProject, select, strings, target, uri } = this.props;
+        const { changeImage, chooseProject, deleteProject, id, isAdmin, name, newProject, select, strings, target, uri } = this.props;
         let linkClassName;
         let adminWrapper;
         if(isAdmin){
@@ -37,6 +39,12 @@ class Project extends React.Component<IProps, any> {
                         </MenuItem>
                         <MenuItem onClick={changeImage}>
                             {strings.changeImage}
+                        </MenuItem>
+                        <MenuItem onClick={chooseProject}>
+                            {strings.chooseDifferentProject}
+                        </MenuItem>
+                        <MenuItem onClick={deleteProject}>
+                            {strings.deleteProject}
                         </MenuItem>
                     </ContextMenu>
                 </div>

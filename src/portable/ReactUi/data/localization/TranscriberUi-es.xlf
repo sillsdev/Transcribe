@@ -668,5 +668,17 @@
 				<target>Borrar usuario</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Eliminar proyecto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Elige un proyecto diferente</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

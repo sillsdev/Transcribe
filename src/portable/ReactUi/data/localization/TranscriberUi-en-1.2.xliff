@@ -874,6 +874,24 @@
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
          </trans-unit>
 	
+      	<trans-unit id="projectSettings.deleteProject">
+      		<source>Delete project</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">Project.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4106</note>
+      	</trans-unit>
+      	
+      	<trans-unit id="projectSettings.chooseDifferentProject">
+      		<source>Choose a different project</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">Project.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4106</note>
+      	</trans-unit>
+      	
       </body>
    </file>
 

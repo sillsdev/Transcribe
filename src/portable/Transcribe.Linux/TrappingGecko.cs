@@ -98,6 +98,9 @@ namespace Transcribe.Windows
 						case "GetMeta":
 							new GetMeta(e.Uri.Query, e.RequestBody);
 							break;
+						case "DeleteProject":
+							new DeleteProject(e.Uri.Query);
+							break;
 					}
 				}
 				catch (Exception err)

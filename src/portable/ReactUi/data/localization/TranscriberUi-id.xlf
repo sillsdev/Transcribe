@@ -674,5 +674,17 @@
 				<target></target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Menghapus proyek</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Pilih proyek yang berbeda</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

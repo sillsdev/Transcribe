@@ -668,5 +668,17 @@
 				<target>பயனரை நீக்கு</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>திட்டத்தை நீக்கு</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>வேறொரு திட்டத்தைத் தேர்வுசெய்க</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

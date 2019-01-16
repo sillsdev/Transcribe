@@ -668,5 +668,17 @@
 				<target>Share Mai amfani</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Share Project</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Zaɓi aikin daban</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>

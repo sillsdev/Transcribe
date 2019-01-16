@@ -668,5 +668,17 @@
 				<target>Futa Mtumiaji</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Futa Mradi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Chagua mradi tofauti</target>
+			</segment>
+		</unit>
 	</file>
 </xliff>
