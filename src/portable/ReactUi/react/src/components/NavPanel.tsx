@@ -201,11 +201,16 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
     }
 
     private onDeleteProject() {
-        const { clearSelectedParatextProject, deleteProject, fetchZttProjectsCount, selectedProject, selectedUser } = this.props;
+        const { clearSelectedParatextProject, deleteProject, fetchZttProjectsCount, selectedProject, selectedUser, tasks } = this.props;
+        const projectCount = tasks.length
         deleteProject(selectedProject, selectedUser);
         clearSelectedParatextProject();
         fetchZttProjectsCount();
-        this.setState({...this.state, selectProject: true});
+        if (projectCount <= 1){
+            this.setState({...this.state, goTosearchParatextProjects: true});
+        } else {
+            this.setState({...this.state, selectProject: true});
+        }
     }
 
     private onChooseProject() {
