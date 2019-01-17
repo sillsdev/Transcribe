@@ -17,6 +17,7 @@ namespace SimpleServer
 			if (args.Length >= 2)
 				folder = args[1];
 
+#if TRACE
 			var progFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
 			var traceFullName = Path.Combine(progFolder, "SimpleServer", DateTime.Now.ToString("s").Replace(":","-") + ".txt");
 			var traceFolderInfo = new DirectoryInfo(Path.GetDirectoryName(traceFullName));
@@ -25,7 +26,7 @@ namespace SimpleServer
 			var listener = new TextWriterTraceListener(traceFile);
 			Trace.Listeners.Add(listener);
 			Trace.AutoFlush = true;
-
+#endif
 			var server = new HttpListener();
 
 			var success = false;

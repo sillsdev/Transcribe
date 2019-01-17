@@ -72,7 +72,7 @@ namespace Transcribe.Windows
 		private static void AddAnySample()
 		{
 			var folderInfo = new DirectoryInfo(Util.DataFolder);
-			if (folderInfo.Exists)
+			if (folderInfo.Exists && folderInfo.GetFiles().Length > 0)
 				return; // Data exists
 			var appFolder = Assembly.GetExecutingAssembly().Location;
 			appFolder = Path.GetDirectoryName(appFolder);
