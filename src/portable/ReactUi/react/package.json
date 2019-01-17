@@ -1,6 +1,6 @@
 {
   "name": "transcriber",
-  "version": "0.3.8",
+  "version": "1.0.0",
   "private": true,
   "description": "UI for Transcriber using create-react-app ejected for sass",
   "keywords": [

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?define Product="SIL Transcriber"?>
 <?define UpgradeCode="5B73C2DB-296F-416A-9C5B-9989D826EAE8"?>
-<?define BUILD_NUMBER="0.3.8"?>
+<?define BUILD_NUMBER="1.0.0"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:netfx="http://schemas.microsoft.com/wix/NetFxExtension">
   <Product Id="*" Name="$(var.Product) $(var.BUILD_NUMBER)" Language="1033" Version="$(var.BUILD_NUMBER)" Manufacturer="SIL International" UpgradeCode="$(var.UpgradeCode)">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
