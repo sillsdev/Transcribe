@@ -12,13 +12,15 @@ This project uses a react redux ui which is displayed in a GeckoFx browser contr
 1. `git clone https://github.com/sillsdev/Transcribe.git`
 1. `cd src/portable/ReactUi/react`
 1. `npm install`
-1. `copy src\portable\ReactUi\data\api src/portable/ReactUi/react/public/`
-1. `copy src/portable/ReactUi/data/localization src/portable/ReactUi/react/public/`
+1. `copy src\portable\ReactUi\data\api src\portable\ReactUi\react\public\`
+1. `copy src\portable\ReactUi\data\localization src\portable\ReactUi\react\public\`
 1. `npm start`
 
+NB: `npm start` when first run will install webpack-dev-server which has security vulnerabilities
+
 ## To build the program on Windows
-1. `git clone https://github.com/sillsdev/Transcribe.git`
-1. `cmd /c initial-setup.bat` (from the checkout folder)
+1. `git clone https:\\github.com\sillsdev\Transcribe.git`
+1. `cmd \c initial-setup.bat` (from the checkout folder)
 1. `launch Transcribe.Windows.sln` (in Visual Studio 2017)
 (Configuration works as Debug and x86. Release works too. GeckoFx requires x86.)
 1. Right click on `Transcribe.Windows` in the solution explorer and rebuild it.
@@ -29,7 +31,7 @@ This project uses a react redux ui which is displayed in a GeckoFx browser contr
 ## To build for Linux
 1. The Linux build is actually done on a windows machine. This is because mono5 which is used for building on Linux can't accept .net core assemblies as dependencies.
 1. The build instructions are the same as those above except `Transcribe.Windows` is replaced with `Transcribe.Linux`.
-1. Binaries built in this way can be used to replace the /usr/lib/siltranscriber binaries or they can be launched from any folder with the command `./runmono mono Transcribe.Linux.exe` (Building depends on mono5sil but executing will work with mono4sil)
+1. Binaries built in this way can be used to replace the \usr\lib\siltranscriber binaries or they can be launched from any folder with the command `.\runmono mono Transcribe.Linux.exe` (Building depends on mono5sil but executing will work with mono4sil)
 
 ## Updating localizations
 There is a file: [localizationReadMe.md](src\portable\ReactUi\data\localization\localizationReadMe.md) which describes how to update rebuild and include the localizations.
@@ -37,7 +39,7 @@ There is a file: [localizationReadMe.md](src\portable\ReactUi\data\localization\
 ## Architecture overview
 When Transcribe.Windows is executed, it launches the SimpleServer code. It tries to use the localhost port 3010 to serve the files from the react\build folder (which are installed by the Windows program in a temporary folder). Then the GeckoFx Browser control navigates to this port address to load the interface.
 
-The browser control is monitoring the HTTP requests. When it observes a request that begins with /api/ it interprets it as an API request for the C# to respond to. The application data is in the default location in ProgramData, company name, and application name (usually: C:\ProgramData\SIL\SIL Transcriber on Windows).
+The browser control is monitoring the HTTP requests. When it observes a request that begins with /api/ it interprets it as an API request for the C# to respond to. The application data is in the default location in ProgramData, company name, and application name (usually: C:\ProgramData\SIL\SIL Transcriber on Windows). Removing this folder will delete all the data for projects, tasks, transcriptions, users and audio files and allow users to start over on this computer.
 
 ## These are GET requests:
 - `GetUsers` - loads the list of all users.
@@ -60,9 +62,10 @@ The browser control is monitoring the HTTP requests. When it observes a request 
 - `DeleteTask?task=<taskid>` - deletes the task data.
 - `DeleteUser?User=<userid>` - deletes the user data.
 - `CopyToClipboard?task=<taskid>` - Copies transcription for task to operating system clipboard.
-- `AddManyTasks?user=<userid>&task=<taskid>` - brings up folder browser and loads spreadsheet of tasks and/ or the audio files contained in the folder.
+- `AddManyTasks?user=<userid>&task=<taskid>` - brings up folder browser and loads spreadsheet of tasks and\ or the audio files contained in the folder.
 - `ShowHelp?topic=<topicEntry>` - Displays help and positions to topicEntry.
 - `GetMeta?fileName=<filename>` - returns duration of audio (contained in the message body) and eventually waveform.
+- `DeleteProject?project=<project>` - Removes the project and task information (although not the audio files and transcriptions).
 
 ### List of tags for UpdateUser api
 - name
