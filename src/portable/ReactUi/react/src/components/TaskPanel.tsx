@@ -29,11 +29,14 @@ class TaskPanel extends React.Component<IProps, object> {
         const userRole = user && user.role.filter(r => r === "reviewer" || r === "administrator")[0];
         const selectReview = assignedReview.filter(t => t.id === lastTask);
         const selectTranscribe = assignedTranscribe.filter(t => t.id === lastTask)
+        const tasksCount = (userRole !== undefined)? assignedTranscribe.length + assignedReview.length : assignedTranscribe.length;
+        const allTasksCount = (userRole !== undefined)? availableTranscribe.length + availableReview.length + assignedReview.length + assignedTranscribe.length
+        : availableTranscribe.length + assignedTranscribe.length;
         if (this.props.selectedTask.trim() === '' && lastTask != null && selectReview.length + selectTranscribe.length > 0 && this.ValidateSelectedOption){
             selectTask(selectedUser, lastTask)
         }
         const headStyle = direction? "ListHead " + direction: "ListHead";
-        const assignedHead = (selectedOption.toLowerCase() === "mytasks" && assignedTranscribe.length + assignedReview.length > 0)?
+        const assignedHead = (selectedOption.toLowerCase() === "mytasks" && tasksCount > 0)?
         (<h3 className="SectionHead">{strings.assigned}</h3>): <div/>;
         const assignedReviewHead = (selectedOption.toLowerCase() === "mytasks" && assignedReview.length > 0 && userRole !== undefined)?
         (<h4 className={headStyle}>{strings.review.toUpperCase()}</h4>): <div/>;
@@ -77,7 +80,7 @@ class TaskPanel extends React.Component<IProps, object> {
             <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
         </div>
         )):<div/>;
-        const availableHead = (selectedOption.toLowerCase() === "mytasks" && availableTranscribe.length + availableReview.length > 0)?
+        const availableHead = (selectedOption.toLowerCase() === "mytasks" && tasksCount > 0)?
         (<h3 className="SectionHead">{strings.available}</h3>): <div/>;
         const availableReviewHead = (selectedOption.toLowerCase() === "mytasks" && availableReview.length > 0 && userRole !== undefined)?
         (<h4 className={headStyle}>{strings.review.toUpperCase()}</h4>): <div/>;
@@ -252,8 +255,7 @@ class TaskPanel extends React.Component<IProps, object> {
             <div className="placeHolder">{"\u00A0"}</div>
         </div>
         )):<div/>;
-        const myTasksEmptyTask = (selectedOption.toLowerCase() === "mytasks" &&
-        availableTranscribe.length + availableReview.length + assignedTranscribe.length + assignedReview.length === 0)?
+        const myTasksEmptyTask = (selectedOption.toLowerCase() === "mytasks" && allTasksCount === 0)?
         (<EmptyTaskItem id={"allTasksEmptyTask"} />): <div/>;
         const wrapper: JSX.Element = !pending && loaded? (
             <div>
