@@ -63,19 +63,26 @@ namespace ReactShared
 					}
 				}
 			}
-			else if (allExcelFiles.Length == 0)
+			else
 			{
 				// Select the .mp3 files and .wav files
 				var allAudioFiles = Directory.EnumerateFiles(audioFolder, "*.*", SearchOption.AllDirectories)
 					.Where(s => s.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase) ||
 					            s.EndsWith(".wav", StringComparison.OrdinalIgnoreCase));
+				var filesFound = 0;
 				foreach (string aFile in allAudioFiles)
 				{
 					var status = CreateTaskFromFile(user, project, aFile);
 					if (status[0] != string.Empty || status[1] != string.Empty)
 					{
 						summary.AppendLine(status[0] + ". " + status[1] + ".");
+						filesFound += 1;
 					}
+				}
+
+				if (filesFound == 0)
+				{
+					summary.AppendLine("No spreadsheet or audio files match import criteria");
 				}
 			}
 			using (var tw = new StreamWriter(Path.Combine(audioFolder, "Summary.txt"),false))
