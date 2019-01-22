@@ -10,17 +10,17 @@
 	<xsl:template match="/">
 		<strings>
 			<transcriber>
-				<xsl:element name="{//@target-language}">
+				<xsl:element name="{substring-before(concat(//@target-language, '-'), '-')}">
 					<xsl:apply-templates select="//*[local-name()='trans-unit' and starts-with(@id, 'transcribe.')]"/>
 				</xsl:element>
 			</transcriber>
 			<userSettings>
-				<xsl:element name="{//@target-language}">
+				<xsl:element name="{substring-before(concat(//@target-language, '-'), '-')}">
 					<xsl:apply-templates select="//*[local-name()='trans-unit' and starts-with(@id, 'userSettings.')]"/>
 				</xsl:element>
 			</userSettings>
 			<projectSettings>
-				<xsl:element name="{//@target-language}">
+				<xsl:element name="{substring-before(concat(//@target-language, '-'), '-')}">
 					<xsl:apply-templates select="//*[local-name()='trans-unit' and starts-with(@id, 'projectSettings.')]"/>
 				</xsl:element>
 			</projectSettings>
