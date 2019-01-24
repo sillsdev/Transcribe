@@ -38,7 +38,6 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             }
             this.setState({
                 audioPlayedSeconds: ctrl.playedSeconds,
-                seeking: false,
                 totalSeconds: ctrl.loadedSeconds,
             })
             this.props.setPlayedSeconds(this.state.audioPlayedSeconds);
@@ -92,7 +91,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         if (this.player && position === 0 && initialPosition > 1 && initialPosition <= totalSeconds) {
             this.player.seekTo(this.adjustPosition(position, initialPosition));
         }
-        if (requestReport) {
+        if (requestReport && jump === 0 && this.player) {
             this.props.reportPosition(selectedTask, audioPlayedSeconds);
         }
         return (

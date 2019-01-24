@@ -11,6 +11,7 @@ export interface IState {
         userHotKeys: IUserKeyVal[];
     };
     tasks: {
+        assigningTask: boolean;
         loaded: boolean;
         pending: boolean;
         deleted: boolean;
@@ -18,6 +19,7 @@ export interface IState {
         selectedProject: string;
         selectedTask: string;
         selectedPopupTask: string;
+        selectingTask: boolean;
         zttProjectsCount: string;
         selectedOption: string;
         todoHighlight: boolean;

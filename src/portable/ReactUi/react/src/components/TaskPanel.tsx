@@ -18,11 +18,16 @@ interface IProps extends IStateProps, IDispatchProps {
 };
 
 class TaskPanel extends React.Component<IProps, object> {
-      public render() {
+    public constructor(props: IProps){
+        super(props);
+        this.doSelectTask = this.doSelectTask.bind(this);
+        this.doAssignTask = this.doAssignTask.bind(this);
+    }
+    public render() {
         const { assignedReview, assignedTranscribe, availableReview, availableTranscribe } = this.props;
         const { inProgressTasks, transcribedTasks, reviewedTasks, syncedTasks, selectedOption, allTasks, syncedOtherTasks, reviewedOtherTasks, transcribedOtherTasks } = this.props;
         const { lastTask, loaded, pending, selectedUser, selectedTask, users } = this.props;
-        const { assignTask, direction, selectTask, strings, unassignTask } = this.props
+        const { direction, strings, unassignTask } = this.props
 
         log("TaskPanel")
         const user = users.filter(u => u.username.id === selectedUser)[0];
@@ -33,7 +38,7 @@ class TaskPanel extends React.Component<IProps, object> {
         const allTasksCount = (userRole !== undefined)? availableTranscribe.length + availableReview.length + assignedReview.length + assignedTranscribe.length
         : availableTranscribe.length + assignedTranscribe.length;
         if (this.props.selectedTask.trim() === '' && lastTask != null && selectReview.length + selectTranscribe.length > 0 && this.ValidateSelectedOption){
-            selectTask(selectedUser, lastTask)
+            this.doSelectTask(selectedUser, lastTask)
         }
         const headStyle = direction? "ListHead " + direction: "ListHead";
         const assignedHead = (selectedOption.toLowerCase() === "mytasks" && tasksCount > 0)?
@@ -57,7 +62,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 selected={t.id === selectedTask}
                 avatar={this.GetUserAvatar(t.assignedto)}
                 taskChips={[t.state.toLowerCase()]}
-                select={this.ValidateSelectedOption? selectTask.bind(this,selectedUser, t.id): ""}/>
+                select={this.ValidateSelectedOption? this.doSelectTask.bind(this,selectedUser, t.id): ""}/>
             <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
         </div>
         )):<div/>;
@@ -76,7 +81,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 selected={t.id === selectedTask}
                 avatar={this.GetUserAvatar(t.assignedto)}
                 taskChips={[t.state.toLowerCase()]}
-                select={this.ValidateSelectedOption? selectTask.bind(this,selectedUser, t.id): ""}/>
+                select={this.ValidateSelectedOption? this.doSelectTask.bind(this,selectedUser, t.id): ""}/>
             <div className={t.id === selectedTask? "selectBar": "placeHolder"}>{"\u00A0"}</div>
         </div>
         )):<div/>;
@@ -97,7 +102,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 selected={t.id === selectedTask}
                 avatar={this.GetUserAvatar(t.assignedto)}
                 taskChips={[t.state.toLowerCase()]}
-                select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
             <div className="placeHolder">{"\u00A0"}</div>
         </div>
         )):<div/>;
@@ -111,7 +116,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 length={t.length != null? t.length: 0}
                 selected={t.id === selectedTask}
                 avatar={this.GetUserAvatar(t.assignedto)}
-                select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
             <div className="placeHolder">{"\u00A0"}</div>
         </div>
         )):<div/>;
@@ -130,7 +135,7 @@ class TaskPanel extends React.Component<IProps, object> {
                     selected={t.id === selectedTask}
                     avatar={this.GetUserAvatar(t.assignedto)}
                     taskChips={[t.state.toLowerCase()]}
-                    select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                    select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
                 <div className="placeHolder">{"\u00A0"}</div>
             </div>
         )):<div/>;
@@ -149,7 +154,7 @@ class TaskPanel extends React.Component<IProps, object> {
                     selected={t.id === selectedTask}
                     avatar={this.GetUserAvatar(t.assignedto)}
                     taskChips={[t.state.toLowerCase()]}
-                    select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                    select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
                 <div className="placeHolder">{"\u00A0"}</div>
             </div>
         )):<div/>;
@@ -164,7 +169,7 @@ class TaskPanel extends React.Component<IProps, object> {
                     selected={t.id === selectedTask}
                     avatar={this.GetUserAvatar(t.assignedto)}
                     taskChips={[t.state.toLowerCase()]}
-                    select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                    select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
                 <div className="placeHolder">{"\u00A0"}</div>
             </div>
         )):<div/>;
@@ -183,7 +188,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 selected={t.id === selectedTask}
                 avatar={this.GetUserAvatar(t.assignedto)}
                 taskChips={[t.state.toLowerCase()]}
-                select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
             <div className="placeHolder">{"\u00A0"}</div>
         </div>
         )):<div/>;
@@ -198,7 +203,7 @@ class TaskPanel extends React.Component<IProps, object> {
                     selected={t.id === selectedTask}
                     avatar={this.GetUserAvatar(t.assignedto)}
                     taskChips={[t.state.toLowerCase()]}
-                    select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                    select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
                 <div className="placeHolder">{"\u00A0"}</div>
             </div>
         )):<div/>;
@@ -217,7 +222,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 selected={t.id === selectedTask}
                 avatar={this.GetUserAvatar(t.assignedto)}
                 taskChips={[t.state.toLowerCase()]}
-                select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
             <div className="placeHolder">{"\u00A0"}</div>
         </div>
         )):<div/>;
@@ -232,7 +237,7 @@ class TaskPanel extends React.Component<IProps, object> {
                     selected={t.id === selectedTask}
                     avatar={this.GetUserAvatar(t.assignedto)}
                     taskChips={[t.state.toLowerCase()]}
-                    select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                    select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
                 <div className="placeHolder">{"\u00A0"}</div>
             </div>
             )):<div/>;
@@ -251,7 +256,7 @@ class TaskPanel extends React.Component<IProps, object> {
                 selected={t.id === selectedTask}
                 avatar={this.GetUserAvatar(t.assignedto)}
                 taskChips={(t.assignedto != null || t.state !== 'Transcribe')? [t.state.toLowerCase()]: []}
-                select={this.ValidateSelectedOption? assignTask.bind(this,t.id, selectedUser): ""}/>
+                select={this.ValidateSelectedOption? this.doAssignTask.bind(this,t.id, selectedUser): ""}/>
             <div className="placeHolder">{"\u00A0"}</div>
         </div>
         )):<div/>;
@@ -297,6 +302,18 @@ class TaskPanel extends React.Component<IProps, object> {
         )
     }
 
+    private doSelectTask(userId: string, taskId: string){
+        if (!this.props.selectingTask){
+            this.props.selectTask(userId, taskId);
+        }
+    }
+
+    private doAssignTask(taskId: string, userId: string){
+        if (!this.props.assigningTask){
+            this.props.assignTask(taskId, userId);
+        }
+    }
+
     private GetUserAvatar(assignedTo: string = ""){
         const { users } = this.props;
         const user = users.filter(u => u.username.id === assignedTo)[0];
@@ -319,6 +336,7 @@ interface IStateProps {
     allTasks: ITask[];
     assignedReview: ITask[];
     assignedTranscribe: ITask[];
+    assigningTask: boolean;
     availableReview: ITask[];
     availableTranscribe: ITask[];
     direction: string;
@@ -327,6 +345,7 @@ interface IStateProps {
     pending: boolean;
     selectedUser: string;
     selectedTask: string;
+    selectingTask: boolean;
     strings: ITranscriberStrings;
     selectedOption: string;
     inProgressTasks: ITask[];
@@ -344,6 +363,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     allTasks: taskList(state).allTasks,
     assignedReview: taskList(state).assignedReview,
     assignedTranscribe: taskList(state).assignedTranscribe,
+    assigningTask: state.tasks.assigningTask,
     availableReview: taskList(state).availableReview,
     availableTranscribe: taskList(state).availableTranscribe,
     direction: uiDirection(state),
@@ -356,6 +376,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedOption: state.tasks.selectedOption,
     selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
+    selectingTask: state.tasks.selectingTask,
     strings: userStrings(state, {layout: "transcriber"}),
     syncedOtherTasks: taskList(state).syncedOtherTasks,
     syncedTasks: taskList(state).syncedTasks,
