@@ -104,6 +104,54 @@
 				<target>Вы достигли</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.mytasks">
+			<segment>
+				<source>My Tasks</source>
+				<target>Мои задачи</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.alltasks">
+			<segment>
+				<source>All Tasks</source>
+				<target>Все задачи</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>В ходе выполнения</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Трансляции</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Отзыв</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>синхронизированные</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>Выйти</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Никто</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -278,6 +326,42 @@
 				<target>Пожалуйста, заполните Ускорить</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>Новое изображение</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Увеличить</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>Просматривать</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Привилегированный уровень</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Файл изображения</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Редактировать Аватар</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -338,10 +422,10 @@
 				<target>Автоматическая синхронизация с Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Разрешить подписчикам требовать невысокие задачи</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Разрешить пользователям запрашивать неназначенные задачи</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
@@ -372,6 +456,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>Добавить много</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>Научитесь создавать {0} или переименовывать аудиофайл с помощью {1}.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>электронная таблица загрузки</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>наше соглашение об именах</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -476,6 +578,12 @@
 				<target>Пара с Paratext</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>Ссылка уже введена</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -492,6 +600,84 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>Скопировать в буфер обмена</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Сделать новый проект</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Изменить изображение проекта</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>предварительный просмотр</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Основные этапы</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Начните</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Трансляции</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Отзыв</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>синхронизированные</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>Отменить изменения</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>Удалить задачу</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Удалить пользователя</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Удалить проект</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Выберите другой проект</target>
 			</segment>
 		</unit>
 	</file>

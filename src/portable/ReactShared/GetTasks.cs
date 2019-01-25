@@ -15,6 +15,7 @@ namespace ReactShared
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
 			var project = parsedQuery["project"];
+			var filterOption = parsedQuery["option"];
 			var userNode = Util.UserNode(user);
 			var apiFolder = Util.ApiFolder();
 			var tasksDoc = Util.LoadXmlData("tasks");
@@ -24,25 +25,32 @@ namespace ReactShared
 			var projectNodes = tasksDoc.SelectNodes(projectXpath);
 			Debug.Assert(projectNodes != null, nameof(projectNodes) + " != null");
 			var taskList = new List<string>();
+			CopyAvatars(tasksDoc, apiFolder);
 			foreach (XmlElement node in projectNodes)
 			{
 				var filterNodeList = new List<XmlNode>();
 				var taskNodes = node.SelectNodes(".//*[local-name() = 'task']");
 				var claim = node.SelectSingleNode("./@claim") as XmlAttribute;
-				if (!string.IsNullOrEmpty(user))
+				if (!string.IsNullOrEmpty(user) && (filterOption != null && filterOption != @"alltasks"))
+				{
 					TaskSkillFilter(taskNodes, ref filterNodeList, userNode, user, claim);
+					TaskHistoryFilter(taskNodes, ref filterNodeList, userNode, user, filterOption);
+				}
 				else
 				{
-					foreach (XmlNode tNode in taskNodes)
-					{
-						filterNodeList.Add(tNode);
-					}
+					if (taskNodes != null)
+						foreach (XmlNode tNode in taskNodes)
+						{
+							filterNodeList.Add(tNode);
+						}
 				}
+
 				if (filterNodeList.Count == 0)
-					{
-						var emptyTaskNode = Util.NewChild(node, "task");
-						Util.AsArray(new List<XmlNode> {emptyTaskNode});
-					}
+				{
+					var emptyTaskNode = Util.NewChild(node, "task");
+					Util.AsArray(new List<XmlNode> { emptyTaskNode });
+				}
+
 				Util.AsArray(filterNodeList);
 				foreach (XmlNode taskNode in filterNodeList)
 				{
@@ -63,13 +71,35 @@ namespace ReactShared
 				foreach (var t in deleteNodes)
 					node.RemoveChild(t);
 
-				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"false\"","false").Replace("\"true\"","true").Replace("\"@", "\"").Substring(11);
+				var jsonContent = JsonConvert.SerializeXmlNode(node).Replace("\"false\"", "false")
+					.Replace("\"true\"", "true").Replace("\"@", "\"").Substring(11);
 				taskList.Add(jsonContent.Substring(0, jsonContent.Length - 1));
 			}
-
 			using (var sw = new StreamWriter(Path.Combine(apiFolder, "GetTasks")))
 			{
 				sw.Write($"[{string.Join(",", taskList)}]".Replace("{}", ""));
+			}
+		}
+
+		private static void CopyAvatars(XmlNode tasksDoc, string apiFolder)
+		{
+			var projectNodes = tasksDoc.SelectNodes("//*[local-name()='project']");
+			Debug.Assert(projectNodes != null, nameof(projectNodes) + " != null");
+			foreach (XmlNode avatarNode in projectNodes)
+			{
+				var sourceFolder = Util.DataFolder;
+				var avatarRelName = avatarNode.Attributes["uri"].Value;
+				var sourceFullName = Path.Combine(sourceFolder, avatarRelName);
+				if (!File.Exists(sourceFullName))
+					continue;
+				avatarNode.Attributes["uri"].Value = "/api/" + avatarRelName;
+				var avatarFolder = Path.GetDirectoryName(avatarRelName);
+				var targetFolder = string.IsNullOrEmpty(avatarFolder) ? apiFolder : Path.Combine(apiFolder, avatarFolder);
+				if (!Directory.Exists(targetFolder))
+					Directory.CreateDirectory(targetFolder);
+				var apiImageFullName = Path.Combine(apiFolder, avatarRelName);
+				if (File.Exists(apiImageFullName)) continue;
+				File.Copy(sourceFullName, apiImageFullName);
 			}
 		}
 
@@ -119,12 +149,41 @@ namespace ReactShared
 			}
 		}
 
+		private void TaskHistoryFilter(XmlNodeList taskNodes, ref List<XmlNode> filterNodeList, XmlNode userNode, string userName, string filterOption)
+		{
+			foreach (XmlNode node in taskNodes)
+			{
+				if (filterNodeList.Contains(node))
+					continue;
+				var taskHistory = node.SelectNodes("./history");
+				if (taskHistory != null)
+					foreach (XmlNode historyNode in taskHistory)
+					{
+						if (historyNode.Attributes == null)
+							continue;
+
+						if (int.Parse(historyNode.Attributes["id"].Value) == taskHistory.Count)
+						{
+							break;
+						}
+						var assignedTo = historyNode.Attributes["userid"].Value;
+						var action = historyNode.Attributes["action"].Value;
+						if (string.IsNullOrEmpty(assignedTo) || assignedTo == userName)
+						{
+							if ((action.ToLower() == "transcribeend" || action.ToLower() == "reviewend"))
+								filterNodeList.Add(node);
+						}
+					}
+			}
+
+		}
+
 		private bool isUserRole(XmlNode userNode, string state)
 		{
 			return
-				(state.ToLower() == "transcribe" &&
+				((state.ToLower() == "transcribe" || state.ToLower() == "review" || state.ToLower() == "upload" || state.ToLower() == "complete") &&
 				 userNode.SelectSingleNode("./role/text()[.='transcriber']") != null) ||
-				(state.ToLower() == "review" &&
+				((state.ToLower() == "transcribe" || state.ToLower() == "review" || state.ToLower() == "upload" || state.ToLower() == "complete") &&
 				 userNode.SelectSingleNode("./role/text()[.='reviewer']") != null);
 		}
 
@@ -181,7 +240,7 @@ namespace ReactShared
 				Util.NewAttr(transcriptionDoc.DocumentElement, "position", position);
 			var transcription = eafDoc.SelectSingleNode("//*[local-name()='ANNOTATION_VALUE']")?.InnerText;
 			if (!string.IsNullOrEmpty(transcription))
-				Util.NewChild(transcriptionDoc.DocumentElement,"transcription", transcription);
+				Util.NewChild(transcriptionDoc.DocumentElement, "transcription", transcription);
 
 			var transcriptionJson =
 				JsonConvert.SerializeXmlNode(transcriptionDoc.DocumentElement).Replace("\"@", "\"").Substring(8);

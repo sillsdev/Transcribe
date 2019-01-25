@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: AvatarEdit --- Snapshot +++capturing Snapshot of AvatarEdit 1`] = `
+<div
+  className="AvatarEdit ltr"
+>
+  <div
+    className="panel"
+  >
+    <div
+      className="titleRow"
+    >
+      <div
+        className="BackLink"
+        id="BackLink"
+      >
+        <a
+          href="/main"
+          onClick={[Function]}
+        >
+          ❮
+        </a>
+      </div>
+      <div
+        className="title"
+      >
+        <span
+          className="LabelCaptionUx H3 label label-default hidden"
+        />
+      </div>
+    </div>
+    <div
+      className="data"
+    >
+      <div>
+        Dropzone + Avatar
+      </div>
+    </div>
+    <div
+      className="options"
+    >
+      <div
+        className="uploadContent"
+      >
+        <span
+          className="LabelCaptionUx  label label-default"
+        >
+          New Image File : 
+        </span>
+        <button
+          className="btn"
+        >
+          Browse...
+        </button>
+        <input
+          name="newImage"
+          onChange={[Function]}
+          type="file"
+        />
+      </div>
+      <div
+        className="zoomContent"
+      >
+        <span
+          className="LabelCaptionUx  label label-default"
+        >
+          Scale :
+        </span>
+        <input
+          defaultValue="1"
+          max="3"
+          min="1"
+          name="scale"
+          onChange={[Function]}
+          step="0.01"
+          type="range"
+        />
+      </div>
+    </div>
+    <div
+      className="action"
+    >
+      <div
+        className="IconButtonField"
+        id="discard"
+        onClick={[Function]}
+      >
+        <img
+          alt="D"
+          className="CaptionImage"
+          src="/assets/CancelIcon.svg"
+        />
+        <label
+          className="Caption"
+        >
+          DISCARD CHANGES
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

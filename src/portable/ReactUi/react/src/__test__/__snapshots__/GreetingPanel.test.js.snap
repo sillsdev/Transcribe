@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1 1`] = `
+<div
+  className="GreetingPanel"
+>
+  <div
+    className="Message"
+  >
+    <img
+      alt="Wow!!"
+      height="50%"
+      src="/assets/Smile.svg"
+      width="50%"
+    />
+    <h1>
+      Congratulations
+      !
+      <br />
+      You have reached
+       
+      <br />
+      zero inbox
+      . 
+    </h1>
+    <div>
+      <h1>
+        Have a nice day
+      </h1>
+    </div>
+  </div>
+</div>
+`;

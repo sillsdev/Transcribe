@@ -8,7 +8,7 @@ interface IProps {
     extensions?: string;
     message?: string;
     isReadOnly?: boolean;
-    onChange?: (value: string) => any;
+    onChange?: (name: string, data: string) => any;
 }
 
 class FileField extends React.Component<IProps, any> {
@@ -30,16 +30,19 @@ class FileField extends React.Component<IProps, any> {
         reader.readAsDataURL(event.target.files[0])
         reader.onload = (e: any) => {
             this.setState({...this.state, data: e.target.result})
+            if (this.props.onChange != null) {
+                this.props.onChange(val, e.target.result)
+            }
         }
         this.setState({current: val });
-        if (this.props.onChange != null) {
-            this.props.onChange(val)
-        }
     }
 
     public handleClear(event: any) {
         if (!this.props.isReadOnly) {
             this.setState({current: "" })
+        }
+        if (this.props.onChange != null) {
+            this.props.onChange("", "")
         }
     }
 

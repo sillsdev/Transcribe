@@ -2,8 +2,39 @@
 
 .NavPanel 
 	width: 208px
+	height: 100%
 	display: flex
 	flex-direction: column
 	align-items: center
+	flex-direction:row
+	display: flex
+	text-overflow: ellipsis
+	overflow: hidden
+	overflow-y: auto
 	a 
 		text-decoration: none
+
+	.AllTasksStyle
+		display: flex
+		flex: 0 1 auto
+		.IconButtonField
+			margin-top: 0px
+			margin-bottom: 0px
+
+	.OptionsStyle
+		display: flex
+		flex: 0 1 auto
+		flex-direction: column
+		margin-left: 10px
+
+	.LogoutStyle
+		display: flex
+		flex: 1 0 auto
+		flex-direction: row
+		align-items: flex-end
+
+	.User
+		padding: 0
+
+	.Project
+		width: 180px

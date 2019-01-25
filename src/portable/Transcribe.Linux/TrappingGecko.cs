@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Gecko;
-using MediaToolkit;
-using MediaToolkit.Model;
 using ReactShared;
 using SIL.Reporting;
 
@@ -41,6 +38,9 @@ namespace Transcribe.Windows
 						case "GetDefaultUserHotKeys":
 							new GetDefaultUserHotKeys();
 							break;
+						case "GetZttProjectsCount":
+							new GetZttProjectsCount();
+							break;
 					}
 				}
 				catch (Exception err)
@@ -63,10 +63,10 @@ namespace Transcribe.Windows
 								e.Cancel = true;
 							break;
 						case "UpdateUser":
-							new UpdateUser(e.Uri.Query);
+							new UpdateUser(e.Uri.Query, e.RequestBody, SaveImage);
 							break;
-						case "UpdateAvatar":
-							new UpdateAvatar(e.Uri.Query, e.RequestBody, SaveImage);
+						case "UpdateProjectAvatar":
+							new UpdateProjectAvatar(e.Uri.Query, e.RequestBody, SaveImage);
 							break;
 						case "UpdateProject":
 							new UpdateProject(e.Uri.Query);
@@ -81,13 +81,25 @@ namespace Transcribe.Windows
 							new DeleteUser(e.Uri.Query);
 							break;
 						case "UpdateTask":
-							new UpdateTask(e.Uri.Query, e.RequestBody, GetAudioDuration);
+							new UpdateTask(e.Uri.Query, e.RequestBody);
 							break;
 						case "DeleteTask":
 							new DeleteTask(e.Uri.Query);
 							break;
 						case "CopyToClipboard":
 							new CopyToClipboard(e.Uri.Query, ToClipboard);
+							break;
+						case "AddManyTasks":
+							new AddManyTasks(e.Uri.Query, SelectAudioFilesFolder);
+							break;
+						case "ShowHelp":
+							new ShowHelp(e.Uri.Query, ShowHelpTopic);
+							break;
+						case "GetMeta":
+							new GetMeta(e.Uri.Query, e.RequestBody);
+							break;
+						case "DeleteProject":
+							new DeleteProject(e.Uri.Query);
 							break;
 					}
 				}
@@ -108,6 +120,24 @@ namespace Transcribe.Windows
 		{
 			var newAvatarImage = LoadImage(data);
 			newAvatarImage.Save(filepath);
+		}
+
+		private string SelectAudioFilesFolder()
+		{
+			FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+			folderDlg.Description = "Select the Folder with the Audio File";
+
+			string folderName = "";
+
+			// Show the Dialog.
+			// If the user clicked OK in the dialog and
+			// a folder was selected, set the folder name
+			if (folderDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			{
+				folderName = folderDlg.SelectedPath;
+			}
+
+			return folderName;
 		}
 
 		private Image LoadImage(string avatarUriString)
@@ -134,16 +164,14 @@ namespace Transcribe.Windows
 			return image;
 		}
 
-		public static string GetAudioDuration(string audioFilePath)
+		private void ShowHelpTopic(string topic, string helpFileName)
 		{
-			var inputFile = new MediaFile { Filename = audioFilePath };
-			using (var engine = new Engine())
-			{
-				engine.GetMetadata(inputFile);
-			}
-
-			return inputFile.Metadata.Duration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+			HelpProvider helpProv = new HelpProvider();
+			helpProv.HelpNamespace = helpFileName;
+			TextBox tb = new TextBox();
+			helpProv.SetHelpNavigator(tb, HelpNavigator.KeywordIndex);
+			helpProv.SetHelpKeyword(tb, topic);
+			Help.ShowHelp(tb, helpProv.HelpNamespace, helpProv.GetHelpNavigator(tb), helpProv.GetHelpKeyword(tb));
 		}
-
 	}
 }

@@ -104,6 +104,54 @@
 				<target>لقد وصلت</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.mytasks">
+			<segment>
+				<source>My Tasks</source>
+				<target>مهامي</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.alltasks">
+			<segment>
+				<source>All Tasks</source>
+				<target>كل المهام</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>في تقدم</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>نسخت</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>التعليق</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>مزامن</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>الخروج</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>لا شيء</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -278,6 +326,42 @@
 				<target>إسرعع يرجى ملء</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>صورة جديدة</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>تكبير</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>تصفح</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>امتياز الطبقة</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>ملف الصورة</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>تحرير الصورة الرمزية</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -338,10 +422,10 @@
 				<target>تزامن تلقائي مع Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>اسمح لمرسلي النصوص التتابعية بالمطالبة بالمهام غير المعينة</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>السماح للمستخدمين بمطالبة المهام غير المحددة</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
@@ -372,6 +456,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>أضف الكثير</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>تعلّم كيفية إنشاء {0} أو لإعادة تسمية ملفك الصوتي باستخدام {1}.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>دفعة تحميل جدول البيانات</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>اصطلاح التسمية لدينا</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -476,6 +578,12 @@
 				<target>إقران مع Paratext</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>المرجع الذي تم إدخاله موجود بالفعل</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -492,6 +600,84 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>نسخ إلى الحافظة</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>جعل مشروع جديد</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>تغيير صورة المشروع</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>معاينة</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>معالم</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>بداية</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>نسخت</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>التعليق</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>مزامن</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>تجاهل التغييرات</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>حذف المهمة</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>مسح المستخدم</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>حذف مشروع</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>اختر مشروعًا مختلفًا</target>
 			</segment>
 		</unit>
 	</file>

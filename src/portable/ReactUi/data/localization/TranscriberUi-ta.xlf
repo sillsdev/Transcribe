@@ -104,6 +104,54 @@
 				<target>நீங்கள் அடைந்துவிட்டீர்கள்</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.mytasks">
+			<segment>
+				<source>My Tasks</source>
+				<target>எனது பணிகள்</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.alltasks">
+			<segment>
+				<source>All Tasks</source>
+				<target>அனைத்து பணிகள்</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>நடப்பு வேலை</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>எழுத்துவடிவமாக்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>சரிபார்க்கப்பட்டது</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>ஒத்திசைக்கப்பட்டன</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>வெளியேறு</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>ஏதுமில்லை</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -122,7 +170,7 @@
 				<target>எழுத்துரு</target>
 			</segment>
 		</unit>
-		<unit id="userSettings.Language">
+		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
 				<target>மொழி</target>
@@ -278,6 +326,42 @@
 				<target>தயவு செய்து வேகமாக்குவதை நிரப்பவும்</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>புதிய படம்</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>பெரிதாக்கு</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>உலாவு</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>பிரெயிலெக் அடுக்கு</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>படக் கோப்பு</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>படத்தை திருத்தவும்</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -338,10 +422,10 @@
 				<target>Paratext உடன் தன்னியக்க ஒத்திசைவு</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>அனுப்பப்படாத பணிகளைக் கோர Transcribers ஐ அனுமதிக்கவும்</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>பயனர்கள் ஒதுக்கப்படாத பணிகளைக் கோர அனுமதி</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
@@ -372,6 +456,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>பல சேர்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>{0} உருவாக்க அல்லது உங்கள் ஆடியோ கோப்பை {1} உடன் மறுபெயரிட கற்றுக்கொள்ளுங்கள்.</target>				
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>தொகுப்பு பதிவேற்ற விரிதாள்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>எங்கள் பெயரிடும் வழக்கம்</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -476,6 +578,12 @@
 				<target>Paratext உடன் இணைத்தல்</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>உள்ளிட்ட குறிப்பு ஏற்கனவே உள்ளது</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -491,7 +599,85 @@
 		<unit id="projectSettings.copyToClipboard">
 			<segment>
 				<source>Copy to Clipboard</source>
-				<target>கிளிப்போர்டுக்கு நகலெடுக்கவும்</target>
+				<target>படியெடுத்தல் நகல்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>புதிய திட்டம் உருவாக்க </target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>திட்டத்தின் படத்தை மாற்ற</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>முன்னோட்ட</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>மைல்கற்கள்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>தொடங்கும்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>தட்டச்சு</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>ஒப்புதல்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>பதிவேற்றிய</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>மாற்றங்களை கைவிடலாம்</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>பணி நீக்கு</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>பயனரை நீக்கு</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>திட்டத்தை நீக்கு</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>வேறொரு திட்டத்தைத் தேர்வுசெய்க</target>
 			</segment>
 		</unit>
 	</file>

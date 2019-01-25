@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import { log } from '../actions/logAction';
-import { DELETE_USER, FETCH_USERS, RESTORE_DEFAULT_USER_HOTKEYS, SELECT_POPUP_USER, SELECT_USER, UPDATE_AVATAR, UPDATE_USER_PENDING } from './types';
+import { DELETE_USER, FETCH_USERS, RESTORE_DEFAULT_USER_HOTKEYS, SELECT_POPUP_USER, SELECT_USER, UPDATE_USER_PENDING } from './types';
 
 export const fetchUsers = () => (dispatch: any) => {
     Axios.get('/api/GetUsers')
@@ -38,21 +38,12 @@ export const selectLanguage = (user: string, lang: string) => (dispatch: any) =>
         });
 }
 
-export const updateUser = (user: string, project: string, query: string) => (dispatch: any) => {
+export const updateUser = (user: string, project: string, query: string, data: object) => (dispatch: any) => {
     dispatch({type: UPDATE_USER_PENDING});
-    Axios.put('/api/UpdateUser?user=' + user + '&project=' + project + query)
+    Axios.put('/api/UpdateUser?user=' + user + '&project=' + project + query, data)
         .then(dispatch(fetchUsers()))
         .catch((reason: any) => {
             dispatch(log(JSON.stringify(reason) + " update user, user=" + user))
-        });
-}
-
-export const updateAvatar = (user: string, project: string,  data: object) => (dispatch: any) => {
-    dispatch({type: UPDATE_AVATAR});
-    Axios.put('/api/UpdateAvatar?user=' + user + '&project=' + project, data)
-        .then(dispatch(fetchUsers()))
-        .catch((reason: any) => {
-            dispatch(log(JSON.stringify(reason) + " " + UPDATE_AVATAR + ", user=" + user))
         });
 }
 

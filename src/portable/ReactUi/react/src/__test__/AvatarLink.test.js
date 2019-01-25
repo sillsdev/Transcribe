@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import React from 'react';
 import expect from 'expect';
 import { configure, shallow } from 'enzyme';
@@ -7,7 +8,7 @@ import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import AvatarLink from '../components/controls/AvatarLink';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 // Snapshot for AvatarLink
 describe('>>>Control: Avatarlink --- Snapshot',()=>{
@@ -41,14 +42,14 @@ describe('>>>Control: AvatarLink', () => {
         expect(wrapper.length).toEqual(1);
     });
 
-    it('+++ sets link action', () => {
+    it('+++ activates link when clicked', () => {
         const onButtonClick = sinon.spy();
         const linkWrapper = shallow(<AvatarLink {...minProps} select={onButtonClick}/>)
         linkWrapper.find('Link').simulate('click');
         expect(onButtonClick.calledOnce).toEqual(true);
     });
 
-    it('+++ set size of avatar', () => {
+    it('+++ sets size of avatar', () => {
         expect(wrapper.find('Link').get(0).props.children[0].props.size).toEqual('64')
     });
 });

@@ -1,0 +1,105 @@
+@import "../../_variables.sass"
+
+.Project
+	width: 180px
+	height: 180px
+	text-align: initial
+	flex: 0 0 auto
+	.main
+		width: inherit
+		height: inherit
+		position: absolute
+		-moz-border-width: 2px
+		border-width: 2px
+		border: solid transparent
+		background-color: rgba($taskBG,0.5)
+	.main .adminDiv
+		display: none
+		width: inherit
+		height: inherit
+	.main:hover
+		-moz-border-width: 2px
+		border-width: 2px
+		-moz-border-top-colors: $cyan2
+		-moz-border-bottom-colors: $cyan2
+		-moz-border-right-colors: $cyan2
+		-moz-border-left-colors: $cyan2
+		border: solid $cyan2
+		box-sizing: border-box
+		-moz-box-sizing: border-box
+		background-color: rgba($taskBG,0.5)
+	.main:hover .adminDiv
+		display: block
+	.mainNotAdmin
+		-moz-border-width: 2px
+		border-width: 2px
+		border: solid transparent
+		cursor: default
+		background-color: rgba($taskBG,0.5)
+		width: inherit
+		height: inherit
+		position: absolute
+	.captionDiv
+		position: absolute
+		width: inherit
+		height: inherit
+		display: flex
+		flex-direction: row
+		justify-content: center
+	.caption
+		color: $litUpText
+		font-family: $sans
+		font-size: 34px
+		line-height: 40px
+		letter-spacing: 0.25px
+		overflow: hidden
+		text-overflow: clip
+		white-space: nowrap
+		padding: 20px 0
+	.projectImage
+		opacity: 0.5
+		width: inherit
+		height: inherit
+		position: absolute
+	.adminIcon
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		top: 77.13px
+		width: inherit
+		height: 70px
+		margin: auto
+	.adminCaption
+		position: absolute
+		text-align: center
+		color: $litUpText
+		font-family: $sans
+		font-size: 14px
+		line-height: 16px
+		letter-spacing: 0.75px
+		width: inherit
+		height: 17px
+		top: 147px
+	.ContextMenu
+		position: absolute
+		display: flex
+		color: $litUpText
+		line-height: 16px
+		width: 170px
+		height: 16px
+		top: 8px
+		justify-content: flex-end
+	nav.react-contextmenu
+		background-color: $navBG
+		text-align: left
+		color: $base3
+		padding: 16px
+	.react-contextmenu-item
+		width: auto
+		height: 32px
+		font-family: $sans
+		font-size: 16px
+
+	a:active
+		outline: none

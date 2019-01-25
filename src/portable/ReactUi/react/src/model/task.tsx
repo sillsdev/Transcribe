@@ -16,6 +16,7 @@ interface ITask {
     name?: string;
     transcribing?: boolean;
     history?: IHistory[];
+    reference?: string;
 };
 
 interface IProject {
@@ -31,6 +32,7 @@ interface IProject {
     sync?: boolean;
     claim?: boolean;
     type?: string;
+    uri?: string;
     task: ITask[];
 };
 

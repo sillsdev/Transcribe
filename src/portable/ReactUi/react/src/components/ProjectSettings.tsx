@@ -13,6 +13,7 @@ import PencilAction from './controls/PencilAction';
 import ToggleSwitch from './controls/ToggleSwitch';
 import './ProjectSettings.sass';
 import TaskList from './TaskList';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import UserList from './UserList';
 
@@ -62,7 +63,7 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
     public onNameLooseFocus = () => {
         this.setState({showTextBox : false});
         const{ project } = this.props;
-        const projectName = (project.name !== undefined)?project.name:"";
+        const projectName = (project && project.name !== undefined)?project.name:"";
         if(this.state.titleText.trim().toUpperCase() !== projectName.trim().toUpperCase()){
             this.props.updateProject({...project, name:this.state.titleText})
         }
@@ -83,11 +84,11 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
 
         let titleWrapper;
         if (this.state.showTextBox) {
-            titleWrapper = (<input value={this.state.titleText} onBlur={this.onNameLooseFocus} className="inputTitle" 
-            onChange={this.onNameChange} autoFocus={true} onKeyDown={this.onNameKeyDown} />);
+            titleWrapper = (<div className="inputTitle"><textarea value={this.state.titleText} onBlur={this.onNameLooseFocus} className="inputTitle" 
+            onChange={this.onNameChange} autoFocus={true} onKeyDown={this.onNameKeyDown} /><PencilAction target={this.editProjectName} /></div>);
         } else {
             titleWrapper = (<div className="title" onClick={this.onNameClick}>
-            <LabelCaptionUx name={this.state.titleText} type="H1" /></div>);
+            <LabelCaptionUx name={this.state.titleText} type="H1" /><PencilAction target={this.editProjectName} /></div>);
         }
 
         const claim = project && project.claim? project.claim: false;
@@ -100,18 +101,20 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                 <div className="rows">
                     <div className="properties">
                         <div className="header">
+                            <div className="headerLeft">
                             <BackLink target="/main" />
                             <LabelCaptionUx name={strings.projectSettings} type="H3" />
+                            </div>
+                            <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowProjSettingsHelp} />
                         </div>
                         <div className="left">
                             {titleWrapper}
-                            <PencilAction target={this.editProjectName} />
                         </div>
                         {/* <div className="pairingRow">
                             <LinkAction text={pairText} target={this.pair.bind(this, pair)} />
                         </div> */}
                         <div className="switches">
-                            <ToggleSwitch switched={claim} text={strings.allowClaimUnassignedTasks} onChange={this.onClaim}/>
+                            <ToggleSwitch switched={claim} text={strings.allowUsersToClaimUnassignedTasks} onChange={this.onClaim}/>
                             {/* <ToggleSwitch switched={pair} text={strings.pairWithParatext} onChange={this.pair.bind(this, pair)} /> */}
                             <ToggleSwitch switched={sync} text={strings.autoSyncParatext} enabled={pair} onChange={this.onSync} />
                         </div>
@@ -123,6 +126,10 @@ class ProjectSettings extends React.Component<IProps, typeof initialState> {
                 </div>
             </div >
         )
+    }
+
+    private ShowProjSettingsHelp = () => {
+        this.props.showHelp("Procedures/Admin_procedures/Set_up_a_project.htm")
     }
 
     private editProjectName = () => {
@@ -172,12 +179,14 @@ interface IDispatchProps {
     fetchTasks: typeof actions.fetchTasks;
     updateProject: typeof actions.updateProject;
     selectProject: typeof actions.selectProject;
+    showHelp: typeof actions.showHelp,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchTasks: actions.fetchTasks,
         selectProject: actions.selectProject,
+        showHelp: actions.showHelp,
         updateProject: actions.updateProject,
     }, dispatch),
 });

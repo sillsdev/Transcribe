@@ -3,10 +3,10 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using System.Diagnostics;
+using System.Reflection;
 using System.Threading;
 using Gecko;
 using ReactShared;
-using SIL.Extensions;
 using SIL.Reporting;
 using Transcribe.Properties;
 
@@ -27,8 +27,9 @@ namespace Transcribe.Windows
 			Application.SetCompatibleTextRenderingDefault(false);
 			Xpcom.Initialize("Firefox");
 			Util.DataFolder = Path.GetDirectoryName(Application.CommonAppDataPath);
-			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion, DateTime.Now.ToISO8601TimeFormatWithUTCString().Replace(":", "-")));
+			Logger.Init(Path.Combine(Util.DataFolder, Application.ProductVersion, DateTime.Now.ToString("s").Replace(":", "-")));
 			Logger.WriteEvent("Launch {0} {1}", Application.ProductName, Application.ProductVersion);
+			AddAnySample();
 			var randomName = Path.GetTempFileName();
 			if (File.Exists(randomName))
 				File.Delete(randomName);
@@ -46,8 +47,8 @@ namespace Transcribe.Windows
 			using (var reactProcess = new Process {StartInfo = startInfo})
 			{
 				reactProcess.Start();
-				var f = new Form { Size = new Size(1250, 722), MinimumSize = new Size(1055, 270)};
-				f.Icon = Resources.transcriber7;
+				var f = new Form { Size = new Size(1250, 722), MinimumSize = new Size(1055, 610), WindowState = FormWindowState.Maximized};
+				f.Icon = Resources.transcriber9;
 				_browser = new TrappingGecko { Dock = DockStyle.Fill, UseHttpActivityObserver = true};
 				f.Text = $"{Application.ProductName}  {Application.ProductVersion}";
 				f.Controls.Add(_browser);
@@ -65,6 +66,34 @@ namespace Transcribe.Windows
 			{
 				File.Delete(fullPath);
 				Util.DeleteFolder(fullPath);
+			}
+		}
+
+		private static void AddAnySample()
+		{
+			var folderInfo = new DirectoryInfo(Util.DataFolder);
+			if (folderInfo.Exists && folderInfo.GetFiles().Length > 0)
+				return; // Data exists
+			var appFolder = Assembly.GetExecutingAssembly().Location;
+			appFolder = Path.GetDirectoryName(appFolder);
+			var sampleInfo = new DirectoryInfo(appFolder).GetDirectories("Sample");
+			if (sampleInfo.Length == 0)
+				return; // No Sample data
+			CopySampleFolder(sampleInfo[0], folderInfo);
+		}
+
+		private static void CopySampleFolder(DirectoryInfo sampleInfo, DirectoryInfo folderInfo)
+		{
+			folderInfo.Create();
+			foreach (var folder in sampleInfo.GetDirectories())
+			{
+				folderInfo.CreateSubdirectory(folder.Name);
+				CopySampleFolder(folder, new DirectoryInfo(Path.Combine(folderInfo.FullName, folder.Name)));
+			}
+
+			foreach (var fileInfo in sampleInfo.GetFiles())
+			{
+				File.Copy(fileInfo.FullName, Path.Combine(folderInfo.FullName, fileInfo.Name), true);
 			}
 		}
 

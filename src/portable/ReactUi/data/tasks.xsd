@@ -88,11 +88,17 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
+	  <xs:attribute name="uri" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>URI to project picture</xs:documentation>
+        </xs:annotation>
+	  </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:element name="task">
     <xs:complexType>
       <xs:sequence>
+		<xs:element minOccurs="0" ref="reference"/>
         <xs:element minOccurs="0" ref="name"/>
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="history"/>
       </xs:sequence>
@@ -137,6 +143,11 @@
         </xs:annotation>
       </xs:attribute>
     </xs:complexType>
+  </xs:element>
+  <xs:element name="reference" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>any reference</xs:documentation>
+    </xs:annotation>
   </xs:element>
   <xs:element name="name" type="xs:string">
     <xs:annotation>

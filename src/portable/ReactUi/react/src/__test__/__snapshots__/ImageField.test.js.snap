@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: ImageField --- Snapshot +++capturing Snapshot of ImageField 1`] = `
+<div
+  className="ImageField"
+  id="myId"
+>
+  <div
+    className="bodyRow"
+  >
+    <div
+      className="dataColumn"
+      onClick={[Function]}
+    >
+      <label
+        className="Caption CaptionRed"
+      >
+        Caption
+      </label>
+      <label
+        className="fileInput DataColor"
+        data-content="Any Value"
+        htmlFor="Upload"
+      />
+    </div>
+    <div
+      className="Hide"
+      onClick={[Function]}
+    >
+      <img
+        alt="X"
+        src="/assets/Clear.svg"
+      />
+      <a
+        className="pencil"
+        href="/main/avatar/PopupUser"
+        onClick={[Function]}
+      >
+        ✐
+      </a>
+    </div>
+  </div>
+  <div
+    className="Message CaptionRed BorderTopRed"
+  >
+    <label>
+      error message
+    </label>
+  </div>
+</div>
+`;

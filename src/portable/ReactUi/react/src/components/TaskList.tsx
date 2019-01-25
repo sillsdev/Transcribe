@@ -19,11 +19,19 @@ import LabelCaptionUx from './ui-controls/LabelCaptionUx'
 interface IProps extends IStateProps, IDispatchProps {
 };
 
-class TaskList extends React.Component<IProps, object> {
+const initialState = {
+    gridHeight: 0,
+}
+
+class TaskList extends React.Component<IProps, typeof initialState> {
+    public state = {...initialState};
+    public gridRef: React.RefObject<HTMLDivElement>;
+
     public constructor(props: IProps) {
         super(props);
+        this.gridRef = React.createRef();
         // tslint:disable-next-line:no-console
-        console.log(this.props.users)
+        // console.log(this.props.users)
     }
 
     public componentDidMount() {
@@ -36,7 +44,12 @@ class TaskList extends React.Component<IProps, object> {
         if (!localizationLoaded) {
             fetchLocalization();
         }
+        const gridLocation = this.gridRef && this.gridRef.current && this.gridRef.current.offsetTop
+            ? this.gridRef.current.offsetTop
+            : 0;
+        this.setState({gridHeight: window.innerHeight - gridLocation - 84})
     }
+
     public render() {
         const { direction, selectPopupTask, strings, tasks } = this.props
 
@@ -56,7 +69,7 @@ class TaskList extends React.Component<IProps, object> {
             )
         }
         const taskWrapper = (
-            <div className="grid">
+            <div className="grid" ref={this.gridRef} style={{maxHeight: this.state.gridHeight}}>
                 {taskList}
             </div>);
 
@@ -67,11 +80,10 @@ class TaskList extends React.Component<IProps, object> {
                 <FilterAction target={sortByType} text={strings.sortByType} />
             </div>);
 
-        // const ManyTask = () => { alert("Add Many Tasks") }
         const noSelectedTask = () => this.props.selectPopupTask("")
         const buttonWrapper = (
             <div className="Buttons">
-                {/* <NextAction text={strings.addMany} target={ManyTask} type="text-light" /> */}
+                <ButtonLink text={strings.addMany} target={"/ProjectSettings/AddManyTasks"} type="text-light"/>
                 <ButtonLink
                     text={strings.addTask}
                     target={"/ProjectSettings/NewTask"}
@@ -99,10 +111,19 @@ class TaskList extends React.Component<IProps, object> {
                 direction={direction}
                 name={t.name?t.name:""}
                 length={t.length != null? t.length: 0}
+                avatar={this.GetUserAvatar(t.assignedto)}
+                taskChips={(t.assignedto != null || t.state !== 'Transcribe')? [t.state.toLocaleLowerCase()]: []}
                 select= {selectPopupTask.bind(t.id)}
-                target="/ProjectSettings/Task"/>
+                target="/ProjectSettings/Task"
+                reference={t.reference}/>
         </div>
         )
+    }
+
+    private GetUserAvatar(assignedTo: string = ""){
+        const { users } = this.props;
+        const user = users.filter(u => u.username.id === assignedTo)[0];
+        return user && user.username.avatarUri;
     }
 
     private sortByType(){

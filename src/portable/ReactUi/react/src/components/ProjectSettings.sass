@@ -25,6 +25,11 @@
 	.header
 		display: flex
 		flex-direction: row
+		align-items: center
+		justify-content: space-between
+		.headerLeft
+			display: flex
+			flex-direction: inherit
 		.BackLink
 			display: flex
 			flex-direction: column
@@ -40,8 +45,12 @@
 		flex-direction: row
 		.title
 			display: flex
-			flex-direction: column
+			flex-direction: row
 			width: -moz-fit-content
+			.PencilAction
+				display: flex
+				flex-direction: row
+				align-self: center
 		.LabelCaptionUx.H1
 			line-height: 88px
 		&>*
@@ -70,16 +79,22 @@
 			padding-top: 8px
 			margin-left: 16px
 	.rows>*
-		padding: 32px 24px
+		padding: 32px 24px 0 24px
 
 	.inputTitle
-		line-height: 74px
+		font-family: $sans
+		line-height: 88px
 		font-size: 64px
 		letter-spacing: -1.5px
 		color: $base2
 		border: none
 		background-color: $inputBG
 		width: 100%
+		word-break: break-word
+		.PencilAction
+			display: flex
+			flex-direction: row
+			align-self: center
 	&.rtl
 		direction: rtl
 		.left

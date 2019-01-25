@@ -1,3 +1,79 @@
+siltranscriber (1.0.0.391)  experimental; urgency=high
+
+   * General:TT-348 Use styleguidist component library documentation
+   * General:TT-361 SIL Component library
+   * General:TT-74 Dropdown list overlapping in user setting
+   * General:TT-289 Todo list can be filtered
+   * General:TT-290 Add Sample Project to installer
+   * General:TT-350 Installer branding
+   * General:TT-363 Adding an icon to open context sensitive help.
+   * General:TT-375 Keep Transcriptions from being lost, fix folder server
+   * General:TT-378 Add Help icon to open context sensitive Help
+   * Project:TT-209 Adjust postion of edit pencil position
+   * Project:TT-269 Keep buttons on the bottom of the screen
+   * Project:TT-281 Resizing or maximizing produces the Projects name in different positions
+   * TaskPanel:TT-206 Available task list various combinations displaying.
+   * TaskPanel:TT-255 Clicking ToDo highlights the task panel with the ToDO list
+   * TaskPanel:TT-289 My Tasks can be filtered to see completed work
+   * TaskPanel:TT-354 Nav panel perform as expected
+   * TaskPanel:TT-370 Transcriber task on his pane with Review status
+   * TaskPanel:TT-372 Transcribed tasks appear for review
+   * TaskPanel:TT-373 Categories appear as chips on task panel
+   * TaskPanel:TT-374 Empty task list still shows
+   * UI:TT-155 Dropdown overlapping
+   * UI:TT-209 Adjust pencil position to middle
+   * UI:TT-281 Keep buttons at the bottom of Task and User panel
+   * UI:TT-353 Remove red underlines when clicking user name
+   * UI:TT-390 Delete the only project on computer gives undesired screen
+
+ -- Greg Trihus <greg_trihus@sil.org>  Thu, 17 Jan 2019 13:37:00 -0600
+
+siltranscriber (0.3.8.331)  experimental; urgency=high
+
+   * General:TT-290 Add Sample Project to installer
+   * General:TT-283 Multi-line project name edit
+   * General:TT-261 Misleading label on "claim unassigned tasks" control
+   * General:TT-267 Adding a new audio file skips a number if transcription exists
+   * Project:TT-249 label on menu overlapped in Tamil UI
+   * Project:TT-257 The Project names are not fitting on control.
+   * Project:TT-260 Trying to change second project image changes first project
+   * Task:TT-186 Duration length time not set
+   * Task:TT-252 Not able to save customized Reference
+   * Task:TT-215 Able to create task with the same reference more than once
+   * User:TT-286 Change image name when user image edited
+   * UI:TT-206 Available task list various combinations displaying.
+   * UI:TT-284 Allow click anywhere in image file field
+   * Settings:TT-212 Name texts overlapping problem if we have above 4 users
+
+ -- Greg Trihus <greg_trihus@sil.org>  Fri, 20 Dec 2018 10:52:00 -0600
+
+siltranscriber (0.3.7.307)  experimental; urgency=high
+
+   * General:TT-241 Handling hard to see project id
+   * General:TT-226 Put focus/insertion point in Name box when User Details pane opens
+   * General:TT-204 Assignment of task persists until you relaunch the program
+   * General:TT-202 Change project image logic
+   * General:TT-201 Create new project logic
+   * General:TT-200 pop up project action menu control
+   * General:TT-176 Admin user can create a new project
+   * PtPlugin:TT-256 Transcriber needs a restart to show the added task in Tasks pane.
+   * PtPlugin:TT-242 What should identify the project?
+   * Project:TT-259 Project is not maintaining the same name in Project setting and User Details screens
+   * Project:TT-251 Logout from a project pane was not showing list of available projects
+   * Task:TT-234 Milestone slider control
+   * Task:TT-263 Milestones status texts overlapped  in Tamil UI  and it's not clearly visible 
+   * Task:TT-245 Text overlapping problem in Task Details - Milestones pane.
+   * User:TT-228 User Name lost (becomes U2, U3, etc) if avatar pic is added in User Details pane
+   * User:TT-235 User details new layout
+   * User:TT-264 User Name changing functionality is not working
+   * UI:TT-198 User control with role
+   * UI:TT-262 Copy to Clipboard button texts is not wrapping inside this button in Tamil UI 
+   * UI:TT-232 Update Task details to new design
+   * UI:TT-210 Play bar and Start Timer is not working properly.
+   * UI:TT-199 Project control with project image
+
+ -- Greg Trihus <greg_trihus@sil.org>  Fri, 7 Dec 2018 10:22:00 -0600
+
 siltranscriber (0.3.3.124)  experimental; urgency=high
 
   * Add ProjectSettings

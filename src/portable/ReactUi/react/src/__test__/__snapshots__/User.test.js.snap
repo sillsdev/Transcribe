@@ -44,6 +44,7 @@ exports[`>>>Control: User --- Snapshot +++capturing Snapshot of User 1`] = `
             Object {
               "display": "table",
               "height": "100%",
+              "tableLayout": "fixed",
               "width": "100%",
             }
           }
@@ -52,7 +53,9 @@ exports[`>>>Control: User --- Snapshot +++capturing Snapshot of User 1`] = `
             style={
               Object {
                 "display": "table-cell",
+                "fontSize": "100%",
                 "verticalAlign": "middle",
+                "whiteSpace": "nowrap",
               }
             }
           >
@@ -72,8 +75,7 @@ exports[`>>>Control: User --- Snapshot +++capturing Snapshot of User 1`] = `
     <div
       className="role"
     >
-      working as 
-      my role1 + my role2 + my role3
+      Transcriber
     </div>
   </div>
 </a>

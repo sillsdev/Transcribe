@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: TimeMarker --- Snapshot +++capturing Snapshot of TimeMarker 1`] = `
+<div
+  className="TimeMarker"
+  id="Time"
+>
+  <time
+    dateTime="P10S"
+    id="pos"
+  >
+    0:10
+  </time>
+  /
+  <time
+    dateTime="P30S"
+    id="total"
+  >
+    0:30
+  </time>
+</div>
+`;

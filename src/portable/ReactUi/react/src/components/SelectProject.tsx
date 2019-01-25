@@ -7,8 +7,7 @@ import { log } from '../actions/logAction';
 import * as actions from '../actions/taskActions';
 import { ITranscriberStrings } from '../model/localize';
 import { IState } from '../model/state';
-import AvatarLink from './controls/AvatarLink';
-import { ProjectAvatar } from './controls/ProjectAvatar';
+import Project from './controls/Project';
 import './SelectProject.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -41,11 +40,13 @@ class SelectProject extends React.Component<IProps, object> {
 
     const avatars = projects.map((p:IProject) => 
       <ListGroupItem key={p.id}>
-        <AvatarLink id={p.id}
-          name={p.id}
-          target={dest}
-          uri={p.type !== undefined? ProjectAvatar[p.type]: ""}
-          select={selectProject} />
+            <Project id={p.id}
+                name={(p.guid === undefined || p.guid === "" || (p.sync !== undefined && !p.sync)) && p.name? p.name: p.id}
+                target={dest}
+                uri={p.uri !== undefined? p.uri:""}
+                isAdmin = {false}
+                select={selectProject}
+            />
       </ListGroupItem>);
 
     return (

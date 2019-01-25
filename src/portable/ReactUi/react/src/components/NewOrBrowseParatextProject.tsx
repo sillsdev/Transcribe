@@ -1,25 +1,36 @@
 import * as React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
-import Ionicon from 'react-ionicons'
+import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
+import * as actions1 from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import ButtonLink from './controls/ButtonLink';
 import NextAction from './controls/NextAction';
 import './NewOrBrowseParatextProject.sass';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 
 interface IProps extends IStateProps, IDispatchProps {
 };
 
-
 class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
     
+    public selectEmptyProject = () => {
+        const {zttProjectsCount} = this.props;
+        if(zttProjectsCount.toString() === "0"){
+            this.selectProject({id:"ztt", guid:"", lang:"und"})
+        }
+        else{
+            this.selectProject({id:"ztt" + zttProjectsCount, guid:"", lang:"und"})
+        }
+    }
+
     public render() {
         const { selectedParatextProject, strings } = this.props;
 
@@ -27,11 +38,11 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
         if (selectedParatextProject !== "") {
             return <Redirect to='/ProjectSettings' />
         }
-        const selectEmptyProject = () => {
-            this.selectProject({id:"ztt", guid:"", lang:"und"})
-        }
         return (
             <div className="NewOrBrowseParatextProjects">
+                <div className="anchorHelp">
+                    <AnchorHelp id="UiLangHelp" onClick={this.ShowHelp} />
+                </div>
                 <Grid className="grid">
                     <Row className="name-row">
                         <Col xs={12} md={12}>
@@ -40,7 +51,7 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                     </Row>
                     <Row className="name-row">
                         <Col xs={12} md={12}>
-                        <Ionicon icon="ios-checkmark-circle-outline" fontSize="100px" color="#C9C9C9"/>
+                        <IoIosCheckmarkCircleOutline fontSize="100px" color="#C9C9C9"/>
                         </Col>
                     </Row>
                     <br />
@@ -52,7 +63,7 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
                         </Col>
                         <Col xs={6} md={6}>
                         <span className="NextAction">
-                                <NextAction text={strings.createEmptyProject.toUpperCase()} target={selectEmptyProject} type="primary" />
+                                <NextAction text={strings.createEmptyProject.toUpperCase()} target={this.selectEmptyProject} type="primary" />
                             </span>
                         </Col>                     
                     </Row>
@@ -64,6 +75,11 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
     private selectProject(project: IParatextProject){
         this.props.selectParatextProject(project);
     }
+
+    private ShowHelp = () => {
+        this.props.showHelp("Procedures/Admin_procedures/Make_a_new_project.htm")
+    }
+
 }
 
 interface IStateProps {
@@ -71,6 +87,7 @@ interface IStateProps {
     paratextProjects: IParatextProject[];
     strings: IProjectSettingsStrings;
     selectedParatextProject: string;
+    zttProjectsCount: string;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -78,18 +95,21 @@ const mapStateToProps = (state: IState): IStateProps => ({
     paratextProjects: state.paratextProjects.paratextProjects,
     selectedParatextProject: state.paratextProjects.selectedParatextProject,
     strings: userStrings(state, { layout: "projectSettings" }),
+    zttProjectsCount: state.tasks.zttProjectsCount,
 });
 
 interface IDispatchProps {
 
     fetchParatextProjects: typeof actions.fetchParatextProjects,
     selectParatextProject: typeof actions.selectParatextProject;
+    showHelp: typeof actions1.showHelp;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchParatextProjects: actions.fetchParatextProjects,
         selectParatextProject: actions.selectParatextProject,
+        showHelp: actions1.showHelp,
     }, dispatch),
 });
 

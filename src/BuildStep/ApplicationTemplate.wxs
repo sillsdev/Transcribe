@@ -12,6 +12,7 @@
         <ComponentGroup Id="Application">
             <ComponentRef Id="AddShortcutApp"/>
             <ComponentRef Id="AddLicenseShortcut"/>
+			<ComponentRef Id="AddHelpShortcut"/>
             <ComponentRef Id="RegistryEntries"/>
         </ComponentGroup>
     </Fragment>

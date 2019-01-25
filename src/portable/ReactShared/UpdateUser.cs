@@ -9,7 +9,9 @@ namespace ReactShared
 {
 	public class UpdateUser
 	{
-		public UpdateUser(string query)
+		public delegate void SaveImage(string data, string file);
+
+		public UpdateUser(string query, byte[] requestBody = null, SaveImage saveImage = null)
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
@@ -27,18 +29,29 @@ namespace ReactShared
 			var faster = parsedQuery["faster"];
 			var setting = parsedQuery["setting"];
 			var value = parsedQuery["value"];
+			var avatarBase64 = Util.GetRequestElement(requestBody, "img");
 			Debug.Print($"{user}:{project}:{name}:{uilang}:{font}:{fontsize}:{playpause}:{back}:{forward}:{slower}:{faster}");
 			var usersDoc = Util.LoadXmlData("users");
 			var admin = usersDoc.SelectSingleNode("//user[./role='administrator']");
 			var userNode = usersDoc.SelectSingleNode($"//user[username/@id = '{user}']") as XmlElement;
+			var userId = !string.IsNullOrEmpty(user) ? user : name.Replace(" ", "").ToLower();
 			if (userNode == null)
 			{
 				userNode = Util.NewChild(usersDoc.DocumentElement, "user");
 				var userName = Util.NewChild(userNode, "username");
-				var userId = !string.IsNullOrEmpty(user)? user: user.Replace(" ", "").ToLower();
+				var others = usersDoc.SelectNodes($"//user[starts-with(username,'{userId}')]");
+				Debug.Assert(others != null, nameof(others) + " != null");
+				if (others.Count > 0)
+				{
+					userId += $"{others.Count + 1}";
+				}
 				Util.NewAttr(userName, "id", userId);
 				Util.NewChild(userName, "password", password);
-				Util.NewChild(userName, "avatarUri");
+				AddNewAvatar(saveImage, avatarBase64, userId, userName);
+				if (string.IsNullOrEmpty(avatarBase64))
+					Util.NewChild(userName, "avatarUri");
+				else
+					avatarBase64 = "";
 				if (string.IsNullOrEmpty(role))
 				{
 					role = "Transcriber";
@@ -78,6 +91,7 @@ namespace ReactShared
 			var usernameNode = userNode.SelectSingleNode("username") as XmlElement;
 			Debug.Assert(usernameNode != null, nameof(usernameNode) + " != null");
 			AddUserName(name, usernameNode, usersDoc);
+			AddNewAvatar(saveImage, avatarBase64, userId, usernameNode);
 			var userRoleNode = userNode.SelectNodes("role") as XmlNodeList;
 			Debug.Assert(userRoleNode != null, nameof(userRoleNode) + " != null");
 			AddUserRole(role, userRoleNode, usernameNode, usersDoc);
@@ -94,6 +108,29 @@ namespace ReactShared
 			{
 				usersDoc.Save(xw);
 			}
+		}
+
+		private static void AddNewAvatar(SaveImage saveImage, string avatarBase64, string userId, XmlElement userName)
+		{
+			if (!string.IsNullOrEmpty(avatarBase64) && avatarBase64.Contains(","))	// file names have no commas but base64 data has comma separated fields.
+			{
+				var sourceFolder = Path.Combine(Util.DataFolder, "images");
+				var sourceInfo = new DirectoryInfo(sourceFolder);
+				sourceInfo.Create();
+				var info = new DirectoryInfo(sourceFolder).GetFiles(userId + "*.png");
+				var imageFileName = $"{userId}{info.Length + 1}.png";
+				saveImage(avatarBase64, Path.Combine(sourceFolder, imageFileName));
+				AddAvatarUri("images/" + imageFileName, userName);
+			}
+		}
+
+		private static void AddAvatarUri(string avatarUri, XmlElement usernameNode)
+		{
+			if (avatarUri == null)
+				return;
+			if (!(usernameNode.SelectSingleNode("avatarUri") is XmlNode avatarNode))
+				avatarNode = Util.NewChild(usernameNode, "avatarUri");
+			avatarNode.InnerText = avatarUri;
 		}
 
 		private static void AddUserName(string name, XmlElement usernameNode, XmlDocument usersDoc)

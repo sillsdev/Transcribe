@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { log } from '../actions/logAction';
-import { INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE,
-    REPORT_POSITION, REQUEST_POSITION, SAVE_STATUS, SAVE_TOTAL_SECONDS, SUBMIT_STATUS } from './types';
+import { FETCH_META, INITIAL_TRANSCRIPTION, JUMP_CHANGE, PLAY_STATUS, PLAYSPEEDRATE_CHANGE,
+    REPORT_POSITION, REQUEST_POSITION, SAVE_STATUS, SAVE_TOTAL_SECONDS, SET_PLAYED_SECONDS, SUBMIT_STATUS } from './types';
 
 export function playStatus(playing: boolean): any{
     return {
@@ -64,4 +64,24 @@ export function setSaved(saved: boolean): any{
         payload: saved,
         type: SAVE_STATUS
     }
+}
+
+export function setPlayedSeconds(playedSeconds: number): any{
+    return {
+        payload: playedSeconds,
+        type: SET_PLAYED_SECONDS
+    }
+}
+
+export const fetchMeta = (fileName: string, data: object) => (dispatch: any) => {
+    Axios.put('/api/GetMeta?fileName=' + fileName, data)
+        .then(meta => {
+            dispatch({
+                payload: meta,
+                type: FETCH_META
+            });
+        })
+        .catch((reason: any) => {
+            dispatch(log(JSON.stringify(reason) + " " + FETCH_META))
+        });
 }

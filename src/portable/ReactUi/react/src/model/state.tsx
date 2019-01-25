@@ -11,6 +11,7 @@ export interface IState {
         userHotKeys: IUserKeyVal[];
     };
     tasks: {
+        assigningTask: boolean;
         loaded: boolean;
         pending: boolean;
         deleted: boolean;
@@ -18,11 +19,16 @@ export interface IState {
         selectedProject: string;
         selectedTask: string;
         selectedPopupTask: string;
+        selectingTask: boolean;
+        zttProjectsCount: string;
+        selectedOption: string;
+        todoHighlight: boolean;
     };
     audio: {
         initialPosition: number;
         initialTranscription: boolean;
         jump: number;
+        playedSeconds: number;
         playSpeedRate: number;
         playing: boolean;
         reportedPosition: number;
@@ -42,5 +48,10 @@ export interface IState {
         loaded: boolean;
         paratextProjects: IParatextProject[];
         selectedParatextProject: string;
+    };
+    avatar: IAvatarState;
+    meta: {
+        size: number;
+        waveform: string;
     };
 }

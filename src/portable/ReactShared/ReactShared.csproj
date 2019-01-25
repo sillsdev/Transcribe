@@ -24,31 +24,17 @@
     <None Remove="react\build\index.html" />
     <None Remove="react\build\manifest.json" />
     <None Remove="react\build\service-worker.js" />
-    <None Remove="react\build\api\GetTasks" />
-    <None Remove="react\build\api\GetUsers" />
-    <None Remove="react\build\api\images\Ahmad.png" />
-    <None Remove="react\build\api\images\ayo.png" />
-    <None Remove="react\build\api\images\Clem.png" />
-    <None Remove="react\build\api\images\Diego.png" />
-    <None Remove="react\build\api\images\Erik.png" />
-    <None Remove="react\build\api\images\Gabriel.png" />
-    <None Remove="react\build\api\images\Gianni.png" />
     <None Remove="react\build\assets\bibleAvatar.png" />
-    <None Remove="react\build\assets\Clear.svg" />
-    <None Remove="react\build\assets\close-x.svg" />
-    <None Remove="react\build\assets\Dropdown.svg" />
-    <None Remove="react\build\assets\Filter.svg" />
     <None Remove="react\build\assets\Loading.svg" />
-    <None Remove="react\build\assets\Pencil.svg" />
-    <None Remove="react\build\assets\Smile.svg" />
+    <None Remove="react\build\assets\smile.svg" />
     <None Remove="react\build\assets\storyAvatar.png" />
     <None Remove="react\build\assets\testAvatar.png" />
     <None Remove="react\build\assets\waveform.png" />
-    <None Remove="react\build\localization\strings.json" />
-    <None Remove="react\build\static\css\main.64839d09.css" />
-    <None Remove="react\build\static\css\main.64839d09.css.map" />
-    <None Remove="react\build\static\js\main.c0d936ca.js" />
-    <None Remove="react\build\static\js\main.c0d936ca.js.map" />
+    <None Remove="react\build\assets\waveform.svg" />
+    <None Remove="react\build\static\css\main.e26f68e8.css" />
+    <None Remove="react\build\static\css\main.e26f68e8.css.map" />
+    <None Remove="react\build\static\js\main.16508915.js" />
+    <None Remove="react\build\static\js\main.16508915.js.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="data\localization\strings.json" />
@@ -64,33 +50,21 @@
     <EmbeddedResource Include="react\build\index.html" />
     <EmbeddedResource Include="react\build\manifest.json" />
     <EmbeddedResource Include="react\build\service-worker.js" />
-    <EmbeddedResource Include="react\build\api\GetTasks" />
-    <EmbeddedResource Include="react\build\api\GetUsers" />
-    <EmbeddedResource Include="react\build\api\images\Ahmad.png" />
-    <EmbeddedResource Include="react\build\api\images\ayo.png" />
-    <EmbeddedResource Include="react\build\api\images\Clem.png" />
-    <EmbeddedResource Include="react\build\api\images\Diego.png" />
-    <EmbeddedResource Include="react\build\api\images\Erik.png" />
-    <EmbeddedResource Include="react\build\api\images\Gabriel.png" />
-    <EmbeddedResource Include="react\build\api\images\Gianni.png" />
     <EmbeddedResource Include="react\build\assets\bibleAvatar.png" />
-    <EmbeddedResource Include="react\build\assets\Clear.svg" />
-    <EmbeddedResource Include="react\build\assets\close-x.svg" />
-    <EmbeddedResource Include="react\build\assets\Dropdown.svg" />
-    <EmbeddedResource Include="react\build\assets\Filter.svg" />
     <EmbeddedResource Include="react\build\assets\Loading.svg" />
-    <EmbeddedResource Include="react\build\assets\Pencil.svg" />
-    <EmbeddedResource Include="react\build\assets\Smile.svg" />
+    <EmbeddedResource Include="react\build\assets\smile.svg" />
     <EmbeddedResource Include="react\build\assets\storyAvatar.png" />
     <EmbeddedResource Include="react\build\assets\testAvatar.png" />
     <EmbeddedResource Include="react\build\assets\waveform.png" />
-    <EmbeddedResource Include="react\build\localization\strings.json" />
-    <EmbeddedResource Include="react\build\static\css\main.64839d09.css" />
-    <EmbeddedResource Include="react\build\static\css\main.64839d09.css.map" />
-    <EmbeddedResource Include="react\build\static\js\main.c0d936ca.js" />
-    <EmbeddedResource Include="react\build\static\js\main.c0d936ca.js.map" />
+    <EmbeddedResource Include="react\build\assets\waveform.svg" />
+    <EmbeddedResource Include="react\build\static\css\main.e26f68e8.css" />
+    <EmbeddedResource Include="react\build\static\css\main.e26f68e8.css.map" />
+    <EmbeddedResource Include="react\build\static\js\main.16508915.js" />
+    <EmbeddedResource Include="react\build\static\js\main.16508915.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ExcelDataReader" Version="3.4.2" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.4.2" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 </Project>

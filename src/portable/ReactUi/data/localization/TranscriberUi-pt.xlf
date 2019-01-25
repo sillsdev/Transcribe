@@ -104,6 +104,54 @@
 				<target>Você chegou</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.mytasks">
+			<segment>
+				<source>My Tasks</source>
+				<target>Minhas tarefas</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.alltasks">
+			<segment>
+				<source>All Tasks</source>
+				<target>Todas as tarefas</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>Em progresso</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Transcrito</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Revisado</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Sincronizado</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>Sair</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Nenhum</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -122,7 +170,7 @@
 				<target>Tipo de letra</target>
 			</segment>
 		</unit>
-		<unit id="userSettings.Language">
+		<unit id="userSettings.language">
 			<segment>
 				<source>Language</source>
 				<target>Idioma</target>
@@ -278,6 +326,42 @@
 				<target>Por favor, preencha o Ir mais rápido</target>
 			</segment>
 		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>Nova imagem</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Zoom</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>Squeaky toy</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Nível de Privilégio</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Arquivo de imagem</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Editar imagem</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.next">
 			<segment>
 				<source>Next</source>
@@ -338,10 +422,10 @@
 				<target>Sincronização automática com o Paratexto</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Permitir que as transcrições reivindiquem tarefas não atribuídas</target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Permitir que os usuários reivindiquem tarefas não atribuídas</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
@@ -372,6 +456,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>Adicionar muitos</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>Aprenda a criar um {0} ou renomeie seu arquivo de áudio com {1}.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>planilha de upload em lote</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>nossa convenção de nomenclatura</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -476,6 +578,12 @@
 				<target>Par com Paratexto</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>A referência inserida já existe</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -492,6 +600,84 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>Copiar para área de transferência</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Faça um novo projeto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Alterar imagem do projeto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Visualizar</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Milestones</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Começar</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Transcrito</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Revisado</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Sincronizado</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>Descartar mudanças</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>Excluir tarefa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Deletar usuário</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Excluir projeto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target></target>
 			</segment>
 		</unit>
 	</file>

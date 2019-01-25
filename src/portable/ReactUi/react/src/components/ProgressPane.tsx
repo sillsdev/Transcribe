@@ -1,13 +1,16 @@
 import * as React from 'react';
 import ReactPlayer from 'react-player';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as actions from '../actions/audioActions';
 import { log } from '../actions/logAction';
+import * as actions1 from '../actions/taskActions';
 import { IState } from '../model/state';
 import uiDirection from '../selectors/direction';
 import projectTasks from '../selectors/projectTasks';
 import TimeMarker from './controls/TimeMarker';
 import './ProgressPane.sass';
+import AnchorHelp from './ui-controls/AnchorHelp';
 
 interface IProps extends IStateProps, IDispatchProps {
 };
@@ -35,9 +38,9 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
             }
             this.setState({
                 audioPlayedSeconds: ctrl.playedSeconds,
-                seeking: false,
                 totalSeconds: ctrl.loadedSeconds,
             })
+            this.props.setPlayedSeconds(this.state.audioPlayedSeconds);
         }
     }
 
@@ -88,7 +91,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
         if (this.player && position === 0 && initialPosition > 1 && initialPosition <= totalSeconds) {
             this.player.seekTo(this.adjustPosition(position, initialPosition));
         }
-        if (requestReport) {
+        if (requestReport && jump === 0 && this.player) {
             this.props.reportPosition(selectedTask, audioPlayedSeconds);
         }
         return (
@@ -110,6 +113,7 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                         totalSeconds={totalSeconds}
                         timer={user && user.timer? user.timer: "countup"} />
                 </div>
+                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowAudioPanelHelp} />
                 <div className="RealPlayer">
                     <ReactPlayer
                         id="Player"
@@ -124,6 +128,10 @@ class ProgressPane extends React.Component<IProps, typeof initialState> {
                 </div>
             </div>
         )
+    }
+
+    private ShowAudioPanelHelp = () => {
+        this.props.showHelp("User_Interface/User_Interface_overview.htm")
     }
 
     private adjustPosition(position: number, jump: number) {
@@ -158,7 +166,8 @@ interface IDispatchProps {
     playSpeedRateChange: typeof actions.playSpeedRateChange;
     reportPosition: typeof actions.reportPosition;
     saveTotalSeconds: typeof actions.saveTotalSeconds;
-
+    setPlayedSeconds: typeof actions.setPlayedSeconds;
+    showHelp: typeof actions1.showHelp,
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -174,4 +183,16 @@ const mapStateToProps = (state: IState): IStateProps => ({
     users: state.users.users,
 });
 
-export default connect(mapStateToProps)(ProgressPane);
+const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
+    ...bindActionCreators({
+    jumpChange: actions.jumpChange,
+    playSpeedRateChange: actions.playSpeedRateChange,
+    playStatus: actions.playStatus,
+    reportPosition: actions.reportPosition,
+    saveTotalSeconds: actions.saveTotalSeconds,
+    setPlayedSeconds: actions.setPlayedSeconds,
+    showHelp: actions1.showHelp,
+}, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProgressPane);

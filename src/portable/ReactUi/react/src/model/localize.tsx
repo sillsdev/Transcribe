@@ -18,13 +18,23 @@ export interface ITranscriberStrings extends Localize.LocalizedStringsMethods {
     "youhavereached": string;
     "inboxzero": string;
     "haveaniceday": string;
+    "mytasks": string;
+    "alltasks": string;
+    "transcribed": string;
+    "reviewed": string;
+    "synced": string;
+    "logout": string;
+    "inprogress": string;
+    "none": string;
 };
 
 export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "chooseAvatar": string;
+    "editAvatar": string;
     "english": string;
     "fastForward": string;
     "font": string;
+    "imageFile": string
     "keyboardShortcuts": string;
     "language": string;
     "large": string;
@@ -32,6 +42,7 @@ export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "name": string;
     "password": string;
     "playPause": string;
+    "privilegeTier": string;
     "reset": string;
     "reviewComments": string;
     "reviewer": string;
@@ -50,6 +61,9 @@ export interface IUserSettingsStrings extends Localize.LocalizedStringsMethods {
     "fastForwardErrorMessage": string;
     "slowDownErrorMessage": string;
     "speedUpErrorMessage": string;
+    "newImage": string;
+    "zoom": string;
+    "browse": string;
 };
 
 export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethods {
@@ -63,12 +77,15 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "pairedWithParatextProject": string;
     "projectSettings": string;
     "autoSyncParatext": string;
-    "allowClaimUnassignedTasks": string;
+    "allowUsersToClaimUnassignedTasks": string;
     "people": string;
     "tasks": string;
     "addUser": string;
     "addTask": string;
     "addMany": string;
+    "learnToAddMany": string;
+    "batchUpload": string;
+    "ourNamingConvention": string;
     "sortByRoles": string;
     "sortByType": string;
     "projectName": string;
@@ -86,7 +103,21 @@ export interface IProjectSettingsStrings extends Localize.LocalizedStringsMethod
     "reviewer": string;
     "transcriber": string;
     "pairWithParatext": string;
+    "referenceDuplicate": string;
     "referenceFormat": string;
     "skip": string;
     "copyToClipboard": string;
+    "makeProject": string;
+    "changeImage": string;
+    "preview": string;
+    "milestones": string;
+    "start": string;
+    "transcribed": string;
+    "reviewed": string;
+    "synced": string;
+    "discardChanges": string;
+    "deleteTask": string;
+    "deleteUser": string;
+    "deleteProject": string;
+    "chooseDifferentProject": string;
 };

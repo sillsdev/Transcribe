@@ -43,6 +43,7 @@ exports[`>>>Control: Avatarlink --- Snapshot +++capturing Snapshot of AvatarLink
             Object {
               "display": "table",
               "height": "100%",
+              "tableLayout": "fixed",
               "width": "100%",
             }
           }
@@ -51,7 +52,9 @@ exports[`>>>Control: Avatarlink --- Snapshot +++capturing Snapshot of AvatarLink
             style={
               Object {
                 "display": "table-cell",
+                "fontSize": "100%",
                 "verticalAlign": "middle",
+                "whiteSpace": "nowrap",
               }
             }
           >

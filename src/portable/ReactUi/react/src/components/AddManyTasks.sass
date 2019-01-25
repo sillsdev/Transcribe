@@ -1,0 +1,77 @@
+@import "../_variables.sass"
+
+.AddManyTasks
+    width: 100%
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    background-color:transparent
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    &.rtl
+        direction: rtl
+        .panel
+            padding-right: 0
+            &>*
+                padding-left: 0
+            &>.titleRow
+                padding-right: 0px
+    .panel
+        width: 510px
+        height: 100%
+        background-color: $base02
+        display: flex
+        flex-direction: column
+        flex: 0 0 auto
+        overflow-y: visible
+        &>.titleRow
+            padding-left: 0
+            padding-bottom: 32px
+        padding-left: 0
+    .titleRow
+        display: flex
+        flex-direction: row
+        padding-top: 32px
+        z-index: 2
+        .BackLink
+            width: 64px
+            text-align: center
+    .NextAction
+        display: flex
+        font-family: $sans
+        margin: auto
+        cursor: pointer
+        width: 100px
+        padding: 0px 5px
+        align-self: center
+
+    .helpText
+        color: $base1
+        font-family: $sans
+        font-size: 16px
+        line-height: 28px
+        letter-spacing: 0.44px
+        padding: 24px 48px
+        text-align: center
+
+    .linkText
+        color: $blueLink
+        &:hover
+            cursor: pointer
+
+    .LinkAction
+        width: 220px
+        margin: 0px
+
+    .browseDiv
+        width: 446px
+        height: 124px
+        display: flex
+        border: 1px dotted white
+        justify-content: center
+        vertical-align: middle
+        margin-left: 32px
+        margin-right: 32px
+        align-items: center

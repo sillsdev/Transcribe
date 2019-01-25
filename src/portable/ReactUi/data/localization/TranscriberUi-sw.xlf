@@ -104,6 +104,54 @@
 				<target>Umefika</target>
 			</segment>
 		</unit>
+		<unit id="transcribe.mytasks">
+			<segment>
+				<source>My Tasks</source>
+				<target>Kazi Zangu</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.alltasks">
+			<segment>
+				<source>All Tasks</source>
+				<target>Kazi zote</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>Inaendelea</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Imeandikwa</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Ilipitiwa</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Ilikubaliana</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.logout">
+			<segment>
+				<source>Log Out</source>
+				<target>Ingia nje</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Hakuna</target>
+			</segment>
+		</unit>
 		<unit id="userSettings.user">
 			<segment>
 				<source>User</source>
@@ -275,7 +323,43 @@
 		<unit id="userSettings.speedUpErrorMessage">
 			<segment>
 				<source>Please fill in the Speed Up</source>
-				<target></target>
+				<target>Tafadhali kujaza kasi ya juu</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.newImage">
+			<segment>
+				<source>New Image</source>
+				<target>Image Mpya</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.zoom">
+			<segment>
+				<source>Zoom</source>
+				<target>Zoom</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.browse">
+			<segment>
+				<source>Browse</source>
+				<target>Vinjari</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.privilegeTier">
+			<segment>
+				<source>Privilege Tier</source>
+				<target>Uwezo wa Haki</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.imageFile">
+			<segment>
+				<source>Image File</source>
+				<target>Picha ya Picha</target>
+			</segment>
+		</unit>
+		<unit id="userSettings.editAvatar">
+			<segment>
+				<source>Edit Avatar</source>
+				<target>Badilisha picha</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.next">
@@ -338,10 +422,10 @@
 				<target>Inaendana pamoja na Paratext</target>
 			</segment>
 		</unit>
-		<unit id="projectSettings.allowClaimUnassignedTasks">
+		<unit id="projectSettings.allowUsersToClaimUnassignedTasks">
 			<segment>
-				<source>Allow transcribers to claim unassigned tasks</source>
-				<target>Waruhusu waandishi wachukue kazi ambazo hazijapeanwa </target>
+				<source>Allow users to claim unassigned tasks</source>
+				<target>Ruhusu watumiaji kudai kazi zisizosabiwa</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.people">
@@ -372,6 +456,24 @@
 			<segment>
 				<source>Add Many</source>
 				<target>Ongeza Wengi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.learnToAddMany">
+			<segment>
+				<source>Learn to create a {0} or to rename your audio file with {1}.</source>
+				<target>Jifunze kuunda {0} au kubadili faili yako ya sauti na {1}.</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.batchUpload">
+			<segment>
+				<source>batch upload spreadsheet</source>
+				<target>Pakia lahajedwali la kupakia kundi</target>
+			</segment>
+		</unit>		
+		<unit id="projectSettings.ourNamingConvention">
+			<segment>
+				<source>our naming convention</source>
+				<target>kutamsha jina yetu</target>
 			</segment>
 		</unit>
 		<unit id="projectSettings.sortByRoles">
@@ -476,6 +578,12 @@
 				<target>Ambatanisha na Paratext</target>
 			</segment>
 		</unit>
+		<unit id="projectSettings.referenceDuplicate">
+			<segment>
+				<source>The Reference entered already exists</source>
+				<target>Rejea imeingia tayari ipo</target>
+			</segment>
+		</unit>
 		<unit id="projectSettings.referenceFormat">
 			<segment>
 				<source>Reference format: LUK 1:1-4 or LUK 1.1,4</source>
@@ -492,6 +600,84 @@
 			<segment>
 				<source>Copy to Clipboard</source>
 				<target>Nakili na Kuweka mahali</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.makeProject">
+			<segment>
+				<source>Make new project</source>
+				<target>Fanya mradi mpya</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.changeImage">
+			<segment>
+				<source>Change project image</source>
+				<target>Badilisha picha ya mradi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.preview">
+			<segment>
+				<source>Preview</source>
+				<target>Angalia</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.milestones">
+			<segment>
+				<source>Milestones</source>
+				<target>Maajabu</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.start">
+			<segment>
+				<source>Start</source>
+				<target>Anza</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.transcribed">
+			<segment>
+				<source>Transcribed</source>
+				<target>Imeandikwa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.reviewed">
+			<segment>
+				<source>Reviewed</source>
+				<target>Ilipitiwa</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.synced">
+			<segment>
+				<source>Synced</source>
+				<target>Ilikubaliana</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.discardChanges">
+			<segment>
+				<source>Discard changes</source>
+				<target>Kuondoa mabadiliko</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteTask">
+			<segment>
+				<source>Delete Task</source>
+				<target>Futa Kazi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteUser">
+			<segment>
+				<source>Delete User</source>
+				<target>Futa Mtumiaji</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Futa Mradi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Chagua mradi tofauti</target>
 			</segment>
 		</unit>
 	</file>

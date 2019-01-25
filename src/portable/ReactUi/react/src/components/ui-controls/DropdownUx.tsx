@@ -15,8 +15,6 @@ class DropdownUx extends React.Component<IProps, any> {
     }
 
     public render() {
-        // tslint:disable-next-line:no-console
-        console.log(this.props.collection);
         const options = this.props.collection.map((value: any) =>
             <option key={value} style={{backgroundColor: '#002B36', color: 'white'}} value={value}>{value}</option>
         )

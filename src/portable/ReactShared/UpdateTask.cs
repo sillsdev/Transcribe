@@ -9,10 +9,9 @@ namespace ReactShared
 {
 	public class UpdateTask
 	{
-		public delegate string GetAudioDuration(string audioFilePath);
-		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3}):([0-9]{1,3})-([0-9]{1,3})$", RegexOptions.Compiled);
+		public static readonly Regex ReferencePattern = new Regex(@"^([A-Za-z1-3]+) ([0-9]{1,3})(:|\.)([0-9]{1,3})(-|,)([0-9]{1,3})$", RegexOptions.Compiled);
 
-		public UpdateTask(string query, byte[] requestBody, GetAudioDuration getAudioDuration)
+		public UpdateTask(string query, byte[] requestBody, string audioFileNameWithPath=null)
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var task = parsedQuery["task"];
@@ -25,13 +24,18 @@ namespace ReactShared
 			var heading = parsedQuery["heading"];
 			var assignedTo = parsedQuery["assignedTo"];
 			var timeDuration = parsedQuery["timeDuration"];
-			var audioData = Util.GetRequestElement(requestBody, "data");
+			var taskState = parsedQuery["state"];
+			string audioData = audioFileNameWithPath ?? Util.GetRequestElement(requestBody, "data");
 
 			//Debug.Print($"{task}:{project}:{audioFile}:{reference}:{heading}:{assignedTo}:{timeDuration}");
 			var tasksDoc = Util.LoadXmlData("tasks");
 			var projectNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']") as XmlElement;
 			if (projectNode == null)
 				return;
+
+			var	projectGuid = projectNode.Attributes["guid"].InnerText;
+			var	isAdhocProject = (string.IsNullOrEmpty(projectGuid.Trim())) ? true : false;
+
 			if (string.IsNullOrEmpty(taskId))
 			{
 				if (reference == null)
@@ -39,7 +43,7 @@ namespace ReactShared
 				var refMatch = ReferencePattern.Match(reference);
 				if (refMatch.Success)
 				{
-					taskId = $"{project}-{refMatch.Groups[1].Value}-{int.Parse(refMatch.Groups[2].Value):D3}-{int.Parse(refMatch.Groups[3].Value):D3}{int.Parse(refMatch.Groups[4].Value):D3}";
+					taskId = $"{project}-{refMatch.Groups[1].Value}-{int.Parse(refMatch.Groups[2].Value):D3}-{int.Parse(refMatch.Groups[4].Value):D3}{int.Parse(refMatch.Groups[6].Value):D3}";
 				}
 				else if (!string.IsNullOrEmpty(audioFile))
 				{
@@ -53,11 +57,14 @@ namespace ReactShared
 				}
 			}
 
-			var audioFilePath = CreateAudioFile(taskId, audioFile, audioData);
-
-			if (timeDuration == null && audioFilePath.Trim().Length > 0)
+			if (audioFileNameWithPath == null)
 			{
-				timeDuration = getAudioDuration(audioFilePath);
+				CreateAudioFile(taskId, audioFile, audioData);
+			}
+			else
+			{
+				if(audioData != string.Empty)
+					CopyAudioFile(taskId, audioFile, audioData);
 			}
 
 			var taskNode = tasksDoc.SelectSingleNode($"//project[@id='{project}']/task[@id='{taskId}']") as XmlElement;
@@ -72,11 +79,22 @@ namespace ReactShared
 			                   Util.NewChild(taskNode, "name");
 			if (!string.IsNullOrEmpty(heading))
 				taskNameNode.InnerText = heading;
-			Util.UpdateAttr(taskNode, "assignedto", assignedTo);
+			if (isAdhocProject)
+			{
+				var taskReferenceNode = taskNode.SelectSingleNode("reference") as XmlElement ??
+				                        Util.NewChild(taskNode, "reference");
+				if (!string.IsNullOrEmpty(reference))
+					taskReferenceNode.InnerText = reference;
+			}
+			Util.UpdateAttr(taskNode, "assignedto", assignedTo, true);
 			Util.UpdateAttr(taskNode, "length", timeDuration);
 			var state = taskNode.SelectSingleNode("./@state") as XmlAttribute;
 			if (state == null || string.IsNullOrEmpty(state.InnerText))
 				Util.UpdateAttr(taskNode, "state", "Transcribe");
+			if(!string.IsNullOrEmpty(taskState))
+			{
+				Util.UpdateAttr(taskNode, "state", taskState);
+			}
 			
 			using (var xw = XmlWriter.Create(Util.XmlFullName("tasks"), new XmlWriterSettings {Indent = true}))
 			{
@@ -84,7 +102,39 @@ namespace ReactShared
 			}
 		}
 
-		private string CreateAudioFile(string taskId, string fileName, string audioData)
+		private void CreateAudioFile(string taskId, string fileName, string audioData)
+		{
+			var folder = Util.FileFolder(taskId);
+			var dirInfo = new DirectoryInfo(folder);
+			dirInfo.Create();
+
+			var match = Util.TaskIdPattern.Match(taskId);
+			if (match.Success)
+				taskId = match.Groups[1].Value;
+			var files = dirInfo.GetFiles(taskId + "*.*")
+				.Where(s => s.Name.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase) ||
+				            s.Name.EndsWith(".wav", StringComparison.OrdinalIgnoreCase));
+
+			var seq = files.Count();
+			string fullPath;
+			while (true)
+			{
+				seq += 1;
+				fullPath = Path.Combine(folder, $"{taskId}v{seq:D2}{Path.GetExtension(fileName)}");
+				if (!File.Exists(fullPath))
+					break;
+			}
+
+			Util.SaveByteData(audioData, fullPath);
+		}
+
+		/// <summary>
+		/// Audio File passed is directly copied to the SIL Transcriber Folder
+		/// </summary>
+		/// <param name="taskId"></param>
+		/// <param name="fileName"></param>
+		/// <param name="audioData"></param>
+		private void CopyAudioFile(string taskId, string fileName, string audioData)
 		{
 			var folder = Util.FileFolder(taskId);
 			var dirInfo = new DirectoryInfo(folder);
@@ -99,34 +149,11 @@ namespace ReactShared
 			while (true)
 			{
 				seq += 1;
-				fullPath = Path.Combine(folder, $"{taskId}v{seq:D2}{Path.GetExtension(fileName)}");
+				fullPath = Path.Combine(folder, $"{taskId}v{seq:D2}{Path.GetExtension(audioData)}");
 				if (!File.Exists(fullPath))
 					break;
 			}
-
-			var audioParts = audioData.Split(',').ToList();
-			if (audioParts.Count <= 1)
-				return string.Empty;
-			var dummyData = audioParts[1].Trim().Replace(" ", "+");
-			if (dummyData.Length % 4 > 0)
-				dummyData = dummyData.PadRight(dummyData.Length + 4 - dummyData.Length % 4, '=');
-			var bytes = Convert.FromBase64String(dummyData);
-
-			using (var ms = new MemoryStream(bytes))
-			{
-				var buffer = new byte[1000];
-				using (var os = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
-				{
-					int count;
-					do
-					{
-						count = ms.Read(buffer, 0, 1000);
-						os.Write(buffer, 0, count);
-					} while (count > 0);
-				}
-			}
-
-			return fullPath;
+			File.Copy(audioData, fullPath, true);
 		}
 	}
 }

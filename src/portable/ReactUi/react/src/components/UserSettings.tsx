@@ -4,6 +4,8 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import * as actions2 from 'src/actions/avatarActions';
+import * as actions3 from 'src/actions/taskActions';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
@@ -13,6 +15,7 @@ import userStrings from '../selectors/localize';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
 import NextAction from './controls/NextAction';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import DropdownUx from './ui-controls/DropdownUx';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
@@ -20,7 +23,12 @@ import TextboxUx from './ui-controls/TextboxUx';
 import './UserSettings.sass';
 
 interface IProps extends IStateProps, IDispatchProps {
-}
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
+};
 
 class UserSettings extends React.Component<IProps, any> {
     private nameRef: React.RefObject<TextboxUx>;
@@ -52,6 +60,11 @@ class UserSettings extends React.Component<IProps, any> {
         this.forwardRef = React.createRef();
         this.slowerRef = React.createRef();
         this.fasterRef = React.createRef();
+        const { users, saveAvatar, selectedUser, setUserAvatar } = this.props;
+        const user = users.filter(u => u.username.id === selectedUser)[0];
+        const uri = (user && user.username && user.username.avatarUri)? user.username.avatarUri: ""
+        saveAvatar({ data: uri, uri});
+        setUserAvatar();
     }
 
     public componentWillMount()
@@ -62,13 +75,14 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     public render() {
-        const { users, selectedProject, selectedUser, strings } = this.props;
+        const { avatar, users, selectedProject, selectedUser, strings } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
 
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
 
         log("UserSettings")
+        const settingsStyle = this.props.history.location.pathname.length > 17? " Modal": ""
 
         const playPauseKey = this.keyCode(user, "play-pause","");
         const backKey = this.keyCode(user, "back","");
@@ -83,33 +97,37 @@ class UserSettings extends React.Component<IProps, any> {
 
         this.fontSizeDef = ['medium', 'xx-small', 'x-small', 'small', 'large', 'x-large', 'xx-large'];
         this.fontSizeLoc = [strings.medium, 'xx-' + strings.small, 'x-' + strings.small, strings.small, strings.large, 'x-' + strings.large, 'xx-' + strings.large];
-        const projFontSize = this.fontSizeLoc[this.fontSizeDef.indexOf(project.fontsize? project.fontsize: "large")]
+        const projFontSize = this.fontSizeLoc[this.fontSizeDef.indexOf((project && project.fontsize)? project.fontsize: "large")]
         const fontSizeChoice = [projFontSize].concat(this.fontSizeLoc.filter(v => v !== projFontSize));
 
         const saveMethod = () => this.save(this)
         const resetMethod = () => this.reset(this)
 
         return (
-            <div id="UserSettings" className="UserSettings">
+            <div id="UserSettings" className={"UserSettings" + settingsStyle}>
                 <div className="GridStyle">
                     <Grid>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>
                                 <BackLink target="/main" />
                             </Col>
-                            <Col xs={10} md={10}>
-                                <LabelCaptionUx name={strings.user.toUpperCase()} />
+                            <Col xs={9} md={9}>
+                                <LabelCaptionUx name={strings.user.toUpperCase()} type="H4" />
+                            </Col>
+                            <Col xs={1} md={1}>
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowUserSettingsHelp} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
                             <Col xs={10} md={10}>
-                                <Link className="pencil" to="/avatar/User">{"\u2710"}</Link>
+                                <Link className="pencil" to="/settings/avatar/User">{"\u2710"}</Link>
                                 <Avatar
-                                    id={user.id}
+                                    id={user !== undefined? user.id: "NoUser"}
+                                    name={user !== undefined ? user.displayName : ""}
                                     size="64"
                                     round={true}
-                                    src={user !== undefined? user.username.avatarUri:""} />
+                                    src={avatar} />
 
                             </Col>
                         </Row>
@@ -153,7 +171,7 @@ class UserSettings extends React.Component<IProps, any> {
                                 <LabelUx name={strings.font} />
                             </Col>
                             <Col xs={3} md={3}>
-                                <TextboxUx id="Font" ref={this.fontRef} isReadOnly={false} inputValue={project.fontfamily? project.fontfamily: "SIL Charis"}
+                                <TextboxUx id="Font" ref={this.fontRef} isReadOnly={false} inputValue={(project && project.fontfamily)? project.fontfamily: "SIL Charis"}
                                     toolTipText="" />
                             </Col>
                             <Col xs={7} md={7}>
@@ -218,12 +236,9 @@ class UserSettings extends React.Component<IProps, any> {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
-                            <Col xs={10} md={10}>
+                            <Col xs={4} md={4}>
                                 <LinkAction target={resetMethod} text={strings.reset.toUpperCase()}/>
                             </Col>
-                        </Row>
-                        <Row className="show-grid">
-                            <Col xs={10} md={10}>&nbsp;</Col>
                             <Col xs={2} md={2} className="saveAction">
                                 <NextAction target={saveMethod} text={strings.save} type="primary"/>
                             </Col>
@@ -232,6 +247,10 @@ class UserSettings extends React.Component<IProps, any> {
                 </div>
             </div>
         )
+    }
+
+    private ShowUserSettingsHelp = () => {
+        this.props.showHelp("Procedures/General_procedures/Change_user_settings.htm")
     }
 
     private keyCode(user: IUser, tag: string, defCode: string){
@@ -247,7 +266,7 @@ class UserSettings extends React.Component<IProps, any> {
     }
 
     private save(context: UserSettings) {
-        const { selectedProject, selectedUser, users, updateUser } = this.props;
+        const { avatar, selectedProject, selectedUser, users, updateUser } = this.props;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const project = user && user.project? user.project.filter(u => u.id === selectedProject)[0]: 
         {fontfamily: "SIL Charis", fontsize: "large", id:""};
@@ -401,11 +420,14 @@ class UserSettings extends React.Component<IProps, any> {
             }
         }
 
-        if (isValid === true && updates.length > 0) {
+        const img = ((user && user.username && user.username.avatarUri && user.username.avatarUri) !== avatar)?
+            avatar: "";
+
+        if (isValid === true && (updates.length > 0 || img !== "")) {
             const query = '&' + updates.join('&');
             // tslint:disable-next-line:no-console
             console.log("/api/UpdateUser?user=" + selectedUser, "&project=" + selectedProject + query);
-            updateUser(selectedUser, selectedProject, query)
+            updateUser(selectedUser, selectedProject, query, {img})
         }
     }
 
@@ -449,6 +471,7 @@ class UserSettings extends React.Component<IProps, any> {
 }
 
 interface IStateProps {
+    avatar: string;
     selectedUser: string;
     selectedProject: string;
     strings: IUserSettingsStrings;
@@ -457,6 +480,7 @@ interface IStateProps {
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
+    avatar: state.avatar.data,
     selectedProject: state.tasks.selectedProject,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "userSettings"}),
@@ -467,6 +491,9 @@ const mapStateToProps = (state: IState): IStateProps => ({
 interface IDispatchProps {
     fetchUsers: typeof actions.fetchUsers;
     restoreDefaultUserHotKeys: typeof actions.restoreDefaultUserHotKeys;
+    saveAvatar: typeof actions2.saveAvatar;
+    setUserAvatar: typeof actions2.setUserAvatar;
+    showHelp: typeof actions3.showHelp,
     updateUser: typeof actions.updateUser;
   };
   
@@ -474,6 +501,9 @@ interface IDispatchProps {
     ...bindActionCreators({
         fetchUsers: actions.fetchUsers,
         restoreDefaultUserHotKeys: actions.restoreDefaultUserHotKeys,
+        saveAvatar: actions2.saveAvatar,
+        setUserAvatar: actions2.setUserAvatar,
+        showHelp: actions3.showHelp,
         updateUser: actions.updateUser,
         }, dispatch),
   });

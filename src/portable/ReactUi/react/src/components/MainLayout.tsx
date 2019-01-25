@@ -21,7 +21,16 @@ import NavPanel from './NavPanel';
 import TaskPanel from './TaskPanel';
 
 interface IProps extends IStateProps, IDispatchProps {
+    history: {
+        location: {
+            pathname: string;
+        }
+    }
 };
+
+const initialState = {
+    highlightSeconds: 0,
+}
 
 class MainLayout extends React.Component<IProps, any> {
     private back: string;
@@ -29,7 +38,12 @@ class MainLayout extends React.Component<IProps, any> {
     private forward: string;
     private playPause: string;
     private slower: string;
+    private interval: any;
 
+    public constructor(props: IProps) {
+        super(props);
+        this.state = {...initialState}
+    }
     public componentWillMount()
     {
         const { selectedUser, users } = this.props;
@@ -45,9 +59,37 @@ class MainLayout extends React.Component<IProps, any> {
         }
     }
 
+    public componentWillUpdate() {
+        const { todoHighlight, setToDoHighlight } = this.props
+        if ( todoHighlight && this.state.highlightSeconds === 1 ) {
+            setToDoHighlight(false);
+            this.setState({ highlightSeconds: 0 });
+        }
+    }
+
+    public componentDidMount() {
+        this.interval = setInterval(() => this.tick(), 1000);
+    }
+
+    public componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    public tick() {
+        const { todoHighlight } = this.props
+        if(todoHighlight)
+        {
+            this.setState((prevState: any) => ({
+                ...this.state,
+                highlightSeconds: prevState.highlightSeconds + 1
+            }));
+        }
+
+    }
+
     public render() {
         const { jumpChange, playing, playSpeedRate, playSpeedRateChange, playStatus, saved, submit,
-            assignedReview, assignedTranscribe, availableReview,  availableTranscribe, direction, project} = this.props;
+            assignedReview, assignedTranscribe, availableReview,  availableTranscribe, direction, project, todoHighlight} = this.props;
 
         log("MainLayout")
         const keyMap = {
@@ -95,13 +137,16 @@ class MainLayout extends React.Component<IProps, any> {
             editorScreen = (submit && saved) ? <SucessPanel  {...this.props} sync={sync} /> : <AudioPanel {...this.props} />;
         }
 
+        let settingsStyle = this.props.history.location.pathname.length > 5? " Modal": ""
+        settingsStyle = direction? settingsStyle + " " + direction: settingsStyle;
+
         return (
             <HotKeys keyMap={keyMap} handlers={handlers}>
-                <div className={"MainLayout " + (direction? direction: "")} tabIndex={1}>
+                <div  className={"MainLayout" + settingsStyle} tabIndex={1}>
                     <div className="NavCol">
                         <NavPanel {...this.props} />
                     </div>
-                    <div className="TaskCol">
+                    <div className={todoHighlight? "TaskCol TodoBorderOn": "TaskCol TodoBorderOff"}>
                         <TaskPanel {...this.props} />
                     </div>
                     <div className="MainCol">
@@ -131,6 +176,7 @@ interface IStateProps {
     strings: ITranscriberStrings;
     submit: boolean;
     users: IUser[];
+    todoHighlight: boolean;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
@@ -150,6 +196,7 @@ const mapStateToProps = (state: IState): IStateProps => ({
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, { layout: "transcriber" }),
     submit: state.audio.submit,
+    todoHighlight: state.tasks.todoHighlight,
     users: state.users.users,
 });
 
@@ -164,6 +211,8 @@ interface IDispatchProps {
     setSubmitted: typeof actions.setSubmitted;
     assignTask: typeof actions2.assignTask;
     unassignTask: typeof actions2.unAssignTask;
+    setToDoHighlight: typeof actions2.setToDoHightlight;
+    showHelp: typeof actions2.showHelp,
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
@@ -177,6 +226,8 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         reportPosition: actions.reportPosition,
         saveTotalSeconds: actions.saveTotalSeconds,
         setSubmitted: actions.setSubmitted,
+        setToDoHighlight: actions2.setToDoHightlight,
+        showHelp: actions2.showHelp,
         unassignTask: actions2.unAssignTask,
     }, dispatch),
 });

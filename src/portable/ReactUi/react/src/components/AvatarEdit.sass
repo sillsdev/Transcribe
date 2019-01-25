@@ -1,16 +1,112 @@
-.AvatarEdit 
+@import "../_variables.sass"
+
+.AvatarEdit
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+	background-color: transparent
+	display: -ms-flexbox
 	display: flex
-	flex-direction: column
-	.content
+	-ms-flex-direction: row
+	flex-direction: row
+	-ms-flex-pack: end
+	justify-content: flex-end
+	&.rtl
+        direction: rtl
+        .panel
+            padding-right: 0
+            &>*
+                padding-left: 0
+                padding-right: 64px
+            &>.titleRow
+                padding-right: 0px
+	.panel
+        width: 352px
+        height: 100%
+        background-color: $base02
+        display: flex
+        flex-direction: column
+        flex: 0 0 auto
+        overflow-y: auto
+        &>*
+            padding-left: 64px
+            flex: 0 0 auto
+        &>.titleRow
+            padding-left: 0
+            padding-bottom: 32px
+        padding-left: 0
+	.titleRow
+        display: flex
+        flex-direction: row
+        padding-top: 32px
+        z-index: 2
+        .BackLink
+            width: 64px
+            text-align: center
+        .title
+            align-self: flex-start
+            flex: 1 0 auto
+        .copyAction.hide
+            display: none
+        .copyAction
+            display: flex
+            flex-direction: column
+            align-self: center
+            padding: 0 64px
+	.data
+		z-index: 2
+	.data>*>*
+		width: 448px
+	.dataColumn
+		max-width: 392px
+	.data>*>.SelectField .dataColumn
+		max-width: 448px
+	.options
 		display: flex
-		flex-direction: row
-		padding: 40px
-	.preview 
-		margin: 80px
-		flex: 0 0 auto
 		flex-direction: column
-		align-items: center
-	
-	img 
-		width: 64px
-		height: 64px
+		flex: 1 0 auto
+		padding: 70px
+		.uploadContent
+			position: relative
+			overflow: hidden
+			display: inline-block
+		.btn
+			border: 2px solid gray
+			color: #002B36
+			background-color: #F5CC4C
+			padding: 8px 20px
+			border-radius: 4px
+			font-family: "Noto Sans", "Roboto", sans-serif
+			font-size: 14px
+			line-height: 16px
+			letter-spacing: 0.75px
+		.uploadContent input[type=file]
+			font-size: 100px
+			position: absolute
+			left: 0
+			top: 0
+			opacity: 0
+		.zoomContent
+			padding-top: 20px
+	.action
+        background-color: $base02
+        display: flex
+        flex: 0 0 auto
+        z-index: 1
+        justify-content: space-between
+        flex-direction: row
+        border-top: 1px solid $base01
+	.IconButtonField
+		margin: 0
+	#discard label
+		width: 144px
+input
+	color: $base1
+	font-family: $sans
+	font-style: normal
+	font-size: 12px
+	line-height: 16px
+	letter-spacing: 15%
+
