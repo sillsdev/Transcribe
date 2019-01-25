@@ -31,14 +31,20 @@ endif
 ifndef MONO_MWF_SCALING
 MONO_MWF_SCALING=disable
 endif
+ifndef TRANSCRIBE_REPO
+TRANSCRIBE_REPO=Transcribe_LinuxMasterContinuous
+endif
 PATH := $(MONO_PREFIX)/bin:$(PATH)
 
 build:
 	mkdir -p $(bindst)
 	#Get binary from build server since mono won't access .net core assemblies as dependencies
 	#cp -r /home/lsdev/Downloads/Transcribe_linux-master-continuous_0.3.1.116_artifacts/* $(bindst)
-	wget -P$(binsrc)/output/ https://build.palaso.org/guestAuth/repository/downloadAll/Transcribe_LinuxMasterContinuous/.lastSuccessful/artifacts.zip
+	wget -P$(binsrc)/output/ https://build.palaso.org/guestAuth/repository/downloadAll/$(TRANSCRIBE_REPO)/.lastSuccessful/artifacts.zip
 	cd $(binsrc)/output ; unzip -d Release artifacts.zip
+	git clone https://github.com/sillsdev/TranscriberData.git getSample
+	mv getSample/Sample $(bindst)/Sample
+	rm -rf getSample
 	cp $(binsrc)/src/portable/Transcribe.Linux/runmono $(bindst)
 	chmod +x $(bindst)/runmono
 
