@@ -1,4 +1,4 @@
-export MONO_PREFIX=/opt/mono4-sil
+export MONO_PREFIX=/opt/mono5-sil
 export GDK_SHARP=${MONO_PREFIX}/lib/mono/gtk-sharp-3.0
 export LD_LIBRARY_PATH=${PWD}/Firefox:${MONO_PREFIX}/lib:${LD_LIBRARY_PATH}
 export PKG_CONFIG_PATH=${MONO_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
