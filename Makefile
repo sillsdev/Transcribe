@@ -17,7 +17,7 @@ ifndef MONO_PREFIX
 MONO_PREFIX=/opt/mono5-sil
 endif
 ifndef GDK_SHARP
-GDK_SHARP=/opt/mono4-sil/lib/mono/gtk-sharp-3.0
+GDK_SHARP=/opt/mono5-sil/lib/mono/gtk-sharp-2.0
 endif
 ifndef LD_LIBRARY_PATH
 LD_LIBRARY_PATH=$(MONO_PREFIX)/lib
@@ -31,33 +31,42 @@ endif
 ifndef MONO_MWF_SCALING
 MONO_MWF_SCALING=disable
 endif
+ifndef TRANSCRIBE_REPO
+TRANSCRIBE_REPO=Transcribe_LinuxMasterContinuous
+endif
 PATH := $(MONO_PREFIX)/bin:$(PATH)
 
 build:
 	mkdir -p $(bindst)
 	#Get binary from build server since mono won't access .net core assemblies as dependencies
 	#cp -r /home/lsdev/Downloads/Transcribe_linux-master-continuous_0.3.1.116_artifacts/* $(bindst)
-	wget -P$(binsrc)/output/ https://build.palaso.org/guestAuth/repository/downloadAll/Transcribe_LinuxMasterContinuous/.lastSuccessful/artifacts.zip
+	wget -P$(binsrc)/output/ https://build.palaso.org/guestAuth/repository/downloadAll/$(TRANSCRIBE_REPO)/.lastSuccessful/artifacts.zip
 	cd $(binsrc)/output ; unzip -d Release artifacts.zip
+	git clone https://github.com/sillsdev/TranscriberData.git getSample
+	mv getSample/Sample $(bindst)/Sample
+	rm -rf getSample
 	cp $(binsrc)/src/portable/Transcribe.Linux/runmono $(bindst)
 	chmod +x $(bindst)/runmono
 
 buildFull:
 	#sudo apt install nuget -y
 	#Need 2.12 of nuget not available on package repo but at:
+	#sudo rm -rf /usr/lib/nuget
 	#https://github.com/mono/nuget-binary/tree/2.12
 	#sudo git clone https://github.com/mono/nuget-binary.git /usr/lib/nuget
-	nuget Restore $(binsrc)/Transcribe.Windows.sln
+	#CURPATH=`pwd`
+	#cd /usr/lib/nuget && sudo git checkout 2.12 && cd $CURPATH
+	mono /usr/lib/nuget/NuGet.exe Restore $(binsrc)/Transcribe.Windows.sln
 	#sudo apt install npm -y
 	cd $(binsrc)/src/portable/ReactUi/react; npm install
 	#cd $(binsrc)/src/portable/ReactUi/react; npm run test all
 	cd $(binsrc)/src/portable/ReactUi/react; bash build.sh
 	mkdir -p $(bindst)
 	cp $(binsrc)/lib/netstandard2.0/* $(bindst)
-	xbuild /t:Rebuild /p:SolutionDir=$(binsrc)/\;Platform=x86\;Configuration=Release\;OutputPath=$(bindst) $(binsrc)/src/SimpleServer/SimpleServer.csproj
-	xbuild /t:Rebuild /p:SolutionDir=$(binsrc)/\;Platform=x86\;Configuration=Release\;OutputPath=$(bindst) $(binsrc)/src/portable/Transcribe.Linux/Transcribe.Linux.csproj
+	msbuild /t:Rebuild /p:SolutionDir=$(binsrc)/\;Configuration=Release\;OutputPath=$(bindst) $(binsrc)/src/SimpleServer/SimpleServer.csproj
+	msbuild /t:Rebuild /p:SolutionDir=$(binsrc)/\;Platform=x86\;Configuration=Release\;OutputPath=$(bindst) $(binsrc)/src/portable/Transcribe.Linux/Transcribe.Linux.csproj
 	cp $(binsrc)/src/portable/Transcribe.Linux/runmono $(bindst)
-	cp -r $(binsrc)/packages/Geckofx45.64.Linux.45.0.36/content/Firefox-Linux64 $(bindst)/.
+	cp -r $(binsrc)/packages/Geckofx45.64.Linux.45.0.37/content/Firefox-Linux64 $(bindst)/Firefox
 
 debug:
 	sudo apt install npm -y
@@ -90,6 +99,7 @@ tests:
 	nunit-console -exclude=SkipOnTeamCity\;LongTest -labels -nodots output/Debug/Test.dll
 
 install:
+	rm -rf $(DESTDIR)$(prefix)/lib/siltranscriber
 	mkdir -p $(DESTDIR)$(prefix)/lib/siltranscriber
 	cp -r $(bindst)/. $(DESTDIR)$(prefix)/lib/siltranscriber
 	mkdir -p $(DESTDIR)$(prefix)/bin

@@ -2,7 +2,7 @@ Source: siltranscriber
 Section: cli-mono
 Priority: extra
 Maintainer: Greg Trihus <greg_trihus@sil.org>
-Build-Depends: debhelper (>= 7), mono5-sil, npm, nuget
+Build-Depends: debhelper (>= 7), mono5-sil, gtk-sharp5-sil, npm, nuget
 Standards-Version: 3.9.7
 Homepage: http://software.sil.org/transcriber
 Vcs-Git: git://github.com/sillsdev/transcribe.git
@@ -10,6 +10,6 @@ Vcs-Browser: http://github.com/sillsdev/transcribe/
 
 Package: siltranscriber
 Architecture: all
-Depends: mono4-sil, gtk-sharp4-sil
+Depends: mono5-sil, gtk-sharp5-sil
 Recommends:
 Description: Transcription of minority audio for review by Paratext 
