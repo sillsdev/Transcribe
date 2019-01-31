@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: PlayPause --- Snapshot +++capturing Snapshot of PlayPause 1`] = `
+<div>
+  <div
+    className="__react_component_tooltip place-top type-dark "
+    data-id="tooltip"
+    id={undefined}
+  />
+  <div
+    className="PlayPause"
+    data-tip="Esc"
+    id="PlayPause"
+    onClick={[Function]}
+  >
+    <div
+      className="play"
+    >
+      ▶
+    </div>
+  </div>
+</div>
+`;

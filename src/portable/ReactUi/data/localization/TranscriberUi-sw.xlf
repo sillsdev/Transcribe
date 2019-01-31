@@ -104,16 +104,22 @@
 				<target>Umefika</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>Kufanya</target>
+				<source>My Tasks</source>
+				<target>Kazi Zangu</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>Wote</target>
+				<source>All Tasks</source>
+				<target>Kazi zote</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>Inaendelea</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">
@@ -138,6 +144,12 @@
 			<segment>
 				<source>Log Out</source>
 				<target>Ingia nje</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Hakuna</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -654,6 +666,18 @@
 			<segment>
 				<source>Delete User</source>
 				<target>Futa Mtumiaji</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Futa Mradi</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Chagua mradi tofauti</target>
 			</segment>
 		</unit>
 	</file>

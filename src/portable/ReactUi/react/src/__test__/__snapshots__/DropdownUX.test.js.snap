@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: DropdownUX --- Snapshot +++capturing Snapshot of DropdownUX 1`] = `
+<div
+  className="DropdownUx"
+  id="My Dropdown"
+>
+  <select
+    className="custom-select"
+    onMouseUp={[Function]}
+  >
+    <option
+      style={
+        Object {
+          "backgroundColor": "#002B36",
+          "color": "white",
+        }
+      }
+      value="admin"
+    >
+      admin
+    </option>
+    <option
+      style={
+        Object {
+          "backgroundColor": "#002B36",
+          "color": "white",
+        }
+      }
+      value="transcriber"
+    >
+      transcriber
+    </option>
+    <option
+      style={
+        Object {
+          "backgroundColor": "#002B36",
+          "color": "white",
+        }
+      }
+      value="reviewer"
+    >
+      reviewer
+    </option>
+  </select>
+</div>
+`;

@@ -104,16 +104,22 @@
 				<target>Você chegou</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>Façam</target>
+				<source>My Tasks</source>
+				<target>Minhas tarefas</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>Todos</target>
+				<source>All Tasks</source>
+				<target>Todas as tarefas</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>Em progresso</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">
@@ -138,6 +144,12 @@
 			<segment>
 				<source>Log Out</source>
 				<target>Sair</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Nenhum</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -654,6 +666,18 @@
 			<segment>
 				<source>Delete User</source>
 				<target>Deletar usuário</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Excluir projeto</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target></target>
 			</segment>
 		</unit>
 	</file>

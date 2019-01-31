@@ -99,6 +99,9 @@ namespace Transcribe.Windows
 						case "GetMeta":
 							new GetMeta(e.Uri.Query, e.RequestBody);
 							break;
+						case "DeleteProject":
+							new DeleteProject(e.Uri.Query);
+							break;
 					}
 				}
 				catch (Exception err)
@@ -164,12 +167,7 @@ namespace Transcribe.Windows
 
 		private void ShowHelpTopic(string topic, string helpFileName)
 		{
-			HelpProvider helpProv = new HelpProvider();
-			helpProv.HelpNamespace = helpFileName;
-			TextBox tb = new TextBox();
-			helpProv.SetHelpNavigator(tb, HelpNavigator.KeywordIndex);
-			helpProv.SetHelpKeyword(tb, topic);
-			Help.ShowHelp(tb, helpProv.HelpNamespace,helpProv.GetHelpNavigator(tb), helpProv.GetHelpKeyword(tb));
+			Help.ShowHelp(this, helpFileName, topic);
 		}
 
 	}

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions2 from 'src/actions/avatarActions';
+import * as actions3 from 'src/actions/taskActions';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/userActions';
 import { IUserSettingsStrings } from '../model/localize';
@@ -14,6 +15,7 @@ import userStrings from '../selectors/localize';
 import BackLink from './controls/BackLink';
 import LinkAction from './controls/LinkAction';
 import NextAction from './controls/NextAction';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import DropdownUx from './ui-controls/DropdownUx';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 import LabelUx from './ui-controls/LabelUx';
@@ -109,8 +111,11 @@ class UserSettings extends React.Component<IProps, any> {
                             <Col xs={2} md={2}>
                                 <BackLink target="/main" />
                             </Col>
-                            <Col xs={10} md={10}>
-                                <LabelCaptionUx name={strings.user.toUpperCase()} />
+                            <Col xs={9} md={9}>
+                                <LabelCaptionUx name={strings.user.toUpperCase()} type="H4" />
+                            </Col>
+                            <Col xs={1} md={1}>
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowUserSettingsHelp} />
                             </Col>
                         </Row>
                         <Row className="show-grid">
@@ -118,7 +123,7 @@ class UserSettings extends React.Component<IProps, any> {
                             <Col xs={10} md={10}>
                                 <Link className="pencil" to="/settings/avatar/User">{"\u2710"}</Link>
                                 <Avatar
-                                    id={user.id}
+                                    id={user !== undefined? user.id: "NoUser"}
                                     name={user !== undefined ? user.displayName : ""}
                                     size="64"
                                     round={true}
@@ -231,12 +236,9 @@ class UserSettings extends React.Component<IProps, any> {
                         </Row>
                         <Row className="show-grid">
                             <Col xs={2} md={2}>&nbsp;</Col>
-                            <Col xs={10} md={10}>
+                            <Col xs={4} md={4}>
                                 <LinkAction target={resetMethod} text={strings.reset.toUpperCase()}/>
                             </Col>
-                        </Row>
-                        <Row className="show-grid">
-                            <Col xs={10} md={10}>&nbsp;</Col>
                             <Col xs={2} md={2} className="saveAction">
                                 <NextAction target={saveMethod} text={strings.save} type="primary"/>
                             </Col>
@@ -245,6 +247,10 @@ class UserSettings extends React.Component<IProps, any> {
                 </div>
             </div>
         )
+    }
+
+    private ShowUserSettingsHelp = () => {
+        this.props.showHelp("Procedures/General_procedures/Change_user_settings.htm")
     }
 
     private keyCode(user: IUser, tag: string, defCode: string){
@@ -487,6 +493,7 @@ interface IDispatchProps {
     restoreDefaultUserHotKeys: typeof actions.restoreDefaultUserHotKeys;
     saveAvatar: typeof actions2.saveAvatar;
     setUserAvatar: typeof actions2.setUserAvatar;
+    showHelp: typeof actions3.showHelp,
     updateUser: typeof actions.updateUser;
   };
   
@@ -496,6 +503,7 @@ interface IDispatchProps {
         restoreDefaultUserHotKeys: actions.restoreDefaultUserHotKeys,
         saveAvatar: actions2.saveAvatar,
         setUserAvatar: actions2.setUserAvatar,
+        showHelp: actions3.showHelp,
         updateUser: actions.updateUser,
         }, dispatch),
   });

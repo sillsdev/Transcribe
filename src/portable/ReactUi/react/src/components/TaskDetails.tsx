@@ -16,6 +16,7 @@ import BackLink from './controls/BackLink';
 import NextAction from './controls/NextAction';
 import TaskItem from './controls/TaskItem';
 import './TaskDetails.sass';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import FileField from './ui-controls/FileField';
 import IconButtonField from './ui-controls/IconButtonField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
@@ -39,6 +40,7 @@ const initialState = {
     heading: "",
     message: "",
     pair: false,
+    previewHeight: 0,
     reference: "",
     taskState: 0,
 }
@@ -49,6 +51,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
     private taskId: string;
     private task: ITask;
     private fileRef: React.RefObject<FileField>;
+    private previewRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: IProps) {
         super(props)
@@ -58,6 +61,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         this.updateHeading = this.updateHeading.bind(this);
         this.updateReference = this.updateReference.bind(this);
         this.fileRef = React.createRef();
+        this.previewRef = React.createRef();
         this.validateReference = this.validateReference.bind(this);
         this.deleteTask = this.deleteTask.bind(this);
         this.updateTaskState = this.updateTaskState.bind(this);
@@ -103,6 +107,14 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         return 0;
     }
 
+    public componentDidMount () {
+        const newTask = this.props.history.location.pathname.indexOf("NewTask") > 0;
+        const previewLocation = this.previewRef && this.previewRef.current && this.previewRef.current.offsetTop
+            ? this.previewRef.current.offsetTop
+            : 0;
+        this.setState({previewHeight: window.innerHeight - previewLocation - (!newTask? 180: 52)})
+    }
+
     public render() {
         const { discard, fileName, reference, heading, assignedTo, taskState } = this.state
         const { direction, deleted, strings, users } = this.props;
@@ -129,6 +141,9 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                         {backLinkWrapper}
                         <div className="title">
                             <LabelCaptionUx name={strings.taskDetails} type="H2" />
+                        </div>
+                        <div className="anchorHelp">
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowTaskDetailsHelp} />
                         </div>
                         <div className={"copyAction" + (newTask? " hide": "")}>
                             <NextAction
@@ -160,7 +175,7 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
                             onChange={this.updateAssignedTo}
                             direction={direction} /></div>
                     </div>
-                    <div className="preview">
+                    <div className="preview" ref={this.previewRef} style={{maxHeight: this.state.previewHeight}}>
                         <LabelCaptionUx name={strings.preview} type="small" />
                         <div className={"waveformRow" + (fileName !== "" || heading !== "" || reference !== ""? "": " hide") + (fileName !== ""? "": " hideWave")}>
                             <TaskItem id="TaskItem"
@@ -209,6 +224,10 @@ class TaskDetails extends React.Component<IProps, typeof initialState> {
         const thirdIndex = direction && direction === "rtl"? {label:strings.transcribed,style:{color:greenColor},text:"Review"}: {label:strings.reviewed,style:{color:greenColor},text:"Upload"};
         const fourthIndex = direction && direction === "rtl"? {label:strings.start,style:{color:greenColor},text:"Transcribe"}: {label:strings.synced,style:{color:greenColor},text:"Complete"};
         return {0: firstIndex,1: secondIndex,2: thirdIndex,3: fourthIndex};
+    }
+
+    private ShowTaskDetailsHelp = () => {
+        this.props.showHelp("Procedures/Admin_procedures/Edit_task_details.htm")
     }
 
     private validateReference(ref: string) {
@@ -391,6 +410,7 @@ interface IDispatchProps {
     fetchUsers: typeof actions2.fetchUsers;
     selectTask: typeof actions.selectTask;
     updateTask: typeof actions.updateTask;
+    showHelp: typeof actions.showHelp,
  };
  const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
      ...bindActionCreators({
@@ -399,6 +419,7 @@ interface IDispatchProps {
         fetchMeta: actions3.fetchMeta,
         fetchUsers: actions2.fetchUsers,
         selectTask: actions.selectTask,
+        showHelp: actions.showHelp,
         updateTask: actions.updateTask,
      }, dispatch),
  });

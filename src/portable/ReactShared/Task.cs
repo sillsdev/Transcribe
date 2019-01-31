@@ -13,7 +13,7 @@
 			$"{BookName.Substring(0, 3)}-{ChapterNumber:D3}-{VerseStart:D3}{VerseEnd:D3}";
 
 		public string Reference =>
-			$"{BookName.Substring(0, 3)} {ChapterNumber:D3}:{VerseStart:D3}-{VerseEnd:D3}";
+			$"{BookName.Substring(0, 3)} {ChapterNumber}:{VerseStart}-{VerseEnd}";
 
 		public Task GetTask(string taskId)
 		{

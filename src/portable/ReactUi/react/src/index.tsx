@@ -14,6 +14,7 @@ import UiLang from './components/UiLang';
 import UserDetails from './components/UserDetails';
 import UserLogin from './components/UserLogin';
 import UserSettings from './components/UserSettings';
+import DevTools from './DevTool'
 import './index.sass';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store';
@@ -40,6 +41,7 @@ ReactDOM.render(
         <Route path="/ProjectSettings/User/avatar/PopupUser" component={AvatarEdit} />
         <Route path="/ProjectSettings/NewUser/avatar/PopupUser" component={AvatarEdit} />
         <Route path="/ProjectSettings/AddManyTasks" component={AddManyTasks} />
+        <Route path="/" component={DevTools} />
       </div>
     </Router>
   </Provider>,

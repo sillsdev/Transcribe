@@ -25,8 +25,8 @@
 		justify-content: flex-end
 		flex-direction: row
 		flex: 1 0 auto
+		padding-top: 16px
 		padding-right: 8px
-		padding-bottom: 16px
 		&>*
 			margin-left: 16px
 
@@ -39,7 +39,8 @@
 		// grid-template-columns: repeat(2, auto)
 		// grid-auto-flow: row
 		overflow-y: auto
-		padding: 16px
+		padding: 16px 16px 0 16px
+		min-width: 705px
 
 	.itemRow
 		display: flex
@@ -53,6 +54,9 @@
 			border-radius: 4px
 			-moz-box-shadow: 0px 0px 30px 0px $white
 			box-shadow: 0px 0px 30px 0px $white
+
+	.TaskItem a
+		text-decoration: none
 
 body
 	background-color: $navBG

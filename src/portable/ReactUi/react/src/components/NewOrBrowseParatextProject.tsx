@@ -6,12 +6,14 @@ import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
+import * as actions1 from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import ButtonLink from './controls/ButtonLink';
 import NextAction from './controls/NextAction';
 import './NewOrBrowseParatextProject.sass';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 
 interface IProps extends IStateProps, IDispatchProps {
@@ -38,6 +40,9 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
         }
         return (
             <div className="NewOrBrowseParatextProjects">
+                <div className="anchorHelp">
+                    <AnchorHelp id="UiLangHelp" onClick={this.ShowHelp} />
+                </div>
                 <Grid className="grid">
                     <Row className="name-row">
                         <Col xs={12} md={12}>
@@ -70,6 +75,11 @@ class NewOrBrowseParatextProjects extends React.Component<IProps, object> {
     private selectProject(project: IParatextProject){
         this.props.selectParatextProject(project);
     }
+
+    private ShowHelp = () => {
+        this.props.showHelp("Procedures/Admin_procedures/Make_a_new_project.htm")
+    }
+
 }
 
 interface IStateProps {
@@ -92,12 +102,14 @@ interface IDispatchProps {
 
     fetchParatextProjects: typeof actions.fetchParatextProjects,
     selectParatextProject: typeof actions.selectParatextProject;
+    showHelp: typeof actions1.showHelp;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         fetchParatextProjects: actions.fetchParatextProjects,
         selectParatextProject: actions.selectParatextProject,
+        showHelp: actions1.showHelp,
     }, dispatch),
 });
 

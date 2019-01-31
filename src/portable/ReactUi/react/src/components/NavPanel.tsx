@@ -23,11 +23,14 @@ interface IProps extends IStateProps, IDispatchProps{
 const initialState = {
     backToHome: false,
     goTosearchParatextProjects: false,
+    selectProject: false,
     showProjectEdit: false,
 }
 
 class NavPanel extends React.Component<IProps, typeof initialState> {
     public state: typeof initialState;
+    private navOptionListDef: string[];
+    private navOptionListLoc: string[];
 
     public constructor(props: IProps) {
         super(props);
@@ -35,14 +38,27 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         this.onLogOutClick = this.onLogOutClick.bind(this);
         this.onNewProject = this.onNewProject.bind(this);
         this.onChangeImage = this.onChangeImage.bind(this);
+        this.onChooseProject = this.onChooseProject.bind(this);
+        this.onDeleteProject = this.onDeleteProject.bind(this);
+        this.onAllTasksClick = this.onAllTasksClick.bind(this);
+        this.onInProgressClick = this.onInProgressClick.bind(this);
+        this.onTranscribedClick = this.onTranscribedClick.bind(this);
+        this.onReviewedClick = this.onReviewedClick.bind(this);
+        this.onMyTasksClick = this.onMyTasksClick.bind(this);
+        this.onSyncedClick = this.onSyncedClick.bind(this);
+        const { strings } = this.props;
+        this.navOptionListDef = ['mytasks', 'inprogress', 'transcribed', 'reviewed', 'synced', 'alltasks'];
+        this.navOptionListLoc = [strings.mytasks, strings.inprogress, strings.transcribed, strings.reviewed, strings.synced, strings.alltasks];
     }
 
     public render() {
-        const { direction, tasks, selectedProject, users, saveAvatar, selectedUser, setProjectAvatar, setSaveToProject, strings } = this.props;
-        const { backToHome, goTosearchParatextProjects, showProjectEdit } = this.state;
+        const { direction, tasks, selectedProject, users, saveAvatar, selectedUser, setProjectAvatar, setSaveToProject, strings, selectedOption } = this.props;
+        const { backToHome, goTosearchParatextProjects, selectProject, showProjectEdit } = this.state;
         const user = users.filter(u => u.username.id === selectedUser)[0];
         const admin = user && user.role && user.role.filter(r => r === "administrator")[0];
         const project = tasks.filter(t => t.id === selectedProject)[0];
+        const selectedOptLoc = this.navOptionListLoc[this.navOptionListDef.indexOf(selectedOption)];
+        const onTranscribedClick = () => this.onTranscribedClick(this);
         let projectClick = "/main";
         let isAdminAsFirstUser = false;
         log("NavPanel")
@@ -54,6 +70,9 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
 		}
         if (backToHome) {
             return ( <Redirect to="/" push={true} /> );
+        }
+        if (selectProject) {
+            return ( <Redirect to="/project" push={true} /> );
         }
         if(showProjectEdit){
             this.setState({showProjectEdit: false});
@@ -79,53 +98,91 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
                 uri={project.uri !== undefined? project.uri:""}
                 isAdmin = {(admin !== undefined && admin !== null)?true : false}
                 newProject={this.onNewProject}
-                changeImage={this.onChangeImage} />):"";
-
+                changeImage={this.onChangeImage}
+                chooseProject={this.onChooseProject}
+                deleteProject={this.onDeleteProject} />):"";
+        const sync = project && project.sync? project.sync: false;
         return (
             <div id="NavPanel" className="NavPanel">
                 {projectAvatar}
                 <div className="TodoStyle">
-                    <IconButtonField id="icon1" caption={strings.todo} imageUrl="TodoIcon.svg" bgColor="true" onClick={this.onToDoClick} reverse={direction !== undefined && direction === "rtl"} />
+                <IconButtonField id="icon1" caption={strings.mytasks} imageUrl="MyTasksIcon.svg" bgColor={ selectedOptLoc === strings.mytasks} onClick={this.onMyTasksClick} reverse={direction !== undefined && direction === "rtl"}  enabled={true}/>
                 </div>
                 <div className="OptionsStyle">
-                    {/* <IconButtonField id="icon2" caption={strings.all} imageUrl="AllIcon.svg" onClick={this.onAllClick} />
-                    <IconButtonField id="icon3" caption={strings.transcribed} imageUrl="TranscribedIcon.svg" onClick={this.onTranscribedClick} />
-                    <IconButtonField id="icon4" caption={strings.reviewed} imageUrl="ReviewedIcon.svg" onClick={this.onReviewedClick} />
-                    <IconButtonField id="icon5" caption={strings.synced} imageUrl="SyncedIcon.svg" onClick={this.onSyncedClick} /> */}
+                <IconButtonField id="icon7" caption={strings.inprogress} imageUrl="MyTasksIcon.svg" bgColor={ selectedOptLoc === strings.inprogress} onClick={this.onInProgressClick} changeCaptionSize={true} enabled={true}/>
+                    <IconButtonField id="icon3" caption={strings.transcribed} imageUrl="TranscribedIcon.svg" bgColor={ selectedOptLoc === strings.transcribed} onClick={onTranscribedClick}  changeCaptionSize={true} enabled={true}/>
+                    <IconButtonField id="icon4" caption={strings.reviewed} imageUrl="ReviewedIcon.svg" bgColor={ selectedOptLoc === strings.reviewed} onClick={this.onReviewedClick}  changeCaptionSize={true} enabled={true}/>
+                    <IconButtonField id="icon5" caption={strings.synced} imageUrl="SyncedIcon.svg" bgColor={ selectedOptLoc === strings.synced} onClick={this.onSyncedClick}  changeCaptionSize={true} enabled={sync}/>
                     <div>{"\u00A0"}</div>
                 </div>
+                <div className="AllTasksStyle">
+                    <IconButtonField id="icon2" caption={strings.alltasks} imageUrl="AllTasksIcon.svg" bgColor={ selectedOptLoc === strings.alltasks} onClick={this.onAllTasksClick}  enabled={true}/>
+                </div>
                 <div className="LogoutStyle">
-                    <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" reverse={direction !== undefined && direction === "rtl"} hidden={isAdminAsFirstUser} onClick={this.onLogOutClick} />
+                    <IconButtonField id="icon6" caption={strings.logout} imageUrl="LogoutIcon.svg" reverse={direction !== undefined && direction === "rtl"} hidden={isAdminAsFirstUser} onClick={this.onLogOutClick}  enabled={true}/>
                 </div>
                 {userAvatar}
             </div>
         )
     }
 
-    private onToDoClick()
-    {
-        log("To Do Clicked");
+    private onMyTasksClick() {
+        if (this.props.setSelectedOption !== undefined) {
+            const { fetchFilteredTasks, selectedUser, selectedProject} = this.props;
+            fetchFilteredTasks(selectedUser, selectedProject, "mytasks");
+            if (this.props.setToDoHighlight !== undefined) {
+                this.props.setToDoHighlight(true);
+            }
+        }
     }
 
-/*     private onAllClick()
-    {
-        alert("All Clicked!");
+    private onAllTasksClick() {
+        if (this.props.setSelectedOption !== undefined) {
+            const { fetchFilteredTasks, selectedUser, selectedProject} = this.props;
+            fetchFilteredTasks(selectedUser, selectedProject, "alltasks");
+            if (this.props.setToDoHighlight !== undefined) {
+                this.props.setToDoHighlight(true);
+            }
+        }
     }
 
-    private onTranscribedClick()
-    {
-        alert("Transcribed Clicked!");
+    private onTranscribedClick(ctx: NavPanel) {
+            const { fetchFilteredTasks, selectedUser, selectedProject} = this.props;
+            fetchFilteredTasks(selectedUser, selectedProject, "transcribed");
+            if (this.props.setToDoHighlight !== undefined) {
+                this.props.setToDoHighlight(true);
+            }
     }
 
-    private onReviewedClick()
-    {
-        alert("Reviewed Clicked!");
+    private onReviewedClick = () =>  {
+        if (this.props.setSelectedOption !== undefined) {
+            const { fetchFilteredTasks, selectedUser, selectedProject} = this.props;
+            fetchFilteredTasks(selectedUser, selectedProject, "reviewed");
+            if (this.props.setToDoHighlight !== undefined) {
+                this.props.setToDoHighlight(true);
+            }
+        }
     }
 
-    private onSyncedClick()
-    {
-        alert("Synced Clicked!");
-    } */
+    private onSyncedClick() {
+        if (this.props.setSelectedOption !== undefined) {
+            const { fetchFilteredTasks, selectedUser, selectedProject} = this.props;
+            fetchFilteredTasks(selectedUser, selectedProject, "synced");
+            if (this.props.setToDoHighlight !== undefined) {
+                this.props.setToDoHighlight(true);
+            }
+        }
+    }
+
+    private onInProgressClick() {
+        if (this.props.setSelectedOption !== undefined) {
+            const { fetchFilteredTasks, selectedUser, selectedProject} = this.props;
+            fetchFilteredTasks(selectedUser, selectedProject, "inprogress");
+            if (this.props.setToDoHighlight !== undefined) {
+                this.props.setToDoHighlight(true);
+            }
+        }
+    }
 
     private onLogOutClick() {
         const {playedSeconds, reportPosition, selectedTask} = this.props;
@@ -143,6 +200,26 @@ class NavPanel extends React.Component<IProps, typeof initialState> {
         this.setState({...this.state, goTosearchParatextProjects: true});
     }
 
+    private onDeleteProject() {
+        const { clearSelectedParatextProject, deleteProject, fetchZttProjectsCount, selectedProject, selectedUser, tasks } = this.props;
+        const projectCount = tasks.length
+        deleteProject(selectedProject, selectedUser);
+        clearSelectedParatextProject();
+        fetchZttProjectsCount();
+        if (projectCount <= 1){
+            this.setState({...this.state, goTosearchParatextProjects: true});
+        } else {
+            this.setState({...this.state, selectProject: true});
+        }
+    }
+
+    private onChooseProject() {
+        const { clearSelectedParatextProject, fetchZttProjectsCount } = this.props;
+        clearSelectedParatextProject();
+        fetchZttProjectsCount();
+        this.setState({...this.state, selectProject: true});
+    }
+
     private onChangeImage() {
         this.setState({...this.state, showProjectEdit: true})
     }
@@ -157,21 +234,26 @@ interface IStateProps {
     strings: ITranscriberStrings;
     tasks: IProject[];
     users: IUser[];
+    selectedOption: string;
+    todoHighlight: boolean;
 };
 
 const mapStateToProps = (state: IState): IStateProps => ({
     direction: uiDirection(state),
     playedSeconds: state.audio.playedSeconds,
+    selectedOption: state.tasks.selectedOption,
     selectedProject: state.tasks.selectedProject,
     selectedTask: state.tasks.selectedTask,
     selectedUser: state.users.selectedUser,
     strings: userStrings(state, {layout: "transcriber"}),
     tasks: state.tasks.projects,
+    todoHighlight: state.tasks.todoHighlight,
     users: state.users.users,
 });
 
 interface IDispatchProps {
     clearSelectedParatextProject: typeof actions.clearSelectedParatextProject;
+    deleteProject: typeof actions2.deleteProject;
     fetchZttProjectsCount: typeof actions2.fetchZttProjectsCount;
     initTasks: typeof actions2.initTasks;
     reportPosition: typeof actions4.reportPosition;
@@ -179,11 +261,16 @@ interface IDispatchProps {
     selectParatextProject: typeof actions.selectParatextProject;
     setProjectAvatar: typeof actions3.setProjectAvatar;
     setSaveToProject: typeof actions3.setSaveToProject;
+    setSelectedOption: typeof actions2.setSelectedOption;
+    fetchFilteredTasks: typeof actions2.fetchFilteredTasks,
+    setToDoHighlight: typeof actions2.setToDoHightlight;
 };
 
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
         clearSelectedParatextProject: actions.clearSelectedParatextProject,
+        deleteProject: actions2.deleteProject,
+        fetchFilteredTasks: actions2.fetchFilteredTasks,
         fetchZttProjectsCount: actions2.fetchZttProjectsCount,
         initTasks: actions2.initTasks,
         reportPosition: actions4.reportPosition,
@@ -191,6 +278,8 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         selectParatextProject: actions.selectParatextProject,
         setProjectAvatar: actions3.setProjectAvatar,
         setSaveToProject: actions3.setSaveToProject,
+        setSelectedOption: actions2.setSelectedOption,
+        setToDoHighlight: actions2.setToDoHightlight,
     }, dispatch),
 });
 

@@ -104,16 +104,22 @@
 				<target>Kun isa</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
-				<target>Don Do</target>
+				<source>My Tasks</source>
+				<target>Ɗawainiyata</target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
-				<target>Duk</target>
+				<source>All Tasks</source>
+				<target>Duk Ɗawainiya</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
+				<target>Ana kai</target>
 			</segment>
 		</unit>
 		<unit id="transcribe.transcribed">
@@ -138,6 +144,12 @@
 			<segment>
 				<source>Log Out</source>
 				<target>An fita</target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Babu</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -654,6 +666,18 @@
 			<segment>
 				<source>Delete User</source>
 				<target>Share Mai amfani</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Share Project</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Zaɓi aikin daban</target>
 			</segment>
 		</unit>
 	</file>

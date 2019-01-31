@@ -61,7 +61,43 @@
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
 		
-         <trans-unit id="transcribe.congratulations">
+      	<trans-unit id="transcribe.continue">
+      		<source>Continue</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">TaskPanel.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+      	</trans-unit>
+      	
+      	<trans-unit id="transcribe.mytasks">
+      		<source>My Tasks</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">TaskPanel.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+      	</trans-unit>
+      	
+      	<trans-unit id="transcribe.alltasks">
+      		<source>All Tasks</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">TaskPanel.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+      	</trans-unit>
+      	
+      	<trans-unit id="transcribe.inprogress">
+      		<source>In Progress</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">TaskPanel.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
+      	</trans-unit>
+      	
+      	<trans-unit id="transcribe.congratulations">
             <source>Congratulations</source>
             <target/>
          	<context-group>
@@ -151,7 +187,16 @@
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=1950%3A4510</note>
          </trans-unit>
 		
-         <trans-unit id="userSettings.user">
+      	<trans-unit id="transcribe.none">
+      		<source>None</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">TaskPanel.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=284%3A12</note>
+      	</trans-unit>
+      	
+      	<trans-unit id="userSettings.user">
             <source>User</source>
             <target/>
          	<context-group>
@@ -829,6 +874,24 @@
          	<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3630%3A1005</note>
          </trans-unit>
 	
+      	<trans-unit id="projectSettings.deleteProject">
+      		<source>Delete project</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">Project.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4106</note>
+      	</trans-unit>
+      	
+      	<trans-unit id="projectSettings.chooseDifferentProject">
+      		<source>Choose a different project</source>
+      		<target/>
+      		<context-group>
+      			<context context-type="sourcefile">Project.tsx</context>
+      		</context-group>
+      		<note>See https://www.figma.com/file/OMhosDgp2TeEk8IEULEnQzrT/Transcription-Tool?node-id=3583%3A4106</note>
+      	</trans-unit>
+      	
       </body>
    </file>
 

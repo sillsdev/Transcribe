@@ -206,5 +206,8 @@ namespace ReactShared
 				}
 			}
 		}
+
+		public static bool Testing;
+		public static string TestingOutputDirectory;
 	}
 }

@@ -104,15 +104,21 @@
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="transcribe.todo">
+		<unit id="transcribe.mytasks">
 			<segment>
-				<source>To Do</source>
+				<source>My Tasks</source>
 				<target></target>
 			</segment>
 		</unit>
-		<unit id="transcribe.all">
+		<unit id="transcribe.alltasks">
 			<segment>
-				<source>All</source>
+				<source>All Tasks</source>
+				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.inprogress">
+			<segment>
+				<source>In Progress</source>
 				<target></target>
 			</segment>
 		</unit>
@@ -138,6 +144,12 @@
 			<segment>
 				<source>Log Out</source>
 				<target></target>
+			</segment>
+		</unit>
+		<unit id="transcribe.none">
+			<segment>
+				<source>None</source>
+				<target>Tidak ada</target>
 			</segment>
 		</unit>
 		<unit id="userSettings.user">
@@ -660,6 +672,18 @@
 			<segment>
 				<source>Delete User</source>
 				<target></target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.deleteProject">
+			<segment>
+				<source>Delete Project</source>
+				<target>Menghapus proyek</target>
+			</segment>
+		</unit>
+		<unit id="projectSettings.chooseDifferentProject">
+			<segment>
+				<source>Choose a different Project</source>
+				<target>Pilih proyek yang berbeda</target>
 			</segment>
 		</unit>
 	</file>

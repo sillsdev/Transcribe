@@ -30,6 +30,26 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
           User Details
         </span>
       </div>
+      <div
+        className="anchorHelp"
+      >
+        <div
+          className="AnchorHelp"
+          id="ProjSettingsHelp"
+        >
+          <span>
+            <a
+              className="linkText"
+              onClick={[Function]}
+            >
+              <img
+                alt="?"
+                src="/assets/QuestionGrey.svg"
+              />
+            </a>
+          </span>
+        </div>
+      </div>
     </div>
     <div
       className="data"
@@ -132,185 +152,194 @@ exports[`>>>Control: UserDetails --- Snapshot +++capturing Snapshot of UserDetai
       </div>
     </div>
     <div
-      className="preview"
+      className="scrollWindow"
+      style={
+        Object {
+          "maxHeight": 716,
+        }
+      }
     >
-      <span
-        className="LabelCaptionUx small label label-default"
-      >
-        Preview
-      </span>
       <div
-        className="AvatarRow"
+        className="preview"
       >
+        <span
+          className="LabelCaptionUx small label label-default"
+        >
+          Preview
+        </span>
         <div
-          className="OnHover sb-avatar"
-          onClick={undefined}
-          style={
-            Object {
-              "borderRadius": "100%",
-              "display": "inline-block",
-              "fontFamily": "Helvetica, Arial, sans-serif",
-              "height": "64px",
-              "verticalAlign": "middle",
-              "width": "64px",
-            }
-          }
+          className="AvatarRow"
         >
           <div
-            className="OnHover sb-avatar__text"
+            className="OnHover sb-avatar"
+            onClick={undefined}
             style={
               Object {
-                "background": undefined,
                 "borderRadius": "100%",
-                "color": "#FFF",
+                "display": "inline-block",
+                "fontFamily": "Helvetica, Arial, sans-serif",
                 "height": "64px",
-                "lineHeight": "initial",
-                "textAlign": "center",
-                "textTransform": "uppercase",
+                "verticalAlign": "middle",
                 "width": "64px",
               }
             }
           >
             <div
+              className="OnHover sb-avatar__text"
               style={
                 Object {
-                  "display": "table",
-                  "height": "100%",
-                  "tableLayout": "fixed",
-                  "width": "100%",
+                  "background": undefined,
+                  "borderRadius": "100%",
+                  "color": "#FFF",
+                  "height": "64px",
+                  "lineHeight": "initial",
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
+                  "width": "64px",
                 }
               }
             >
-              <span
+              <div
                 style={
                   Object {
-                    "display": "table-cell",
-                    "fontSize": "100%",
-                    "verticalAlign": "middle",
-                    "whiteSpace": "nowrap",
+                    "display": "table",
+                    "height": "100%",
+                    "tableLayout": "fixed",
+                    "width": "100%",
                   }
                 }
               >
-                <span />
-              </span>
+                <span
+                  style={
+                    Object {
+                      "display": "table-cell",
+                      "fontSize": "100%",
+                      "verticalAlign": "middle",
+                      "whiteSpace": "nowrap",
+                    }
+                  }
+                >
+                  <span />
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          className="AvatarDetails"
-        >
           <div
-            className="AvatarCaption"
+            className="AvatarDetails"
           >
-            Erik
-          </div>
-          <div>
-            <span
-              className="LabelUx label label-default"
+            <div
+              className="AvatarCaption"
             >
-              Transcriber
-            </span>
+              Erik
+            </div>
+            <div>
+              <span
+                className="LabelUx label label-default"
+              >
+                Transcriber
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      className="details"
-    >
       <div
-        className="results"
+        className="details"
       >
         <div
-          className="resultsRight"
+          className="results"
         >
           <div
-            className="resultsRightBox"
+            className="resultsRight"
           >
             <div
-              className="rolesBox"
+              className="resultsRightBox"
             >
-              <span
-                className="LabelUx label label-default"
-              >
-                Role
-              </span>
               <div
-                className="RadioListField"
+                className="rolesBox"
               >
+                <span
+                  className="LabelUx label label-default"
+                >
+                  Role
+                </span>
                 <div
-                  className="bodyRow"
+                  className="RadioListField"
                 >
                   <div
-                    className="dataColumn"
+                    className="bodyRow"
                   >
-                    <form>
-                      <fieldset
-                        className="radioFieldSet"
-                        id="radioGroup"
-                      >
-                        <div>
-                          <input
-                            checked={false}
-                            className="DataColor"
-                            name="radioGroup"
-                            onChange={[Function]}
-                            type="radio"
-                            value="Admin"
-                          />
-                          <label
-                            className="labelRadioCaption"
-                          >
-                            Admin
-                             
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            checked={false}
-                            className="DataColor"
-                            name="radioGroup"
-                            onChange={[Function]}
-                            type="radio"
-                            value="Reviewer"
-                          />
-                          <label
-                            className="labelRadioCaption"
-                          >
-                            Reviewer
-                             
-                          </label>
-                        </div>
-                        <div>
-                          <input
-                            checked={true}
-                            className="DataColor"
-                            name="radioGroup"
-                            onChange={[Function]}
-                            type="radio"
-                            value="Transcriber"
-                          />
-                          <label
-                            className="labelRadioCaption"
-                          >
-                            Transcriber
-                             
-                          </label>
-                        </div>
-                      </fieldset>
-                    </form>
+                    <div
+                      className="dataColumn"
+                    >
+                      <form>
+                        <fieldset
+                          className="radioFieldSet"
+                          id="radioGroup"
+                        >
+                          <div>
+                            <input
+                              checked={false}
+                              className="DataColor"
+                              name="radioGroup"
+                              onChange={[Function]}
+                              type="radio"
+                              value="Admin"
+                            />
+                            <label
+                              className="labelRadioCaption"
+                            >
+                              Admin
+                               
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              checked={false}
+                              className="DataColor"
+                              name="radioGroup"
+                              onChange={[Function]}
+                              type="radio"
+                              value="Reviewer"
+                            />
+                            <label
+                              className="labelRadioCaption"
+                            >
+                              Reviewer
+                               
+                            </label>
+                          </div>
+                          <div>
+                            <input
+                              checked={true}
+                              className="DataColor"
+                              name="radioGroup"
+                              onChange={[Function]}
+                              type="radio"
+                              value="Transcriber"
+                            />
+                            <label
+                              className="labelRadioCaption"
+                            >
+                              Transcriber
+                               
+                            </label>
+                          </div>
+                        </fieldset>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="OtherProjectsBox"
-            >
-              <span
-                className="LabelUx label label-default"
+              <div
+                className="none"
               >
-                Other Projects
-              </span>
-              
+                <span
+                  className="LabelUx label label-default"
+                >
+                  Other Projects
+                </span>
+                
+              </div>
             </div>
           </div>
         </div>

@@ -14,6 +14,7 @@ import userStrings from '../selectors/localize';
 import currentProject from '../selectors/project';
 import AvatarLink from './controls/AvatarLink';
 import BackLink from './controls/BackLink';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import IconButtonField from './ui-controls/IconButtonField';
 import ImageField from './ui-controls/ImageField';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
@@ -38,6 +39,7 @@ const initialState = {
     otherProjects: [],
     role: "Transcriber",
     roles: "",
+    scrollHeight: 0,
     selectedValue: "",
 }
 
@@ -48,12 +50,14 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
     private roleListDef: string[];
     private roleListLoc: string[];
     private imageRef: React.RefObject<ImageField>;
+    private scrollRef: React.RefObject<HTMLDivElement>;
 
     constructor(props: IProps) {
         super(props)
         this.updateUserName = this.updateUserName.bind(this);
         this.updateImageFile = this.updateImageFile.bind(this);
         this.imageRef = React.createRef();
+        this.scrollRef = React.createRef();
         this.updateRoles = this.updateRoles.bind(this);
         this.discard = this.discard.bind(this);
         this.deleteUser = this.deleteUser.bind(this);
@@ -102,6 +106,13 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
 
         this.original = { ...this.state };
     }
+
+    public componentDidMount () {
+        const scrollLocation = this.scrollRef && this.scrollRef.current && this.scrollRef.current.offsetTop
+            ? this.scrollRef.current.offsetTop
+            : 0;
+        this.setState({scrollHeight: window.innerHeight - scrollLocation - 52})
+    }
     public render() {
         const { avatar, avatarUri, deleted, direction, strings, strings2, project, popupUser, setUserAvatar, users } = this.props;
         const { discard, name } = this.state;
@@ -133,6 +144,9 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                         <div className="title">
                             <LabelCaptionUx name={strings.userDetails} type="H3" />
                         </div>
+                        <div className="anchorHelp">
+                                <AnchorHelp id="ProjSettingsHelp" onClick={this.ShowUserDetailsHelp} />
+                        </div>
                     </div>
                     <div className="data">
                         <div><TextField id="id1"
@@ -146,35 +160,37 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
                             fromPath={historyPath} onChange={this.updateImageFile}
                             ref={this.imageRef} /></div>
                     </div>
-                    <div className="preview">
-                        <LabelCaptionUx name={strings.preview} type="small" />
-                        <div className={"AvatarRow" + (name !== "" ? "" : " hide")}>
-                            <Avatar className="OnHover"
-                                name={name} key={name + "Avatar"}
-                                src={avatar}
-                                size={64}
-                                round={true} />
-                            <div className="AvatarDetails">
-                                <div className="AvatarCaption">{name}</div>
-                                <div><LabelUx name={this.state.role} /></div>
+                    <div className="scrollWindow" ref={this.scrollRef} style={{maxHeight: this.state.scrollHeight}}>
+                        <div className={name !== ""? "preview": "none"}>
+                            <LabelCaptionUx name={strings.preview} type="small" />
+                            <div className={"AvatarRow" + (name !== "" ? "" : " hide")}>
+                                <Avatar className="OnHover"
+                                    name={name} key={name + "Avatar"}
+                                    src={avatar}
+                                    size={64}
+                                    round={true} />
+                                <div className="AvatarDetails">
+                                    <div className="AvatarCaption">{name}</div>
+                                    <div><LabelUx name={this.state.role} /></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="details">
-                        <div className="results">
-                            <div className="resultsRight">
-                                <div className="resultsRightBox">
+                        <div className="details">
+                            <div className="results">
+                                <div className="resultsRight">
+                                    <div className="resultsRightBox">
 
-                                    <div className="rolesBox">
-                                        <LabelUx name={strings2.role} />
-                                        <RadioListField
-                                            options={this.roleListLoc}
-                                            selected={this.state.role}
-                                            onChange={this.updateRoles} />
-                                    </div>
-                                    <div className="OtherProjectsBox">
-                                        <LabelUx name={strings.otherProjects} />
-                                        {projectAvatar}
+                                        <div className="rolesBox">
+                                            <LabelUx name={strings2.role} />
+                                            <RadioListField
+                                                options={this.roleListLoc}
+                                                selected={this.state.role}
+                                                onChange={this.updateRoles} />
+                                        </div>
+                                        <div className={projectAvatar !== ""? "OtherProjectsBox": "none"}>
+                                            <LabelUx name={strings.otherProjects} />
+                                            {projectAvatar}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -197,6 +213,10 @@ export class UserDetails extends React.Component<IProps, typeof initialState> {
 
     public handleChange(event: any) {
         this.setState({ selectedValue: event.target.value });
+    }
+
+    private ShowUserDetailsHelp = () => {
+        this.props.showHelp("Procedures/Admin_procedures/Edit_user_details.htm")
     }
 
     private discard() {
@@ -292,6 +312,7 @@ interface IDispatchProps {
     deleteUser: typeof actions2.deleteUser;
     saveAvatar: typeof actions3.saveAvatar;
     setUserAvatar: typeof actions3.setUserAvatar;
+    showHelp: typeof actions.showHelp,
 };
 const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({
@@ -301,6 +322,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
         selectPopupUser: actions2.selectPopupUser,
         selectTask: actions.selectTask,
         setUserAvatar: actions3.setUserAvatar,
+        showHelp: actions.showHelp,
         updateUser: actions2.updateUser,
     }, dispatch),
 });

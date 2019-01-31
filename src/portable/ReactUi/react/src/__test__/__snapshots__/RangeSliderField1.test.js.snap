@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Control: RangeSliderField1 --- Snapshot +++capturing Snapshot of RangeSliderField1 1`] = `
+<div
+  className="RangeSliderField"
+>
+  <div
+    className="SliderCaption"
+  >
+    <label
+      className="Caption"
+    >
+      My Range Slider
+    </label>
+  </div>
+  <div
+    className="SliderStyle"
+  >
+     
+    <div
+      className="rc-slider rc-slider-with-marks"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+      style={undefined}
+    >
+      <div
+        className="rc-slider-rail"
+        style={Object {}}
+      />
+      <div
+        className="rc-slider-track"
+        style={
+          Object {
+            "left": "0%",
+            "width": "33.33333333333333%",
+          }
+        }
+      />
+      <div
+        className="rc-slider-step"
+      >
+        <span
+          className="rc-slider-dot rc-slider-dot-active"
+          style={
+            Object {
+              "left": "0%",
+            }
+          }
+        />
+        <span
+          className="rc-slider-dot rc-slider-dot-active"
+          style={
+            Object {
+              "left": "33.33333333333333%",
+            }
+          }
+        />
+        <span
+          className="rc-slider-dot"
+          style={
+            Object {
+              "left": "66.66666666666666%",
+            }
+          }
+        />
+        <span
+          className="rc-slider-dot"
+          style={
+            Object {
+              "left": "100%",
+            }
+          }
+        />
+      </div>
+      <div
+        aria-disabled={false}
+        aria-valuemax={3}
+        aria-valuemin={0}
+        aria-valuenow={1}
+        className="rc-slider-handle"
+        onBlur={[Function]}
+        onKeyDown={[Function]}
+        role="slider"
+        style={
+          Object {
+            "left": "33.33333333333333%",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        className="rc-slider-mark"
+      >
+        <span
+          className="rc-slider-mark-text rc-slider-mark-text-active"
+          onMouseDown={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "color": "#C7DE31",
+              "left": "0%",
+              "marginLeft": "-15.000000000000002%",
+              "width": "30.000000000000004%",
+            }
+          }
+        >
+          synced
+        </span>
+        <span
+          className="rc-slider-mark-text rc-slider-mark-text-active"
+          onMouseDown={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "color": "#F5CC4C",
+              "left": "33.33333333333333%",
+              "marginLeft": "-15.000000000000002%",
+              "width": "30.000000000000004%",
+            }
+          }
+        >
+          reviewed
+        </span>
+        <span
+          className="rc-slider-mark-text"
+          onMouseDown={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "color": "#C7DE31",
+              "left": "66.66666666666666%",
+              "marginLeft": "-15.000000000000002%",
+              "width": "30.000000000000004%",
+            }
+          }
+        >
+          transcribed
+        </span>
+        <span
+          className="rc-slider-mark-text"
+          onMouseDown={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "color": "#C7DE31",
+              "left": "100%",
+              "marginLeft": "-15.000000000000002%",
+              "width": "30.000000000000004%",
+            }
+          }
+        >
+          start
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

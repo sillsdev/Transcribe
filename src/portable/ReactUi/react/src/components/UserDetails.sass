@@ -54,12 +54,10 @@
         flex-direction: row
         padding-top: 32px
         z-index: 2
+        align-items: center
         .BackLink
             width: 64px
             text-align: center
-        .title
-            align-self: flex-start
-            flex: 1 0 auto
         .copyAction.hide
             display: none
         .copyAction
@@ -76,7 +74,6 @@
             width: 64px
             text-align: center
         .title
-            align-self: flex-start
             flex: 1 0 auto
         .copyAction.hide
             display: none
@@ -110,6 +107,10 @@
         width: 144px
     #deleteUserHide
         display: none
+    .scrollWindow
+        background-color: $base03
+        flex: 1 0 auto
+        overflow: auto
     .preview
         background-color: $base03
         display: flex
@@ -152,3 +153,6 @@
 
     TextInputFieldUx .TextInputFieldUx
         padding-bottom: 40px
+
+    .none
+        display: none

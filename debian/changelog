@@ -1,3 +1,33 @@
+siltranscriber (1.0.0.391)  experimental; urgency=high
+
+   * General:TT-348 Use styleguidist component library documentation
+   * General:TT-361 SIL Component library
+   * General:TT-74 Dropdown list overlapping in user setting
+   * General:TT-289 Todo list can be filtered
+   * General:TT-290 Add Sample Project to installer
+   * General:TT-350 Installer branding
+   * General:TT-363 Adding an icon to open context sensitive help.
+   * General:TT-375 Keep Transcriptions from being lost, fix folder server
+   * General:TT-378 Add Help icon to open context sensitive Help
+   * Project:TT-209 Adjust postion of edit pencil position
+   * Project:TT-269 Keep buttons on the bottom of the screen
+   * Project:TT-281 Resizing or maximizing produces the Projects name in different positions
+   * TaskPanel:TT-206 Available task list various combinations displaying.
+   * TaskPanel:TT-255 Clicking ToDo highlights the task panel with the ToDO list
+   * TaskPanel:TT-289 My Tasks can be filtered to see completed work
+   * TaskPanel:TT-354 Nav panel perform as expected
+   * TaskPanel:TT-370 Transcriber task on his pane with Review status
+   * TaskPanel:TT-372 Transcribed tasks appear for review
+   * TaskPanel:TT-373 Categories appear as chips on task panel
+   * TaskPanel:TT-374 Empty task list still shows
+   * UI:TT-155 Dropdown overlapping
+   * UI:TT-209 Adjust pencil position to middle
+   * UI:TT-281 Keep buttons at the bottom of Task and User panel
+   * UI:TT-353 Remove red underlines when clicking user name
+   * UI:TT-390 Delete the only project on computer gives undesired screen
+
+ -- Greg Trihus <greg_trihus@sil.org>  Thu, 17 Jan 2019 13:37:00 -0600
+
 siltranscriber (0.3.8.331)  experimental; urgency=high
 
    * General:TT-290 Add Sample Project to installer

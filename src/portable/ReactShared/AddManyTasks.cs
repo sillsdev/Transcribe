@@ -17,14 +17,23 @@ namespace ReactShared
 
 		public delegate string SelectAudioFilesFolder();
 
-		public AddManyTasks(string query, SelectAudioFilesFolder selectAudioFolder)
+		public AddManyTasks(string query, SelectAudioFilesFolder selectAudioFolder, string audioFolderPath="")
 		{
 			var parsedQuery = HttpUtility.ParseQueryString(query);
 			var user = parsedQuery["user"];
 			var project = parsedQuery["project"];
 
-			// Opens up the FolderBrowserDialog to select a folder
-			var audioFolder = selectAudioFolder();
+			var audioFolder = "";
+			if (!string.IsNullOrEmpty(audioFolderPath))
+			{
+				audioFolder = audioFolderPath;
+			}
+			else
+			{
+				// Opens up the FolderBrowserDialog to select a folder
+				audioFolder = selectAudioFolder();
+			}
+
 			StringBuilder summary = new StringBuilder();
 			var allExcelFiles = Directory.GetFiles(audioFolder, "*.xlsx", SearchOption.AllDirectories)
 				.Where(str => !str.Contains(@"\~$")).ToArray();
@@ -54,19 +63,26 @@ namespace ReactShared
 					}
 				}
 			}
-			else if (allExcelFiles.Length == 0)
+			else
 			{
 				// Select the .mp3 files and .wav files
 				var allAudioFiles = Directory.EnumerateFiles(audioFolder, "*.*", SearchOption.AllDirectories)
 					.Where(s => s.EndsWith(".mp3", StringComparison.OrdinalIgnoreCase) ||
 					            s.EndsWith(".wav", StringComparison.OrdinalIgnoreCase));
+				var filesFound = 0;
 				foreach (string aFile in allAudioFiles)
 				{
 					var status = CreateTaskFromFile(user, project, aFile);
 					if (status[0] != string.Empty || status[1] != string.Empty)
 					{
 						summary.AppendLine(status[0] + ". " + status[1] + ".");
+						filesFound += 1;
 					}
+				}
+
+				if (filesFound == 0)
+				{
+					summary.AppendLine("No spreadsheet or audio files match import criteria");
 				}
 			}
 			using (var tw = new StreamWriter(Path.Combine(audioFolder, "Summary.txt"),false))
@@ -74,7 +90,10 @@ namespace ReactShared
 				tw.Write(summary);
 			}
 
-			Process.Start(Path.Combine(audioFolder, "Summary.txt"));
+			if (string.IsNullOrEmpty(audioFolderPath))
+			{
+				Process.Start(Path.Combine(audioFolder, "Summary.txt"));
+			}
 		}
 
 		/// <summary>

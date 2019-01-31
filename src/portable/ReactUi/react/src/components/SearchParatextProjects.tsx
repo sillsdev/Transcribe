@@ -5,12 +5,14 @@ import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { log } from '../actions/logAction';
 import * as actions from '../actions/paratextProjectActions';
+import * as actions1 from '../actions/taskActions';
 import { IProjectSettingsStrings } from '../model/localize';
 import { IState } from '../model/state';
 import userStrings from '../selectors/localize';
 import ButtonLink from './controls/ButtonLink';
 import NextAction from './controls/NextAction';
 import './SearchParatextProjects.sass';
+import AnchorHelp from './ui-controls/AnchorHelp';
 import LabelCaptionUx from './ui-controls/LabelCaptionUx';
 
 
@@ -80,6 +82,9 @@ class SearchParatextProjects extends React.Component<IProps, object> {
         
         return(
             <div className="SearchParatextProjects">
+                <div className="anchorHelp">
+                    <AnchorHelp id="UiLangHelp" onClick={this.ShowHelp} />
+                </div>
                 {wrapper}
             </div>                
                           
@@ -88,6 +93,10 @@ class SearchParatextProjects extends React.Component<IProps, object> {
 
     private selectProject(project: IParatextProject){
         this.props.selectParatextProject(project);
+    }
+
+    private ShowHelp = () => {
+        this.props.showHelp("User_Interface/Select_a_Paratext_Project_window.htm")
     }
 }
 
@@ -110,12 +119,14 @@ interface IStateProps {
   interface IDispatchProps {
     fetchParatextProjects: typeof actions.fetchParatextProjects,
     selectParatextProject: typeof actions.selectParatextProject;
+    showHelp: typeof actions1.showHelp;
   };
 
   const mapDispatchToProps = (dispatch: any): IDispatchProps => ({
     ...bindActionCreators({        
         fetchParatextProjects: actions.fetchParatextProjects,
         selectParatextProject: actions.selectParatextProject,
+        showHelp: actions1.showHelp,
         }, dispatch),
   });
 

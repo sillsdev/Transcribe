@@ -6,10 +6,9 @@ namespace ReactShared
 {
 	public class GetDefaultUserHotKeys : IDisposable
 	{
-
 		public GetDefaultUserHotKeys()
 		{
-			var apiFolder = Util.ApiFolder();
+			var apiFolder = Util.Testing? Util.TestingOutputDirectory : Util.ApiFolder();
 			var hotKeysList = new List<string>
 			{
 				@"{""id"": ""play-pause"", ""text"": ""esc""}",
